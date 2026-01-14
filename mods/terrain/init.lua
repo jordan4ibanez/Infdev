@@ -8,5 +8,10 @@ local chunk_size = core.get_mapgen_chunksize()
 ---@param maxp number
 ---@param blockseed number
 core.register_on_generated(function(minp, maxp, blockseed)
-	print(minp, maxp, blockseed)
+	-- print(minp, maxp, blockseed)
+
+	--- @type userdata, number, number
+	local vm, emin, emax = core.get_mapgen_object("voxelmanip")
+
+	local area = VoxelArea:new { MinEdge = emin, MaxEdge = emax }
 end)
