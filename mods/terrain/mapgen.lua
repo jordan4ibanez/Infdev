@@ -28,11 +28,11 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 	local small_cave_noise_parameters        = {
 		offset = 0,
 		scale = 1,
-		spread = { x = 15, y = 15, z = 15 },
+		spread = { x = 7, y = 7, z = 7 },
 		seed = tonumber(core.get_mapgen_setting("seed")) or math.random(0, 999999999),
 		octaves = 1,
-		persist = 0.01,
-		lacunarity = 2.0,
+		persist = 0.005,
+		lacunarity = 1.5,
 	}
 
 	local overworld_terrain_noise_parameters = {
@@ -55,6 +55,11 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 	local __big_cave_noise_map_3d            = core.get_value_noise_map(big_cave_noise_parameters, __constant_area_3d)
 	__big_cave_noise_map_3d:get_3d_map_flat(minp, big_cave_noise)
 
+
+	local small_cave_noise          = {}
+	local __small_cave_noise_map_3d = core.get_value_noise_map(small_cave_noise_parameters, __constant_area_3d)
+	__small_cave_noise_map_3d:get_3d_map_flat(minp, small_cave_noise)
+
 	local __constant_area_2d = {
 		x = (maxp.x - minp.x) + 1,
 		y = (maxp.z - minp.z) + 1
@@ -63,7 +68,7 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 
 	local overworld_terrain_noise          = {}
 	local __overworld_terrain_noise_map_2d = core.get_value_noise_map(overworld_terrain_noise_parameters,
-	__constant_area_2d)
+		__constant_area_2d)
 	__overworld_terrain_noise_map_2d:get_2d_map_flat({ x = minp.x, y = minp.z }, overworld_terrain_noise)
 
 	--- @type table, table
@@ -120,6 +125,9 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 		if (pos.y <= 160) then
 			-- Big caves.
 			if big_cave_noise[index] > 0.5 then
+				data[i] = c_air
+			elseif -- Small caves. (Terrain accentuation)
+				small_cave_noise[index] > 0.55 then
 				data[i] = c_air
 			end
 		end
