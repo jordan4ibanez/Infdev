@@ -90,11 +90,22 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 				error("terrain generation error at index: " .. tostring(index_2d))
 			end
 
-			print(raw_noise)
+			-- Amplitude in nodes.
+			local amplitude = 80
+
+			local base = 80
+
+			local height_at_xz = base + (amplitude * raw_noise)
+
+			-- print((amplitude * raw_noise))
+
+			if (pos.y <= height_at_xz) then
+				data[i] = c_dirt
+			end
+
+			-- print(raw_noise)
 
 			-- print(value_noise_2d[index_2d])
-
-			data[i] = c_dirt
 		end
 
 
