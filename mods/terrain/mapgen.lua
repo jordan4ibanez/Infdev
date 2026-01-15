@@ -15,9 +15,19 @@ local c_grass = core.get_content_id("infdev:grass")
 core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 	-- print(minp, maxp, blockseed)
 
-	local noise_parameters     = {
+	local noise_parameters_3d  = {
 		offset = 0,
 		scale = 1,
+		spread = { x = 200, y = 100, z = 200 },
+		seed = tonumber(core.get_mapgen_setting("seed")) or math.random(0, 999999999),
+		octaves = 5,
+		persist = 0.63,
+		lacunarity = 2.0,
+	}
+
+	local noise_parameters_2d  = {
+		offset = 0,
+		scale = 0.5,
 		spread = { x = 200, y = 100, z = 200 },
 		seed = tonumber(core.get_mapgen_setting("seed")) or math.random(0, 999999999),
 		octaves = 5,
@@ -32,7 +42,7 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 	}
 
 	local value_noise_3d       = {}
-	local __value_noise_map_3d = core.get_value_noise_map(noise_parameters, __constant_area_3d)
+	local __value_noise_map_3d = core.get_value_noise_map(noise_parameters_3d, __constant_area_3d)
 	__value_noise_map_3d:get_3d_map_flat(minp, value_noise_3d)
 
 	local __constant_area_2d   = {
