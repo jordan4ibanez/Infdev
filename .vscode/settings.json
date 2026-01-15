@@ -3,6 +3,7 @@
     "core",
     "VoxelArea",
     "infdev",
-    "dump"
+    "dump",
+    "dump2"
   ]
 }
