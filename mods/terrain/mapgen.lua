@@ -15,7 +15,7 @@ local c_grass = core.get_content_id("infdev:grass")
 core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 	-- print(minp, maxp, blockseed)
 
-	local big_cave_noise_parameters  = {
+	local big_cave_noise_parameters          = {
 		offset = 0,
 		scale = 1,
 		spread = { x = 15, y = 15, z = 15 },
@@ -25,7 +25,7 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 		lacunarity = 2.0,
 	}
 
-	local small_cave_noise_parameters  = {
+	local small_cave_noise_parameters        = {
 		offset = 0,
 		scale = 1,
 		spread = { x = 15, y = 15, z = 15 },
@@ -35,7 +35,7 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 		lacunarity = 2.0,
 	}
 
-	local overworld_terrain_noise_parameters  = {
+	local overworld_terrain_noise_parameters = {
 		offset = 0,
 		scale = 0.5,
 		spread = { x = 250, y = 250, z = 250 },
@@ -45,14 +45,14 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 		lacunarity = 2.0,
 	}
 
-	local __constant_area_3d   = {
+	local __constant_area_3d                 = {
 		x = (maxp.x - minp.x) + 1,
 		y = (maxp.y - minp.y) + 1,
 		z = (maxp.z - minp.z) + 1
 	}
 
-	local big_cave_noise       = {}
-	local __big_cave_noise_map_3d = core.get_value_noise_map(big_cave_noise_parameters, __constant_area_3d)
+	local big_cave_noise                     = {}
+	local __big_cave_noise_map_3d            = core.get_value_noise_map(big_cave_noise_parameters, __constant_area_3d)
 	__big_cave_noise_map_3d:get_3d_map_flat(minp, big_cave_noise)
 
 	local __constant_area_2d = {
@@ -61,8 +61,9 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 	}
 
 
-	local overworld_terrain_noise       = {}
-	local __overworld_terrain_noise_map_2d = core.get_value_noise_map(overworld_terrain_noise_parameters, __constant_area_2d)
+	local overworld_terrain_noise          = {}
+	local __overworld_terrain_noise_map_2d = core.get_value_noise_map(overworld_terrain_noise_parameters,
+	__constant_area_2d)
 	__overworld_terrain_noise_map_2d:get_2d_map_flat({ x = minp.x, y = minp.z }, overworld_terrain_noise)
 
 	--- @type table, table
