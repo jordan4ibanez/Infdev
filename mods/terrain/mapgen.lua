@@ -20,7 +20,7 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 		scale = 1,
 		spread = { x = 15, y = 15, z = 15 },
 		seed = tonumber(core.get_mapgen_setting("seed")) or math.random(0, 999999999),
-		octaves = 1,
+		octaves = 2,
 		persist = 0.01,
 		lacunarity = 2.0,
 	}
