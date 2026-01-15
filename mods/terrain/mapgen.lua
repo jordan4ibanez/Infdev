@@ -25,22 +25,13 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 		lacunarity = 2.0,
 	}
 
-	-- print(dump(core.get_mapgen_chunksize()))
-
-
-	-- print((maxp.x - minp.x) + 1)
-
-	-- print(minp, maxp, blockseed)
-
 
 	-- Note: This only works on
-	local constant_area = {
+	local constant_area   = {
 		x = (maxp.x - minp.x) + 1,
 		y = (maxp.y - minp.y) + 1,
 		z = (maxp.z - minp.z) + 1
 	}
-
-
 
 	local constant_perlin = core.get_value_noise_map(noise_parameters, constant_area)
 
@@ -50,15 +41,6 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 
 	--- @type number, number
 	local emin, emax = voxmanip:get_emerged_area()
-
-	local _, tmin, tmax = core.get_mapgen_object("voxelmanip")
-
-
-	print("min:", emin, tmin)
-	print("max:", emax, tmax)
-
-
-	-- print(emin, minp)
 
 	local data = {}
 
