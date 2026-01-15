@@ -62,18 +62,17 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 		end
 
 
-		-- if density_noise[index] > 0.1 then
-		-- 	data[i] = c_dirt
-		-- else
-		-- 	-- This puts grass on top
-		-- 	local pos = area:position(i)
-		-- 	pos.y = pos.y - 1
-		-- 	local below_index = area:indexp(pos)
+		if density_noise[index] > 0.1 then
+			data[i] = c_dirt
+		else
+			-- This puts grass on top
+			pos.y = pos.y - 1
+			local below_index = area:indexp(pos)
 
-		-- 	if data[below_index] == c_dirt then
-		-- 		data[below_index] = c_grass
-		-- 	end
-		-- end
+			if data[below_index] == c_dirt then
+				data[below_index] = c_grass
+			end
+		end
 
 		index = index + 1
 	end
