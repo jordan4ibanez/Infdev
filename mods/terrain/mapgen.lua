@@ -115,8 +115,12 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 			local height_at_xz = ceil(base + (amplitude * raw_noise))
 
 
-			if (pos.y < height_at_xz) then
+			if (pos.y == height_at_xz) then
+				data[i] = c_grass
+			elseif (pos.y < height_at_xz and pos.y >= height_at_xz - 2) then
 				data[i] = c_dirt
+			elseif (pos.y < height_at_xz) then
+				data[i] = c_stone
 			end
 
 			-- print(raw_noise)
