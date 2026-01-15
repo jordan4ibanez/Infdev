@@ -45,15 +45,16 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 	local __value_noise_map_3d = core.get_value_noise_map(noise_parameters_3d, __constant_area_3d)
 	__value_noise_map_3d:get_3d_map_flat(minp, value_noise_3d)
 
-	local __constant_area_2d   = {
+	local __constant_area_2d = {
 		x = (maxp.x - minp.x) + 1,
 		y = (maxp.z - minp.z) + 1
 	}
 
-	local value_noise_2d       = {}
 	local __value_noise_map_2d = core.get_value_noise_map(noise_parameters, __constant_area_2d)
-	__value_noise_map_2d:get_2d_map_flat(minp, value_noise_2d)
 
+	local value_noise_2d       = {}
+	local __value_noise_map_2d = core.get_value_noise_map(noise_parameters_2d, __constant_area_2d)
+	__value_noise_map_2d:get_2d_map_flat({ x = minp.x, y = minp.z }, value_noise_2d)
 
 	--- @type table, table
 	local emin, emax = voxmanip:get_emerged_area()
