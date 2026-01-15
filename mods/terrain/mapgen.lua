@@ -28,7 +28,7 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 	local noise_parameters_2d  = {
 		offset = 0,
 		scale = 0.5,
-		spread = { x = 200, y = 100, z = 200 },
+		spread = { x = 250, y = 250, z = 250 },
 		seed = tonumber(core.get_mapgen_setting("seed")) or math.random(0, 999999999),
 		octaves = 5,
 		persist = 0.63,
