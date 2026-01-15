@@ -25,17 +25,27 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 		lacunarity = 2.0,
 	}
 
-	local __constant_area      = {
+	local __constant_area_3d   = {
 		x = (maxp.x - minp.x) + 1,
 		y = (maxp.y - minp.y) + 1,
 		z = (maxp.z - minp.z) + 1
 	}
 
-	local __value_noise_map_3d = core.get_value_noise_map(noise_parameters, __constant_area)
-
 	local value_noise_3d       = {}
-
+	local __value_noise_map_3d = core.get_value_noise_map(noise_parameters, __constant_area_3d)
 	__value_noise_map_3d:get_3d_map_flat(minp, value_noise_3d)
+
+	local __constant_area_2d   = {
+		x = (maxp.x - minp.x) + 1,
+		z = (maxp.z - minp.z) + 1
+	}
+
+	local value_noise_2d       = {}
+
+	local __value_noise_map_2d = core.get_value_noise_map(noise_parameters, __constant_area_2d)
+	__value_noise_map_2d:get_2d_map_flat(minp, value_noise_2d)
+
+
 
 	--- @type number, number
 	local emin, emax = voxmanip:get_emerged_area()
