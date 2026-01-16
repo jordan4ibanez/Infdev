@@ -9,6 +9,7 @@ local c_dirt = core.get_content_id("infdev:dirt")
 local c_stone = core.get_content_id("infdev:stone")
 local c_air = core.get_content_id("air")
 local c_grass = core.get_content_id("infdev:grass")
+local c_water_source = core.get_content_id("infdev:water_source")
 
 --- This is the terrain generation entry point.
 ---@param minp table
@@ -93,6 +94,8 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 	for i in area:iterp(minp, maxp) do
 		local pos = area:position(i)
 
+
+
 		--- Overworld terrain is shifted up to allow mountains to go into the clouds.
 		if (pos.y >= 0 and pos.y <= 160) then
 			-- Zero indices.
@@ -128,8 +131,15 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 			-- print(value_noise_2d[index_2d])
 		end
 
+		-- Ocean generation.
+		local is_water = false
+		if (pos.y <= 80 and pos.y >= 0 and data[i] == c_air) then
+			data[i] = c_water_source
+			is_water = true
+		end
+
 		-- Cave carving.
-		if (pos.y <= 160) then
+		if (not is_water and pos.y <= 160) then
 			local hit = false
 
 			-- Big caves.
@@ -174,7 +184,9 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 		index = index + 1
 	end
 
-	voxmanip:set_data(data)
 	voxmanip:calc_lighting()
+	voxmanip:set_data(data)
+	voxmanip:update_liquids()
+
 	-- vm:write_to_map()
 end)
