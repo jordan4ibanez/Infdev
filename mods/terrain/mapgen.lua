@@ -10,6 +10,7 @@ local c_stone = core.get_content_id("infdev:stone")
 local c_air = core.get_content_id("air")
 local c_grass = core.get_content_id("infdev:grass")
 local c_water_source = core.get_content_id("infdev:water_source")
+local c_sand = core.get_content_id("infdev:sand")
 
 local ocean_level = 80
 
@@ -121,12 +122,14 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 
 			height_at_xz = ceil(base + (amplitude * raw_noise))
 
+			local is_sandy = height_at_xz <= ocean_level + 3
 
 			if (pos.y == height_at_xz) then
-				data[i] = c_grass
+				data[i] = (is_sandy and c_sand) or c_grass
 			elseif (pos.y < height_at_xz and pos.y >= height_at_xz - 2) then
-				data[i] = c_dirt
+				data[i] = (is_sandy and c_sand) or c_dirt
 			elseif (pos.y < height_at_xz) then
+				-- TODO: Sandstone calculation?
 				data[i] = c_stone
 			end
 
