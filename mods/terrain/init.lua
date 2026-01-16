@@ -1,5 +1,6 @@
 -- Terrain generation entry point.
 
+core.set_mapgen_setting("mg_name", "singlenode", true)
 core.set_mapgen_setting("mg_flags", "nolight", true)
 
 core.register_mapgen_script(
