@@ -11,6 +11,8 @@ local c_air = core.get_content_id("air")
 local c_grass = core.get_content_id("infdev:grass")
 local c_water_source = core.get_content_id("infdev:water_source")
 
+local ocean_level = 80
+
 --- This is the terrain generation entry point.
 ---@param minp table
 ---@param maxp table
@@ -95,6 +97,7 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 		local pos = area:position(i)
 
 
+		local height_at_xz = 0
 
 		--- Overworld terrain is shifted up to allow mountains to go into the clouds.
 		--- The overworld is a 2D height map. It is polled in 3D space.
@@ -116,7 +119,7 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 			local amplitude = 80
 			local base = 80
 
-			local height_at_xz = ceil(base + (amplitude * raw_noise))
+			height_at_xz = ceil(base + (amplitude * raw_noise))
 
 
 			if (pos.y == height_at_xz) then
@@ -132,15 +135,9 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 			-- print(value_noise_2d[index_2d])
 		end
 
-		-- Ocean generation.
-		local is_water = false
-		if (pos.y <= 80 and pos.y >= 0 and data[i] == c_air) then
-			data[i] = c_water_source
-			is_water = true
-		end
 
 		-- Cave carving.
-		if (not is_water and pos.y <= 160) then
+		if (pos.y <= 160) then
 			local hit = false
 
 			-- Big caves.
@@ -166,6 +163,23 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 						data[possible_dirt_index] = c_grass
 					end
 				end
+			end
+		end
+
+		-- Water generation.
+		-- This is shaky at best and produces weird results along with flooding.
+		if (
+				pos.y <= ocean_level and
+				pos.y >= 0 and
+				data[i] == c_air
+			) then
+			-- Try not to go too deep into a cave.
+			-- Don't flood all the above 0 Y caves.
+			if (
+					pos.y >= height_at_xz - 3 or
+					pos.y == ocean_level and height_at_xz < pos.y + 20
+				) then
+				data[i] = c_water_source
 			end
 		end
 
