@@ -29,6 +29,10 @@ infdev.register_node("grass", {
 	},
 })
 
+infdev.register_node("sand", {
+	tiles = { "default_sand.png" }
+})
+
 infdev.register_node("water_source", {
 	description = "Water Source",
 	drawtype = "liquid",
