@@ -70,6 +70,10 @@ infdev.register_node("lapis", {
 	tiles = { "default_stone.png^((default_mineral_coal.png^[invert:rgb^[contrast:100:-70)^[colorize:blue:150)" },
 })
 
+infdev.register_node("moonstone", {
+	tiles = { "default_stone.png^(default_mineral_iron.png^[colorize:lightblue:200)" },
+})
+
 
 infdev.register_node("water_source", {
 	description = "Water Source",
