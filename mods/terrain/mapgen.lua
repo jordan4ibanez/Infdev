@@ -202,6 +202,9 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 		index = index + 1
 	end
 
+	core.generate_ores(voxmanip, emin, emax)
+	core.generate_decorations(voxmanip, emin, emax)
+
 	voxmanip:set_data(data)
 	voxmanip:calc_lighting()
 	voxmanip:update_liquids()
