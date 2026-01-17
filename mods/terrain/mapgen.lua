@@ -11,6 +11,7 @@ local c_air = core.get_content_id("air")
 local c_grass = core.get_content_id("infdev:grass")
 local c_water_source = core.get_content_id("infdev:water_source")
 local c_sand = core.get_content_id("infdev:sand")
+local c_bedrock = core.get_content_id("infdev:bedrock")
 
 local ocean_level = 60
 
@@ -202,6 +203,11 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 		-- 		data[below_index] = c_grass
 		-- 	end
 		-- end
+
+		-- Bedrock generation.
+		if (pos.y == -1024) then
+			data[i] = c_bedrock
+		end
 
 		index = index + 1
 	end

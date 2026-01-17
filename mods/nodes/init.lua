@@ -74,6 +74,9 @@ infdev.register_node("moonstone", {
 	tiles = { "default_stone.png^(default_mineral_iron.png^[colorize:lightblue:200)" },
 })
 
+infdev.register_node("bedrock", {
+	tiles = { "default_stone.png^[contrast:100:-15" }
+})
 
 infdev.register_node("water_source", {
 	description = "Water Source",
