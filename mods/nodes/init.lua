@@ -54,6 +54,10 @@ infdev.register_node("diamond", {
 	tiles = { "default_stone.png^default_mineral_diamond.png" },
 })
 
+infdev.register_node("ruby", {
+	tiles = { "default_stone.png^(default_mineral_diamond.png^[colorize:red:190)" },
+})
+
 infdev.register_node("water_source", {
 	description = "Water Source",
 	drawtype = "liquid",
