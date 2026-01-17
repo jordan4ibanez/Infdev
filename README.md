@@ -11,18 +11,18 @@ possible river maker but that's not necessary
 
 +- coal and iron first layer = 128 down
 
-+- gold = -32 down
+ gold = -128 down
 
-+- diamond = -64 down
+ diamond = -256 down
 
-+- ruby = -128 down
+ ruby = -384 down
 
-+- sapphire = -256 down
+ sapphire = -448 down
 
-+- emerald = -384 down
+ emerald = -512 down
 
-lapis lazuli = -448 down
+lapis lazuli = -640 down
 
-moonstone = -512 down
+moonstone = -768 down
 
 bedrock = -1024
