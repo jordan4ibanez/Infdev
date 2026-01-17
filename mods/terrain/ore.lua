@@ -2,7 +2,7 @@
 
 infdev = infdev or {}
 
-local stone_disabled = true
+local stone_disabled = false
 
 function infdev.register_ore(def)
 	if (stone_disabled) then

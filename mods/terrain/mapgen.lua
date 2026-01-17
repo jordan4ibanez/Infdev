@@ -15,7 +15,7 @@ local c_bedrock = core.get_content_id("infdev:bedrock")
 
 local ocean_level = 60
 
-local stone_disabled = true
+local stone_disabled = false
 
 --- This is the terrain generation entry point.
 ---@param minp table
