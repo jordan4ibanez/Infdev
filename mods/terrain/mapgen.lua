@@ -103,7 +103,7 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 
 		local height_at_xz = 0
 
-		--- Overworld terrain is shifted up to allow mountains to go into the clouds.
+		--- Overworld terrain in the normal world is shifted up to allow mountains to go into the clouds.
 		--- The overworld is a 2D height map. It is polled in 3D space.
 		if (pos.y >= 0 and pos.y <= 160) then
 			-- Zero indices.
@@ -141,8 +141,14 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 			-- print(raw_noise)
 
 			-- print(value_noise_2d[index_2d])
-		end
+		elseif (pos.y > -1024 and pos.y < 0) then
 
+			-- Underground in the normal world.
+
+			if (not stone_disabled) then
+				data[i] = c_stone
+			end
+		end
 
 		-- Cave carving.
 		if (pos.y <= 160) then
