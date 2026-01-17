@@ -2,6 +2,7 @@
 
 infdev = infdev or {}
 
+-- Turns everything into a light source.
 local debug_mode = true
 
 --- Custom node registration.
