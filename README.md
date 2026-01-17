@@ -23,6 +23,6 @@ possible river maker but that's not necessary
 
 +- lapis lazuli = -640 down
 
-moonstone = -768 down
++- moonstone = -768 down
 
 bedrock = -1024
