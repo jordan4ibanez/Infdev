@@ -40,6 +40,14 @@ infdev.register_node("iron", {
 	tiles = { "default_stone.png^default_mineral_iron.png" },
 })
 
+infdev.register_node("gold", {
+	tiles = { "default_stone.png^default_mineral_gold.png" },
+})
+
+infdev.register_node("diamond", {
+	tiles = { "default_stone.png^default_mineral_diamond.png" },
+})
+
 infdev.register_node("water_source", {
 	description = "Water Source",
 	drawtype = "liquid",
