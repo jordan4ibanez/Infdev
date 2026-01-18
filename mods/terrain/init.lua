@@ -7,6 +7,7 @@ local mod_path = core.get_modpath(core.get_current_modname())
 
 dofile(mod_path .. "/ore.lua")
 dofile(mod_path .. "/decorations.lua")
+dofile(mod_path .. "/trees.lua")
 
 core.register_mapgen_script(
 	mod_path .. "/mapgen.lua"
