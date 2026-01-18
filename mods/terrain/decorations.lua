@@ -8,7 +8,7 @@ core.register_decoration({
 	noise_params = {
 		offset = -0.001,
 		scale = 0.022,
-		spread = { x = 35, y = 35, z = 35 },
+		spread = { x = 36, y = 36, z = 36 },
 		octaves = 3,
 		persist = 0.4,
 		lacunarity = 5.0,
