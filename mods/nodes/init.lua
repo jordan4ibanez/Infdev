@@ -118,6 +118,23 @@ infdev.register_node("oak_leaves", {
 	is_ground_content = false,
 })
 
+infdev.register_node("birch_tree", {
+	tiles = { "default_aspen_tree_top.png", "default_aspen_tree_top.png",
+		"default_aspen_tree.png" },
+	paramtype2 = "facedir",
+	is_ground_content = false,
+})
+
+
+infdev.register_node("birch_leaves", {
+	drawtype = "allfaces_optional",
+	tiles = { "default_aspen_leaves.png" },
+	waving = 1,
+	paramtype = "light",
+	is_ground_content = false,
+})
+
+
 infdev.register_node("water_source", {
 	description = "Water Source",
 	drawtype = "liquid",
