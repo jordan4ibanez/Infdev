@@ -19,6 +19,13 @@ function infdev.register_node(name, definition)
 	core.register_node(":infdev:" .. name, definition)
 end
 
+infdev.groups = {
+	wood = "wood",
+	stone = "stone",
+	dirt = "dirt",
+	sand = "sand",
+	plant = "plant"
+}
 infdev.register_node("stone", {
 	tiles = { "default_stone.png" }
 })
