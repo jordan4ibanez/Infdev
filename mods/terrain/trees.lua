@@ -22,7 +22,22 @@
 -- }
 
 
-local oak_tree_medium_blueprint = "" ..
+
+local tree_small_blueprint = "" ..
+	-- Trunk, then reposition to build leaves.
+	"TTTT&&GG^G+G--" ..
+
+	-- First layer. (bottom trimmed)
+	"ff-f-ff+f+ff^f&++GG--" ..
+
+	-- Second layer. (small trimmed)
+	"Gf+G+ff-f-Gf^G&-" ..
+
+	-- Top layer. (single leaf)
+	"G-Gf"
+
+
+local tree_medium_blueprint = "" ..
 	-- Trunk, then reposition to build leaves.
 	"TTTTTT&&GGG^GG+GG--" ..
 
@@ -39,8 +54,19 @@ local oak_tree_medium_blueprint = "" ..
 	"Gf-G-ff+f+Gf"
 
 
+local oak_tree_small = {
+	axiom = tree_small_blueprint,
+	trunk = "infdev:stone",
+	leaves = "infdev:sand",
+	angle = 90,
+	iterations = 1,
+	random_level = 0,
+	trunk_type = "single",
+}
+
+
 local oak_tree_medium = {
-	axiom = oak_tree_medium_blueprint,
+	axiom = tree_medium_blueprint,
 	trunk = "infdev:stone",
 	leaves = "infdev:sand",
 	angle = 90,
@@ -65,11 +91,29 @@ core.register_on_joinplayer(function(player, last_login)
 		end
 	end
 
-	core.spawn_tree(visual, oak_tree_medium)
+	core.spawn_tree(visual, oak_tree_small)
 end)
 
+
 core.register_decoration({
-	name = "infdev:oak_tree",
+	name = "infdev:oak_tree_small",
+	deco_type = "lsystem",
+	place_on = { "infdev:grass" },
+	sidelen = 16,
+	noise_params = {
+		offset = 0.005,
+		scale = 0.002,
+		spread = { x = 275, y = 275, z = 275 },
+		seed = 2,
+		octaves = 3,
+		persist = 0.01,
+		lacunarity = 6.0,
+	},
+	treedef = oak_tree_small
+})
+
+core.register_decoration({
+	name = "infdev:oak_tree_medium",
 	deco_type = "lsystem",
 	place_on = { "infdev:grass" },
 	sidelen = 16,
