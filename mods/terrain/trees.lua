@@ -55,7 +55,7 @@ local tree_medium_blueprint = "" ..
 
 local tree_big_blueprint = "" ..
 	-- Trunk, then reposition to build leaves.
-	"TTTTTTTT&&GGGGG^GGG+GGG--" ..
+	"TTTTTTTTT&&GGGGG^GGG+GGG--" ..
 
 	-- First layer. (bottom squared)
 	"ffffff-f-ffffff+f+ffffff-f-ffffff+f+ffffff-f-ffffff+f+ffffff^f&--" ..
@@ -189,4 +189,22 @@ core.register_decoration({
 		lacunarity = 5.0,
 	},
 	treedef = oak_tree_medium
+})
+
+
+core.register_decoration({
+	name = "infdev:oak_tree_big",
+	deco_type = "lsystem",
+	place_on = { "infdev:grass" },
+	sidelen = 16,
+	noise_params = {
+		offset = 0.001,
+		scale = 0.002,
+		spread = { x = 300, y = 300, z = 300 },
+		seed = 2,
+		octaves = 3,
+		persist = 0.01,
+		lacunarity = 6.0,
+	},
+	treedef = oak_tree_big
 })
