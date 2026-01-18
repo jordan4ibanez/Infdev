@@ -14,7 +14,7 @@ local c_sand = core.get_content_id("infdev:sand")
 local c_bedrock = core.get_content_id("infdev:bedrock")
 local c_sandstone = core.get_content_id("infdev:sandstone")
 
-local ocean_level = 80
+local ocean_level = 72
 
 local stone_disabled = false
 
