@@ -1,7 +1,7 @@
 # cavegame
  cave game
 
-Tree and leaves - spawns on grass
++- Tree and leaves - spawns on grass
 
 +- cactus - spawns on sand
 
