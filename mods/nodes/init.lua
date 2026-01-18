@@ -13,8 +13,8 @@ function infdev.register_node(name, definition)
 		definition.light_source = 14
 	end
 
-	definition.groups = definition.groups or {}
-	definition.groups.dig_immediate = 3
+	-- definition.groups = definition.groups or {}
+	-- definition.groups.dig_immediate = 3
 
 	core.register_node(":infdev:" .. name, definition)
 end
