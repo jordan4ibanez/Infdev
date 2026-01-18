@@ -3,6 +3,9 @@
 
 item for:
 coal
+stone
+iron ingot
+gold ingot
 diamond
 ruby
 sapphire
@@ -10,8 +13,7 @@ emerald
 lapis lazuli
 moonstone
 
-iron ingot
-gold ingot
+
 
 tools for every ore in the game
 
