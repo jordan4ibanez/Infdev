@@ -86,6 +86,9 @@ infdev.register_node("sandstone", {
 	tiles = { "default_sandstone.png" }
 })
 
+infdev.register_node("cactus", {
+	tiles = { "default_cactus_top.png", "default_cactus_top.png", "default_cactus_side.png" },
+})
 
 infdev.register_node("water_source", {
 	description = "Water Source",
