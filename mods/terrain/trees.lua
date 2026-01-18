@@ -122,6 +122,8 @@ local tree_big_blueprint = "" ..
 -- 	end
 -- end)
 
+--== Oak trees.
+
 local oak_tree_small = {
 	axiom = tree_small_blueprint,
 	trunk = "infdev:oak_tree",
