@@ -11,9 +11,11 @@ local debug_mode = false
 function infdev.register_node(name, definition)
 	if (debug_mode) then
 		definition.light_source = 14
-		definition.groups = definition.groups or {}
-		definition.groups.dig_immediate = 3
 	end
+
+	definition.groups = definition.groups or {}
+	definition.groups.dig_immediate = 3
+
 	core.register_node(":infdev:" .. name, definition)
 end
 
