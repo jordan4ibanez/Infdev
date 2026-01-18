@@ -1,6 +1,11 @@
 # cavegame
  cave game
 
+
+
+
+# 0.0.1 - Things on the ground.
+
 +- Tree and leaves - spawns on grass
 
 +- cactus - spawns on sand
