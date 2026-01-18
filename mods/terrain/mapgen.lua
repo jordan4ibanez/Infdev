@@ -58,11 +58,11 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 	local overworld_terrain_noise_parameters_small = {
 		offset = 0,
 		scale = 0.5,
-		spread = { x = 25, y = 300, z = 25 },
+		spread = { x = 50, y = 60, z = 50 },
 		seed = tonumber(core.get_mapgen_setting("seed")) or math.random(0, 999999999),
 		octaves = 2,
-		persist = 0.3,
-		lacunarity = 7.0,
+		persist = 0.6,
+		lacunarity = 4.0,
 	}
 
 	local __constant_area_3d                       = {
