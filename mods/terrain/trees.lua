@@ -123,36 +123,36 @@ local oak_tree_big = {
 }
 
 
-local function treeify(player)
-	local pos = player:get_pos()
+-- local function treeify(player)
+-- 	local pos = player:get_pos()
 
-	local visual = vector.add(pos, 5)
-	visual.y = visual.y - 5
+-- 	local visual = vector.add(pos, 5)
+-- 	visual.y = visual.y - 5
 
-	for x = -10, 10 do
-		for y = -10, 10 do
-			for z = -10, 10 do
-				core.remove_node(vector.add(visual, vector.new(x, y, z)))
-			end
-		end
-	end
+-- 	for x = -10, 10 do
+-- 		for y = -10, 10 do
+-- 			for z = -10, 10 do
+-- 				core.remove_node(vector.add(visual, vector.new(x, y, z)))
+-- 			end
+-- 		end
+-- 	end
 
-	core.spawn_tree(visual, oak_tree_big)
-end
+-- 	core.spawn_tree(visual, oak_tree_big)
+-- end
 
-core.register_on_joinplayer(function(player, last_login)
-	core.after(0.5, function()
-		treeify(player)
-	end)
-end)
+-- core.register_on_joinplayer(function(player, last_login)
+-- 	core.after(0.5, function()
+-- 		treeify(player)
+-- 	end)
+-- end)
 
-core.register_globalstep(function()
-	for _, player in ipairs(core.get_connected_players()) do
-		if (player:get_player_control().LMB) then
-			treeify(player)
-		end
-	end
-end)
+-- core.register_globalstep(function()
+-- 	for _, player in ipairs(core.get_connected_players()) do
+-- 		if (player:get_player_control().LMB) then
+-- 			treeify(player)
+-- 		end
+-- 	end
+-- end)
 
 
 
