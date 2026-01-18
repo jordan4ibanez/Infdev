@@ -55,19 +55,40 @@ local tree_medium_blueprint = "" ..
 
 local tree_big_blueprint = "" ..
 	-- Trunk, then reposition to build leaves.
-	"TTTTTT&&GGG^GG+GG--" ..
+	"TTTTTTTT&&GGGGG^GGG+GGG--" ..
 
 	-- First layer. (bottom squared)
-	"ffff-f-ffff+f+ffff-f-ffff+f+ffff^f&--" ..
+	"ffffff-f-ffffff+f+ffffff-f-ffffff+f+ffffff-f-ffffff+f+ffffff^f&--" ..
 
-	-- Second layer. (trimmed corners)
-	"Gfff-G-ffff+f+ffff-f-ffff+f+Gfff^G&+G+G-" ..
+	-- Second layer. (big trimmed)
+	"Gfffff-G-ffffff+f+ffffff-f-ffffff+f+ffffff-f-ffffff+f+Gfffff-^G&--" ..
 
-	-- Third layer. (small squared)
-	"ff+f+ff-f-ff^f&-" ..
+	-- Third layer. (medium squared)
+	"G+G-ffff+f+ffff-f-ffff+f+ffff-f-ffff^f&-" ..
 
-	-- Top layer. (small trimmed)
-	"Gf-G-ff+f+Gf"
+	-- Fourth layer. (medium trimmed)
+	"Gfff-G-ffff+f+ffff-f-ffff+f+Gfff-^G&-" ..
+
+	-- Fifth layer. (small squared)
+	"G-Gff+f+ff-f-ff^f&--" ..
+
+	-- Sixth layer. (small trimmed)
+	"Gf+G+ff-f-Gf^G&-G-Gf"
+
+
+
+
+-- -- First layer. (bottom squared)
+-- "ffff-f-ffff+f+ffff-f-ffff+f+ffff^f&--" ..
+
+-- -- Second layer. (trimmed corners)
+-- "Gfff-G-ffff+f+ffff-f-ffff+f+Gfff^G&+G+G-" ..
+
+-- -- Third layer. (small squared)
+-- "ff+f+ff-f-ff^f&-" ..
+
+-- -- Top layer. (small trimmed)
+-- "Gf-G-ff+f+Gf"
 
 
 local oak_tree_small = {
@@ -102,8 +123,7 @@ local oak_tree_big = {
 }
 
 
-
-core.register_on_joinplayer(function(player, last_login)
+local function treeify(player)
 	local pos = player:get_pos()
 
 	local visual = vector.add(pos, 5)
@@ -118,7 +138,23 @@ core.register_on_joinplayer(function(player, last_login)
 	end
 
 	core.spawn_tree(visual, oak_tree_big)
+end
+
+core.register_on_joinplayer(function(player, last_login)
+	core.after(0.5, function()
+		treeify(player)
+	end)
 end)
+
+core.register_globalstep(function()
+	for _, player in ipairs(core.get_connected_players()) do
+		if (player:get_player_control().LMB) then
+			treeify(player)
+		end
+	end
+end)
+
+
 
 
 core.register_decoration({
