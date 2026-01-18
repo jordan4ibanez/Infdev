@@ -1,6 +1,26 @@
 # cavegame
  cave game
 
+item for:
+coal
+diamond
+ruby
+sapphire
+emerald
+lapis lazuli
+moonstone
+
+iron ingot
+gold ingot
+
+tools for every ore in the game
+
+wood tools
+
+stone tools
+
+hardened tools which are made by a blast furnace
+
 
 
 
