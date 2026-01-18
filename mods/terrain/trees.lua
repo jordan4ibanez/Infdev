@@ -51,22 +51,22 @@ local oak_tree_medium = {
 
 
 
--- core.register_on_joinplayer(function(player, last_login)
--- 	local pos = player:get_pos()
+core.register_on_joinplayer(function(player, last_login)
+	local pos = player:get_pos()
 
--- 	local visual = vector.add(pos, 5)
--- 	visual.y = visual.y - 5
+	local visual = vector.add(pos, 5)
+	visual.y = visual.y - 5
 
--- 	for x = -10, 10 do
--- 		for y = -10, 10 do
--- 			for z = -10, 10 do
--- 				core.remove_node(vector.add(visual, vector.new(x, y, z)))
--- 			end
--- 		end
--- 	end
+	for x = -10, 10 do
+		for y = -10, 10 do
+			for z = -10, 10 do
+				core.remove_node(vector.add(visual, vector.new(x, y, z)))
+			end
+		end
+	end
 
--- 	core.spawn_tree(visual, oak_tree_medium)
--- end)
+	core.spawn_tree(visual, oak_tree_medium)
+end)
 
 core.register_decoration({
 	name = "infdev:oak_tree",
