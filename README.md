@@ -3,9 +3,9 @@
 
 Tree and leaves - spawns on grass
 
-cactus - spawns on sand
++- cactus - spawns on sand
 
-sugarcane - spawns on sand next to water
++- sugarcane - spawns on sand next to water
 
 Possibly pools in mountains
 
