@@ -102,6 +102,22 @@ infdev.register_node("sugarcane", {
 	},
 })
 
+
+infdev.register_node("oak_tree", {
+	tiles = { "default_tree_top.png", "default_tree_top.png", "default_tree.png" },
+	paramtype2 = "facedir",
+	is_ground_content = false,
+})
+
+infdev.register_node("oak_leaves", {
+	drawtype = "allfaces_optional",
+	waving = 1,
+	tiles = { "default_leaves.png" },
+	special_tiles = { "default_leaves_simple.png" },
+	paramtype = "light",
+	is_ground_content = false,
+})
+
 infdev.register_node("water_source", {
 	description = "Water Source",
 	drawtype = "liquid",
