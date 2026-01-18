@@ -1,5 +1,3 @@
-print("test")
-
 local ceil = math.ceil
 
 --- @type number
