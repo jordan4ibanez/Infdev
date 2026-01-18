@@ -203,3 +203,86 @@ core.register_decoration({
 	},
 	treedef = oak_tree_big
 })
+
+
+--== Birch trees.
+
+
+local birch_tree_small = {
+	axiom = tree_small_blueprint,
+	trunk = "infdev:birch_tree",
+	leaves = "infdev:birch_leaves",
+	angle = 90,
+	iterations = 1,
+	random_level = 0,
+	trunk_type = "single",
+}
+
+local birch_tree_medium = {
+	axiom = tree_medium_blueprint,
+	trunk = "infdev:birch_tree",
+	leaves = "infdev:birch_leaves",
+	angle = 90,
+	iterations = 1,
+	random_level = 0,
+	trunk_type = "single",
+}
+
+local birch_tree_big = {
+	axiom = tree_big_blueprint,
+	trunk = "infdev:birch_tree",
+	leaves = "infdev:birch_leaves",
+	angle = 90,
+	iterations = 1,
+	random_level = 0,
+	trunk_type = "single",
+}
+
+
+core.register_decoration({
+	name = "infdev:birch_tree_small",
+	deco_type = "lsystem",
+	place_on = { "infdev:grass" },
+	sidelen = 16,
+	noise_params = {
+		offset = 0.0025,
+		scale = 0.002,
+		spread = { x = 300, y = 300, z = 300 },
+		octaves = 3,
+		persist = 0.01,
+		lacunarity = 6.0,
+	},
+	treedef = birch_tree_small
+})
+
+core.register_decoration({
+	name = "infdev:birch_tree_medium",
+	deco_type = "lsystem",
+	place_on = { "infdev:grass" },
+	sidelen = 16,
+	noise_params = {
+		offset = 0.01,
+		scale = 0.002,
+		spread = { x = 250, y = 250, z = 250 },
+		octaves = 3,
+		persist = 0.01,
+		lacunarity = 5.0,
+	},
+	treedef = birch_tree_medium
+})
+
+core.register_decoration({
+	name = "infdev:birch_tree_big",
+	deco_type = "lsystem",
+	place_on = { "infdev:grass" },
+	sidelen = 16,
+	noise_params = {
+		offset = 0.001,
+		scale = 0.002,
+		spread = { x = 400, y = 400, z = 400 },
+		octaves = 3,
+		persist = 0.01,
+		lacunarity = 6.0,
+	},
+	treedef = birch_tree_big
+})
