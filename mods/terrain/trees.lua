@@ -36,14 +36,10 @@ local oak_tree_medium_blueprint = "" ..
 	"ff+f+ff-f-ff^f&-" ..
 
 	-- Top layer. (small trimmed)
-
 	"Gf-G-ff+f+Gf"
 
 
-
-
 local oak_tree_medium = {
-
 	axiom = oak_tree_medium_blueprint,
 	trunk = "infdev:stone",
 	leaves = "infdev:sand",
@@ -51,9 +47,6 @@ local oak_tree_medium = {
 	iterations = 1,
 	random_level = 0,
 	trunk_type = "single",
-	-- thin_branches = true,
-	-- fruit_chance = 10,
-	-- fruit = "default:apple"
 }
 
 
@@ -89,14 +82,5 @@ core.register_decoration({
 		persist = 0.01,
 		lacunarity = 5.0,
 	},
-	-- biomes = { "savanna" },
-	-- y_max = 31000,
-	-- y_min = 1,
-	-- schematic = minetest.get_modpath("default") .. "/schematics/acacia_tree.mts",
-	-- flags = "place_center_x, place_center_z",
-	-- rotation = "random",
 	treedef = oak_tree_medium
 })
--- treedef = {},
--- Same as for `core.spawn_tree`.
--- See section [L-system trees] for more details.
