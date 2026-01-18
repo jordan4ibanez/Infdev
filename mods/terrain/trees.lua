@@ -91,38 +91,6 @@ local tree_big_blueprint = "" ..
 -- "Gf-G-ff+f+Gf"
 
 
-local oak_tree_small = {
-	axiom = tree_small_blueprint,
-	trunk = "infdev:oak_tree",
-	leaves = "infdev:oak_leaves",
-	angle = 90,
-	iterations = 1,
-	random_level = 0,
-	trunk_type = "single",
-}
-
-
-local oak_tree_medium = {
-	axiom = tree_medium_blueprint,
-	trunk = "infdev:oak_tree",
-	leaves = "infdev:oak_leaves",
-	angle = 90,
-	iterations = 1,
-	random_level = 0,
-	trunk_type = "single",
-}
-
-local oak_tree_big = {
-	axiom = tree_big_blueprint,
-	trunk = "infdev:oak_tree",
-	leaves = "infdev:oak_leaves",
-	angle = 90,
-	iterations = 1,
-	random_level = 0,
-	trunk_type = "single",
-}
-
-
 -- local function treeify(player)
 -- 	local pos = player:get_pos()
 
@@ -154,7 +122,35 @@ local oak_tree_big = {
 -- 	end
 -- end)
 
+local oak_tree_small = {
+	axiom = tree_small_blueprint,
+	trunk = "infdev:oak_tree",
+	leaves = "infdev:oak_leaves",
+	angle = 90,
+	iterations = 1,
+	random_level = 0,
+	trunk_type = "single",
+}
 
+local oak_tree_medium = {
+	axiom = tree_medium_blueprint,
+	trunk = "infdev:oak_tree",
+	leaves = "infdev:oak_leaves",
+	angle = 90,
+	iterations = 1,
+	random_level = 0,
+	trunk_type = "single",
+}
+
+local oak_tree_big = {
+	axiom = tree_big_blueprint,
+	trunk = "infdev:oak_tree",
+	leaves = "infdev:oak_leaves",
+	angle = 90,
+	iterations = 1,
+	random_level = 0,
+	trunk_type = "single",
+}
 
 
 core.register_decoration({
