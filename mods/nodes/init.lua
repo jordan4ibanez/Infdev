@@ -26,8 +26,11 @@ infdev.groups = {
 	sand = "sand",
 	plant = "plant"
 }
+
+
 infdev.register_node("stone", {
-	tiles = { "default_stone.png" }
+	tiles = { "default_stone.png" },
+	groups = { [infdev.groups.stone] = 1 }
 })
 
 infdev.register_node("cobblestone", {
