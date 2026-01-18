@@ -23,6 +23,11 @@ infdev.register_node("stone", {
 	tiles = { "default_stone.png" }
 })
 
+infdev.register_node("cobblestone", {
+	tiles = { "default_cobble.png" },
+	groups = { [infdev.groups.stone] = 1 }
+})
+
 infdev.register_node("dirt", {
 	tiles = { "default_dirt.png" }
 })
