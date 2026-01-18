@@ -90,6 +90,18 @@ infdev.register_node("cactus", {
 	tiles = { "default_cactus_top.png", "default_cactus_top.png", "default_cactus_side.png" },
 })
 
+infdev.register_node("sugarcane", {
+	drawtype = "plantlike",
+	tiles = { "default_papyrus.png" },
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	selection_box = {
+		type = "fixed",
+		fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, 0.5, 6 / 16 },
+	},
+})
+
 infdev.register_node("water_source", {
 	description = "Water Source",
 	drawtype = "liquid",
