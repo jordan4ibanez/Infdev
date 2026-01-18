@@ -53,6 +53,22 @@ local tree_medium_blueprint = "" ..
 	-- Top layer. (small trimmed)
 	"Gf-G-ff+f+Gf"
 
+local tree_big_blueprint = "" ..
+	-- Trunk, then reposition to build leaves.
+	"TTTTTT&&GGG^GG+GG--" ..
+
+	-- First layer. (bottom squared)
+	"ffff-f-ffff+f+ffff-f-ffff+f+ffff^f&--" ..
+
+	-- Second layer. (trimmed corners)
+	"Gfff-G-ffff+f+ffff-f-ffff+f+Gfff^G&+G+G-" ..
+
+	-- Third layer. (small squared)
+	"ff+f+ff-f-ff^f&-" ..
+
+	-- Top layer. (small trimmed)
+	"Gf-G-ff+f+Gf"
+
 
 local oak_tree_small = {
 	axiom = tree_small_blueprint,
@@ -67,6 +83,16 @@ local oak_tree_small = {
 
 local oak_tree_medium = {
 	axiom = tree_medium_blueprint,
+	trunk = "infdev:stone",
+	leaves = "infdev:sand",
+	angle = 90,
+	iterations = 1,
+	random_level = 0,
+	trunk_type = "single",
+}
+
+local oak_tree_big = {
+	axiom = tree_big_blueprint,
 	trunk = "infdev:stone",
 	leaves = "infdev:sand",
 	angle = 90,
@@ -91,7 +117,7 @@ core.register_on_joinplayer(function(player, last_login)
 		end
 	end
 
-	core.spawn_tree(visual, oak_tree_small)
+	core.spawn_tree(visual, oak_tree_big)
 end)
 
 
