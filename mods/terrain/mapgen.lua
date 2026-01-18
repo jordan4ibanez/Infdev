@@ -48,8 +48,8 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 		spread = { x = 25, y = 25, z = 25 },
 		seed = tonumber(core.get_mapgen_setting("seed")) or math.random(0, 999999999),
 		octaves = 2,
-		persist = 0.05,
-		lacunarity = 6.0,
+		persist = 0.2,
+		lacunarity = 5.0,
 	}
 
 	local small_cave_noise_parameters              = {
@@ -58,7 +58,7 @@ core.register_on_generated(function(voxmanip, minp, maxp, blockseed)
 		spread = { x = 7, y = 7, z = 7 },
 		seed = tonumber(core.get_mapgen_setting("seed")) or math.random(0, 999999999),
 		octaves = 1,
-		persist = 0.1,
+		persist = 0.3,
 		lacunarity = 3,
 	}
 
