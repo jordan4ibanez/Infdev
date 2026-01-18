@@ -7,6 +7,8 @@ cactus - spawns on sand
 
 sugarcane - spawns on sand next to water
 
+Possibly pools in mountains
+
 
 # 0.0.0 - The ground.
 
