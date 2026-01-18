@@ -24,10 +24,10 @@
 
 local oak_tree_medium_blueprint = "" ..
 	-- Trunk, then reposition to build leaves.
-	"TTTTT&&GGG^GG+GG--" ..
+	"TTTTTT&&GGG^GG+GG--" ..
 
 	-- First layer. (bottom squared)
-	"Tfff-f-ffff+f+ffff-f-ffff+f+ffff^f&--" ..
+	"ffff-f-ffff+f+ffff-f-ffff+f+ffff^f&--" ..
 
 	-- Second layer. (trimmed corners)
 	"Gfff-G-ffff+f+ffff-f-ffff+f+Gfff^G&+G+G-" ..
