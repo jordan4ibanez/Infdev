@@ -1,0 +1,2 @@
+-- Decorations for the terrain.
+
