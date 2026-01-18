@@ -93,8 +93,8 @@ local tree_big_blueprint = "" ..
 
 local oak_tree_small = {
 	axiom = tree_small_blueprint,
-	trunk = "infdev:stone",
-	leaves = "infdev:sand",
+	trunk = "infdev:oak_tree",
+	leaves = "infdev:oak_leaves",
 	angle = 90,
 	iterations = 1,
 	random_level = 0,
@@ -104,8 +104,8 @@ local oak_tree_small = {
 
 local oak_tree_medium = {
 	axiom = tree_medium_blueprint,
-	trunk = "infdev:stone",
-	leaves = "infdev:sand",
+	trunk = "infdev:oak_tree",
+	leaves = "infdev:oak_leaves",
 	angle = 90,
 	iterations = 1,
 	random_level = 0,
@@ -114,8 +114,8 @@ local oak_tree_medium = {
 
 local oak_tree_big = {
 	axiom = tree_big_blueprint,
-	trunk = "infdev:stone",
-	leaves = "infdev:sand",
+	trunk = "infdev:oak_tree",
+	leaves = "infdev:oak_leaves",
 	angle = 90,
 	iterations = 1,
 	random_level = 0,
