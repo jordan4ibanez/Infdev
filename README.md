@@ -14,7 +14,11 @@ clay can smelt into bricks
 
 fireclay bricks which are made from sand and clay in an x pattern
 
-blast furnace is made from iron surrounded by fireclay
+cured fireclay bricks are smelted in regular furnace so you can't skip it
+
+blast furnace is made from iron surrounded by cured fireclay bricks
+
+blast furnace 
 
 hardened tools which are made by the blast furnace
 
