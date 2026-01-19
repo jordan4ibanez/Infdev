@@ -83,6 +83,18 @@ infdev.register_node("brick_block", {
 	groups = { [infdev.groups.stone] = 1 },
 })
 
+infdev.register_node("glass", {
+	description = "Glass",
+	drawtype = "glasslike_framed_optional",
+	tiles = { "default_glass.png", "default_glass_detail.png" },
+	use_texture_alpha = "clip", -- Only needed for stairs API.
+	paramtype = "light",
+	sunlight_propagates = true,
+	is_ground_content = false,
+	groups = { [infdev.groups.glass] = 1 },
+})
+
+
 infdev.register_node("bedrock", {
 	tiles = { "default_stone.png^[contrast:100:-15" },
 	groups = { [infdev.groups.bedrock] = 1 }
