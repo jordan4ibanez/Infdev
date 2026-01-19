@@ -3,9 +3,6 @@
 
 -- default/furnace.lua
 
--- support for MT game translation.
-local S = default.get_translator
-
 -- List of sound handles for active furnace
 local furnace_fire_sounds = {}
 
@@ -13,7 +10,15 @@ local furnace_fire_sounds = {}
 -- Formspecs
 --
 
-function default.get_furnace_active_formspec(fuel_percent, item_percent)
+local function get_hotbar_bg(x, y)
+	local out = ""
+	for i = 0, 7, 1 do
+		out = out .. "image[" .. x + i .. "," .. y .. ";1,1;gui_hb_bg.png]"
+	end
+	return out
+end
+
+local function get_furnace_active_formspec(fuel_percent, item_percent)
 	return "size[8,8.5]" ..
 		"list[context;src;2.75,0.5;1,1;]" ..
 		"list[context;fuel;2.75,2.5;1,1;]" ..
@@ -30,10 +35,10 @@ function default.get_furnace_active_formspec(fuel_percent, item_percent)
 		"listring[current_player;main]" ..
 		"listring[context;fuel]" ..
 		"listring[current_player;main]" ..
-		default.get_hotbar_bg(0, 4.25)
+		get_hotbar_bg(0, 4.25)
 end
 
-function default.get_furnace_inactive_formspec()
+local function get_furnace_inactive_formspec()
 	return "size[8,8.5]" ..
 		"list[context;src;2.75,0.5;1,1;]" ..
 		"list[context;fuel;2.75,2.5;1,1;]" ..
@@ -48,7 +53,7 @@ function default.get_furnace_inactive_formspec()
 		"listring[current_player;main]" ..
 		"listring[context;fuel]" ..
 		"listring[current_player;main]" ..
-		default.get_hotbar_bg(0, 4.25)
+		get_hotbar_bg(0, 4.25)
 end
 
 --
@@ -70,7 +75,7 @@ local function allow_metadata_inventory_put(pos, listname, index, stack, player)
 	if listname == "fuel" then
 		if core.get_craft_result({ method = "fuel", width = 1, items = { stack } }).time ~= 0 then
 			if inv:is_empty("src") then
-				meta:set_string("infotext", S("Furnace is empty"))
+				meta:set_string("infotext", "Furnace is empty")
 			end
 			return stack:get_count()
 		else
@@ -271,28 +276,28 @@ local function furnace_node_timer(pos, elapsed)
 	if cookable then
 		item_percent = math.floor(src_time / cooked.time * 100)
 		if dst_full then
-			item_state = S("100% (output full)")
+			item_state = "100% (output full)"
 		else
-			item_state = S("@1%", item_percent)
+			item_state = item_percent
 		end
 	else
 		if srclist and not srclist[1]:is_empty() then
-			item_state = S("Not cookable")
+			item_state = "Not cookable"
 		else
-			item_state = S("Empty")
+			item_state = "Empty"
 		end
 	end
 
-	local fuel_state = S("Empty")
+	local fuel_state = "Empty"
 	local active = false
 	local result = false
 
 	if fuel_totaltime ~= 0 then
 		active = true
 		local fuel_percent = 100 - math.floor(fuel_time / fuel_totaltime * 100)
-		fuel_state = S("@1%", fuel_percent)
-		formspec = default.get_furnace_active_formspec(fuel_percent, item_percent)
-		swap_node(pos, "default:furnace_active")
+		fuel_state = tostring(fuel_percent)
+		formspec = get_furnace_active_formspec(fuel_percent, item_percent)
+		swap_node(pos, "infdev:furnace_active")
 		-- make sure timer restarts automatically
 		result = true
 
@@ -324,10 +329,10 @@ local function furnace_node_timer(pos, elapsed)
 		end
 	else
 		if fuellist and not fuellist[1]:is_empty() then
-			fuel_state = S("@1%", 0)
+			fuel_state = tostring(0)
 		end
-		formspec = default.get_furnace_inactive_formspec()
-		swap_node(pos, "default:furnace")
+		formspec = get_furnace_inactive_formspec()
+		swap_node(pos, "infdev:furnace")
 		-- stop timer on the inactive furnace
 		core.get_node_timer(pos):stop()
 		meta:set_int("timer_elapsed", 0)
@@ -338,11 +343,11 @@ local function furnace_node_timer(pos, elapsed)
 
 	local infotext
 	if active then
-		infotext = S("Furnace active")
+		infotext = "Furnace active"
 	else
-		infotext = S("Furnace inactive")
+		infotext = "Furnace inactive"
 	end
-	infotext = infotext .. "\n" .. S("(Item: @1; Fuel: @2)", item_state, fuel_state)
+	infotext = infotext .. "\n" .. "(Item: " .. item_state .. "; Fuel: " .. fuel_state .. ")"
 
 	--
 	-- Set meta values
@@ -360,13 +365,21 @@ end
 -- Node definitions
 --
 
-local function apply_logger(def)
-	default.set_inventory_action_loggers(def, "furnace")
-	return def
+local function get_inventory_drops(pos, inventory, drops)
+	local inv = core.get_meta(pos):get_inventory()
+	local n = #drops
+	for i = 1, inv:get_size(inventory) do
+		local stack = inv:get_stack(inventory, i)
+		if stack:get_count() > 0 then
+			drops[n + 1] = stack:to_table()
+			n = n + 1
+		end
+	end
 end
 
-core.register_node("default:furnace", apply_logger({
-	description = S("Furnace"),
+
+infdev.register_node("furnace", {
+	description = "Furnace",
 	tiles = {
 		"default_furnace_top.png", "default_furnace_bottom.png",
 		"default_furnace_side.png", "default_furnace_side.png",
@@ -376,7 +389,7 @@ core.register_node("default:furnace", apply_logger({
 	groups = { cracky = 2 },
 	legacy_facedir_simple = true,
 	is_ground_content = false,
-	sounds = default.node_sound_stone_defaults(),
+	-- sounds = default.node_sound_stone_defaults(),
 
 	can_dig = can_dig,
 
@@ -404,10 +417,10 @@ core.register_node("default:furnace", apply_logger({
 	end,
 	on_blast = function(pos)
 		local drops = {}
-		default.get_inventory_drops(pos, "src", drops)
-		default.get_inventory_drops(pos, "fuel", drops)
-		default.get_inventory_drops(pos, "dst", drops)
-		drops[#drops + 1] = "default:furnace"
+		get_inventory_drops(pos, "src", drops)
+		get_inventory_drops(pos, "fuel", drops)
+		get_inventory_drops(pos, "dst", drops)
+		drops[#drops + 1] = "infdev:furnace"
 		core.remove_node(pos)
 		return drops
 	end,
@@ -415,10 +428,10 @@ core.register_node("default:furnace", apply_logger({
 	allow_metadata_inventory_put = allow_metadata_inventory_put,
 	allow_metadata_inventory_move = allow_metadata_inventory_move,
 	allow_metadata_inventory_take = allow_metadata_inventory_take,
-}))
+})
 
-core.register_node("default:furnace_active", apply_logger({
-	description = S("Furnace"),
+infdev.register_node("furnace_active", {
+	description = "Furnace",
 	tiles = {
 		"default_furnace_top.png", "default_furnace_bottom.png",
 		"default_furnace_side.png", "default_furnace_side.png",
@@ -436,11 +449,11 @@ core.register_node("default:furnace_active", apply_logger({
 	},
 	paramtype2 = "facedir",
 	light_source = 8,
-	drop = "default:furnace",
+	drop = "infdev:furnace",
 	groups = { cracky = 2, not_in_creative_inventory = 1 },
 	legacy_facedir_simple = true,
 	is_ground_content = false,
-	sounds = default.node_sound_stone_defaults(),
+	-- sounds = default.node_sound_stone_defaults(),
 	on_timer = furnace_node_timer,
 	on_destruct = function(pos)
 		stop_furnace_sound(pos)
@@ -451,10 +464,10 @@ core.register_node("default:furnace_active", apply_logger({
 	allow_metadata_inventory_put = allow_metadata_inventory_put,
 	allow_metadata_inventory_move = allow_metadata_inventory_move,
 	allow_metadata_inventory_take = allow_metadata_inventory_take,
-}))
+})
 
 core.register_craft({
-	output = "default:furnace",
+	output = "infdev:furnace",
 	recipe = {
 		{ "group:stone", "group:stone", "group:stone" },
 		{ "group:stone", "",            "group:stone" },
