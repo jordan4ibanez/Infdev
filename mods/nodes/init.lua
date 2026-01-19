@@ -16,6 +16,8 @@ function infdev.register_node(name, definition)
 	-- definition.groups = definition.groups or {}
 	-- definition.groups.dig_immediate = 3
 
+	definition.stack_max = definition.stack_max or 64
+
 	core.register_node(":infdev:" .. name, definition)
 end
 
