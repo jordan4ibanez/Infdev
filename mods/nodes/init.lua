@@ -57,7 +57,7 @@ infdev.register_node("grass", {
 			tileable_vertical = false
 		}
 	},
-	groups = { [infdev.groups.soil] = 2 }
+	groups = { [infdev.groups.soil] = 1 }
 })
 
 infdev.register_node("sand", {
