@@ -125,7 +125,9 @@ local function throw_items(pos)
 	get_inventory_drops(pos, "fuel", drops)
 	get_inventory_drops(pos, "dst", drops)
 
-	print(dump(drops))
+	for _, item in ipairs(drops) do
+		core.add_item(pos, ItemStack(item))
+	end
 end
 
 
