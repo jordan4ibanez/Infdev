@@ -40,3 +40,20 @@ core.register_craft({
 		{ "infdev:brick", "infdev:brick" },
 	}
 })
+
+
+core.register_craft({
+	output = "infdev:uncured_fireclay_brick",
+	recipe = {
+		{ "infdev:sand", "infdev:clay" },
+		{ "infdev:clay", "infdev:sand" },
+	}
+})
+
+core.register_craft({
+	output = "infdev:uncured_fireclay_brick",
+	recipe = {
+		{ "infdev:clay", "infdev:sand" },
+		{ "infdev:sand", "infdev:clay" },
+	}
+})
