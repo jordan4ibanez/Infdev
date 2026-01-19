@@ -78,6 +78,54 @@ local tool_types = {
 	paxel = { infdev.groups.farmland, infdev.groups.soil, infdev.groups.sand, infdev.groups.stone, infdev.groups.wood },
 }
 
+local tool_recipes = {
+	axe = {
+		recipes = {
+			{
+				{ "i", "i",            "" },
+				{ "i", "infdev:stick", "" },
+				{ "",  "infdev:stick", "" }
+			},
+			{
+				{ "", "i",            "i" },
+				{ "", "infdev:stick", "i" },
+				{ "", "infdev:stick", "" }
+			}
+		}
+	},
+	pickaxe = {
+		recipes = {
+			{
+				{ "i", "i",            "i" },
+				{ "",  "infdev:stick", "" },
+				{ "",  "infdev:stick", "" }
+			},
+		}
+	},
+	shovel = {
+		recipes = {
+			{
+				{ "", "i",            "" },
+				{ "", "infdev:stick", "" },
+				{ "", "infdev:stick", "" }
+			},
+		}
+	},
+	sword = {
+		recipes = {
+			{
+				{ "", "i",            "" },
+				{ "", "i",            "" },
+				{ "", "infdev:stick", "" }
+			},
+		}
+	},
+	paxel = {
+		recipes = { "x", "y", "z" },
+		type = "shapeless"
+	},
+}
+
 for _, definition in ipairs(__item_material) do
 	local material = definition.material or definition.name
 
