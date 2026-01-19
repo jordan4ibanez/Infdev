@@ -209,21 +209,34 @@ for _, definition in ipairs(__item_material) do
 							if (material:sub(1, string.len("group:")) ~= "group:") then
 								new_item = "infdev:" .. new_item
 							end
-
 							recipe[index][deep_index] = new_item
-							-- print("i")
 						end
+					end
+				else
+					if (element == "i") then
+						local new_item = material
+						if (material:sub(1, string.len("group:")) ~= "group:") then
+							new_item = "infdev:" .. new_item
+						end
+						recipe[index] = new_item
+					elseif element == "x" then
+						recipe[index] = "infdev:" .. name .. "_axe"
+					elseif element == "y" then
+						recipe[index] = "infdev:" .. name .. "_pickaxe"
+					elseif element == "z" then
+						recipe[index] = "infdev:" .. name .. "_shovel"
 					end
 				end
 			end
 			print(dump(recipe))
 
-			if tool_name ~= "paxel" then
-				core.register_craft({
-					output = "infdev:" .. name .. "_" .. tool_name,
-					recipe = recipe
-				})
-			end
+			-- if tool_name ~= "paxel" then
+			core.register_craft({
+				output = "infdev:" .. name .. "_" .. tool_name,
+				recipe = recipe,
+				type = recipe_base.type
+			})
+			-- end
 		end
 	end
 end
