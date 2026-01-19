@@ -22,12 +22,14 @@ local __item_material = {
 	},
 	{
 		name = "gold",
+		material = "gold_ingot",
 		color_mod = "#EFBF04",
 		uses = 64,
 		level = 3,
 	},
 	{
 		name = "iron",
+		material = "iron_ingot",
 		color_mod = "#D0D0D0",
 		level = 4,
 	},
