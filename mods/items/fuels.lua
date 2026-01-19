@@ -26,3 +26,4 @@ infdev.register_fuel("charcoal", 25)
 
 infdev.register_fuel(string_group(infdev.groups.tree), 20)
 infdev.register_fuel(string_group(infdev.groups.planks), 10)
+infdev.register_fuel(string_group(infdev.groups.stick), 3)
