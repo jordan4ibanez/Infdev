@@ -22,6 +22,7 @@ end
 local mod_path = core.get_modpath(core.get_current_modname())
 
 dofile(mod_path .. "/ores.lua")
+dofile(mod_path .. "/furnace.lua")
 
 
 
