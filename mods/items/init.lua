@@ -228,15 +228,12 @@ for _, definition in ipairs(__item_material) do
 					end
 				end
 			end
-			print(dump(recipe))
 
-			-- if tool_name ~= "paxel" then
 			core.register_craft({
 				output = "infdev:" .. name .. "_" .. tool_name,
 				recipe = recipe,
 				type = recipe_base.type
 			})
-			-- end
 		end
 	end
 end
