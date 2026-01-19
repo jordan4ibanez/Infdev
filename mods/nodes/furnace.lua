@@ -389,7 +389,9 @@ infdev.register_node("furnace", {
 		"default_furnace_side.png", "default_furnace_front.png"
 	},
 	paramtype2 = "facedir",
-	groups = { cracky = 2 },
+	groups = {
+		[infdev.groups.stone] = 1
+	},
 	legacy_facedir_simple = true,
 	is_ground_content = false,
 	-- sounds = default.node_sound_stone_defaults(),
@@ -456,7 +458,9 @@ infdev.register_node("furnace_active", {
 	paramtype2 = "facedir",
 	light_source = 8,
 	drop = "infdev:furnace",
-	groups = { cracky = 2, not_in_creative_inventory = 1 },
+	groups = {
+		[infdev.groups.stone] = 1
+	},
 	legacy_facedir_simple = true,
 	is_ground_content = false,
 	-- sounds = default.node_sound_stone_defaults(),
