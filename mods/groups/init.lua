@@ -9,6 +9,7 @@ infdev.groups = {
 	planks = "planks",
 	stick = "stick",
 	stone = "stone",
+	glass = "glass",
 	cobblestone = "cobblestone",
 	soil = "soil",
 	sand = "sand",
