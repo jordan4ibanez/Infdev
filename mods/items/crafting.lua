@@ -67,3 +67,11 @@ core.register_craft({
 		{ "infdev:fireclay_brick", "infdev:fireclay_brick", "infdev:fireclay_brick" },
 	}
 })
+
+core.register_craft({
+	output = "infdev:fireclay_brick_block",
+	recipe = {
+		{ "infdev:fireclay_brick", "infdev:fireclay_brick" },
+		{ "infdev:fireclay_brick", "infdev:fireclay_brick" },
+	}
+})
