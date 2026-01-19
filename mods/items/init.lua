@@ -2,12 +2,14 @@
 
 infdev = infdev or {}
 
+table.copy = table.copy or error
+
 -- Generation of pickaxe, shovel, axe, sword, hoe, shears, and paxel.
 
 local __item_material = {
 	{
 		name = "wooden",
-		material = "wood",
+		material = "group:wood",
 		color_mod = "#966919",
 		level = 1,
 	},
@@ -18,6 +20,7 @@ local __item_material = {
 	},
 	{
 		name = "stone",
+		material = "cobblestone",
 		color_mod = "#505050",
 		level = 2,
 	},
@@ -121,14 +124,14 @@ local tool_recipes = {
 		}
 	},
 	paxel = {
-		recipes = { "x", "y", "z" },
+		recipes = {
+			{ "x", "y", "z" },
+		},
 		type = "shapeless"
 	},
 }
 
 for _, definition in ipairs(__item_material) do
-	local material = definition.material or definition.name
-
 	local current_level_time = 2
 	local current_time = current_level_time
 
@@ -170,6 +173,8 @@ for _, definition in ipairs(__item_material) do
 			}
 		end
 
+		-- Create the tool.
+
 		core.register_tool(":infdev:" .. name .. "_" .. tool_name, {
 			description = name:gsub("^%l", string.upper) ..
 				" " .. tool_name:gsub("^%l", string.upper),
@@ -183,5 +188,48 @@ for _, definition in ipairs(__item_material) do
 			sound = { breaks = "default_tool_breaks" },
 			-- groups = { pickaxe = 1, flammable = 2 }
 		})
+
+
+		-- Create the craft recipe for the tool.
+
+		local recipe_base = table.copy(tool_recipes[tool_name])
+
+		if (recipe_base == nil) then
+			error("Recipe error, does not exist!")
+		end
+
+		local material = definition.material or definition.name
+
+		for _, recipe in ipairs(recipe_base.recipes) do
+			for index, element in ipairs(recipe) do
+				if (type(element) == "table") then
+					for deep_index, item in ipairs(element) do
+						if (item == "i") then
+							local new_item = material
+							if (material:sub(1, string.len("group:")) ~= "group:") then
+								new_item = "infdev:" .. new_item
+							end
+
+							recipe[index][deep_index] = new_item
+							-- print("i")
+						end
+					end
+				end
+			end
+			print(dump(recipe))
+
+			if tool_name ~= "paxel" then
+				core.register_craft({
+					output = "infdev:" .. name .. "_" .. tool_name,
+					recipe = recipe
+				})
+			end
+		end
 	end
 end
+
+core.register_craftitem(":infdev:stick", {
+	description = "Stick",
+	inventory_image = "default_stick.png",
+	groups = { stick = 1, flammable = 2 },
+})
