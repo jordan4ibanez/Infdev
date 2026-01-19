@@ -4,6 +4,7 @@ infdev = infdev or {}
 
 ---The groups that exist in the game.
 infdev.groups = {
+	tree = "tree",
 	wood = "wood",
 	planks = "planks",
 	stone = "stone",
