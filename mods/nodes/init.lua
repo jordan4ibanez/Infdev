@@ -21,6 +21,7 @@ end
 
 infdev.groups = {
 	wood = "wood",
+	planks = "planks",
 	stone = "stone",
 	soil = "soil",
 	sand = "sand",
@@ -159,7 +160,10 @@ infdev.register_node("oak_leaves", {
 
 infdev.register_node("oak_planks", {
 	tiles = { "default_wood.png" },
-	groups = { [infdev.groups.wood] = 1 }
+	groups = {
+		[infdev.groups.wood] = 1,
+		[infdev.groups.planks] = 1
+	}
 })
 
 infdev.register_node("birch_tree", {
@@ -182,7 +186,10 @@ infdev.register_node("birch_leaves", {
 
 infdev.register_node("birch_planks", {
 	tiles = { "default_aspen_wood.png" },
-	groups = { [infdev.groups.wood] = 1 }
+	groups = {
+		[infdev.groups.wood] = 1,
+		[infdev.groups.planks] = 1
+	}
 })
 
 
