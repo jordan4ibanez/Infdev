@@ -13,6 +13,8 @@ function infdev.register_cook(input, output, time)
 	end
 	local new_output = output
 	if (new_output:sub(1, string.len("group:")) ~= "group:") then
+		new_output = "infdev:" .. new_output
+	else
 		error("Cooking output cannot be a group.")
 	end
 
