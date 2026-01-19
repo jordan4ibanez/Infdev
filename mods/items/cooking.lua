@@ -22,6 +22,7 @@ function infdev.register_cook(input, output, time)
 		type = "cooking",
 		output = new_output,
 		recipe = new_input,
+		time = time
 	})
 end
 
