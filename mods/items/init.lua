@@ -17,7 +17,10 @@ end
 infdev.register_craftitem("stick", {
 	description = "Stick",
 	inventory_image = "default_stick.png",
-	groups = { stick = 1, flammable = 2 },
+	groups = {
+		[infdev.groups.wood] = 1,
+		[infdev.groups.stick] = 1
+	},
 })
 
 infdev.register_craftitem("coal", {
