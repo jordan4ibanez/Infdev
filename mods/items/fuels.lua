@@ -21,7 +21,8 @@ function infdev.register_fuel(item, burn_time)
 	})
 end
 
-infdev.register_fuel("coal", 40)
+infdev.register_fuel("coal", 30)
+infdev.register_fuel("charcoal", 25)
 
-infdev.register_fuel(string_group(infdev.groups.tree), 30)
-infdev.register_fuel(string_group(infdev.groups.planks), 20)
+infdev.register_fuel(string_group(infdev.groups.tree), 20)
+infdev.register_fuel(string_group(infdev.groups.planks), 10)
