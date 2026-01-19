@@ -18,7 +18,7 @@ infdev.register_craftitem("stick", {
 	groups = { stick = 1, flammable = 2 },
 })
 
-infdev.register_craftitem("coal_item", {
+infdev.register_craftitem("coal", {
 	description = "Coal",
 	inventory_image = "default_coal_lump.png",
 	groups = { coal = 1, flammable = 1 }
