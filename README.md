@@ -20,7 +20,7 @@ item for:
 +- sapphire
 +- emerald
 +- lapis lazuli
-moonstone
++- moonstone
 
 +- tools for every ore in the game
 

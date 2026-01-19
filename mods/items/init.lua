@@ -57,3 +57,9 @@ infdev.register_craftitem("lapis", {
 	description = "Lapis Lazuli",
 	inventory_image = "((default_coal_lump.png^[invert:rgb)^[contrast:100:-70)^[colorize:darkblue:150",
 })
+
+
+infdev.register_craftitem("moonstone", {
+	description = "Moonstone",
+	inventory_image = "((default_coal_lump.png^[invert:rgb)^[contrast:100:-70)^[colorize:lightblue:200",
+})
