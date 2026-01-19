@@ -16,7 +16,7 @@ clay which is spawned in lumps in sand
 
 +- cured fireclay bricks are smelted in regular furnace so you can't skip it
 
-blast furnace is made from iron surrounded by cured fireclay bricks
++- blast furnace is made from iron surrounded by cured fireclay bricks
 
 blast furnace 
 
