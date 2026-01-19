@@ -81,5 +81,5 @@ infdev.register_craftitem("clay", {
 
 infdev.register_craftitem("brick", {
 	description = "Brick",
-	inventory_image = "default_clay_brick.png",
+	inventory_image = "default_clay_brick.png^[colorize:#842020:100",
 })
