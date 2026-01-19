@@ -10,7 +10,7 @@ hardened tools which are made by a blast furnace
 
 Need to fix tool crafting.
 
-Blocks need to drop correct items
++- Blocks need to drop correct items
 
 item for:
 +- coal
