@@ -98,7 +98,10 @@ infdev.register_node("oak_tree", {
 	tiles = { "default_tree_top.png", "default_tree_top.png", "default_tree.png" },
 	paramtype2 = "facedir",
 	is_ground_content = false,
-	groups = { [infdev.groups.wood] = 1 }
+	groups = {
+		[infdev.groups.wood] = 1,
+		[infdev.groups.tree] = 1
+	}
 })
 
 infdev.register_node("oak_leaves", {
@@ -124,7 +127,10 @@ infdev.register_node("birch_tree", {
 		"default_aspen_tree.png" },
 	paramtype2 = "facedir",
 	is_ground_content = false,
-	groups = { [infdev.groups.wood] = 1 }
+	groups = {
+		[infdev.groups.wood] = 1,
+		[infdev.groups.tree] = 1
+	}
 })
 
 
