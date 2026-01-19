@@ -1,5 +1,7 @@
 -- Craft recipes are stored here.
 
+local group_string = infdev.group_string
+
 core.register_craft({
 	output = "infdev:oak_planks 4",
 	recipe = {
@@ -17,16 +19,16 @@ core.register_craft({
 core.register_craft({
 	output = "infdev:stick 4",
 	recipe = {
-		{ "group:" .. infdev.groups.planks },
-		{ "group:" .. infdev.groups.planks },
+		{ group_string(infdev.groups.planks) },
+		{ group_string(infdev.groups.planks) },
 	}
 })
 
 core.register_craft({
 	output = "infdev:furnace",
 	recipe = {
-		{ "group:" .. infdev.groups.cobblestone, "group:" .. infdev.groups.cobblestone, "group:" .. infdev.groups.cobblestone },
-		{ "group:" .. infdev.groups.cobblestone, "",                                    "group:" .. infdev.groups.cobblestone },
-		{ "group:" .. infdev.groups.cobblestone, "group:" .. infdev.groups.cobblestone, "group:" .. infdev.groups.cobblestone },
+		{ group_string(infdev.groups.cobblestone), group_string(infdev.groups.cobblestone), group_string(infdev.groups.cobblestone) },
+		{ group_string(infdev.groups.cobblestone), "",                                      group_string(infdev.groups.cobblestone) },
+		{ group_string(infdev.groups.cobblestone), group_string(infdev.groups.cobblestone), group_string(infdev.groups.cobblestone) },
 	}
 })
