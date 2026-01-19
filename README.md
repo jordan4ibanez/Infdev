@@ -8,11 +8,11 @@ hardened tools which are made by a blast furnace
 
 # 0.0.2 - Basic items.
 
-Need to fix tool crafting.
++- Need to fix tool crafting.
 
 +- Blocks need to drop correct items
 
-item for:
++- item for:
 +- coal
 +- stone
 +- iron ingot
