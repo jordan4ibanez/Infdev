@@ -16,7 +16,7 @@ item for:
 +- iron ingot
 +- gold ingot
 +- diamond
-ruby
++- ruby
 sapphire
 emerald
 lapis lazuli
