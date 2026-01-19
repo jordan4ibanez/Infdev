@@ -1,1 +1,1 @@
--- Regular furnace cooking.
+-- Regular furnace cooking recipes.
