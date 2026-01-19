@@ -112,5 +112,25 @@ for _, definition in ipairs(__item_material) do
 		groups = { pickaxe = 1, flammable = 2 }
 	})
 
+	core.register_tool(":infdev:" .. material .. "_pickaxe", {
+		description = (definition.name or definition.material):gsub("^%l", string.upper) .. " Axe",
+		inventory_image = "default_tool_pickaxe_head.png^[colorize:" ..
+			definition.color_mod .. ":200^default_tool_pickaxe_handle.png",
+		tool_capabilities = {
+			max_drop_level = definition.level,
+			groupcaps = {
+				[infdev.groups.stone] = {
+					times = times,
+					uses = definition.uses or uses,
+					-- maxlevel = 100
+				},
+			},
+			damage_groups = { fleshy = 2 },
+		},
+		sound = { breaks = "default_tool_breaks" },
+		groups = { pickaxe = 1, flammable = 2 }
+	})
+
+
 	uses = uses * 2
 end
