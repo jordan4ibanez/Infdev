@@ -33,3 +33,8 @@ infdev.register_craftitem("gold_ingot", {
 	description = "Gold Ingot",
 	inventory_image = "default_gold_ingot.png"
 })
+
+infdev.register_craftitem("diamond", {
+	description = "Diamond",
+	inventory_image = "default_diamond.png"
+})
