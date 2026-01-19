@@ -98,6 +98,7 @@ for _, definition in ipairs(__item_material) do
 		current_time = current_time * 3
 	end
 
+	-- This is specific for "wood" to become "wooden".
 	local name = (definition.name or definition.material)
 
 	for tool_name, tool_groups in pairs(tool_types) do
