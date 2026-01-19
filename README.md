@@ -1,6 +1,8 @@
 # cavegame
  cave game
 
+Hand needs to be put in the game
+
 item for:
 coal
 stone
@@ -12,8 +14,6 @@ sapphire
 emerald
 lapis lazuli
 moonstone
-
-
 
 +- tools for every ore in the game
 
