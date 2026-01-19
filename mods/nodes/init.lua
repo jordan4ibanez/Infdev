@@ -66,6 +66,12 @@ infdev.register_node("sand", {
 	groups = { [infdev.groups.sand] = 1 }
 })
 
+infdev.register_node("clay_block", {
+	description = "Clay Block",
+	tiles = { "default_clay.png" },
+	groups = { [infdev.groups.soil] = 1 },
+	drop = "infdev:clay 4",
+})
 
 infdev.register_node("bedrock", {
 	tiles = { "default_stone.png^[contrast:100:-15" },
