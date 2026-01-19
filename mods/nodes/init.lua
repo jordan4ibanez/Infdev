@@ -23,19 +23,7 @@ local mod_path = core.get_modpath(core.get_current_modname())
 
 dofile(mod_path .. "/ores.lua")
 
-infdev.groups = {
-	wood = "wood",
-	planks = "planks",
-	stone = "stone",
-	soil = "soil",
-	sand = "sand",
-	plant = "plant",
-	farmland = "farmland",
-	bedrock = "bedrock",
-	liquid_source = "liquid_source",
-	liquid_flow = "liquid_flow",
-	water = "water"
-}
+
 
 
 infdev.register_node("stone", {
