@@ -19,6 +19,10 @@ function infdev.register_node(name, definition)
 	core.register_node(":infdev:" .. name, definition)
 end
 
+local mod_path = core.get_modpath(core.get_current_modname())
+
+dofile(mod_path .. "/ores.lua")
+
 infdev.groups = {
 	wood = "wood",
 	planks = "planks",
