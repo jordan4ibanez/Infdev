@@ -1,6 +1,13 @@
 # cavegame
  cave game
 
+
+# 0.0.2 - Basic items.
+
+Need to fix tool crafting.
+
+Blocks need to drop correct items
+
 Hand needs to be put in the game
 
 item for:
