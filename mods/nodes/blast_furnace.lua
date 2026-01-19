@@ -1,0 +1,485 @@
+-- Blast furnace.
+-- This is a heavily modified Minetest furnace.
+
+-- List of sound handles for active furnace
+local furnace_fire_sounds = {}
+
+--
+-- Formspecs
+--
+
+local function get_hotbar_bg(x, y)
+	local out = ""
+	for i = 0, 7, 1 do
+		out = out .. "image[" .. x + i .. "," .. y .. ";1,1;gui_hb_bg.png]"
+	end
+	return out
+end
+
+local function get_furnace_active_formspec(fuel_percent, item_percent)
+	return "size[8,8.5]" ..
+		"list[context;src;2.75,0.5;1,1;]" ..
+		"list[context;fuel;2.75,2.5;1,1;]" ..
+		"image[2.75,1.5;1,1;default_furnace_fire_bg.png^[lowpart:" ..
+		(fuel_percent) .. ":default_furnace_fire_fg.png]" ..
+		"image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[lowpart:" ..
+		(item_percent) .. ":gui_furnace_arrow_fg.png^[transformR270]" ..
+		"list[context;dst;4.75,0.96;2,2;]" ..
+		"list[current_player;main;0,4.25;8,1;]" ..
+		"list[current_player;main;0,5.5;8,3;8]" ..
+		"listring[context;dst]" ..
+		"listring[current_player;main]" ..
+		"listring[context;src]" ..
+		"listring[current_player;main]" ..
+		"listring[context;fuel]" ..
+		"listring[current_player;main]" ..
+		get_hotbar_bg(0, 4.25)
+end
+
+local function get_furnace_inactive_formspec()
+	return "size[8,8.5]" ..
+		"list[context;src;2.75,0.5;1,1;]" ..
+		"list[context;fuel;2.75,2.5;1,1;]" ..
+		"image[2.75,1.5;1,1;default_furnace_fire_bg.png]" ..
+		"image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[transformR270]" ..
+		"list[context;dst;4.75,0.96;2,2;]" ..
+		"list[current_player;main;0,4.25;8,1;]" ..
+		"list[current_player;main;0,5.5;8,3;8]" ..
+		"listring[context;dst]" ..
+		"listring[current_player;main]" ..
+		"listring[context;src]" ..
+		"listring[current_player;main]" ..
+		"listring[context;fuel]" ..
+		"listring[current_player;main]" ..
+		get_hotbar_bg(0, 4.25)
+end
+
+--
+-- Node callback functions that are the same for active and inactive furnace
+--
+
+local function allow_metadata_inventory_put(pos, listname, index, stack, player)
+	if core.is_protected(pos, player:get_player_name()) then
+		return 0
+	end
+	local meta = core.get_meta(pos)
+	local inv = meta:get_inventory()
+	if listname == "fuel" then
+		if core.get_craft_result({ method = "fuel", width = 1, items = { stack } }).time ~= 0 then
+			if inv:is_empty("src") then
+				meta:set_string("infotext", "Furnace is empty")
+			end
+			return stack:get_count()
+		else
+			return 0
+		end
+	elseif listname == "src" then
+		if core.get_craft_result({ method = "cooking", width = 1, items = { stack } }).time ~= 0 then
+			if inv:is_empty("src") then
+				meta:set_string("infotext", "Furnace is empty")
+			end
+			return stack:get_count()
+		else
+			return 0
+		end
+	elseif listname == "dst" then
+		return 0
+	end
+end
+
+local function allow_metadata_inventory_move(pos, from_list, from_index, to_list, to_index, count, player)
+	local meta = core.get_meta(pos)
+	local inv = meta:get_inventory()
+	local stack = inv:get_stack(from_list, from_index)
+	return allow_metadata_inventory_put(pos, to_list, to_index, stack, player)
+end
+
+local function allow_metadata_inventory_take(pos, listname, index, stack, player)
+	if core.is_protected(pos, player:get_player_name()) then
+		return 0
+	end
+	return stack:get_count()
+end
+
+local function stop_furnace_sound(pos, fadeout_step)
+	local hash = core.hash_node_position(pos)
+	local sound_ids = furnace_fire_sounds[hash]
+	if sound_ids then
+		for _, sound_id in ipairs(sound_ids) do
+			core.sound_fade(sound_id, -1, 0)
+		end
+		furnace_fire_sounds[hash] = nil
+	end
+end
+
+local function get_inventory_drops(pos, inventory, drops)
+	local inv = core.get_meta(pos):get_inventory()
+	local n = #drops
+	for i = 1, inv:get_size(inventory) do
+		local stack = inv:get_stack(inventory, i)
+		if stack:get_count() > 0 then
+			drops[n + 1] = stack:to_table()
+			n = n + 1
+		end
+	end
+end
+
+local function throw_items(pos)
+	local drops = {}
+	get_inventory_drops(pos, "src", drops)
+	get_inventory_drops(pos, "fuel", drops)
+	get_inventory_drops(pos, "dst", drops)
+
+	for _, item in ipairs(drops) do
+		core.add_item(pos, ItemStack(item))
+	end
+end
+
+
+local function swap_node(pos, name)
+	local node = core.get_node(pos)
+	if node.name == name then
+		return
+	end
+	node.name = name
+	core.swap_node(pos, node)
+end
+
+local function add_item_or_drop(inv, pos, item)
+	local leftover = inv:add_item("dst", item)
+	if not leftover:is_empty() then
+		local above = vector.offset(pos, 0, 1, 0)
+		local drop_pos = core.find_node_near(pos, 1, { "air" }) or above
+		core.item_drop(leftover, nil, drop_pos)
+	end
+end
+
+local function furnace_node_timer(pos, elapsed)
+	--
+	-- Initialize metadata
+	--
+	local meta = core.get_meta(pos)
+	local fuel_time = meta:get_float("fuel_time") or 0
+	local src_time = meta:get_float("src_time") or 0
+	local fuel_totaltime = meta:get_float("fuel_totaltime") or 0
+
+	local inv = meta:get_inventory()
+	local srclist, fuellist
+	local dst_full = false
+
+	local timer_elapsed = meta:get_int("timer_elapsed") or 0
+	meta:set_int("timer_elapsed", timer_elapsed + 1)
+
+	local cookable, cooked
+	local fuel
+	local update = true
+	local items_smelt = 0
+	while elapsed > 0 and update do
+		update = false
+
+		srclist = inv:get_list("src")
+		fuellist = inv:get_list("fuel")
+
+		--
+		-- Cooking
+		--
+
+		-- Check if we have cookable content
+		local aftercooked
+		cooked, aftercooked = core.get_craft_result({ method = "cooking", width = 1, items = srclist })
+		cookable = cooked.time ~= 0
+
+		local el = math.min(elapsed, fuel_totaltime - fuel_time)
+		if cookable then -- fuel lasts long enough, adjust el to cooking duration
+			el = math.min(el, cooked.time - src_time)
+		end
+
+		-- Check if we have enough fuel to burn
+		if fuel_time < fuel_totaltime then
+			-- The furnace is currently active and has enough fuel
+			fuel_time = fuel_time + el
+			-- If there is a cookable item then check if it is ready yet
+			if cookable then
+				src_time = src_time + el
+				if src_time >= cooked.time then
+					-- Place result in dst list if possible
+					if inv:room_for_item("dst", cooked.item) then
+						inv:add_item("dst", cooked.item)
+
+						-- stop any final replacement from clogging "src"
+						local can_cook = core.get_craft_result({
+							method = "cooking",
+							width = 1,
+							items = { aftercooked.items[1]:to_string() }
+						})
+						can_cook = can_cook.time ~= 0 or not can_cook.item:is_empty()
+
+						if aftercooked.items[1]:is_empty() or can_cook then
+							-- cook the final "src" item in the next cycle
+							inv:set_stack("src", 1, aftercooked.items[1])
+						else
+							-- the final "src" item was replaced and is not cookable
+							inv:set_stack("src", 1, "")
+							add_item_or_drop(inv, pos, aftercooked.items[1])
+						end
+
+						src_time = src_time - cooked.time
+						update = true
+						-- add replacement item to dst so they arent lost
+						if cooked.replacements[1] then
+							add_item_or_drop(inv, pos, cooked.replacements[1])
+						end
+					else
+						dst_full = true
+					end
+					items_smelt = items_smelt + 1
+				else
+					-- Item could not be cooked: probably missing fuel
+					update = true
+				end
+			end
+		else
+			-- Furnace ran out of fuel
+			if cookable then
+				-- We need to get new fuel
+				local afterfuel
+				fuel, afterfuel = core.get_craft_result({ method = "fuel", width = 1, items = fuellist })
+
+				if fuel.time == 0 then
+					-- No valid fuel in fuel list
+					fuel_totaltime = 0
+					src_time = 0
+				else
+					-- prevent blocking of fuel inventory (for automatization mods)
+					local is_fuel = core.get_craft_result({ method = "fuel", width = 1, items = { afterfuel.items[1]:to_string() } })
+					if is_fuel.time == 0 then
+						table.insert(fuel.replacements, afterfuel.items[1])
+						inv:set_stack("fuel", 1, "")
+					else
+						-- Take fuel from fuel list
+						inv:set_stack("fuel", 1, afterfuel.items[1])
+					end
+					-- Put replacements in dst list or drop them on the furnace.
+					local replacements = fuel.replacements
+					if replacements[1] then
+						add_item_or_drop(inv, pos, replacements[1])
+					end
+					update = true
+					fuel_totaltime = fuel.time + (fuel_totaltime - fuel_time)
+				end
+			else
+				-- We don't need to get new fuel since there is no cookable item
+				fuel_totaltime = 0
+				src_time = 0
+			end
+			fuel_time = 0
+		end
+
+		elapsed = elapsed - el
+	end
+
+	if items_smelt > 0 then
+		-- Play cooling sound
+		core.sound_play("default_cool_lava",
+			{ pos = pos, max_hear_distance = 16, gain = 0.07 * math.min(items_smelt, 7) }, true)
+	end
+	if fuel and fuel_totaltime > fuel.time then
+		fuel_totaltime = fuel.time
+	end
+	if srclist and srclist[1]:is_empty() then
+		src_time = 0
+	end
+
+	--
+	-- Update formspec, infotext and node
+	--
+	local formspec
+	local item_state
+	local item_percent = 0
+	if cookable then
+		item_percent = math.floor(src_time / cooked.time * 100)
+		if dst_full then
+			item_state = "100% (output full)"
+		else
+			item_state = item_percent
+		end
+	else
+		if srclist and not srclist[1]:is_empty() then
+			item_state = "Not cookable"
+		else
+			item_state = "Empty"
+		end
+	end
+
+	local fuel_state = "Empty"
+	local active = false
+	local result = false
+
+	if fuel_totaltime ~= 0 then
+		active = true
+		local fuel_percent = 100 - math.floor(fuel_time / fuel_totaltime * 100)
+		fuel_state = tostring(fuel_percent)
+		formspec = get_furnace_active_formspec(fuel_percent, item_percent)
+		swap_node(pos, "infdev:furnace_active")
+		-- make sure timer restarts automatically
+		result = true
+
+		-- Play sound every 5 seconds while the furnace is active
+		if timer_elapsed == 0 or (timer_elapsed + 1) % 5 == 0 then
+			local sound_id = core.sound_play("default_furnace_active",
+				{ pos = pos, max_hear_distance = 16, gain = 0.25 })
+			local hash = core.hash_node_position(pos)
+			furnace_fire_sounds[hash] = furnace_fire_sounds[hash] or {}
+			table.insert(furnace_fire_sounds[hash], sound_id)
+			-- Only remember the 3 last sound handles
+			if #furnace_fire_sounds[hash] > 3 then
+				table.remove(furnace_fire_sounds[hash], 1)
+			end
+			-- Remove the sound ID automatically from table after 11 seconds
+			core.after(11, function()
+				if not furnace_fire_sounds[hash] then
+					return
+				end
+				for f = #furnace_fire_sounds[hash], 1, -1 do
+					if furnace_fire_sounds[hash][f] == sound_id then
+						table.remove(furnace_fire_sounds[hash], f)
+					end
+				end
+				if #furnace_fire_sounds[hash] == 0 then
+					furnace_fire_sounds[hash] = nil
+				end
+			end)
+		end
+	else
+		if fuellist and not fuellist[1]:is_empty() then
+			fuel_state = tostring(0)
+		end
+		formspec = get_furnace_inactive_formspec()
+		swap_node(pos, "infdev:furnace")
+		-- stop timer on the inactive furnace
+		core.get_node_timer(pos):stop()
+		meta:set_int("timer_elapsed", 0)
+
+		stop_furnace_sound(pos)
+	end
+
+
+	local infotext
+	if active then
+		infotext = "Furnace active"
+	else
+		infotext = "Furnace inactive"
+	end
+	infotext = infotext .. "\n" .. "(Item: " .. item_state .. "; Fuel: " .. fuel_state .. ")"
+
+	--
+	-- Set meta values
+	--
+	meta:set_float("fuel_totaltime", fuel_totaltime)
+	meta:set_float("fuel_time", fuel_time)
+	meta:set_float("src_time", src_time)
+	meta:set_string("formspec", formspec)
+	meta:set_string("infotext", infotext)
+
+	return result
+end
+
+--
+-- Node definitions
+--
+
+infdev.register_node("furnace", {
+	description = "Furnace",
+	tiles = {
+		"default_furnace_top.png", "default_furnace_bottom.png",
+		"default_furnace_side.png", "default_furnace_side.png",
+		"default_furnace_side.png", "default_furnace_front.png"
+	},
+	paramtype2 = "facedir",
+	groups = {
+		[infdev.groups.stone] = 1
+	},
+	legacy_facedir_simple = true,
+	is_ground_content = false,
+	-- sounds = default.node_sound_stone_defaults(),
+
+	-- can_dig = can_dig,
+
+	on_timer = furnace_node_timer,
+	on_destruct = function(pos)
+		throw_items(pos)
+	end,
+
+	on_construct = function(pos)
+		local meta = core.get_meta(pos)
+		local inv = meta:get_inventory()
+		inv:set_size('src', 1)
+		inv:set_size('fuel', 1)
+		inv:set_size('dst', 4)
+		furnace_node_timer(pos, 0)
+	end,
+
+	on_metadata_inventory_move = function(pos)
+		core.get_node_timer(pos):start(1.0)
+	end,
+	on_metadata_inventory_put = function(pos)
+		-- start timer function, it will sort out whether furnace can burn or not.
+		core.get_node_timer(pos):start(1.0)
+	end,
+	on_metadata_inventory_take = function(pos)
+		-- check whether the furnace is empty or not.
+		core.get_node_timer(pos):start(1.0)
+	end,
+	on_blast = function(pos)
+		local drops = {}
+		get_inventory_drops(pos, "src", drops)
+		get_inventory_drops(pos, "fuel", drops)
+		get_inventory_drops(pos, "dst", drops)
+		drops[#drops + 1] = "infdev:furnace"
+		core.remove_node(pos)
+		return drops
+	end,
+
+	allow_metadata_inventory_put = allow_metadata_inventory_put,
+	allow_metadata_inventory_move = allow_metadata_inventory_move,
+	allow_metadata_inventory_take = allow_metadata_inventory_take,
+})
+
+infdev.register_node("furnace_active", {
+	description = "Furnace",
+	tiles = {
+		"default_furnace_top.png", "default_furnace_bottom.png",
+		"default_furnace_side.png", "default_furnace_side.png",
+		"default_furnace_side.png",
+		{
+			name = "default_furnace_front_active.png",
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 1.5
+			},
+		}
+	},
+	paramtype2 = "facedir",
+	light_source = 8,
+	drop = "infdev:furnace",
+	groups = {
+		[infdev.groups.stone] = 1
+	},
+	legacy_facedir_simple = true,
+	is_ground_content = false,
+	-- sounds = default.node_sound_stone_defaults(),
+	on_timer = furnace_node_timer,
+	on_destruct = function(pos)
+		stop_furnace_sound(pos)
+		throw_items(pos)
+	end,
+
+	-- can_dig = can_dig,
+
+	allow_metadata_inventory_put = allow_metadata_inventory_put,
+	allow_metadata_inventory_move = allow_metadata_inventory_move,
+	allow_metadata_inventory_take = allow_metadata_inventory_take,
+})
