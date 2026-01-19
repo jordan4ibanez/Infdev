@@ -83,3 +83,13 @@ infdev.register_craftitem("brick", {
 	description = "Brick",
 	inventory_image = "default_clay_brick.png^[colorize:#842020:100",
 })
+
+infdev.register_craftitem("uncured_fireclay_brick", {
+	description = "Uncured Fireclay Brick",
+	inventory_image = "default_clay_brick.png^[colorize:#FBF2C7:200",
+})
+
+infdev.register_craftitem("fireclay_brick", {
+	description = "Fireclay Brick",
+	inventory_image = "default_clay_brick.png^[colorize:#988558:200",
+})
