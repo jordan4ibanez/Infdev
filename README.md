@@ -10,7 +10,7 @@ clay which is spawned in lumps in sand
 
 bricks
 
-clay can smelt into bricks
++- clay can smelt into bricks
 
 fireclay bricks which are made from sand and clay in an x pattern
 
