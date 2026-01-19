@@ -32,3 +32,11 @@ core.register_craft({
 		{ string_group(infdev.groups.cobblestone), string_group(infdev.groups.cobblestone), string_group(infdev.groups.cobblestone) },
 	}
 })
+
+core.register_craft({
+	output = "infdev:brick_block",
+	recipe = {
+		{ "infdev:brick", "infdev:brick" },
+		{ "infdev:brick", "infdev:brick" },
+	}
+})
