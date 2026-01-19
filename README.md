@@ -15,7 +15,7 @@ item for:
 +- stone
 +- iron ingot
 +- gold ingot
-diamond
++- diamond
 ruby
 sapphire
 emerald
