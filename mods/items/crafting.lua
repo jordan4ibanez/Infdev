@@ -57,3 +57,13 @@ core.register_craft({
 		{ "infdev:sand", "infdev:clay" },
 	}
 })
+
+
+core.register_craft({
+	output = "infdev:blast_furnace",
+	recipe = {
+		{ "infdev:fireclay_brick", "infdev:fireclay_brick", "infdev:fireclay_brick" },
+		{ "infdev:fireclay_brick", "infdev:iron_ingot",     "infdev:fireclay_brick" },
+		{ "infdev:fireclay_brick", "infdev:fireclay_brick", "infdev:fireclay_brick" },
+	}
+})
