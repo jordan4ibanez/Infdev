@@ -17,7 +17,7 @@ item for:
 +- gold ingot
 +- diamond
 +- ruby
-sapphire
++- sapphire
 emerald
 lapis lazuli
 moonstone

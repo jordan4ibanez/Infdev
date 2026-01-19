@@ -43,3 +43,8 @@ infdev.register_craftitem("ruby", {
 	description = "Ruby",
 	inventory_image = "default_diamond.png^[colorize:red:190"
 })
+
+infdev.register_craftitem("sapphire", {
+	description = "Sapphire",
+	inventory_image = "default_diamond.png^[colorize:blue:190"
+})
