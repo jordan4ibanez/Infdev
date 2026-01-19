@@ -4,7 +4,7 @@
 
 # 0.0.3 - Tool update.
 
-regular furnace
++- regular furnace
 
 clay which is spawned in lumps in sand
 
