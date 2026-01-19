@@ -73,7 +73,8 @@ infdev.level_max = 10
 local tool_types = {
 	axe = { infdev.groups.wood },
 	pickaxe = { infdev.groups.stone },
-	shovel = { infdev.groups.farmland, infdev.groups.soil, infdev.groups.sand }
+	shovel = { infdev.groups.farmland, infdev.groups.soil, infdev.groups.sand },
+	sword = { infdev.groups.plant }
 }
 
 for _, definition in ipairs(__item_material) do
