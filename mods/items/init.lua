@@ -65,7 +65,7 @@ local __item_material = {
 }
 
 
-local uses = 64
+
 
 -- Maxes out at the highest tool tier.
 infdev.level_max = 10
@@ -105,6 +105,13 @@ for _, definition in ipairs(__item_material) do
 	for tool_name, tool_groups in pairs(tool_types) do
 		local groupcaps = {}
 
+
+		local uses = 64
+
+		for _ = 1, definition.level do
+			uses = uses * 2
+		end
+
 		-- This is in case new group types are added in.
 		for _, group in ipairs(tool_groups) do
 			groupcaps[group] = {
@@ -127,8 +134,4 @@ for _, definition in ipairs(__item_material) do
 			-- groups = { pickaxe = 1, flammable = 2 }
 		})
 	end
-
-
-
-	uses = uses * 2
 end
