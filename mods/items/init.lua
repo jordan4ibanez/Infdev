@@ -74,7 +74,8 @@ local tool_types = {
 	axe = { infdev.groups.wood },
 	pickaxe = { infdev.groups.stone },
 	shovel = { infdev.groups.farmland, infdev.groups.soil, infdev.groups.sand },
-	sword = { infdev.groups.plant }
+	sword = { infdev.groups.plant },
+	paxel = { infdev.groups.farmland, infdev.groups.soil, infdev.groups.sand, infdev.groups.stone, infdev.groups.wood },
 }
 
 for _, definition in ipairs(__item_material) do
