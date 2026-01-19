@@ -60,12 +60,6 @@ end
 -- Node callback functions that are the same for active and inactive furnace
 --
 
-local function can_dig(pos, player)
-	local meta = core.get_meta(pos)
-	local inv = meta:get_inventory()
-	return inv:is_empty("fuel") and inv:is_empty("dst") and inv:is_empty("src")
-end
-
 local function allow_metadata_inventory_put(pos, listname, index, stack, player)
 	if core.is_protected(pos, player:get_player_name()) then
 		return 0
@@ -112,6 +106,28 @@ local function stop_furnace_sound(pos, fadeout_step)
 		furnace_fire_sounds[hash] = nil
 	end
 end
+
+local function get_inventory_drops(pos, inventory, drops)
+	local inv = core.get_meta(pos):get_inventory()
+	local n = #drops
+	for i = 1, inv:get_size(inventory) do
+		local stack = inv:get_stack(inventory, i)
+		if stack:get_count() > 0 then
+			drops[n + 1] = stack:to_table()
+			n = n + 1
+		end
+	end
+end
+
+local function throw_items(pos)
+	local drops = {}
+	get_inventory_drops(pos, "src", drops)
+	get_inventory_drops(pos, "fuel", drops)
+	get_inventory_drops(pos, "dst", drops)
+
+	print(dump(drops))
+end
+
 
 local function swap_node(pos, name)
 	local node = core.get_node(pos)
@@ -365,19 +381,6 @@ end
 -- Node definitions
 --
 
-local function get_inventory_drops(pos, inventory, drops)
-	local inv = core.get_meta(pos):get_inventory()
-	local n = #drops
-	for i = 1, inv:get_size(inventory) do
-		local stack = inv:get_stack(inventory, i)
-		if stack:get_count() > 0 then
-			drops[n + 1] = stack:to_table()
-			n = n + 1
-		end
-	end
-end
-
-
 infdev.register_node("furnace", {
 	description = "Furnace",
 	tiles = {
@@ -391,9 +394,12 @@ infdev.register_node("furnace", {
 	is_ground_content = false,
 	-- sounds = default.node_sound_stone_defaults(),
 
-	can_dig = can_dig,
+	-- can_dig = can_dig,
 
 	on_timer = furnace_node_timer,
+	on_destruct = function(pos)
+		throw_items(pos)
+	end,
 
 	on_construct = function(pos)
 		local meta = core.get_meta(pos)
@@ -457,13 +463,12 @@ infdev.register_node("furnace_active", {
 	on_timer = furnace_node_timer,
 	on_destruct = function(pos)
 		stop_furnace_sound(pos)
+		throw_items(pos)
 	end,
 
-	can_dig = can_dig,
+	-- can_dig = can_dig,
 
 	allow_metadata_inventory_put = allow_metadata_inventory_put,
 	allow_metadata_inventory_move = allow_metadata_inventory_move,
 	allow_metadata_inventory_take = allow_metadata_inventory_take,
 })
-
-
