@@ -100,43 +100,31 @@ for _, definition in ipairs(__item_material) do
 
 	local name = (definition.name or definition.material)
 
-	core.register_tool(":infdev:" .. material .. "_axe", {
-		description = (definition.name or definition.material):gsub("^%l", string.upper) .. " Axe",
-		inventory_image = "default_tool_axe_head.png^[colorize:" ..
-			definition.color_mod .. ":200^default_tool_axe_handle.png",
-		tool_capabilities = {
-			max_drop_level = definition.level,
-			groupcaps = {
-				[infdev.groups.wood] = {
-					times = times,
-					uses = definition.uses or uses,
-					-- maxlevel = 100
-				},
-			},
-			damage_groups = { fleshy = 2 },
-		},
-		sound = { breaks = "default_tool_breaks" },
-		groups = { pickaxe = 1, flammable = 2 }
-	})
+	for tool_name, tool_groups in pairs(tool_types) do
+		local groupcaps = {}
 
-	core.register_tool(":infdev:" .. material .. "_pickaxe", {
-		description = (definition.name or definition.material):gsub("^%l", string.upper) .. " Axe",
-		inventory_image = "default_tool_pickaxe_head.png^[colorize:" ..
-			definition.color_mod .. ":200^default_tool_pickaxe_handle.png",
-		tool_capabilities = {
-			max_drop_level = definition.level,
-			groupcaps = {
-				[infdev.groups.stone] = {
-					times = times,
-					uses = definition.uses or uses,
-					-- maxlevel = 100
-				},
+		for _, group in ipairs(tool_groups) do
+			groupcaps[group] = {
+				times = times,
+				uses = definition.uses or uses,
+			}
+		end
+
+		core.register_tool(":infdev:" .. name .. "_" .. tool_name, {
+			description = name:gsub("^%l", string.upper) ..
+				" " .. tool_name:gsub("^%l", string.upper),
+			inventory_image = "default_tool_" .. tool_name .. "_head.png^[colorize:" ..
+				definition.color_mod .. ":200^default_tool_" .. tool_name .. "_handle.png",
+			tool_capabilities = {
+				max_drop_level = definition.level,
+				groupcaps = groupcaps,
+				damage_groups = { fleshy = 2 },
 			},
-			damage_groups = { fleshy = 2 },
-		},
-		sound = { breaks = "default_tool_breaks" },
-		groups = { pickaxe = 1, flammable = 2 }
-	})
+			sound = { breaks = "default_tool_breaks" },
+			groups = { pickaxe = 1, flammable = 2 }
+		})
+	end
+
 
 
 	uses = uses * 2
