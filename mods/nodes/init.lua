@@ -35,6 +35,7 @@ infdev.groups = {
 
 infdev.register_node("stone", {
 	tiles = { "default_stone.png" },
+	drop = "infdev:cobblestone",
 	groups = { [infdev.groups.stone] = 1 }
 })
 
