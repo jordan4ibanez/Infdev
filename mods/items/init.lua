@@ -9,10 +9,10 @@ dofile(mod_path .. "/crafting.lua")
 dofile(mod_path .. "/cooking.lua")
 dofile(mod_path .. "/fuels.lua")
 
-function infdev.register_craftitem(name, def)
+function infdev.register_craftitem(name, definition)
 	name = ":infdev:" .. name
-	def.stack_max = def.stack_max or 64
-	core.register_craftitem(name, def)
+	definition.stack_max = definition.stack_max or 64
+	core.register_craftitem(name, definition)
 end
 
 infdev.register_craftitem("stick", {
