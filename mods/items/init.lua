@@ -70,6 +70,11 @@ local uses = 64
 -- Maxes out at the highest tool tier.
 infdev.level_max = 10
 
+local tool_types = {
+	axe = { infdev.groups.wood },
+	pickaxe = { infdev.groups.stone },
+	shovel = { infdev.groups.farmland, infdev.groups.soil, infdev.groups.sand }
+}
 
 for _, definition in ipairs(__item_material) do
 	local material = definition.material or definition.name
@@ -92,6 +97,8 @@ for _, definition in ipairs(__item_material) do
 		times[i] = current_time
 		current_time = current_time * 3
 	end
+
+	local name = (definition.name or definition.material)
 
 	core.register_tool(":infdev:" .. material .. "_axe", {
 		description = (definition.name or definition.material):gsub("^%l", string.upper) .. " Axe",
