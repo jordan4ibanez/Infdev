@@ -25,6 +25,11 @@ infdev.register_craftitem("coal", {
 	inventory_image = "default_coal_lump.png^[colorize:black:170",
 })
 
+infdev.register_craftitem("charcoal", {
+	description = "Charcoal",
+	inventory_image = "default_coal_lump.png^[colorize:black:100",
+})
+
 infdev.register_craftitem("iron_ingot", {
 	description = "Iron Ingot",
 	inventory_image = "default_steel_ingot.png"
