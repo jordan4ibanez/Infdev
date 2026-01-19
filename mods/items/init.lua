@@ -2,6 +2,9 @@
 
 infdev = infdev or {}
 
+local mod_path = core.get_modpath(core.get_current_modname())
+
+dofile(mod_path .. "/tools.lua")
 
 core.register_craftitem(":infdev:stick", {
 	description = "Stick",
