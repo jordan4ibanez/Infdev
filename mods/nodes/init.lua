@@ -156,6 +156,11 @@ infdev.register_node("oak_leaves", {
 	groups = { [infdev.groups.plant] = 1 }
 })
 
+infdev.register_node("oak_planks", {
+	tiles = { "default_wood.png" },
+	groups = { [infdev.groups.wood] = 1 }
+})
+
 infdev.register_node("birch_tree", {
 	tiles = { "default_aspen_tree_top.png", "default_aspen_tree_top.png",
 		"default_aspen_tree.png" },
@@ -173,6 +178,12 @@ infdev.register_node("birch_leaves", {
 	is_ground_content = false,
 	groups = { [infdev.groups.plant] = 1 }
 })
+
+infdev.register_node("birch_planks", {
+	tiles = { "default_aspen_wood.png" },
+	groups = { [infdev.groups.wood] = 1 }
+})
+
 
 
 infdev.register_node("water_source", {
