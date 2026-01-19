@@ -5,7 +5,8 @@
     "infdev",
     "dump",
     "dump2",
-    "vector"
+    "vector",
+    "ItemStack"
   ],
   "Lua.runtime.version": "LuaJIT"
 }
