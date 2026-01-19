@@ -69,8 +69,17 @@ infdev.register_craftitem("lapis", {
 	inventory_image = "((default_coal_lump.png^[invert:rgb)^[contrast:100:-70)^[colorize:darkblue:150",
 })
 
-
 infdev.register_craftitem("moonstone", {
 	description = "Moonstone",
 	inventory_image = "((default_coal_lump.png^[invert:rgb)^[contrast:100:-70)^[colorize:lightblue:200",
+})
+
+infdev.register_craftitem("clay", {
+	description = "Clay Lump",
+	inventory_image = "default_clay_lump.png",
+})
+
+infdev.register_craftitem("brick", {
+	description = "Brick",
+	inventory_image = "default_clay_brick.png",
 })
