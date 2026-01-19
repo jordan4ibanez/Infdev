@@ -2,9 +2,27 @@
  cave game
 
 
-Hand needs to be put in the game
+# 0.0.3 - Tool update.
 
-hardened tools which are made by a blast furnace
+regular furnace
+
+clay which is spawned in lumps in sand
+
+bricks
+
+clay can smelt into bricks
+
+fireclay bricks which are made from sand and clay in an x pattern
+
+blast furnace is made from iron surrounded by fireclay
+
+hardened tools which are made by the blast furnace
+
+hardened tools have metal handles and are tinted orange
+
+hardened tools divide by 1.5 to the dig times
+
+Hand needs to be put in the game
 
 # 0.0.2 - Basic items.
 
