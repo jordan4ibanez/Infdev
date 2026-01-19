@@ -1,3 +1,5 @@
+-- This file stores all the ores.
+
 infdev.register_node("coal_ore", {
 	tiles = { "default_stone.png^default_mineral_coal.png" },
 	groups = { [infdev.groups.stone] = 2 },
