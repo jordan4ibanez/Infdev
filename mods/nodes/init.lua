@@ -51,7 +51,8 @@ infdev.register_node("grass", {
 			tileable_vertical = false
 		}
 	},
-	groups = { [infdev.groups.soil] = 1 }
+	groups = { [infdev.groups.soil] = 1 },
+	drop = "infdev:dirt"
 })
 
 infdev.register_node("sand", {
