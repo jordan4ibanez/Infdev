@@ -101,7 +101,7 @@ infdev.register_node("emerald", {
 })
 
 infdev.register_node("lapis", {
-	tiles = { "default_stone.png^((default_mineral_coal.png^[invert:rgb^[contrast:100:-70)^[colorize:blue:150)" },
+	tiles = { "default_stone.png^((default_mineral_coal.png^[invert:rgb^[contrast:100:-70)^[colorize:darkblue:150)" },
 	groups = { [infdev.groups.stone] = 8 }
 })
 
