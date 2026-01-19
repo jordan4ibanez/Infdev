@@ -18,7 +18,7 @@ end
 
 infdev.register_ore({
 	ore_type       = "scatter",
-	ore            = "infdev:coal",
+	ore            = "infdev:coal_ore",
 	wherein        = "infdev:stone",
 	clust_scarcity = 10,
 	clust_num_ores = 8,
@@ -29,7 +29,7 @@ infdev.register_ore({
 
 infdev.register_ore({
 	ore_type       = "scatter",
-	ore            = "infdev:iron",
+	ore            = "infdev:iron_ore",
 	wherein        = "infdev:stone",
 	clust_scarcity = 10,
 	clust_num_ores = 8,
@@ -40,7 +40,7 @@ infdev.register_ore({
 
 infdev.register_ore({
 	ore_type       = "scatter",
-	ore            = "infdev:gold",
+	ore            = "infdev:gold_ore",
 	wherein        = "infdev:stone",
 	clust_scarcity = 14,
 	clust_num_ores = 5,
@@ -52,7 +52,7 @@ infdev.register_ore({
 
 infdev.register_ore({
 	ore_type       = "scatter",
-	ore            = "infdev:diamond",
+	ore            = "infdev:diamond_ore",
 	wherein        = "infdev:stone",
 	clust_scarcity = 15,
 	clust_num_ores = 7,
@@ -63,7 +63,7 @@ infdev.register_ore({
 
 infdev.register_ore({
 	ore_type       = "scatter",
-	ore            = "infdev:ruby",
+	ore            = "infdev:ruby_ore",
 	wherein        = "infdev:stone",
 	clust_scarcity = 18,
 	clust_num_ores = 7,
@@ -74,7 +74,7 @@ infdev.register_ore({
 
 infdev.register_ore({
 	ore_type       = "scatter",
-	ore            = "infdev:sapphire",
+	ore            = "infdev:sapphire_ore",
 	wherein        = "infdev:stone",
 	clust_scarcity = 20,
 	clust_num_ores = 7,
@@ -85,7 +85,7 @@ infdev.register_ore({
 
 infdev.register_ore({
 	ore_type       = "scatter",
-	ore            = "infdev:emerald",
+	ore            = "infdev:emerald_ore",
 	wherein        = "infdev:stone",
 	clust_scarcity = 22,
 	clust_num_ores = 7,
@@ -96,7 +96,7 @@ infdev.register_ore({
 
 infdev.register_ore({
 	ore_type       = "scatter",
-	ore            = "infdev:lapis",
+	ore            = "infdev:lapis_ore",
 	wherein        = "infdev:stone",
 	clust_scarcity = 24,
 	clust_num_ores = 7,
@@ -107,7 +107,7 @@ infdev.register_ore({
 
 infdev.register_ore({
 	ore_type       = "scatter",
-	ore            = "infdev:moonstone",
+	ore            = "infdev:moonstone_ore",
 	wherein        = "infdev:stone",
 	clust_scarcity = 26,
 	clust_num_ores = 7,
