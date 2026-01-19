@@ -6,6 +6,7 @@ infdev.groups = {
 	wood = "wood",
 	planks = "planks",
 	stone = "stone",
+	cobblestone = "cobblestone",
 	soil = "soil",
 	sand = "sand",
 	plant = "plant",
