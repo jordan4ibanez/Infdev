@@ -16,7 +16,7 @@ local __item_material = {
 	},
 	{
 		name = "stone",
-		material = "cobblestone",
+		material = "group:cobblestone",
 		color_mod = "#505050",
 		level = 2,
 	},
