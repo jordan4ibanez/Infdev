@@ -1,0 +1,1 @@
+-- Blast furnace upgrade recipes.

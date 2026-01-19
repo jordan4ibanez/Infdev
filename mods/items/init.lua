@@ -8,6 +8,7 @@ dofile(mod_path .. "/tools.lua")
 dofile(mod_path .. "/crafting.lua")
 dofile(mod_path .. "/cooking.lua")
 dofile(mod_path .. "/fuels.lua")
+dofile(mod_path .. "/blasting.lua")
 
 function infdev.register_craftitem(name, definition)
 	name = ":infdev:" .. name
