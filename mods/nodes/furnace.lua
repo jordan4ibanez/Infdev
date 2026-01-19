@@ -466,11 +466,4 @@ infdev.register_node("furnace_active", {
 	allow_metadata_inventory_take = allow_metadata_inventory_take,
 })
 
-core.register_craft({
-	output = "infdev:furnace",
-	recipe = {
-		{ "group:stone", "group:stone", "group:stone" },
-		{ "group:stone", "",            "group:stone" },
-		{ "group:stone", "group:stone", "group:stone" },
-	}
-})
+

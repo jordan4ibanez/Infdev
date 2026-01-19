@@ -21,3 +21,12 @@ core.register_craft({
 		{ "group:" .. infdev.groups.planks },
 	}
 })
+
+core.register_craft({
+	output = "infdev:furnace",
+	recipe = {
+		{ "group:" .. infdev.groups.cobblestone, "group:" .. infdev.groups.cobblestone, "group:" .. infdev.groups.cobblestone },
+		{ "group:" .. infdev.groups.cobblestone, "",                                    "group:" .. infdev.groups.cobblestone },
+		{ "group:" .. infdev.groups.cobblestone, "group:" .. infdev.groups.cobblestone, "group:" .. infdev.groups.cobblestone },
+	}
+})
