@@ -4,10 +4,11 @@
 Hand needs to be put in the game
 
 item for:
-coal
-stone
-iron ingot
-gold ingot
++- coal
++- stone
++- iron ingot
++- gold ingot
+
 diamond
 ruby
 sapphire

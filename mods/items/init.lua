@@ -23,3 +23,13 @@ infdev.register_craftitem("coal", {
 	inventory_image = "default_coal_lump.png",
 	groups = { coal = 1, flammable = 1 }
 })
+
+infdev.register_craftitem("iron_ingot", {
+	description = "Iron Ingot",
+	inventory_image = "default_steel_ingot.png"
+})
+
+infdev.register_craftitem("gold_ingot", {
+	description = "Gold Ingot",
+	inventory_image = "default_gold_ingot.png"
+})
