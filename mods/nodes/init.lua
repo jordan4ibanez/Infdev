@@ -34,7 +34,10 @@ infdev.register_node("stone", {
 
 infdev.register_node("cobblestone", {
 	tiles = { "default_cobble.png" },
-	groups = { [infdev.groups.stone] = 1 }
+	groups = {
+		[infdev.groups.stone] = 1,
+		[infdev.groups.cobblestone] = 1
+	}
 })
 
 infdev.register_node("dirt", {
