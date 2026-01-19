@@ -101,9 +101,11 @@ for _, definition in ipairs(__item_material) do
 	-- This is specific for "wood" to become "wooden".
 	local name = (definition.name or definition.material)
 
+	-- Create every tool from the same template.
 	for tool_name, tool_groups in pairs(tool_types) do
 		local groupcaps = {}
 
+		-- This is in case new group types are added in.
 		for _, group in ipairs(tool_groups) do
 			groupcaps[group] = {
 				times = times,
@@ -122,7 +124,7 @@ for _, definition in ipairs(__item_material) do
 				damage_groups = { fleshy = 2 },
 			},
 			sound = { breaks = "default_tool_breaks" },
-			groups = { pickaxe = 1, flammable = 2 }
+			-- groups = { pickaxe = 1, flammable = 2 }
 		})
 	end
 
