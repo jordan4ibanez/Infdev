@@ -72,7 +72,7 @@ local __item_material = {
 infdev.level_max = 10
 
 local tool_types = {
-	axe = { infdev.groups.wood },
+	axe = { infdev.groups.wood, infdev.groups.planks },
 	pickaxe = { infdev.groups.stone },
 	shovel = { infdev.groups.farmland, infdev.groups.soil, infdev.groups.sand },
 	sword = { infdev.groups.plant },
