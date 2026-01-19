@@ -21,7 +21,6 @@ infdev.register_craftitem("stick", {
 infdev.register_craftitem("coal", {
 	description = "Coal",
 	inventory_image = "default_coal_lump.png",
-	groups = { coal = 1, flammable = 1 }
 })
 
 infdev.register_craftitem("iron_ingot", {
@@ -52,4 +51,9 @@ infdev.register_craftitem("sapphire", {
 infdev.register_craftitem("emerald", {
 	description = "Emerald",
 	inventory_image = "default_diamond.png^[colorize:lime:190"
+})
+
+infdev.register_craftitem("lapis", {
+	description = "Lapis Lazuli",
+	inventory_image = "((default_coal_lump.png^[invert:rgb)^[contrast:100:-70)^[colorize:darkblue:150",
 })

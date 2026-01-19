@@ -19,7 +19,7 @@ item for:
 +- ruby
 +- sapphire
 +- emerald
-lapis lazuli
++- lapis lazuli
 moonstone
 
 +- tools for every ore in the game
