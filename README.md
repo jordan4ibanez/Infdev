@@ -15,11 +15,11 @@ moonstone
 
 
 
-tools for every ore in the game
++- tools for every ore in the game
 
-wood tools
++- wood tools
 
-stone tools
++- stone tools
 
 hardened tools which are made by a blast furnace
 
