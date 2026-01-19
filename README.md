@@ -18,7 +18,7 @@ item for:
 +- diamond
 +- ruby
 +- sapphire
-emerald
++- emerald
 lapis lazuli
 moonstone
 
