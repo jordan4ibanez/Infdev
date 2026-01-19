@@ -3,20 +3,45 @@
 -- Generation of pickaxe, shovel, axe, sword, hoe, shears, and paxel.
 
 local __item_material = {
-	"wood",
-	"coal",
-	"stone",
-	"iron",
-	"gold",
-	"diamond",
-	"ruby",
-	"sapphire",
-	"emerald",
-	"lapis",
-	"moonstone"
+	wood = {
+		color_mod = ""
+	},
+	coal = {
+		color_mod = ""
+	},
+	stone = {
+		color_mod = ""
+	},
+	iron = {
+		color_mod = ""
+	},
+	gold = {
+		color_mod = ""
+	},
+	diamond = {
+		color_mod = ""
+	},
+	ruby = {
+		color_mod = ""
+	},
+	sapphire = {
+		color_mod = ""
+	},
+	emerald = {
+		color_mod = ""
+	},
+	lapis = {
+		color_mod = ""
+	},
+	moonstone = {
+		color_mod = ""
+	}
 }
 
-for _, material in ipairs(__item_material) do
+local level = 0
+for material, definition in pairs(__item_material) do
+	level = level + 1
+
 	core.register_tool(":infdev:" .. material .. "_axe", {
 		inventory_image = "default_tool_" .. material .. "pick.png",
 		tool_capabilities = {
