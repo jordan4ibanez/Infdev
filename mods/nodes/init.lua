@@ -22,9 +22,14 @@ end
 infdev.groups = {
 	wood = "wood",
 	stone = "stone",
-	dirt = "dirt",
+	soil = "soil",
 	sand = "sand",
-	plant = "plant"
+	plant = "plant",
+	farmland = "farmland",
+	bedrock = "bedrock",
+	liquid_source = "liquid_source",
+	liquid_flow = "liquid_flow",
+	water = "water"
 }
 
 
@@ -39,7 +44,8 @@ infdev.register_node("cobblestone", {
 })
 
 infdev.register_node("dirt", {
-	tiles = { "default_dirt.png" }
+	tiles = { "default_dirt.png" },
+	groups = { [infdev.groups.soil] = 1 }
 })
 
 infdev.register_node("grass", {
@@ -51,58 +57,72 @@ infdev.register_node("grass", {
 			tileable_vertical = false
 		}
 	},
+	groups = { [infdev.groups.soil] = 2 }
 })
 
 infdev.register_node("sand", {
-	tiles = { "default_sand.png" }
+	tiles = { "default_sand.png" },
+	groups = { [infdev.groups.sand] = 1 }
 })
 
 infdev.register_node("coal", {
 	tiles = { "default_stone.png^default_mineral_coal.png" },
+	groups = { [infdev.groups.stone] = 2 }
 })
 
 infdev.register_node("iron", {
 	tiles = { "default_stone.png^default_mineral_iron.png" },
+	groups = { [infdev.groups.stone] = 2 }
 })
 
 infdev.register_node("gold", {
 	tiles = { "default_stone.png^default_mineral_gold.png" },
+	groups = { [infdev.groups.stone] = 3 }
 })
 
 infdev.register_node("diamond", {
 	tiles = { "default_stone.png^default_mineral_diamond.png" },
+	groups = { [infdev.groups.stone] = 4 }
 })
 
 infdev.register_node("ruby", {
 	tiles = { "default_stone.png^(default_mineral_diamond.png^[colorize:red:190)" },
+	groups = { [infdev.groups.stone] = 5 }
 })
 
 infdev.register_node("sapphire", {
 	tiles = { "default_stone.png^(default_mineral_diamond.png^[colorize:blue:190)" },
+	groups = { [infdev.groups.stone] = 6 }
 })
 
 infdev.register_node("emerald", {
 	tiles = { "default_stone.png^(default_mineral_diamond.png^[colorize:lime:190)" },
+	groups = { [infdev.groups.stone] = 7 }
 })
 
 infdev.register_node("lapis", {
 	tiles = { "default_stone.png^((default_mineral_coal.png^[invert:rgb^[contrast:100:-70)^[colorize:blue:150)" },
+	groups = { [infdev.groups.stone] = 8 }
 })
 
 infdev.register_node("moonstone", {
 	tiles = { "default_stone.png^(default_mineral_iron.png^[colorize:lightblue:200)" },
+	groups = { [infdev.groups.stone] = 9 }
 })
 
 infdev.register_node("bedrock", {
-	tiles = { "default_stone.png^[contrast:100:-15" }
+	tiles = { "default_stone.png^[contrast:100:-15" },
+	groups = { [infdev.groups.bedrock] = 1 }
 })
 
 infdev.register_node("sandstone", {
-	tiles = { "default_sandstone.png" }
+	tiles = { "default_sandstone.png" },
+	groups = { [infdev.groups.stone] = 1 }
 })
 
 infdev.register_node("cactus", {
 	tiles = { "default_cactus_top.png", "default_cactus_top.png", "default_cactus_side.png" },
+	groups = { [infdev.groups.plant] = 1 }
 })
 
 infdev.register_node("sugarcane", {
@@ -115,6 +135,7 @@ infdev.register_node("sugarcane", {
 		type = "fixed",
 		fixed = { -6 / 16, -0.5, -6 / 16, 6 / 16, 0.5, 6 / 16 },
 	},
+	groups = { [infdev.groups.plant] = 1 }
 })
 
 
@@ -122,6 +143,7 @@ infdev.register_node("oak_tree", {
 	tiles = { "default_tree_top.png", "default_tree_top.png", "default_tree.png" },
 	paramtype2 = "facedir",
 	is_ground_content = false,
+	groups = { [infdev.groups.wood] = 1 }
 })
 
 infdev.register_node("oak_leaves", {
@@ -131,6 +153,7 @@ infdev.register_node("oak_leaves", {
 	special_tiles = { "default_leaves_simple.png" },
 	paramtype = "light",
 	is_ground_content = false,
+	groups = { [infdev.groups.plant] = 1 }
 })
 
 infdev.register_node("birch_tree", {
@@ -138,6 +161,7 @@ infdev.register_node("birch_tree", {
 		"default_aspen_tree.png" },
 	paramtype2 = "facedir",
 	is_ground_content = false,
+	groups = { [infdev.groups.wood] = 1 }
 })
 
 
@@ -147,6 +171,7 @@ infdev.register_node("birch_leaves", {
 	waving = 1,
 	paramtype = "light",
 	is_ground_content = false,
+	groups = { [infdev.groups.plant] = 1 }
 })
 
 
@@ -190,7 +215,10 @@ infdev.register_node("water_source", {
 	liquid_alternative_source = "infdev:water_source",
 	liquid_viscosity = 1,
 	post_effect_color = { a = 103, r = 30, g = 60, b = 90 },
-	groups = { water = 3, liquid = 3, cools_lava = 1 },
+	groups = {
+		[infdev.groups.liquid_source] = 1,
+		[infdev.groups.water] = 1,
+	},
 	-- sounds = default.node_sound_water_defaults(),
 })
 
@@ -238,10 +266,8 @@ infdev.register_node("water_flowing", {
 	liquid_viscosity = 1,
 	post_effect_color = { a = 103, r = 30, g = 60, b = 90 },
 	groups = {
-		water = 3,
-		liquid = 3,
-		not_in_creative_inventory = 1,
-		cools_lava = 1
+		[infdev.groups.liquid_flow] = 1,
+		[infdev.groups.water] = 1,
 	},
 	-- sounds = default.node_sound_water_defaults(),
 })
