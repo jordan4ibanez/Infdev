@@ -8,13 +8,13 @@
 
 clay which is spawned in lumps in sand
 
-bricks
++- bricks
 
 +- clay can smelt into bricks
 
-fireclay bricks which are made from sand and clay in an x pattern
++- fireclay bricks which are made from sand and clay in an x pattern
 
-cured fireclay bricks are smelted in regular furnace so you can't skip it
++- cured fireclay bricks are smelted in regular furnace so you can't skip it
 
 blast furnace is made from iron surrounded by cured fireclay bricks
 
