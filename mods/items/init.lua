@@ -6,7 +6,8 @@ infdev = infdev or {}
 
 local __item_material = {
 	{
-		name = "wood",
+		name = "wooden",
+		material = "wood",
 		color_mod = "#966919",
 		level = 1,
 	},
@@ -63,7 +64,7 @@ local __item_material = {
 	}
 }
 
-local level = 1
+
 local uses = 64
 
 -- Maxes out at the highest tool tier.
@@ -71,20 +72,38 @@ infdev.level_max = 10
 
 
 for _, definition in ipairs(__item_material) do
-	local material = definition.material
+	local material = definition.material or definition.name
 
-	print(material)
+	local current_level_time = 2
+	local current_time = current_level_time
+
+	local times = {}
+
+	-- As you level up your low level mining speed gets quite crazy.
+	for i = definition.level, 1, -1 do
+		times[i] = current_time
+		current_time = current_time / 1.5
+	end
+
+	current_time = current_level_time
+
+	-- As you try to mine above your current level, the times get very long.
+	for i = definition.level, infdev.level_max do
+		times[i] = current_time
+		current_time = current_time * 3
+	end
 
 	core.register_tool(":infdev:" .. material .. "_axe", {
+		description = (definition.name or definition.material):gsub("^%l", string.upper) .. " Axe",
 		inventory_image = "default_tool_axe_head.png^[colorize:" ..
 			definition.color_mod .. ":200^default_tool_axe_handle.png",
 		tool_capabilities = {
-			max_drop_level = level,
+			max_drop_level = definition.level,
 			groupcaps = {
-				cracky = {
-					times = { [3] = 1.60 },
+				[infdev.groups.wood] = {
+					times = times,
 					uses = definition.uses or uses,
-					maxlevel = 100
+					-- maxlevel = 100
 				},
 			},
 			damage_groups = { fleshy = 2 },
@@ -93,6 +112,5 @@ for _, definition in ipairs(__item_material) do
 		groups = { pickaxe = 1, flammable = 2 }
 	})
 
-	level = level + 1
 	uses = uses * 2
 end
