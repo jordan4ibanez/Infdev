@@ -22,7 +22,7 @@ infdev.groups = {
 ---Turns an infdev.group into "group:whatever"
 ---@param input_group string
 ---@return string
-function infdev.group_string(input_group)
+function infdev.string_group(input_group)
 	if (infdev.groups[input_group] == nil) then
 		error("Group " .. input_group .. " does not exist.")
 	end
