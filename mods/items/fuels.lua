@@ -1,0 +1,1 @@
+-- All fuels are registered here.

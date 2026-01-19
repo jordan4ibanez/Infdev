@@ -7,6 +7,7 @@ local mod_path = core.get_modpath(core.get_current_modname())
 dofile(mod_path .. "/tools.lua")
 dofile(mod_path .. "/crafting.lua")
 dofile(mod_path .. "/cooking.lua")
+dofile(mod_path .. "/fuels.lua")
 
 function infdev.register_craftitem(name, def)
 	name = ":infdev:" .. name
