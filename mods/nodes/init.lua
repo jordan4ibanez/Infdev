@@ -83,6 +83,16 @@ infdev.register_node("brick_block", {
 	groups = { [infdev.groups.stone] = 1 },
 })
 
+infdev.register_node("fireclay_brick_block", {
+	description = "Fireclay Brick Block",
+	tiles = {
+		"default_brick.png^[transformFX^[colorize:#988558:200",
+		"default_brick.png^[colorize:#988558:200",
+	},
+	is_ground_content = false,
+	groups = { [infdev.groups.stone] = 1 },
+})
+
 infdev.register_node("glass", {
 	description = "Glass",
 	drawtype = "glasslike_framed_optional",
