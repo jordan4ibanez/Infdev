@@ -8,7 +8,7 @@ local blast_recipes = {}
 ---@param input string
 ---@param output string
 function infdev.register_blast(input, output)
-	if (blast_recipes[input] == output) then
+	if (blast_recipes[input] ~= nil) then
 		error("Error: Tried to overwrite blast recipe " .. input .. " to " .. output)
 	end
 end
