@@ -1,5 +1,7 @@
+import lua.Lua;
 import luanti_types.Core;
 import Reflect;
+import Type;
 
 abstract class Entity {
 	@:native("on_activate")
