@@ -1,5 +1,7 @@
+import luanti_types.Core;
+
 class Main {
 	public static function main() {
-		trace("Hello, World!");
+		Core.log(error, "testing");
 	};
 }
