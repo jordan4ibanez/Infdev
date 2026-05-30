@@ -23,10 +23,10 @@ class Entity {
 		Lua.print("hi");
 	}
 
-	public static function toLuanti(input:Class<Entity>):Dynamic {
+	public static function toLuanti(input: Class<Entity>): Dynamic {
 		// Static.
 		trace(Type.getClassFields(input));
-		// Dynamic.
+		// Instance.
 		trace(Type.getInstanceFields(input));
 
 		return 5;
