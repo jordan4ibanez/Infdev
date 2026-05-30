@@ -1,6 +1,7 @@
 package luanti_types;
 
-import luanti_types.Log.LogLevel;
+// These are public imports. :)
+import luanti_types.LogLevel;
 
 @:native("core")
 extern class Core {
