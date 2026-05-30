@@ -12,10 +12,14 @@ class LuantiCompilerFix {
 			var lines = content.split("\n");
 
 			for (i => line in lines) {
+				// Hard code package.loaded.luv to short circuit into _hx_luv define.
+				if (line.contains("package.loaded.luv")) {
+					lines[i] = '-- Short circuit to automatic define.\nif false then';
+				}
+
 				// Check if this thing is gonna blow up Luanti safe mode.
 				if (line.contains("require") && !line.startsWith("--")) {
-					lines[i] = '-- ${line}';
-					trace(i, lines[i]);
+					lines[i] = '--${line} (Disabled for Luanti.)';
 				}
 			}
 
