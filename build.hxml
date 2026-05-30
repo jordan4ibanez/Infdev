@@ -1,3 +1,13 @@
 -cp src
 -main Main
 -lua init.lua
+
+# Jit.
+-D lua-jit
+
+# Disable utf8.
+-D lua-vanilla
+
+-D lua-ver=5.1
+
+--macro LuantiCompilerFix.blah()
