@@ -24,6 +24,11 @@ class Entity {
 	}
 
 	public static function toLuanti(input:Class<Entity>):Dynamic {
+		// Static.
+		trace(Type.getClassFields(input));
+		// Dynamic.
+		trace(Type.getInstanceFields(input));
+
 		return 5;
 	}
 }
