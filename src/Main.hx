@@ -4,9 +4,9 @@ import Reflect;
 import Type;
 
 class Vec3 {
-	var x:Float;
-	var y:Float;
-	var z:Float;
+	var x: Float;
+	var y: Float;
+	var z: Float;
 
 	public function new() {
 		x = Math.random();
@@ -16,7 +16,7 @@ class Vec3 {
 }
 
 class Entity {
-	var pos:Vec3;
+	var pos: Vec3;
 
 	public function new() {
 		this.pos = new Vec3();
