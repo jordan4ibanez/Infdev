@@ -18,7 +18,7 @@ class Vec3 {
 class Entity {
 	var pos:Vec3;
 
-	public function new(self:Entity) {
+	public function new() {
 		this.pos = new Vec3();
 		Lua.print("hi");
 	}
