@@ -15,6 +15,20 @@ class Vec3 {
 	}
 }
 
+class Entity {
+	var pos:Vec3;
+
+	public function new(self:Entity) {
+		this.pos = new Vec3();
+		Lua.print("hi");
+	}
+
+	public static function toLuanti(input:Class<Entity>):Dynamic {
+		return 5;
+	}
+}
+
+class Mob extends Entity {}
 
 class Main {
 	public static function main() {
