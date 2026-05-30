@@ -18,9 +18,9 @@ class LuantiCompilerFix {
 				}
 
 				// Check if this thing is gonna blow up Luanti safe mode.
-				if (line.contains("require") && !line.startsWith("--")) {
-					lines[i] = '--${line} (Disabled for Luanti.)';
-				}
+				// if (line.contains("require") && !line.startsWith("--")) {
+				// 	lines[i] = '--${line} (Disabled for Luanti.)';
+				// }
 			}
 
 			File.saveContent("init.lua", lines.join("\n"));
