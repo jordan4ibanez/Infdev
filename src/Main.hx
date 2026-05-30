@@ -4,9 +4,9 @@ import Reflect;
 import Type;
 
 class Vec3 {
-	var x: Float;
-	var y: Float;
-	var z: Float;
+	public var x: Float;
+	public var y: Float;
+	public var z: Float;
 
 	public function new() {
 		x = Math.random();
