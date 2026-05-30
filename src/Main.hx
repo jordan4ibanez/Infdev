@@ -32,6 +32,8 @@ class Mob extends Entity {}
 
 class Main {
 	public static function main() {
+		Entity.toLuanti(Mob);
 
+		Core.registerEntity("haxe_luanti:test", Entity);
 	};
 }
