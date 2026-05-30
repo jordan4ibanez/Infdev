@@ -35,5 +35,9 @@ class Main {
 		Entity.toLuanti(Mob);
 
 		Core.registerEntity("haxe_luanti:test", Entity);
+
+		Core.registerOnJoinPlayer(() -> {
+			Core.requestShutdown();
+		});
 	};
 }
