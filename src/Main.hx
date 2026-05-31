@@ -39,7 +39,8 @@ abstract class Entity {
 		// ? Static and instance field assignment in LuaJIT.
 		// ? Works from the current class backwards until reached root (Entity).
 
-		var currentClass = classType;
+		// todo: look into this, it may be wrong.
+		var currentClass: Class<Dynamic> = classType;
 
 		while (currentClass != null) {
 			// ? Static.
