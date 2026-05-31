@@ -31,9 +31,9 @@ abstract class Entity {
 
 	public static function toLuanti(input: Class<Entity>): Dynamic {
 		// Static.
-		trace("Class:", Reflect.fields(input));
+		// trace("Class:", Reflect.fields(input));
 		// Instance.
-		trace("Object:", Type.getInstanceFields(input));
+		// trace("Object:", Type.getInstanceFields(input));
 
 		if (Reflect.field(input, "on_activate") != null) {
 			throw "Do not use on_activate.";
