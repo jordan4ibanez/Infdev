@@ -42,6 +42,8 @@ abstract class Entity {
 		var currentClass: Class<Dynamic> = classType;
 
 		while (currentClass != null) {
+			trace(" ===== in class: ", Type.getClassName(currentClass), "=====");
+
 			// ? Static.
 
 			var staticFields = Reflect.fields(currentClass);
