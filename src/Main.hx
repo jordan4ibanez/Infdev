@@ -25,9 +25,9 @@ abstract class Entity {
 
 	public static function toLuanti(input: Class<Entity>): Dynamic {
 		// Static.
-		trace(Type.getClassFields(input));
+		trace("Class:", Type.getClassFields(input));
 		// Instance.
-		trace(Type.getInstanceFields(input));
+		trace("Object:", Type.getInstanceFields(input));
 
 		return 5;
 	}
