@@ -48,6 +48,7 @@ abstract class Entity {
 			throw "Logic error. New missing from Entity derived class.";
 		}
 		luantiTable.on_activate = constructorFunc;
+		// ? End hardwire.
 
 		return luantiTable;
 	}
