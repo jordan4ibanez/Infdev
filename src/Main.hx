@@ -20,6 +20,7 @@ abstract class Entity {
 
 	public function new(self: Entity, staticData: String, dtimeS: Float) {
 		this.pos = new Vec3();
+		trace("good day, I am an entity");
 	}
 
 	public static function toLuanti(input: Class<Entity>): Dynamic {
