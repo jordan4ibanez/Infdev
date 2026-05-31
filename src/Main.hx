@@ -106,21 +106,21 @@ abstract class Entity {
 	}
 }
 
-class Mob extends Entity {
-	static var currentUUID: Int = 0;
+// class Mob extends Entity {
+// 	static var currentUUID: Int = 0;
 
-	public var UUID: Int = 0;
+// 	public var UUID: Int = 0;
 
-	public function new(_: Null<Any>, staticData: String, dtimeS: Float) {
-		super(_, staticData, dtimeS);
-		this.UUID = 1;
-		currentUUID++;
-	}
+// 	public function new(_: Null<Any>, staticData: String, dtimeS: Float) {
+// 		super(_, staticData, dtimeS);
+// 		this.UUID = 1;
+// 		currentUUID++;
+// 	}
 
-	override function onStep(delta: Float) {
-		super.onStep(delta);
-	}
-}
+// 	override function onStep(delta: Float) {
+// 		super.onStep(delta);
+// 	}
+// }
 
 class Main {
 	public static function main() {
