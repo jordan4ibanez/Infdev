@@ -45,9 +45,19 @@ abstract class Entity {
 
 		var staticFields = Reflect.fields(input);
 
+		for (field in staticFields) {
+			trace("static", field);
+		}
+
 		// Dynamic.
 
 		var prototype: Dynamic = Reflect.field(input, "prototype");
+
+		var instanceFields = Reflect.fields(prototype);
+
+		for (field in instanceFields) {
+			trace("instance", field);
+		}
 
 		// Lua.print(Global.dump(prototype));
 
