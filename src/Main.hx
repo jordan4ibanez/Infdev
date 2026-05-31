@@ -90,6 +90,9 @@ abstract class Entity {
 					Reflect.setField(luantiTable, field, instanceDataValue);
 				}
 			}
+
+			// Move up the inheritance tree.
+			currentClass = Type.getSuperClass(currentClass);
 		}
 
 		return luantiTable;
