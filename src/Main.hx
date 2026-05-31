@@ -74,15 +74,6 @@ abstract class Entity {
 
 		// Lua.print(Global.dump(prototype));
 
-		// ? Note: This is manually hardwiring in the constructor into on_activate.
-		// Manually inject the new method into Luanti style.
-		var constructorFunc: Dynamic = Reflect.field(input, "new");
-		if (constructorFunc == null) {
-			throw "Logic error. New missing from Entity derived class.";
-		}
-		luantiTable.on_activate = constructorFunc;
-		// ? End hardwire.
-
 		return luantiTable;
 	}
 }
