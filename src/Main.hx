@@ -25,9 +25,8 @@ abstract class Entity {
 		// Lua.print("[" + staticData + "]", dtimeS);
 	}
 
-	public function on_step(): Void {
-		trace("hi");
-	}
+	@:native("on_step")
+	public function onStep(delta: Float): Void {}
 
 	public static function toLuanti(classType: Class<Entity>): Dynamic {
 		if (Reflect.field(classType, "on_activate") != null) {
