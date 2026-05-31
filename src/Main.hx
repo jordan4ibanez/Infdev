@@ -24,6 +24,9 @@ abstract class Entity {
 		trace("good day, I am an entity", this.pos);
 		// Lua.print("[" + staticData + "]", dtimeS);
 	}
+
+	public function on_step(): Void {
+		trace("hi");
 	}
 
 	public static function toLuanti(input: Class<Entity>): Dynamic {
