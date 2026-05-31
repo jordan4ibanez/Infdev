@@ -50,7 +50,8 @@ abstract class Entity {
 
 			for (field in staticFields) {
 				// Don't overwrite child overrides.
-				if (Reflect.hasField(luantiTable, field)) {
+				// ? new is hardwired to on_activate so it gets a special check.
+				if (Reflect.hasField(luantiTable, field) || (field == "new" && Reflect.hasField(luantiTable, "on_activate"))) {
 					trace("Warning: Skipping static class data", field);
 					continue;
 				} else {
