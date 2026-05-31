@@ -9,6 +9,7 @@ class Vec3 {
 	public var z: Float;
 
 	public function new() {
+		trace("I am a new vec3");
 		x = Math.random();
 		y = Math.random();
 		z = Math.random();
