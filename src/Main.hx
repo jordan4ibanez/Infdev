@@ -62,7 +62,7 @@ abstract class Entity {
 			}
 		}
 
-		// Dynamic.
+		// Instance.
 
 		var prototype: Dynamic = Reflect.field(input, "prototype");
 
