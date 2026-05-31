@@ -16,7 +16,7 @@ class Vec3 {
 }
 
 abstract class Entity {
-	var pos: Vec3;
+	var pos: Vec3 = new Vec3();
 
 	public function new(_: Null<Any>, staticData: String, dtimeS: Float) {
 		// this.pos = new Vec3();
