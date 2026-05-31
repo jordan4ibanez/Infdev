@@ -41,6 +41,7 @@ abstract class Entity {
 
 		var luantiTable: Dynamic = {};
 
+		// ? Note: This is manually hardwiring in the constructor into on_activate.
 		// Manually inject the new method into Luanti style.
 		var constructorFunc: Dynamic = Reflect.field(input, "new");
 
