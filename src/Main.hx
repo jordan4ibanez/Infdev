@@ -48,6 +48,11 @@ abstract class Entity {
 
 			for (field in staticFields) {
 				trace("static", field);
+				// Don't overwrite child overrides. (Probably not needed for static. [But this is very complex so I'm not taking chances.])
+				if (Reflect.hasField(luantiTable, field)) {
+					trace("Warning: Skipping static class data", field);
+					continue;
+				}
 				switch (field) {
 					case "new":
 						{
@@ -62,11 +67,6 @@ abstract class Entity {
 						}
 					default:
 						{
-							// Don't overwrite child overrides. (Probably not needed for static. [But this is very complex so I'm not taking chances.])
-							if (Reflect.hasField(luantiTable, field)) {
-								trace("Warning: Skipping static class data", field);
-								continue;
-							}
 							var dataValue = Reflect.field(input, field);
 							// todo: do stuff with it (if needed)
 							Reflect.setField(luantiTable, field, dataValue);
