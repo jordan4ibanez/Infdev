@@ -65,6 +65,7 @@ abstract class Entity {
 					{
 						// Don't overwrite child overrides. (Probably not needed for static. [But this is very complex so I'm not taking chances.])
 						if (Reflect.hasField(luantiTable, field)) {
+							trace("Warning: Skipping static class data", field);
 							continue;
 						}
 
