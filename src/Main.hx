@@ -1,7 +1,4 @@
-import lua.Lua;
 import luanti_types.Core;
-import Reflect;
-import Type;
 
 class Vec3 {
 	public var x: Float;
@@ -19,7 +16,7 @@ class Vec3 {
 abstract class Entity {
 	var pos: Vec3 = new Vec3();
 
-	public function new(_: Null<Any>, staticData: String, dtimeS: Float) {
+	public function new(staticData: String, dtimeS: Float) {
 		// this.pos = new Vec3();
 		trace("good day, I am an entity", this.pos);
 		// Lua.print("[" + staticData + "]", dtimeS);
