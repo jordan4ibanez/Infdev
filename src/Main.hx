@@ -39,6 +39,10 @@ abstract class Entity {
 		// ? Static and instance field assignment in LuaJIT.
 		// ? Works from the current class backwards until reached root (Entity).
 
+		var currentClass = classType;
+
+		while (currentClass != null) {
+
 		// ? Static.
 
 		var staticFields = Reflect.fields(classType);
@@ -86,6 +90,7 @@ abstract class Entity {
 			if (Reflect.isFunction(instanceDataValue)) {
 				Reflect.setField(luantiTable, field, instanceDataValue);
 			}
+		}
 		}
 
 		return luantiTable;
