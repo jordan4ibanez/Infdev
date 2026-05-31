@@ -47,6 +47,19 @@ abstract class Entity {
 
 		for (field in staticFields) {
 			trace("static", field);
+			switch (field) {
+				case "new":
+					{
+						// ? Note: This is manually hardwiring in the constructor into on_activate.
+						// Manually inject the new method into Luanti style.
+						var constructorFunc: Dynamic = Reflect.field(input, "new");
+						if (constructorFunc == null) {
+							throw "Logic error. New missing from Entity derived class.";
+						}
+						luantiTable.on_activate = constructorFunc;
+						// ? End hardwire.
+					}
+			}
 		}
 
 		// Dynamic.
