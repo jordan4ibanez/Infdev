@@ -78,30 +78,22 @@ abstract class Entity {
 			}
 		}
 
-		// Instance.
-
+		// ? Instance.
 		var prototype: Dynamic = Reflect.field(input, "prototype");
-
 		var instanceFields = Reflect.fields(prototype);
-
 		for (field in instanceFields) {
 			trace("instance", field);
-
 			// Don't overwrite child overrides.
 			if (Reflect.hasField(luantiTable, field)) {
 				trace("Warning: Skipping instance class data", field);
 				continue;
 			}
-
 			var instanceDataValue = Reflect.field(prototype, field);
-
 			// ? Only map functions. Everything else is null.
 			if (Reflect.isFunction(instanceDataValue)) {
 				Reflect.setField(luantiTable, field, instanceDataValue);
 			}
 		}
-
-		// Lua.print(Global.dump(prototype));
 
 		return luantiTable;
 	}
