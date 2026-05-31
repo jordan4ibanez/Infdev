@@ -42,8 +42,9 @@ abstract class Entity {
 		var luantiTable: Dynamic = {};
 
 		// ? Static and instance field assignment in LuaJIT.
+		// ? Works from the current class backwards until reached root (Entity).
 
-		// Static.
+		// ? Static.
 
 		var staticFields = Reflect.fields(input);
 
