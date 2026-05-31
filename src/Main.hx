@@ -29,8 +29,8 @@ abstract class Entity {
 		trace("hi");
 	}
 
-	public static function toLuanti(input: Class<Entity>): Dynamic {
-		if (Reflect.field(input, "on_activate") != null) {
+	public static function toLuanti(classType: Class<Entity>): Dynamic {
+		if (Reflect.field(classType, "on_activate") != null) {
 			throw "Do not use on_activate.";
 		}
 
@@ -41,7 +41,7 @@ abstract class Entity {
 
 		// ? Static.
 
-		var staticFields = Reflect.fields(input);
+		var staticFields = Reflect.fields(classType);
 
 		for (field in staticFields) {
 			trace("static", field);
@@ -72,7 +72,7 @@ abstract class Entity {
 		}
 
 		// ? Instance.
-		var prototype: Dynamic = Reflect.field(input, "prototype");
+		var prototype: Dynamic = Reflect.field(classType, "prototype");
 		var instanceFields = Reflect.fields(prototype);
 		for (field in instanceFields) {
 			trace("instance", field);
