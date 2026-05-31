@@ -100,6 +100,8 @@ abstract class Entity {
 			currentClass = Type.getSuperClass(currentClass);
 		}
 
+		// trace("DATA", Global.dump(luantiTable));
+
 		return luantiTable;
 	}
 }
