@@ -68,11 +68,8 @@ abstract class Entity {
 							trace("Warning: Skipping static class data", field);
 							continue;
 						}
-
 						var dataValue = Reflect.field(input, field);
-
 						// todo: do stuff with it (if needed)
-
 						Reflect.setField(luantiTable, field, dataValue);
 					}
 			}
