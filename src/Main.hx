@@ -86,6 +86,18 @@ abstract class Entity {
 
 		for (field in instanceFields) {
 			trace("instance", field);
+
+			// Don't overwrite child overrides.
+			if (Reflect.hasField(luantiTable, field)) {
+				trace("Warning: Skipping instance class data", field);
+				continue;
+			}
+
+			var instanceDataValue = Reflect.field(prototype, field);
+
+			trace(instanceDataValue);
+
+			switch (field) {}
 		}
 
 		// Lua.print(Global.dump(prototype));
