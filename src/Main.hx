@@ -18,6 +18,11 @@ class Vec3 {
 abstract class Entity {
 	var pos: Vec3;
 
+	public function new(_: Null<Any>, staticData: String, dtimeS: Float) {
+		// this.pos = new Vec3();
+		trace("good day, I am an entity", this.pos);
+		// Lua.print("[" + staticData + "]", dtimeS);
+	}
 	}
 
 	public static function toLuanti(input: Class<Entity>): Dynamic {
