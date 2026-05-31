@@ -28,7 +28,7 @@ abstract class Entity {
 	@:native("on_step")
 	public function onStep(delta: Float): Void {}
 
-	public static function toLuanti(classType: Class<Entity>): Dynamic {
+	public static function toLuanti(classType: Class<Dynamic>): Dynamic {
 		if (Reflect.field(classType, "on_activate") != null) {
 			throw "Do not use on_activate.";
 		}
