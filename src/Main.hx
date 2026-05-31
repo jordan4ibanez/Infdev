@@ -15,7 +15,7 @@ class Vec3 {
 	}
 }
 
-class Entity {
+abstract class Entity {
 	var pos: Vec3;
 
 	public function new() {
