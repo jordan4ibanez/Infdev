@@ -1,3 +1,4 @@
+import lua.Lua;
 import luanti_types.Core;
 
 class Vec3 {
@@ -13,22 +14,30 @@ class Vec3 {
 	}
 }
 
-abstract class Entity {
+class Entity {
 	var pos: Vec3 = new Vec3();
 
 	public function new(staticData: String, dtimeS: Float) {
-		// this.pos = new Vec3();
 		trace("good day, I am an entity", this.pos);
-		// Lua.print("[" + staticData + "]", dtimeS);
+	}
+
+	public function on_step() {
+		trace("stepping");
 	}
 }
 
 class Main {
 	public static function main() {
-		Core.registerEntity("haxe_luanti:test", {});
+		var blah: Dynamic = {}
+		blah.on_activate = Entity.new;
+		untyped {
+			blah.on_step = Entity.prototype.on_step;
+		}
+
+		Core.registerEntity("haxe_luanti:test", blah);
 
 		Core.registerOnJoinPlayer(() -> {
-			Core.requestShutdown();
+			// Core.requestShutdown();
 		});
 	};
 }
