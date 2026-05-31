@@ -29,7 +29,24 @@ abstract class Entity {
 		// Instance.
 		trace("Object:", Type.getInstanceFields(input));
 
-		return 5;
+		if (Reflect.field(input, "on_activate") != null) {
+			throw "Do not use on_activate.";
+		}
+
+		var luantiTable: Dynamic = {};
+
+		// Manually inject the new method into Luanti style.
+		var constructorFunc: Dynamic = Reflect.field(input, "new");
+
+		if (constructorFunc == null) {
+			throw "Logic error. New missing from Entity derived class.";
+		}
+
+		luantiTable.on_activate = constructorFunc;
+
+		trace(constructorFunc);
+
+		return luantiTable;
 	}
 }
 
