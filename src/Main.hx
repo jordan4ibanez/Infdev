@@ -18,7 +18,7 @@ class Vec3 {
 abstract class Entity {
 	var pos: Vec3;
 
-	public function new() {
+	public function new(self: Entity, staticData: String, dtimeS: Float) {
 		this.pos = new Vec3();
 		Lua.print("hi");
 	}
