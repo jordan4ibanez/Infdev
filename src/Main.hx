@@ -95,9 +95,10 @@ abstract class Entity {
 
 			var instanceDataValue = Reflect.field(prototype, field);
 
-			trace(instanceDataValue);
-
-			switch (field) {}
+			// ? Only map functions. Everything else is null.
+			if (Reflect.isFunction(instanceDataValue)) {
+				Reflect.setField(luantiTable, field, instanceDataValue);
+			}
 		}
 
 		// Lua.print(Global.dump(prototype));
