@@ -41,6 +41,16 @@ abstract class Entity {
 
 		var luantiTable: Dynamic = {};
 
+		// Static.
+
+		var staticFields = Reflect.fields(input);
+
+		// Dynamic.
+
+		var prototype: Dynamic = Reflect.field(input, "prototype");
+
+		// Lua.print(Global.dump(prototype));
+
 		// ? Note: This is manually hardwiring in the constructor into on_activate.
 		// Manually inject the new method into Luanti style.
 		var constructorFunc: Dynamic = Reflect.field(input, "new");
