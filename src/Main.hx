@@ -41,6 +41,8 @@ abstract class Entity {
 
 		var luantiTable: Dynamic = {};
 
+		// ? Static and instance field assignment in LuaJIT.
+
 		// Static.
 
 		var staticFields = Reflect.fields(input);
@@ -58,6 +60,19 @@ abstract class Entity {
 						}
 						luantiTable.on_activate = constructorFunc;
 						// ? End hardwire.
+					}
+				default:
+					{
+						// Don't overwrite child overrides. (Probably not needed for static. [But this is very complex so I'm not taking chances.])
+						if (Reflect.hasField(luantiTable, field)) {
+							continue;
+						}
+
+						var dataValue = Reflect.field(input, field);
+
+						// todo: do stuff with it
+
+						Reflect.setField(luantiTable, field, dataValue);
 					}
 			}
 		}
