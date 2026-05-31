@@ -103,7 +103,7 @@ class Mob extends Entity {}
 
 class Main {
 	public static function main() {
-		Core.registerEntity("haxe_luanti:test", Entity.toLuanti(Entity));
+		Core.registerEntity("haxe_luanti:test", Entity.toLuanti(Mob));
 
 		Core.registerOnJoinPlayer(() -> {
 			Core.requestShutdown();
