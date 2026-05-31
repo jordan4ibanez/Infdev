@@ -1,5 +1,6 @@
 package luanti_types;
 
+import haxe.Rest;
 // These are public imports. :)
 import luanti_types.LogLevel;
 
@@ -18,4 +19,10 @@ extern class Core {
 	// fixme: this is incorrect.
 	@:native("register_on_joinplayer")
 	static function registerOnJoinPlayer(delegate: () -> Void): Void;
+}
+
+@:native("")
+extern class Global {
+	static function dump(a: Rest<Any>): String;
+	static function dump2(a: Rest<Any>): String;
 }
