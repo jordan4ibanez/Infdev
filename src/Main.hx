@@ -103,7 +103,25 @@ abstract class Entity {
 	}
 }
 
-class Mob extends Entity {}
+class Mob extends Entity {
+	static var currentUUID: Int = 0;
+
+	var UUID: Int;
+
+	public function new(_: Null<Any>, staticData: String, dtimeS: Float) {
+		super(_, staticData, dtimeS);
+
+		trace("Mob class constructor call");
+		this.UUID = currentUUID;
+		currentUUID++;
+	}
+
+	override function onStep(delta: Float) {
+		super.onStep(delta);
+
+		// trace("from", this.UUID, "step", delta);
+	}
+}
 
 class Main {
 	public static function main() {
