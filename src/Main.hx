@@ -71,7 +71,7 @@ abstract class Entity {
 
 						var dataValue = Reflect.field(input, field);
 
-						// todo: do stuff with it
+						// todo: do stuff with it (if needed)
 
 						Reflect.setField(luantiTable, field, dataValue);
 					}
