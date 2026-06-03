@@ -23,10 +23,7 @@ class Entity {
 
 	public function on_activate(staticData: String, dtimeS: Float) {
 		// Instance components.
-		final instance = new Entity();
-
-		trace(Type.getClassName(Macros.getCompileTimeClass()));
-
+		final instance = Type.createInstance(Macros.getCompileTimeClass(), []);
 		for (field in Reflect.fields(instance)) {
 			untyped this[field] = Reflect.field(instance, field);
 		}
