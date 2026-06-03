@@ -35,6 +35,7 @@ class Entity {
 	}
 }
 
+// TODO: Move this thing back into the Core as an inline
 class EntityRegistrationTesting {
 	// This is the hijacked function.
 	static public inline function registerEntity(name: String, clazz: Class<Entity>): Void {
