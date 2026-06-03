@@ -69,20 +69,16 @@ class EntityRegistrationTesting {
 	}
 }
 
-class Mob extends Entity {
-	var myCoolName = "fred";
-
-	override function on_activate(staticData: String, dtimeS: Float) {
-		super.on_activate(staticData, dtimeS);
-		Macros.entityPatch();
-
-		// trace(this.myCoolName);
-	}
-}
+// class Mob extends Entity {
+// 	var myCoolName = "fred";
+// 	override function on_activate(staticData: String, dtimeS: Float) {
+// 		super.on_activate(staticData, dtimeS);
+// 	}
+// }
 
 class Main {
 	public static function main() {
-		EntityRegistrationTesting.registerEntity("haxe_luanti:test", Mob);
+		EntityRegistrationTesting.registerEntity("haxe_luanti:test", Entity);
 
 		Core.registerOnJoinPlayer(() -> {
 			// Core.requestShutdown();
