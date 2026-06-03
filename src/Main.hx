@@ -8,7 +8,7 @@ class Vec3 {
 	public var z: Float;
 
 	public function new() {
-		trace("I am a new vec3");
+		// trace("I am a new vec3");
 		x = Math.random();
 		y = Math.random();
 		z = Math.random();
@@ -39,6 +39,7 @@ class EntityRegistrationTesting {
 		var rawLuantiPrototype: Dynamic = {}
 		for (method in Reflect.fields(prototype)) {
 			untyped rawLuantiPrototype[method] = Reflect.getProperty(prototype, method);
+			trace(method);
 		}
 		Core.register_entity(name, rawLuantiPrototype);
 	}
@@ -51,7 +52,7 @@ class Mob extends Entity {
 		super.on_activate(staticData, dtimeS);
 		Macros.entityPatch();
 
-		trace(this.myCoolName);
+		// trace(this.myCoolName);
 	}
 }
 
