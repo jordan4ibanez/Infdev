@@ -27,6 +27,7 @@ class Macros {
 		return macro {
 			// Instance components.
 			final instance = Type.createInstance(Macros.getCompileTimeClass(), []);
+			trace("decorating: " + Macros.getCompileTimeClassName());
 			for (field in Reflect.fields(instance)) {
 				untyped this[field] = Reflect.field(instance, field);
 			}
