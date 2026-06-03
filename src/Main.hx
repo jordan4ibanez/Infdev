@@ -117,7 +117,7 @@ class EntityRegistrationTesting {
 		for (method in Reflect.fields(prototype)) {
 			untyped rawLuantiPrototype[method] = Reflect.getProperty(prototype, method);
 		}
-		register_entity(name, rawLuantiPrototype);
+		Core.register_entity(name, rawLuantiPrototype);
 	}
 }
 
@@ -134,7 +134,7 @@ class Mob extends Entity {
 
 class Main {
 	public static function main() {
-		Core.registerEntity("haxe_luanti:test", Mob);
+		EntityRegistrationTesting.registerEntity("haxe_luanti:test", Mob);
 
 		Core.registerOnJoinPlayer(() -> {
 			// Core.requestShutdown();
