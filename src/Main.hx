@@ -29,8 +29,6 @@ class Entity {
 	public function on_step() {
 		Lua.print(this.uuid);
 	}
-
-
 }
 
 class EntityRegistrationTesting {
