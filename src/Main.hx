@@ -1,4 +1,3 @@
-import luanti_types.Macros;
 import lua.Lua;
 import luanti_types.Core;
 
@@ -15,6 +14,8 @@ class Vec3 {
 	}
 }
 
+@:autoBuild(luanti_types.EntityDuctTape.build())
+@:build(luanti_types.EntityDuctTape.build())
 class Entity {
 	var pos: Vec3 = new Vec3();
 	var uuid: Int = 0;
