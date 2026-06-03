@@ -27,7 +27,7 @@ class Entity {
 	}
 
 	public function on_step() {
-		Lua.print(this.uuid);
+		// Lua.print(this.uuid);
 	}
 
 	public static function testing() {
@@ -45,12 +45,21 @@ class EntityRegistrationTesting {
 		var currentClass: Class<Dynamic> = clazz;
 
 		while (currentClass != null) {
+			// trace("in class: " + Type.getClassName(currentClass));
+
 			// Class components.
 			var prototype = Reflect.field(currentClass, "prototype");
 
 			for (method in Reflect.fields(prototype)) {
-				untyped rawLuantiPrototype[method] = Reflect.getProperty(prototype, method);
-				trace(method);
+				untyped {
+					if (rawLuantiPrototype[method] != null) {
+						// trace("skipping method " + method + " already has it from child class");
+						continue;
+					}
+
+					rawLuantiPrototype[method] = Reflect.getProperty(prototype, method);
+				}
+				// trace(method);
 			}
 
 			// Move up the inheritance tree.
