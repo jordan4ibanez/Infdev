@@ -21,7 +21,7 @@ class Entity {
 	// This returns this.
 	public function new() {}
 
-	public function on_activate() {
+	public function on_activate(staticData: String, dtimeS: Float) {
 		// Instance components.
 		final instance = new Entity();
 
