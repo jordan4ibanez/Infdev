@@ -22,11 +22,7 @@ class Entity {
 	public function new() {}
 
 	public function on_activate(staticData: String, dtimeS: Float) {
-		// Instance components.
-		final instance = Type.createInstance(Macros.getCompileTimeClass(), []);
-		for (field in Reflect.fields(instance)) {
-			untyped this[field] = Reflect.field(instance, field);
-		}
+		Macros.entityPatch();
 	}
 
 	public function on_step() {
