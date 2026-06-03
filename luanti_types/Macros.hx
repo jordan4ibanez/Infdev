@@ -19,7 +19,10 @@ class Macros {
 		return macro null;
 	}
 
-	// This one is interesting.
+	/**
+	 * Decorates your Luanti entity on_activate with code cloning from Haxe object.
+	 * @return haxe.macro.Expr Code!
+	 */
 	public static macro function entityPatch(): haxe.macro.Expr {
 		return macro {
 			// Instance components.
