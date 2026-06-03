@@ -45,14 +45,18 @@ class EntityRegistrationTesting {
 
 		while (currentClass != null) {
 			// Class components.
-			var prototype = Reflect.field(clazz, "prototype");
+			var prototype = Reflect.field(currentClass, "prototype");
 
 			for (method in Reflect.fields(prototype)) {
 				untyped rawLuantiPrototype[method] = Reflect.getProperty(prototype, method);
 				trace(method);
 			}
-			Core.register_entity(name, rawLuantiPrototype);
+
+			// Move up the inheritance tree.
+			currentClass = Type.getSuperClass(currentClass);
 		}
+
+		Core.register_entity(name, rawLuantiPrototype);
 	}
 }
 
