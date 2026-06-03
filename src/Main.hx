@@ -108,6 +108,10 @@ class Entity {
 	}
 }
 
+class EntityRegistrationTesting {
+	
+}
+
 class Mob extends Entity {
 	var myCoolName = "fred";
 
