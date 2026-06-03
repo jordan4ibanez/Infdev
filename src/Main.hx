@@ -38,14 +38,21 @@ class Entity {
 class EntityRegistrationTesting {
 	// This is the hijacked function.
 	static public inline function registerEntity(name: String, clazz: Class<Entity>): Void {
-		// Class components.
-		var prototype = Reflect.field(clazz, "prototype");
 		var rawLuantiPrototype: Dynamic = {}
-		for (method in Reflect.fields(prototype)) {
-			untyped rawLuantiPrototype[method] = Reflect.getProperty(prototype, method);
-			trace(method);
+
+		// ? Works from the current class backwards until reached root (Entity).
+		var currentClass: Class<Dynamic> = clazz;
+
+		while (currentClass != null) {
+			// Class components.
+			var prototype = Reflect.field(clazz, "prototype");
+
+			for (method in Reflect.fields(prototype)) {
+				untyped rawLuantiPrototype[method] = Reflect.getProperty(prototype, method);
+				trace(method);
+			}
+			Core.register_entity(name, rawLuantiPrototype);
 		}
-		Core.register_entity(name, rawLuantiPrototype);
 	}
 }
 
