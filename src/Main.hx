@@ -109,7 +109,16 @@ class Entity {
 }
 
 class EntityRegistrationTesting {
-	
+	// This is the hijacked function.
+	static public inline function registerEntity(name: String, clazz: Class<Entity>): Void {
+		// Class components.
+		var prototype = Reflect.field(clazz, "prototype");
+		var rawLuantiPrototype: Dynamic = {}
+		for (method in Reflect.fields(prototype)) {
+			untyped rawLuantiPrototype[method] = Reflect.getProperty(prototype, method);
+		}
+		register_entity(name, rawLuantiPrototype);
+	}
 }
 
 class Mob extends Entity {
