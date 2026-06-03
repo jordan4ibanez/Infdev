@@ -1,5 +1,6 @@
 package luanti_types;
 
+import Main.Entity;
 import haxe.Rest;
 import Reflect;
 // These are public imports. :)
@@ -9,12 +10,11 @@ import luanti_types.LogLevel;
 extern class Core {
 	static function log(level: LogLevel, text: String): Void;
 
-	// fixme: this is incorrect.
 	// This is the real function.
 	private static extern function register_entity(name: String, prototype: Dynamic): Void;
 
 	// This is the hijacked function.
-	static public inline function registerEntity(name: String, clazz: Dynamic): Void {
+	static public inline function registerEntity(name: String, clazz: Class<Entity>): Void {
 		// Class components.
 		var prototype = Reflect.field(clazz, "prototype");
 		var rawLuantiPrototype: Dynamic = {}
