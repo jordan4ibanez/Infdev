@@ -1,3 +1,4 @@
+import luanti_types.Macros;
 import lua.Lua;
 import luanti_types.Core;
 
@@ -30,15 +31,20 @@ class Entity {
 	}
 }
 
+class Mob extends Entity {
+	var myCoolName = "fred";
+
+	override function on_activate(staticData: String, dtimeS: Float) {
+		super.on_activate(staticData, dtimeS);
+		Macros.entityPatch();
+
+		trace(this.myCoolName);
+	}
+}
+
 class Main {
 	public static function main() {
-		var blah: Dynamic = {}
-		blah.on_activate = Entity.new;
-		untyped {
-			blah.on_step = Entity.prototype.on_step;
-		}
-
-		Core.registerEntity("haxe_luanti:test", blah);
+		Core.registerEntity("haxe_luanti:test", Mob);
 
 		Core.registerOnJoinPlayer(() -> {
 			// Core.requestShutdown();
