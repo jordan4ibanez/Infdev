@@ -18,4 +18,15 @@ class Macros {
 		}
 		return macro null;
 	}
+
+	// This one is interesting.
+	public static macro function entityPatch(): haxe.macro.Expr {
+		return macro {
+			// Instance components.
+			final instance = Type.createInstance(Macros.getCompileTimeClass(), []);
+			for (field in Reflect.fields(instance)) {
+				untyped this[field] = Reflect.field(instance, field);
+			}
+		}
+	}
 }
