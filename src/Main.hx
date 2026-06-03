@@ -16,13 +16,33 @@ class Vec3 {
 
 class Entity {
 	var pos: Vec3 = new Vec3();
+	var uuid: Int = 0;
 
-	public function new(staticData: String, dtimeS: Float) {
-		trace("good day, I am an entity", this.pos);
+	// This returns this.
+	public function new() {}
+
+	public function on_activate() {
+		// Instance components.
+		final instance = new Entity();
+
+		for (field in Reflect.fields(instance)) {
+			var val = Reflect.field(instance, field);
+			untyped {
+				this[field] = val;
+			}
+			Lua.print(field, val);
+		}
+
+		// Class components.
+		var clazz = Reflect.field(Entity, "prototype");
+
+		for (method in Reflect.fields(clazz)) {
+			Lua.print(method);
+		}
 	}
 
 	public function on_step() {
-		trace("stepping");
+		Lua.print(this.uuid);
 	}
 }
 
