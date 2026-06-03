@@ -23,9 +23,7 @@ class Entity {
 	// This returns this.
 	public function new() {}
 
-	public function on_activate(staticData: String, dtimeS: Float) {
-		Macros.entityPatch();
-	}
+	public function on_activate(staticData: String, dtimeS: Float) {}
 
 	public function on_step() {
 		// Lua.print(this.uuid);
