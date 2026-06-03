@@ -25,19 +25,10 @@ class Entity {
 		// Instance components.
 		final instance = new Entity();
 
+		trace(Type.getClassName(Macros.getCompileTimeClass()));
+
 		for (field in Reflect.fields(instance)) {
-			var val = Reflect.field(instance, field);
-			untyped {
-				this[field] = val;
-			}
-			Lua.print(field, val);
-		}
-
-		// Class components.
-		var clazz = Reflect.field(Entity, "prototype");
-
-		for (method in Reflect.fields(clazz)) {
-			Lua.print(method);
+			untyped this[field] = Reflect.field(instance, field);
 		}
 	}
 
