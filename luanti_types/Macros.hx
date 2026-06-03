@@ -9,4 +9,13 @@ class Macros {
 		var name = (localClass != null) ? localClass.get().name : "Unknown";
 		return macro $v{name};
 	}
+
+	macro public static function getCompileTimeClass(): haxe.macro.Expr {
+		var localClass = haxe.macro.Context.getLocalClass();
+		if (localClass != null) {
+			var classData = localClass.get();
+			return {expr: EConst(CIdent(classData.name)), pos: haxe.macro.Context.currentPos()};
+		}
+		return macro null;
+	}
 }
