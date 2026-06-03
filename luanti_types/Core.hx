@@ -11,9 +11,7 @@ extern class Core {
 	static function log(level: LogLevel, text: String): Void;
 
 	// This is the real function.
-	private static extern function register_entity(name: String, prototype: Dynamic): Void;
-
-
+	public static extern function register_entity(name: String, prototype: Dynamic): Void;
 
 	// fixme: this is incorrect.
 	@:native("request_shutdown")
