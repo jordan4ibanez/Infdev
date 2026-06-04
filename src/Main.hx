@@ -26,6 +26,9 @@ class Entity {
 		Lua.print("hello world! from Entity");
 	}
 
+	@:native("on_deactivate")
+	public function onDeactivate(removal: Bool) {}
+
 	@:native("on_step")
 	public function onStep(delta: Float) {}
 
