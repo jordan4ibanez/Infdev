@@ -28,10 +28,6 @@ class Entity {
 
 	@:native("on_step")
 	public function onStep(delta: Float) {}
-
-	public static function testing() {
-		Lua.print("Hello I am a test!");
-	}
 }
 
 // TODO: Move this thing back into the Core as an inline
