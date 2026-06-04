@@ -55,6 +55,7 @@ class EntityDuctTape {
 				};
 			} else {
 				newFunction = macro function(staticData: String, dtimeS: Float) {
+					super.onActivate(staticData, dtimeS); // Super gets called first.
 					luanti_types.Macros.entityPatch();
 					// trace("Generated fallback on_activate for " + $v{className});
 				};
@@ -62,7 +63,6 @@ class EntityDuctTape {
 			switch (newFunction.expr) {
 				case EFunction(_, func):
 					fields.push({
-						name: "on_activate",
 						access: access,
 						kind: FFun(func),
 						pos: Context.currentPos()
