@@ -27,6 +27,7 @@ class EntityDuctTape {
 				case FFun(func):
 					if (func.expr != null) {
 						var injectExpr = macro {
+							luanti_types.Macros.entityPatch();
 							trace("Auto-injected into " + $v{className});
 						};
 
@@ -49,11 +50,13 @@ class EntityDuctTape {
 
 			if (localClass.superClass == null) {
 				newFunction = macro function(staticData: String, dtimeS: Float) {
+					luanti_types.Macros.entityPatch();
 					trace("Generated fallback on_activate for " + $v{className});
 				};
 			} else {
 				newFunction = macro function(staticData: String, dtimeS: Float) {
 					super.on_activate(staticData, dtimeS); // Super gets called first.
+					luanti_types.Macros.entityPatch();
 					trace("Generated fallback on_activate for " + $v{className});
 				};
 			}
