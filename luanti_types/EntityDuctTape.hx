@@ -28,7 +28,7 @@ class EntityDuctTape {
 					if (func.expr != null) {
 						var injectExpr = macro {
 							luanti_types.Macros.entityPatch();
-							// trace("Auto-injected into " + $v{className});
+							// trace("Auto-injected on_activate into " + $v{className});
 						};
 
 						switch (func.expr.expr) {
