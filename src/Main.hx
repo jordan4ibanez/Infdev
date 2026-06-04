@@ -30,9 +30,7 @@ class Entity {
 	}
 
 	@:native("on_step")
-	public function onStep(delta: Float) {
-		// trace("farts");
-	}
+	public function onStep(delta: Float) {}
 }
 
 class Mob extends Entity {
