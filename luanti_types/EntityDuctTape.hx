@@ -53,8 +53,8 @@ class EntityDuctTape {
 				};
 			} else {
 				newFunction = macro function(staticData: String, dtimeS: Float) {
+					super.on_activate(staticData, dtimeS); // Super gets called first.
 					trace("Generated fallback on_activate for " + $v{className});
-					super.on_activate(staticData, dtimeS); // Safely call Entity's on_activate
 				};
 			}
 			switch (newFunction.expr) {
