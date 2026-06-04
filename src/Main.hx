@@ -26,7 +26,8 @@ class Entity {
 	@:native("on_activate")
 	public function onActivate(staticData: String, dtimeS: Float) {}
 
-	public function on_step() {}
+	@:native("on_step")
+	public function onStep(delta: Float) {}
 
 	public static function testing() {
 		Lua.print("Hello I am a test!");
