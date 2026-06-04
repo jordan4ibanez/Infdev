@@ -35,22 +35,19 @@ class Entity {
 }
 
 class Mob extends Entity {
+	var myCoolName = "fred";
+
 	override function onActivate(staticData: String, dtimeS: Float) {
 		super.onActivate(staticData, dtimeS);
 		Lua.print("hello world! from Mob");
+
+		trace("my name is " + this.myCoolName);
 	}
 
 	override function onStep(delta: Float) {
 		super.onStep(delta);
 	}
 }
-
-// class Mob extends Entity {
-// 	var myCoolName = "fred";
-// 	override function on_activate(staticData: String, dtimeS: Float) {
-// 		super.on_activate(staticData, dtimeS);
-// 	}
-// }
 
 class Main {
 	public static function main() {
