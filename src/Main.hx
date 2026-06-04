@@ -30,6 +30,8 @@ class Entity {
 	public function onStep(delta: Float) {}
 }
 
+class Mob extends Entity {}
+
 // TODO: Move this thing back into the Core as an inline
 class EntityRegistrationTesting {
 	// This is the hijacked function.
@@ -74,7 +76,7 @@ class EntityRegistrationTesting {
 
 class Main {
 	public static function main() {
-		EntityRegistrationTesting.registerEntity("haxe_luanti:test", Entity);
+		EntityRegistrationTesting.registerEntity("haxe_luanti:test", Mob);
 
 		Core.registerOnJoinPlayer(() -> {
 			// Core.requestShutdown();
