@@ -63,6 +63,7 @@ class EntityDuctTape {
 			switch (newFunction.expr) {
 				case EFunction(_, func):
 					fields.push({
+						name: "onActivate",
 						access: access,
 						kind: FFun(func),
 						pos: Context.currentPos()
