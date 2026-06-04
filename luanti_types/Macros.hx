@@ -26,8 +26,8 @@ class Macros {
 	public static macro function entityPatch(): haxe.macro.Expr {
 		return macro {
 			// Instance components.
-			final instance = Type.createInstance(Macros.getCompileTimeClass(), []);
-			trace("decorating: " + Macros.getCompileTimeClassName());
+			final instance = Type.createInstance(luanti_types.Macros.getCompileTimeClass(), []);
+			trace("decorating: " + luanti_types.Macros.getCompileTimeClassName());
 			for (field in Reflect.fields(instance)) {
 				untyped this[field] = Reflect.field(instance, field);
 			}
