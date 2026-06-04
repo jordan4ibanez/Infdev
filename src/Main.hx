@@ -17,8 +17,6 @@ class Vec3 {
 @:autoBuild(luanti_types.EntityDuctTape.build())
 @:build(luanti_types.EntityDuctTape.build())
 class Entity {
-	var pos: Vec3 = new Vec3();
-
 	// This returns this.
 	public function new() {}
 
@@ -44,8 +42,6 @@ class Mob extends Entity {
 
 	override function onStep(delta: Float) {
 		super.onStep(delta);
-
-		// Lua.print(this.id);
 	}
 }
 
