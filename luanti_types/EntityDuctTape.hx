@@ -1,5 +1,13 @@
 package luanti_types;
 
+// Note: This was heavily researched and assisted by AI because I have no idea
+// what all the intricasies of this language are to facilitate how this functions.
+// It also took a really long time because the docs are so weird and getting
+// debug info in macro mode is not so good.
+// This is basically injecting a patcher into on_activated, or creating a method
+// for on_activated if it's missing, to inject the haxe object into the luanti object.
+// This happens for all child classes that extend out of entity. Even great
+// grand child classes.
 #if macro
 import haxe.macro.Context;
 import haxe.macro.Expr;
