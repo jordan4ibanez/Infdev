@@ -35,13 +35,8 @@ class Entity {
 }
 
 class Mob extends Entity {
-	var myCoolName = "fred";
-
 	override function onActivate(staticData: String, dtimeS: Float) {
 		super.onActivate(staticData, dtimeS);
-		Lua.print("hello world! from Mob");
-
-		trace("my name is " + this.myCoolName);
 	}
 
 	override function onStep(delta: Float) {
