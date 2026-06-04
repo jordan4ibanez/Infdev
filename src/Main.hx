@@ -18,7 +18,6 @@ class Vec3 {
 @:build(luanti_types.EntityDuctTape.build())
 class Entity {
 	var pos: Vec3 = new Vec3();
-	final id: Int = 234324;
 
 	// This returns this.
 	public function new() {}
@@ -31,6 +30,10 @@ class Entity {
 
 	@:native("on_step")
 	public function onStep(delta: Float) {}
+
+	final public function getGUID(): String {
+		return untyped __lua__("self.object:get_guid()");
+	};
 }
 
 class Mob extends Entity {
