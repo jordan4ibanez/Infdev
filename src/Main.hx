@@ -45,11 +45,6 @@ class Mob extends Entity {
 	}
 }
 
-// TODO: Move this thing back into the Core as an inline
-class EntityRegistrationTesting {
-
-}
-
 // class Mob extends Entity {
 // 	var myCoolName = "fred";
 // 	override function on_activate(staticData: String, dtimeS: Float) {
@@ -59,7 +54,7 @@ class EntityRegistrationTesting {
 
 class Main {
 	public static function main() {
-		EntityRegistrationTesting.registerEntity("haxe_luanti:test", Mob);
+		Core.registerEntity("haxe_luanti:test", Mob);
 
 		Core.registerOnJoinPlayer(() -> {
 			// Core.requestShutdown();
