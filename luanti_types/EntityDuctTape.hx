@@ -40,6 +40,7 @@ class EntityDuctTape {
 						}
 					}
 				default:
+					throw "on_activate is wrong?";
 			}
 		}
 
