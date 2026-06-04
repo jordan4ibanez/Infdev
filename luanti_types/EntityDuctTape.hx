@@ -19,7 +19,7 @@ class EntityDuctTape {
 		var localClass = Context.getLocalClass().get();
 		var className = localClass.name;
 
-		final onActivate: Field = Lambda.find(fields, (f: Field) -> f.name == "on_activate");
+		final onActivate: Field = Lambda.find(fields, (f: Field) -> f.name == "onActivate");
 
 		if (onActivate != null) {
 			// Inject code into their existing method
