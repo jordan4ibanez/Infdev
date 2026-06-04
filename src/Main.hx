@@ -50,32 +50,25 @@ class EntityRegistrationTesting {
 	// This is the hijacked function.
 	static public inline function registerEntity(name: String, clazz: Class<Entity>): Void {
 		var rawLuantiPrototype: Dynamic = {}
-
 		// ? Works from the current class backwards until reached root (Entity).
 		var currentClass: Class<Dynamic> = clazz;
-
 		while (currentClass != null) {
 			// trace("in class: " + Type.getClassName(currentClass));
-
 			// Class components.
 			var prototype = Reflect.field(currentClass, "prototype");
-
 			for (method in Reflect.fields(prototype)) {
 				untyped {
 					if (rawLuantiPrototype[method] != null) {
 						// trace("skipping method " + method + " already has it from child class");
 						continue;
 					}
-
 					rawLuantiPrototype[method] = Reflect.getProperty(prototype, method);
 				}
 				// trace(method);
 			}
-
 			// Move up the inheritance tree.
 			currentClass = Type.getSuperClass(currentClass);
 		}
-
 		Core.register_entity(name, rawLuantiPrototype);
 	}
 }
