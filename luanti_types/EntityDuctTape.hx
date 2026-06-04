@@ -45,6 +45,8 @@ class EntityDuctTape {
 		} else {
 			var newFunction;
 
+			var access = localClass.superClass == null ? [APublic] : [APublic, AOverride];
+
 			if (localClass.superClass == null) {
 				newFunction = macro function(staticData: String, dtimeS: Float) {
 					trace("Generated fallback on_activate for " + $v{className});
