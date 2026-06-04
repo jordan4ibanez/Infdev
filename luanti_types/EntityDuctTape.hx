@@ -42,6 +42,41 @@ class EntityDuctTape {
 				default:
 					throw "on_activate is wrong?";
 			}
+		} else {
+			var newFunction;
+
+			if (localClass.superClass == null) {
+				newFunction = macro function(staticData: String, dtimeS: Float) {
+					trace("Generated fallback on_activate for " + $v{className});
+				};
+
+				switch (newFunction.expr) {
+					case EFunction(_, func):
+						fields.push({
+							name: "on_activate",
+							access: [APublic],
+							kind: FFun(func),
+							pos: Context.currentPos()
+						});
+					default:
+				}
+			} else {
+				newFunction = macro function(staticData: String, dtimeS: Float) {
+					trace("Generated fallback on_activate for " + $v{className});
+					super.on_activate(staticData, dtimeS); // Safely call Entity's on_activate
+				};
+
+				switch (newFunction.expr) {
+					case EFunction(_, func):
+						fields.push({
+							name: "on_activate",
+							access: [APublic, AOverride], // Mark as an override
+							kind: FFun(func),
+							pos: Context.currentPos()
+						});
+					default:
+				}
+			}
 		}
 
 		return fields;
