@@ -23,7 +23,9 @@ class Entity {
 	// This returns this.
 	public function new() {}
 
-	public function on_activate(staticData: String, dtimeS: Float) {}
+	// public function on_activate(staticData: String, dtimeS: Float) {
+	// 	trace("run first?");
+	// }
 
 	public function on_step() {
 		// Lua.print(this.uuid);
