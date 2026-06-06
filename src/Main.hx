@@ -15,16 +15,6 @@ class Vec3 {
 	}
 }
 
-class Mob extends Entity {
-	override function onActivate(staticData: String, dtimeS: Float) {
-		super.onActivate(staticData, dtimeS);
-	}
-
-	override function onStep(delta: Float) {
-		super.onStep(delta);
-	}
-}
-
 class Main {
 	public static function main() {
 		Core.registerEntity("haxe_luanti:test", Mob);
