@@ -1,6 +1,6 @@
 package luanti_types;
 
-import Main.Entity;
+import entity.Entity;
 import haxe.Rest;
 import Reflect;
 // These are public imports. :)
