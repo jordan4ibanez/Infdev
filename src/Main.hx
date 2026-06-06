@@ -1,5 +1,6 @@
 import lua.Lua;
 import luanti_types.Core;
+import entity.Entity;
 
 class Vec3 {
 	public var x: Float;
@@ -13,8 +14,6 @@ class Vec3 {
 		z = Math.random();
 	}
 }
-
-
 
 class Mob extends Entity {
 	override function onActivate(staticData: String, dtimeS: Float) {
