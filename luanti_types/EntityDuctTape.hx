@@ -17,7 +17,9 @@ class EntityDuctTape {
 		var fields = Context.getBuildFields();
 
 		var localClass = Context.getLocalClass().get();
-		var className = localClass.name;
+
+		// Fully qualified.
+		var className = Context.getLocalClass().toString();
 
 		final onActivate: Field = Lambda.find(fields, (f: Field) -> f.name == "onActivate");
 
