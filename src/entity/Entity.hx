@@ -1,5 +1,7 @@
 package entity;
 
+import lua.Lua;
+
 @:autoBuild(luanti_types.EntityDuctTape.build())
 @:build(luanti_types.EntityDuctTape.build())
 class Entity {
