@@ -1,6 +1,5 @@
-import lua.Lua;
+import entity.Mob;
 import luanti_types.Core;
-import entity.Entity;
 
 class Vec3 {
 	public var x: Float;
