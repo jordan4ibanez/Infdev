@@ -21,6 +21,13 @@ class EntityDuctTape {
 		// Fully qualified.
 		var className = Context.getLocalClass().toString();
 
+		if (className != "entity.Entity") {
+			final hasNew: Bool = Lambda.exists(fields, (f: Field) -> f.name == "new");
+			if (hasNew) {
+				throw "Class [" + className + "] has a new(). Do not use new(). Override onActivate().";
+			}
+		}
+
 		final onActivate: Field = Lambda.find(fields, (f: Field) -> f.name == "onActivate");
 
 		if (onActivate != null) {
