@@ -29,6 +29,10 @@ class Macros {
 			final instance = Type.createInstance(luanti_types.Macros.getCompileTimeClass(), []);
 			trace("decorating: " + luanti_types.Macros.getCompileTimeClassName());
 			for (field in Reflect.fields(instance)) {
+				// This is decorated by the engine. (And not protected by it)
+				if (field == "object") {
+					continue;
+				}
 				untyped this[field] = Reflect.field(instance, field);
 			}
 		}
