@@ -5,7 +5,7 @@ import haxe.macro.Context;
 using StringTools;
 
 class LuantiCompilerFix {
-	public static function blah() {
+	public static function patch() {
 		Context.onAfterGenerate(() -> {
 			var content:String = File.getContent("init.lua");
 
