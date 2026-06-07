@@ -20,6 +20,11 @@ class Entity {
 	@:native("on_step")
 	public function onStep(delta: Float) {}
 
+	// todo: fix this dynamic mess.
+
+	@:native("on_punch")
+	public function onPunch(puncher: Dynamic, timeFromLastPunch: Float, toolCapabilities: Dynamic, dir: Dynamic, damager: Int) {}
+
 	final public function getGUID(): String {
 		return untyped __lua__("self.object:get_guid()");
 	};
