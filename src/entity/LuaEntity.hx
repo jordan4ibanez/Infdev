@@ -40,4 +40,12 @@ class LuaEntity extends ObjectRef {
 	public function getStaticData(): String {
 		return "";
 	}
+
+	// ? Begin baked in engine entity features made nicer to use.
+	// ! If anything past this point isn't final, there's an issue.
+	//
+	// LuaEntity methods:
+	//
+	//* begins: remove
+	//* ends: get_entity_name (which is deprecated, this thing should use a .name field)
 }

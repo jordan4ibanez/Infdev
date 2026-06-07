@@ -11,7 +11,7 @@ abstract class ObjectRef {
 
 	// ? Begin baked in engine entity features made nicer to use.
 	//
-	// Plain lua object reference, methods:
+	// Plain lua object reference methods:
 	//
 	//* begins: is_valid
 	//* ends: get_guid
