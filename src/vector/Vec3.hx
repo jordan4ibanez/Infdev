@@ -24,7 +24,7 @@ class Vec3 extends EngineVector3 {
 	 * @param engineVec3 A plain vec3 from the engine.
 	 * @return Vec3 An advanced Vec3 from haxe.
 	 */
-	private static function fromEngine(engineVec3: Dynamic): Vec3 {
+	public static function fromEngine(engineVec3: Dynamic): Vec3 {
 		var output = new Vec3();
 
 		if (engineVec3 != null) {
