@@ -19,7 +19,7 @@ class LuaEntity extends ObjectRef {
 	public function onStep(delta: Float, moveResult: Dynamic) {}
 
 	@:native("on_punch")
-	public function onPunch(puncher: Dynamic, timeFromLastPunch: Float, toolCapabilities: Dynamic, dir: Dynamic, damager: Int) {}
+	public function onPunch(puncher: Null<ObjectRef>, timeFromLastPunch: Float, toolCapabilities: Dynamic, dir: Dynamic, damager: Int) {}
 
 	@:native("on_death")
 	public function onDeath(?killer: Dynamic) {}
