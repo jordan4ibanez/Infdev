@@ -16,6 +16,8 @@ class Mob extends LuaEntity {
 		// 	Lua.print(Global.dump(this.object.get_properties()));
 		// }
 
+		trace(this.isValid());
+
 		trace(this.getGUID());
 	}
 
