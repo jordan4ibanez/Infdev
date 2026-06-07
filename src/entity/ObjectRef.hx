@@ -3,7 +3,7 @@ package entity;
 import lua.Lua;
 
 // ? This is the base blueprint of LuaEntity and Player.
-class ObjectRef {
+abstract class ObjectRef {
 	public final object: Dynamic = null;
 
 	// This returns this.
