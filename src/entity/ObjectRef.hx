@@ -4,7 +4,7 @@ import lua.Lua;
 
 @:autoBuild(luanti_types.EntityDuctTape.build())
 @:build(luanti_types.EntityDuctTape.build())
-class Entity {
+class ObjectRef {
 	public final object: Dynamic = null;
 
 	// This returns this.

@@ -3,7 +3,7 @@ package entity;
 import luanti_types.Core.Global;
 import lua.Lua;
 
-class Mob extends Entity {
+class Mob extends ObjectRef {
 	override function onActivate(staticData: String, dtimeS: Float) {
 		super.onActivate(staticData, dtimeS);
 		trace(staticData);
