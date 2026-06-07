@@ -50,7 +50,7 @@ class EntityDuctTape {
 						}
 					}
 				default:
-					throw "on_activate is wrong?";
+					Context.error("on_activate is wrong?", onActivate.pos);
 			}
 		} else {
 			var newFunction;
