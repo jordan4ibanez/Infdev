@@ -1,0 +1,11 @@
+{
+    "checks": [
+        {
+            "type": "TypeHint",
+            "props": {
+                "severity": "error",
+                "methods": true
+            }
+        }
+    ]
+}
