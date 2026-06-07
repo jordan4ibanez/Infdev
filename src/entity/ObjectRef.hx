@@ -33,7 +33,7 @@ abstract class ObjectRef {
 	 * Get this objects position and transfer it into a haxe vec.
 	 * @param output An advanced haxe Vec3.
 	 */
-	final public function getPosFast(output: Vec3) {
+	final public function getPosFast(output: Vec3): Void {
 		return untyped Vec3.fromEngineFast(__lua__("self.object:get_pos()"), output);
 	}
 
