@@ -8,6 +8,8 @@ class Entity {
 	// This returns this.
 	public function new() {}
 
+	public final object: Dynamic = null;
+
 	@:native("on_activate")
 	public function onActivate(staticData: String, dtimeS: Float) {
 		// trace(this.uuid);
