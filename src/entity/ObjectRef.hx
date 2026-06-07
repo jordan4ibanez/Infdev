@@ -15,7 +15,7 @@ class ObjectRef {
 	@:native("on_activate")
 	public function onActivate(staticData: String, dtimeS: Float) {
 		// trace(this.uuid);
-		Lua.print("hello world! from Entity");
+		Lua.print("hello world! from ObjectRef");
 	}
 
 	@:native("on_deactivate")
