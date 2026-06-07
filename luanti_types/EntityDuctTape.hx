@@ -24,7 +24,7 @@ class EntityDuctTape {
 		if (className != "entity.Entity") {
 			final hasNew: Field = Lambda.find(fields, (f: Field) -> f.name == "new");
 			if (hasNew != null) {
-				Context.error("Class [" + className + "] has a new(). Do not use new(). Override onActivate().", hasNew.pos);
+				Context.error("Error: Do not not use new(). Override onActivate().", hasNew.pos);
 			}
 		}
 
