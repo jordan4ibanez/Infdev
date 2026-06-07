@@ -22,19 +22,19 @@ class LuaEntity extends ObjectRef {
 	public function onPunch(puncher: Null<ObjectRef>, timeFromLastPunch: Float, toolCapabilities: Dynamic, dir: Dynamic, damager: Int) {}
 
 	@:native("on_death")
-	public function onDeath(?killer: Dynamic) {}
+	public function onDeath(killer: Null<ObjectRef>) {}
 
 	@:native("on_rightclick")
-	public function onRightClick(clicker: Dynamic) {}
+	public function onRightClick(clicker: Null<ObjectRef>) {}
 
 	@:native("on_attach_child")
-	public function onAttachChild(child: Dynamic) {}
+	public function onAttachChild(child: ObjectRef) {}
 
 	@:native("on_detach_child")
-	public function onDetachChild(child: Dynamic) {}
+	public function onDetachChild(child: ObjectRef) {}
 
 	@:native("on_detach")
-	public function onDetach(parent: Dynamic) {}
+	public function onDetach(parent: ObjectRef) {}
 
 	@:native("get_staticdata")
 	public function getStaticData(): String {
