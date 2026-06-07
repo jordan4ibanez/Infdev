@@ -25,6 +25,10 @@ abstract class ObjectRef {
 		return untyped Vec3.fromEngine(__lua__("self.object:get_pos()"));
 	}
 
+	final public function getPosFast(output: Vec3) {
+		return untyped Vec3.fromEngineFast(__lua__("self.object:get_pos()"), output);
+	}
+
 	final public function getGUID(): String {
 		return untyped __lua__("self.object:get_guid()");
 	};
