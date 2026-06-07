@@ -22,7 +22,7 @@ abstract class ObjectRef {
 	}
 
 	final public function getPos(): Vec3 {
-		return untyped __lua__("self.object:get_pos()");
+		return untyped Vec3.fromEngine(__lua__("self.object:get_pos()"));
 	}
 
 	final public function getGUID(): String {
