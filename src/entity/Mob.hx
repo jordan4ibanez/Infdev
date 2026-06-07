@@ -1,9 +1,12 @@
 package entity;
 
+import vector.Vec3;
 import luanti_types.Core.Global;
 import lua.Lua;
 
 class Mob extends LuaEntity {
+	var helper = new Vec3();
+
 	override function onActivate(staticData: String, dtimeS: Float) {
 		super.onActivate(staticData, dtimeS);
 		// trace(staticData);
@@ -16,9 +19,9 @@ class Mob extends LuaEntity {
 		// 	Lua.print(Global.dump(this.object.get_properties()));
 		// }
 
-		trace(this.isValid());
+		this.getPosFast(helper);
 
-		trace(this.getGUID());
+		helper.doThing();
 	}
 
 	override function getStaticData(): String {
