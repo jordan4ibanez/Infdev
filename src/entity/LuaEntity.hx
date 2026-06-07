@@ -14,6 +14,7 @@ class LuaEntity extends ObjectRef {
 	public function onDeactivate(removal: Bool) {}
 
 	// todo: fix this dynamic mess.
+	// todo: fix return types.
 
 	@:native("on_step")
 	public function onStep(delta: Float, moveResult: Dynamic) {}
