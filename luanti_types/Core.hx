@@ -1,6 +1,6 @@
 package luanti_types;
 
-import entity.Entity;
+import entity.LuaEntity;
 import haxe.Rest;
 import Reflect;
 // These are public imports. :)
@@ -14,7 +14,7 @@ extern class Core {
 	public static extern function register_entity(name: String, prototype: Dynamic): Void;
 
 	// This is the hijacked function.
-	static public inline function registerEntity(name: String, clazz: Class<Entity>): Void {
+	static public inline function registerEntity(name: String, clazz: Class<LuaEntity>): Void {
 		var rawLuantiPrototype: Dynamic = {}
 		// ? Works from the current class backwards until reached root (Entity).
 		var currentClass: Class<Dynamic> = clazz;
