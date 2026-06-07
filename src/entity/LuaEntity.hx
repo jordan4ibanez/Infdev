@@ -25,7 +25,7 @@ class LuaEntity extends ObjectRef {
 	public function onDeath(killer: Null<ObjectRef>) {}
 
 	@:native("on_rightclick")
-	public function onRightClick(clicker: Null<ObjectRef>) {}
+	public function onRightClick(clicker: ObjectRef) {}
 
 	@:native("on_attach_child")
 	public function onAttachChild(child: ObjectRef) {}
