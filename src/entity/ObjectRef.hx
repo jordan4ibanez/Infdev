@@ -16,6 +16,10 @@ abstract class ObjectRef {
 	//* begins: is_valid
 	//* ends: get_guid
 
+	final public function isValid(): Bool {
+		return untyped __lua__("self.object:is_valid()");
+	}
+
 	final public function getGUID(): String {
 		return untyped __lua__("self.object:get_guid()");
 	};
