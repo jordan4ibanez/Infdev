@@ -78,7 +78,7 @@ class EntityDuctTape {
 						pos: Context.currentPos()
 					});
 				default:
-					throw "Something exploded in the entity duct tape patch.";
+					Context.error("Something exploded in the entity duct tape patch.", Context.currentPos());
 			}
 		}
 
