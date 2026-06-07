@@ -6,8 +6,8 @@ class Mob extends Entity {
 		trace(staticData);
 	}
 
-	override function onStep(delta: Float) {
-		super.onStep(delta);
+	override function onStep(delta: Float, moveResult: Dynamic) {
+		super.onStep(delta, moveResult);
 	}
 
 	override function getStaticData(): String {
