@@ -4,7 +4,7 @@ import vector.Vec3;
 import luanti_types.Core.Global;
 import lua.Lua;
 
-class Mob extends LuaEntity {
+abstract class Mob extends LuaEntity {
 	var helper = new Vec3();
 
 	override function onActivate(staticData: String, dtimeS: Float) {
