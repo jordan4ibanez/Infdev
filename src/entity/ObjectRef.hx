@@ -21,10 +21,18 @@ abstract class ObjectRef {
 		return untyped __lua__("self.object:is_valid()");
 	}
 
+	/**
+	 * Get this object's position. This will destroy the GC.
+	 * @return Vec3 An advanced haxe Vec3.
+	 */
 	final public function getPos(): Vec3 {
 		return untyped Vec3.fromEngine(__lua__("self.object:get_pos()"));
 	}
 
+	/**
+	 * Get this objects position and transfer it into a haxe vec.
+	 * @param output An advanced haxe Vec3.
+	 */
 	final public function getPosFast(output: Vec3) {
 		return untyped Vec3.fromEngineFast(__lua__("self.object:get_pos()"), output);
 	}
