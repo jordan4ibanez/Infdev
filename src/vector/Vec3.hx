@@ -20,7 +20,7 @@ class Vec3 extends EngineVector3 {
 	}
 
 	/**
-	 * Don't use this in your mods.
+	 * Don't use this in your mods. This will destroy the GC as well.
 	 * @param engineVec3 A plain vec3 from the engine.
 	 * @return Vec3 An advanced Vec3 from haxe.
 	 */
