@@ -10,6 +10,8 @@ class Entity {
 	// This returns this.
 	public function new() {}
 
+	// ? Here begins programmer facing overrideable methods.
+
 	@:native("on_activate")
 	public function onActivate(staticData: String, dtimeS: Float) {
 		// trace(this.uuid);
