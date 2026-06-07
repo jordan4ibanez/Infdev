@@ -17,10 +17,10 @@ class Entity {
 	@:native("on_deactivate")
 	public function onDeactivate(removal: Bool) {}
 
-	@:native("on_step")
-	public function onStep(delta: Float) {}
-
 	// todo: fix this dynamic mess.
+
+	@:native("on_step")
+	public function onStep(delta: Float, moveResult: Dynamic) {}
 
 	@:native("on_punch")
 	public function onPunch(puncher: Dynamic, timeFromLastPunch: Float, toolCapabilities: Dynamic, dir: Dynamic, damager: Int) {}
