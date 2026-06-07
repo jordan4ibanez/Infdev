@@ -19,6 +19,11 @@ class Vec3 extends EngineVector3 {
 		this.z = z ?? 0;
 	}
 
+	/**
+	 * Don't use this in your mods.
+	 * @param engineVec3 A plain vec3 from the engine.
+	 * @return Vec3 An advanced Vec3 from haxe.
+	 */
 	public static function fromEngine(engineVec3: Dynamic): Vec3 {
 		var output = new Vec3();
 
