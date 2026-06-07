@@ -1,5 +1,6 @@
 package entity;
 
+import vector.Vec3;
 import lua.Lua;
 
 // ? This is the base blueprint of LuaEntity and Player.
@@ -18,6 +19,10 @@ abstract class ObjectRef {
 
 	final public function isValid(): Bool {
 		return untyped __lua__("self.object:is_valid()");
+	}
+
+	final public function getPos(): Vec3 {
+		return untyped __lua__("self.object:get_pos()");
 	}
 
 	final public function getGUID(): String {
