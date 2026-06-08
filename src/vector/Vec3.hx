@@ -3,15 +3,6 @@ package vector;
 import luanti_types.LogLevel;
 import luanti_types.Core;
 
-/**
- * This class technically doesn't exist.
- */
-abstract class EngineVector3 {
-	public var x: Float = 0;
-	public var y: Float = 0;
-	public var z: Float = 0;
-}
-
 class Vec3 extends EngineVector3 {
 	public function new(?x: Float, ?y: Float, ?z: Float) {
 		this.x = x ?? 0;
