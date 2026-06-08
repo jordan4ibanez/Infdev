@@ -82,6 +82,15 @@ abstract class ObjectRef {
 		untyped __lua__("self.object:add_velocity(vel)");
 	}
 
+	/**
+	 * Does an interpolated move for Lua entities for visually smooth transitions.
+	 * @param pos Position to move to.
+	 * @param continuous If continuous is true, the Lua entity will not be moved to the current position before starting the interpolated move.
+	 */
+	final public function moveTo(pos: Vec3, continuous: Bool = false): Void {
+		untyped __lua__("self.object:move_to(pos, continuous)");
+	}
+
 	final public function getGUID(): String {
 		return untyped __lua__("self.object:get_guid()");
 	};
