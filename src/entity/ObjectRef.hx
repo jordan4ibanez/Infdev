@@ -69,6 +69,25 @@ abstract class ObjectRef {
 	@:native("get_wielded_item")
 	public abstract function getWieldedItem(): Dynamic;
 
+	@:native("set_wielded_item")
+	public abstract function setWieldedItem(item: Dynamic, skipAnimation: Bool): Void;
+
+	@:native("get_armor_groups")
+	public abstract function getArmorGroups(): Dynamic;
+
+	@:native("set_armor_groups")
+	public abstract function setArmorGroups(groupTable: Dynamic): Void;
+
+	// todo: This is a vec2d
+
+	@:native("set_animation")
+	public abstract function setAnimation(frameRange: Dynamic, frameSpeed: Float, frameBlend: Float, frameLoop: Bool): Void;
+
+	// todo: Lua multi return
+
+	@:native("get_animation")
+	public abstract function getAnimation(): Dynamic;
+
 	@:native("get_guid")
 	public abstract function getGUID(): String;
 }
