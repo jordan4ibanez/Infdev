@@ -1,5 +1,6 @@
 package entity;
 
+import vector.EngineVector3;
 import vector.Vec3;
 import lua.Lua;
 
@@ -19,7 +20,7 @@ abstract class ObjectRef {
 	public abstract function isValid(): Bool;
 
 	@:native("get_pos")
-	final public function getPos(): EngineVector3;
+	public abstract function getPos(): EngineVector3;
 
 	final public function getPosFast(output: Vec3): Void {
 		return untyped Vec3.fromEngineFast(__lua__("self.object:get_pos()"), output);
