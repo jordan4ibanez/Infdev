@@ -17,7 +17,6 @@ abstract LuaArray<T>(Table<Int, T>) from Table<Int, T> to Table<Int, T> {
 		return untyped this[index + 1];
 	}
 
-	// 💡 This method tells Haxe exactly how to handle: for (obj in x)
 	inline public function iterator(): LuaArrayIterator<T> {
 		return new LuaArrayIterator(cast this);
 	}
