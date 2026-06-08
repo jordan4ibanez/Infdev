@@ -4,9 +4,9 @@ import vector.Vec3;
 import lua.Lua;
 
 // ? This is the C++ entity inside of a lua entity.
-abstract class ObjectRef {
+final class ObjectRef {
 	// This returns this.
-	public function new() {}
+	private function new() {}
 
 	// ? Begin baked in engine entity features made nicer to use.
 	//
