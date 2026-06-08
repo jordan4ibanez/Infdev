@@ -3,7 +3,10 @@ package entity;
 @:autoBuild(luanti_types.EntityDuctTape.build())
 @:build(luanti_types.EntityDuctTape.build())
 abstract class LuaEntity {
+	final object: ObjectRef = new ObjectRef();
+
 	// ? Here begins programmer facing overrideable methods.
+
 	@:native("on_activate")
 	public function onActivate(staticData: String, dtimeS: Float) {
 		// trace(this.uuid);
