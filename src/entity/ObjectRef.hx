@@ -4,7 +4,7 @@ import vector.Vec3;
 import lua.Lua;
 
 // ? This is the C++ entity inside of a lua entity.
-final class ObjectRef {
+abstract class ObjectRef {
 	// This returns this.
 	public function new() {}
 
@@ -15,9 +15,8 @@ final class ObjectRef {
 	//* begins: is_valid
 	//* ends: get_guid
 
-	final public function isValid(): Bool {
-		return untyped __lua__("self.object:is_valid()");
-	}
+	@:native("is_valid")
+	public abstract function isValid(): Bool;
 
 	final public function getPos(): Vec3 {
 		return untyped Vec3.fromEngine(__lua__("self.object:get_pos()"));
