@@ -1,7 +1,7 @@
 package luanti_types;
 
 import entity.ObjectRef;
-import vector.Vec3;
+import vector.EngineVector3;
 import entity.LuaEntity;
 import haxe.Rest;
 import Reflect;
@@ -49,7 +49,7 @@ extern class Core {
 	static function registerOnJoinPlayer(delegate: () -> Void): Void;
 
 	@:native("get_objects_inside_radius")
-	static function getObjectsInsideRadius(center: Vec3, radius: Float): LuaArray<ObjectRef>;
+	static function getObjectsInsideRadius(center: EngineVector3, radius: Float): LuaArray<ObjectRef>;
 }
 
 @:native("")
