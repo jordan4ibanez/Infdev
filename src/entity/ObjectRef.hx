@@ -1,5 +1,6 @@
 package entity;
 
+import luanti_types.LuaArray;
 import vector.LuantiVector3;
 import lua.Lua;
 
@@ -46,6 +47,27 @@ abstract class ObjectRef {
 
 	@:native("punch")
 	public abstract function punch(puncher: Null<ObjectRef>, time_from_last_punch: Null<Float>, tool_capabilities: Dynamic, dir: Null<LuantiVector3>): Void;
+
+	@:native("right_click")
+	public abstract function rightClick(clicker: ObjectRef): Void;
+
+	@:native("get_hp")
+	public abstract function getHP(): Int;
+
+	@:native("set_hp")
+	public abstract function setHP(hp: Int, ?reason: Dynamic): Void;
+
+	@:native("get_inventory")
+	public abstract function getInventory(): Null<Dynamic>;
+
+	@:native("get_wield_list")
+	public abstract function getWieldList(): LuaArray<Dynamic>;
+
+	@:native("get_wield_index")
+	public abstract function getWieldIndex(): Int;
+
+	@:native("get_wielded_item")
+	public abstract function getWieldedItem(): Dynamic;
 
 	@:native("get_guid")
 	public abstract function getGUID(): String;
