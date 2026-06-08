@@ -28,31 +28,25 @@ abstract class ObjectRef {
 	@:native("set_pos")
 	public abstract function setPos(pos: LuantiVector3): Void;
 
-	final public function addPos(posAddition: LuantiVector3): Void {
-		untyped __lua__("self.object:add_pos(pos)");
-	}
+	@:native("add_pos")
+	public abstract function addPos(posAddition: LuantiVector3): Void;
 
-	final public function getVelocity(): LuantiVector3 {
-		return untyped Vec3.fromEngine(__lua__("self.object:get_velocity()"));
-	}
+	@:native("get_velocity")
+	public abstract function getVelocity(): LuantiVector3;
 
 	// final public function getVelocityFast(output: Vec3): Void {
 	// 	return untyped Vec3.fromEngineFast(__lua__("self.object:get_velocity()"), output);
 	// }
 
-	final public function addVelocity(vel: LuantiVector3): Void {
-		untyped __lua__("self.object:add_velocity(vel)");
-	}
+	@:native("add_velocity")
+	public abstract function addVelocity(vel: LuantiVector3): Void;
 
-	final public function moveTo(pos: LuantiVector3, continuous: Bool = false): Void {
-		untyped __lua__("self.object:move_to(pos, continuous)");
-	}
+	@:native("move_to")
+	public abstract function moveTo(pos: LuantiVector3, ?continuous: Bool): Void;
 
-	final public function punch(puncher: Null<ObjectRef>, time_from_last_punch: Null<Float>, tool_capabilities: Dynamic, dir: Null<LuantiVector3>): Void {
-		untyped __lua__("self.object:punch(puncher, time_from_last_punch, tool_capabilities, dir)");
-	}
+	@:native("punch")
+	public abstract function punch(puncher: Null<ObjectRef>, time_from_last_punch: Null<Float>, tool_capabilities: Dynamic, dir: Null<LuantiVector3>): Void;
 
-	final public function getGUID(): String {
-		return untyped __lua__("self.object:get_guid()");
-	};
+	@:native("get_guid")
+	public abstract function getGUID(): String;
 }
