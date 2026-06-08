@@ -3,7 +3,7 @@ package entity;
 @:autoBuild(luanti_types.EntityDuctTape.build())
 @:build(luanti_types.EntityDuctTape.build())
 abstract class LuaEntity {
-	final object: ObjectRef = new ObjectRef();
+	final object: ObjectRef = null;
 
 	// ? Here begins programmer facing overrideable methods.
 
