@@ -49,6 +49,15 @@ abstract class ObjectRef {
 		untyped __lua__("self.object:set_pos(pos)");
 	}
 
+	/**
+	 * Changes position by adding to the current position.
+	 * No-op if object is attached.
+	 * @param posAddition The addition to the position.
+	 */
+	final public function addPos(posAddition: Vec3): Void {
+		untyped __lua__("self.object:add_pos(pos)");
+	}
+
 	final public function getGUID(): String {
 		return untyped __lua__("self.object:get_guid()");
 	};
