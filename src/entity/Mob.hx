@@ -2,8 +2,6 @@ package entity;
 
 import luanti_types.Core;
 import vector.Vec3;
-import luanti_types.Core.Global;
-import lua.Lua;
 
 abstract class Mob extends LuaEntity {
 	var helperVec3 = new Vec3();
@@ -18,12 +16,12 @@ abstract class Mob extends LuaEntity {
 
 		// helperVec3.doThing();
 
-		var x = Core.getObjectsInsideRadius(this.getPos(), 5);
+		var x = Core.getObjectsInsideRadius(this.object.getPos(), 5);
 
-		for (obj in x) {
-			Lua.print(obj);
-			obj.getPos().doThing();
-		}
+		// for (obj in x) {
+		// 	Lua.print(obj);
+		// 	trace(obj.getPos());
+		// }
 	}
 
 	override function getStaticData(): String {
