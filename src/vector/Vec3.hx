@@ -3,7 +3,7 @@ package vector;
 import luanti_types.LogLevel;
 import luanti_types.Core;
 
-class Vec3 extends EngineVector3 {
+class Vec3 extends LuantiVector3 {
 	public function new(?x: Float, ?y: Float, ?z: Float) {
 		this.x = x ?? 0;
 		this.y = y ?? 0;
