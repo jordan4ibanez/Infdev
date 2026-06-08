@@ -47,6 +47,9 @@ extern class Core {
 	// fixme: this is incorrect.
 	@:native("register_on_joinplayer")
 	static function registerOnJoinPlayer(delegate: () -> Void): Void;
+
+	@:native("get_objects_inside_radius")
+	static function getObjectsInsideRadius(center: Vec3, radius: Float): LuaArray<ObjectRef>;
 }
 
 @:native("")
