@@ -17,12 +17,18 @@ abstract class Mob extends LuaEntity {
 
 		// helperVec3.doThing();
 
-		var x = Core.getObjectsInsideRadius(this.object.getPos(), 5);
+		// var x = Core.getObjectsInsideRadius(this.object.getPos(), 5);
 
-		for (obj in x) {
-			Lua.print(obj);
-			trace(obj.getPos(), obj.getGUID(), obj.isValid());
-		}
+		// for (obj in x) {
+		// 	Lua.print(obj);
+		// 	trace(obj.getPos(), obj.getGUID(), obj.isValid());
+		// }
+
+		this.object.rightClick(this.object);
+	}
+
+	override function onRightClick(clicker: ObjectRef) {
+		super.onRightClick(clicker);
 	}
 
 	override function getStaticData(): String {
