@@ -22,6 +22,7 @@ abstract class Mob extends LuaEntity {
 
 		for (obj in x) {
 			Lua.print(obj);
+			trace(obj.getPos());
 		}
 	}
 
