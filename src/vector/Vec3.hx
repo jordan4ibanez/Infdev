@@ -6,7 +6,7 @@ import luanti_types.Core;
 /**
  * This class technically doesn't exist.
  */
-private abstract class EngineVector3 {
+abstract class EngineVector3 {
 	public var x: Float = 0;
 	public var y: Float = 0;
 	public var z: Float = 0;
