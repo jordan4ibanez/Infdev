@@ -3,10 +3,8 @@ package entity;
 import vector.Vec3;
 import lua.Lua;
 
-// ? This is the base blueprint of LuaEntity and Player.
+// ? This is the C++ entity inside of a lua entity.
 abstract class ObjectRef {
-	public final object: Dynamic = null;
-
 	// This returns this.
 	public function new() {}
 
