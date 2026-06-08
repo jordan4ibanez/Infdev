@@ -5,7 +5,7 @@ import luanti_types.Core.Global;
 import lua.Lua;
 
 abstract class Mob extends LuaEntity {
-	var helper = new Vec3();
+	var helperVec3 = new Vec3();
 
 	override function onActivate(staticData: String, dtimeS: Float) {
 		super.onActivate(staticData, dtimeS);
@@ -15,13 +15,13 @@ abstract class Mob extends LuaEntity {
 	override function onStep(delta: Float, moveResult: Dynamic) {
 		super.onStep(delta, moveResult);
 
-		// untyped {
-		// 	Lua.print(Global.dump(this.object.get_properties()));
-		// }
+		this.getPosFast(helperVec3);
 
-		this.getPosFast(helper);
+		helperVec3.y += delta;
 
-		helper.doThing();
+		this.setPos(helperVec3);
+
+		// helperVec3.doThing();
 	}
 
 	override function getStaticData(): String {
