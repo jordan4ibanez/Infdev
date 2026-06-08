@@ -66,6 +66,14 @@ abstract class ObjectRef {
 		return untyped Vec3.fromEngine(__lua__("self.object:get_velocity()"));
 	}
 
+	/**
+	 * Get the object's velocity and transfer it into a Vec3.
+	 * @param output A Vec3 to store the velocity.
+	 */
+	final public function getVelocityFast(output: Vec3): Void {
+		return untyped Vec3.fromEngineFast(__lua__("self.object:get_velocity()"), output);
+	}
+
 	final public function getGUID(): String {
 		return untyped __lua__("self.object:get_guid()");
 	};
