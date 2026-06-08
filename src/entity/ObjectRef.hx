@@ -26,7 +26,7 @@ abstract class ObjectRef {
 	}
 
 	/**
-	 * Get this object's position. This will destroy the GC.
+	 * Get this object's position. This will hammer the GC.
 	 * @return Vec3 The object's position.
 	 */
 	final public function getPos(): Vec3 {
