@@ -17,9 +17,9 @@ abstract class Mob extends LuaEntity {
 
 		this.getPosFast(helperVec3);
 
-		helperVec3.y += delta;
-
 		this.setPos(helperVec3);
+
+		this.addPos(new Vec3(0, delta, 0));
 
 		// helperVec3.doThing();
 	}
