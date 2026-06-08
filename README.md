@@ -6,7 +6,11 @@ Testing out haxe with luanti
 This started out as a curiosity, but it has quickly become apparent this is better than typescripttolua.
 
 
-some design decisions:
+This is going to be infdev.
+infdev originally started out as a clone of minecraft infdev but I think it would be cooler to have a fuck ton of rpg elements in it.
+
+
+### some design decisions:
 
 I think it would be cool if the game had runescape skills bolted in
 
