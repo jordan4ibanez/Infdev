@@ -1,5 +1,6 @@
 package entity;
 
+import luanti_types.Core;
 import vector.Vec3;
 import luanti_types.Core.Global;
 import lua.Lua;
@@ -15,13 +16,13 @@ abstract class Mob extends LuaEntity {
 	override function onStep(delta: Float, moveResult: Dynamic) {
 		super.onStep(delta, moveResult);
 
-		this.getPosFast(helperVec3);
-
-		this.setPos(helperVec3);
-
-		this.addPos(new Vec3(0, delta, 0));
-
 		// helperVec3.doThing();
+
+		var x = Core.getObjectsInsideRadius(this.getPos(), 5);
+
+		for (obj in x) {
+			Lua.print(obj);
+		}
 	}
 
 	override function getStaticData(): String {
