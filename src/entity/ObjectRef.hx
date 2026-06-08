@@ -88,6 +88,12 @@ abstract class ObjectRef {
 	@:native("get_animation")
 	public abstract function getAnimation(): Dynamic;
 
+	@:native("set_animation_frame_speed")
+	public abstract function setAnimationFrameSpeed(frameSpeed: Float): Void;
+
+	@:native("set_attach")
+	public abstract function setAttach(parent: ObjectRef, bone: String, position: LuantiVector3, rotation: LuantiVector3, forcedVisible: Bool): Void;
+
 	@:native("get_guid")
 	public abstract function getGUID(): String;
 }
