@@ -58,6 +58,14 @@ abstract class ObjectRef {
 		untyped __lua__("self.object:add_pos(pos)");
 	}
 
+	/**
+	 * Get the object's velocity. This will hammer the GC.
+	 * @return Vec3 The velocity.
+	 */
+	final public function getVelocity(): Vec3 {
+		return untyped Vec3.fromEngine(__lua__("self.object:get_velocity()"));
+	}
+
 	final public function getGUID(): String {
 		return untyped __lua__("self.object:get_guid()");
 	};
