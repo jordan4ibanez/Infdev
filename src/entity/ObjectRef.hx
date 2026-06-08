@@ -6,7 +6,7 @@ import lua.Lua;
 // ? This is the C++ entity inside of a lua entity.
 final class ObjectRef {
 	// This returns this.
-	private function new() {}
+	public function new() {}
 
 	// ? Begin baked in engine entity features made nicer to use.
 	//
