@@ -22,9 +22,9 @@ abstract class ObjectRef {
 	@:native("get_pos")
 	public abstract function getPos(): LuantiVector3;
 
-	final public function getPosFast(output: Vec3): Void {
-		return untyped Vec3.fromEngineFast(__lua__("self.object:get_pos()"), output);
-	}
+	// final public function getPosFast(output: Vec3): Void {
+	// 	return untyped Vec3.fromEngineFast(__lua__("self.object:get_pos()"), output);
+	// }
 
 	final public function setPos(pos: Vec3): Void {
 		untyped __lua__("self.object:set_pos(pos)");
@@ -38,9 +38,9 @@ abstract class ObjectRef {
 		return untyped Vec3.fromEngine(__lua__("self.object:get_velocity()"));
 	}
 
-	final public function getVelocityFast(output: Vec3): Void {
-		return untyped Vec3.fromEngineFast(__lua__("self.object:get_velocity()"), output);
-	}
+	// final public function getVelocityFast(output: Vec3): Void {
+	// 	return untyped Vec3.fromEngineFast(__lua__("self.object:get_velocity()"), output);
+	// }
 
 	final public function addVelocity(vel: Vec3): Void {
 		untyped __lua__("self.object:add_velocity(vel)");
