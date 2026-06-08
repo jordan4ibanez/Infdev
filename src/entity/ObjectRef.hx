@@ -1,7 +1,6 @@
 package entity;
 
 import vector.LuantiVector3;
-import vector.Vec3;
 import lua.Lua;
 
 // ? This is the C++ entity inside of a lua entity.
@@ -26,15 +25,14 @@ abstract class ObjectRef {
 	// 	return untyped Vec3.fromEngineFast(__lua__("self.object:get_pos()"), output);
 	// }
 
-	final public function setPos(pos: Vec3): Void {
-		untyped __lua__("self.object:set_pos(pos)");
-	}
+	@:native("set_pos")
+	public abstract function setPos(pos: LuantiVector3): Void;
 
-	final public function addPos(posAddition: Vec3): Void {
+	final public function addPos(posAddition: LuantiVector3): Void {
 		untyped __lua__("self.object:add_pos(pos)");
 	}
 
-	final public function getVelocity(): Vec3 {
+	final public function getVelocity(): LuantiVector3 {
 		return untyped Vec3.fromEngine(__lua__("self.object:get_velocity()"));
 	}
 
@@ -42,15 +40,15 @@ abstract class ObjectRef {
 	// 	return untyped Vec3.fromEngineFast(__lua__("self.object:get_velocity()"), output);
 	// }
 
-	final public function addVelocity(vel: Vec3): Void {
+	final public function addVelocity(vel: LuantiVector3): Void {
 		untyped __lua__("self.object:add_velocity(vel)");
 	}
 
-	final public function moveTo(pos: Vec3, continuous: Bool = false): Void {
+	final public function moveTo(pos: LuantiVector3, continuous: Bool = false): Void {
 		untyped __lua__("self.object:move_to(pos, continuous)");
 	}
 
-	final public function punch(puncher: Null<ObjectRef>, time_from_last_punch: Null<Float>, tool_capabilities: Dynamic, dir: Null<Vec3>): Void {
+	final public function punch(puncher: Null<ObjectRef>, time_from_last_punch: Null<Float>, tool_capabilities: Dynamic, dir: Null<LuantiVector3>): Void {
 		untyped __lua__("self.object:punch(puncher, time_from_last_punch, tool_capabilities, dir)");
 	}
 
