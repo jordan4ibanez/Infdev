@@ -11,3 +11,6 @@
 -D lua-ver=5.1
 
 --macro LuantiCompilerFix.patch()
+
+# This is so using vector isn't needed everywhere.
+# --macro haxe.macro.Compiler.addGlobalMetadata("", "@:using(vector.EngineVector3)")
