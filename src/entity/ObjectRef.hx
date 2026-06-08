@@ -91,6 +91,17 @@ abstract class ObjectRef {
 		untyped __lua__("self.object:move_to(pos, continuous)");
 	}
 
+	/**
+	 * Punches the object, triggering all consequences a normal punch would have
+	 * @param puncher another ObjectRef which punched the object (can be nil)
+	 * @param time_from_last_punch Meant for disallowing spamming of clicks (can be nil)
+	 * @param tool_capabilities capability table of used item
+	 * @param dir direction vector. Points from the puncher to the punched (can be nil)
+	 */
+	final public function punch(puncher: Null<ObjectRef>, time_from_last_punch: Null<Float>, tool_capabilities: Dynamic, dir: Null<Vec3>): Void {
+		untyped __lua__("self.object:punch(puncher, time_from_last_punch, tool_capabilities, dir)");
+	}
+
 	final public function getGUID(): String {
 		return untyped __lua__("self.object:get_guid()");
 	};
