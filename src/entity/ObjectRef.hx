@@ -74,6 +74,14 @@ abstract class ObjectRef {
 		return untyped Vec3.fromEngineFast(__lua__("self.object:get_velocity()"), output);
 	}
 
+	/**
+	 * Changes velocity by adding to the current velocity.
+	 * @param vel The velocity to add.
+	 */
+	final public function addVelocity(vel: Vec3): Void {
+		untyped __lua__("self.object:add_velocity(vel)");
+	}
+
 	final public function getGUID(): String {
 		return untyped __lua__("self.object:get_guid()");
 	};
