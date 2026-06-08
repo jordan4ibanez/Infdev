@@ -1,5 +1,7 @@
 package luanti_types;
 
+import entity.ObjectRef;
+import vector.Vec3;
 import entity.LuaEntity;
 import haxe.Rest;
 import Reflect;
