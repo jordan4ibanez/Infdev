@@ -17,24 +17,36 @@ abstract class ObjectRef {
 	//* begins: is_valid
 	//* ends: get_guid
 
+	/**
+	 * Returns whether the object is valid. 
+	 * @return Bool If it's valid.
+	 */
 	final public function isValid(): Bool {
 		return untyped __lua__("self.object:is_valid()");
 	}
 
 	/**
 	 * Get this object's position. This will destroy the GC.
-	 * @return Vec3 An advanced haxe Vec3.
+	 * @return Vec3 The object's position.
 	 */
 	final public function getPos(): Vec3 {
 		return untyped Vec3.fromEngine(__lua__("self.object:get_pos()"));
 	}
 
 	/**
-	 * Get this objects position and transfer it into a haxe vec.
-	 * @param output An advanced haxe Vec3.
+	 * Get this objects position and transfer it into a Vec3.
+	 * @param output A Vec3 to store the position it's in.
 	 */
 	final public function getPosFast(output: Vec3): Void {
 		return untyped Vec3.fromEngineFast(__lua__("self.object:get_pos()"), output);
+	}
+
+	/**
+	 * Set this object's position.
+	 * @param pos The new position.
+	 */
+	final public function setPos(pos: Vec3): Void {
+		untyped __lua__("self.object:set_pos(pos)");
 	}
 
 	final public function getGUID(): String {
