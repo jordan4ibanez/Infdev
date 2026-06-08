@@ -18,9 +18,8 @@ abstract class ObjectRef {
 	@:native("is_valid")
 	public abstract function isValid(): Bool;
 
-	final public function getPos(): Vec3 {
-		return untyped Vec3.fromEngine(__lua__("self.object:get_pos()"));
-	}
+	@:native("get_pos")
+	final public function getPos(): EngineVector3;
 
 	final public function getPosFast(output: Vec3): Void {
 		return untyped Vec3.fromEngineFast(__lua__("self.object:get_pos()"), output);
