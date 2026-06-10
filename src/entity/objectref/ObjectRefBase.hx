@@ -4,7 +4,10 @@ import luantitypes.LuaArray;
 import vector.EngineVector3;
 import lua.Lua;
 
-// ? This is the C++ entity inside of a lua entity.
+/**
+ * The C++ entity inside of a lua entity.
+ * This is the base form of it for when you do not know if it is an entity or a player.
+ */
 abstract class ObjectRefBase {
 	// This returns this.
 	public function new() {}
