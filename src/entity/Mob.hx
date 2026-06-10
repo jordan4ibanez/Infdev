@@ -27,7 +27,7 @@ abstract class Mob extends LuaEntity {
 		this.object.rightClick(this.object);
 	}
 
-	override function onRightClick(clicker: ObjectRef) {
+	override function onRightClick(clicker: ObjectRefBase) {
 		super.onRightClick(clicker);
 	}
 

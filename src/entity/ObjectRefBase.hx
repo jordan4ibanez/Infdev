@@ -5,7 +5,7 @@ import vector.EngineVector3;
 import lua.Lua;
 
 // ? This is the C++ entity inside of a lua entity.
-abstract class ObjectRef {
+abstract class ObjectRefBase {
 	// This returns this.
 	public function new() {}
 
@@ -46,10 +46,10 @@ abstract class ObjectRef {
 	public abstract function moveTo(pos: EngineVector3, ?continuous: Bool): Void;
 
 	@:native("punch")
-	public abstract function punch(puncher: Null<ObjectRef>, time_from_last_punch: Null<Float>, tool_capabilities: Dynamic, dir: Null<EngineVector3>): Void;
+	public abstract function punch(puncher: Null<ObjectRefBase>, time_from_last_punch: Null<Float>, tool_capabilities: Dynamic, dir: Null<EngineVector3>): Void;
 
 	@:native("right_click")
-	public abstract function rightClick(clicker: ObjectRef): Void;
+	public abstract function rightClick(clicker: ObjectRefBase): Void;
 
 	@:native("get_hp")
 	public abstract function getHP(): Int;
@@ -92,7 +92,7 @@ abstract class ObjectRef {
 	public abstract function setAnimationFrameSpeed(frameSpeed: Float): Void;
 
 	@:native("set_attach")
-	public abstract function setAttach(parent: ObjectRef, bone: String, position: EngineVector3, rotation: EngineVector3, forcedVisible: Bool): Void;
+	public abstract function setAttach(parent: ObjectRefBase, bone: String, position: EngineVector3, rotation: EngineVector3, forcedVisible: Bool): Void;
 
 	@:native("get_attach")
 	public abstract function getAttach(): Null<Dynamic>;

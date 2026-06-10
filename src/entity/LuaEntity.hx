@@ -3,7 +3,7 @@ package entity;
 @:autoBuild(luanti_types.EntityDuctTape.build())
 @:build(luanti_types.EntityDuctTape.build())
 abstract class LuaEntity {
-	final object: ObjectRef = null;
+	final object: ObjectRefBase = null;
 
 	// ? Here begins programmer facing overrideable methods.
 
@@ -23,22 +23,22 @@ abstract class LuaEntity {
 	public function onStep(delta: Float, moveResult: Dynamic) {}
 
 	@:native("on_punch")
-	public function onPunch(puncher: Null<ObjectRef>, timeFromLastPunch: Float, toolCapabilities: Dynamic, dir: Dynamic, damager: Int) {}
+	public function onPunch(puncher: Null<ObjectRefBase>, timeFromLastPunch: Float, toolCapabilities: Dynamic, dir: Dynamic, damager: Int) {}
 
 	@:native("on_death")
-	public function onDeath(killer: Null<ObjectRef>) {}
+	public function onDeath(killer: Null<ObjectRefBase>) {}
 
 	@:native("on_rightclick")
-	public function onRightClick(clicker: ObjectRef) {}
+	public function onRightClick(clicker: ObjectRefBase) {}
 
 	@:native("on_attach_child")
-	public function onAttachChild(child: ObjectRef) {}
+	public function onAttachChild(child: ObjectRefBase) {}
 
 	@:native("on_detach_child")
-	public function onDetachChild(child: ObjectRef) {}
+	public function onDetachChild(child: ObjectRefBase) {}
 
 	@:native("on_detach")
-	public function onDetach(parent: ObjectRef) {}
+	public function onDetach(parent: ObjectRefBase) {}
 
 	@:native("get_staticdata")
 	public function getStaticData(): String {
