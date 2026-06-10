@@ -5,7 +5,7 @@ import vector.EngineVector3;
 import lua.Lua;
 
 /**
- * The C++ entity inside of a lua entity.
+ * A Luanti C++ engine ServerActiveObject reference.
  * This is the base form of it for when you do not know if it is an entity or a player.
  */
 abstract class ObjectRefBase {
