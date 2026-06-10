@@ -1,4 +1,4 @@
-package luanti_types;
+package luantitypes;
 
 import entity.ObjectRef;
 import vector.EngineVector3;
@@ -6,7 +6,7 @@ import entity.LuaEntity;
 import haxe.Rest;
 import Reflect;
 // These are public imports. :)
-import luanti_types.LogLevel;
+import luantitypes.LogLevel;
 
 @:native("core")
 extern class Core {

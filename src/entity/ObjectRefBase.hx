@@ -1,6 +1,6 @@
 package entity;
 
-import luanti_types.LuaArray;
+import luantitypes.LuaArray;
 import vector.EngineVector3;
 import lua.Lua;
 

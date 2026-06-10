@@ -1,4 +1,4 @@
-package luanti_types;
+package luantitypes;
 
 import lua.Table;
 

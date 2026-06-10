@@ -1,7 +1,7 @@
 package vector;
 
-import luanti_types.LogLevel;
-import luanti_types.Core;
+import luantitypes.LogLevel;
+import luantitypes.Core;
 
 class Vec3 extends EngineVector3 {
 	public function new(?x: Float, ?y: Float, ?z: Float) {

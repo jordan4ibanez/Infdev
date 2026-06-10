@@ -1,5 +1,5 @@
 import entity.Mob;
-import luanti_types.Core;
+import luantitypes.Core;
 
 class Main {
 	public static function main(): Void {

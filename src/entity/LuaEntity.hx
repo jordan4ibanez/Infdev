@@ -1,7 +1,7 @@
 package entity;
 
-@:autoBuild(luanti_types.EntityDuctTape.build())
-@:build(luanti_types.EntityDuctTape.build())
+@:autoBuild(luantitypes.EntityDuctTape.build())
+@:build(luantitypes.EntityDuctTape.build())
 abstract class LuaEntity {
 	final object: ObjectRefBase = null;
 

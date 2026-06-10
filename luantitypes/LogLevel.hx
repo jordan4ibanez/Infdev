@@ -1,4 +1,4 @@
-package luanti_types;
+package luantitypes;
 
 enum abstract LogLevel(String) to String {
 	var none;

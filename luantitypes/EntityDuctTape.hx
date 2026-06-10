@@ -1,4 +1,4 @@
-package luanti_types;
+package luantitypes;
 
 // Note: This was heavily researched and assisted by AI because I have no idea
 // what all the intricasies of this language are to facilitate how this functions.
@@ -36,7 +36,7 @@ class EntityDuctTape {
 				case FFun(func):
 					if (func.expr != null) {
 						var injectExpr = macro {
-							luanti_types.Macros.entityPatch();
+							luantitypes.Macros.entityPatch();
 							// trace("Auto-injected on_activate into " + $v{className});
 						};
 
@@ -59,13 +59,13 @@ class EntityDuctTape {
 
 			if (localClass.superClass == null) {
 				newFunction = macro function(staticData: String, dtimeS: Float) {
-					luanti_types.Macros.entityPatch();
+					luantitypes.Macros.entityPatch();
 					// trace("Generated fallback on_activate for " + $v{className});
 				};
 			} else {
 				newFunction = macro function(staticData: String, dtimeS: Float) {
 					super.onActivate(staticData, dtimeS); // Super gets called first.
-					luanti_types.Macros.entityPatch();
+					luantitypes.Macros.entityPatch();
 					// trace("Generated fallback on_activate for " + $v{className});
 				};
 			}
