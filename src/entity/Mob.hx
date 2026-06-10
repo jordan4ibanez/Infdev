@@ -1,16 +1,19 @@
 package entity;
 
+import luantitypes.Macros;
 import lua.Lua;
 import luantitypes.Core;
 import vector.Vec3;
 import entity.objectref.ObjectRefBase;
+import entity.EntitySerialization;
 
 abstract class Mob extends LuaEntity {
 	var helperVec3 = new Vec3();
 
 	override function onActivate(staticData: String, dtimeS: Float) {
 		super.onActivate(staticData, dtimeS);
-		// trace(staticData);
+
+		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
 	}
 
 	override function onStep(delta: Float, moveResult: Dynamic) {
@@ -33,6 +36,6 @@ abstract class Mob extends LuaEntity {
 	}
 
 	override function getStaticData(): String {
-		return "test 1234";
+		return EntitySerialization.safeSerialize(this, Macros.getCompileTimeClass());
 	}
 }

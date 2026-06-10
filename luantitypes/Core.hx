@@ -1,10 +1,13 @@
 package luantitypes;
 
+import haxe.Constraints.Function;
+import entity.objectref.ObjectRefPlayer;
 import entity.objectref.ObjectRefBase;
 import vector.EngineVector3;
 import entity.LuaEntity;
 import haxe.Rest;
 import Reflect;
+import luantitypes.metadata.StorageRef;
 // These are public imports. :)
 import luantitypes.LogLevel;
 
@@ -44,12 +47,47 @@ extern class Core {
 	@:native("request_shutdown")
 	static function requestShutdown(?message: String, ?reconnect: Bool, ?delay: Float): Void;
 
-	// fixme: this is incorrect.
+	/**
+	 * DEFINE THIS IN PLAYER CLASS DON'T USE THIS.
+	 */
+	@:native("register_on_prejoinplayer")
+	static function registerOnPreJoinPlayer(delegate: (name: String, ip: String) -> Void): Null<String>;
+
+	/**
+	 * DEFINE THIS IN PLAYER CLASS DON'T USE THIS.
+	 */
 	@:native("register_on_joinplayer")
-	static function registerOnJoinPlayer(delegate: () -> Void): Void;
+	static function registerOnJoinPlayer(delegate: (player: ObjectRefPlayer, lastLogin: Null<Float>) -> Void): Void;
+
+	/**
+	 * DEFINE THIS IN PLAYER CLASS DON'T USE THIS.
+	 */
+	@:native("register_on_leaveplayer")
+	static function registerOnLeavePlayer(delegate: (player: ObjectRefPlayer, timedOut: Bool) -> Void): Void;
 
 	@:native("get_objects_inside_radius")
 	static function getObjectsInsideRadius(center: EngineVector3, radius: Float): LuaArray<ObjectRefBase>;
+
+	@:native("register_on_shutdown")
+	static function registerOnShutDown(delegate: () -> Void): Void;
+
+	@:native("register_globalstep")
+	static function registerGlobalStep(delegate: (delta: Float) -> Void): Void;
+
+	@:native("get_connected_players")
+	static function getConnectedPlayers(): LuaArray<ObjectRefPlayer>;
+
+	@:native("after")
+	static function after(time: Float, func: Function, anything: Rest<Dynamic>): Void;
+
+	@:native("get_mod_storage")
+	static function getModStorage(): StorageRef;
+
+	@:native("serialize")
+	static function serialize(data: Dynamic): String;
+
+	@:native("deserialize")
+	static function deserialize(str: String, ?safe: Bool): Dynamic;
 }
 
 @:native("")

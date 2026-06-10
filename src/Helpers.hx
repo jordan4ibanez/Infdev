@@ -1,3 +1,8 @@
+import luantitypes.Macros;
+import luantitypes.Core;
+import entity.LuaEntity;
+import haxe.Constraints.Constructible;
+
 class Helpers {
 	public static function toLuanti(classType: Class<Dynamic>): Dynamic {
 		if (Reflect.field(classType, "on_activate") != null) {
