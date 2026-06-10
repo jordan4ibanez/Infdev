@@ -10,7 +10,7 @@ import lua.Lua;
  */
 abstract class ObjectRefBase {
 	// This returns this.
-	final public function new() {}
+	public function new() {}
 
 	// ? Begin baked in engine entity features made nicer to use.
 	//
