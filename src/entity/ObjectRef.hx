@@ -131,7 +131,10 @@ abstract class ObjectRef {
 	public abstract function isPlayer(): Bool;
 
 	@:native("get_nametag_attributes")
-	public abstract function getNametagAttributes(): LuaArray<Dynamic>;
+	public abstract function getNametagAttributes(): Dynamic;
+
+	@:native("set_nametag_attributes")
+	public abstract function setNametagAttributes(attributes: Dynamic): Void;
 
 	@:native("get_guid")
 	public abstract function getGUID(): String;
