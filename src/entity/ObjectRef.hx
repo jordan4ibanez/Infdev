@@ -103,6 +103,36 @@ abstract class ObjectRef {
 	@:native("set_detach")
 	public abstract function setDetach(): Void;
 
+	@:native("set_bone_override")
+	public abstract function setBoneOverride(bone: String, overRide: Dynamic): Void;
+
+	@:native("get_bone_override")
+	public abstract function getBoneOverride(bone: String): Dynamic;
+
+	@:native("get_bone_overrides")
+	public abstract function getBoneOverrides(): LuaArray<Dynamic>;
+
+	@:native("set_properties")
+	public abstract function setProperties(propTable: Dynamic): Void;
+
+	@:native("get_properties")
+	public abstract function getProperties(): Dynamic;
+
+	@:native("set_observers")
+	public abstract function setObservers(observers: LuaArray<Dynamic>): Void;
+
+	@:native("get_observers")
+	public abstract function getObservers(): LuaArray<Dynamic>;
+
+	@:native("get_effective_observers")
+	public abstract function getEffectiveObservers(): LuaArray<Dynamic>;
+
+	@:native("is_player")
+	public abstract function isPlayer(): Bool;
+
+	@:native("get_nametag_attributes")
+	public abstract function getNametagAttributes(): LuaArray<Dynamic>;
+
 	@:native("get_guid")
 	public abstract function getGUID(): String;
 }
