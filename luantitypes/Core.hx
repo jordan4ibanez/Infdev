@@ -1,6 +1,6 @@
 package luantitypes;
 
-import entity.ObjectRefBase;
+import entity.objectref.ObjectRefBase;
 import vector.EngineVector3;
 import entity.LuaEntity;
 import haxe.Rest;

@@ -1,5 +1,7 @@
 package entity;
 
+import entity.objectref.ObjectRefBase;
+
 @:autoBuild(luantitypes.EntityDuctTape.build())
 @:build(luantitypes.EntityDuctTape.build())
 abstract class LuaEntity {
