@@ -9,8 +9,7 @@ import lua.Lua;
  * This is the base form of it for when you do not know if it is an entity or a player.
  */
 abstract class ObjectRefBase {
-	// This returns this.
-	public function new() {}
+	private final function new() {}
 
 	// ? Begin baked in engine entity features made nicer to use.
 	//
