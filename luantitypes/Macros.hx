@@ -30,7 +30,7 @@ class Macros {
 			trace("decorating: " + luantitypes.Macros.getCompileTimeClassName());
 			for (field in Reflect.fields(instance)) {
 				// This is decorated by the engine. (And not protected by it)
-				if (field == "object") {
+				if (field == "object" || field == "name") {
 					continue;
 				}
 				untyped this[field] = Reflect.field(instance, field);
