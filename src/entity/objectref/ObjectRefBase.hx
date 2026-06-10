@@ -1,4 +1,4 @@
-package entity;
+package entity.objectref;
 
 import luantitypes.LuaArray;
 import vector.EngineVector3;
