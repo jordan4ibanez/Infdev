@@ -41,5 +41,5 @@ abstract class ObjectRefEntity extends ObjectRefBase {
 	public abstract function setSprite(startFrame: Dynamic, numFrames: Int, frameLength: Float, selectXByCamera: Bool): Void;
 
 	@:native("get_luaentity")
-	public abstract function getLuaEntity(): Null<Dynamic>;
+	public abstract function getLuaEntity(): LuaEntity;
 }
