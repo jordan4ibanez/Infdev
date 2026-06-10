@@ -94,6 +94,15 @@ abstract class ObjectRef {
 	@:native("set_attach")
 	public abstract function setAttach(parent: ObjectRef, bone: String, position: EngineVector3, rotation: EngineVector3, forcedVisible: Bool): Void;
 
+	@:native("get_attach")
+	public abstract function getAttach(): Null<Dynamic>;
+
+	@:native("get_children")
+	public abstract function getChildren(): LuaArray<Dynamic>;
+
+	@:native("set_detach")
+	public abstract function setDetach(): Void;
+
 	@:native("get_guid")
 	public abstract function getGUID(): String;
 }
