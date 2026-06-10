@@ -7,6 +7,7 @@ import entity.objectref.ObjectRefBase;
 @:build(luantitypes.EntityDuctTape.build())
 abstract class LuaEntity {
 	final object: ObjectRefEntity = null;
+	final name: String = null;
 
 	// ? Here begins programmer facing overrideable methods.
 
