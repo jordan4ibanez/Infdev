@@ -77,6 +77,9 @@ extern class Core {
 	@:native("get_connected_players")
 	static function getConnectedPlayers(): LuaArray<ObjectRefPlayer>;
 
+	@:native("get_player_by_name")
+	static function getPlayerByName(): Null<ObjectRefPlayer>;
+
 	@:native("after")
 	static function after(time: Float, func: Function, anything: Rest<Dynamic>): Void;
 
