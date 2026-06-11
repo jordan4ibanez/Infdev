@@ -2,6 +2,7 @@ package entity.objectref;
 
 import lua.Table;
 import vector.EngineVector3;
+import entity.helpers.PlayerHandling;
 
 /**
  * A Luanti C++ engine ServerActiveObject reference.
@@ -190,6 +191,6 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	public abstract function setFlags(flags: Dynamic): Void;
 
 	public inline function getLuaEntity(): Player {
-		return Player.getGlobalLuaEntity(this.getPlayerName());
+		return PlayerHandling.getGlobalLuaEntity(this.getPlayerName());
 	}
 }
