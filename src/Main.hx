@@ -7,25 +7,26 @@ class Main {
 		// TODO: USE __init__ WITH A MACRO TO CREATE A CUSTOM ENTITY REGISTRATION!
 		Core.registerEntity("haxe_luanti:test", Mob);
 
-		Core.registerOnJoinPlayer((player, lastLogin) -> {
-			// untyped {
-			// 	trace(Global.dump(player.getMeta()));
-			// }
+		// Core.registerOnJoinPlayer((player, lastLogin) -> {
+		// untyped {
+		// 	trace(Global.dump(player.getMeta()));
+		// }
 
-			// var x = player.getLuaEntity();
+		// var x = player.getLuaEntity();
 
-			// trace(x);
+		// trace(x);
 
-			// Core.requestShutdown();
-		});
+		// Core.requestShutdown();
+		// });
 
-		Core.registerGlobalStep((delta) -> {
-			for (player in Core.getConnectedPlayers()) {
-				// trace(player.getBreath());
-				player.getLuaEntity();
-			}
+		// Core.registerGlobalStep((delta) -> {
+		// 	for (player in Core.getConnectedPlayers()) {
+		// 		// trace(player.getBreath());
+		// 		trace("GLOBAL LOOP");
+		// 		player.getLuaEntity();
+		// 	}
 
-			// trace(delta);
-		});
+		// 	// trace(delta);
+		// });
 	};
 }
