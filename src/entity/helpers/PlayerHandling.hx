@@ -6,7 +6,7 @@ import luantitypes.Core;
 @:noCompletion
 final class PlayerHandling {
 	static final playerLuaEntities = new StringMap<Player>();
-	static final PLAYER_DATA_KEY = "PlayerSerializedData";
+	static final PLAYER_DATA_KEY = "PlayerSerializedData__HAXE__";
 
 	static function __init__() {
 		Core.registerOnJoinPlayer((player, lastLogin) -> {
