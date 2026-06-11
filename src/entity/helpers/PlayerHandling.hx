@@ -9,6 +9,7 @@ final class PlayerHandling {
 	static final PLAYER_DATA_KEY = "PlayerSerializedData__HAXE__";
 
 	static function __init__() {
+		// trace("FIRING UP PLAYER HANDLING");
 		Core.registerOnJoinPlayer((player, lastLogin) -> {
 			player.getLuaEntity();
 		});
