@@ -5,7 +5,7 @@ import luantitypes.Core;
 import haxe.ds.StringMap;
 import entity.EntitySerialization;
 
-final class Player extends LuaEntity {
+final class Player {
 	static final playerLuaEntities = new StringMap<Player>();
 	static final PLAYER_DATA_KEY = "PlayerSerializedData";
 
@@ -54,19 +54,15 @@ final class Player extends LuaEntity {
 		return thisLuaEntity;
 	}
 
-	override public function onActivate(staticData: String, dtimeS: Float) {
-		super.onActivate(staticData, dtimeS);
-
+	public function onActivate(staticData: String, dtimeS: Float) {
 		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
 	}
 
-	override function onDeactivate(removal: Bool) {
-		super.onDeactivate(removal);
-
+	function onDeactivate(removal: Bool) {
 		trace("on_deactivate?");
 	}
 
-	override function getStaticData(): String {
+	function getStaticData(): String {
 		return EntitySerialization.safeSerialize(this, Macros.getCompileTimeClass());
 	}
 }
