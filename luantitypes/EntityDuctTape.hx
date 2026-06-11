@@ -21,7 +21,7 @@ class EntityDuctTape {
 		// Fully qualified.
 		var className = Context.getLocalClass().toString();
 
-		if (className != "entity.LuaEntity" && className != "entity.Player") {
+		if (className != "entity.LuaEntity") {
 			final hasNew: Field = Lambda.find(fields, (f: Field) -> f.name == "new");
 			if (hasNew != null) {
 				Context.error("Error: Do not not use new(). Override onActivate().", hasNew.pos);
