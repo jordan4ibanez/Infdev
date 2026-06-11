@@ -1,5 +1,6 @@
 package entity;
 
+import entity.objectref.ObjectRefPlayer;
 import luantitypes.Macros;
 import luantitypes.Core;
 import haxe.ds.StringMap;
@@ -8,6 +9,8 @@ import entity.EntitySerialization;
 final class Player {
 	static final playerLuaEntities = new StringMap<Player>();
 	static final PLAYER_DATA_KEY = "PlayerSerializedData";
+
+	var object: ObjectRefPlayer = null;
 
 	private function new() {}
 
@@ -32,6 +35,12 @@ final class Player {
 	}
 
 	private static function mimicLuaEntityConstruction(name: String, player: Player) {
+		var playerObjectRef = Core.getPlayerByName(name);
+		if (playerObjectRef == null) {
+			throw "Player " + name + " is null";
+		}
+		player.object = playerObjectRef;
+
 		var serialData: String = ModStorage.getString(name + PLAYER_DATA_KEY);
 		var dtimeS = 0;
 
@@ -56,6 +65,7 @@ final class Player {
 
 	public function onActivate(staticData: String, dtimeS: Float) {
 		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
+		trace(this.object.getBreath());
 	}
 
 	function onDeactivate(removal: Bool) {
