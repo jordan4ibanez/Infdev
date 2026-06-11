@@ -19,9 +19,11 @@ final class EntitySerialization {
 		// This is a Non-player.
 		if (autoDetectClass == null) {
 			containerClass = Type.createInstance(clazz, []);
+			// trace(Type.getClassName(clazz), "non");
 		} else {
 			// This is a player.
 			containerClass = Type.createInstance(autoDetectClass, []);
+			// trace(Type.getClassName(clazz), "is");
 		}
 
 		final deserializedTable = Core.deserialize(staticData);
@@ -71,9 +73,11 @@ final class EntitySerialization {
 		// This is a Non-player.
 		if (autoDetectClass == null) {
 			containerClass = Type.createInstance(clazz, []);
+			// trace(Type.getClassName(clazz), "non");
 		} else {
 			// This is a player.
 			containerClass = Type.createInstance(autoDetectClass, []);
+			// trace(Type.getClassName(clazz), "is");
 		}
 
 		// todo: clone the data into a new object minus the name and the userdata
