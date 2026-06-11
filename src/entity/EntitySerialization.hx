@@ -41,7 +41,7 @@ final class EntitySerialization {
 					}
 					containerClass[field] = deserializedTable[field];
 				}
-				trace("first pass", field);
+				// trace("first pass", field);
 			}
 		}
 
@@ -57,7 +57,7 @@ final class EntitySerialization {
 			untyped {
 				outputObject[field] = containerClass[field];
 			}
-			trace("second pass", field);
+			// trace("second pass", field);
 		}
 	}
 
