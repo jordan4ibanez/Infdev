@@ -64,27 +64,32 @@ final class EntitySerialization {
 	}
 
 	public static function safeSerialize<T>(inputObject: Dynamic, clazz: Class<T>): String {
-		var containerClass;
+		// trace(Type.getInstanceFields(clazz), Type.getClassName(clazz));
 
-		var autoDetectClass = Type.getClass(inputObject);
+		// todo: use this method on safeDeserialize!
 
-		// I have no idea why this works this way but it does.
+		var outputObject: Dynamic = {};
 
-		// This is a Non-player.
-		if (autoDetectClass == null) {
-			containerClass = Type.createInstance(clazz, []);
-			// trace(Type.getClassName(clazz), "non");
-		} else {
-			// This is a player.
-			containerClass = Type.createInstance(autoDetectClass, []);
-			// trace(Type.getClassName(clazz), "is");
+		// Clone from the haxe container class into the the full class next.
+		for (field in Type.getInstanceFields(clazz)) {
+			// This is decorated by the engine. (And not protected by it)
+			if (field == "object" || field == "name") {
+				continue;
+			}
+
+			var value = Reflect.field(inputObject, field);
+
+			// Do not dump methods into the serialized string.
+			if (Reflect.isFunction(value)) {
+				continue;
+			}
+
+			untyped {
+				outputObject[field] = inputObject[field];
+			}
+			// trace("field", field);
 		}
 
-		// todo: clone the data into a new object minus the name and the userdata
-		// todo: if (field == "object" || field == "name") {
-		// todo: 	continue;
-		// todo: }
-
-		return "";
+		return Core.serialize(outputObject);
 	}
 }
