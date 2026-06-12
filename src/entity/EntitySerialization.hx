@@ -10,24 +10,7 @@ final class EntitySerialization {
 	 * @return T The storage type you're using for the data in this class.
 	 */
 	public static function safeDeserialize<T>(staticData: String, outputObject: Dynamic, clazz: Class<T>): Void {
-		var containerClass;
-
-		var autoDetectClass = Type.getClass(outputObject);
-
-		// I have no idea why this works this way but it does.
-
-		// This is a Non-player.
-		if (autoDetectClass == null) {
-			containerClass = Type.createInstance(clazz, []);
-			// trace(Type.getClassName(clazz), "non");
-		} else {
-			// This is a player.
-			containerClass = Type.createInstance(autoDetectClass, []);
-
-			trace(containerClass);
-			trace(Type.createInstance(clazz, []));
-			// trace(Type.getClassName(clazz), "is");
-		}
+		var containerClass = Type.createInstance(clazz, []);
 
 		final deserializedTable = Core.deserialize(staticData);
 
