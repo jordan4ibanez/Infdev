@@ -61,6 +61,4 @@ final class Player {
 		trace(this.object.getPlayerName() + " respawn!");
 		return false;
 	}
-
-	// todo: on respawn player
 }
