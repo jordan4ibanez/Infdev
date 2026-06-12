@@ -21,7 +21,7 @@ final class PlayerHandling {
 			var ple = player.getLuaEntity();
 			ple.onDeactivate(false);
 			ModStorage.setString(player.getPlayerName() + PLAYER_DATA_KEY, ple.getStaticData());
-			// todo: delete this player from the map.
+			playerLuaEntities.remove(player.getPlayerName());
 		});
 
 		// Player LuaEntity destruction.
@@ -30,7 +30,7 @@ final class PlayerHandling {
 				var ple = player.getLuaEntity();
 				ple.onDeactivate(false);
 				ModStorage.setString(player.getPlayerName() + PLAYER_DATA_KEY, ple.getStaticData());
-				// todo: delete this player from the map. (overkill)
+				playerLuaEntities.remove(player.getPlayerName());
 			}
 		});
 
