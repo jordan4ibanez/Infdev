@@ -27,6 +27,8 @@ final class Player {
 		return EntitySerialization.safeSerialize(this, Macros.getCompileTimeClass());
 	}
 
+	public function onNewPlayer(): Void {}
+
 	// todo: I don't think moveresult is possible
 	// moveResult: Dynamic
 	public function onStep(delta: Float) {
@@ -34,8 +36,6 @@ final class Player {
 
 		trace(totalTime);
 	}
-
-	// todo: on New Player
 
 	public function onPunch(puncher: Null<ObjectRefBase>, timeFromLastPunch: Float, toolCapabilities: Dynamic, dir: Dynamic, damager: Int): Bool {
 		trace(this.object.getPlayerName() + " got punched! OUCH");

@@ -32,6 +32,11 @@ final class PlayerHandling {
 			}
 		});
 
+		// Player LuaEntity onNewPlayer.
+		Core.registerOnNewPlayer((player) -> {
+			player.getLuaEntity().onNewPlayer();
+		});
+
 		// Player LuaEntity onStep.
 		Core.registerGlobalStep((delta) -> {
 			for (player in Core.getConnectedPlayers()) {
