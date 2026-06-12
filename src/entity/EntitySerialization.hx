@@ -11,14 +11,16 @@ final class EntitySerialization {
 	 * @return T The storage type you're using for the data in this class.
 	 */
 	public static function safeDeserialize<T>(staticData: String, outputObject: Dynamic, clazz: Class<T>): Void {
+		// Base defaults.
 		var containerClass = Type.createInstance(clazz, []);
 
+		// Saved data.
 		final deserializedTable = Core.deserialize(staticData);
 
 		// If it doesn't equal null then start the clone.
 		if (deserializedTable != null) {
 			// Clone from the core.deserialize output into a haxe container class first.
-			for (field in Reflect.fields(containerClass)) {
+			for (field in Type.getInstanceFields(clazz)) {
 				untyped {
 					// Don't clone null data.
 					if (deserializedTable[field] == null) {
@@ -28,6 +30,16 @@ final class EntitySerialization {
 					if (field == "object" || field == "name") {
 						continue;
 					}
+
+					var value = Reflect.field(containerClass, field);
+
+					// Do not dump methods into the serialized string.
+					if (Reflect.isFunction(value)) {
+						continue;
+					}
+
+					trace(field, value);
+
 					containerClass[field] = deserializedTable[field];
 				}
 				// trace("first pass", field);
