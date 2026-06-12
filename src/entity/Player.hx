@@ -43,7 +43,8 @@ final class Player {
 		return true;
 	}
 
-	// todo on right click player
+	public function onRightClick(clicker: Null<ObjectRefBase>): Void {}
+
 	// todo: on HP Change
 	// todo: on Die Player
 	// todo: on respawn player

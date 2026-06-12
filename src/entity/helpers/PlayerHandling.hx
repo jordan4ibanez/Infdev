@@ -48,6 +48,10 @@ final class PlayerHandling {
 		Core.registerOnPunchPlayer((player, hitter, timeFromLastPunch, toolCapabilities, dir, damage) -> {
 			return player.getLuaEntity().onPunch(hitter, timeFromLastPunch, toolCapabilities, dir, damage);
 		});
+
+		Core.registerOnRightClickPlayer((player, clicker) -> {
+			player.getLuaEntity().onRightClick(clicker);
+		});
 	}
 
 	private static function mimicLuaEntityConstruction(name: String, player: Player) {

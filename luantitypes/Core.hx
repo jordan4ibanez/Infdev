@@ -87,6 +87,9 @@ extern class Core {
 	static function registerOnPunchPlayer(delegate: (player: ObjectRefPlayer, hitter: Null<ObjectRefBase>, timeFromLastPunch: Null<Float>,
 		toolCapabilities: Null<Dynamic>, dir: EngineVector3, damage: Int) -> Bool): Void;
 
+	@:native("register_on_rightclickplayer")
+	static function registerOnRightClickPlayer(delegate: (player: ObjectRefPlayer, clicker: Null<ObjectRefBase>) -> Void): Void;
+
 	@:native("after")
 	static function after(time: Float, func: Function, anything: Rest<Dynamic>): Void;
 
