@@ -1,5 +1,6 @@
 package entity;
 
+import entity.objectref.ObjectRefBase;
 import entity.objectref.ObjectRefPlayer;
 import luantitypes.Macros;
 import entity.EntitySerialization;
@@ -32,5 +33,10 @@ final class Player {
 		this.totalTime += delta;
 
 		trace(totalTime);
+	}
+
+	public function onPunch(puncher: Null<ObjectRefBase>, timeFromLastPunch: Float, toolCapabilities: Dynamic, dir: Dynamic, damager: Int): Bool {
+		// Disable the default damage mechanic cause fuck that shit.
+		return true;
 	}
 }
