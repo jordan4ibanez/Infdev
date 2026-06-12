@@ -23,6 +23,9 @@ final class EntitySerialization {
 		} else {
 			// This is a player.
 			containerClass = Type.createInstance(autoDetectClass, []);
+
+			trace(containerClass);
+			trace(Type.createInstance(clazz, []));
 			// trace(Type.getClassName(clazz), "is");
 		}
 
