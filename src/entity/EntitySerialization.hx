@@ -52,8 +52,6 @@ final class EntitySerialization {
 	public static function safeSerialize<T>(inputObject: Dynamic, clazz: Class<T>): String {
 		// trace(Type.getInstanceFields(clazz), Type.getClassName(clazz));
 
-		// todo: use this method on safeDeserialize!
-
 		var outputObject: Dynamic = {};
 
 		// Clone from the haxe container class into the the full class next.
