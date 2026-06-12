@@ -8,7 +8,7 @@ final class Player {
 	public var object: ObjectRefPlayer = null;
 
 	var iAmCoolVar = 5;
-	var totalTime = 0;
+	var totalTime: Float = 0;
 
 	@:allow(entity.helpers.PlayerHandling)
 	private function new() {}
@@ -28,5 +28,9 @@ final class Player {
 
 	// todo: I don't think moveresult is possible
 	// moveResult: Dynamic
-	public function onStep(delta: Float) {}
+	public function onStep(delta: Float) {
+		this.totalTime += delta;
+
+		trace(totalTime);
+	}
 }

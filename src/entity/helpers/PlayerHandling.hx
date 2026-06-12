@@ -10,16 +10,20 @@ final class PlayerHandling {
 
 	static function __init__() {
 		// trace("FIRING UP PLAYER HANDLING");
+
+		// Player LuaEntity creation.
 		Core.registerOnJoinPlayer((player, lastLogin) -> {
 			player.getLuaEntity();
 		});
 
+		// Player LuaEntity destruction.
 		Core.registerOnLeavePlayer((player, timedOut) -> {
 			var ple = player.getLuaEntity();
 			ple.onDeactivate(false);
 			ModStorage.setString(player.getPlayerName() + PLAYER_DATA_KEY, ple.getStaticData());
 		});
 
+		// Player LuaEntity destruction.
 		Core.registerOnShutDown(() -> {
 			for (player in Core.getConnectedPlayers()) {
 				var ple = player.getLuaEntity();
@@ -28,6 +32,7 @@ final class PlayerHandling {
 			}
 		});
 
+		// Player LuaEntity onStep.
 		Core.registerGlobalStep((delta) -> {
 			for (player in Core.getConnectedPlayers()) {
 				player.getLuaEntity().onStep(delta);
