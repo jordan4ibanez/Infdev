@@ -18,7 +18,7 @@ final class Player {
 	}
 
 	public function onDeactivate(removal: Bool) {
-		trace("on_deactivate?");
+		// trace("on_deactivate?");
 	}
 
 	public function getStaticData(): String {
