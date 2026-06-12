@@ -60,6 +60,10 @@ final class PlayerHandling {
 		Core.registerOnDiePlayer((player, reason) -> {
 			player.getLuaEntity().onDeath(reason);
 		});
+
+		Core.registerOnRespawnPlayer((player) -> {
+			return player.getLuaEntity().onRespawn();
+		});
 	}
 
 	private static function mimicLuaEntityConstruction(name: String, player: Player) {

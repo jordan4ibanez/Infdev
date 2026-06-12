@@ -55,6 +55,9 @@ final class Player {
 		trace(this.object.getPlayerName() + " died, womp womp");
 	}
 
-	// todo: on Die Player
+	public function onRespawn(): Bool {
+		return false;
+	}
+
 	// todo: on respawn player
 }

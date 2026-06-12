@@ -96,6 +96,9 @@ extern class Core {
 	@:native("register_on_dieplayer")
 	static function registerOnDiePlayer(delegate: (player: ObjectRefPlayer, reason: Dynamic) -> Void): Void;
 
+	@:native("register_on_respawnplayer")
+	static function registerOnRespawnPlayer(delegate: (player: ObjectRefPlayer) -> Bool): Void;
+
 	@:native("after")
 	static function after(time: Float, func: Function, anything: Rest<Dynamic>): Void;
 
