@@ -28,6 +28,31 @@ class EntityDuctTape {
 			}
 		}
 
+		// ? This allows you to register an entity at the top of your class.
+
+		for (meta in localClass.meta.get()) {
+			trace(meta.name);
+			if (meta.name == ":luantiEntity") {
+				final firstParameter = meta.params[0];
+				if (firstParameter == null) {
+					Context.error("luantiClass requires a string parameter", meta.pos);
+				}
+
+				switch (firstParameter.expr) {
+					case EConst(CString((value))):
+						{
+							trace("found luantimacro in " + value);
+							if (value.length == 0) {
+								Context.error("luantiClass does not accept a blank string", meta.pos);
+							}
+						}
+
+					default:
+						Context.error("luantiClass requires a string parameter", meta.pos);
+				}
+			}
+		}
+
 		// ? This converts a standard Haxe class into a Luanti compatible class.
 
 		final onActivate: Field = Lambda.find(fields, (f: Field) -> f.name == "onActivate");
