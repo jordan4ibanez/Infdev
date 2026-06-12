@@ -22,10 +22,6 @@ final class EntitySerialization {
 			// Clone from the core.deserialize output into a haxe container class first.
 			for (field in Type.getInstanceFields(clazz)) {
 				untyped {
-					// Don't clone null data.
-					if (deserializedTable[field] == null) {
-						continue;
-					}
 					// This is decorated by the engine. (And not protected by it)
 					if (field == "object" || field == "name") {
 						continue;
@@ -38,27 +34,13 @@ final class EntitySerialization {
 						continue;
 					}
 
-					trace(field, value);
+					// trace(field, value);
+					(deserializedTable[field] == null) ? trace("container class", field) : trace("deserialized data", field);
 
-					containerClass[field] = deserializedTable[field];
+					outputObject[field] = (deserializedTable[field] == null) ? containerClass[field] : deserializedTable[field];
 				}
 				// trace("first pass", field);
 			}
-		}
-
-		// ? Debugging.
-		// trace(containerClass);
-
-		// Clone from the haxe container class into the the full class next.
-		for (field in Reflect.fields(containerClass)) {
-			// This is decorated by the engine. (And not protected by it)
-			if (field == "object" || field == "name") {
-				continue;
-			}
-			untyped {
-				outputObject[field] = containerClass[field];
-			}
-			// trace("second pass", field);
 		}
 	}
 
