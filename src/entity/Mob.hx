@@ -7,6 +7,7 @@ import vector.Vec3;
 import entity.objectref.ObjectRefBase;
 import entity.helpers.EntitySerialization;
 
+@:luantiEntity("infdev:mob")
 abstract class Mob extends LuaEntity {
 	var helperVec3 = new Vec3();
 
