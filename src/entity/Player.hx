@@ -46,7 +46,9 @@ final class Player {
 	public function onRightClick(clicker: Null<ObjectRefBase>): Void {}
 
 	public function onHPChange(hpChange: Int, reason: Dynamic): Int {
-		trace("OUCH!");
+		if (hpChange < 0) {
+			trace("OUCH!");
+		}
 		// Do things here.
 		return hpChange; // hpChange
 	}
@@ -56,6 +58,7 @@ final class Player {
 	}
 
 	public function onRespawn(): Bool {
+		trace(this.object.getPlayerName() + " respawn!");
 		return false;
 	}
 
