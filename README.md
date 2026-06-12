@@ -1,4 +1,4 @@
-# haxe_luanti
+# Infdev
 Testing out haxe with luanti
 
 ### Note:
