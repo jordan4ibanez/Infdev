@@ -7,7 +7,7 @@ using StringTools;
 class LuantiCompilerFix {
 	public static function patch() {
 		Context.onAfterGenerate(() -> {
-			var content: String = File.getContent("init.lua");
+			var content: String = File.getContent("mods/infdev/init.lua");
 
 			var lines = content.split("\n");
 
@@ -23,7 +23,7 @@ class LuantiCompilerFix {
 				// }
 			}
 
-			File.saveContent("init.lua", lines.join("\n"));
+			File.saveContent("mods/infdev/init.lua", lines.join("\n"));
 		});
 	}
 }
