@@ -3,7 +3,7 @@ package entity;
 import entity.objectref.ObjectRefBase;
 import entity.objectref.ObjectRefPlayer;
 import luantitypes.Macros;
-import entity.EntitySerialization;
+import entity.helpers.EntitySerialization;
 
 final class Player {
 	public var object: ObjectRefPlayer = null;

@@ -5,7 +5,7 @@ import lua.Lua;
 import luantitypes.Core;
 import vector.Vec3;
 import entity.objectref.ObjectRefBase;
-import entity.EntitySerialization;
+import entity.helpers.EntitySerialization;
 
 abstract class Mob extends LuaEntity {
 	var helperVec3 = new Vec3();
