@@ -4,9 +4,6 @@ import luantitypes.Core;
 
 class Main {
 	public static function main(): Void {
-		// TODO: USE __init__ WITH A MACRO TO CREATE A CUSTOM ENTITY REGISTRATION!
-		Core.registerEntity("infdev:test", Mob);
-
 		// Core.registerOnJoinPlayer((player, lastLogin) -> {
 		// untyped {
 		// 	trace(Global.dump(player.getMeta()));
