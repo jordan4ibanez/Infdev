@@ -28,6 +28,8 @@ class EntityDuctTape {
 			}
 		}
 
+		// ? This converts a standard Haxe class into a Luanti compatible class.
+
 		final onActivate: Field = Lambda.find(fields, (f: Field) -> f.name == "onActivate");
 
 		if (onActivate != null) {
