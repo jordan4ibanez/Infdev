@@ -29,7 +29,7 @@ final class EntitySerialization {
 
 					var value = Reflect.field(containerClass, field);
 
-					// Do not dump methods into the serialized string.
+					// Do not dump methods into the output object.
 					if (Reflect.isFunction(value)) {
 						continue;
 					}
