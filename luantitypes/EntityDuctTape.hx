@@ -56,7 +56,7 @@ class EntityDuctTape {
 										if (func.expr != null) {
 											var injectExpr = macro {
 												Core.registerEntity($v{value}, $i{localClass.name});
-												trace("Auto-injected registration __init__ into " + $v{className});
+												// trace("Auto-injected registration __init__ into " + $v{className});
 											};
 
 											switch (func.expr.expr) {
@@ -75,7 +75,7 @@ class EntityDuctTape {
 								// trace(localClass.name);
 								var newFunction = macro function() {
 									Core.registerEntity($v{value}, $i{localClass.name});
-									trace("Auto-created registration __init__ into " + $v{className});
+									// trace("Auto-created registration __init__ into " + $v{className});
 								};
 
 								switch (newFunction.expr) {
