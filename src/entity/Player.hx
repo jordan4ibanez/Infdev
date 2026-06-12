@@ -8,6 +8,7 @@ final class Player {
 	public var object: ObjectRefPlayer = null;
 
 	var iAmCoolVar = 5;
+	var totalTime = 0;
 
 	@:allow(entity.helpers.PlayerHandling)
 	private function new() {}
