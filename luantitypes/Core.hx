@@ -80,6 +80,10 @@ extern class Core {
 	@:native("get_player_by_name")
 	static function getPlayerByName(name: String): Null<ObjectRefPlayer>;
 
+	@:native("register_on_punchplayer")
+	static function registerOnPunchPlayer(delegate: (player: ObjectRefPlayer, hitter: Null<ObjectRefBase>, timeFromLastPunch: Null<Float>,
+		toolCapabilities: Null<Dynamic>, dir: EngineVector3, damage: Int) -> Bool): Void;
+
 	@:native("after")
 	static function after(time: Float, func: Function, anything: Rest<Dynamic>): Void;
 
