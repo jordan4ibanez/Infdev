@@ -25,4 +25,8 @@ final class Player {
 	public function getStaticData(): String {
 		return EntitySerialization.safeSerialize(this, Macros.getCompileTimeClass());
 	}
+
+	// todo: I don't think moveresult is possible
+	// moveResult: Dynamic
+	public function onStep(delta: Float) {}
 }
