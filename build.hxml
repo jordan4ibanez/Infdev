@@ -1,6 +1,6 @@
 -cp src
 -main Main
--lua init.lua
+-lua mods/infdev/init.lua
 
 # Jit.
 -D lua-jit
