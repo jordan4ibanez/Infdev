@@ -5,8 +5,9 @@ import luantitypes.Core;
 final class EntitySerialization {
 	/**
 	 * This was made to clone core.deserialize data into a haxe class with defaults to make it nice as possible.
-	 * @param cloneFrom Output from core.deserialize.
-	 * @param cloneTo The class you want to write this data into.
+	 * @param staticData The static data.
+	 * @param cloneTo The object you want to write this data into.
+	 * @param clazz The class type of outputObject.
 	 * @return T The storage type you're using for the data in this class.
 	 */
 	public static function safeDeserialize<T>(staticData: String, outputObject: Dynamic, clazz: Class<T>): Void {
