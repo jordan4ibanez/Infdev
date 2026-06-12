@@ -56,6 +56,10 @@ final class PlayerHandling {
 		Core.registeronPlayerHPChange((player, hpChange, reason) -> {
 			return player.getLuaEntity().onHPChange(hpChange, reason);
 		}, true);
+
+		Core.registerOnDiePlayer((player, reason) -> {
+			player.getLuaEntity().onDeath(reason);
+		});
 	}
 
 	private static function mimicLuaEntityConstruction(name: String, player: Player) {

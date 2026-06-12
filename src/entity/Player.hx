@@ -34,7 +34,7 @@ final class Player {
 	public function onStep(delta: Float) {
 		this.totalTime += delta;
 
-		trace(totalTime);
+		// trace(totalTime);
 	}
 
 	public function onPunch(puncher: Null<ObjectRefBase>, timeFromLastPunch: Float, toolCapabilities: Dynamic, dir: Dynamic, damager: Int): Bool {
@@ -46,9 +46,15 @@ final class Player {
 	public function onRightClick(clicker: Null<ObjectRefBase>): Void {}
 
 	public function onHPChange(hpChange: Int, reason: Dynamic): Int {
-
-		return hpChange;
+		trace("OUCH!");
+		// Do things here.
+		return hpChange; // hpChange
 	}
+
+	public function onDeath(reason: Dynamic): Void {
+		trace(this.object.getPlayerName() + " died, womp womp");
+	}
+
 	// todo: on Die Player
 	// todo: on respawn player
 }
