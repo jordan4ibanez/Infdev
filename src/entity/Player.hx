@@ -45,7 +45,10 @@ final class Player {
 
 	public function onRightClick(clicker: Null<ObjectRefBase>): Void {}
 
-	// todo: on HP Change
+	public function onHPChange(hpChange: Int, reason: Dynamic): Int {
+
+		return hpChange;
+	}
 	// todo: on Die Player
 	// todo: on respawn player
 }

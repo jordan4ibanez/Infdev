@@ -52,6 +52,10 @@ final class PlayerHandling {
 		Core.registerOnRightClickPlayer((player, clicker) -> {
 			player.getLuaEntity().onRightClick(clicker);
 		});
+
+		Core.registeronPlayerHPChange((player, hpChange, reason) -> {
+			return player.getLuaEntity().onHPChange(hpChange, reason);
+		}, true);
 	}
 
 	private static function mimicLuaEntityConstruction(name: String, player: Player) {
