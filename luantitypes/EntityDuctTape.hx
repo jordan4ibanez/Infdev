@@ -31,7 +31,7 @@ class EntityDuctTape {
 		// ? This allows you to register an entity at the top of your class.
 
 		for (meta in localClass.meta.get()) {
-			trace(meta.name);
+			// trace(meta.name);
 			if (meta.name == ":luantiEntity") {
 				final firstParameter = meta.params[0];
 				if (firstParameter == null) {
@@ -72,7 +72,7 @@ class EntityDuctTape {
 										Context.error("__init__ is wrong?", init.pos);
 								}
 							} else {
-								trace(localClass.name);
+								// trace(localClass.name);
 								var newFunction = macro function() {
 									Core.registerEntity($v{value}, $i{localClass.name});
 									trace("Auto-created registration __init__ into " + $v{className});
