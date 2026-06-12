@@ -27,6 +27,12 @@ final class PlayerHandling {
 				ModStorage.setString(player.getPlayerName() + PLAYER_DATA_KEY, ple.getStaticData());
 			}
 		});
+
+		Core.registerGlobalStep((delta) -> {
+			for (player in Core.getConnectedPlayers()) {
+				player.getLuaEntity().onStep(delta);
+			}
+		});
 	}
 
 	private static function mimicLuaEntityConstruction(name: String, player: Player) {
