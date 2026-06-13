@@ -1,9 +1,7 @@
 package node;
 
-typedef NodeDef = {
-	@:native("on_step")
-	function onStep(): Void;
-}
+import vector.EngineVector3;
+import luantitypes.Macros;
 
 @:autoBuild(luantitypes.NodeDuctTape.build())
 @:build(luantitypes.NodeDuctTape.build())
@@ -11,9 +9,9 @@ abstract class Node {
 	// static function __init__() {
 	// 	var t: NodeDef = Dirt;
 	// }
+	// public static function on_construct(pos: EngineVector3) {};
+	public function testing(): Void {};
 }
 
 @:registerNode("")
-class Dirt extends Node {
-	public static function onStep() {};
-}
+class Dirt extends Node {}
