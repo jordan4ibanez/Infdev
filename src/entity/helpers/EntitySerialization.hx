@@ -67,7 +67,7 @@ final class EntitySerialization {
 			untyped {
 				outputObject[field] = inputObject[field];
 			}
-			trace("field", field);
+			// trace("field", field);
 		}
 
 		return Core.serialize(outputObject);
