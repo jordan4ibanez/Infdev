@@ -43,6 +43,9 @@ extern class Core {
 		Core.register_entity(name, rawLuantiPrototype);
 	}
 
+	@:native("register_node")
+	static function registerNode(name: String, def: Dynamic): Void;
+
 	// fixme: this is incorrect.
 	@:native("request_shutdown")
 	static function requestShutdown(?message: String, ?reconnect: Bool, ?delay: Float): Void;
