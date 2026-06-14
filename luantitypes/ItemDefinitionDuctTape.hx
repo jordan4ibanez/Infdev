@@ -23,6 +23,7 @@ class ItemDefinitionDuctTape {
 		if (hasNew != null) {
 			Context.error("Error: Do not not use new()", hasNew.pos);
 		} else if (!isInterface) {
+			// It gets a blank new injected so the instance can be sent to the engine.
 			var dummy = macro class {
 				public function new() {}
 			};
