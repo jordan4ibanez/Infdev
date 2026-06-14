@@ -6,8 +6,8 @@ package definition;
  * 
  * ItemDefinition is the root of all other definitions. (nodes, craftitem, tool)
  */
-@:build(luantitypes.NodeDuctTape.build())
-@:autoBuild(luantitypes.NodeDuctTape.build())
+@:build(luantitypes.ItemDefinitionDuctTape.build())
+@:autoBuild(luantitypes.ItemDefinitionDuctTape.build())
 interface ItemDefinition {
 	@:native("test1234")
 	public var testing: () -> Void;
