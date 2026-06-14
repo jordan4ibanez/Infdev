@@ -29,13 +29,13 @@ class NodeDuctTape {
 				final firstParameter = meta.params[0];
 
 				if (firstParameter == null) {
-					Context.error("luantiClass requires a string parameter", meta.pos);
+					Context.error("luantiNode requires a string parameter", meta.pos);
 				}
 				switch (firstParameter.expr) {
 					case EConst(CString((value))):
 						{
 							if (value.length == 0) {
-								Context.error("luantiClass does not accept a blank string", meta.pos);
+								Context.error("luantiNode does not accept a blank string", meta.pos);
 							}
 							// And if it got this far then it's up to them to ensure it's a good name cause I do not fucking care at this point.
 							final init: Field = Lambda.find(fields, (f: Field) -> f.name == "__init__");
@@ -46,8 +46,8 @@ class NodeDuctTape {
 									case FFun(func):
 										if (func.expr != null) {
 											var injectExpr = macro {
-												Core.registerEntity($v{value}, $i{localClass.name});
-												// trace("Auto-injected registration __init__ into " + $v{className});
+												luantitypes.Core.registerNode($v{value}, $i{localClass.name});
+												// trace("Auto-injected node registration __init__ into " + $v{className});
 											};
 
 											switch (func.expr.expr) {
@@ -64,8 +64,8 @@ class NodeDuctTape {
 							} else {
 								// trace(localClass.name);
 								var newFunction = macro function() {
-									Core.registerEntity($v{value}, $i{localClass.name});
-									// trace("Auto-created registration __init__ into " + $v{className});
+									luantitypes.Core.registerNode($v{value}, $i{localClass.name});
+									// trace("Auto-created node registration __init__ into " + $v{className});
 								};
 								switch (newFunction.expr) {
 									case EFunction(_, func):
@@ -81,7 +81,7 @@ class NodeDuctTape {
 							}
 						}
 					default:
-						Context.error("luantiClass requires a string parameter", meta.pos);
+						Context.error("luantiNode requires a string parameter", meta.pos);
 				}
 			}
 		}
