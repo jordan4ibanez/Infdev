@@ -18,3 +18,4 @@
 # This stops tree shaking.
 --macro include('node')
 --macro include('entity')
+--macro include('definition')
