@@ -21,6 +21,36 @@ class NodeDuctTape {
 			Context.error("Error: Do not not use new()", hasNew.pos);
 		}
 
+		for (field in fields) {
+			if (field.access != null && field.access.contains(AStatic)) {
+				continue;
+			}
+			if (field.name == "new") {
+				continue;
+			}
+
+			switch (field.kind) {
+				case FVar(type, expr):
+					var isFunctionDelegate = false;
+
+					if (type != null) {
+						switch (type) {
+							case TFunction(_, _):
+								isFunctionDelegate = true;
+							default:
+						}
+					}
+					if (!isFunctionDelegate) {
+						Context.error('Error: Field [${field.name}] is an instance field. Change this to static to make it a class field.', field.pos);
+					}
+				case FFun(_):
+					// If they wrote a standard 'public function abc()', stop them too!
+					Context.error('Error: Method [${field.name}] is an instance method. Change this to static to make it a class method.', field.pos);
+
+				default:
+			}
+		}
+
 		// ? This allows you to register a node at the top of your class.
 		for (meta in localClass.meta.get()) {
 			// trace(meta.name);
