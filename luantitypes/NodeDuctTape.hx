@@ -25,7 +25,7 @@ class NodeDuctTape {
 		// ? This allows you to register a node at the top of your class.
 		for (meta in localClass.meta.get()) {
 			// trace(meta.name);
-			if (meta.name == ":luantiEntity") {
+			if (meta.name == ":luantiNode") {
 				final firstParameter = meta.params[0];
 
 				if (firstParameter == null) {
