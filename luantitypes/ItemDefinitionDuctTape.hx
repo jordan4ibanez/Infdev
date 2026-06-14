@@ -7,7 +7,7 @@ import haxe.macro.Expr;
 // AI also heavily guided this development cause this is a fucking mess.
 // This is cramming OOP into lua style static everything while trying to make it
 // not a horrific mess to use.
-class NodeDuctTape {
+class ItemDefinitionDuctTape {
 	public static function build(): Array<Field> {
 		var fields = Context.getBuildFields();
 
