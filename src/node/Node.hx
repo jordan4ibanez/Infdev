@@ -6,7 +6,7 @@ package node;
  */
 @:autoBuild(luantitypes.NodeDuctTape.build())
 interface Node {
-	@:native("fart")
+	@:native("test1234")
 	public var testing: () -> Void;
 }
 
