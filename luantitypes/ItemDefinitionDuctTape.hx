@@ -19,6 +19,14 @@ class ItemDefinitionDuctTape {
 		final hasNew: Field = Lambda.find(fields, (f: Field) -> f.name == "new");
 		if (hasNew != null) {
 			Context.error("Error: Do not not use new()", hasNew.pos);
+		} else if (!localClass.isInterface) {
+			var dummy = macro class {
+				public function new() {}
+			};
+
+			var autoConstructor = dummy.fields[0];
+			autoConstructor.pos = Context.currentPos();
+			fields.push(autoConstructor);
 		}
 
 		for (field in fields) {
