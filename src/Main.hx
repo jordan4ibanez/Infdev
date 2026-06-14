@@ -4,17 +4,13 @@ import luantitypes.Core;
 
 class Main {
 	public static function main(): Void {
-		// Core.registerOnJoinPlayer((player, lastLogin) -> {
-		// untyped {
-		// 	trace(Global.dump(player.getMeta()));
-		// }
+		Core.registerOnJoinPlayer((player, lastLogin) -> {
+			// untyped {
+			// 	trace(Global.dump(player.getMeta()));
+			// }
 
-		// var x = player.getLuaEntity();
-
-		// trace(x);
-
-		// Core.requestShutdown();
-		// });
+			Core.requestShutdown();
+		});
 
 		// Core.registerGlobalStep((delta) -> {
 		// 	for (player in Core.getConnectedPlayers()) {
