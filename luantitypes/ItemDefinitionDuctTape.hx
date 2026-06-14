@@ -77,14 +77,20 @@ class ItemDefinitionDuctTape {
 							// And if it got this far then it's up to them to ensure it's a good name cause I do not fucking care at this point.
 							final init: Field = Lambda.find(fields, (f: Field) -> f.name == "__init__");
 
+							var typePath: haxe.macro.Expr.TypePath = {
+								pack: localClass.pack,
+								name: localClass.name,
+								params: []
+							};
+
 							if (init != null) {
 								// Inject code into their existing method
 								switch (init.kind) {
 									case FFun(func):
 										if (func.expr != null) {
 											var injectExpr = macro {
-												luantitypes.Core.registerNode($v{value}, Type.createInstance($i{localClass.name}, []));
-												// trace("Auto-injected node registration __init__ into " + $v{className});
+												trace("Auto-injected node registration __init__ into " + $v{className});
+												luantitypes.Core.registerNode($v{value}, new $typePath());
 											};
 
 											switch (func.expr.expr) {
@@ -99,10 +105,9 @@ class ItemDefinitionDuctTape {
 										Context.error("__init__ is wrong?", init.pos);
 								}
 							} else {
-								// trace(localClass.name);
 								var newFunction = macro function() {
-									luantitypes.Core.registerNode($v{value}, Type.createInstance($i{localClass.name}, []));
-									// trace("Auto-created node registration __init__ into " + $v{className});
+									trace("Auto-created node registration __init__ into " + $v{className});
+									luantitypes.Core.registerNode($v{value}, new $typePath());
 								};
 								switch (newFunction.expr) {
 									case EFunction(_, func):
