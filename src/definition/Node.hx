@@ -1,4 +1,4 @@
-package node;
+package definition;
 
 /**
  * When you extend this class, you get a specialty static class which only uses
@@ -12,8 +12,10 @@ interface ItemDefinition {
 	public var testing: () -> Void;
 }
 
+interface NodeDefinition extends ItemDefinition {}
+
 @:luantiNode("infdev:dirt")
-class Dirt implements ItemDefinition {
+class Dirt implements NodeDefinition {
 	public var testing: () -> Void = () -> {
 		// trace("testing var");
 	};
