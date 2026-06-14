@@ -18,10 +18,6 @@ class NodeDuctTape {
 			Context.error("Error: Do not not use new()", hasNew.pos);
 		}
 
-		// todo: destroy this parameter from every function.
-		// todo: do not allow super call.
-		// todo: just fuck this shit up and make nodes act weird as fuck but work properly.
-
 		// ? This allows you to register a node at the top of your class.
 		for (meta in localClass.meta.get()) {
 			// trace(meta.name);
