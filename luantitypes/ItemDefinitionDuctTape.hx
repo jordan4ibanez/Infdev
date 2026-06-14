@@ -16,10 +16,12 @@ class ItemDefinitionDuctTape {
 		// Fully qualified.
 		var className = Context.getLocalClass().toString();
 
+		final isInterface = localClass.isInterface;
+
 		final hasNew: Field = Lambda.find(fields, (f: Field) -> f.name == "new");
 		if (hasNew != null) {
 			Context.error("Error: Do not not use new()", hasNew.pos);
-		} else if (!localClass.isInterface) {
+		} else if (!isInterface) {
 			var dummy = macro class {
 				public function new() {}
 			};
