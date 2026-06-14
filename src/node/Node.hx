@@ -13,5 +13,9 @@ abstract class Node {
 	public function testing(): Void {};
 }
 
-@:registerNode("")
-class Dirt extends Node {}
+@:registerNode("infdev:dirt")
+class Dirt extends Node {
+	override function testing() {
+		super.testing();
+	}
+}
