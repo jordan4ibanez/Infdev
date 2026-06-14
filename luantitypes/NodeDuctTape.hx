@@ -75,7 +75,7 @@ class NodeDuctTape {
 									case FFun(func):
 										if (func.expr != null) {
 											var injectExpr = macro {
-												luantitypes.Core.registerNode($v{value}, $i{localClass.name});
+												luantitypes.Core.registerNode($v{value}, Type.createInstance($i{localClass.name}, []));
 												// trace("Auto-injected node registration __init__ into " + $v{className});
 											};
 
@@ -93,7 +93,7 @@ class NodeDuctTape {
 							} else {
 								// trace(localClass.name);
 								var newFunction = macro function() {
-									luantitypes.Core.registerNode($v{value}, $i{localClass.name});
+									luantitypes.Core.registerNode($v{value}, Type.createInstance($i{localClass.name}, []));
 									// trace("Auto-created node registration __init__ into " + $v{className});
 								};
 								switch (newFunction.expr) {
