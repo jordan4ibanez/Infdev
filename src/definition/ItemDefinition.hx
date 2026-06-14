@@ -11,12 +11,3 @@ interface ItemDefinition {
 	@:native("test1234")
 	public var testing: () -> Void;
 }
-
-interface NodeDefinition extends ItemDefinition {}
-
-@:luantiNode("infdev:dirt")
-class Dirt implements NodeDefinition {
-	public var testing: () -> Void = () -> {
-		// trace("testing var");
-	};
-}
