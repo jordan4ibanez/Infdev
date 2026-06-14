@@ -65,6 +65,10 @@ class ItemDefinitionDuctTape {
 		for (meta in localClass.meta.get()) {
 			// trace(meta.name);
 			if (meta.name == ":luantiNode") {
+				if (isInterface) {
+					Context.error('Error: Do not use :luantiNode on an interface.', meta.pos);
+				}
+
 				final firstParameter = meta.params[0];
 
 				if (firstParameter == null) {
