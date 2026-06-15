@@ -14,5 +14,7 @@ interface ItemDefinition {
 	@:native("short_description")
 	public var shortDescription: String;
 
+	public var groups: Dynamic<Int>;
+
 	public var testing: () -> Void;
 }
