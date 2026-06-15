@@ -11,5 +11,8 @@ package definition;
 interface ItemDefinition {
 	public var description: String;
 
+	@:native("short_description")
+	public var shortDescription: String;
+
 	public var testing: () -> Void;
 }

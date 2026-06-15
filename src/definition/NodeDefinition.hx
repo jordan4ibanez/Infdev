@@ -4,11 +4,9 @@ interface NodeDefinition extends ItemDefinition {}
 
 @:luantiNode("infdev:dirt")
 class Dirt implements ItemDefinition {
-	public var description: String;
+	public var description: String = "hi";
 
-	public static var blah: Int = 5;
+	public var shortDescription: String = "test";
 
-	public var testing: () -> Void = () -> {
-		this.description = "hi";
-	};
+	public var testing: () -> Void = () -> {};
 }
