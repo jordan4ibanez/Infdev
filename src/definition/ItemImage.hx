@@ -18,6 +18,9 @@ typedef ImageDefinitionTable = {
 	var ?animation: TileAnimation;
 }
 
+interface TileAnimationDefinition {
+	var type: TileAnimationType;
+}
 
 	}
 }
