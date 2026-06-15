@@ -166,6 +166,14 @@ class ItemDefinitionDuctTape {
 
 								default:
 							}
+						} else if (expr != null) {
+							// Peek at the expression if the type is omitted!
+							switch (expr.expr) {
+								// Handles: var testing = () -> {}; or var testing = function() {};
+								case EFunction(_, _):
+									isValidInterfaceField = true;
+								default:
+							}
 						}
 
 						if (!isValidInterfaceField) {
