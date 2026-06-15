@@ -1,8 +1,8 @@
 package definition;
 
-import definition.TileAnimationDefinition.TileAnimationDefinitionSheet2d;
+import definition.images.TileAnimationDefinition;
 import haxe.extern.EitherType;
-import definition.ItemImageDefinition;
+import definition.images.ItemImageDefinition;
 
 interface NodeDefinition extends ItemDefinition {}
 // @:luantiNode("infdev:dirt")

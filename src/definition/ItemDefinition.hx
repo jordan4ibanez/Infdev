@@ -1,6 +1,6 @@
 package definition;
 
-import definition.ItemImageDefinition;
+import definition.images.ItemImageDefinition;
 import haxe.extern.EitherType;
 
 /**
