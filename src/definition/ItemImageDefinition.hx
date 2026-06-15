@@ -1,5 +1,8 @@
 package definition;
 
+/**
+ * Basically a tile definition but for items.
+ */
 class ItemImageDefinition {
 	var name: String;
 	var animation: TileAnimationDefinition;
