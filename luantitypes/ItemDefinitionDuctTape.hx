@@ -29,6 +29,66 @@ class ItemDefinitionDuctTape {
 		return null;
 	}
 
+	// Don't let people access `this`.
+	static function checkThisAccess(field: haxe.macro.Expr.Field, fields: Array<Field>, localClass: haxe.macro.Type.ClassType) {
+		// Gather a list of ALL instance fields that are forbidden from implicit scope access.
+		var forbiddenNames = new Map<String, Bool>();
+
+		// Add instance fields from the current class definition.
+		for (f in fields) {
+			if (f.access == null || !f.access.contains(AStatic)) {
+				if (f.name != "new") {
+					forbiddenNames.set(f.name, true);
+				}
+			}
+		}
+
+		// Get instance fields from implemented interfaces too.
+		function gatherInterfaceFields(interfaces: Array<{t: haxe.macro.Type.Ref<haxe.macro.Type.ClassType>, params: Array<haxe.macro.Type>}>) {
+			for (wrapper in interfaces) {
+				var it = wrapper.t.get();
+				for (f in it.fields.get()) {
+					forbiddenNames.set(f.name, true);
+				}
+				gatherInterfaceFields(it.interfaces);
+			}
+		}
+		gatherInterfaceFields(localClass.interfaces);
+
+		// Local helper to scan the expressions recursively.
+		function walk(expr: haxe.macro.Expr) {
+			if (expr == null)
+				return;
+
+			switch (expr.expr) {
+				// Catch literal "this" usage (this.description)
+				case EConst(CIdent("this")):
+					Context.error('Error: "this" keyword is forbidden here. ItemDefinition, NodeDefinition, ToolDefinition, and CraftItemDefinition are fully static.',
+						expr.pos);
+
+				// Catch implicit identifier usage (description = "hi" or trace(description))
+				case EConst(CIdent(name)):
+					if (forbiddenNames.exists(name)) {
+						Context.error('Error: Do not access instance field [${name}].\nMake this variable static or don\'t access it if it\'s interface implementation.\n'
+							+ "ItemDefinition, NodeDefinition, ToolDefinition, and CraftItemDefinition are fully static.",
+							expr.pos);
+					}
+
+				default:
+					haxe.macro.ExprTools.iter(expr, walk);
+			}
+		}
+
+		// Scan the field payload.
+		switch (field.kind) {
+			case FVar(_, expr):
+				walk(expr);
+			case FFun(f):
+				walk(f.expr);
+			default:
+		}
+	}
+
 	public static function build(): Array<Field> {
 		var fields = Context.getBuildFields();
 
@@ -51,6 +111,16 @@ class ItemDefinitionDuctTape {
 			var autoConstructor = dummy.fields[0];
 			autoConstructor.pos = Context.currentPos();
 			fields.push(autoConstructor);
+		}
+
+		// ? Stops the compiler from exploding when `this` is used lmao.
+		if (!isInterface) {
+			for (field in fields) {
+				checkThisAccess(field, fields, localClass);
+				if (field.access != null && field.access.contains(AStatic)) {
+					continue;
+				}
+			}
 		}
 
 		// ? This checks everything to make sure things aren't gonna cause issues.
