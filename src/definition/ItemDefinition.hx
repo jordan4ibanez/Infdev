@@ -1,5 +1,8 @@
 package definition;
 
+import definition.ItemImageDefinition;
+import haxe.extern.EitherType;
+
 /**
  * When you extend this class, you get a specialty static class which only uses
  * OOP for auto complete. Everything else custom needs to be static. This is enforced.
@@ -18,7 +21,7 @@ interface ItemDefinition {
 
 	// todo: Item Image definition
 	@:native("wield_image")
-	public var wieldImage: String;
+	public var wieldImage: EitherType<ItemImageDefinition, String>;
 
 	public var testing: () -> Void;
 }
