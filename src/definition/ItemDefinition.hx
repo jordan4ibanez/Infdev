@@ -1,5 +1,6 @@
 package definition;
 
+import vector.EngineVector3;
 import definition.images.ItemImageDefinition;
 
 /**
@@ -23,6 +24,16 @@ interface ItemDefinition {
 
 	@:native("wield_overlay")
 	public var wieldOverLay: ItemImageDefinitionOrString;
+
+	@:native("wield_scale")
+	public var wieldScale: EngineVector3;
+
+	public var palette: String;
+
+	public var color: String;
+
+	@:native("stack_max")
+	public var stackMax: Int;
 
 	public var testing: () -> Void;
 }
