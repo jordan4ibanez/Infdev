@@ -54,33 +54,57 @@ class ItemDefinitionDuctTape {
 		}
 
 		// ? This checks everything to make sure things aren't gonna cause issues.
-		for (field in fields) {
-			if (field.access != null && field.access.contains(AStatic)) {
-				continue;
-			}
-			if (field.name == "new") {
-				continue;
-			}
+		if (!localClass.isInterface) {
+			for (field in fields) {
+				// Skip statics and constructors.
+				if (field.access != null && field.access.contains(AStatic)) {
+					continue;
+				}
+				if (field.name == "new") {
+					continue;
+				}
 
-			switch (field.kind) {
-				case FVar(type, expr):
-					var isFunctionDelegate = false;
+				// Check if this field originates from ANY interface contract.
+				var origin = findOriginatingInterface(localClass.interfaces, field.name);
+				var isInterfaceContract = (origin != null);
 
-					if (type != null) {
-						switch (type) {
-							case TFunction(_, _):
-								isFunctionDelegate = true;
-							default:
+				// If it's NOT an interface contract, it MUST be static. (which it isn't, since it didn't skip it)
+				if (!isInterfaceContract) {
+					Context.error('Error: Field [${field.name}] is a custom instance field. To add custom data/logic here, make it "static" to turn it into a class field.',
+						field.pos);
+					continue;
+				}
+
+				// If it IS an interface contract, ensure it's written as a clean function delegate.
+				switch (field.kind) {
+					case FVar(type, expr):
+						var isValidInterfaceField = false;
+
+						if (type != null) {
+							switch (type) {
+								// It's a function delegate (() -> Void)
+								case TFunction(_, _):
+									isValidInterfaceField = true;
+
+								// It's a plain data variable (String, Int, Bool, Null<X>)
+								case TPath(_):
+									isValidInterfaceField = true;
+
+								default:
+							}
 						}
-					}
-					if (!isFunctionDelegate) {
-						Context.error('Error: Field [${field.name}] is an instance field. Change this to static to make it a class field.', field.pos);
-					}
-				case FFun(_):
-					// If they wrote a standard 'public function abc()', stop them too!
-					Context.error('Error: Method [${field.name}] is an instance method. Change this to static to make it a class method.', field.pos);
 
-				default:
+						if (!isValidInterfaceField) {
+							Context.error('Error: Interface field [${field.name}] uses an invalid type layout for Luanti integration.', field.pos);
+						}
+
+					case FFun(_):
+						// Block using standard 'public function field()' syntax for interface contracts.
+						Context.error('Error: Interface field [${field.name}] must be written as a function delegate variable (var ${field.name}: () -> Void), not a standard instance method.',
+							field.pos);
+
+					default:
+				}
 			}
 		}
 
