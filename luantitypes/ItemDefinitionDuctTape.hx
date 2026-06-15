@@ -3,12 +3,32 @@ package luantitypes;
 #if macro
 import haxe.macro.Context;
 import haxe.macro.Expr;
+import haxe.macro.Type;
 
 // AI also heavily guided this development cause this is a fucking mess.
 // This is cramming OOP into lua style static everything while trying to make it
 // not a horrific mess to use.
 // THIS WAS A HORROR TO TRY TO DESIGN.
 class ItemDefinitionDuctTape {
+	static function findOriginatingInterface(interfaces: Array<{t: Ref<ClassType>, params: Array<Type>}>, fieldName: String): ClassType {
+		for (wrapper in interfaces) {
+			var interfaceType = wrapper.t.get();
+
+			for (f in interfaceType.fields.get()) {
+				if (f.name == fieldName) {
+					return interfaceType;
+				}
+			}
+
+			var deepOrigin = findOriginatingInterface(interfaceType.interfaces, fieldName);
+			if (deepOrigin != null) {
+				return deepOrigin;
+			}
+		}
+
+		return null;
+	}
+
 	public static function build(): Array<Field> {
 		var fields = Context.getBuildFields();
 
