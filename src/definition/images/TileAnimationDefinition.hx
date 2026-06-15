@@ -5,6 +5,7 @@ enum abstract TileAnimationType(String) to String {
 	var sheet2d = "sheet_2d";
 }
 
+@:noCompletion
 interface TileAnimationDefinition {
 	public var type: TileAnimationType;
 }
