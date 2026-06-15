@@ -8,6 +8,11 @@ typedef TileAnimation = {
 	var ?framerate: Float;
 }
 
+enum abstract TileAnimationType(String) to String {
+	var verticalFrames = "vertical_frames";
+	var sheet2d = "sheet_2d";
+}
+
 typedef ImageDefinitionTable = {
 	var name: String;
 	var ?animation: TileAnimation;
