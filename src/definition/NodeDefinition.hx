@@ -11,5 +11,6 @@ final class Dirt implements ItemDefinition {
 	public var groups: Dynamic<Int> = {
 		soil: 1,
 	};
-	public var testing: () -> Void = () -> {};
+
+	public var testing = () -> {};
 }
