@@ -36,3 +36,19 @@ class TileAnimationDefinitionVerticalFrames implements TileAnimationDefinition {
 		this.length = length;
 	}
 }
+
+class TileAnimationDefinitionSheet2d implements TileAnimationDefinition {
+	public var type: TileAnimationType = TileAnimationType.sheet2d;
+	@:native("frames_w")
+	public var framesW: Int;
+	@:native("frames_h")
+	public var framesH: Int;
+	@:native("frame_length")
+	public var frameLength: Float;
+
+	public function new(framesW: Int, framesH: Int, frameLength: Float) {
+		this.framesW = framesW;
+		this.framesH = framesH;
+		this.frameLength = frameLength;
+	}
+}
