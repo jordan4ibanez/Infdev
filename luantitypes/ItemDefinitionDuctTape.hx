@@ -64,6 +64,38 @@ class ItemDefinitionDuctTape {
 			}
 		}
 
+		// Search for the original metadata and inherit it.
+		// This was truly horrific to figure out how to implement.
+		if (!isInterface) {
+			for (field in fields) {
+				var origin = findOriginatingInterface(localClass.interfaces, field.name);
+
+				if (origin != null) {
+					var origin = findOriginatingInterface(localClass.interfaces, field.name);
+
+					if (origin != null) {
+						// trace('Field "${field.name}" originally came from interface: ' + origin.name);
+
+						var interfaceField = Lambda.find(origin.fields.get(), f -> f.name == field.name);
+						if (interfaceField != null && interfaceField.meta.has(":native")) {
+							var nativeMeta = interfaceField.meta.get().filter(m -> m.name == ":native")[0];
+
+							if (field.meta == null) {
+								field.meta = [];
+							}
+
+							var alreadyHasNative = Lambda.exists(field.meta, (m) -> m.name == ":native");
+
+							if (!alreadyHasNative) {
+								field.meta.push(nativeMeta);
+								// trace('Successfully copied @:native("${nativeMeta.params[0].expr}") onto concrete field: ${field.name}');
+							}
+						}
+					}
+				}
+			}
+		}
+
 		// ? This allows you to register a node at the top of your class.
 		for (meta in localClass.meta.get()) {
 			// trace(meta.name);
