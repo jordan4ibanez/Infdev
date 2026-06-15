@@ -103,6 +103,10 @@ class ItemDefinitionDuctTape {
 		if (hasNew != null) {
 			Context.error("Error: Do not not use new()", hasNew.pos);
 		} else if (!isInterface) {
+			if (!localClass.isFinal) {
+				Context.error('Error: Cannot extend ItemDefinition, NodeDefinition, ToolDefinition, or CraftItemDefinition.\n[${localClass.name}] must be declared as a "final class".',
+					localClass.pos);
+			}
 			// It gets a blank new injected so the instance can be sent to the engine.
 			var dummy = macro class {
 				public function new() {}
