@@ -1,4 +1,4 @@
-package definition;
+package definition.images;
 
 enum abstract TileAnimationType(String) to String {
 	var verticalFrames = "vertical_frames";

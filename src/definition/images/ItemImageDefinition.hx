@@ -1,4 +1,4 @@
-package definition;
+package definition.images;
 
 /**
  * Basically a tile definition but for items.
