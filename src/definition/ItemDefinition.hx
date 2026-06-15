@@ -9,6 +9,7 @@ package definition;
 @:build(luantitypes.ItemDefinitionDuctTape.build())
 @:autoBuild(luantitypes.ItemDefinitionDuctTape.build())
 interface ItemDefinition {
-	@:native("test1234")
+	public var description: String;
+
 	public var testing: () -> Void;
 }
