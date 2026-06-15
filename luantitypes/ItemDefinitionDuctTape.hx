@@ -33,6 +33,7 @@ class ItemDefinitionDuctTape {
 			fields.push(autoConstructor);
 		}
 
+		// ? This checks everything to make sure things aren't gonna cause issues.
 		for (field in fields) {
 			if (field.access != null && field.access.contains(AStatic)) {
 				continue;
