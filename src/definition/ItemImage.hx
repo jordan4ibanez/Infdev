@@ -19,16 +19,16 @@ typedef ImageDefinitionTable = {
 }
 
 interface TileAnimationDefinition {
-	var type: TileAnimationType;
+	public var type: TileAnimationType;
 }
 
-class TileAnimationDefinitionVerticalFrames {
-	var type: String = TileAnimationType.verticalFrames;
+class TileAnimationDefinitionVerticalFrames implements TileAnimationDefinition {
+	public var type: TileAnimationType = TileAnimationType.verticalFrames;
 	@:native("aspect_w")
-	var aspectW: Int;
+	public var aspectW: Int;
 	@:native("aspect_h")
-	var aspectH: Int;
-	var length: Float;
+	public var aspectH: Int;
+	public var length: Float;
 
 	public function new(aspectW: Int, aspectH: Int, length: Float) {
 		this.aspectW = aspectW;
