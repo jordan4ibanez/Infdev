@@ -16,5 +16,8 @@ interface ItemDefinition {
 
 	public var groups: Dynamic<Int>;
 
+	@:native("wield_image")
+	public var wieldImage: String;
+
 	public var testing: () -> Void;
 }
