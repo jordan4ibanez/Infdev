@@ -21,5 +21,8 @@ interface ItemDefinition {
 	@:native("wield_image")
 	public var wieldImage: ItemImageDefinitionOrString;
 
+	@:native("wield_overlay")
+	public var wieldOverLay: ItemImageDefinitionOrString;
+
 	public var testing: () -> Void;
 }
