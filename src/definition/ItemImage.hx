@@ -22,5 +22,17 @@ interface TileAnimationDefinition {
 	var type: TileAnimationType;
 }
 
+class TileAnimationDefinitionVerticalFrames {
+	var type: String = TileAnimationType.verticalFrames;
+	@:native("aspect_w")
+	var aspectW: Int;
+	@:native("aspect_h")
+	var aspectH: Int;
+	var length: Float;
+
+	public function new(aspectW: Int, aspectH: Int, length: Float) {
+		this.aspectW = aspectW;
+		this.aspectH = aspectH;
+		this.length = length;
 	}
 }
