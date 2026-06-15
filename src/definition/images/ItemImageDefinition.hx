@@ -1,5 +1,7 @@
 package definition.images;
 
+import haxe.extern.EitherType;
+
 /**
  * Basically a tile definition but for items.
  */
@@ -12,3 +14,5 @@ class ItemImageDefinition {
 		this.animation = animation;
 	}
 }
+
+typedef ItemImageDefinitionOrString = EitherType<ItemImageDefinition, String>;

@@ -1,7 +1,6 @@
 package definition;
 
 import definition.images.ItemImageDefinition;
-import haxe.extern.EitherType;
 
 /**
  * When you extend this class, you get a specialty static class which only uses
@@ -21,7 +20,7 @@ interface ItemDefinition {
 
 	// todo: Item Image definition
 	@:native("wield_image")
-	public var wieldImage: EitherType<ItemImageDefinition, String>;
+	public var wieldImage: ItemImageDefinitionOrString;
 
 	public var testing: () -> Void;
 }
