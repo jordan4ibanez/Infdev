@@ -245,7 +245,16 @@ class ItemDefinitionDuctTape {
 										if (func.expr != null) {
 											var injectExpr = macro {
 												trace("Auto-injected node registration __init__ into " + $v{className});
-												luantitypes.Core.registerNode($v{value}, new $typePath());
+												var instance = new $typePath();
+												// This fixes haxe injecting reflection into the groups.
+												untyped __lua__("
+												if instance and instance.groups and type(instance.groups) == 'table' then
+													instance.groups['__fields__'] = nil;
+												end
+												");
+												luantitypes.Core.registerNode($v{value}, instance);
+												// Wipe out the context.
+												untyped __lua__("instance = nil;");
 											};
 
 											switch (func.expr.expr) {
@@ -262,7 +271,16 @@ class ItemDefinitionDuctTape {
 							} else {
 								var newFunction = macro function() {
 									trace("Auto-created node registration __init__ into " + $v{className});
-									luantitypes.Core.registerNode($v{value}, new $typePath());
+									var instance = new $typePath();
+									// This fixes haxe injecting reflection into the groups.
+									untyped __lua__("
+									if instance and instance.groups and type(instance.groups) == 'table' then
+										instance.groups['__fields__'] = nil;
+									end
+									");
+									luantitypes.Core.registerNode($v{value}, instance);
+									// Wipe out the context.
+									untyped __lua__("instance = nil;");
 								};
 								switch (newFunction.expr) {
 									case EFunction(_, func):
