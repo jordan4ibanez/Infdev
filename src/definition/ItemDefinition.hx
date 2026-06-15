@@ -19,6 +19,7 @@ interface ItemDefinition {
 
 	public var groups: Dynamic<Int>;
 
+	// todo: Item Image definition
 	@:native("wield_image")
 	public var wieldImage: EitherType<ItemImageDefinition, String>;
 
