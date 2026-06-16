@@ -1,6 +1,6 @@
 package definition.sound;
 
-class NodeSoundTable {
+class ItemSoundTable {
 	var breaks: SimpleSoundSpec;
 	var eat: SimpleSoundSpec;
 	@:native("punch_use")
@@ -12,22 +12,22 @@ class NodeSoundTable {
 
 	// Uses builder pattern.
 
-	public function setBreaks(breaks: SimpleSoundSpec): NodeSoundTable {
+	public function setBreaks(breaks: SimpleSoundSpec): ItemSoundTable {
 		this.breaks = breaks;
 		return this;
 	}
 
-	public function setEat(eat: SimpleSoundSpec): NodeSoundTable {
+	public function setEat(eat: SimpleSoundSpec): ItemSoundTable {
 		this.eat = eat;
 		return this;
 	}
 
-	public function setPunchUse(punchUse: SimpleSoundSpec): NodeSoundTable {
+	public function setPunchUse(punchUse: SimpleSoundSpec): ItemSoundTable {
 		this.punchUse = punchUse;
 		return this;
 	}
 
-	public function setPunchUseAir(punchUseAir: SimpleSoundSpec): NodeSoundTable {
+	public function setPunchUseAir(punchUseAir: SimpleSoundSpec): ItemSoundTable {
 		this.punchUseAir = punchUseAir;
 		return this;
 	}
