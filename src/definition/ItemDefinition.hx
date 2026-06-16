@@ -75,5 +75,11 @@ interface ItemDefinition {
 	@:native("on_secondary_use")
 	public var onSecondaryUse: (itemstack: Dynamic, user: Null<ObjectRefBase>, pointedThing: Dynamic) -> Void;
 
+	@:native("on_drop")
+	public var onDrop: (itemstack: Dynamic, dropper: Null<ObjectRefBase>, pos: EngineVector3) -> Null<Dynamic>;
+
+	@:native("on_pickup")
+	public var onPickup: (itemstack: Dynamic, picker: Null<ObjectRefBase>, pointedThing: Dynamic, timeFromLastPunch: Float) -> Null<Dynamic>;
+
 	public var testing: () -> Void;
 }
