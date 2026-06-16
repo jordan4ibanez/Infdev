@@ -1,5 +1,6 @@
 package definition;
 
+import entity.objectref.ObjectRefBase;
 import definition.sound.ItemSoundTable;
 import vector.EngineVector3;
 import definition.images.ItemImageDefinition;
@@ -65,6 +66,11 @@ interface ItemDefinition {
 	public var touchInteraction: Dynamic;
 
 	public var sound: ItemSoundTable;
+
+	// todo: ItemStack
+	// todo: PointedThing
+	@:native("on_place")
+	public var onPlace: (itemstack: Dynamic, placer: Null<ObjectRefBase>, pointedThing: Dynamic) -> Null<Dynamic>;
 
 	public var testing: () -> Void;
 }
