@@ -72,5 +72,8 @@ interface ItemDefinition {
 	@:native("on_place")
 	public var onPlace: (itemstack: Dynamic, placer: Null<ObjectRefBase>, pointedThing: Dynamic) -> Null<Dynamic>;
 
+	@:native("on_secondary_use")
+	public var onSecondaryUse: (itemstack: Dynamic, user: Null<ObjectRefBase>, pointedThing: Dynamic) -> Void;
+
 	public var testing: () -> Void;
 }
