@@ -1,5 +1,6 @@
 package definition;
 
+import definition.sound.ItemSoundTable;
 import vector.EngineVector3;
 import definition.images.ItemImageDefinition;
 
@@ -59,9 +60,11 @@ interface ItemDefinition {
 	@:native("node_dig_prediction")
 	public var nodeDigPrediction: String;
 
-	// todo: touch_interaction
+	// todo: touch_interaction TouchInteractionMode
+	@:native("touch_interaction")
+	public var touchInteraction: Dynamic;
 
-	
+	public var sound: ItemSoundTable;
 
 	public var testing: () -> Void;
 }
