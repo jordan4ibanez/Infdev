@@ -9,7 +9,8 @@ class NodeSoundTable {
 	public var punchUseAir: SimpleSoundSpec;
 
 	static function __init__() {
-		var x = new NodeSoundTable();
+		var x = new NodeSoundTable()
+			.setBreaks(new SimpleSoundSpec("test.ogg"));
 	}
 
 	public function new() {}
