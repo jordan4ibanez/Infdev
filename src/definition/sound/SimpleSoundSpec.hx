@@ -1,19 +1,14 @@
 package definition.sound;
 
 class SimpleSoundSpec {
-	public var name: String = "";
-	public var gain: Float = 1.0;
-	public var pitch: Float = 1.0;
-	public var fade: Float = 0.0;
+	var name: String;
+	var gain: Float = 1.0;
+	var pitch: Float = 1.0;
+	var fade: Float = 0.0;
 
-	public function new() {}
+	public function new(name: String = "") {}
 
 	// Uses builder pattern.
-
-	public function setName(name: String): SimpleSoundSpec {
-		this.name = name;
-		return this;
-	}
 
 	public function setGain(gain: Float): SimpleSoundSpec {
 		this.gain = gain;
