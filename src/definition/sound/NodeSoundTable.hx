@@ -1,12 +1,12 @@
 package definition.sound;
 
 class NodeSoundTable {
-	public var breaks: SimpleSoundSpec;
-	public var eat: SimpleSoundSpec;
+	var breaks: SimpleSoundSpec;
+	var eat: SimpleSoundSpec;
 	@:native("punch_use")
-	public var punchUse: SimpleSoundSpec;
+	var punchUse: SimpleSoundSpec;
 	@:native("punch_use_air")
-	public var punchUseAir: SimpleSoundSpec;
+	var punchUseAir: SimpleSoundSpec;
 
 	static function __init__() {
 		var x = new NodeSoundTable()
