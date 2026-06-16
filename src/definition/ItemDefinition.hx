@@ -81,5 +81,13 @@ interface ItemDefinition {
 	@:native("on_pickup")
 	public var onPickup: (itemstack: Dynamic, picker: Null<ObjectRefBase>, pointedThing: Dynamic, timeFromLastPunch: Float) -> Null<Dynamic>;
 
-	public var testing: () -> Void;
+	@:native("on_use")
+	public var onUse: (itemstack: Dynamic, user: Null<ObjectRefBase>, pointedThing: Dynamic) -> Null<Dynamic>;
+
+	// todo: node thing
+	// todo: digparams
+	@:native("after_use")
+	public var afterUse: (itemstack: Dynamic, user: Null<ObjectRefBase>, node: Dynamic, digparams: Dynamic) -> Null<Dynamic>;
+	// public var testing: () -> Void;
+	// _custom_field = whatever,
 }
