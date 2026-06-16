@@ -35,5 +35,12 @@ interface ItemDefinition {
 	@:native("stack_max")
 	public var stackMax: Int;
 
+	public var range: Float;
+
+	@:native("liquids_pointable")
+	public var liquidsPointable: Bool;
+
+	public var pointabilities: Pointabilities;
+
 	public var testing: () -> Void;
 }
