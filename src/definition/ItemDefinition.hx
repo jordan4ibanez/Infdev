@@ -42,5 +42,19 @@ interface ItemDefinition {
 
 	public var pointabilities: Pointabilities;
 
+	@:native("light_source")
+	public var lightSource: Int;
+
+	// todo: tool_capabilities
+	@:native("tool_capabilities")
+	public var toolCapabilities: Dynamic;
+
+	// todo: wear_color
+	@:native("wear_color")
+	public var wearColor: Dynamic;
+
+	@:native("node_placement_prediction")
+	public var nodePlacementPrediction: Null<String>;
+
 	public var testing: () -> Void;
 }
