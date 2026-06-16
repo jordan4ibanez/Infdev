@@ -1,7 +1,7 @@
 package definition.sound;
 
-typedef SimpleSoundSpec = {
+class SimpleSoundSpec {
 	var name: String;
-	var ?gain: Float;
-	var ?pitch: Float;
+	var gain: Float;
+	var pitch: Float;
 }
