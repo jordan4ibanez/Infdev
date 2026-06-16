@@ -8,13 +8,6 @@ class NodeSoundTable {
 	@:native("punch_use_air")
 	var punchUseAir: SimpleSoundSpec;
 
-	static function __init__() {
-		var x = new NodeSoundTable()
-			.setBreaks(new SimpleSoundSpec("test.ogg"));
-
-		untyped __lua__("print(dump(x))");
-	}
-
 	public function new() {}
 
 	// Uses builder pattern.
