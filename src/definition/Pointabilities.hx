@@ -11,7 +11,14 @@ abstract PointabilitySetting(Dynamic) from Dynamic to Dynamic {
 	public static inline var Pointable: String = "pointable";
 }
 
+typedef PointTable = Table<String, PointabilitySetting>;
+
 class Pointabilities {
-	public var nodes: Table<String, PointabilitySetting>;
-	public var objects: Table<String, PointabilitySetting>;
+	public var nodes: PointTable;
+	public var objects: PointTable;
+
+	public function new(nodes: Null<PointTable>, objects: Null<PointTable>) {
+        this.nodes = nodes;
+        this.objects = objects;
+    }
 }
