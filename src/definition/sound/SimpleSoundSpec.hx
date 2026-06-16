@@ -6,7 +6,9 @@ class SimpleSoundSpec {
 	var pitch: Float = 1.0;
 	var fade: Float = 0.0;
 
-	public function new(name: String = "") {}
+	public function new(name: String = "") {
+		this.name = name;
+	}
 
 	// Uses builder pattern.
 

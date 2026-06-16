@@ -11,6 +11,8 @@ class NodeSoundTable {
 	static function __init__() {
 		var x = new NodeSoundTable()
 			.setBreaks(new SimpleSoundSpec("test.ogg"));
+
+		untyped __lua__("print(dump(x))");
 	}
 
 	public function new() {}
