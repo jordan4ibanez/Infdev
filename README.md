@@ -9,6 +9,8 @@ This started out as a curiosity, but it has quickly become apparent this is bett
 This is going to be infdev.
 infdev originally started out as a clone of minecraft infdev but I think it would be cooler to have a fuck ton of rpg elements in it.
 
+api was transposed may-june 2026
+
 
 ### some design decisions:
 
