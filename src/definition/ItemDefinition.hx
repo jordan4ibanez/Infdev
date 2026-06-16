@@ -54,7 +54,14 @@ interface ItemDefinition {
 	public var wearColor: Dynamic;
 
 	@:native("node_placement_prediction")
-	public var nodePlacementPrediction: Null<String>;
+	public var nodePlacementPrediction: String;
+
+	@:native("node_dig_prediction")
+	public var nodeDigPrediction: String;
+
+	// todo: touch_interaction
+
+	
 
 	public var testing: () -> Void;
 }
