@@ -3,6 +3,8 @@ package definition;
 import lua.Table;
 import haxe.DynamicAccess;
 
+// todo: these need getters.
+
 final class GroupCapabilities {
 	@:native("maxlevel")
 	var maxLevel: Null<Int>;
