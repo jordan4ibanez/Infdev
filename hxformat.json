@@ -8,6 +8,15 @@
         },
         "callParameter": {
             "defaultWrap": "keep"
+        },
+        "arrayWrap": {
+            "defaultWrap": "keep"
+        },
+        "objectLiteral": {
+            "defaultWrap": "keep"
+        },
+        "mapWrap": {
+            "defaultWrap": "keep"
         }
     }
 }
