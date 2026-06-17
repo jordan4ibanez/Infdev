@@ -4,11 +4,24 @@ import haxe.DynamicAccess;
 import lua.Table;
 
 final class GroupCapabilities {
-	var maxlevel: Null<Int>;
+	@:native("maxlevel")
+	var maxLevel: Null<Int>;
 	var uses: Null<Int>;
 	var times: Table<Int, Float>;
 
 	public function new() {}
+
+	public function setMaxLevel(maxLevel: Int): GroupCapabilities {
+		this.maxLevel = maxLevel;
+		return this;
+	}
+
+	public function setUses(uses: Int): GroupCapabilities {
+		this.uses = uses;
+		return this;
+	}
+
+	
 }
 
 final class ToolCapabilities {
