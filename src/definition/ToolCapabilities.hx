@@ -40,6 +40,14 @@ final class ToolCapabilities {
 		this.maxDropLevel = maxDropLevel;
 		return this;
 	}
+
+	public function addGroupCaps(group: String, groupCaps: GroupCapabilities): ToolCapabilities {
+		if (this.groupCaps == null) {
+			this.groupCaps = new DynamicAccess();
+		}
+		this.groupCaps["test"] = new GroupCapabilities();
+		return this;
+	}
 }
 
 class Blah {
