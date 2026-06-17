@@ -7,16 +7,16 @@ enum abstract TileAnimationType(String) to String {
 
 @:noCompletion
 interface TileAnimationDefinition {
-	public var type: TileAnimationType;
+	private var type: TileAnimationType;
 }
 
 class TileAnimationDefinitionVerticalFrames implements TileAnimationDefinition {
-	public var type: TileAnimationType = TileAnimationType.verticalFrames;
+	var type: TileAnimationType = TileAnimationType.verticalFrames;
 	@:native("aspect_w")
-	public var aspectW: Int;
+	var aspectW: Int;
 	@:native("aspect_h")
-	public var aspectH: Int;
-	public var length: Float;
+	var aspectH: Int;
+	var length: Float;
 
 	public function new(aspectW: Int, aspectH: Int, length: Float) {
 		this.aspectW = aspectW;
@@ -26,13 +26,13 @@ class TileAnimationDefinitionVerticalFrames implements TileAnimationDefinition {
 }
 
 class TileAnimationDefinitionSheet2d implements TileAnimationDefinition {
-	public var type: TileAnimationType = TileAnimationType.sheet2d;
+	var type: TileAnimationType = TileAnimationType.sheet2d;
 	@:native("frames_w")
-	public var framesW: Int;
+	var framesW: Int;
 	@:native("frames_h")
-	public var framesH: Int;
+	var framesH: Int;
 	@:native("frame_length")
-	public var frameLength: Float;
+	var frameLength: Float;
 
 	public function new(framesW: Int, framesH: Int, frameLength: Float) {
 		this.framesW = framesW;
