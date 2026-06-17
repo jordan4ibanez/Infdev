@@ -4,8 +4,8 @@ import haxe.DynamicAccess;
 import lua.Table;
 
 final class GroupCapabilities {
-	var maxlevel = 0;
-	var uses = 20;
+	var maxlevel: Null<Int>;
+	var uses: Null<Int>;
 	var times: Table<Int, Float>;
 
 	public function new() {}
