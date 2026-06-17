@@ -15,13 +15,13 @@ final class ToolCapabilities {
 	@:native("max_drop_level")
 	var maxDropLevel: Int = 0;
 
-	var groupcaps: Table<String, GroupCapabilities>;
-
 	@:native("damage_groups")
 	var damageGroups: Table<String, Int>;
 
 	@:native("punch_attack_uses")
 	var punchAttackUses: Null<Int>;
+
+	var groupcaps: Table<String, GroupCapabilities>;
 
 	public function new() {}
 
@@ -31,12 +31,18 @@ final class ToolCapabilities {
 		this.fullPunchInterval = fullPunchInterval;
 		return this;
 	}
+
+	public function setMaxDropLevel(maxDropLevel: Int): ToolCapabilities {
+		this.maxDropLevel = maxDropLevel;
+		return this;
+	}
 }
 
 class Blah {
 	static function __init__() {
 		var i = new ToolCapabilities()
-			.setFullPunchInterval(5.0);
+			.setFullPunchInterval(5.0)
+			.setMaxDropLevel(3);
 		untyped __lua__("
 		print(i);
 		");
