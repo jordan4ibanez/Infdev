@@ -47,9 +47,8 @@ interface ItemDefinition {
 	@:native("light_source")
 	public var lightSource: Int;
 
-	// todo: tool_capabilities
 	@:native("tool_capabilities")
-	public var toolCapabilities: Dynamic;
+	public var toolCapabilities: ToolCapabilities;
 
 	// todo: wear_color
 	@:native("wear_color")
