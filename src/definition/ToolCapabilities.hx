@@ -13,10 +13,10 @@ final class GroupCapabilities {
 
 final class ToolCapabilities {
 	@:native("full_punch_interval")
-	var fullPunchInterval: Float = 1.0;
+	var fullPunchInterval: Null<Float>;
 
 	@:native("max_drop_level")
-	var maxDropLevel: Int = 0;
+	var maxDropLevel: Null<Int>;
 
 	@:native("groupcaps")
 	var groupCaps: DynamicAccess<GroupCapabilities>;
