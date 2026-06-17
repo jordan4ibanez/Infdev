@@ -12,6 +12,10 @@ abstract LuaArray<T>(Table<Int, T>) from Table<Int, T> to Table<Int, T> {
 		return untyped __lua__("#({0})", this);
 	}
 
+	public static inline function fromArray<T>(arr: Array<T>): LuaArray<T> {
+		return cast Table.fromArray(arr);
+	}
+
 	@:arrayAccess
 	inline function get(index: Int): T {
 		return untyped this[index + 1];
@@ -19,6 +23,30 @@ abstract LuaArray<T>(Table<Int, T>) from Table<Int, T> to Table<Int, T> {
 
 	inline public function iterator(): LuaArrayIterator<T> {
 		return new LuaArrayIterator(cast this);
+	}
+
+	inline public function keyValueIterator(): LuaArrayKeyValueIterator<T> {
+		return new LuaArrayKeyValueIterator(cast this);
+	}
+}
+
+class LuaArrayKeyValueIterator<T> {
+	var array: LuaArray<T>;
+	var index: Int = 0;
+
+	inline public function new(array: LuaArray<T>) {
+		this.array = array;
+	}
+
+	inline public function hasNext(): Bool {
+		return index < array.length;
+	}
+
+	inline public function next(): {key: Int, value: T} {
+		var value = array[index];
+		var result = {key: index, value: value};
+		index++;
+		return result;
 	}
 }
 
