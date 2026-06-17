@@ -41,11 +41,11 @@ final class ToolCapabilities {
 		return this;
 	}
 
-	public function addGroupCaps(group: String, groupCaps: GroupCapabilities): ToolCapabilities {
+	public function addGroupCaps(group: String, groupCap: GroupCapabilities): ToolCapabilities {
 		if (this.groupCaps == null) {
 			this.groupCaps = new DynamicAccess();
 		}
-		this.groupCaps["test"] = new GroupCapabilities();
+		this.groupCaps[group] = groupCap;
 		return this;
 	}
 }
