@@ -32,6 +32,15 @@ final class GroupCapabilities {
 		return this;
 	}
 
+	/**
+	 * This one is when you need to be specific. Or maybe you need custom times.
+	 * .setTimesFromMap([
+	 *    1 => 3.90,
+	 *    2 => 4.60,
+	 *    3 => 42.34,
+	 *    4 => 5243.9
+	 * ])
+	 */
 	public function setTimesFromMap(times: Map<Int, Float>): GroupCapabilities {
 		this.times = Table.create();
 		for (index => value in times) {
