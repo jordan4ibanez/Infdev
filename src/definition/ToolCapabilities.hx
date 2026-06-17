@@ -54,7 +54,9 @@ class Blah {
 	static function __init__() {
 		var i = new ToolCapabilities()
 			.setFullPunchInterval(5.0)
-			.setMaxDropLevel(3);
+			.setMaxDropLevel(3)
+			.addGroupCaps("test",
+				new GroupCapabilities());
 		untyped __lua__("
 		print(i);
 		");
