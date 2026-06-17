@@ -31,6 +31,14 @@ final class GroupCapabilities {
 		}
 		return this;
 	}
+
+	public function setTimesFromMap(times: Map<Int, Float>): GroupCapabilities {
+		this.times = Table.create();
+		for (index => value in times) {
+			this.times[index] = value;
+		}
+		return this;
+	}
 }
 
 final class ToolCapabilities {
@@ -93,7 +101,13 @@ class Blah {
 			.addGroupCap("test",
 				new GroupCapabilities()
 					.setMaxLevel(20)
-					.setTimesFromArray([3.90, 4.69, 42.34, 5243.9]))
+					.setTimesFromArray([3.90, 4.69, 42.34, 5243.9])
+					.setTimesFromMap([
+						1 => 3.90,
+						2 => 4.69,
+						3 => 42.34,
+						4 => 5243.9
+					]))
 			.addDamageGroup("flarp", 5000) // Very dangerous flarp.
 			.setPunchAttackUses(55);
 		untyped __lua__("
