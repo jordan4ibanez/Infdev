@@ -41,7 +41,7 @@ final class ToolCapabilities {
 		return this;
 	}
 
-	public function addGroupCaps(group: String, groupCap: GroupCapabilities): ToolCapabilities {
+	public function addGroupCap(group: String, groupCap: GroupCapabilities): ToolCapabilities {
 		if (this.groupCaps == null) {
 			this.groupCaps = new DynamicAccess();
 		}
@@ -55,7 +55,7 @@ class Blah {
 		var i = new ToolCapabilities()
 			.setFullPunchInterval(5.0)
 			.setMaxDropLevel(3)
-			.addGroupCaps("test",
+			.addGroupCap("test",
 				new GroupCapabilities());
 		untyped __lua__("
 		print(i);
