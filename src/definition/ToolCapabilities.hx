@@ -6,6 +6,8 @@ final class GroupCapabilities {
 	var maxlevel = 0;
 	var uses = 20;
 	var times: Table<Int, Float>;
+
+	public function new() {}
 }
 
 final class ToolCapabilities {
