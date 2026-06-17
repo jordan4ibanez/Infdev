@@ -1,5 +1,6 @@
 package definition;
 
+import haxe.DynamicAccess;
 import lua.Table;
 
 final class GroupCapabilities {
