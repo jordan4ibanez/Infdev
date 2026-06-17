@@ -21,7 +21,16 @@ final class GroupCapabilities {
 		return this;
 	}
 
-	
+	/**
+	 * This one is easy mode.
+	 */
+	public function setTimesFromArray(times: Array<Float>): GroupCapabilities {
+		this.times = Table.create();
+		for (index => value in times) {
+			this.times[index + 1] = value;
+		}
+		return this;
+	}
 }
 
 final class ToolCapabilities {
@@ -82,7 +91,9 @@ class Blah {
 			.setFullPunchInterval(5.0)
 			.setMaxDropLevel(3)
 			.addGroupCap("test",
-				new GroupCapabilities())
+				new GroupCapabilities()
+					.setMaxLevel(20)
+					.setTimesFromArray([3.90, 4.69, 42.34, 5243.9]))
 			.addDamageGroup("flarp", 5000) // Very dangerous flarp.
 			.setPunchAttackUses(55);
 		untyped __lua__("
