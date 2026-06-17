@@ -56,6 +56,11 @@ final class ToolCapabilities {
 		this.damageGroups[group] = damage;
 		return this;
 	}
+
+	public function setPunchAttackUses(uses: Int): ToolCapabilities {
+		this.punchAttackUses = uses;
+		return this;
+	}
 }
 
 class Blah {
@@ -65,7 +70,8 @@ class Blah {
 			.setMaxDropLevel(3)
 			.addGroupCap("test",
 				new GroupCapabilities())
-			.addDamageGroup("flarp", 5000); // Very dangerous flarp.
+			.addDamageGroup("flarp", 5000) // Very dangerous flarp.
+			.setPunchAttackUses(55);
 		untyped __lua__("
 		print(i);
 		");
