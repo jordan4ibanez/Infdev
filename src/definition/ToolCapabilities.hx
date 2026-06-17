@@ -1,7 +1,7 @@
 package definition;
 
-import haxe.DynamicAccess;
 import lua.Table;
+import haxe.DynamicAccess;
 
 final class GroupCapabilities {
 	@:native("maxlevel")
