@@ -1,5 +1,6 @@
 package definition;
 
+import definition.images.WearBarColors;
 import entity.objectref.ObjectRefBase;
 import definition.sound.ItemSoundTable;
 import vector.EngineVector3;
@@ -50,9 +51,8 @@ interface ItemDefinition {
 	@:native("tool_capabilities")
 	public var toolCapabilities: ToolCapabilities;
 
-	// todo: wear_color
 	@:native("wear_color")
-	public var wearColor: Dynamic;
+	public var wearColor: WearBarColors;
 
 	@:native("node_placement_prediction")
 	public var nodePlacementPrediction: String;
