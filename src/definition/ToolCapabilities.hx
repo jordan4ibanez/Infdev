@@ -48,6 +48,14 @@ final class ToolCapabilities {
 		this.groupCaps[group] = groupCap;
 		return this;
 	}
+
+	public function addDamageGroup(group: String, damage: Int): ToolCapabilities {
+		if (this.damageGroups == null) {
+			this.damageGroups = new DynamicAccess();
+		}
+		this.damageGroups[group] = damage;
+		return this;
+	}
 }
 
 class Blah {
@@ -56,7 +64,8 @@ class Blah {
 			.setFullPunchInterval(5.0)
 			.setMaxDropLevel(3)
 			.addGroupCap("test",
-				new GroupCapabilities());
+				new GroupCapabilities())
+			.addDamageGroup("flarp", 5000); // Very dangerous flarp.
 		untyped __lua__("
 		print(i);
 		");
