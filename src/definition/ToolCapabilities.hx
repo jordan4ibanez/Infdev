@@ -15,7 +15,8 @@ final class ToolCapabilities {
 	@:native("max_drop_level")
 	var maxDropLevel: Int = 0;
 
-	var groupcaps: Table<String, GroupCapabilities>;
+	@:native("groupcaps")
+	var groupCaps: DynamicAccess<GroupCapabilities>;
 
 	@:native("damage_groups")
 	var damageGroups: Table<String, Int>;
