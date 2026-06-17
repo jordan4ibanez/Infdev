@@ -27,16 +27,15 @@ final class WearBarColors {
 	}
 }
 
-class Blah {
-	static function __init__() {
-		var i = new WearBarColors(WearBarBlend.constant)
-			.addColorStop(0.0, "red")
-			.addColorStop(0.2, "redsaf")
-			.addColorStop(0.4, "blue")
-			.addColorStop(0.5, "fred")
-			.addColorStop(0.8, "wat")
-			.addColorStop(1.0, new RGBA(255, 255, 255, 255));
-
-		untyped __lua__("print(dump(i))");
-	}
-}
+// class Blah {
+// 	static function __init__() {
+// 		var i = new WearBarColors(WearBarBlend.constant)
+// 			.addColorStop(0.0, "red")
+// 			.addColorStop(0.2, "redsaf")
+// 			.addColorStop(0.4, "blue")
+// 			.addColorStop(0.5, "fred")
+// 			.addColorStop(0.8, "wat")
+// 			.addColorStop(1.0, new RGBA(255, 255, 255, 255));
+// 		untyped __lua__("print(dump(i))");
+// 	}
+// }
