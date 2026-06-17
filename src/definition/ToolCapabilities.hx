@@ -22,7 +22,7 @@ final class ToolCapabilities {
 	var groupCaps: DynamicAccess<GroupCapabilities>;
 
 	@:native("damage_groups")
-	var damageGroups: Table<String, Int>;
+	var damageGroups: DynamicAccess<Int>;
 
 	@:native("punch_attack_uses")
 	var punchAttackUses: Null<Int>;
