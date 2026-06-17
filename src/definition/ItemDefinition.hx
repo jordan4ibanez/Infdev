@@ -60,9 +60,8 @@ interface ItemDefinition {
 	@:native("node_dig_prediction")
 	public var nodeDigPrediction: String;
 
-	// todo: touch_interaction TouchInteractionMode
 	@:native("touch_interaction")
-	public var touchInteraction: Dynamic;
+	public var touchInteraction: TouchInteractionSetting;
 
 	public var sound: ItemSoundTable;
 
