@@ -13,8 +13,8 @@ import engine.vector.EngineVector3;
 import engine.definition.images.ItemImageDefinition.ItemImageDefinitionOrString;
 import engine.definition.ItemDefinition;
 
-@:luantiNode("infdev:dirt")
-final class Dirt implements ItemDefinition {
+// @:luantiNode("infdev:dirt")
+class Dirt {
 	public var description: String;
 	public var shortDescription: String;
 	public var groups: Dynamic<Int>;
