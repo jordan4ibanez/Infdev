@@ -16,7 +16,24 @@ import engine.definition.ItemDefinition;
 // Static wrapper.
 final class DirtWrapper {
 	private function new() {}
+
+	static var instance: Dirt;
+
+	static function __init__() {
+		instance = new Dirt();
+		trace(instance);
+
+		trace(DirtWrapper);
+	}
 }
+
+class Dirt extends ItemDefinition {
+	public function new() {
+		super();
+		this.color = "red";
+	}
+}
+
 // @:luantiNode("infdev:dirt")
 // class Dirt {
 // 	public var description: String;
