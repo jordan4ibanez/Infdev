@@ -15,7 +15,7 @@ import engine.definition.images.ItemImageDefinition;
  */
 @:build(luantitypes.ItemDefinitionDuctTape.build())
 @:autoBuild(luantitypes.ItemDefinitionDuctTape.build())
-class ItemDefinition {
+interface ItemDefinition {
 	public var description: String;
 
 	@:native("short_description")
@@ -76,8 +76,7 @@ class ItemDefinition {
 	public var onDrop: (itemstack: ItemStack, dropper: Null<ObjectRefBase>, pos: EngineVector3) -> Null<ItemStack>;
 
 	@:native("on_pickup")
-	public var onPickup: (itemstack: ItemStack, picker: Null<ObjectRefBase>, pointedThing: PointedThing,
-		timeFromLastPunch: Float) -> Null<ItemStack>;
+	public var onPickup: (itemstack: ItemStack, picker: Null<ObjectRefBase>, pointedThing: PointedThing, timeFromLastPunch: Float) -> Null<ItemStack>;
 
 	@:native("on_use")
 	public var onUse: (itemstack: ItemStack, user: Null<ObjectRefBase>, pointedThing: PointedThing) -> Null<ItemStack>;
@@ -86,11 +85,9 @@ class ItemDefinition {
 	// todo: digparams
 	@:native("after_use")
 	public var afterUse: (itemstack: ItemStack, user: Null<ObjectRefBase>, node: Dynamic, digparams: Dynamic) -> Null<ItemStack>;
-
 	// public var testing: () -> Void;
 	// _custom_field = whatever,
-
-	public function new() {
-		// trace("triggered itemdefinition constructor");
-	}
+	// public function new() {
+	//   trace("triggered itemdefinition constructor");
+	// }
 }

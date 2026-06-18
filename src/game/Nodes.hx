@@ -14,17 +14,35 @@ import engine.definition.images.ItemImageDefinition.ItemImageDefinitionOrString;
 import engine.definition.ItemDefinition;
 
 @:luantiNode("infdev:dirt")
-class Dirt extends ItemDefinition {
-	public function new() {
-		super();
+final class Dirt implements ItemDefinition {
+	public var description: String;
+	public var shortDescription: String;
+	public var groups: Dynamic<Int>;
+	public var wieldImage: ItemImageDefinitionOrString;
+	public var wieldOverLay: ItemImageDefinitionOrString;
+	public var wieldScale: EngineVector3;
+	public var palette: String;
+	public var color: String;
+	public var stackMax: Int;
+	public var range: Float;
+	public var liquidsPointable: Bool;
+	public var pointabilities: Pointabilities;
+	public var lightSource: Int;
+	public var toolCapabilities: ToolCapabilities;
+	public var wearColor: WearBarColors;
+	public var nodePlacementPrediction: String;
+	public var nodeDigPrediction: String;
+	public var touchInteraction: TouchInteractionSetting;
+	public var sound: ItemSoundTable;
+	public var afterUse: (itemstack: ItemStack, user: Null<ObjectRefBase>, node: Dynamic, digparams: Dynamic) -> Null<ItemStack>;
 
-		// this.wieldImage = "test.png";
-		// this.wieldOverLay = "test2.png";
-		this.color = "test";
-		this.afterUse = (itemstack, _, _, _) -> {
-			trace("test");
+	public var onUse: (itemstack: ItemStack, user: Null<ObjectRefBase>, pointedThing: PointedThing) -> Null<ItemStack>;
 
-			return null;
-		};
-	}
+	public var onPickup: (itemstack: ItemStack, picker: Null<ObjectRefBase>, pointedThing: PointedThing, timeFromLastPunch: Float) -> Null<ItemStack>;
+
+	public var onDrop: (itemstack: ItemStack, dropper: Null<ObjectRefBase>, pos: EngineVector3) -> Null<ItemStack>;
+
+	public var onSecondaryUse: (itemstack: ItemStack, user: Null<ObjectRefBase>, pointedThing: PointedThing) -> Void;
+
+	public var onPlace: (itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing) -> Null<ItemStack>;
 }
