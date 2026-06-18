@@ -1,6 +1,5 @@
 package engine.definition;
 
-import haxe.extern.EitherType;
 import engine.definition.images.WearBarColors;
 import engine.entity.objectref.ObjectRefBase;
 import engine.definition.sound.ItemSoundTable;
