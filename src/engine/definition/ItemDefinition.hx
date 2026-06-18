@@ -8,10 +8,13 @@ import engine.vector.EngineVector3;
 import engine.definition.images.ItemImageDefinition;
 
 /**
- * When you extend this class, you get a specialty static class which only uses
- * OOP for auto complete. Everything else custom needs to be static. This is enforced.
+ * When you extend this class, you get a specialty class which is extremely interesting.
  * 
- * ItemDefinition is the root of all other definitions. (nodes, craftitem, tool)
+ * Any methods in the game API itself is wrapped in a static class.
+ * 
+ * Your vars are all copied to the static class. (They are virtual final)
+ * 
+ * Anything else is fair game.
  */
 @:build(luantitypes.ItemDefinitionDuctTape.build())
 @:autoBuild(luantitypes.ItemDefinitionDuctTape.build())
