@@ -13,6 +13,10 @@ import engine.vector.EngineVector3;
 import engine.definition.images.ItemImageDefinition.ItemImageDefinitionOrString;
 import engine.definition.ItemDefinition;
 
+// Static wrapper.
+final class DirtWrapper {
+	private function new() {}
+}
 // @:luantiNode("infdev:dirt")
 // class Dirt {
 // 	public var description: String;
