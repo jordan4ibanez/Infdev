@@ -1,5 +1,6 @@
 package engine.definition;
 
+import haxe.extern.EitherType;
 import engine.definition.images.WearBarColors;
 import engine.entity.objectref.ObjectRefBase;
 import engine.definition.sound.ItemSoundTable;
@@ -14,7 +15,7 @@ import engine.definition.images.ItemImageDefinition;
  */
 @:build(luantitypes.ItemDefinitionDuctTape.build())
 @:autoBuild(luantitypes.ItemDefinitionDuctTape.build())
-interface ItemDefinition {
+class ItemDefinition {
 	public var description: String;
 
 	@:native("short_description")
@@ -65,27 +66,31 @@ interface ItemDefinition {
 
 	public var sound: ItemSoundTable;
 
-	// todo: ItemStack
-	// todo: PointedThing
 	@:native("on_place")
-	public var onPlace: (itemstack: Dynamic, placer: Null<ObjectRefBase>, pointedThing: Dynamic) -> Null<Dynamic>;
+	public var onPlace: (itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing) -> Null<ItemStack>;
 
 	@:native("on_secondary_use")
-	public var onSecondaryUse: (itemstack: Dynamic, user: Null<ObjectRefBase>, pointedThing: Dynamic) -> Void;
+	public var onSecondaryUse: (itemstack: ItemStack, user: Null<ObjectRefBase>, pointedThing: PointedThing) -> Void;
 
 	@:native("on_drop")
-	public var onDrop: (itemstack: Dynamic, dropper: Null<ObjectRefBase>, pos: EngineVector3) -> Null<Dynamic>;
+	public var onDrop: (itemstack: ItemStack, dropper: Null<ObjectRefBase>, pos: EngineVector3) -> Null<ItemStack>;
 
 	@:native("on_pickup")
-	public var onPickup: (itemstack: Dynamic, picker: Null<ObjectRefBase>, pointedThing: Dynamic, timeFromLastPunch: Float) -> Null<Dynamic>;
+	public var onPickup: (itemstack: ItemStack, picker: Null<ObjectRefBase>, pointedThing: PointedThing,
+		timeFromLastPunch: Float) -> Null<ItemStack>;
 
 	@:native("on_use")
-	public var onUse: (itemstack: Dynamic, user: Null<ObjectRefBase>, pointedThing: Dynamic) -> Null<Dynamic>;
+	public var onUse: (itemstack: ItemStack, user: Null<ObjectRefBase>, pointedThing: PointedThing) -> Null<ItemStack>;
 
 	// todo: node thing
 	// todo: digparams
 	@:native("after_use")
-	public var afterUse: (itemstack: Dynamic, user: Null<ObjectRefBase>, node: Dynamic, digparams: Dynamic) -> Null<Dynamic>;
+	public var afterUse: (itemstack: ItemStack, user: Null<ObjectRefBase>, node: Dynamic, digparams: Dynamic) -> Null<ItemStack>;
+
 	// public var testing: () -> Void;
 	// _custom_field = whatever,
+
+	public function new() {
+		// trace("triggered itemdefinition constructor");
+	}
 }

@@ -12,6 +12,9 @@ infdev originally started out as a clone of minecraft infdev but I think it woul
 api was transposed may-june 2026
 
 
+todo: getters and setters of things like itemstack may need to be inlined
+
+
 ### some design decisions:
 
 I think it would be cool if the game had runescape skills bolted in

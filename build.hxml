@@ -20,3 +20,5 @@
 --macro include('engine.node')
 --macro include('engine.entity')
 --macro include('engine.definition')
+
+--macro include('game')

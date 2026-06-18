@@ -1,16 +1,13 @@
 package engine;
 
-final class ItemStack {
-	var name: String;
-	var count: Int;
-	var wear: Int;
-	var metadata: String;
+// todo: getters
+// https://github.com/luanti-org/luanti/blob/master/doc/lua_api.md#itemstack
+extern class ItemStack {
+	@:native("set_count")
+	public function setCount(count: Int): Void;
 
-	public function new() {}
-}
+	@:native("set_wear")
+	public function setWear(wear: Int): Void;
 
-class Blah {
-	static function __init__() {
-		new ItemStack();
-	}
+	public function setMetadata(metadata: String): Void;
 }
