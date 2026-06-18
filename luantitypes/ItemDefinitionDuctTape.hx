@@ -100,126 +100,30 @@ class ItemDefinitionDuctTape {
 		final isInterface = localClass.isInterface;
 
 		final hasNew: Field = Lambda.find(fields, (f: Field) -> f.name == "new");
-		if (hasNew != null) {
-			Context.error("Error: Do not not use new()", hasNew.pos);
-		} else if (!isInterface) {
-			if (!localClass.isFinal) {
-				Context.error('Error: Cannot extend ItemDefinition, NodeDefinition, ToolDefinition, or CraftItemDefinition.\n[${localClass.name}] must be declared as a "final class".',
-					localClass.pos);
-			}
-			// It gets a blank new injected so the instance can be sent to the engine.
-			var dummy = macro class {
-				public function new() {}
+		if (!isInterface && hasNew == null) {
+			var localClass = Context.getLocalClass().get();
+			var hasSuperClass = (localClass.superClass != null);
+
+			var constructorBody: Expr = if (hasSuperClass) {
+				macro {
+					super();
+				};
+			} else {
+				macro {};
 			};
 
-			var autoConstructor = dummy.fields[0];
-			autoConstructor.pos = Context.currentPos();
+			var autoConstructor: Field = {
+				name: "new",
+				access: [APublic],
+				kind: FFun({
+					args: [],
+					ret: null,
+					expr: constructorBody
+				}),
+				pos: Context.currentPos()
+			};
+
 			fields.push(autoConstructor);
-		}
-
-		// ? Stops the compiler from exploding when `this` is used lmao.
-		if (!isInterface) {
-			for (field in fields) {
-				checkThisAccess(field, fields, localClass);
-				if (field.access != null && field.access.contains(AStatic)) {
-					continue;
-				}
-			}
-		}
-
-		// ? This checks everything to make sure things aren't gonna cause issues.
-		if (!localClass.isInterface) {
-			for (field in fields) {
-				// Skip statics and constructors.
-				if (field.access != null && field.access.contains(AStatic)) {
-					continue;
-				}
-				if (field.name == "new") {
-					continue;
-				}
-
-				// Check if this field originates from ANY interface contract.
-				var origin = findOriginatingInterface(localClass.interfaces, field.name);
-				var isInterfaceContract = (origin != null);
-
-				// If it's NOT an interface contract, it MUST be static. (which it isn't, since it didn't skip it)
-				if (!isInterfaceContract) {
-					Context.error('Error: Field [${field.name}] is a custom instance field. To add custom data/logic here, make it "static" to turn it into a class field.',
-						field.pos);
-					continue;
-				}
-
-				// If it IS an interface contract, ensure it's written as a clean function delegate.
-				switch (field.kind) {
-					case FVar(type, expr):
-						var isValidInterfaceField = false;
-
-						if (type != null) {
-							switch (type) {
-								// It's a function delegate (() -> Void)
-								case TFunction(_, _):
-									isValidInterfaceField = true;
-
-								// It's a plain data variable (String, Int, Bool, Null<X>)
-								case TPath(_):
-									isValidInterfaceField = true;
-
-								default:
-							}
-						} else if (expr != null) {
-							// Peek at the expression if the type is omitted!
-							switch (expr.expr) {
-								// Handles: var testing = () -> {}; or var testing = function() {};
-								case EFunction(_, _):
-									isValidInterfaceField = true;
-								default:
-							}
-						}
-
-						if (!isValidInterfaceField) {
-							Context.error('Error: Interface field [${field.name}] uses an invalid type layout for Luanti integration.', field.pos);
-						}
-
-					case FFun(_):
-						// Block using standard 'public function field()' syntax for interface contracts.
-						Context.error('Error: Interface field [${field.name}] must be written as a function delegate variable (var ${field.name}: () -> Void), not a standard instance method.',
-							field.pos);
-
-					default:
-				}
-			}
-		}
-
-		// Search for the original metadata and inherit it.
-		// This was truly horrific to figure out how to implement.
-		if (!isInterface) {
-			for (field in fields) {
-				var origin = findOriginatingInterface(localClass.interfaces, field.name);
-
-				if (origin != null) {
-					var origin = findOriginatingInterface(localClass.interfaces, field.name);
-
-					if (origin != null) {
-						// trace('Field "${field.name}" originally came from interface: ' + origin.name);
-
-						var interfaceField = Lambda.find(origin.fields.get(), f -> f.name == field.name);
-						if (interfaceField != null && interfaceField.meta.has(":native")) {
-							var nativeMeta = interfaceField.meta.get().filter(m -> m.name == ":native")[0];
-
-							if (field.meta == null) {
-								field.meta = [];
-							}
-
-							var alreadyHasNative = Lambda.exists(field.meta, (m) -> m.name == ":native");
-
-							if (!alreadyHasNative) {
-								field.meta.push(nativeMeta);
-								// trace('Successfully copied @:native("${nativeMeta.params[0].expr}") onto concrete field: ${field.name}');
-							}
-						}
-					}
-				}
-			}
 		}
 
 		// ? This allows you to register a node at the top of your class.
