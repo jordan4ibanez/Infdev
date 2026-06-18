@@ -1,4 +1,4 @@
-package vector;
+package engine.vector;
 
 import luantitypes.LogLevel;
 import luantitypes.Core;

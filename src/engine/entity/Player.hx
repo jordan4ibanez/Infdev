@@ -1,9 +1,9 @@
-package entity;
+package engine.entity;
 
-import entity.objectref.ObjectRefBase;
-import entity.objectref.ObjectRefPlayer;
+import engine.entity.objectref.ObjectRefBase;
+import engine.entity.objectref.ObjectRefPlayer;
 import luantitypes.Macros;
-import entity.helpers.EntitySerialization;
+import engine.entity.helpers.EntitySerialization;
 
 final class Player {
 	public var object: ObjectRefPlayer = null;
@@ -11,7 +11,7 @@ final class Player {
 	var iAmCoolVar = 5;
 	var totalTime: Float = 0;
 
-	@:allow(entity.helpers.PlayerHandling)
+	@:allow(engine.entity.helpers.PlayerHandling)
 	private function new() {}
 
 	public function onActivate(staticData: String, dtimeS: Float) {

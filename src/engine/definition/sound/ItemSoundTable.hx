@@ -1,4 +1,4 @@
-package definition.sound;
+package engine.definition.sound;
 
 class ItemSoundTable {
 	var breaks: SimpleSoundSpec;

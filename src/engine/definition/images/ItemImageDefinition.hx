@@ -1,4 +1,4 @@
-package definition.images;
+package engine.definition.images;
 
 import haxe.extern.EitherType;
 

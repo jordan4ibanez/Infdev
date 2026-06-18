@@ -1,4 +1,4 @@
-package entity.helpers;
+package engine.entity.helpers;
 
 import haxe.ds.StringMap;
 import luantitypes.Core;
@@ -81,7 +81,7 @@ final class PlayerHandling {
 		player.onActivate(serialData, dtimeS);
 	}
 
-	@:allow(entity.objectref.ObjectRefPlayer)
+	@:allow(engine.entity.objectref.ObjectRefPlayer)
 	private static function getGlobalLuaEntity(name: String): Player {
 		var thisLuaEntity = playerLuaEntities.get(name);
 

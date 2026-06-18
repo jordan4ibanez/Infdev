@@ -16,6 +16,7 @@
 # --macro haxe.macro.Compiler.addGlobalMetadata("", "@:using(vector.EngineVector3)")
 
 # This stops tree shaking.
---macro include('node')
---macro include('entity')
---macro include('definition')
+--macro include('engine')
+--macro include('engine.node')
+--macro include('engine.entity')
+--macro include('engine.definition')

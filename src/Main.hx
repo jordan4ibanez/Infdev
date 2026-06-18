@@ -1,5 +1,5 @@
 import lua.Lua;
-import entity.Mob;
+import engine.entity.Mob;
 import luantitypes.Core;
 
 class Main {

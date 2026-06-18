@@ -1,4 +1,4 @@
-package vector;
+package engine.vector;
 
 /**
  * This class technically doesn't exist.

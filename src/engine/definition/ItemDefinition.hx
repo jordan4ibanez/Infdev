@@ -1,10 +1,10 @@
-package definition;
+package engine.definition;
 
-import definition.images.WearBarColors;
-import entity.objectref.ObjectRefBase;
-import definition.sound.ItemSoundTable;
-import vector.EngineVector3;
-import definition.images.ItemImageDefinition;
+import engine.definition.images.WearBarColors;
+import engine.entity.objectref.ObjectRefBase;
+import engine.definition.sound.ItemSoundTable;
+import engine.vector.EngineVector3;
+import engine.definition.images.ItemImageDefinition;
 
 /**
  * When you extend this class, you get a specialty static class which only uses

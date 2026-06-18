@@ -1,4 +1,4 @@
-package entity.helpers;
+package engine.entity.helpers;
 
 import luantitypes.Core;
 

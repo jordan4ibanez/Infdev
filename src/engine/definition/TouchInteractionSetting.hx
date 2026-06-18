@@ -1,4 +1,4 @@
-package definition;
+package engine.definition;
 
 enum abstract TouchInteractionMode(String) to String {
 	var longDigShortPlace = "long_dig_short_place";

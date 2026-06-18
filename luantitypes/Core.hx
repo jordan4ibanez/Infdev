@@ -1,10 +1,10 @@
 package luantitypes;
 
 import haxe.Constraints.Function;
-import entity.objectref.ObjectRefPlayer;
-import entity.objectref.ObjectRefBase;
-import vector.EngineVector3;
-import entity.LuaEntity;
+import engine.entity.objectref.ObjectRefPlayer;
+import engine.entity.objectref.ObjectRefBase;
+import engine.vector.EngineVector3;
+import engine.entity.LuaEntity;
 import haxe.Rest;
 import Reflect;
 import luantitypes.metadata.StorageRef;

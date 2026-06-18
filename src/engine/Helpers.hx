@@ -1,6 +1,8 @@
+package engine;
+
 import luantitypes.Macros;
 import luantitypes.Core;
-import entity.LuaEntity;
+import engine.entity.LuaEntity;
 import haxe.Constraints.Constructible;
 
 class Helpers {
@@ -14,7 +16,6 @@ class Helpers {
 		// ? Static and instance field assignment in LuaJIT.
 		// ? Works from the current class backwards until reached root (Entity).
 
-		// todo: look into this, it may be wrong.
 		var currentClass: Class<Dynamic> = classType;
 
 		while (currentClass != null) {
