@@ -241,6 +241,7 @@ class ItemDefinitionDuctTape {
 					}
 				}
 			}
+			}
 
 			// ? Finally inject the class directly into the compiler compilation pool.
 
@@ -250,7 +251,7 @@ class ItemDefinitionDuctTape {
 			} catch (e:Dynamic) {
 				// Prevent duplicate definition errors if the macro triggers multiple times.
 			}
-		}
+		
 		// ? This allows you to register a node at the top of your class.
 		// for (meta in localClass.meta.get()) {
 		// 	// trace(meta.name);
