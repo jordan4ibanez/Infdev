@@ -293,7 +293,6 @@ class ItemDefinitionDuctTape {
 				// Prevent duplicate definition errors if the macro triggers multiple times.
 			}
 		}
-
 		// ? This allows you to register a node at the top of your class.
 		// for (meta in localClass.meta.get()) {
 		// 	// trace(meta.name);
@@ -301,9 +300,7 @@ class ItemDefinitionDuctTape {
 		// 		if (isInterface) {
 		// 			Context.error('Error: Do not use :luantiNode on an interface.', meta.pos);
 		// 		}
-
 		// 		final firstParameter = meta.params[0];
-
 		// 		if (firstParameter == null) {
 		// 			Context.error("luantiNode requires a string parameter", meta.pos);
 		// 		}
@@ -315,13 +312,11 @@ class ItemDefinitionDuctTape {
 		// 					}
 		// 					// And if it got this far then it's up to them to ensure it's a good name cause I do not fucking care at this point.
 		// 					final init: Field = Lambda.find(fields, (f: Field) -> f.name == "__init__");
-
 		// 					var typePath: haxe.macro.Expr.TypePath = {
 		// 						pack: localClass.pack,
 		// 						name: localClass.name,
 		// 						params: []
 		// 					};
-
 		// 					if (init != null) {
 		// 						// Inject code into their existing method
 		// 						switch (init.kind) {
@@ -340,7 +335,6 @@ class ItemDefinitionDuctTape {
 		// 										// Wipe out the context.
 		// 										untyped __lua__("instance = nil;");
 		// 									};
-
 		// 									switch (func.expr.expr) {
 		// 										case EBlock(exprs): exprs.unshift(injectExpr);
 		// 										default: func.expr = macro {
