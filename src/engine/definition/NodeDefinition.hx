@@ -6,6 +6,21 @@ import engine.definition.images.ItemImageDefinition;
 
 @:luantiDefinitionRoot
 class NodeDefinition extends ItemDefinition {
+	@:native("drawtype")
+	var drawType: Dynamic;
+
+	@:native("visual_scale")
+	var visualScale: Float;
+
+	// todo: tile definition
+	var tiles: Array<Dynamic>;
+
+	@:native("overlay_tiles")
+	var overlayTiles: Array<Dynamic>;
+
+	@:native("special_tiles")
+	var specialTiles: Array<Dynamic>;
+
 	public function new() {
 		super();
 	}
