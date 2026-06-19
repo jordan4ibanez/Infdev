@@ -22,6 +22,10 @@ class NodeDefinition extends ItemDefinition {
 	@:native("special_tiles")
 	var specialTiles: Array<Dynamic>;
 
+	// todo: ColorSpec.
+	@:native("color")
+	var nodeColor: Dynamic;
+
 	public function new() {
 		super();
 	}
