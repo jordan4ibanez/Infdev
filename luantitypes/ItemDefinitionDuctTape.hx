@@ -131,6 +131,7 @@ class ItemDefinitionDuctTape {
 							expr: macro {
 								instance = Type.createInstance(Type.resolveClass($v{className}), []);
 
+								// This dumps the fields from the class defined into the wrapper class in lua.
 								for (field in Reflect.fields(instance)) {
 									trace("field", field);
 									untyped $i{wrapperClassName}[field] = Reflect.field(instance, field);
