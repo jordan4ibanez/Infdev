@@ -186,6 +186,38 @@ class ItemDefinitionDuctTape {
 				meta: []
 			};
 
+			// ? Next, inject any static wrapper methods into the static wrapper class.
+
+			// This function is so this isn't a complete mess.
+
+			function grabArguments(methodName: String): Array<FunctionArg> {
+				var funcOnPlace = Lambda.find(fields, (f) -> f.name == methodName);
+
+				if (funcOnPlace != null) {
+					switch (funcOnPlace.kind) {
+						case FFun(func):
+							var argsCopy = func.args.copy();
+
+							for (arg in argsCopy) {
+								if (arg.type != null) {
+									try {
+										var resolvedType = Context.resolveType(arg.type, Context.currentPos());
+
+										arg.type = Context.toComplexType(resolvedType);
+									} catch (e:Dynamic) {}
+								}
+							}
+							return argsCopy;
+
+						case _:
+							Context.error(methodName + " is defined, but it is not a function.", funcOnPlace.pos);
+					}
+				} else {
+					Context.error("Could not find " + methodName + " in the build fields.", Context.currentPos());
+				}
+
+				return [];
+			}
 			// ? Finally inject the class directly into the compiler compilation pool.
 
 			try {
