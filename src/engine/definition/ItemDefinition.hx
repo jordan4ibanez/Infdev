@@ -70,24 +70,31 @@ class ItemDefinition {
 
 	@:native("on_place")
 	public function onPlace(itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
+		// core.item_place
 		return null;
 	};
 
 	@:native("on_secondary_use")
-	public function onSecondaryUse(itemstack: ItemStack, user: Null<ObjectRefBase>, pointedThing: PointedThing): Void {};
+	public function onSecondaryUse(itemstack: ItemStack, user: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
+		// core.item_secondary_use
+		return null;
+	};
 
 	@:native("on_drop")
 	public function onDrop(itemstack: ItemStack, dropper: Null<ObjectRefBase>, pos: EngineVector3): Null<ItemStack> {
+		// core.item_drop
 		return null;
 	};
 
 	@:native("on_pickup")
 	public function onPickup(itemstack: ItemStack, picker: Null<ObjectRefBase>, pointedThing: PointedThing, timeFromLastPunch: Float): Null<ItemStack> {
+		// core.item_pickup
 		return null;
 	};
 
 	@:native("on_use")
 	public function onUse(itemstack: ItemStack, user: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
+		// nil
 		return null;
 	};
 
@@ -96,6 +103,7 @@ class ItemDefinition {
 
 	@:native("after_use")
 	public function afterUse(itemstack: ItemStack, user: Null<ObjectRefBase>, node: Dynamic, digparams: Dynamic): Null<ItemStack> {
+		// nil
 		return null;
 	};
 
