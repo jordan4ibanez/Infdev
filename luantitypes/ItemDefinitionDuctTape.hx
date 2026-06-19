@@ -69,7 +69,7 @@ class ItemDefinitionDuctTape {
 						Context.error('Please decorate this class with @:luantiItem("mod:item")', localClass.pos);
 
 					default:
-						Context.error('THIS EXTENSION IS MISSING A DECORATOR SWITCH!!! ', localClass.pos);
+						Context.error(superClassRef.name + ' IS MISSING A DECORATOR SWITCH!!!', localClass.pos);
 				}
 			}
 
