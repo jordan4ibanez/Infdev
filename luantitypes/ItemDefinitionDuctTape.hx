@@ -127,6 +127,10 @@ class ItemDefinitionDuctTape {
 
 			// trace(isItemDef, isToolDef, isNodeDef, className);
 
+			if (!isItemDef && !isToolDef && !isNodeDef) {
+				Context.error('Error: Something went seriously wrong.', localClass.pos);
+			}
+
 			if (isItemDef) {
 				var metaEntry = localClass.meta.extract(":luantiItem")[0];
 				var itemIdExpr = metaEntry.params[0];
