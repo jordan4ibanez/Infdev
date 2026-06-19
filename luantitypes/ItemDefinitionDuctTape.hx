@@ -60,35 +60,6 @@ class ItemDefinitionDuctTape {
 				Context.error('Error: Something went seriously wrong.', localClass.pos);
 			}
 
-			// ItemDefinition.
-			var onPlace = false;
-			var onSecondaryUse = false;
-			var onDrop = false;
-			var onPickup = false;
-			var onUse = false;
-			var afterUse = false;
-
-			for (field in fields) {
-				final fieldName = field.name;
-
-				switch (fieldName) {
-					// ItemDefinition.
-
-					case "onPlace":
-						onPlace = true;
-					case "onSecondaryUse":
-						onSecondaryUse = true;
-					case "onDrop":
-						onDrop = true;
-					case "onPickup":
-						onPickup = true;
-					case "onUse":
-						onUse = true;
-					case "afterUse":
-						afterUse = true;
-				}
-			}
-
 			var registrationName;
 			var metaSearchTerm;
 			var luantiRegistrationMethod;
