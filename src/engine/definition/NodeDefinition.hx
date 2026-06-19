@@ -279,4 +279,7 @@ class NodeDefinition extends ItemDefinition {
 	public function new() {
 		super();
 	}
+
+	@:native("mod_origin")
+	public final modOrigin: String = "engineUse";
 }
