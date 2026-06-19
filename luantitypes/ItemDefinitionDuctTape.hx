@@ -180,7 +180,7 @@ class ItemDefinitionDuctTape {
 			var fieldChecks: Array<MethodMatcherThing> = [];
 
 			if (isItemDef) {
-				[
+				for (data in [
 					{
 						classMethodName: "onPlace",
 						luantiMethodName: "on_place",
@@ -211,7 +211,9 @@ class ItemDefinitionDuctTape {
 						luantiMethodName: "after_use",
 						code: "return instance.afterUse(itemstack, user, node, digparams)"
 					},
-				];
+				]) {
+					fieldChecks.push(data);
+				}
 
 				// Only insert fields that are defined.
 				// Defining all fields can cause weird behavior.
