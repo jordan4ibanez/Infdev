@@ -44,6 +44,10 @@ final class DirtWrapper {
 	public static function on_secondary_use(itemstack: ItemStack, user: Null<ObjectRefBase>, pointedThing: PointedThing): Void {
 		instance.onSecondaryUse(itemstack, user, pointedThing);
 	};
+
+	public static function on_drop(itemstack: ItemStack, dropper: Null<ObjectRefBase>, pos: EngineVector3): Null<ItemStack> {
+		return instance.onDrop(itemstack, dropper, pos);
+	};
 }
 
 // @:luantiNode("infdev:dirt")
