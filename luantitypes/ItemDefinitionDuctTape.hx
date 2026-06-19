@@ -71,7 +71,7 @@ class ItemDefinitionDuctTape {
 
 			{
 				var metaEntry = localClass.meta.extract(metaSearchTerm)[0];
-				trace(metaEntry);
+				// trace(metaEntry);
 				if (metaEntry == null) {
 					Context.error("Something blew up.", localClass.pos);
 				}
