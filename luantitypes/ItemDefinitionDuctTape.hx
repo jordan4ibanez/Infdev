@@ -80,7 +80,6 @@ class ItemDefinitionDuctTape {
 			}
 
 			var registrationName;
-			var metaSearchTerm = ":register";
 			var luantiRegistrationMethod;
 
 			if (isItemDef) {
@@ -92,7 +91,7 @@ class ItemDefinitionDuctTape {
 			}
 
 			{
-				var metaEntry = localClass.meta.extract(metaSearchTerm)[0];
+				var metaEntry = localClass.meta.extract(":register")[0];
 				// trace(metaEntry);
 				if (metaEntry == null) {
 					Context.error("Something blew up.", localClass.pos);
