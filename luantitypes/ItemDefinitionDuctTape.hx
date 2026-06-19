@@ -64,7 +64,13 @@ class ItemDefinitionDuctTape {
 			// trace(isItemDef, isToolDef, isNodeDef, className);
 
 			if (!isItemDef && !isToolDef && !isNodeDef) {
-				Context.error('Error: Something went seriously wrong.', localClass.pos);
+				switch (superClassRef.name) {
+					case "ItemDefinition":
+						Context.error('Please decorate this class with @:luantiItem("mod:item")', localClass.pos);
+
+					default:
+						Context.error('THIS EXTENSION IS MISSING A DECORATOR SWITCH!!! ', localClass.pos);
+				}
 			}
 
 			var registrationName;
