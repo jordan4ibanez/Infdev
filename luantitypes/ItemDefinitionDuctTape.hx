@@ -241,15 +241,15 @@ class ItemDefinitionDuctTape {
 						});
 				}
 			}
-		}
 
-		// ? Finally inject the class directly into the compiler compilation pool.
+			// ? Finally inject the class directly into the compiler compilation pool.
 
-		try {
-			Context.defineType(companionClassDefinition);
-			trace('DuctTape: Successfully generated companion class: ' + localClass.pack.join(".") + "." + wrapperClassName);
-		} catch (e:Dynamic) {
-			// Prevent duplicate definition errors if the macro triggers multiple times.
+			try {
+				Context.defineType(companionClassDefinition);
+				trace('DuctTape: Successfully generated companion class: ' + localClass.pack.join(".") + "." + wrapperClassName);
+			} catch (e:Dynamic) {
+				// Prevent duplicate definition errors if the macro triggers multiple times.
+			}
 		}
 
 		// ? This allows you to register a node at the top of your class.
