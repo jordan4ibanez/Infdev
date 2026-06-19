@@ -50,9 +50,10 @@ class ItemDefinitionDuctTape {
 		final isRoot = localClass.meta.has(":luantiDefinitionRoot");
 
 		if (!isRoot) {
-			final isItemDef = localClass.meta.has(":luantiItem");
-			final isToolDef = localClass.meta.has(":luantiTool");
-			final isNodeDef = localClass.meta.has(":luantiNode");
+			var isToolDef = localClass.meta.has(":luantiTool");
+			var isNodeDef = localClass.meta.has(":luantiNode");
+
+			var isItemDef = localClass.meta.has(":luantiItem") || isToolDef || isNodeDef;
 
 			// trace(isItemDef, isToolDef, isNodeDef, className);
 
@@ -221,7 +222,7 @@ class ItemDefinitionDuctTape {
 			for (implementation in fieldChecks) {
 				final has = Lambda.find(fields, (f) -> f.name == implementation.classMethodName) != null;
 
-				// trace(implementation.classMethodName, has);
+				trace(implementation.classMethodName, has);
 
 				if (has) {
 					var parsed = Context.parse(implementation.code, Context.currentPos());
