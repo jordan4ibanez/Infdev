@@ -145,8 +145,8 @@ extern class Core {
 	static function itemPickup(
 		itemstack: ItemStack,
 		picker: Null<ObjectRefBase>,
-		pointed_thing: PointedThing,
-		time_from_last_punch: Float): Null<ItemStack>;
+		pointedThing: PointedThing,
+		timeFromLastPunch: Float): Null<ItemStack>;
 }
 
 @:noCompletion
