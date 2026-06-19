@@ -102,6 +102,14 @@ class ItemDefinitionDuctTape {
 		final hasNew: Field = Lambda.find(fields, (f: Field) -> f.name == "new");
 		if (hasNew == null) {
 			Context.error("luantiNode requires a constructor so you can edit the class fields.", localClass.pos);
+		} else {
+			switch (hasNew.kind) {
+				case FFun(f):
+					if (f.args.length != 0) {
+						Context.error("luantiNode constructor requires no parameters", hasNew.pos);
+					}
+				default:
+			}
 		}
 
 		// ? This allows you to register a node at the top of your class.

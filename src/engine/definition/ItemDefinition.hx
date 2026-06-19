@@ -11,9 +11,9 @@ import engine.definition.images.ItemImageDefinition;
  * 
  * Any methods in the game API itself is wrapped in a static class.
  * 
- * Your vars are all copied to the static class. (They are virtual final)
+ * Inherited vars are all copied to the static class. (They are virtual final)
  * 
- * Anything else is fair game.
+ * Feel free to edit your custom vars during runtime.
  */
 @:build(luantitypes.ItemDefinitionDuctTape.build())
 @:autoBuild(luantitypes.ItemDefinitionDuctTape.build())
@@ -101,7 +101,7 @@ class ItemDefinition {
 
 	// public var testing: () -> Void;
 	// _custom_field = whatever,
-	// public function new() {
-	//   trace("triggered itemdefinition constructor");
-	// }
+	public function new() {
+		// trace("triggered itemdefinition constructor");
+	}
 }
