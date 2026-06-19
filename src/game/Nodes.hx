@@ -39,7 +39,6 @@ final class DirtWrapper {
 	}
 
 	// ! This is an invisible wrapper so there is no need to make it look nice with camel case.
-
 	public static function on_place(itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
 		return instance.onPlace(itemstack, placer, pointedThing);
 	}
@@ -77,6 +76,14 @@ class Dirt extends ItemDefinition {
 
 	override function onDrop(itemstack: ItemStack, dropper: Null<ObjectRefBase>, pos: EngineVector3): Null<ItemStack> {
 		return super.onDrop(itemstack, dropper, pos);
+	}
+
+	override function onUse(itemstack: ItemStack, user: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
+		return super.onUse(itemstack, user, pointedThing);
+	}
+
+	override function afterUse(itemstack: ItemStack, user: Null<ObjectRefBase>, node: Dynamic, digparams: Dynamic): Null<ItemStack> {
+		return super.afterUse(itemstack, user, node, digparams);
 	}
 }
 
