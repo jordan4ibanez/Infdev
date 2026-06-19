@@ -121,7 +121,7 @@ extern class Core {
 	static function itemPlace(
 		itemstack: ItemStack,
 		placer: Null<ObjectRefBase>,
-		pointed_thing: PointedThing,
+		pointedThing: PointedThing,
 		?param2: Int): ReturnItemStackPosition;
 
 	@:native("item_place_node")
