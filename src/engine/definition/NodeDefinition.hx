@@ -140,7 +140,31 @@ class NodeDefinition extends ItemDefinition {
 	// todo: NodeDrops
 	var drop: Dynamic;
 
+	// on_construct
 	public function onConstruct(pos: EngineVector3): Void {
+		// nil
+	}
+
+	// on_destruct
+	public function onDestruct(pos: EngineVector3): Void {
+		// nil
+	}
+
+	// todo: Node thing
+	// after_destruct
+	public function afterDestruct(pos: EngineVector3, oldNode: Dynamic) {
+		// nil
+	}
+
+	// on_flood
+	public function onFlood(): Bool {
+		// nil
+		return false;
+	}
+
+	// todo: Metadata table
+	// preserve_metadata
+	public function preserverMetadata(pos: EngineVector3, oldNode: Dynamic, oldMeta: Dynamic, drops: Array<ItemStack>): Void {
 		// nil
 	}
 
