@@ -271,6 +271,11 @@ class NodeDefinition extends ItemDefinition {
 		// nil
 	}
 
+	// on_blast
+	public function onBlast(pos: EngineVector3, intensity: Float): Void {
+		// nil
+	}
+
 	public function new() {
 		super();
 	}
