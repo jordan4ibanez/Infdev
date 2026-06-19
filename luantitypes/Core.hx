@@ -1,5 +1,6 @@
 package luantitypes;
 
+import engine.entity.objectref.ObjectRefEntity;
 import engine.definition.PointedThing;
 import engine.ItemStack;
 import haxe.Constraints.Function;
@@ -133,6 +134,19 @@ extern class Core {
 
 	@:native("item_secondary_use")
 	static function itemSecondaryUse(itemstack: ItemStack, user: Null<ObjectRefBase>): Null<ItemStack>;
+
+	@:native("item_drop")
+	static function itemDrop(
+		itemstack: ItemStack,
+		dropper: Null<ObjectRefBase>,
+		pos: EngineVector3): ReturnItemStackObjectRef;
+}
+
+@:noCompletion
+@:multiReturn
+extern class ReturnItemStackObjectRef {
+	var itemstack: ItemStack;
+	var objectRef: Null<ObjectRefEntity>;
 }
 
 @:noCompletion
