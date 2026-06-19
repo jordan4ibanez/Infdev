@@ -100,30 +100,8 @@ class ItemDefinitionDuctTape {
 		final isInterface = localClass.isInterface;
 
 		final hasNew: Field = Lambda.find(fields, (f: Field) -> f.name == "new");
-		if (!isInterface && hasNew == null) {
-			var localClass = Context.getLocalClass().get();
-			var hasSuperClass = (localClass.superClass != null);
-
-			var constructorBody: Expr = if (hasSuperClass) {
-				macro {
-					super();
-				};
-			} else {
-				macro {};
-			};
-
-			var autoConstructor: Field = {
-				name: "new",
-				access: [APublic],
-				kind: FFun({
-					args: [],
-					ret: null,
-					expr: constructorBody
-				}),
-				pos: Context.currentPos()
-			};
-
-			fields.push(autoConstructor);
+		if (hasNew == null) {
+			Context.error("luantiNode requires a constructor so you can edit the class fields.", localClass.pos);
 		}
 
 		// ? This allows you to register a node at the top of your class.
