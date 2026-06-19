@@ -71,14 +71,12 @@ class ItemDefinition {
 
 	@:native("on_place")
 	public function onPlace(itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
-		// core.item_place
 		return Core.itemPlace(itemstack, placer, pointedThing).itemstack;
 	};
 
 	@:native("on_secondary_use")
 	public function onSecondaryUse(itemstack: ItemStack, user: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
-		// core.item_secondary_use
-		return null;
+		return return Core.itemSecondaryUse(itemstack, user);
 	};
 
 	@:native("on_drop")

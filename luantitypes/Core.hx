@@ -130,6 +130,9 @@ extern class Core {
 		pointedThing: PointedThing,
 		?param2: Int,
 		?preventAfterPlace: Bool): ReturnItemStackPosition;
+
+	@:native("item_secondary_use")
+	static function itemSecondaryUse(itemstack: ItemStack, user: Null<ObjectRefBase>): Null<ItemStack>;
 }
 
 @:noCompletion
