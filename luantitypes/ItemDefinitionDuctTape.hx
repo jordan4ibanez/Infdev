@@ -132,15 +132,18 @@ class ItemDefinitionDuctTape {
 			}
 
 			var registrationName;
-
 			var metaSearchTerm;
+			var luantiRegistrationMethod;
 
 			if (isItemDef) {
 				metaSearchTerm = ":luantiItem";
+				luantiRegistrationMethod = "registerCraftItem";
 			} else if (isToolDef) {
 				metaSearchTerm = ":luantiTool";
+				luantiRegistrationMethod = "registerTool";
 			} else if (isNodeDef) {
 				metaSearchTerm = ":luantiNode";
+				luantiRegistrationMethod = "registerNode";
 			}
 
 			{
