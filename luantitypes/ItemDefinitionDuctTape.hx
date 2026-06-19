@@ -228,7 +228,7 @@ class ItemDefinitionDuctTape {
 							args: grabArguments("onPlace"),
 							ret: null,
 							expr: macro {
-								// code here.
+								return instance.onPlace(itemstack, placer, pointedThing);
 							}
 						})
 					});
