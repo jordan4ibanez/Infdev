@@ -69,7 +69,8 @@ class ItemDefinition {
 	@:native("touch_interaction")
 	public var touchInteraction: TouchInteractionSetting;
 
-	public var sound: ItemSoundTable;
+	@:native("sound")
+	public var itemToolSound: ItemSoundTable;
 
 	@:native("on_place")
 	public function onPlace(itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
