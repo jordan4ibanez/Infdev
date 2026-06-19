@@ -133,7 +133,8 @@ class ItemDefinitionDuctTape {
 
 			var registrationName;
 
-			if (isItemDef) {
+			if (isItemDef) {}
+			{
 				var metaEntry = localClass.meta.extract(":luantiItem")[0];
 				trace(metaEntry);
 				if (metaEntry == null) {
@@ -150,8 +151,8 @@ class ItemDefinitionDuctTape {
 							Context.error("Could not parse @:luantiItem value as a string literal.", metaEntry.params[0].pos);
 						}
 				}
-				// trace(registrationName);
 			}
+			// trace(registrationName);
 
 			var metaEntry = localClass.meta.extract(":luantiItem")[0];
 
