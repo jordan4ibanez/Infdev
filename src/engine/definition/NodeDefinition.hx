@@ -95,6 +95,24 @@ class NodeDefinition extends ItemDefinition {
 
 	var drowning: Int;
 
+	@:native("damage_per_second")
+	var damagePerSecond: Int;
+
+	// todo: NodeBox
+	@:native("node_box")
+	var nodeBox: Dynamic;
+
+	@:native("connects_to")
+	var connectsTo: Array<String>;
+
+	// todo: ConnectSides Enum.
+	@:native("connect_sides")
+	var connectSides: Array<Dynamic>;
+
+	var mesh: String;
+
+	
+
 	public function new() {
 		super();
 	}
