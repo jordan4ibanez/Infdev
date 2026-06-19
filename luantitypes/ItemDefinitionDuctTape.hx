@@ -109,12 +109,6 @@ class ItemDefinitionDuctTape {
 				pos: Context.currentPos(),
 				kind: TDClass(null, null, false, true, false), // Final.
 				fields: [
-					// {
-					// 	name: "ITEM_ID",
-					// 	access: [APublic, AStatic, AFinal],
-					// 	kind: FVar(macro : String, macro $v{wrapperClassName}),
-					// 	pos: Context.currentPos()
-					// },
 					{
 						name: "instance",
 						access: [AStatic],
