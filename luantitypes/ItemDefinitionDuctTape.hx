@@ -133,9 +133,18 @@ class ItemDefinitionDuctTape {
 
 			var registrationName;
 
-			if (isItemDef) {}
+			var metaSearchTerm;
+
+			if (isItemDef) {
+				metaSearchTerm = ":luantiItem";
+			} else if (isToolDef) {
+				metaSearchTerm = ":luantiTool";
+			} else if (isNodeDef) {
+				metaSearchTerm = ":luantiNode";
+			}
+
 			{
-				var metaEntry = localClass.meta.extract(":luantiItem")[0];
+				var metaEntry = localClass.meta.extract(metaSearchTerm)[0];
 				trace(metaEntry);
 				if (metaEntry == null) {
 					Context.error("Something blew up.", localClass.pos);
