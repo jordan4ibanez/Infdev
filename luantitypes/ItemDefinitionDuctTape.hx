@@ -220,7 +220,7 @@ class ItemDefinitionDuctTape {
 				for (implementation in fieldChecks) {
 					final has = Lambda.find(fields, (f) -> f.name == implementation.classMethodName) != null;
 
-					trace(implementation.classMethodName, has);
+					// trace(implementation.classMethodName, has);
 
 					if (has) {
 						var parsed = Context.parse(implementation.code, Context.currentPos());
