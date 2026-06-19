@@ -215,6 +215,12 @@ class NodeDefinition extends ItemDefinition {
 		return itemStack;
 	}
 
+	// on_dig
+	public function onDig(pos: EngineVector3, node: Dynamic, digger: Null<ObjectRefBase>): Bool {
+		// core.node_dig;
+		return Core.nodeDig();
+	}
+
 	public function new() {
 		super();
 	}
