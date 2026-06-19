@@ -255,6 +255,22 @@ class NodeDefinition extends ItemDefinition {
 		return -1;
 	}
 
+	// on_metadata_inventory_move
+	public function onMetadataInventoryMove(pos: EngineVector3, fromList: String, fromIndex: Int, toList: String, toIndex: Int, count: Int,
+		player: Null<ObjectRefBase>): Void {
+		// nil
+	}
+
+	// on_metadata_inventory_put
+	public function onMetadataInventoryPut(pos: EngineVector3, listname: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Void {
+		// nil
+	}
+
+	// on_metadata_inventory_take
+	public function onMetadataInventoryTake(pos: EngineVector3, listname: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Void {
+		// nil
+	}
+
 	public function new() {
 		super();
 	}
