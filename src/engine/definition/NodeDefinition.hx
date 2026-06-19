@@ -6,6 +6,23 @@ import engine.definition.images.TileAnimationDefinition;
 import haxe.extern.EitherType;
 import engine.definition.images.ItemImageDefinition;
 
+/**
+ * When you extend this class, you get a specialty class which is extremely interesting.
+ * 
+ * The extended class is wrapped in a static class.
+ * 
+ * Defined vars are all copied to the static class. (They are virtual final)
+ * 
+ * Defined methods are copied to the static class and wrapped in static methods.
+ * 
+ * ! Warning: Do not call an override method unless you define it. It doesn't exist.
+ * 
+ * Feel free to edit your custom vars during runtime.
+ * 
+ * Never call another override function unless 
+ * 
+ * Also another note: This one is for nodes. Use the ItemDefinition class for tools/items.
+ */
 @:luantiDefinitionRoot
 class NodeDefinition extends ItemDefinition {
 	// todo: drawtype.
@@ -185,8 +202,6 @@ class NodeDefinition extends ItemDefinition {
 		// nil
 		return true;
 	}
-
-	
 
 	public function new() {
 		super();
