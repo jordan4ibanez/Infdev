@@ -38,6 +38,9 @@ class ItemDefinition {
 
 	public var palette: String;
 
+	/**
+	 * This one is for tools and items.
+	 */
 	@:native("color")
 	public var toolItemColor: String;
 
