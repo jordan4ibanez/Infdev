@@ -4,6 +4,8 @@ package luantitypes;
 import haxe.macro.Context;
 import haxe.macro.Expr;
 import haxe.macro.Type;
+import haxe.macro.ExprTools;
+import haxe.macro.Expr.FieldType;
 
 // AI also heavily guided this development cause this is a fucking mess.
 // This is cramming OOP into lua style static everything while trying to make it
@@ -112,6 +114,69 @@ class ItemDefinitionDuctTape {
 			}
 		}
 
+		// for (meta in localClass.meta.get()) {
+		// 	trace(meta.name);
+		// }
+
+		final isRoot = localClass.meta.has(":luantiDefinitionRoot");
+
+		if (!isRoot) {
+			final isItemDef = localClass.meta.has(":luantiItem");
+			final isToolDef = localClass.meta.has(":luantiTool");
+			final isNodeDef = localClass.meta.has(":luantiNode");
+
+			// trace(isItemDef, isToolDef, isNodeDef, className);
+
+			if (isItemDef) {
+				var metaEntry = localClass.meta.extract(":luantiItem")[0];
+				var itemIdExpr = metaEntry.params[0];
+				// trace(itemIdExpr);
+			}
+
+			var metaEntry = localClass.meta.extract(":luantiItem")[0];
+
+			var wrapperClassName = localClass.name + "Wrapper";
+
+			var companionClassDefinition = {
+				pack: localClass.pack, // Places it in the exact same package/folder path.
+				name: wrapperClassName,
+				pos: Context.currentPos(),
+				kind: TDClass(null, null, false, true, false), // Final.
+				fields: [
+
+					{
+						name: "ITEM_ID",
+						access: [APublic, AStatic, AFinal],
+						kind: FVar(macro : String, macro $v{wrapperClassName}),
+						pos: Context.currentPos()
+					},
+					// Static factory method.
+					// {
+					// 	name: "createInstance",
+					// 	access: [APublic, AStatic],
+					// 	kind: FFun({
+					// 		args: [],
+					// 		ret: TPath({pack: ["engine.definition"], name: "ItemDefinition"}),
+					// 		expr: macro {
+					// 			return Type.createInstance(Type.resolveClass($v{
+					// 				localClass.pack.join(".") + (localClass.pack.length > 0 ? "." : "") + localClass.name}), []);
+					// 		}
+					// 	}),
+					// 	pos: Context.currentPos()
+					// }
+				],
+				meta: []
+			};
+
+			// Inject the class directly into the compiler compilation pool.
+			try {
+				Context.defineType(companionClassDefinition);
+				trace('DuctTape: Successfully generated companion class: ' + localClass.pack.join(".") + "." + wrapperClassName);
+			} catch (e:Dynamic) {
+				// Prevent duplicate definition errors if the macro triggers multiple times.
+			}
+		}
+
 		// ? This allows you to register a node at the top of your class.
 		// for (meta in localClass.meta.get()) {
 		// 	// trace(meta.name);
@@ -202,7 +267,7 @@ class ItemDefinitionDuctTape {
 		// 		}
 		// 	}
 		// }
-		return fields;
+		return null;
 	}
 }
 #end // if macro
