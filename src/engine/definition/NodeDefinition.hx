@@ -132,9 +132,12 @@ class NodeDefinition extends ItemDefinition {
 	/**
 	 * This one is for nodes.
 	 */
-	// todo: NodeSoundTable
+	// todo: NodeSounds
 	@:native("sounds")
 	var nodeSounds: Dynamic;
+
+	// todo: NodeDrops
+	var drop: Dynamic;
 
 	public function new() {
 		super();
