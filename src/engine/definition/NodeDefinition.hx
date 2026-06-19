@@ -15,7 +15,7 @@ import engine.definition.images.ItemImageDefinition;
  * 
  * Defined methods are copied to the static class and wrapped in static methods.
  * 
- * ! Warning: Do not call an override method unless you define it. It doesn't exist.
+ * ! Warning: Do not call an override API method unless you define it. It doesn't exist.
  * 
  * Feel free to edit your custom vars during runtime.
  * 
