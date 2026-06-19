@@ -57,20 +57,22 @@ class ItemDefinitionDuctTape {
 			var superClassRef = localClass.superClass.t.get();
 			var superClassName = superClassRef.name;
 
-			var isToolDef = localClass.meta.has(":luantiTool") && superClassName == "ToolDefinition";
-			var isNodeDef = localClass.meta.has(":luantiNode") && superClassName == "NodeDefinition";
-			var isItemDef = localClass.meta.has(":luantiItem") && superClassName == "ItemDefinition";
+			var registerTag = localClass.meta.has(":register");
+
+			var isToolDef = registerTag && superClassName == "ToolDefinition";
+			var isNodeDef = registerTag && superClassName == "NodeDefinition";
+			var isItemDef = registerTag && superClassName == "ItemDefinition";
 
 			// trace(isItemDef, isToolDef, isNodeDef, className);
 
 			if (!isItemDef && !isToolDef && !isNodeDef) {
 				switch (superClassRef.name) {
 					case "ItemDefinition":
-						Context.error('Please decorate this class with @:luantiItem("mod:item")', localClass.pos);
+						Context.error('Please decorate this class with @:register("mod:item")', localClass.pos);
 					case "NodeDefinition":
-						Context.error('Please decorate this class with @:luantiNode("mod:node")', localClass.pos);
+						Context.error('Please decorate this class with @:register("mod:node")', localClass.pos);
 					case "ToolDefinition":
-						Context.error('Please decorate this class with @:luantiTool("mod:node")', localClass.pos);
+						Context.error('Please decorate this class with @:register("mod:tool")', localClass.pos);
 
 					default:
 						Context.error(superClassRef.name + ' IS MISSING A DECORATOR SWITCH!!!', localClass.pos);
