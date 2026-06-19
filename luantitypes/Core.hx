@@ -117,7 +117,11 @@ extern class Core {
 	static function deserialize(str: String, ?safe: Bool): Dynamic;
 
 	@:native("item_place_node")
-	static function itemPlaceNode(itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing, ?param2: Int,
+	static function itemPlaceNode(
+		itemstack: ItemStack,
+		placer: Null<ObjectRefBase>,
+		pointedThing: PointedThing,
+		?param2: Int,
 		?preventAfterPlace: Bool): ReturnItemStackPosition;
 }
 
