@@ -79,6 +79,22 @@ class NodeDefinition extends ItemDefinition {
 	@:native("liquid_renewable")
 	var liquidRenewable: Bool;
 
+	@:native("liquid_move_physics")
+	var liquidMovePhysics: Bool;
+
+	@:native("air_equivalent")
+	var airEquivalent: Bool;
+
+	var leveled: Int;
+
+	@:native("leveled_max")
+	var leveledMax: Int;
+
+	@:native("liquid_range")
+	var liquidRange: Int;
+
+	var drowning: Int;
+
 	public function new() {
 		super();
 	}
