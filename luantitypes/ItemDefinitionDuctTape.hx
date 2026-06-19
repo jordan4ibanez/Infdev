@@ -141,20 +141,6 @@ class ItemDefinitionDuctTape {
 							}
 						})
 					}
-					// Static factory method.
-					// {
-					// 	name: "createInstance",
-					// 	access: [APublic, AStatic],
-					// 	kind: FFun({
-					// 		args: [],
-					// 		ret: TPath({pack: ["engine.definition"], name: "ItemDefinition"}),
-					// 		expr: macro {
-					// 			return Type.createInstance(Type.resolveClass($v{
-					// 				localClass.pack.join(".") + (localClass.pack.length > 0 ? "." : "") + localClass.name}), []);
-					// 		}
-					// 	}),
-					// 	pos: Context.currentPos()
-					// }
 				],
 				meta: []
 			};
