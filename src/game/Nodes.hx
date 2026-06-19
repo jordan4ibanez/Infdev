@@ -17,20 +17,34 @@ import engine.definition.ItemDefinition;
 final class DirtWrapper {
 	private function new() {}
 
+	// Holds it in memory for extra stupid stuff.
 	static var instance: Dirt;
 
 	static function __init__() {
 		instance = new Dirt();
-		trace(instance);
 
-		trace(DirtWrapper);
+		// trace("instance:", instance);
+		// trace("wrapper:", DirtWrapper);
+
+		for (field in Reflect.fields(instance)) {
+			trace("field", field);
+			untyped DirtWrapper[field] = Reflect.field(instance, field);
+		}
+
+		trace("wrapper:", DirtWrapper);
 	}
 }
 
+// @:luantiNode("infdev:dirt")
 class Dirt extends ItemDefinition {
 	public function new() {
 		super();
+
 		this.color = "red";
+	}
+
+	override function onDrop(itemstack: ItemStack, dropper: Null<ObjectRefBase>, pos: EngineVector3): Null<ItemStack> {
+		return super.onDrop(itemstack, dropper, pos);
 	}
 }
 
