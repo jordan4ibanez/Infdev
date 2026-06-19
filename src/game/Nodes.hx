@@ -64,20 +64,6 @@ import engine.definition.ItemDefinition;
 class Dirt extends ItemDefinition {
 	public function new() {
 		super();
-
-		this.color = "brown";
-	}
-
-	override function onDrop(itemstack: ItemStack, dropper: Null<ObjectRefBase>, pos: EngineVector3): Null<ItemStack> {
-		return super.onDrop(itemstack, dropper, pos);
-	}
-
-	override function onUse(itemstack: ItemStack, user: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
-		return super.onUse(itemstack, user, pointedThing);
-	}
-
-	override function afterUse(itemstack: ItemStack, user: Null<ObjectRefBase>, node: Dynamic, digparams: Dynamic): Null<ItemStack> {
-		return super.afterUse(itemstack, user, node, digparams);
 	}
 }
 // @:luantiNode("infdev:dirt")
