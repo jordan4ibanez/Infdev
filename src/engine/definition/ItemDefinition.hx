@@ -10,11 +10,17 @@ import engine.definition.images.ItemImageDefinition;
 /**
  * When you extend this class, you get a specialty class which is extremely interesting.
  * 
- * Any methods in the game API itself is wrapped in a static class.
+ * The extended class is wrapped in a static class.
  * 
- * Inherited vars are all copied to the static class. (They are virtual final)
+ * Defined vars are all copied to the static class. (They are virtual final)
+ * 
+ * Defined methods are copied to the static class and wrapped in static methods.
+ * 
+ * ! Warning: Do not call an override method unless you define it. It doesn't exist.
  * 
  * Feel free to edit your custom vars during runtime.
+ * 
+ * Never call another override function unless 
  * 
  * Also another note: This one is for tools/items. Use the NodeDefinition class for nodes.
  */
