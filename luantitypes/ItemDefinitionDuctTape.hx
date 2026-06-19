@@ -50,6 +50,9 @@ class ItemDefinitionDuctTape {
 		final isRoot = localClass.meta.has(":luantiDefinitionRoot");
 
 		if (!isRoot) {
+			if (!localClass.isFinal) {
+				Context.error("Class must be final.", localClass.pos);
+			}
 			var isToolDef = localClass.meta.has(":luantiTool");
 			var isNodeDef = localClass.meta.has(":luantiNode");
 
