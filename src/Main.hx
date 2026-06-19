@@ -9,7 +9,9 @@ class Main {
 			// 	trace(Global.dump(player.getMeta()));
 			// }
 
-			Core.requestShutdown();
+			// Core.requestShutdown();
+
+			// untyped __lua__("core.set_node(player:get_pos(), {name='infdev:dirt'})");
 		});
 
 		// Core.registerGlobalStep((delta) -> {
