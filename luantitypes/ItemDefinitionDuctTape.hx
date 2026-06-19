@@ -122,6 +122,8 @@ class ItemDefinitionDuctTape {
 
 			var localClassComplexType = Context.toComplexType(TInst(Context.getLocalClass(), []));
 
+			// ? Set up the raw static wrapper class first.
+
 			var companionClassDefinition: TypeDefinition = {
 				pack: localClass.pack, // Places it in the exact same package/folder path.
 				name: wrapperClassName,
