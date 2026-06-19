@@ -37,9 +37,13 @@ final class DirtWrapper {
 
 	// ! This is an invisible wrapper so there is no need to make it look nice with camel case.
 
-	static function on_place(itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
+	public static function on_place(itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
 		return instance.onPlace(itemstack, placer, pointedThing);
 	}
+
+	public static function on_secondary_use(itemstack: ItemStack, user: Null<ObjectRefBase>, pointedThing: PointedThing): Void {
+		instance.onSecondaryUse(itemstack, user, pointedThing);
+	};
 }
 
 // @:luantiNode("infdev:dirt")
