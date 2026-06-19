@@ -65,7 +65,7 @@ final class Dirt extends NodeDefinition {
 		super();
 		Lua.print("I am created");
 
-		this.color = "blue";
+		this.nodeColor = "blue";
 	}
 
 	override function onPlace(itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
