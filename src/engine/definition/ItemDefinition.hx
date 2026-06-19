@@ -76,7 +76,7 @@ class ItemDefinition {
 	 * This one is for tools and items.
 	 */
 	@:native("sound")
-	public var itemToolSound: ItemSoundTable;
+	public var itemToolSounds: ItemSoundTable;
 
 	@:native("on_place")
 	public function onPlace(itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
