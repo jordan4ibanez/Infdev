@@ -28,6 +28,7 @@ final class DirtWrapper {
 		// trace("instance:", instance);
 		// trace("wrapper:", DirtWrapper);
 
+		// So this copies in the virtual constant fields.
 		for (field in Reflect.fields(instance)) {
 			trace("field", field);
 			untyped DirtWrapper[field] = Reflect.field(instance, field);
