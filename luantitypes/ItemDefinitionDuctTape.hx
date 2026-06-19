@@ -7,6 +7,12 @@ import haxe.macro.Type;
 import haxe.macro.ExprTools;
 import haxe.macro.Expr.FieldType;
 
+typedef MethodMatcherThing = {
+	public var classMethodName: String;
+	public var luantiMethodName: String;
+	public var code: String;
+}
+
 // AI also heavily guided this development cause this is a fucking mess.
 // This is cramming OOP into lua style static everything while trying to make it
 // not a horrific mess to use.
