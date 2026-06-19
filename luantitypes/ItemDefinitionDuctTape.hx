@@ -53,6 +53,9 @@ class ItemDefinitionDuctTape {
 			if (!localClass.isFinal) {
 				Context.error("Class must be final.", localClass.pos);
 			}
+
+			var superClassRef = localClass.superClass.t.get();
+
 			var isToolDef = localClass.meta.has(":luantiTool");
 			var isNodeDef = localClass.meta.has(":luantiNode");
 
