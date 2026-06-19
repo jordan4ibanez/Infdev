@@ -1,5 +1,6 @@
 package game;
 
+import luantitypes.Core;
 import haxe.extern.EitherType;
 import engine.definition.PointedThing;
 import engine.entity.objectref.ObjectRefBase;
@@ -33,6 +34,8 @@ final class DirtWrapper {
 		}
 
 		trace(DirtWrapper);
+
+		Core.registerNode("infdev:dirt", DirtWrapper);
 	}
 
 	// ! This is an invisible wrapper so there is no need to make it look nice with camel case.
@@ -47,6 +50,20 @@ final class DirtWrapper {
 
 	public static function on_drop(itemstack: ItemStack, dropper: Null<ObjectRefBase>, pos: EngineVector3): Null<ItemStack> {
 		return instance.onDrop(itemstack, dropper, pos);
+	};
+
+	public static function on_pickup(itemstack: ItemStack, picker: Null<ObjectRefBase>, pointedThing: PointedThing, timeFromLastPunch: Float): Null<ItemStack> {
+		return instance.onPickup(itemstack, picker, pointedThing, timeFromLastPunch);
+	};
+
+	public static function on_use(itemstack: ItemStack, user: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
+		return instance.onUse(itemstack, user, pointedThing);
+	};
+
+	// todo: node thing
+	// todo: digparams
+	public static function after_use(itemstack: ItemStack, user: Null<ObjectRefBase>, node: Dynamic, digparams: Dynamic): Null<ItemStack> {
+		return instance.afterUse(itemstack, user, node, digparams);
 	};
 }
 
