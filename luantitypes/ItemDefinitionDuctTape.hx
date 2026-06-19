@@ -200,7 +200,18 @@ class ItemDefinitionDuctTape {
 							expr: macro {
 								// todo: this will get the macro from above and deduce if it's a
 								// todo: node, item, or tool
+
 								instance = Type.createInstance(Type.resolveClass($v{className}), []);
+
+								for (field in Reflect.fields(instance)) {
+									trace("field", field);
+									untyped DirtWrapper[field] = Reflect.field(instance, field);
+								}
+
+								// This hackjob automatically does the registration.
+								luantitypes.Core.$luantiRegistrationMethod($v{registrationName}, $i{wrapperClassName});
+
+								trace("registered " + $v{registrationName} + " with " + $v{luantiRegistrationMethod});
 
 								trace(instance);
 							}
