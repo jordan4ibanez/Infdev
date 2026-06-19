@@ -110,8 +110,6 @@ class ItemDefinitionDuctTape {
 			}
 			// trace(registrationName);
 
-			var metaEntry = localClass.meta.extract(":luantiItem")[0];
-
 			var wrapperClassName = localClass.name + "Wrapper";
 
 			var localClassComplexType = Context.toComplexType(TInst(Context.getLocalClass(), []));
