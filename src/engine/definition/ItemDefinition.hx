@@ -86,8 +86,7 @@ class ItemDefinition {
 
 	@:native("on_pickup")
 	public function onPickup(itemstack: ItemStack, picker: Null<ObjectRefBase>, pointedThing: PointedThing, timeFromLastPunch: Float): Null<ItemStack> {
-		// core.item_pickup
-		return null;
+		return Core.itemPickup(itemstack, picker, pointedThing, timeFromLastPunch);
 	};
 
 	@:native("on_use")
