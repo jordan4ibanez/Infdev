@@ -12,8 +12,6 @@ import haxe.macro.Expr.FieldType;
 // not a horrific mess to use.
 // THIS WAS A HORROR TO TRY TO DESIGN.
 class ItemDefinitionDuctTape {
-
-
 	public static function build(): Array<Field> {
 		var fields = Context.getBuildFields();
 
