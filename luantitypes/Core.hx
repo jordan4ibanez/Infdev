@@ -1,5 +1,7 @@
 package luantitypes;
 
+import engine.definition.PointedThing;
+import engine.ItemStack;
 import haxe.Constraints.Function;
 import engine.entity.objectref.ObjectRefPlayer;
 import engine.entity.objectref.ObjectRefBase;
@@ -113,6 +115,17 @@ extern class Core {
 
 	@:native("deserialize")
 	static function deserialize(str: String, ?safe: Bool): Dynamic;
+
+	@:native("item_place_node")
+	static function itemPlaceNode(itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing, ?param2: Int,
+		?preventAfterPlace: Bool): ReturnItemStackPosition;
+}
+
+@:noCompletion
+@:multiReturn
+extern class ReturnItemStackPosition {
+	var itemstack: ItemStack;
+	var pos: Null<EngineVector3>;
 }
 
 @:native("")
