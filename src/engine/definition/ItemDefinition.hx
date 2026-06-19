@@ -15,6 +15,8 @@ import engine.definition.images.ItemImageDefinition;
  * Inherited vars are all copied to the static class. (They are virtual final)
  * 
  * Feel free to edit your custom vars during runtime.
+ * 
+ * Also another note: This one is for tools/items. Use the NodeDefinition class for nodes.
  */
 @:build(luantitypes.ItemDefinitionDuctTape.build())
 @:autoBuild(luantitypes.ItemDefinitionDuctTape.build())
@@ -42,7 +44,7 @@ class ItemDefinition {
 	 * This one is for tools and items.
 	 */
 	@:native("color")
-	public var toolItemColor: String;
+	public var itemColor: String;
 
 	@:native("stack_max")
 	public var stackMax: Int;
@@ -76,7 +78,7 @@ class ItemDefinition {
 	 * This one is for tools and items.
 	 */
 	@:native("sound")
-	public var itemToolSounds: ItemSoundTable;
+	public var itemSounds: ItemSoundTable;
 
 	@:native("on_place")
 	public function onPlace(itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
