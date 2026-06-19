@@ -221,6 +221,13 @@ class NodeDefinition extends ItemDefinition {
 		return Core.nodeDig();
 	}
 
+	// todo: check if that last thing is float wtf
+	// on_timer
+	public function onTimer(pos: EngineVector3, elapsed: Float, node: Dynamic, timeout: Float): Bool {
+		// nil
+		return false;
+	}
+
 	public function new() {
 		super();
 	}
