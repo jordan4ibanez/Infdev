@@ -143,13 +143,26 @@ class ItemDefinitionDuctTape {
 				pos: Context.currentPos(),
 				kind: TDClass(null, null, false, true, false), // Final.
 				fields: [
-
 					{
 						name: "ITEM_ID",
 						access: [APublic, AStatic, AFinal],
 						kind: FVar(macro : String, macro $v{wrapperClassName}),
 						pos: Context.currentPos()
 					},
+					{
+						name: "__init__",
+						access: [AStatic],
+						pos: Context.currentPos(),
+						kind: FFun({
+							args: [],
+							ret: null,
+							expr: macro {
+								// todo: this will get the macro from above and deduce if it's a
+								// todo: node, item, or tool
+								var i = Type.createInstance(Type.resolveClass($v{className}), []);
+							}
+						})
+					}
 					// Static factory method.
 					// {
 					// 	name: "createInstance",
