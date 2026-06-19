@@ -26,6 +26,31 @@ class NodeDefinition extends ItemDefinition {
 	@:native("color")
 	var nodeColor: Dynamic;
 
+	// todo: NodeTextureAlpha
+	@:native("use_texture_alpha")
+	var useTextureAlpha: Dynamic;
+
+	@:native("post_effect_color")
+	var postEffectColor: String;
+
+	@:native("post_effect_color_shaded")
+	var postEffectColorShaded: Bool;
+
+	// todo: ParamType1
+	var paramtype: Dynamic;
+
+	// todo: ParamType2
+	var paramtype2: Dynamic;
+
+	@:native("wallmounted_rotate_vertical")
+	var wallmountedRotateVertical: Bool;
+
+	@:native("is_ground_content")
+	var isGroundContent: Bool;
+
+	@:native("sunlight_propagates")
+	var sunlightPropagates: Bool;
+
 	public function new() {
 		super();
 	}
