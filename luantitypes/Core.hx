@@ -150,6 +150,10 @@ extern class Core {
 		picker: Null<ObjectRefBase>,
 		pointedThing: PointedThing,
 		timeFromLastPunch: Float): Null<ItemStack>;
+
+	// todo: node thing
+	@:native("node_dig")
+	static function nodeDig(pos: EngineVector3, node: Dynamic, digger: Null<ObjectRefBase>): Bool;
 }
 
 @:noCompletion
