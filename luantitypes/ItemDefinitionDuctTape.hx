@@ -224,20 +224,60 @@ class ItemDefinitionDuctTape {
 
 			// ItemDefinition.
 
-			if (onPlace) {
-				companionClassDefinition.fields.insert(companionClassDefinition.fields.length,
+			if (isItemDef) {
+				var fieldChecks: Array<MethodMatcherThing> = [
 					{
-						name: "on_place",
-						access: [AStatic],
-						pos: Context.currentPos(),
-						kind: FFun({
-							args: grabArguments("onPlace"),
-							ret: null,
-							expr: macro {
-								return instance.onPlace(itemstack, placer, pointedThing);
-							}
-						})
-					});
+						classMethodName: "onPlace",
+						luantiMethodName: "on_place",
+						code: "return instance.onPlace(itemstack, placer, pointedThing);"
+					},
+					{
+						classMethodName: "onSecondaryUse",
+						luantiMethodName: "on_secondary_use",
+						code: "instance.onSecondaryUse(itemstack, user, pointedThing);"
+					},
+					{
+						classMethodName: "onDrop",
+						luantiMethodName: "on_drop",
+						code: "return instance.onDrop(itemstack, dropper, pos);"
+					},
+					{
+						classMethodName: "onPickup",
+						luantiMethodName: "on_pickup",
+						code: "return instance.onPickup(itemstack, picker, pointedThing, timeFromLastPunch);"
+					},
+					{
+						classMethodName: "onUse",
+						luantiMethodName: "on_use",
+						code: "return instance.onUse(itemstack, user, pointedThing);"
+					},
+					{
+						classMethodName: "afterUse",
+						luantiMethodName: "after_use",
+						code: "return instance.afterUse(itemstack, user, node, digparams);"
+					},
+				];
+
+				var testing = "trace('debug')";
+
+				var parsed = Context.parse(testing, Context.currentPos());
+
+				if (onPlace) {
+					companionClassDefinition.fields.insert(companionClassDefinition.fields.length,
+						{
+							name: "on_place",
+							access: [AStatic],
+							pos: Context.currentPos(),
+							kind: FFun({
+								args: grabArguments("onPlace"),
+								ret: null,
+								expr: macro {
+									$parsed;
+									return instance.onPlace(itemstack, placer, pointedThing);
+								}
+							})
+						});
+				}
 			}
 
 			// ? Finally inject the class directly into the compiler compilation pool.
