@@ -22,6 +22,9 @@ class NodeDefinition extends ItemDefinition {
 	@:native("special_tiles")
 	var specialTiles: Array<Dynamic>;
 
+	/**
+	 * This one is for nodes.
+	 */
 	// todo: ColorSpec.
 	@:native("color")
 	var nodeColor: Dynamic;
@@ -126,7 +129,11 @@ class NodeDefinition extends ItemDefinition {
 	// todo: WavingType enum.
 	var waving: Dynamic;
 
-	var sounds: Dynamic;
+	/**
+	 * This one is for nodes.
+	 */
+	@:native("sounds")
+	var nodeSounds: Dynamic;
 
 	public function new() {
 		super();
