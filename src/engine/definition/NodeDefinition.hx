@@ -117,6 +117,17 @@ class NodeDefinition extends ItemDefinition {
 	@:native("collision_box")
 	var collisionBox: Dynamic; // todo: this is another nodebox
 
+	@:native("legacy_facedir_simple")
+	var legacyFacedirSimple: Bool;
+
+	@:native("legacy_wallmounted")
+	var legacyWallmounted: Bool;
+
+	// todo: WavingType enum.
+	var waving: Dynamic;
+
+	var sounds: Dynamic;
+
 	public function new() {
 		super();
 	}
