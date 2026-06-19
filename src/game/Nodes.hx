@@ -34,9 +34,15 @@ final class DirtWrapper {
 			untyped DirtWrapper[field] = Reflect.field(instance, field);
 		}
 
-		trace(DirtWrapper);
-
 		Core.registerNode("infdev:dirt", DirtWrapper);
+
+		for (field in Type.getInstanceFields(Dirt)) {
+			trace("instance", field);
+		}
+
+		// for (field in Reflect.fields(Dirt)) {
+		// 	trace(field);
+		// }
 	}
 
 	// todo: the macro needs to only define these things if it is defined!
