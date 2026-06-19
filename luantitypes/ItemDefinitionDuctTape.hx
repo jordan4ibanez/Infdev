@@ -198,9 +198,6 @@ class ItemDefinitionDuctTape {
 							args: [],
 							ret: null,
 							expr: macro {
-								// todo: this will get the macro from above and deduce if it's a
-								// todo: node, item, or tool
-
 								instance = Type.createInstance(Type.resolveClass($v{className}), []);
 
 								for (field in Reflect.fields(instance)) {
