@@ -189,15 +189,14 @@ class ItemDefinitionDuctTape {
 			// ? Next, inject any static wrapper methods into the static wrapper class.
 
 			// This function is so this isn't a complete mess.
+			// This thing has an auto resolver in it.
 
 			function grabArguments(methodName: String): Array<FunctionArg> {
 				var funcOnPlace = Lambda.find(fields, (f) -> f.name == methodName);
-
 				if (funcOnPlace != null) {
 					switch (funcOnPlace.kind) {
 						case FFun(func):
 							var argsCopy = func.args.copy();
-
 							for (arg in argsCopy) {
 								if (arg.type != null) {
 									try {
@@ -208,14 +207,12 @@ class ItemDefinitionDuctTape {
 								}
 							}
 							return argsCopy;
-
 						case _:
 							Context.error(methodName + " is defined, but it is not a function.", funcOnPlace.pos);
 					}
 				} else {
 					Context.error("Could not find " + methodName + " in the build fields.", Context.currentPos());
 				}
-
 				return [];
 			}
 
