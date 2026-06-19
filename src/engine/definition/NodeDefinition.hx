@@ -51,6 +51,22 @@ class NodeDefinition extends ItemDefinition {
 	@:native("sunlight_propagates")
 	var sunlightPropagates: Bool;
 
+	var walkable: Bool;
+
+	var pointable: Bool;
+
+	var diggable: Bool;
+
+	var climbable: Bool;
+
+	@:native("buildable_to")
+	var buildableTo: Bool;
+
+	var floodable: Bool;
+
+	// todo: LiquidType
+	var liquidtype: Dynamic;
+
 	public function new() {
 		super();
 	}
