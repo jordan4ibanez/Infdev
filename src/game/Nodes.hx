@@ -60,12 +60,12 @@ import engine.definition.ItemDefinition;
 // 		return instance.afterUse(itemstack, user, node, digparams);
 // 	};
 // }
-// @:luantiNode("infdev:dirt")
+@:luantiItem("infdev:stick")
 class Dirt extends ItemDefinition {
 	public function new() {
 		super();
 
-		this.color = "red";
+		this.color = "brown";
 	}
 
 	override function onDrop(itemstack: ItemStack, dropper: Null<ObjectRefBase>, pos: EngineVector3): Null<ItemStack> {
