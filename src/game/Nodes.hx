@@ -59,7 +59,7 @@ import engine.definition.NodeDefinition;
 // 		return instance.afterUse(itemstack, user, node, digparams);
 // 	};
 // }
-@:luantiItem("infdev:dirt")
+@:register("infdev:dirt")
 final class Dirt extends NodeDefinition {
 	public function new() {
 		super();
