@@ -1,5 +1,6 @@
 package engine.definition;
 
+import engine.entity.objectref.ObjectRefBase;
 import engine.vector.EngineVector3;
 import engine.definition.images.TileAnimationDefinition;
 import haxe.extern.EitherType;
@@ -165,6 +166,17 @@ class NodeDefinition extends ItemDefinition {
 	// todo: Metadata table
 	// preserve_metadata
 	public function preserverMetadata(pos: EngineVector3, oldNode: Dynamic, oldMeta: Dynamic, drops: Array<ItemStack>): Void {
+		// nil
+	}
+
+	// after_place_node
+	public function afterPlaceNode(pos: EngineVector3, placer: Null<ObjectRefBase>, itemstack: ItemStack, pointedThing: PointedThing): Bool {
+		// nil
+		return false;
+	}
+
+	// after_dig_node
+	public function afterDigNode(pos: EngineVector3, oldNode: Dynamic, oldMetaData: Dynamic, digger: Null<ObjectRefBase>): Void {
 		// nil
 	}
 
