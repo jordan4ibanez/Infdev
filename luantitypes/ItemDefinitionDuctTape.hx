@@ -177,8 +177,10 @@ class ItemDefinitionDuctTape {
 
 			// ItemDefinition.
 
+			var fieldChecks: Array<MethodMatcherThing> = [];
+
 			if (isItemDef) {
-				var fieldChecks: Array<MethodMatcherThing> = [
+				[
 					{
 						classMethodName: "onPlace",
 						luantiMethodName: "on_place",
