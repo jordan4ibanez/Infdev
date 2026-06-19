@@ -137,7 +137,7 @@ class ItemDefinitionDuctTape {
 
 			var wrapperClassName = localClass.name + "Wrapper";
 
-			var companionClassDefinition = {
+			var companionClassDefinition: TypeDefinition = {
 				pack: localClass.pack, // Places it in the exact same package/folder path.
 				name: wrapperClassName,
 				pos: Context.currentPos(),
