@@ -131,10 +131,26 @@ class ItemDefinitionDuctTape {
 				Context.error('Error: Something went seriously wrong.', localClass.pos);
 			}
 
+			var registrationName;
+
 			if (isItemDef) {
 				var metaEntry = localClass.meta.extract(":luantiItem")[0];
-				var itemIdExpr = metaEntry.params[0];
-				// trace(itemIdExpr);
+				trace(metaEntry);
+				if (metaEntry == null) {
+					Context.error("Something blew up.", localClass.pos);
+				}
+				var constantEnum = metaEntry.params[0].expr.getParameters()[0];
+				switch (constantEnum) {
+					case CString(s, _):
+						registrationName = s;
+					case _:
+						try {
+							registrationName = haxe.macro.ExprTools.getValue(metaEntry.params[0]);
+						} catch (e:Dynamic) {
+							Context.error("Could not parse @:luantiItem value as a string literal.", metaEntry.params[0].pos);
+						}
+				}
+				// trace(registrationName);
 			}
 
 			var metaEntry = localClass.meta.extract(":luantiItem")[0];
