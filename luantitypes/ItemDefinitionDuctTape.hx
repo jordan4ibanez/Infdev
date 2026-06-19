@@ -141,6 +141,8 @@ class ItemDefinitionDuctTape {
 
 			var wrapperClassName = localClass.name + "Wrapper";
 
+			var localClassComplexType = Context.toComplexType(TInst(Context.getLocalClass(), []));
+
 			var companionClassDefinition: TypeDefinition = {
 				pack: localClass.pack, // Places it in the exact same package/folder path.
 				name: wrapperClassName,
@@ -154,6 +156,12 @@ class ItemDefinitionDuctTape {
 					// 	pos: Context.currentPos()
 					// },
 					{
+						name: "instance",
+						access: [AStatic],
+						pos: Context.currentPos(),
+						kind: FVar(localClassComplexType, null)
+					},
+					{
 						name: "__init__",
 						access: [AStatic],
 						pos: Context.currentPos(),
@@ -163,7 +171,9 @@ class ItemDefinitionDuctTape {
 							expr: macro {
 								// todo: this will get the macro from above and deduce if it's a
 								// todo: node, item, or tool
-								var i = Type.createInstance(Type.resolveClass($v{className}), []);
+								instance = Type.createInstance(Type.resolveClass($v{className}), []);
+
+								trace(instance);
 							}
 						})
 					}

@@ -66,6 +66,8 @@ class Dirt extends ItemDefinition {
 	public function new() {
 		super();
 		Lua.print("I am created");
+
+		this.color = "blue";
 	}
 }
 // @:luantiNode("infdev:dirt")
