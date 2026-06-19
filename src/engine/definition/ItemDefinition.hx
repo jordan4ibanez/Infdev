@@ -18,6 +18,7 @@ import engine.definition.images.ItemImageDefinition;
  */
 @:build(luantitypes.ItemDefinitionDuctTape.build())
 @:autoBuild(luantitypes.ItemDefinitionDuctTape.build())
+@:luantiDefinitionRoot
 class ItemDefinition {
 	public var description: String;
 
@@ -92,6 +93,7 @@ class ItemDefinition {
 	@:native("on_use")
 	public function onUse(itemstack: ItemStack, user: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
 		// nil
+		// note: this messes with punching and digging.
 		return null;
 	};
 
