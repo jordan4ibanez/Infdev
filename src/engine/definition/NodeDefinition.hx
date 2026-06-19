@@ -1,5 +1,6 @@
 package engine.definition;
 
+import engine.vector.EngineVector3;
 import engine.definition.images.TileAnimationDefinition;
 import haxe.extern.EitherType;
 import engine.definition.images.ItemImageDefinition;
@@ -138,6 +139,10 @@ class NodeDefinition extends ItemDefinition {
 
 	// todo: NodeDrops
 	var drop: Dynamic;
+
+	public function onConstruct(pos: EngineVector3): Void {
+		// nil
+	}
 
 	public function new() {
 		super();
