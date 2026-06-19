@@ -81,7 +81,6 @@ class ItemDefinition {
 
 	@:native("on_drop")
 	public function onDrop(itemstack: ItemStack, dropper: Null<ObjectRefBase>, pos: EngineVector3): Null<ItemStack> {
-		// core.item_drop
 		return Core.itemDrop(itemstack, dropper, pos).itemstack;
 	};
 
