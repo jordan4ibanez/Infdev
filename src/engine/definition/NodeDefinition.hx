@@ -67,6 +67,18 @@ class NodeDefinition extends ItemDefinition {
 	// todo: LiquidType
 	var liquidtype: Dynamic;
 
+	@:native("liquid_alternative_flowing")
+	var liquidAlternativeFlowing: String;
+
+	@:native("liquid_alternative_source")
+	var liquidAlternativeSource: String;
+
+	@:native("liquid_viscosity")
+	var liquidViscosity: Int;
+
+	@:native("liquid_renewable")
+	var liquidRenewable: Bool;
+
 	public function new() {
 		super();
 	}
