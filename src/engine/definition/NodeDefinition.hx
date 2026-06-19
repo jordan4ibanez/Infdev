@@ -209,6 +209,12 @@ class NodeDefinition extends ItemDefinition {
 		// core.register_on_punchnode
 	}
 
+	// on_rightclick
+	public function onRightClick(pos: EngineVector3, node: Dynamic, clicker: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: Null<PointedThing>): ItemStack {
+		// nil
+		return itemStack;
+	}
+
 	public function new() {
 		super();
 	}
