@@ -14,6 +14,7 @@ import engine.definition.Pointabilities;
 import engine.vector.EngineVector3;
 import engine.definition.images.ItemImageDefinition.ItemImageDefinitionOrString;
 import engine.definition.ItemDefinition;
+import engine.definition.NodeDefinition;
 
 // Static wrapper.
 // This one is modeled off of ItemDefinition.
@@ -58,8 +59,8 @@ import engine.definition.ItemDefinition;
 // 		return instance.afterUse(itemstack, user, node, digparams);
 // 	};
 // }
-@:luantiItem("infdev:dirt")
-class Dirt extends ItemDefinition {
+// @:luantiItem("infdev:dirt")
+final class Dirt extends NodeDefinition {
 	public function new() {
 		super();
 		Lua.print("I am created");
