@@ -55,11 +55,11 @@ class ItemDefinitionDuctTape {
 			}
 
 			var superClassRef = localClass.superClass.t.get();
+			var superClassName = superClassRef.name;
 
-			var isToolDef = localClass.meta.has(":luantiTool");
-			var isNodeDef = localClass.meta.has(":luantiNode");
-
-			var isItemDef = localClass.meta.has(":luantiItem") || isToolDef || isNodeDef;
+			var isToolDef = localClass.meta.has(":luantiTool") && superClassName == "ToolDefinition";
+			var isNodeDef = localClass.meta.has(":luantiNode") && superClassName == "NodeDefinition";
+			var isItemDef = localClass.meta.has(":luantiItem") && superClassName == "ItemDefinition";
 
 			// trace(isItemDef, isToolDef, isNodeDef, className);
 
