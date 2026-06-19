@@ -1,5 +1,6 @@
 package game;
 
+import lua.Lua;
 import luantitypes.Core;
 import haxe.extern.EitherType;
 import engine.definition.PointedThing;
@@ -64,6 +65,7 @@ import engine.definition.ItemDefinition;
 class Dirt extends ItemDefinition {
 	public function new() {
 		super();
+		Lua.print("I am created");
 	}
 }
 // @:luantiNode("infdev:dirt")
