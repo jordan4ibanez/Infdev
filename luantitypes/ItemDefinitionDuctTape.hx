@@ -17,6 +17,8 @@ class ItemDefinitionDuctTape {
 
 		var localClass = Context.getLocalClass().get();
 
+		var originalImports = Context.getLocalImports();
+
 		// Fully qualified.
 		var className = Context.getLocalClass().toString();
 
