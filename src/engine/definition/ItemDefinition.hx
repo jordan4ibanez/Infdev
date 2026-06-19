@@ -69,6 +69,9 @@ class ItemDefinition {
 	@:native("touch_interaction")
 	public var touchInteraction: TouchInteractionSetting;
 
+	/**
+	 * This one is for tools and items.
+	 */
 	@:native("sound")
 	public var itemToolSound: ItemSoundTable;
 
