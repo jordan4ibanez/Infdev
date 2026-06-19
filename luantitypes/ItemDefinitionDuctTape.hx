@@ -258,29 +258,30 @@ class ItemDefinitionDuctTape {
 					},
 				];
 
-				for (check in fieldChecks) {
-					trace(check.classMethodName);
-				}
+				// Only insert fields that are defined.
+				// Defining all fields can cause weird behavior.
+				for (implementation in fieldChecks) {
+					final has = Lambda.find(fields, (f) -> f.name == implementation.classMethodName) != null;
 
-				var testing = "trace('debug')";
+					// trace(check.classMethodName, has);
 
-				var parsed = Context.parse(testing, Context.currentPos());
+					if (has) {
+						var parsed = Context.parse(implementation.code, Context.currentPos());
 
-				if (onPlace) {
-					companionClassDefinition.fields.insert(companionClassDefinition.fields.length,
-						{
-							name: "on_place",
-							access: [AStatic],
-							pos: Context.currentPos(),
-							kind: FFun({
-								args: grabArguments("onPlace"),
-								ret: null,
-								expr: macro {
-									$parsed;
-									return instance.onPlace(itemstack, placer, pointedThing);
-								}
-							})
-						});
+						companionClassDefinition.fields.insert(companionClassDefinition.fields.length,
+							{
+								name: implementation.luantiMethodName,
+								access: [AStatic],
+								pos: Context.currentPos(),
+								kind: FFun({
+									args: grabArguments("onPlace"),
+									ret: null,
+									expr: macro {
+										$parsed;
+									}
+								})
+							});
+					}
 				}
 			}
 
