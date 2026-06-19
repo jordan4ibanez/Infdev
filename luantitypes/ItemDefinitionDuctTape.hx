@@ -218,6 +218,25 @@ class ItemDefinitionDuctTape {
 
 				return [];
 			}
+
+			// ItemDefinition.
+
+			if (onPlace) {
+				companionClassDefinition.fields.insert(companionClassDefinition.fields.length,
+					{
+						name: "on_place",
+						access: [AStatic],
+						pos: Context.currentPos(),
+						kind: FFun({
+							args: grabArguments("onPlace"),
+							ret: null,
+							expr: macro {
+								// code here.
+							}
+						})
+					});
+			}
+
 			// ? Finally inject the class directly into the compiler compilation pool.
 
 			try {
