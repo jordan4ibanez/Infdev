@@ -203,6 +203,12 @@ class NodeDefinition extends ItemDefinition {
 		return true;
 	}
 
+	// todo: No fucking clue what node is
+	// on_punch
+	public function onPunch(pos: EngineVector3, node: Dynamic, puncher: Null<ObjectRefBase>, pointedThing: PointedThing): Void {
+		// core.register_on_punchnode
+	}
+
 	public function new() {
 		super();
 	}
