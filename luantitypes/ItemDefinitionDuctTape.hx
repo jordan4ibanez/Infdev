@@ -143,6 +143,7 @@ class ItemDefinitionDuctTape {
 								trace("registered " + $v{registrationName} + " with " + $v{luantiRegistrationMethod});
 
 								trace(instance);
+								trace($i{wrapperClassName});
 							}
 						})
 					}
