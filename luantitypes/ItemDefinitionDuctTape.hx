@@ -214,31 +214,31 @@ class ItemDefinitionDuctTape {
 				]) {
 					fieldChecks.push(data);
 				}
+			}
 
-				// Only insert fields that are defined.
-				// Defining all fields can cause weird behavior.
-				for (implementation in fieldChecks) {
-					final has = Lambda.find(fields, (f) -> f.name == implementation.classMethodName) != null;
+			// Only insert fields that are defined.
+			// Defining all fields can cause weird behavior.
+			for (implementation in fieldChecks) {
+				final has = Lambda.find(fields, (f) -> f.name == implementation.classMethodName) != null;
 
-					// trace(implementation.classMethodName, has);
+				// trace(implementation.classMethodName, has);
 
-					if (has) {
-						var parsed = Context.parse(implementation.code, Context.currentPos());
+				if (has) {
+					var parsed = Context.parse(implementation.code, Context.currentPos());
 
-						companionClassDefinition.fields.insert(companionClassDefinition.fields.length,
-							{
-								name: implementation.luantiMethodName,
-								access: [AStatic],
-								pos: Context.currentPos(),
-								kind: FFun({
-									args: grabArguments("onPlace"),
-									ret: null,
-									expr: macro {
-										$parsed;
-									}
-								})
-							});
-					}
+					companionClassDefinition.fields.insert(companionClassDefinition.fields.length,
+						{
+							name: implementation.luantiMethodName,
+							access: [AStatic],
+							pos: Context.currentPos(),
+							kind: FFun({
+								args: grabArguments("onPlace"),
+								ret: null,
+								expr: macro {
+									$parsed;
+								}
+							})
+						});
 				}
 			}
 		}
