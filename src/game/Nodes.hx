@@ -69,6 +69,11 @@ class Dirt extends ItemDefinition {
 
 		this.color = "blue";
 	}
+
+	override function onPlace(itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
+		trace("cool!");
+		return super.onPlace(itemstack, placer, pointedThing);
+	}
 }
 // @:luantiNode("infdev:dirt")
 // class Dirt {
