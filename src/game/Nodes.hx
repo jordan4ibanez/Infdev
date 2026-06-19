@@ -14,6 +14,7 @@ import engine.definition.images.ItemImageDefinition.ItemImageDefinitionOrString;
 import engine.definition.ItemDefinition;
 
 // Static wrapper.
+// This one is modeled off of ItemDefinition.
 final class DirtWrapper {
 	private function new() {}
 
@@ -31,7 +32,13 @@ final class DirtWrapper {
 			untyped DirtWrapper[field] = Reflect.field(instance, field);
 		}
 
-		trace("wrapper:", DirtWrapper);
+		trace(DirtWrapper);
+	}
+
+	// ! This is an invisible wrapper so there is no need to make it look nice with camel case.
+
+	static function on_place(itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
+		return instance.onPlace(itemstack, placer, pointedThing);
 	}
 }
 
