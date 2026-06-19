@@ -184,7 +184,8 @@ class ItemDefinitionDuctTape {
 				meta: []
 			};
 
-			// Inject the class directly into the compiler compilation pool.
+			// ? Finally inject the class directly into the compiler compilation pool.
+
 			try {
 				Context.defineType(companionClassDefinition);
 				trace('DuctTape: Successfully generated companion class: ' + localClass.pack.join(".") + "." + wrapperClassName);
