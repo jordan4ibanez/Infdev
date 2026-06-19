@@ -111,7 +111,11 @@ class NodeDefinition extends ItemDefinition {
 
 	var mesh: String;
 
-	
+	@:native("selection_box")
+	var selectionBox: Dynamic; // todo: this is another nodebox
+
+	@:native("collision_box")
+	var collisionBox: Dynamic; // todo: this is another nodebox
 
 	public function new() {
 		super();
