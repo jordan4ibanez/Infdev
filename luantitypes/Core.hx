@@ -117,7 +117,7 @@ extern class Core {
 	@:native("deserialize")
 	static function deserialize(str: String, ?safe: Bool): Dynamic;
 
-	@native("item_place")
+	@:native("item_place")
 	static function itemPlace(
 		itemstack: ItemStack,
 		placer: Null<ObjectRefBase>,
