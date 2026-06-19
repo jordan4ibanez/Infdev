@@ -13,10 +13,20 @@ typedef MethodMatcherThing = {
 	public var code: String;
 }
 
-// AI also heavily guided this development cause this is a fucking mess.
-// This is cramming OOP into lua style static everything while trying to make it
-// not a horrific mess to use.
-// THIS WAS A HORROR TO TRY TO DESIGN.
+/*
+	AI also heavily guided this development cause this is a fucking mess.
+	This is cramming OOP into lua style static everything while trying to make it
+	not a horrific mess to use.
+	THIS WAS A HORROR TO TRY TO DESIGN.
+
+	Basically:
+
+	Your class gets wrapped in a static virtual class.
+
+	Only methods that you explicitly define get static methods defined.
+
+	This prevents weird behavior.
+ */
 class ItemDefinitionDuctTape {
 	public static function build(): Array<Field> {
 		var fields = Context.getBuildFields();
