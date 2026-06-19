@@ -148,7 +148,7 @@ class ItemDefinitionDuctTape {
 
 								// This dumps the fields from the class defined into the wrapper class in lua.
 								for (field in Reflect.fields(instance)) {
-									// trace("field", field);
+									trace($v{wrapperClassName}, "field", field);
 									untyped $i{wrapperClassName}[field] = Reflect.field(instance, field);
 								}
 
