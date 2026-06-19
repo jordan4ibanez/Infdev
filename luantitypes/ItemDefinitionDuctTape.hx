@@ -113,95 +113,95 @@ class ItemDefinitionDuctTape {
 		}
 
 		// ? This allows you to register a node at the top of your class.
-		for (meta in localClass.meta.get()) {
-			// trace(meta.name);
-			if (meta.name == ":luantiNode") {
-				if (isInterface) {
-					Context.error('Error: Do not use :luantiNode on an interface.', meta.pos);
-				}
+		// for (meta in localClass.meta.get()) {
+		// 	// trace(meta.name);
+		// 	if (meta.name == ":luantiNode") {
+		// 		if (isInterface) {
+		// 			Context.error('Error: Do not use :luantiNode on an interface.', meta.pos);
+		// 		}
 
-				final firstParameter = meta.params[0];
+		// 		final firstParameter = meta.params[0];
 
-				if (firstParameter == null) {
-					Context.error("luantiNode requires a string parameter", meta.pos);
-				}
-				switch (firstParameter.expr) {
-					case EConst(CString((value))):
-						{
-							if (value.length == 0) {
-								Context.error("luantiNode does not accept a blank string", meta.pos);
-							}
-							// And if it got this far then it's up to them to ensure it's a good name cause I do not fucking care at this point.
-							final init: Field = Lambda.find(fields, (f: Field) -> f.name == "__init__");
+		// 		if (firstParameter == null) {
+		// 			Context.error("luantiNode requires a string parameter", meta.pos);
+		// 		}
+		// 		switch (firstParameter.expr) {
+		// 			case EConst(CString((value))):
+		// 				{
+		// 					if (value.length == 0) {
+		// 						Context.error("luantiNode does not accept a blank string", meta.pos);
+		// 					}
+		// 					// And if it got this far then it's up to them to ensure it's a good name cause I do not fucking care at this point.
+		// 					final init: Field = Lambda.find(fields, (f: Field) -> f.name == "__init__");
 
-							var typePath: haxe.macro.Expr.TypePath = {
-								pack: localClass.pack,
-								name: localClass.name,
-								params: []
-							};
+		// 					var typePath: haxe.macro.Expr.TypePath = {
+		// 						pack: localClass.pack,
+		// 						name: localClass.name,
+		// 						params: []
+		// 					};
 
-							if (init != null) {
-								// Inject code into their existing method
-								switch (init.kind) {
-									case FFun(func):
-										if (func.expr != null) {
-											var injectExpr = macro {
-												trace("Auto-injected node registration __init__ into " + $v{className});
-												var instance = new $typePath();
-												// This fixes haxe injecting reflection into the groups.
-												untyped __lua__("
-												if instance and instance.groups and type(instance.groups) == 'table' then
-													instance.groups['__fields__'] = nil;
-												end
-												");
-												luantitypes.Core.registerNode($v{value}, instance);
-												// Wipe out the context.
-												untyped __lua__("instance = nil;");
-											};
+		// 					if (init != null) {
+		// 						// Inject code into their existing method
+		// 						switch (init.kind) {
+		// 							case FFun(func):
+		// 								if (func.expr != null) {
+		// 									var injectExpr = macro {
+		// 										trace("Auto-injected node registration __init__ into " + $v{className});
+		// 										var instance = new $typePath();
+		// 										// This fixes haxe injecting reflection into the groups.
+		// 										untyped __lua__("
+		// 										if instance and instance.groups and type(instance.groups) == 'table' then
+		// 											instance.groups['__fields__'] = nil;
+		// 										end
+		// 										");
+		// 										luantitypes.Core.registerNode($v{value}, instance);
+		// 										// Wipe out the context.
+		// 										untyped __lua__("instance = nil;");
+		// 									};
 
-											switch (func.expr.expr) {
-												case EBlock(exprs): exprs.unshift(injectExpr);
-												default: func.expr = macro {
-														$injectExpr;
-														${func.expr};
-													};
-											}
-										}
-									default:
-										Context.error("__init__ is wrong?", init.pos);
-								}
-							} else {
-								var newFunction = macro function() {
-									trace("Auto-created node registration __init__ into " + $v{className});
-									var instance = new $typePath();
-									// This fixes haxe injecting reflection into the groups.
-									untyped __lua__("
-									if instance and instance.groups and type(instance.groups) == 'table' then
-										instance.groups['__fields__'] = nil;
-									end
-									");
-									luantitypes.Core.registerNode($v{value}, instance);
-									// Wipe out the context.
-									untyped __lua__("instance = nil;");
-								};
-								switch (newFunction.expr) {
-									case EFunction(_, func):
-										fields.push({
-											name: "__init__",
-											access: [AStatic],
-											kind: FFun(func),
-											pos: Context.currentPos()
-										});
-									default:
-										Context.error("Something exploded in the entity duct tape patch __init__.", Context.currentPos());
-								}
-							}
-						}
-					default:
-						Context.error("luantiNode requires a string parameter", meta.pos);
-				}
-			}
-		}
+		// 									switch (func.expr.expr) {
+		// 										case EBlock(exprs): exprs.unshift(injectExpr);
+		// 										default: func.expr = macro {
+		// 												$injectExpr;
+		// 												${func.expr};
+		// 											};
+		// 									}
+		// 								}
+		// 							default:
+		// 								Context.error("__init__ is wrong?", init.pos);
+		// 						}
+		// 					} else {
+		// 						var newFunction = macro function() {
+		// 							trace("Auto-created node registration __init__ into " + $v{className});
+		// 							var instance = new $typePath();
+		// 							// This fixes haxe injecting reflection into the groups.
+		// 							untyped __lua__("
+		// 							if instance and instance.groups and type(instance.groups) == 'table' then
+		// 								instance.groups['__fields__'] = nil;
+		// 							end
+		// 							");
+		// 							luantitypes.Core.registerNode($v{value}, instance);
+		// 							// Wipe out the context.
+		// 							untyped __lua__("instance = nil;");
+		// 						};
+		// 						switch (newFunction.expr) {
+		// 							case EFunction(_, func):
+		// 								fields.push({
+		// 									name: "__init__",
+		// 									access: [AStatic],
+		// 									kind: FFun(func),
+		// 									pos: Context.currentPos()
+		// 								});
+		// 							default:
+		// 								Context.error("Something exploded in the entity duct tape patch __init__.", Context.currentPos());
+		// 						}
+		// 					}
+		// 				}
+		// 			default:
+		// 				Context.error("luantiNode requires a string parameter", meta.pos);
+		// 		}
+		// 	}
+		// }
 		return fields;
 	}
 }
