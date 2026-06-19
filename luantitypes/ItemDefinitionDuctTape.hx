@@ -133,7 +133,7 @@ class ItemDefinitionDuctTape {
 
 								for (field in Reflect.fields(instance)) {
 									trace("field", field);
-									untyped DirtWrapper[field] = Reflect.field(instance, field);
+									untyped $i{wrapperClassName}[field] = Reflect.field(instance, field);
 								}
 
 								// This hackjob automatically does the registration.
