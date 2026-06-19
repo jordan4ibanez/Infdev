@@ -188,11 +188,10 @@ class ItemDefinitionDuctTape {
 				return [];
 			}
 
-			// ItemDefinition.
-
 			var fieldChecks: Array<MethodMatcherThing> = [];
 
-			if (isItemDef) {
+			// ItemDefinition. (short circuits to true because it's the base of the other 2)
+			if (true) {
 				for (data in [
 					{
 						classMethodName: "onPlace",
