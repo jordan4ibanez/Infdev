@@ -243,6 +243,12 @@ class NodeDefinition extends ItemDefinition {
 		return count;
 	}
 
+	// allow_metadata_inventory_put
+	public function allowMetadataInventoryPut(pos: EngineVector3, listname: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Int {
+		// literally does not say so nil
+		return -1;
+	}
+
 	public function new() {
 		super();
 	}
