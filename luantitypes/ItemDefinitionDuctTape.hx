@@ -229,32 +229,32 @@ class ItemDefinitionDuctTape {
 					{
 						classMethodName: "onPlace",
 						luantiMethodName: "on_place",
-						code: "return instance.onPlace(itemstack, placer, pointedThing);"
+						code: "return instance.onPlace(itemstack, placer, pointedThing)"
 					},
 					{
 						classMethodName: "onSecondaryUse",
 						luantiMethodName: "on_secondary_use",
-						code: "instance.onSecondaryUse(itemstack, user, pointedThing);"
+						code: "instance.onSecondaryUse(itemstack, user, pointedThing)"
 					},
 					{
 						classMethodName: "onDrop",
 						luantiMethodName: "on_drop",
-						code: "return instance.onDrop(itemstack, dropper, pos);"
+						code: "return instance.onDrop(itemstack, dropper, pos)"
 					},
 					{
 						classMethodName: "onPickup",
 						luantiMethodName: "on_pickup",
-						code: "return instance.onPickup(itemstack, picker, pointedThing, timeFromLastPunch);"
+						code: "return instance.onPickup(itemstack, picker, pointedThing, timeFromLastPunch)"
 					},
 					{
 						classMethodName: "onUse",
 						luantiMethodName: "on_use",
-						code: "return instance.onUse(itemstack, user, pointedThing);"
+						code: "return instance.onUse(itemstack, user, pointedThing)"
 					},
 					{
 						classMethodName: "afterUse",
 						luantiMethodName: "after_use",
-						code: "return instance.afterUse(itemstack, user, node, digparams);"
+						code: "return instance.afterUse(itemstack, user, node, digparams)"
 					},
 				];
 
