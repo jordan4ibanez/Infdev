@@ -69,6 +69,8 @@ class ItemDefinitionDuctTape {
 						Context.error('Please decorate this class with @:luantiItem("mod:item")', localClass.pos);
 					case "NodeDefinition":
 						Context.error('Please decorate this class with @:luantiNode("mod:node")', localClass.pos);
+					case "ToolDefinition":
+						Context.error('Please decorate this class with @:luantiTool("mod:node")', localClass.pos);
 
 					default:
 						Context.error(superClassRef.name + ' IS MISSING A DECORATOR SWITCH!!!', localClass.pos);
