@@ -58,7 +58,7 @@ import engine.definition.ItemDefinition;
 // 		return instance.afterUse(itemstack, user, node, digparams);
 // 	};
 // }
-@:luantiNode("infdev:dirt")
+@:luantiItem("infdev:dirt")
 class Dirt extends ItemDefinition {
 	public function new() {
 		super();

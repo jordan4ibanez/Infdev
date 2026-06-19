@@ -258,6 +258,10 @@ class ItemDefinitionDuctTape {
 					},
 				];
 
+				for (check in fieldChecks) {
+					trace(check.classMethodName);
+				}
+
 				var testing = "trace('debug')";
 
 				var parsed = Context.parse(testing, Context.currentPos());
