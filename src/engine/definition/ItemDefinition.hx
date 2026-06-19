@@ -38,7 +38,8 @@ class ItemDefinition {
 
 	public var palette: String;
 
-	public var color: String;
+	@:native("color")
+	public var toolItemColor: String;
 
 	@:native("stack_max")
 	public var stackMax: Int;
