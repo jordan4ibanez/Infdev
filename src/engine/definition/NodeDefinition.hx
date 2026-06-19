@@ -1,5 +1,6 @@
 package engine.definition;
 
+import luantitypes.Core;
 import engine.entity.objectref.ObjectRefBase;
 import engine.vector.EngineVector3;
 import engine.definition.images.TileAnimationDefinition;
@@ -206,7 +207,8 @@ class NodeDefinition extends ItemDefinition {
 	// todo: No fucking clue what node is
 	// on_punch
 	public function onPunch(pos: EngineVector3, node: Dynamic, puncher: Null<ObjectRefBase>, pointedThing: PointedThing): Void {
-		// core.register_on_punchnode
+		// core.node_punch
+		Core.nodePunch(pos, node, puncher, pointedThing);
 	}
 
 	// on_rightclick
@@ -218,7 +220,7 @@ class NodeDefinition extends ItemDefinition {
 	// on_dig
 	public function onDig(pos: EngineVector3, node: Dynamic, digger: Null<ObjectRefBase>): Bool {
 		// core.node_dig;
-		return Core.nodeDig();
+		return Core.nodeDig(pos, node, digger);
 	}
 
 	// todo: check if that last thing is float wtf
