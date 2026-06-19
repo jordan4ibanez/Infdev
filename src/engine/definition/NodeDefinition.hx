@@ -6,6 +6,7 @@ import engine.definition.images.ItemImageDefinition;
 
 @:luantiDefinitionRoot
 class NodeDefinition extends ItemDefinition {
+	// todo: drawtype.
 	@:native("drawtype")
 	var drawType: Dynamic;
 
