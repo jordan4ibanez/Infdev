@@ -140,6 +140,13 @@ extern class Core {
 		itemstack: ItemStack,
 		dropper: Null<ObjectRefBase>,
 		pos: EngineVector3): ReturnItemStackObjectRef;
+
+	@:native("item_pickup")
+	static function itemPickup(
+		itemstack: ItemStack,
+		picker: Null<ObjectRefBase>,
+		pointed_thing: PointedThing,
+		time_from_last_punch: Float): Null<ItemStack>;
 }
 
 @:noCompletion
