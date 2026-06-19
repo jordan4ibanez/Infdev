@@ -17,6 +17,9 @@
         },
         "mapWrap": {
             "defaultWrap": "keep"
+        },
+        "functionSignature": {
+            "defaultWrap": "keep"
         }
     }
 }
