@@ -236,7 +236,6 @@ class NodeDefinition extends ItemDefinition {
 		return -1;
 	}
 
-	// allow_metadata_inventory_take
 	public function allowMetadataInventoryTake(pos: EngineVector3, listName: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Int {
 		// literally does not say so nil
 		return -1;
