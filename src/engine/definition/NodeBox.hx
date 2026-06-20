@@ -42,7 +42,7 @@ class NodeBoxLeveled extends NodeBox {
 		super(NodeBoxTypeLeveled);
 	}
 
-	public function addBox(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxRegular {
+	public function addBox(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxLeveled {
 		this.fixed.push([x1, y1, z1, x2, y2, z2]);
 		return this;
 	}
