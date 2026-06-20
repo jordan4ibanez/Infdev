@@ -163,7 +163,6 @@ class NodeDefinition extends ItemDefinition {
 		// nil
 	}
 
-	// on_destruct
 	public function onDestruct(pos: EngineVector3): Void {
 		// nil
 	}
