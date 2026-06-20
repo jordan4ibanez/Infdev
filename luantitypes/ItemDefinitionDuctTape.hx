@@ -328,9 +328,9 @@ class ItemDefinitionDuctTape {
 						code: "return instance.onTimer(pos, elapsed, node, timeout)"
 					},
 					{
-						classMethodName: "",
-						luantiMethodName: "",
-						code: ""
+						classMethodName: "onReceiveFields",
+						luantiMethodName: "on_receive_fields",
+						code: "instance.onReceiveFields(pos, formName, fields, sender)"
 					},
 					{
 						classMethodName: "",
