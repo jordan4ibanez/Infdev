@@ -1,6 +1,6 @@
-package engine.definition.images;
+package engine.definition.graphics;
 
-import engine.definition.images.RGBA;
+import engine.definition.graphics.RGBA;
 import haxe.extern.EitherType;
 
 typedef ColorSpec = EitherType<String, RGBA>;

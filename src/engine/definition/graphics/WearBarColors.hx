@@ -1,4 +1,4 @@
-package engine.definition.images;
+package engine.definition.graphics;
 
 import haxe.extern.EitherType;
 import lua.Table;
