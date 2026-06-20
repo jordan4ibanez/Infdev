@@ -4,9 +4,9 @@ import engine.entity.objectref.ObjectRefBase;
 import engine.vector.EngineVector3;
 
 enum abstract PointedThingType(String) to String {
-	var node;
 	var object;
 	var nothing;
+	var PointedThingTypeNode = "node";
 }
 
 abstract class PointedThing {
