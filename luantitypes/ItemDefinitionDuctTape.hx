@@ -323,9 +323,9 @@ class ItemDefinitionDuctTape {
 						code: "return instance.onDig(pos, node, digger)"
 					},
 					{
-						classMethodName: "",
-						luantiMethodName: "",
-						code: ""
+						classMethodName: "onTimer",
+						luantiMethodName: "on_timer",
+						code: "return instance.onTimer(pos, elapsed, node, timeout)"
 					},
 					{
 						classMethodName: "",
