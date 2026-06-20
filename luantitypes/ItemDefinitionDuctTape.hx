@@ -303,9 +303,9 @@ class ItemDefinitionDuctTape {
 						code: "instance.afterDigNode(pos, oldNode, oldMetaData, digger)"
 					},
 					{
-						classMethodName: "",
-						luantiMethodName: "",
-						code: ""
+						classMethodName: "canDig",
+						luantiMethodName: "can_dig",
+						code: "return instance.canDig(pos, player)"
 					},
 					{
 						classMethodName: "",

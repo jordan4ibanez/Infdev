@@ -191,7 +191,6 @@ class NodeDefinition extends ItemDefinition {
 		// nil
 	}
 
-	// can_dig
 	public function canDig(pos: EngineVector3, player: Null<ObjectRefBase>): Bool {
 		// nil
 		return true;
