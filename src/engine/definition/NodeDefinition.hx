@@ -1,5 +1,6 @@
 package engine.definition;
 
+import engine.definition.graphics.NodeTextureAlpha;
 import engine.definition.basic.TileDefinition;
 import engine.definition.graphics.ColorSpec;
 import engine.definition.basic.DrawType;
@@ -51,9 +52,8 @@ class NodeDefinition extends ItemDefinition {
 	@:native("color")
 	var nodeColor: ColorSpec;
 
-	// todo: NodeTextureAlpha
 	@:native("use_texture_alpha")
-	var useTextureAlpha: Dynamic;
+	var useTextureAlpha: NodeTextureAlpha;
 
 	@:native("post_effect_color")
 	var postEffectColor: String;
