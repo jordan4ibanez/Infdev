@@ -17,15 +17,8 @@ abstract class NodeBox {
 }
 
 class NodeBoxRegular extends NodeBox {
-	var fixed: Array<Array<Float>> = [];
-
 	public function new() {
 		super(NodeBoxTypeRegular);
-	}
-
-	public function addBox(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxRegular {
-		this.fixed.push([x1, y1, z1, x2, y2, z2]);
-		return this;
 	}
 }
 
@@ -43,8 +36,15 @@ class NodeBoxFixed extends NodeBox {
 }
 
 class NodeBoxLeveled extends NodeBox {
+	var fixed: Array<Array<Float>> = [];
+
 	public function new() {
 		super(NodeBoxTypeLeveled);
+	}
+
+	public function addBox(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxRegular {
+		this.fixed.push([x1, y1, z1, x2, y2, z2]);
+		return this;
 	}
 }
 
