@@ -1,4 +1,4 @@
-package engine.definition;
+package engine.definition.basic;
 
 import lua.Table;
 
