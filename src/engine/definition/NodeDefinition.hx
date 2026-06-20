@@ -182,8 +182,7 @@ class NodeDefinition extends ItemDefinition {
 		// nil
 	}
 
-	// after_place_node
-	public function afterPlaceNode(pos: EngineVector3, placer: Null<ObjectRefBase>, itemstack: ItemStack, pointedThing: PointedThing): Bool {
+	public function afterPlaceNode(pos: EngineVector3, placer: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: PointedThing): Bool {
 		// nil
 		return false;
 	}

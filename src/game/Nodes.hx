@@ -88,8 +88,8 @@ final class Dirt extends NodeDefinition {
 		super.afterDigNode(pos, oldNode, oldMetaData, digger);
 	}
 
-	override function afterPlaceNode(pos: EngineVector3, placer: Null<ObjectRefBase>, itemstack: ItemStack, pointedThing: PointedThing): Bool {
-		return super.afterPlaceNode(pos, placer, itemstack, pointedThing);
+	override function afterPlaceNode(pos: EngineVector3, placer: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: PointedThing): Bool {
+		return super.afterPlaceNode(pos, placer, itemStack, pointedThing);
 	}
 
 	override function afterUse(itemstack: ItemStack, user: Null<ObjectRefBase>, node: Dynamic, digparams: Dynamic): Null<ItemStack> {
