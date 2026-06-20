@@ -250,7 +250,6 @@ class NodeDefinition extends ItemDefinition {
 		// nil
 	}
 
-	// on_metadata_inventory_take
 	public function onMetadataInventoryTake(pos: EngineVector3, listName: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Void {
 		// nil
 	}

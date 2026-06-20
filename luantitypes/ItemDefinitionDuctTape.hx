@@ -358,9 +358,9 @@ class ItemDefinitionDuctTape {
 						code: "instance.onMetadataInventoryPut(pos, listName, index, stack, player)"
 					},
 					{
-						classMethodName: "",
-						luantiMethodName: "",
-						code: ""
+						classMethodName: "onMetadataInventoryTake",
+						luantiMethodName: "on_metadata_inventory_take",
+						code: "instance.onMetadataInventoryTake(pos, listName, index, stack, player)"
 					},
 					{
 						classMethodName: "",
