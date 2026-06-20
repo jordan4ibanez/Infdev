@@ -173,7 +173,7 @@ class NodeDefinition extends ItemDefinition {
 	}
 
 	// on_flood
-	public function onFlood(): Bool {
+	public function onFlood(pos: EngineVector3, oldNode: Dynamic, newNode: Dynamic): Bool {
 		// nil
 		return false;
 	}
