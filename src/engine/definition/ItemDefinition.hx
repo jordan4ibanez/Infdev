@@ -1,5 +1,6 @@
 package engine.definition;
 
+import engine.definition.basic.Pointabilities;
 import luantitypes.Core;
 import engine.definition.graphics.WearBarColors;
 import engine.entity.objectref.ObjectRefBase;
