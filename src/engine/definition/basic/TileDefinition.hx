@@ -44,4 +44,9 @@ class TileDefinitionCustom extends TileDefinition {
 		this.backfaceCulling = backfaceCulling;
 		return this;
 	}
+
+	public function setAlignStyle(alignStyle: TileDefinitionAlignStyle): TileDefinitionCustom {
+		this.alignStyle = alignStyle;
+		return this;
+	}
 }
