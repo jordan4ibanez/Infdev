@@ -10,7 +10,7 @@ import engine.definition.TouchInteractionSetting;
 import engine.definition.sound.ItemSoundTable;
 import engine.definition.graphics.WearBarColors;
 import engine.definition.ToolCapabilities;
-import engine.definition.Pointabilities;
+import engine.definition.basic.Pointabilities;
 import engine.vector.EngineVector3;
 import engine.definition.graphics.ItemImageDefinition.ItemImageDefinitionOrString;
 import engine.definition.ItemDefinition;
