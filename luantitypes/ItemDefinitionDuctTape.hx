@@ -364,7 +364,7 @@ class ItemDefinitionDuctTape {
 							access: [AStatic],
 							pos: Context.currentPos(),
 							kind: FFun({
-								args: grabArguments("onPlace"),
+								args: grabArguments(implementation.classMethodName),
 								ret: null,
 								expr: macro {
 									$parsed;
