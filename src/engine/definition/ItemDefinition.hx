@@ -93,7 +93,7 @@ class ItemDefinition {
 
 	@:native("on_secondary_use")
 	public function onSecondaryUse(itemstack: ItemStack, user: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
-		return return Core.itemSecondaryUse(itemstack, user);
+		return Core.itemSecondaryUse(itemstack, user);
 	};
 
 	@:native("on_drop")
