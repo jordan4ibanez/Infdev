@@ -184,9 +184,7 @@ class ItemDefinitionDuctTape {
 							for (arg in argsCopy) {
 								if (arg.type != null) {
 									try {
-										var resolvedType = Context.resolveType(arg.type, Context.currentPos());
-
-										arg.type = Context.toComplexType(resolvedType);
+										arg.type = Context.toComplexType(Context.resolveType(arg.type, Context.currentPos()));
 									} catch (e:Dynamic) {}
 								}
 							}
@@ -212,9 +210,7 @@ class ItemDefinitionDuctTape {
 							}
 
 							try {
-								var resolvedType = Context.resolveType(f.ret, func.pos);
-
-								return Context.toComplexType(resolvedType);
+								return Context.toComplexType(Context.resolveType(f.ret, func.pos));
 							} catch (e:Dynamic) {
 								return f.ret;
 							}
