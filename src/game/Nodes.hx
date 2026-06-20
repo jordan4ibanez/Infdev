@@ -80,8 +80,8 @@ final class Dirt extends NodeDefinition {
 		super.afterDestruct(pos, oldNode);
 	}
 
-	override function onFlood(): Bool {
-		return super.onFlood();
+	override function onFlood(pos: EngineVector3, oldNode: Dynamic, newNode: Dynamic): Bool {
+		return super.onFlood(pos, oldNode, newNode);
 	}
 
 	override function afterDigNode(pos: EngineVector3, oldNode: Dynamic, oldMetaData: Dynamic, digger: Null<ObjectRefBase>) {
