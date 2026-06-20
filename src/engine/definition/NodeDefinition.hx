@@ -1,5 +1,6 @@
 package engine.definition;
 
+import engine.definition.basic.LiquidType;
 import luantitypes.Core;
 import engine.entity.objectref.ObjectRefBase;
 import engine.vector.EngineVector3;
