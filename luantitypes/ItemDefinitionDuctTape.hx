@@ -363,9 +363,9 @@ class ItemDefinitionDuctTape {
 						code: "instance.onMetadataInventoryTake(pos, listName, index, stack, player)"
 					},
 					{
-						classMethodName: "",
-						luantiMethodName: "",
-						code: ""
+						classMethodName: "onBlast",
+						luantiMethodName: "on_blast",
+						code: "instance.onBlast(pos, intensity)"
 					}
 				]) {
 					fieldChecks.push(data);
