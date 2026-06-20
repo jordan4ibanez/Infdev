@@ -247,12 +247,12 @@ class NodeDefinition extends ItemDefinition {
 	}
 
 	// on_metadata_inventory_put
-	public function onMetadataInventoryPut(pos: EngineVector3, listname: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Void {
+	public function onMetadataInventoryPut(pos: EngineVector3, listName: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Void {
 		// nil
 	}
 
 	// on_metadata_inventory_take
-	public function onMetadataInventoryTake(pos: EngineVector3, listname: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Void {
+	public function onMetadataInventoryTake(pos: EngineVector3, listName: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Void {
 		// nil
 	}
 
