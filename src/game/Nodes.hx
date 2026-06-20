@@ -144,8 +144,8 @@ final class Dirt extends NodeDefinition {
 		super.onPunch(pos, node, puncher, pointedThing);
 	}
 
-	override function onReceiveFields(pos: EngineVector3, formname: String, fields: Dynamic, sender: Dynamic) {
-		super.onReceiveFields(pos, formname, fields, sender);
+	override function onReceiveFields(pos: EngineVector3, formName: String, fields: Dynamic, sender: Dynamic) {
+		super.onReceiveFields(pos, formName, fields, sender);
 	}
 
 	override function onRightClick(pos: EngineVector3, node: Dynamic, clicker: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: Null<PointedThing>): ItemStack {
