@@ -13,7 +13,7 @@ interface TileAnimationDefinition {
 }
 
 final class TileAnimationDefinitionVerticalFrames implements TileAnimationDefinition {
-	var type: TileAnimationType = TileAnimationType.verticalFrames;
+	var type: TileAnimationType = TileAnimationTypeVerticalFrames;
 	@:native("aspect_w")
 	var aspectW: Int;
 	@:native("aspect_h")
@@ -28,7 +28,7 @@ final class TileAnimationDefinitionVerticalFrames implements TileAnimationDefini
 }
 
 final class TileAnimationDefinitionSheet2d implements TileAnimationDefinition {
-	var type: TileAnimationType = TileAnimationType.sheet2d;
+	var type: TileAnimationType = TileAnimationTypeSheet2d;
 	@:native("frames_w")
 	var framesW: Int;
 	@:native("frames_h")
