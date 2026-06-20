@@ -4,8 +4,8 @@ import haxe.extern.EitherType;
 import lua.Table;
 
 enum abstract WearBarBlend(String) to String {
-	var constant;
-	var linear;
+	var WearBarBlendConstant = "constant";
+	var WearBarBlendLinear = "linear";
 }
 
 final class WearBarColors {
