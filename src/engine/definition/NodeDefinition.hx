@@ -226,7 +226,6 @@ class NodeDefinition extends ItemDefinition {
 		// nil
 	}
 
-	// allow_metadata_inventory_move
 	public function allowMetadataInventoryMove(pos: EngineVector3, fromList: String, fromIndex: Int, toList: String, toIndex: Int, count: Int, player: Null<ObjectRefBase>): Int {
 		// literally does not say so nil
 		return count;

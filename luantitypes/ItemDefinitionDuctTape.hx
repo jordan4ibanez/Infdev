@@ -333,9 +333,9 @@ class ItemDefinitionDuctTape {
 						code: "instance.onReceiveFields(pos, formName, fields, sender)"
 					},
 					{
-						classMethodName: "",
-						luantiMethodName: "",
-						code: ""
+						classMethodName: "allowMetadataInventoryMove",
+						luantiMethodName: "allow_metadata_inventory_move",
+						code: "return instance.allowMetadataInventoryMove(pos, fromList, fromIndex, toList, toIndex, count, player)"
 					},
 					{
 						classMethodName: "",
