@@ -244,9 +244,9 @@ class ItemDefinitionDuctTape {
 			if (isNodeDef) {
 				for (data in [
 					{
-						classMethodName: "",
-						luantiMethodName: "",
-						code: ""
+						classMethodName: "onConstruct",
+						luantiMethodName: "on_construct",
+						code: "return instance.onConstruct(pos)"
 					},
 					{
 						classMethodName: "",
