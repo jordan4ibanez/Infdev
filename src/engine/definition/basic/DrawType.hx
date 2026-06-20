@@ -1,22 +1,22 @@
 package engine.definition.basic;
 
 enum abstract DrawType(String) to String {
-	var DrawTypenormal = "normal";
-	var DrawTypeairlike = "airlike";
-	var DrawTypeliquid = "liquid";
-	var DrawTypeflowingliquid = "flowingliquid";
-	var DrawTypeglasslike = "glasslike";
-	var DrawTypeglasslike_framed = "glasslike_framed";
-	var DrawTypeglasslike_framed_optional = "glasslike_framed_optional ";
-	var DrawTypeallfaces = "allfaces";
-	var DrawTypeallfaces_optional = "allfaces_optional";
-	var DrawTypetorchlike = "torchlike";
-	var DrawTypesignlike = "signlike";
-	var DrawTypeplantlike = "plantlike";
-	var DrawTypefirelike = "firelike";
-	var DrawTypefencelike = "fencelike";
-	var DrawTyperaillike = "raillike";
-	var DrawTypenodebox = "nodebox";
-	var DrawTypemesh = "mesh";
-	var DrawTypeplantlike_rooted = "plantlike_rooted";
+	var DrawTypeNormal = "normal";
+	var DrawTypeAirlike = "airlike";
+	var DrawTypeLiquid = "liquid";
+	var DrawTypeFlowingliquid = "flowingliquid";
+	var DrawTypeGlasslike = "glasslike";
+	var DrawTypeGlasslike_framed = "glasslike_framed";
+	var DrawTypeGlasslike_framed_optional = "glasslike_framed_optional ";
+	var DrawTypeAllfaces = "allfaces";
+	var DrawTypeAllfaces_optional = "allfaces_optional";
+	var DrawTypeTorchlike = "torchlike";
+	var DrawTypeSignlike = "signlike";
+	var DrawTypePlantlike = "plantlike";
+	var DrawTypeFirelike = "firelike";
+	var DrawTypeFencelike = "fencelike";
+	var DrawTypeRaillike = "raillike";
+	var DrawTypeNodebox = "nodebox";
+	var DrawTypeMesh = "mesh";
+	var DrawTypePlantlike_rooted = "plantlike_rooted";
 }
