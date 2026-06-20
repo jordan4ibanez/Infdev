@@ -1,5 +1,6 @@
 package engine.definition;
 
+import engine.definition.basic.WavingType;
 import engine.definition.basic.LiquidType;
 import luantitypes.Core;
 import engine.entity.objectref.ObjectRefBase;
@@ -147,8 +148,7 @@ class NodeDefinition extends ItemDefinition {
 	@:native("legacy_wallmounted")
 	var legacyWallmounted: Bool;
 
-	// todo: WavingType enum.
-	var waving: Dynamic;
+	var waving: WavingType;
 
 	/**
 	 * This one is for nodes.
