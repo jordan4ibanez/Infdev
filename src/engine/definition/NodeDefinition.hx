@@ -241,7 +241,6 @@ class NodeDefinition extends ItemDefinition {
 		return -1;
 	}
 
-	// on_metadata_inventory_move
 	public function onMetadataInventoryMove(pos: EngineVector3, fromList: String, fromIndex: Int, toList: String, toIndex: Int, count: Int,
 		player: Null<ObjectRefBase>): Void {
 		// nil
