@@ -178,8 +178,7 @@ class NodeDefinition extends ItemDefinition {
 	}
 
 	// todo: Metadata table
-	// preserve_metadata
-	public function preserverMetadata(pos: EngineVector3, oldNode: Dynamic, oldMeta: Dynamic, drops: Array<ItemStack>): Void {
+	public function preserveMetadata(pos: EngineVector3, oldNode: Dynamic, oldMeta: Dynamic, drops: Array<ItemStack>): Void {
 		// nil
 	}
 

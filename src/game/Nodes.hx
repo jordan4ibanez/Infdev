@@ -164,8 +164,8 @@ final class Dirt extends NodeDefinition {
 		return super.onUse(itemstack, user, pointedThing);
 	}
 
-	override function preserverMetadata(pos: EngineVector3, oldNode: Dynamic, oldMeta: Dynamic, drops: Array<ItemStack>) {
-		super.preserverMetadata(pos, oldNode, oldMeta, drops);
+	override function preserveMetadata(pos: EngineVector3, oldNode: Dynamic, oldMeta: Dynamic, drops: Array<ItemStack>) {
+		super.preserveMetadata(pos, oldNode, oldMeta, drops);
 	}
 
 	override function onPlace(itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
