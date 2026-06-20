@@ -7,7 +7,6 @@ enum abstract TileAnimationType(String) to String {
 
 // todo: getters
 
-@:noCompletion
 interface TileAnimationDefinition {
 	private var type: TileAnimationType;
 }
