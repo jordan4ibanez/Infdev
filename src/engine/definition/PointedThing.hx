@@ -64,24 +64,22 @@ abstract class PointedThing {
 final class PointedThingNode extends PointedThing {
 	var under: EngineVector3;
 	var above: EngineVector3;
-
-	public function new() {
-		this.type = PointedThingTypeNode;
-	}
+	// public function new() {
+	// 	this.type = PointedThingTypeNode;
+	// }
 }
 
 final class PointedThingObject extends PointedThing {
 	var ref: ObjectRefBase;
-
-	public function new() {
-		this.type = PointedThingTypeObject;
-	}
+	// public function new() {
+	// 	this.type = PointedThingTypeObject;
+	// }
 }
 
 final class PointedThingNothing extends PointedThing {
-	public function new() {
-		this.type = PointedThingTypeNothing;
-	}
+	// public function new() {
+	// 	this.type = PointedThingTypeNothing;
+	// }
 }
 
 /**
