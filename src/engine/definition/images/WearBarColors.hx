@@ -12,13 +12,13 @@ final class WearBarColors {
 	var blend: WearBarBlend;
 
 	@:native("color_stops")
-	var colorStops: Table<Float, EitherType<String, RGBA>>;
+	var colorStops: Table<Float, ColorSpec>;
 
 	public function new(blend: WearBarBlend) {
 		this.blend = blend;
 	}
 
-	public function addColorStop(time: Float, colorData: EitherType<String, RGBA>): WearBarColors {
+	public function addColorStop(time: Float, colorData: ColorSpec): WearBarColors {
 		if (this.colorStops == null) {
 			this.colorStops = Table.create();
 		}
