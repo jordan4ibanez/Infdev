@@ -1,5 +1,6 @@
 package engine.definition;
 
+import engine.definition.basic.TileDefinition;
 import engine.definition.graphics.ColorSpec;
 import engine.definition.basic.DrawType;
 import engine.definition.basic.WavingType;
@@ -36,8 +37,7 @@ class NodeDefinition extends ItemDefinition {
 	@:native("visual_scale")
 	var visualScale: Float;
 
-	// todo: tile definition
-	var tiles: Array<Dynamic>;
+	var tiles: Array<TileDefinition>;
 
 	@:native("overlay_tiles")
 	var overlayTiles: Array<Dynamic>;
