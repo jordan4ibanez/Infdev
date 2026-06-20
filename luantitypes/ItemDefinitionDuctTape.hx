@@ -200,6 +200,34 @@ class ItemDefinitionDuctTape {
 				return [];
 			}
 
+			function grabReturnType(methodName: String): ComplexType {
+				var func = Lambda.find(fields, (f) -> f.name == methodName);
+
+				if (func != null) {
+					switch (func.kind) {
+						case FFun(f):
+							// If there's no explicit return type written, let Haxe infer it.
+							if (f.ret == null) {
+								return null;
+							}
+
+							try {
+								var resolvedType = Context.resolveType(f.ret, func.pos);
+
+								return Context.toComplexType(resolvedType);
+							} catch (e:Dynamic) {
+								return f.ret;
+							}
+						case _:
+							Context.error(methodName + " is defined, but it is not a function.", func.pos);
+					}
+				}
+
+				Context.error("Failed to resolve return type in" + methodName, func.pos);
+
+				return null;
+			}
+
 			var fieldChecks: Array<MethodMatcherThing> = [];
 
 			// ItemDefinition. (short circuits to true because it's the base of the other 2)
@@ -366,7 +394,7 @@ class ItemDefinitionDuctTape {
 							kind: FFun({
 								args: grabArguments(implementation.classMethodName),
 								// todo: Grab return
-								ret: null,
+								ret: grabReturnType(implementation.classMethodName),
 								expr: macro {
 									$parsed;
 								}
