@@ -53,13 +53,13 @@ class NodeBoxLeveled extends NodeBox {
 
 class NodeBoxWallMounted extends NodeBox {
 	@:native("wall_top")
-	var wall_top: Box;
+	var wallTop: Box;
 
 	@:native("wall_bottom")
-	var wall_bottom: Box;
+	var wallBottom: Box;
 
 	@:native("wall_side")
-	var wall_side: Box;
+	var wallSide: Box;
 
 	public function new() {
 		super(NodeBoxTypeWallMounted);
