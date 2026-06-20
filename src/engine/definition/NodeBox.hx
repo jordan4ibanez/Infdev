@@ -1,11 +1,11 @@
 package engine.definition;
 
 private enum abstract NodeBoxType(String) to String {
-	var NodeBoxTyperegular = "regular";
-	var NodeBoxTypefixed = "fixed";
-	var NodeBoxTypeleveled = "leveled";
-	var NodeBoxTypewallmounted = "wallmounted";
-	var NodeBoxTypeconnected = "connected";
+	var NodeBoxTypeRegular = "regular";
+	var NodeBoxTypeFixed = "fixed";
+	var NodeBoxTypeLeveled = "leveled";
+	var NodeBoxTypeWallMounted = "wallmounted";
+	var NodeBoxTypeConnected = "connected";
 }
 
 class NodeBox {}
