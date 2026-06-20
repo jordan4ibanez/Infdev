@@ -26,7 +26,7 @@ class NodeBoxRegular extends NodeBox {
 }
 
 class NodeBoxFixed extends NodeBox {
-	var fixed: Array<Array<Float>> = [];
+	var fixed: BoxArray = [];
 
 	public function new() {
 		super(NodeBoxTypeFixed);
@@ -39,7 +39,7 @@ class NodeBoxFixed extends NodeBox {
 }
 
 class NodeBoxLeveled extends NodeBox {
-	var fixed: Array<Array<Float>> = [];
+	var fixed: BoxArray = [];
 
 	public function new() {
 		super(NodeBoxTypeLeveled);
