@@ -365,6 +365,7 @@ class ItemDefinitionDuctTape {
 							pos: Context.currentPos(),
 							kind: FFun({
 								args: grabArguments(implementation.classMethodName),
+								// todo: Grab return
 								ret: null,
 								expr: macro {
 									$parsed;
