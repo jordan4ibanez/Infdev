@@ -68,6 +68,10 @@ final class Dirt extends NodeDefinition {
 		this.nodeColor = "blue";
 	}
 
+	override function onConstruct(pos: EngineVector3) {
+		super.onConstruct(pos);
+	}
+
 	override function onPlace(itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
 		trace("cool!");
 		return super.onPlace(itemstack, placer, pointedThing);
