@@ -43,7 +43,7 @@ abstract class PointedThing {
 	}
 
 	public inline function match(nodeDelegate: Null<(PointedThingNode) -> Void>, objectDelegate: Null<(PointedThingObject) -> Void>,
-			nothingDelegate: Null<(PointedThingNothing) -> Void>): Void {
+		nothingDelegate: Null<(PointedThingNothing) -> Void>): Void {
 		switch (this.type) {
 			case node:
 				if (nodeDelegate != null) {
