@@ -168,7 +168,6 @@ class NodeDefinition extends ItemDefinition {
 	}
 
 	// todo: Node thing
-	// after_destruct
 	public function afterDestruct(pos: EngineVector3, oldNode: Dynamic) {
 		// nil
 	}
