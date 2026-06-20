@@ -36,6 +36,8 @@ class TileDefinitionCustom extends TileDefinition {
 	@:native("align_style")
 	var alignStyle: TileDefinitionAlignStyle;
 
+	var scale: Int;
+
 	public function new(name: String) {
 		super(name);
 	}
@@ -47,6 +49,11 @@ class TileDefinitionCustom extends TileDefinition {
 
 	public function setAlignStyle(alignStyle: TileDefinitionAlignStyle): TileDefinitionCustom {
 		this.alignStyle = alignStyle;
+		return this;
+	}
+
+	public function setScale(scale: Int): TileDefinitionCustom {
+		this.scale = scale;
 		return this;
 	}
 }
