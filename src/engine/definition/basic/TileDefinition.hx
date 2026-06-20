@@ -1,7 +1,7 @@
 package engine.definition.basic;
 
-import engine.definition.images.ColorSpec;
-import engine.definition.images.TileAnimationDefinition;
+import engine.definition.graphics.ColorSpec;
+import engine.definition.graphics.TileAnimationDefinition;
 
 abstract class TileDefinition {
 	var name: String;

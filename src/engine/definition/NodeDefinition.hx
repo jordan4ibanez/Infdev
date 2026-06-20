@@ -1,15 +1,15 @@
 package engine.definition;
 
-import engine.definition.images.ColorSpec;
+import engine.definition.graphics.ColorSpec;
 import engine.definition.basic.DrawType;
 import engine.definition.basic.WavingType;
 import engine.definition.basic.LiquidType;
 import luantitypes.Core;
 import engine.entity.objectref.ObjectRefBase;
 import engine.vector.EngineVector3;
-import engine.definition.images.TileAnimationDefinition;
+import engine.definition.graphics.TileAnimationDefinition;
 import haxe.extern.EitherType;
-import engine.definition.images.ItemImageDefinition;
+import engine.definition.graphics.ItemImageDefinition;
 
 /**
  * When you extend this class, you get a specialty class which is extremely interesting.

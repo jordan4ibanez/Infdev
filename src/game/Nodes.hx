@@ -8,11 +8,11 @@ import engine.entity.objectref.ObjectRefBase;
 import engine.ItemStack;
 import engine.definition.TouchInteractionSetting;
 import engine.definition.sound.ItemSoundTable;
-import engine.definition.images.WearBarColors;
+import engine.definition.graphics.WearBarColors;
 import engine.definition.ToolCapabilities;
 import engine.definition.Pointabilities;
 import engine.vector.EngineVector3;
-import engine.definition.images.ItemImageDefinition.ItemImageDefinitionOrString;
+import engine.definition.graphics.ItemImageDefinition.ItemImageDefinitionOrString;
 import engine.definition.ItemDefinition;
 import engine.definition.NodeDefinition;
 

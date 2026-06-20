@@ -1,11 +1,11 @@
 package engine.definition;
 
 import luantitypes.Core;
-import engine.definition.images.WearBarColors;
+import engine.definition.graphics.WearBarColors;
 import engine.entity.objectref.ObjectRefBase;
 import engine.definition.sound.ItemSoundTable;
 import engine.vector.EngineVector3;
-import engine.definition.images.ItemImageDefinition;
+import engine.definition.graphics.ItemImageDefinition;
 
 /**
  * When you extend this class, you get a specialty class which is extremely interesting.
