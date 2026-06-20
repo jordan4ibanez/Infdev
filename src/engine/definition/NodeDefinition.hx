@@ -202,7 +202,6 @@ class NodeDefinition extends ItemDefinition {
 		Core.nodePunch(pos, node, puncher, pointedThing);
 	}
 
-	// on_rightclick
 	public function onRightClick(pos: EngineVector3, node: Dynamic, clicker: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: Null<PointedThing>): ItemStack {
 		// nil
 		return itemStack;

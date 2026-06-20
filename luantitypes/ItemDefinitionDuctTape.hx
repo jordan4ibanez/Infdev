@@ -313,9 +313,9 @@ class ItemDefinitionDuctTape {
 						code: "instance.onPunch(pos, node, puncher, pointedThing)"
 					},
 					{
-						classMethodName: "",
-						luantiMethodName: "",
-						code: ""
+						classMethodName: "onRightClick",
+						luantiMethodName: "on_rightclick",
+						code: "return instance.onRightClick(pos, node, clicker, itemStack, pointedThing)"
 					},
 					{
 						classMethodName: "",
