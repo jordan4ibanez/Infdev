@@ -45,15 +45,15 @@ abstract class PointedThing {
 	public inline function match(nodeDelegate: Null<(PointedThingNode) -> Void>, objectDelegate: Null<(PointedThingObject) -> Void>,
 		nothingDelegate: Null<(PointedThingNothing) -> Void>): Void {
 		switch (this.type) {
-			case node:
+			case PointedThingTypeNode:
 				if (nodeDelegate != null) {
 					nodeDelegate(cast(this));
 				}
-			case object:
+			case PointedThingTypeObject:
 				if (objectDelegate != null) {
 					objectDelegate(cast(this));
 				}
-			case nothing:
+			case PointedThingTypeNothing:
 				if (nothingDelegate != null) {
 					nothingDelegate(cast(this));
 				}
