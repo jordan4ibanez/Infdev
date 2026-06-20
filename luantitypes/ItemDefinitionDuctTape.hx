@@ -246,12 +246,12 @@ class ItemDefinitionDuctTape {
 					{
 						classMethodName: "onConstruct",
 						luantiMethodName: "on_construct",
-						code: "return instance.onConstruct(pos)"
+						code: "instance.onConstruct(pos)"
 					},
 					{
-						classMethodName: "",
-						luantiMethodName: "",
-						code: ""
+						classMethodName: "onDestruct",
+						luantiMethodName: "on_destruct",
+						code: "instance.onDestruct(pos)"
 					},
 					{
 						classMethodName: "",
