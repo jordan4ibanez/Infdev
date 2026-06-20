@@ -1,8 +1,8 @@
 package engine.definition.images;
 
 enum abstract TileAnimationType(String) to String {
-	var verticalFrames = "vertical_frames";
-	var sheet2d = "sheet_2d";
+	var TileAnimationTypeVerticalFrames = "vertical_frames";
+	var TileAnimationTypeSheet2d = "sheet_2d";
 }
 
 // todo: getters
