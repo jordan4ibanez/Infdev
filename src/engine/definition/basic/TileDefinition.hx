@@ -23,6 +23,12 @@ class TileDefinitionAnimated extends TileDefinition {
 	}
 }
 
+enum abstract TileDefinitionAlignStyle(String) to String {
+	var TileDefinitionAlignStyleNode = "node";
+	var TileDefinitionAlignStyleWorld = "world";
+	var TileDefinitionAlignStyleUser = "user";
+}
+
 class TileDefinitionCustom extends TileDefinition {
 	@:native("backface_culling")
 	var backfaceCulling: Bool;
