@@ -1,5 +1,6 @@
 package engine.definition.basic;
 
+import engine.definition.images.ColorSpec;
 import engine.definition.images.TileAnimationDefinition;
 
 abstract class TileDefinition {
