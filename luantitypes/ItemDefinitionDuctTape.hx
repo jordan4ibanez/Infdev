@@ -240,6 +240,114 @@ class ItemDefinitionDuctTape {
 				}
 			}
 
+			// NodeDefinition.
+			if (isNodeDef) {
+				for (data in [
+					{
+						classMethodName: "",
+						luantiMethodName: "",
+						code: ""
+					},
+					{
+						classMethodName: "",
+						luantiMethodName: "",
+						code: ""
+					},
+					{
+						classMethodName: "",
+						luantiMethodName: "",
+						code: ""
+					},
+					{
+						classMethodName: "",
+						luantiMethodName: "",
+						code: ""
+					},
+					{
+						classMethodName: "",
+						luantiMethodName: "",
+						code: ""
+					},
+					{
+						classMethodName: "",
+						luantiMethodName: "",
+						code: ""
+					},
+					{
+						classMethodName: "",
+						luantiMethodName: "",
+						code: ""
+					},
+					{
+						classMethodName: "",
+						luantiMethodName: "",
+						code: ""
+					},
+					{
+						classMethodName: "",
+						luantiMethodName: "",
+						code: ""
+					},
+					{
+						classMethodName: "",
+						luantiMethodName: "",
+						code: ""
+					},
+					{
+						classMethodName: "",
+						luantiMethodName: "",
+						code: ""
+					},
+					{
+						classMethodName: "",
+						luantiMethodName: "",
+						code: ""
+					},
+					{
+						classMethodName: "",
+						luantiMethodName: "",
+						code: ""
+					},
+					{
+						classMethodName: "",
+						luantiMethodName: "",
+						code: ""
+					},
+					{
+						classMethodName: "",
+						luantiMethodName: "",
+						code: ""
+					},
+					{
+						classMethodName: "",
+						luantiMethodName: "",
+						code: ""
+					},
+					{
+						classMethodName: "",
+						luantiMethodName: "",
+						code: ""
+					},
+					{
+						classMethodName: "",
+						luantiMethodName: "",
+						code: ""
+					},
+					{
+						classMethodName: "",
+						luantiMethodName: "",
+						code: ""
+					},
+					{
+						classMethodName: "",
+						luantiMethodName: "",
+						code: ""
+					}
+				]) {
+					fieldChecks.push(data);
+				}
+			}
+
 			// Only insert fields that are defined.
 			// Defining all fields can cause weird behavior.
 			for (implementation in fieldChecks) {
