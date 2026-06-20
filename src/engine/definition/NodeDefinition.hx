@@ -159,7 +159,6 @@ class NodeDefinition extends ItemDefinition {
 	// todo: NodeDrops
 	var drop: Dynamic;
 
-	// on_construct
 	public function onConstruct(pos: EngineVector3): Void {
 		// nil
 	}
