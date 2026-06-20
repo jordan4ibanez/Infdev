@@ -298,9 +298,9 @@ class ItemDefinitionDuctTape {
 						code: "return instance.afterPlaceNode(pos, placer, itemStack, pointedThing)"
 					},
 					{
-						classMethodName: "",
-						luantiMethodName: "",
-						code: ""
+						classMethodName: "afterDigNode",
+						luantiMethodName: "after_dig_node",
+						code: "instance.afterDigNode(pos, oldNode, oldMetaData, digger)"
 					},
 					{
 						classMethodName: "",

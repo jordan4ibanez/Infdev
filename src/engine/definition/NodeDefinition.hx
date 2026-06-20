@@ -187,7 +187,6 @@ class NodeDefinition extends ItemDefinition {
 		return false;
 	}
 
-	// after_dig_node
 	public function afterDigNode(pos: EngineVector3, oldNode: Dynamic, oldMetaData: Dynamic, digger: Null<ObjectRefBase>): Void {
 		// nil
 	}
