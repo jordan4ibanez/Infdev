@@ -8,4 +8,16 @@ private enum abstract NodeBoxType(String) to String {
 	var NodeBoxTypeConnected = "connected";
 }
 
-class NodeBox {}
+abstract class NodeBox {
+	private var type: NodeBoxType;
+
+	public function new(type: NodeBoxType) {
+		this.type = type;
+	}
+}
+
+class NodeBoxRegular extends NodeBox {
+	public function new() {
+		super(NodeBoxTypeRegular);
+	}
+}
