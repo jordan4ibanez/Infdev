@@ -128,12 +128,12 @@ final class Dirt extends NodeDefinition {
 		super.onMetadataInventoryMove(pos, fromList, fromIndex, toList, toIndex, count, player);
 	}
 
-	override function onMetadataInventoryPut(pos: EngineVector3, listname: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>) {
-		super.onMetadataInventoryPut(pos, listname, index, stack, player);
+	override function onMetadataInventoryPut(pos: EngineVector3, listName: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>) {
+		super.onMetadataInventoryPut(pos, listName, index, stack, player);
 	}
 
-	override function onMetadataInventoryTake(pos: EngineVector3, listname: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>) {
-		super.onMetadataInventoryTake(pos, listname, index, stack, player);
+	override function onMetadataInventoryTake(pos: EngineVector3, listName: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>) {
+		super.onMetadataInventoryTake(pos, listName, index, stack, player);
 	}
 
 	override function onPickup(itemstack: ItemStack, picker: Null<ObjectRefBase>, pointedThing: PointedThing, timeFromLastPunch: Float): Null<ItemStack> {
