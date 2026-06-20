@@ -11,9 +11,14 @@ abstract class TileDefinition {
 }
 
 class TileDefinitionAnimated extends TileDefinition {
-	var animation: TileAnimationDefinition
+	var animation: TileAnimationDefinition;
 
 	public function new(name: String) {
 		super(name);
+	}
+
+	public function setAnimation(animation: TileAnimationDefinition): TileDefinitionAnimated {
+		this.animation = animation;
+		return this;
 	}
 }
