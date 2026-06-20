@@ -66,7 +66,7 @@ final class PointedThingNode extends PointedThing {
 	var above: EngineVector3;
 
 	public function new() {
-		this.type = node;
+		this.type = PointedThingTypeNode;
 	}
 }
 
@@ -74,13 +74,13 @@ final class PointedThingObject extends PointedThing {
 	var ref: ObjectRefBase;
 
 	public function new() {
-		this.type = object;
+		this.type = PointedThingTypeObject;
 	}
 }
 
 final class PointedThingNothing extends PointedThing {
 	public function new() {
-		this.type = nothing;
+		this.type = PointedThingTypeNothing;
 	}
 }
 
