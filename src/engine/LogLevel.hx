@@ -1,4 +1,4 @@
-package luantitypes;
+package engine;
 
 enum abstract LogLevel(String) to String {
 	var LogLevelNone = "none";
