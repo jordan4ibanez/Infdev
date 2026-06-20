@@ -1,9 +1,9 @@
 package engine.definition;
 
 enum abstract TouchInteractionMode(String) to String {
-	var longDigShortPlace = "long_dig_short_place";
-	var shortDigLongPlace = "short_dig_long_place";
-	var user;
+	var TouchInteractionModeLongDigShortPlace = "long_dig_short_place";
+	var TouchInteractionModeShortDigLongPlace = "short_dig_long_place";
+	var TouchInteractionModeUser = "user";
 }
 
 final class TouchInteractionSetting {
