@@ -1,6 +1,6 @@
 package engine.definition.basic;
 
-enum abstract LiquidType(String) to String {
+enum abstract DrawType(String) to String {
 	var normal = "normal";
 	var airlike = "airlike";
 	var liquid = "liquid";
