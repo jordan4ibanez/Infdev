@@ -293,9 +293,9 @@ class ItemDefinitionDuctTape {
 						code: "instance.preserveMetadata(pos, oldNode, oldMeta, drops)"
 					},
 					{
-						classMethodName: "",
-						luantiMethodName: "",
-						code: ""
+						classMethodName: "afterPlaceNode",
+						luantiMethodName: "after_place_node",
+						code: "return instance.afterPlaceNode(pos, placer, itemStack, pointedThing)"
 					},
 					{
 						classMethodName: "",
