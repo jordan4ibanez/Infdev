@@ -13,15 +13,15 @@ abstract class PointedThing {
 	public final type: PointedThingType;
 
 	public inline function isNode(): Bool {
-		return this.type == node;
+		return this.type == PointedThingTypeNode;
 	}
 
 	public inline function isObject(): Bool {
-		return this.type == object;
+		return this.type == PointedThingTypeObject;
 	}
 
 	public inline function isNothing(): Bool {
-		return this.type == nothing;
+		return this.type == PointedThingTypeNothing;
 	}
 
 	public inline function whenIsNode(delegate: (PointedThingNode) -> Void): Void {
