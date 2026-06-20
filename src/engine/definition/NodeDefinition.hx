@@ -1,5 +1,7 @@
 package engine.definition;
 
+import engine.definition.basic.ParamType2;
+import engine.definition.basic.ParamType1;
 import engine.definition.graphics.NodeTextureAlpha;
 import engine.definition.basic.TileDefinition;
 import engine.definition.graphics.ColorSpec;
@@ -61,11 +63,9 @@ class NodeDefinition extends ItemDefinition {
 	@:native("post_effect_color_shaded")
 	var postEffectColorShaded: Bool;
 
-	// todo: ParamType1
-	var paramtype: Dynamic;
+	var paramtype: ParamType1;
 
-	// todo: ParamType2
-	var paramtype2: Dynamic;
+	var paramtype2: ParamType2;
 
 	@:native("wallmounted_rotate_vertical")
 	var wallmountedRotateVertical: Bool;
