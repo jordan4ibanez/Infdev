@@ -338,9 +338,9 @@ class ItemDefinitionDuctTape {
 						code: "return instance.allowMetadataInventoryMove(pos, fromList, fromIndex, toList, toIndex, count, player)"
 					},
 					{
-						classMethodName: "",
-						luantiMethodName: "",
-						code: ""
+						classMethodName: "allowMetadataInventoryPut",
+						luantiMethodName: "allow_metadata_inventory_put",
+						code: "return instance.allowMetadataInventoryPut(pos, listName, index, stack, player)"
 					},
 					{
 						classMethodName: "",
