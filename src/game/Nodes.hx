@@ -100,12 +100,12 @@ final class Dirt extends NodeDefinition {
 		return super.allowMetadataInventoryMove(pos, fromList, fromIndex, toList, toIndex, count, player);
 	}
 
-	override function allowMetadataInventoryPut(pos: EngineVector3, listname: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Int {
-		return super.allowMetadataInventoryPut(pos, listname, index, stack, player);
+	override function allowMetadataInventoryPut(pos: EngineVector3, listName: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Int {
+		return super.allowMetadataInventoryPut(pos, listName, index, stack, player);
 	}
 
-	override function allowMetadataInventoryTake(pos: EngineVector3, listname: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Int {
-		return super.allowMetadataInventoryTake(pos, listname, index, stack, player);
+	override function allowMetadataInventoryTake(pos: EngineVector3, listName: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Int {
+		return super.allowMetadataInventoryTake(pos, listName, index, stack, player);
 	}
 
 	override function canDig(pos: EngineVector3, player: Null<ObjectRefBase>): Bool {
