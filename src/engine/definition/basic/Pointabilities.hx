@@ -18,7 +18,7 @@ class Pointabilities {
 	public var objects: PointTable;
 
 	public function new(nodes: Null<PointTable>, objects: Null<PointTable>) {
-        this.nodes = nodes;
-        this.objects = objects;
-    }
+		this.nodes = nodes;
+		this.objects = objects;
+	}
 }
