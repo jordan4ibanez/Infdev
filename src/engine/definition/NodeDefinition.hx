@@ -1,5 +1,6 @@
 package engine.definition;
 
+import engine.definition.basic.DrawType;
 import engine.definition.basic.WavingType;
 import engine.definition.basic.LiquidType;
 import luantitypes.Core;
@@ -28,9 +29,8 @@ import engine.definition.images.ItemImageDefinition;
  */
 @:luantiDefinitionRoot
 class NodeDefinition extends ItemDefinition {
-	// todo: drawtype.
 	@:native("drawtype")
-	var drawType: Dynamic;
+	var drawType: DrawType;
 
 	@:native("visual_scale")
 	var visualScale: Float;
