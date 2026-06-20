@@ -87,9 +87,8 @@ class NodeDefinition extends ItemDefinition {
 
 	var floodable: Bool;
 
-	// todo: LiquidType
 	@:native("liquidtype")
-	var liquidType: Dynamic;
+	var liquidType: LiquidType;
 
 	@:native("liquid_alternative_flowing")
 	var liquidAlternativeFlowing: String;
