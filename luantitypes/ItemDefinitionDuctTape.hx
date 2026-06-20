@@ -213,7 +213,7 @@ class ItemDefinitionDuctTape {
 					{
 						classMethodName: "onSecondaryUse",
 						luantiMethodName: "on_secondary_use",
-						code: "instance.onSecondaryUse(itemstack, user, pointedThing)"
+						code: "return instance.onSecondaryUse(itemstack, user, pointedThing)"
 					},
 					{
 						classMethodName: "onDrop",
