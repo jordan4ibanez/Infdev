@@ -1,5 +1,6 @@
 package engine.definition;
 
+import engine.definition.images.ColorSpec;
 import engine.definition.basic.DrawType;
 import engine.definition.basic.WavingType;
 import engine.definition.basic.LiquidType;
@@ -47,9 +48,8 @@ class NodeDefinition extends ItemDefinition {
 	/**
 	 * This one is for nodes.
 	 */
-	// todo: ColorSpec.
 	@:native("color")
-	var nodeColor: Dynamic;
+	var nodeColor: ColorSpec;
 
 	// todo: NodeTextureAlpha
 	@:native("use_texture_alpha")
