@@ -57,3 +57,16 @@ class TileDefinitionCustom extends TileDefinition {
 		return this;
 	}
 }
+
+class TileDefinitionColorSpec extends TileDefinition {
+	var color: ColorSpec;
+
+	public function new(name: String) {
+		super(name);
+	}
+
+	public function setColor(color: ColorSpec): TileDefinitionColorSpec {
+		this.color = color;
+		return this;
+	}
+}
