@@ -1,6 +1,6 @@
 package engine.vector;
 
-import luantitypes.LogLevel;
+import engine.LogLevel;
 import luantitypes.Core;
 
 class Vec3 extends EngineVector3 {
@@ -25,7 +25,7 @@ class Vec3 extends EngineVector3 {
 			output.z = engineVec3.z;
 		} else {
 			// Make a bunch of noise if input was null.
-			Core.log(LogLevel.error, "Received null engine vec.");
+			Core.log(LogLevelError, "Received null engine vec.");
 		}
 		return output;
 	}
@@ -45,7 +45,7 @@ class Vec3 extends EngineVector3 {
 			haxeVec.z = engineVec3.z;
 		} else {
 			// Make a bunch of noise if input was null.
-			Core.log(LogLevel.error, "Received null engine vec.");
+			Core.log(LogLevelError, "Received null engine vec.");
 		}
 	}
 

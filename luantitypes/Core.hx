@@ -12,7 +12,7 @@ import haxe.Rest;
 import Reflect;
 import luantitypes.metadata.StorageRef;
 // These are public imports. :)
-import luantitypes.LogLevel;
+import engine.LogLevel;
 
 @:native("core")
 extern class Core {
