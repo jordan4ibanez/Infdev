@@ -197,7 +197,6 @@ class NodeDefinition extends ItemDefinition {
 	}
 
 	// todo: No fucking clue what node is
-	// on_punch
 	public function onPunch(pos: EngineVector3, node: Dynamic, puncher: Null<ObjectRefBase>, pointedThing: PointedThing): Void {
 		// core.node_punch
 		Core.nodePunch(pos, node, puncher, pointedThing);

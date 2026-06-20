@@ -308,9 +308,9 @@ class ItemDefinitionDuctTape {
 						code: "return instance.canDig(pos, player)"
 					},
 					{
-						classMethodName: "",
-						luantiMethodName: "",
-						code: ""
+						classMethodName: "onPunch",
+						luantiMethodName: "on_punch",
+						code: "instance.onPunch(pos, node, puncher, pointedThing)"
 					},
 					{
 						classMethodName: "",
