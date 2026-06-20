@@ -21,3 +21,27 @@ class NodeBoxRegular extends NodeBox {
 		super(NodeBoxTypeRegular);
 	}
 }
+
+class NodeBoxFixed extends NodeBox {
+	public function new() {
+		super(NodeBoxTypeFixed);
+	}
+}
+
+class NodeBoxLeveled extends NodeBox {
+	public function new() {
+		super(NodeBoxTypeLeveled);
+	}
+}
+
+class NodeBoxWallMounted extends NodeBox {
+	public function new() {
+		super(NodeBoxTypeWallMounted);
+	}
+}
+
+class NodeBoxConnected extends NodeBox {
+	public function new() {
+		super(NodeBoxTypeConnected);
+	}
+}
