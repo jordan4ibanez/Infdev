@@ -22,3 +22,20 @@ class TileDefinitionAnimated extends TileDefinition {
 		return this;
 	}
 }
+
+class TileDefinitionCustom extends TileDefinition {
+	@:native("backface_culling")
+	var backfaceCulling: Bool;
+
+	@:native("align_style")
+	var alignStyle: TileDefinitionAlignStyle;
+
+	public function new(name: String) {
+		super(name);
+	}
+
+	public function setBackfaceCulling(backfaceCulling: Bool): TileDefinitionCustom {
+		this.backfaceCulling = backfaceCulling;
+		return this;
+	}
+}
