@@ -17,6 +17,8 @@ abstract class NodeBox {
 }
 
 class NodeBoxRegular extends NodeBox {
+	var fixed: Array<Array<Float>>
+
 	public function new() {
 		super(NodeBoxTypeRegular);
 	}
