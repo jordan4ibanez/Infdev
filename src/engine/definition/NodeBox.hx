@@ -64,6 +64,11 @@ class NodeBoxWallMounted extends NodeBox {
 	public function new() {
 		super(NodeBoxTypeWallMounted);
 	}
+
+	public function setWallTop(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxWallMounted {
+		this.wallTop = [x1, y1, z1, x2, y2, z2];
+		return this;
+	}
 }
 
 class NodeBoxConnected extends NodeBox {
