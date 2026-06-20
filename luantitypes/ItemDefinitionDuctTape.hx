@@ -148,6 +148,10 @@ class ItemDefinitionDuctTape {
 
 								// This dumps the fields from the class defined into the wrapper class in lua.
 								for (field in Reflect.fields(instance)) {
+									if (field == "mod_origin") {
+										// trace("[DEBUG]: skipped mod_origin for " + $v{wrapperClassName});
+										continue;
+									}
 									trace($v{wrapperClassName}, "field", field);
 									untyped $i{wrapperClassName}[field] = Reflect.field(instance, field);
 								}
