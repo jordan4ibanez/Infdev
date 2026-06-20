@@ -63,7 +63,8 @@ class NodeDefinition extends ItemDefinition {
 	@:native("post_effect_color_shaded")
 	var postEffectColorShaded: Bool;
 
-	var paramtype: ParamType1;
+	@:native("paramtype")
+	var paramtype1: ParamType1;
 
 	var paramtype2: ParamType2;
 
