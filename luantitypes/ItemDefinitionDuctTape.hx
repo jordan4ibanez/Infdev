@@ -288,9 +288,9 @@ class ItemDefinitionDuctTape {
 						code: "return instance.onFlood(pos, oldNode, newNode)"
 					},
 					{
-						classMethodName: "",
-						luantiMethodName: "",
-						code: ""
+						classMethodName: "preserveMetadata",
+						luantiMethodName: "preserve_metadata",
+						code: "instance.preserveMetadata(pos, oldNode, oldMeta, drops)"
 					},
 					{
 						classMethodName: "",
