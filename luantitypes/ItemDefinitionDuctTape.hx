@@ -259,9 +259,9 @@ class ItemDefinitionDuctTape {
 						code: "instance.afterDestruct(pos, oldNode)"
 					},
 					{
-						classMethodName: "",
-						luantiMethodName: "",
-						code: ""
+						classMethodName: "onFlood",
+						luantiMethodName: "on_flood",
+						code: "return instance.onFlood(pos, oldNode, newNode)"
 					},
 					{
 						classMethodName: "",
