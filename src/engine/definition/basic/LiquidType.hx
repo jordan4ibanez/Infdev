@@ -1,7 +1,7 @@
 package engine.definition.basic;
 
 enum abstract LiquidType(String) to String {
-	var none;
-	var source;
-	var flowing;
+	// var LiquidTypeNone = "none";
+	var LiquidTypeSource = "source";
+	var LiquidTypeFlowing = "flowing";
 }
