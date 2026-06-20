@@ -8,6 +8,9 @@ private enum abstract NodeBoxType(String) to String {
 	var NodeBoxTypeConnected = "connected";
 }
 
+typedef Box = Array<Float>;
+typedef BoxArray = Array<Box>;
+
 abstract class NodeBox {
 	private var type: NodeBoxType;
 
