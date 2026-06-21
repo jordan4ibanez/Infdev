@@ -124,9 +124,8 @@ class NodeDefinition extends ItemDefinition {
 	@:native("damage_per_second")
 	var damagePerSecond: Int;
 
-	// todo: NodeBox
 	@:native("node_box")
-	var nodeBox: Dynamic;
+	var nodeBox: NodeBox;
 
 	@:native("connects_to")
 	var connectsTo: Array<String>;
@@ -138,10 +137,10 @@ class NodeDefinition extends ItemDefinition {
 	var mesh: String;
 
 	@:native("selection_box")
-	var selectionBox: Dynamic; // todo: this is another nodebox
+	var selectionBox: NodeBox;
 
 	@:native("collision_box")
-	var collisionBox: Dynamic; // todo: this is another nodebox
+	var collisionBox: NodeBox;
 
 	@:native("legacy_facedir_simple")
 	var legacyFacedirSimple: Bool;
