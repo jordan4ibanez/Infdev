@@ -90,9 +90,7 @@ class NodeBoxConnected extends NodeBox {
     connect_left = box OR {box1, box2, ...}
     connect_back = box OR {box1, box2, ...}
     connect_right = box OR {box1, box2, ...}
-    -- The following `disconnected_*` boxes are the opposites of the
-    -- `connect_*` ones above, i.e. when a node has no suitable neighbor
-    -- on the respective side, the corresponding disconnected box is drawn.
+    
     disconnected_top = box OR {box1, box2, ...}
     disconnected_bottom = box OR {box1, box2, ...}
     disconnected_front = box OR {box1, box2, ...}
