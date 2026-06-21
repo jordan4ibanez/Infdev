@@ -1,7 +1,7 @@
 package engine.definition.sound;
 
 class NodeSoundTable {
-	private var footstep: SimpleSoundSpec;
+	private var footstep: SimpleSoundSpec;//done
 
 	private var dig: SimpleSoundSpec;
 
@@ -16,8 +16,8 @@ class NodeSoundTable {
 
 	public function new() {}
 
-	public function set(sound: SimpleSoundSpec): NodeSoundTable {
-		this. = sound;
+	public function setFootstep(sound: SimpleSoundSpec): NodeSoundTable {
+		this.footstep = sound;
 		return this;		
 	}
 	public function set(sound: SimpleSoundSpec): NodeSoundTable {
