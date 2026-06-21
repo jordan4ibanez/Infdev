@@ -121,7 +121,7 @@ class NodeBoxConnected extends NodeBox {
 
 	public function setFixed(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this.fixed == null) {
-			this.fixed = []
+			this.fixed = [];
 		}
 		this.fixed.push([x1, y1, z1, x2, y2, z2]);
 		return this;
@@ -129,7 +129,7 @@ class NodeBoxConnected extends NodeBox {
 
 	public function setConnectTop(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this.connectTop == null) {
-			this.connectTop = []
+			this.connectTop = [];
 		}
 		this.connectTop.push([x1, y1, z1, x2, y2, z2]);
 		return this;
@@ -137,7 +137,7 @@ class NodeBoxConnected extends NodeBox {
 
 	public function setConnectBottom(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this.connectBottom == null) {
-			this.connectBottom = []
+			this.connectBottom = [];
 		}
 		this.connectBottom.push([x1, y1, z1, x2, y2, z2]);
 		return this;
@@ -145,7 +145,7 @@ class NodeBoxConnected extends NodeBox {
 
 	public function setConnectFront(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this.connectFront == null) {
-			this.connectFront = []
+			this.connectFront = [];
 		}
 		this.connectFront.push([x1, y1, z1, x2, y2, z2]);
 		return this;
@@ -153,7 +153,7 @@ class NodeBoxConnected extends NodeBox {
 
 	public function setConnectLeft(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this.connectLeft == null) {
-			this.connectLeft = []
+			this.connectLeft = [];
 		}
 		this.connectLeft.push([x1, y1, z1, x2, y2, z2]);
 		return this;
@@ -161,7 +161,7 @@ class NodeBoxConnected extends NodeBox {
 
 	public function setConnectBack(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this.connectBack == null) {
-			this.connectBack = []
+			this.connectBack = [];
 		}
 		this.connectBack.push([x1, y1, z1, x2, y2, z2]);
 		return this;
@@ -169,7 +169,7 @@ class NodeBoxConnected extends NodeBox {
 
 	public function setConnectRight(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this.connectRight == null) {
-			this.connectRight = []
+			this.connectRight = [];
 		}
 		this.connectRight.push([x1, y1, z1, x2, y2, z2]);
 		return this;
@@ -177,7 +177,7 @@ class NodeBoxConnected extends NodeBox {
 
 	public function setDisconnectedTop(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this.disconnectedTop == null) {
-			this.disconnectedTop = []
+			this.disconnectedTop = [];
 		}
 		this.disconnectedTop.push([x1, y1, z1, x2, y2, z2]);
 		return this;
@@ -185,7 +185,7 @@ class NodeBoxConnected extends NodeBox {
 
 	public function setDisconnectedBottom(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this.disconnectedBottom == null) {
-			this.disconnectedBottom = []
+			this.disconnectedBottom = [];
 		}
 		this.disconnectedBottom.push([x1, y1, z1, x2, y2, z2]);
 		return this;
@@ -193,7 +193,7 @@ class NodeBoxConnected extends NodeBox {
 
 	public function setDisconnectedFront(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this.disconnectedFront == null) {
-			this.disconnectedFront = []
+			this.disconnectedFront = [];
 		}
 		this.disconnectedFront.push([x1, y1, z1, x2, y2, z2]);
 		return this;
@@ -201,7 +201,7 @@ class NodeBoxConnected extends NodeBox {
 
 	public function setDisconnectedLeft(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this.disconnectedLeft == null) {
-			this.disconnectedLeft = []
+			this.disconnectedLeft = [];
 		}
 		this.disconnectedLeft.push([x1, y1, z1, x2, y2, z2]);
 		return this;
@@ -209,7 +209,7 @@ class NodeBoxConnected extends NodeBox {
 
 	public function setDisconnectedBack(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this.disconnectedBack == null) {
-			this.disconnectedBack = []
+			this.disconnectedBack = [];
 		}
 		this.disconnectedBack.push([x1, y1, z1, x2, y2, z2]);
 		return this;
@@ -217,7 +217,7 @@ class NodeBoxConnected extends NodeBox {
 
 	public function setDisconnectedRight(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this.disconnectedRight == null) {
-			this.disconnectedRight = []
+			this.disconnectedRight = [];
 		}
 		this.disconnectedRight.push([x1, y1, z1, x2, y2, z2]);
 		return this;
@@ -225,7 +225,7 @@ class NodeBoxConnected extends NodeBox {
 
 	public function setDisconnected(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this.disconnected == null) {
-			this.disconnected = []
+			this.disconnected = [];
 		}
 		this.disconnected.push([x1, y1, z1, x2, y2, z2]);
 		return this;
@@ -233,7 +233,7 @@ class NodeBoxConnected extends NodeBox {
 
 	public function setDisconnectedSides(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this.disconnectedSides == null) {
-			this.disconnectedSides = []
+			this.disconnectedSides = [];
 		}
 		this.disconnectedSides.push([x1, y1, z1, x2, y2, z2]);
 		return this;
