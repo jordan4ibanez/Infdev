@@ -1,5 +1,6 @@
 package engine.definition;
 
+import engine.definition.sound.NodeSoundTable;
 import engine.definition.basic.ParamType2;
 import engine.definition.basic.ParamType1;
 import engine.definition.graphics.NodeTextureAlpha;
@@ -153,9 +154,8 @@ class NodeDefinition extends ItemDefinition {
 	/**
 	 * This one is for nodes.
 	 */
-	// todo: NodeSounds
 	@:native("sounds")
-	var nodeSounds: Dynamic;
+	var nodeSounds: NodeSoundTable;
 
 	// todo: NodeDrops
 	var drop: Dynamic;
