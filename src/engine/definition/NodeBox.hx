@@ -95,7 +95,7 @@ class NodeBoxConnected extends NodeBox {
 	@:native("connect_back")
 	private var connectBack: BoxArray; // done
 	@:native("connect_right")
-	private var connectRight: BoxArray;
+	private var connectRight: BoxArray; // done
 
 	// Disconnected.
 	@:native("disconnected_top")
@@ -167,11 +167,11 @@ class NodeBoxConnected extends NodeBox {
 		return this;
 	}
 
-	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
-		if (this. == null) {
-			this. = []
+	public function setConnectRight(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+		if (this.connectRight == null) {
+			this.connectRight = []
 		}
-		this..push([x1, y1, z1, x2, y2, z2]);
+		this.connectRight.push([x1, y1, z1, x2, y2, z2]);
 		return this;
 	}
 
