@@ -7,7 +7,7 @@ class NodeSoundTable {
 
 	private var dug: SimpleSoundSpec;//done
 
-	private var place: SimpleSoundSpec;
+	private var place: SimpleSoundSpec;//done
 
 	@:native("place_failed")
 	private var placeFailed: SimpleSoundSpec;
@@ -28,8 +28,8 @@ class NodeSoundTable {
 		this.dug = sound;
 		return this;		
 	}
-	public function set(sound: SimpleSoundSpec): NodeSoundTable {
-		this. = sound;
+	public function setPlace(sound: SimpleSoundSpec): NodeSoundTable {
+		this.place = sound;
 		return this;		
 	}
 	public function set(sound: SimpleSoundSpec): NodeSoundTable {
