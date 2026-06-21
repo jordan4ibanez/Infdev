@@ -113,7 +113,7 @@ class NodeBoxConnected extends NodeBox {
 
 	private var disconnected: BoxArray; // done
 	@:native("disconnected_sides")
-	private var disconnectedSides: BoxArray;
+	private var disconnectedSides: BoxArray; // done
 
 	public function new() {
 		super(NodeBoxTypeConnected);
