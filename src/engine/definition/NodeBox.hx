@@ -83,37 +83,37 @@ class NodeBoxWallMounted extends NodeBox {
 
 class NodeBoxConnected extends NodeBox {
 	// Connected.
-	private var fixed: BoxArray; // DONE
+	private var fixed: BoxArray;
 	@:native("connect_top")
-	private var connectTop: BoxArray; // done
+	private var connectTop: BoxArray;
 	@:native("connect_bottom")
-	private var connectBottom: BoxArray; // done
+	private var connectBottom: BoxArray;
 	@:native("connect_front")
-	private var connectFront: BoxArray; // done
+	private var connectFront: BoxArray;
 	@:native("connect_left")
-	private var connectLeft: BoxArray; // done
+	private var connectLeft: BoxArray;
 	@:native("connect_back")
-	private var connectBack: BoxArray; // done
+	private var connectBack: BoxArray;
 	@:native("connect_right")
-	private var connectRight: BoxArray; // done
+	private var connectRight: BoxArray;
 
 	// Disconnected.
 	@:native("disconnected_top")
-	private var disconnectedTop: BoxArray; // done
+	private var disconnectedTop: BoxArray;
 	@:native("disconnected_bottom")
-	private var disconnectedBottom: BoxArray; // done
+	private var disconnectedBottom: BoxArray;
 	@:native("disconnected_front")
-	private var disconnectedFront: BoxArray; // done
+	private var disconnectedFront: BoxArray;
 	@:native("disconnected_left")
-	private var disconnectedLeft: BoxArray; // done
+	private var disconnectedLeft: BoxArray;
 	@:native("disconnected_back")
-	private var disconnectedBack: BoxArray; // done
+	private var disconnectedBack: BoxArray;
 	@:native("disconnected_right")
-	private var disconnectedRight: BoxArray; // done
+	private var disconnectedRight: BoxArray;
 
-	private var disconnected: BoxArray; // done
+	private var disconnected: BoxArray;
 	@:native("disconnected_sides")
-	private var disconnectedSides: BoxArray; // done
+	private var disconnectedSides: BoxArray;
 
 	public function new() {
 		super(NodeBoxTypeConnected);
