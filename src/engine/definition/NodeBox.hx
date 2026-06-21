@@ -85,35 +85,35 @@ class NodeBoxConnected extends NodeBox {
 	// Connected.
 	private var fixed: BoxArray;
 	@:native("connect_top")
-	private var connect_top: BoxArray;
+	private var connectTop: BoxArray;
 	@:native("connect_bottom")
-	private var connect_bottom: BoxArray;
+	private var connectBottom: BoxArray;
 	@:native("connect_front")
-	private var connect_front: BoxArray;
+	private var connectFront: BoxArray;
 	@:native("connect_left")
-	private var connect_left: BoxArray;
+	private var connectLeft: BoxArray;
 	@:native("connect_back")
-	private var connect_back: BoxArray;
+	private var connectBack: BoxArray;
 	@:native("connect_right")
-	private var connect_right: BoxArray;
+	private var connectRight: BoxArray;
 
 	// Disconnected.
 	@:native("disconnected_top")
-	private var disconnected_top: BoxArray;
+	private var disconnectedTop: BoxArray;
 	@:native("disconnected_bottom")
-	private var disconnected_bottom: BoxArray;
+	private var disconnectedBottom: BoxArray;
 	@:native("disconnected_front")
-	private var disconnected_front: BoxArray;
+	private var disconnectedFront: BoxArray;
 	@:native("disconnected_left")
-	private var disconnected_left: BoxArray;
+	private var disconnectedLeft: BoxArray;
 	@:native("disconnected_back")
-	private var disconnected_back: BoxArray;
+	private var disconnectedBack: BoxArray;
 	@:native("disconnected_right")
-	private var disconnected_right: BoxArray;
+	private var disconnectedRight: BoxArray;
 
 	private var disconnected: BoxArray;
 	@:native("disconnected_sides")
-	private var disconnected_sides: BoxArray;
+	private var disconnectedSides: BoxArray;
 
 	public function new() {
 		super(NodeBoxTypeConnected);
