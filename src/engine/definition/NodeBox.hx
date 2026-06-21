@@ -231,11 +231,11 @@ class NodeBoxConnected extends NodeBox {
 		return this;
 	}
 
-	public function setDisconnected(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
-		if (this. == null) {
-			this. = []
+	public function setDisconnectedSides(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+		if (this.disconnectedSides == null) {
+			this.disconnectedSides = []
 		}
-		this..push([x1, y1, z1, x2, y2, z2]);
+		this.disconnectedSides.push([x1, y1, z1, x2, y2, z2]);
 		return this;
 	}
 }
