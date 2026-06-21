@@ -84,21 +84,35 @@ class NodeBoxWallMounted extends NodeBox {
 class NodeBoxConnected extends NodeBox {
 	// Connected.
 	private var fixed: BoxArray;
+	@:native("connect_top")
 	private var connect_top: BoxArray;
+	@:native("connect_bottom")
 	private var connect_bottom: BoxArray;
+	@:native("connect_front")
 	private var connect_front: BoxArray;
+	@:native("connect_left")
 	private var connect_left: BoxArray;
+	@:native("connect_back")
 	private var connect_back: BoxArray;
+	@:native("connect_right")
 	private var connect_right: BoxArray;
 
 	// Disconnected.
+	@:native("disconnected_top")
 	private var disconnected_top: BoxArray;
+	@:native("disconnected_bottom")
 	private var disconnected_bottom: BoxArray;
+	@:native("disconnected_front")
 	private var disconnected_front: BoxArray;
+	@:native("disconnected_left")
 	private var disconnected_left: BoxArray;
+	@:native("disconnected_back")
 	private var disconnected_back: BoxArray;
+	@:native("disconnected_right")
 	private var disconnected_right: BoxArray;
+
 	private var disconnected: BoxArray;
+	@:native("disconnected_sides")
 	private var disconnected_sides: BoxArray;
 
 	public function new() {
