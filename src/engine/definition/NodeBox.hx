@@ -118,4 +118,124 @@ class NodeBoxConnected extends NodeBox {
 	public function new() {
 		super(NodeBoxTypeConnected);
 	}
+
+	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+		if (this. == null) {
+			this. = []
+		}
+		this..push([x1, y1, z1, x2, y2, z2]);
+		return this;
+	}
+
+	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+		if (this. == null) {
+			this. = []
+		}
+		this..push([x1, y1, z1, x2, y2, z2]);
+		return this;
+	}
+
+	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+		if (this. == null) {
+			this. = []
+		}
+		this..push([x1, y1, z1, x2, y2, z2]);
+		return this;
+	}
+
+	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+		if (this. == null) {
+			this. = []
+		}
+		this..push([x1, y1, z1, x2, y2, z2]);
+		return this;
+	}
+
+	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+		if (this. == null) {
+			this. = []
+		}
+		this..push([x1, y1, z1, x2, y2, z2]);
+		return this;
+	}
+
+	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+		if (this. == null) {
+			this. = []
+		}
+		this..push([x1, y1, z1, x2, y2, z2]);
+		return this;
+	}
+
+	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+		if (this. == null) {
+			this. = []
+		}
+		this..push([x1, y1, z1, x2, y2, z2]);
+		return this;
+	}
+
+	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+		if (this. == null) {
+			this. = []
+		}
+		this..push([x1, y1, z1, x2, y2, z2]);
+		return this;
+	}
+
+	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+		if (this. == null) {
+			this. = []
+		}
+		this..push([x1, y1, z1, x2, y2, z2]);
+		return this;
+	}
+
+	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+		if (this. == null) {
+			this. = []
+		}
+		this..push([x1, y1, z1, x2, y2, z2]);
+		return this;
+	}
+
+	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+		if (this. == null) {
+			this. = []
+		}
+		this..push([x1, y1, z1, x2, y2, z2]);
+		return this;
+	}
+
+	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+		if (this. == null) {
+			this. = []
+		}
+		this..push([x1, y1, z1, x2, y2, z2]);
+		return this;
+	}
+
+	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+		if (this. == null) {
+			this. = []
+		}
+		this..push([x1, y1, z1, x2, y2, z2]);
+		return this;
+	}
+
+	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+		if (this. == null) {
+			this. = []
+		}
+		this..push([x1, y1, z1, x2, y2, z2]);
+		return this;
+	}
+
+	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+		if (this. == null) {
+			this. = []
+		}
+		this..push([x1, y1, z1, x2, y2, z2]);
+		return this;
+	}
 }
