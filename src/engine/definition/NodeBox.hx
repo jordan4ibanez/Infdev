@@ -82,6 +82,26 @@ class NodeBoxWallMounted extends NodeBox {
 }
 
 class NodeBoxConnected extends NodeBox {
+
+	    fixed = box OR {box1, box2, ...}
+    connect_top = box OR {box1, box2, ...}
+    connect_bottom = box OR {box1, box2, ...}
+    connect_front = box OR {box1, box2, ...}
+    connect_left = box OR {box1, box2, ...}
+    connect_back = box OR {box1, box2, ...}
+    connect_right = box OR {box1, box2, ...}
+    -- The following `disconnected_*` boxes are the opposites of the
+    -- `connect_*` ones above, i.e. when a node has no suitable neighbor
+    -- on the respective side, the corresponding disconnected box is drawn.
+    disconnected_top = box OR {box1, box2, ...}
+    disconnected_bottom = box OR {box1, box2, ...}
+    disconnected_front = box OR {box1, box2, ...}
+    disconnected_left = box OR {box1, box2, ...}
+    disconnected_back = box OR {box1, box2, ...}
+    disconnected_right = box OR {box1, box2, ...}
+    disconnected = box OR {box1, box2, ...} -- when there is *no* neighbor
+    disconnected_sides = box OR {box1, box2, ...} -- when there are *no*
+
 	public function new() {
 		super(NodeBoxTypeConnected);
 	}
