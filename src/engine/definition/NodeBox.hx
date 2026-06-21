@@ -183,7 +183,7 @@ class NodeBoxConnected extends NodeBox {
 		return this;
 	}
 
-	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+	public function setDisconnected(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this. == null) {
 			this. = []
 		}
@@ -191,7 +191,7 @@ class NodeBoxConnected extends NodeBox {
 		return this;
 	}
 
-	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+	public function setDisconnected(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this. == null) {
 			this. = []
 		}
@@ -199,7 +199,7 @@ class NodeBoxConnected extends NodeBox {
 		return this;
 	}
 
-	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+	public function setDisconnected(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this. == null) {
 			this. = []
 		}
@@ -207,7 +207,7 @@ class NodeBoxConnected extends NodeBox {
 		return this;
 	}
 
-	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+	public function setDisconnected(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this. == null) {
 			this. = []
 		}
@@ -215,7 +215,7 @@ class NodeBoxConnected extends NodeBox {
 		return this;
 	}
 
-	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+	public function setDisconnected(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this. == null) {
 			this. = []
 		}
@@ -223,7 +223,7 @@ class NodeBoxConnected extends NodeBox {
 		return this;
 	}
 
-	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+	public function setDisconnected(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this. == null) {
 			this. = []
 		}
@@ -231,7 +231,7 @@ class NodeBoxConnected extends NodeBox {
 		return this;
 	}
 
-	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+	public function setDisconnected(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
 		if (this. == null) {
 			this. = []
 		}
