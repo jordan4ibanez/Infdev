@@ -82,8 +82,9 @@ class NodeBoxWallMounted extends NodeBox {
 }
 
 class NodeBoxConnected extends NodeBox {
-	// Connected.
 	private var fixed: BoxArray;
+
+	// Connected.
 	@:native("connect_top")
 	private var connectTop: BoxArray;
 	@:native("connect_bottom")
