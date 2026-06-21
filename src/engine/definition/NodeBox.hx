@@ -97,8 +97,8 @@ class NodeBoxConnected extends NodeBox {
     disconnected_left = box OR {box1, box2, ...}
     disconnected_back = box OR {box1, box2, ...}
     disconnected_right = box OR {box1, box2, ...}
-    disconnected = box OR {box1, box2, ...} -- when there is *no* neighbor
-    disconnected_sides = box OR {box1, box2, ...} -- when there are *no*
+    disconnected = box OR {box1, box2, ...} 
+    disconnected_sides = box OR {box1, box2, ...} 
 
 	public function new() {
 		super(NodeBoxTypeConnected);
