@@ -82,25 +82,24 @@ class NodeBoxWallMounted extends NodeBox {
 }
 
 class NodeBoxConnected extends NodeBox {
-
 	// Connected.
-	    var fixed: BoxArray;
-    var connect_top: BoxArray;
-    var connect_bottom: BoxArray;
-    var connect_front: BoxArray;
-    var connect_left: BoxArray;
-    var connect_back: BoxArray;
-    var connect_right: BoxArray;
-    
+	var fixed: BoxArray;
+	var connect_top: BoxArray;
+	var connect_bottom: BoxArray;
+	var connect_front: BoxArray;
+	var connect_left: BoxArray;
+	var connect_back: BoxArray;
+	var connect_right: BoxArray;
+
 	// Disconnected.
-    var disconnected_top: BoxArray;
-    var disconnected_bottom: BoxArray;
-    var disconnected_front: BoxArray;
-    var disconnected_left: BoxArray;
-    var disconnected_back: BoxArray;
-    var disconnected_right: BoxArray;
-    var disconnected: BoxArray; 
-    var disconnected_sides: BoxArray; 
+	var disconnected_top: BoxArray;
+	var disconnected_bottom: BoxArray;
+	var disconnected_front: BoxArray;
+	var disconnected_left: BoxArray;
+	var disconnected_back: BoxArray;
+	var disconnected_right: BoxArray;
+	var disconnected: BoxArray;
+	var disconnected_sides: BoxArray;
 
 	public function new() {
 		super(NodeBoxTypeConnected);
