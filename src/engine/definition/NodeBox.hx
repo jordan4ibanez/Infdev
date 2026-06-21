@@ -83,22 +83,22 @@ class NodeBoxWallMounted extends NodeBox {
 
 class NodeBoxConnected extends NodeBox {
 
-	    fixed = box OR {box1, box2, ...}
-    connect_top = box OR {box1, box2, ...}
-    connect_bottom = box OR {box1, box2, ...}
-    connect_front = box OR {box1, box2, ...}
-    connect_left = box OR {box1, box2, ...}
-    connect_back = box OR {box1, box2, ...}
-    connect_right = box OR {box1, box2, ...}
+	    var fixed = box OR {box1, box2, ...}
+    var connect_top = box OR {box1, box2, ...}
+    var connect_bottom = box OR {box1, box2, ...}
+    var connect_front = box OR {box1, box2, ...}
+    var connect_left = box OR {box1, box2, ...}
+    var connect_back = box OR {box1, box2, ...}
+    var connect_right = box OR {box1, box2, ...}
     
-    disconnected_top = box OR {box1, box2, ...}
-    disconnected_bottom = box OR {box1, box2, ...}
-    disconnected_front = box OR {box1, box2, ...}
-    disconnected_left = box OR {box1, box2, ...}
-    disconnected_back = box OR {box1, box2, ...}
-    disconnected_right = box OR {box1, box2, ...}
-    disconnected = box OR {box1, box2, ...} 
-    disconnected_sides = box OR {box1, box2, ...} 
+    var disconnected_top = box OR {box1, box2, ...}
+    var disconnected_bottom = box OR {box1, box2, ...}
+    var disconnected_front = box OR {box1, box2, ...}
+    var disconnected_left = box OR {box1, box2, ...}
+    var disconnected_back = box OR {box1, box2, ...}
+    var disconnected_right = box OR {box1, box2, ...}
+    var disconnected = box OR {box1, box2, ...} 
+    var disconnected_sides = box OR {box1, box2, ...} 
 
 	public function new() {
 		super(NodeBoxTypeConnected);
