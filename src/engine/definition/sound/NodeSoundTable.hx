@@ -1,5 +1,3 @@
 package engine.definition.sound;
 
-class NodeSounds {
-    
-}
+class NodeSoundTable {}
