@@ -26,7 +26,7 @@ class NodeBoxRegular extends NodeBox {
 }
 
 class NodeBoxFixed extends NodeBox {
-	var fixed: BoxArray = [];
+	private var fixed: BoxArray = [];
 
 	public function new() {
 		super(NodeBoxTypeFixed);
@@ -39,7 +39,7 @@ class NodeBoxFixed extends NodeBox {
 }
 
 class NodeBoxLeveled extends NodeBox {
-	var fixed: BoxArray = [];
+	private var fixed: BoxArray = [];
 
 	public function new() {
 		super(NodeBoxTypeLeveled);
@@ -53,13 +53,13 @@ class NodeBoxLeveled extends NodeBox {
 
 class NodeBoxWallMounted extends NodeBox {
 	@:native("wall_top")
-	var wallTop: Box;
+	private var wallTop: Box;
 
 	@:native("wall_bottom")
-	var wallBottom: Box;
+	private var wallBottom: Box;
 
 	@:native("wall_side")
-	var wallSide: Box;
+	private var wallSide: Box;
 
 	public function new() {
 		super(NodeBoxTypeWallMounted);
@@ -83,23 +83,23 @@ class NodeBoxWallMounted extends NodeBox {
 
 class NodeBoxConnected extends NodeBox {
 	// Connected.
-	var fixed: BoxArray;
-	var connect_top: BoxArray;
-	var connect_bottom: BoxArray;
-	var connect_front: BoxArray;
-	var connect_left: BoxArray;
-	var connect_back: BoxArray;
-	var connect_right: BoxArray;
+	private var fixed: BoxArray;
+	private var connect_top: BoxArray;
+	private var connect_bottom: BoxArray;
+	private var connect_front: BoxArray;
+	private var connect_left: BoxArray;
+	private var connect_back: BoxArray;
+	private var connect_right: BoxArray;
 
 	// Disconnected.
-	var disconnected_top: BoxArray;
-	var disconnected_bottom: BoxArray;
-	var disconnected_front: BoxArray;
-	var disconnected_left: BoxArray;
-	var disconnected_back: BoxArray;
-	var disconnected_right: BoxArray;
-	var disconnected: BoxArray;
-	var disconnected_sides: BoxArray;
+	private var disconnected_top: BoxArray;
+	private var disconnected_bottom: BoxArray;
+	private var disconnected_front: BoxArray;
+	private var disconnected_left: BoxArray;
+	private var disconnected_back: BoxArray;
+	private var disconnected_right: BoxArray;
+	private var disconnected: BoxArray;
+	private var disconnected_sides: BoxArray;
 
 	public function new() {
 		super(NodeBoxTypeConnected);
