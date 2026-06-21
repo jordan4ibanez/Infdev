@@ -83,6 +83,7 @@ class NodeBoxWallMounted extends NodeBox {
 
 class NodeBoxConnected extends NodeBox {
 
+	// Connected.
 	    var fixed: BoxArray;
     var connect_top: BoxArray;
     var connect_bottom: BoxArray;
@@ -91,6 +92,7 @@ class NodeBoxConnected extends NodeBox {
     var connect_back: BoxArray;
     var connect_right: BoxArray;
     
+	// Disconnected.
     var disconnected_top: BoxArray;
     var disconnected_bottom: BoxArray;
     var disconnected_front: BoxArray;
