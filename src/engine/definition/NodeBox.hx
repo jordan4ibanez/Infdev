@@ -87,7 +87,7 @@ class NodeBoxConnected extends NodeBox {
 	@:native("connect_top")
 	private var connectTop: BoxArray; // done
 	@:native("connect_bottom")
-	private var connectBottom: BoxArray;
+	private var connectBottom: BoxArray; // done
 	@:native("connect_front")
 	private var connectFront: BoxArray;
 	@:native("connect_left")
@@ -135,11 +135,11 @@ class NodeBoxConnected extends NodeBox {
 		return this;
 	}
 
-	public function set(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
-		if (this. == null) {
-			this. = []
+	public function setConnectBottom(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): NodeBoxConnected {
+		if (this.connectBottom == null) {
+			this.connectBottom = []
 		}
-		this..push([x1, y1, z1, x2, y2, z2]);
+		this.connectBottom.push([x1, y1, z1, x2, y2, z2]);
 		return this;
 	}
 
