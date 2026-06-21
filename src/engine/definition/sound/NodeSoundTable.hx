@@ -5,7 +5,7 @@ class NodeSoundTable {
 
 	private var dig: SimpleSoundSpec;//done
 
-	private var dug: SimpleSoundSpec;
+	private var dug: SimpleSoundSpec;//done
 
 	private var place: SimpleSoundSpec;
 
@@ -24,8 +24,8 @@ class NodeSoundTable {
 		this.dig = sound;
 		return this;		
 	}
-	public function set(sound: SimpleSoundSpec): NodeSoundTable {
-		this. = sound;
+	public function setDug(sound: SimpleSoundSpec): NodeSoundTable {
+		this.dug = sound;
 		return this;		
 	}
 	public function set(sound: SimpleSoundSpec): NodeSoundTable {
