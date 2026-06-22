@@ -1,5 +1,6 @@
 package luantitypes;
 
+import engine.NodeTimerRef;
 import engine.entity.objectref.ObjectRefEntity;
 import engine.definition.PointedThing;
 import engine.ItemStack;
@@ -161,6 +162,9 @@ extern class Core {
 
 	@:native("remove_node")
 	static function removeNode(pos: EngineVector3): Void;
+
+	@:native("get_node_timer")
+	static function getNodeTimer(pos: EngineVector3): NodeTimerRef;
 }
 
 @:noCompletion
