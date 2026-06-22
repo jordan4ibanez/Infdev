@@ -88,11 +88,13 @@ class NodeDropTable {
 
 // class Blah {
 // 	static function __init__() {
-// 		var i = new NodeDrop()
-// 			.addItems("test", "flop")
-// 				// .addToolRequirements("shovel", "pickaxe")
-// 			.addToolGroupRequirements("magicwand", ["pickaxe", "lucky"])
-// 			.setDugNodeColorInheritance();
+// 		var i = new NodeDropTable()
+// 			.setMaxItems(10)
+// 			.addDrop(new NodeDrop()
+// 				.addItems("test", "flop")
+// 					// .addToolRequirements("shovel", "pickaxe")
+// 				.addToolGroupRequirements("magicwand", ["pickaxe", "lucky"])
+// 				.setDugNodeColorInheritance());
 // 		untyped __lua__("print(dump(i))");
 // 	}
 // }
