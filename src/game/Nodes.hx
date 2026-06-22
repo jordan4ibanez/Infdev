@@ -40,52 +40,6 @@ final class Dirt extends NodeDefinition {
 		super.afterDestruct(pos, oldNode);
 	}
 
-	// override function onFlood(pos: EngineVector3, oldNode: Dynamic, newNode: Dynamic): Bool {
-	// 	return super.onFlood(pos, oldNode, newNode);
-	// }
-	// override function afterDigNode(pos: EngineVector3, oldNode: Dynamic, oldMetaData: Dynamic, digger: Null<ObjectRefBase>) {
-	// 	super.afterDigNode(pos, oldNode, oldMetaData, digger);
-	// }
-	// override function afterPlaceNode(pos: EngineVector3, placer: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: PointedThing): Bool {
-	// 	return super.afterPlaceNode(pos, placer, itemStack, pointedThing);
-	// }
-	// override function afterUse(itemstack: ItemStack, user: Null<ObjectRefBase>, node: Dynamic, digparams: Dynamic): Null<ItemStack> {
-	// 	return super.afterUse(itemstack, user, node, digparams);
-	// }
-	// override function allowMetadataInventoryMove(pos: EngineVector3, fromList: String, fromIndex: Int, toList: String, toIndex: Int, count: Int, player: Null<ObjectRefBase>): Int {
-	// 	return super.allowMetadataInventoryMove(pos, fromList, fromIndex, toList, toIndex, count, player);
-	// }
-	// override function allowMetadataInventoryPut(pos: EngineVector3, listName: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Int {
-	// 	return super.allowMetadataInventoryPut(pos, listName, index, stack, player);
-	// }
-	// override function allowMetadataInventoryTake(pos: EngineVector3, listName: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Int {
-	// 	return super.allowMetadataInventoryTake(pos, listName, index, stack, player);
-	// }
-	// override function canDig(pos: EngineVector3, player: Null<ObjectRefBase>): Bool {
-	// 	return super.canDig(pos, player);
-	// }
-	// override function onBlast(pos: EngineVector3, intensity: Float) {
-	// 	super.onBlast(pos, intensity);
-	// }
-	// override function onDig(pos: EngineVector3, node: Dynamic, digger: Null<ObjectRefBase>): Bool {
-	// 	return super.onDig(pos, node, digger);
-	// }
-	// override function onDrop(itemstack: ItemStack, dropper: Null<ObjectRefBase>, pos: EngineVector3): Null<ItemStack> {
-	// 	return super.onDrop(itemstack, dropper, pos);
-	// }
-	// override function onMetadataInventoryMove(pos: EngineVector3, fromList: String, fromIndex: Int, toList: String, toIndex: Int, count: Int, player: Null<ObjectRefBase>) {
-	// 	super.onMetadataInventoryMove(pos, fromList, fromIndex, toList, toIndex, count, player);
-	// }
-	// override function onMetadataInventoryPut(pos: EngineVector3, listName: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>) {
-	// 	super.onMetadataInventoryPut(pos, listName, index, stack, player);
-	// }
-	// override function onMetadataInventoryTake(pos: EngineVector3, listName: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>) {
-	// 	super.onMetadataInventoryTake(pos, listName, index, stack, player);
-	// }
-	// override function onPickup(itemstack: ItemStack, picker: Null<ObjectRefBase>, pointedThing: PointedThing, timeFromLastPunch: Float): Null<ItemStack> {
-	// 	return super.onPickup(itemstack, picker, pointedThing, timeFromLastPunch);
-	// }
-
 	override function onPunch(pos: EngineVector3, node: Dynamic, puncher: Null<ObjectRefBase>, pointedThing: PointedThing) {
 		// super.onPunch(pos, node, puncher, pointedThing);
 		// Core.removeNode(pos);
