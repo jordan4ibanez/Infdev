@@ -1,4 +1,4 @@
-package luantitypes.metadata;
+package engine.metadata;
 
 import lua.Table;
 
