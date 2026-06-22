@@ -105,6 +105,7 @@ class NodeDropTable {
 // 					// .addToolRequirements("shovel", "pickaxe")
 // 				.addToolGroupRequirements("magicwand", ["pickaxe", "lucky"])
 // 				.setDugNodeColorInheritance());
+// 		var i = new NodeDropTable("infdev:cobblestone");
 // 		untyped __lua__("print(dump(i))");
 // 	}
 // }
