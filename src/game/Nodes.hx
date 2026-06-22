@@ -46,26 +46,6 @@ final class Dirt extends NodeDefinition {
 		trace("flop");
 	}
 
-	// override function onReceiveFields(pos: EngineVector3, formName: String, fields: Dynamic, sender: Dynamic) {
-	// 	super.onReceiveFields(pos, formName, fields, sender);
-	// }
-	// override function onRightClick(pos: EngineVector3, node: Dynamic, clicker: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: Null<PointedThing>): ItemStack {
-	// 	trace("I have been clicked");
-	// 	return super.onRightClick(pos, node, clicker, itemStack, pointedThing);
-	// }
-	// override function onSecondaryUse(itemstack: ItemStack, user: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
-	// 	return super.onSecondaryUse(itemstack, user, pointedThing);
-	// }
-	// override function onTimer(pos: EngineVector3, elapsed: Float, node: Dynamic, timeout: Float): Bool {
-	// 	return super.onTimer(pos, elapsed, node, timeout);
-	// }
-	// override function onUse(itemstack: ItemStack, user: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
-	// 	return super.onUse(itemstack, user, pointedThing);
-	// }
-	// override function preserveMetadata(pos: EngineVector3, oldNode: Dynamic, oldMeta: Dynamic, drops: Array<ItemStack>) {
-	// 	super.preserveMetadata(pos, oldNode, oldMeta, drops);
-	// }
-
 	override function onPlace(itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
 		trace("cool!");
 		return super.onPlace(itemstack, placer, pointedThing);
