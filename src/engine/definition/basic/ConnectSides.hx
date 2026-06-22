@@ -1,10 +1,10 @@
 package engine.definition.basic;
 
 enum abstract ConnectSides(String) to String {
-	var top = "top";
-	var bottom = "bottom";
-	var front = "front";
-	var left = "left";
-	var back = "back";
-	var right = "right";
+	var ConnectSidestop = "top";
+	var ConnectSidesbottom = "bottom";
+	var ConnectSidesfront = "front";
+	var ConnectSidesleft = "left";
+	var ConnectSidesback = "back";
+	var ConnectSidesright = "right";
 }
