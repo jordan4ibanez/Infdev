@@ -70,7 +70,17 @@ class NodeDropTable {
 
 	private var items: Table<Int, NodeDrop>;
 
-	public function new() {}
+	/**
+	 * If one item is there, it will set it up to just drop that one item.
+	 * Otherwise, use chaining to build it up.
+	 * @param oneItem The one item to drop.
+	 */
+	public function new(?oneItem: String) {
+		if (oneItem != null) {
+			this.addDrop(new NodeDrop()
+				.addItems(oneItem));
+		}
+	}
 
 	public function setMaxItems(maxItems: Int): NodeDropTable {
 		this.maxItems = maxItems;
