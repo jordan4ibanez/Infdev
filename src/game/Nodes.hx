@@ -106,6 +106,7 @@ final class Dirt extends NodeDefinition {
 	}
 
 	override function onRightClick(pos: EngineVector3, node: Dynamic, clicker: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: Null<PointedThing>): ItemStack {
+		trace("I have been clicked");
 		return super.onRightClick(pos, node, clicker, itemStack, pointedThing);
 	}
 
