@@ -1,5 +1,6 @@
 package engine.definition;
 
+import engine.metadata.NodeMetaRef;
 import lua.Table;
 import engine.definition.basic.ConnectSides;
 import engine.definition.basic.NodeDropTable;
@@ -179,7 +180,7 @@ class NodeDefinition extends ItemDefinition {
 	}
 
 	// todo: Metadata table
-	public function preserveMetadata(pos: EngineVector3, oldNode: NodeTable, oldMeta: Dynamic, drops: Table<Int, ItemStack>): Void {
+	public function preserveMetadata(pos: EngineVector3, oldNode: NodeTable, oldMeta: NodeMetaRef, drops: Table<Int, ItemStack>): Void {
 		// nil
 	}
 
