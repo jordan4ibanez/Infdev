@@ -34,6 +34,7 @@ final class Dirt extends NodeDefinition {
 	}
 
 	override function afterDestruct(pos: EngineVector3, oldNode: Dynamic) {
+		trace(oldNode);
 		super.afterDestruct(pos, oldNode);
 	}
 
