@@ -34,11 +34,10 @@ class MapNode {
 		this.param2 = param2;
 	}
 }
-
-class Blah {
-	static function __init__() {
-		trace("blah");
-
-		var i = new MapNode("testing");
-	}
-}
+// class Blah {
+// 	static function __init__() {
+// 		trace("blah");
+// 		var i = new MapNode("testing");
+// 		untyped __lua__("print(dump(i))");
+// 	}
+// }
