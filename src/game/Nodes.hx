@@ -28,6 +28,14 @@ final class Dirt extends NodeDefinition {
 
 	override function onConstruct(pos: EngineVector3) {
 		super.onConstruct(pos);
+
+		var meta = Core.getMeta(pos);
+
+		meta.setString("formspec",
+			"size[8,8]"
+			+ "button[2,2;4,1;btn_name;Click Me]"
+			+ "list[context;main;0,0;8,4;]"
+			+ "list[current_player;main;0,5;8,4;]");
 	}
 
 	override function onDestruct(pos: EngineVector3) {
