@@ -1,18 +1,18 @@
 package engine;
 
 abstract class NodeTimerRef {
-	abstract public function set(timeout: Float, elapsed: Float): Void;
+	public abstract function set(timeout: Float, elapsed: Float): Void;
 
-	abstract public function start(timeout: Float): Void;
+	public abstract function start(timeout: Float): Void;
 
-	abstract public function stop(): Void;
+	public abstract function stop(): Void;
 
 	@:native("get_timeout")
-	abstract public function getTimeout(): Float;
+	public abstract function getTimeout(): Float;
 
 	@:native("get_elapsed")
-	abstract public function getElapsed(): Float;
+	public abstract function getElapsed(): Float;
 
 	@:native("is_started")
-	abstract public function isStarted(): Bool;
+	public abstract function isStarted(): Bool;
 }
