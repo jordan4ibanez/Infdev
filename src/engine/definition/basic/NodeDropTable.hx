@@ -7,13 +7,13 @@ import haxe.Rest;
 // Design goal: functional oop and make it look like lisp
 
 class NodeDrop {
-	var rarity: Int = 1;
-	var items: Table<Int, String> = Table.create();
-	var tools: Table<Int, String>;
+	private var rarity: Int = 1;
+	private var items: Table<Int, String> = Table.create();
+	private var tools: Table<Int, String>;
 	@:native("inherit_color")
-	var inheritColor: Bool;
+	private var inheritColor: Bool;
 	@:native("tool_groups")
-	var toolGroups: Table<Int, EitherType<String, Table<Int, String>>>;
+	private var toolGroups: Table<Int, EitherType<String, Table<Int, String>>>;
 
 	public function new() {}
 
