@@ -17,6 +17,22 @@ class MapNode {
 	public inline function setName(newName: String) {
 		this.name = newName;
 	}
+
+	public inline function getParam1(): Int {
+		return this.param1;
+	}
+
+	public inline function setParam1(param1: Int): Void {
+		this.param1 = param1;
+	}
+
+	public inline function getParam2(): Int {
+		return this.param2;
+	}
+
+	public inline function setParam2(param2: Int): Void {
+		this.param2 = param2;
+	}
 }
 
 class Blah {
