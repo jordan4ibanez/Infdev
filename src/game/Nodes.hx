@@ -1,5 +1,6 @@
 package game;
 
+import engine.NodeTable;
 import lua.Lua;
 import luantitypes.Core;
 import haxe.extern.EitherType;
@@ -43,7 +44,15 @@ final class Dirt extends NodeDefinition {
 	override function onPunch(pos: EngineVector3, node: Dynamic, puncher: Null<ObjectRefBase>, pointedThing: PointedThing) {
 		// super.onPunch(pos, node, puncher, pointedThing);
 		// Core.removeNode(pos);
-		trace("flop");
+		var timer = Core.getNodeTimer(pos);
+
+		timer.start(0.5);
+	}
+
+	override function onTimer(pos: EngineVector3, elapsed: Float, node: NodeTable, timeout: Float): Bool {
+		trace("I have been on timered");
+
+		return super.onTimer(pos, elapsed, node, timeout);
 	}
 
 	override function onPlace(itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
