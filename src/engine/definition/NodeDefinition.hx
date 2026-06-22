@@ -1,5 +1,6 @@
 package engine.definition;
 
+import engine.definition.basic.NodeDropTable;
 import engine.definition.sound.NodeSoundTable;
 import engine.definition.basic.ParamType2;
 import engine.definition.basic.ParamType1;
@@ -157,8 +158,7 @@ class NodeDefinition extends ItemDefinition {
 	@:native("sounds")
 	var nodeSounds: NodeSoundTable;
 
-	// todo: NodeDrops
-	var drop: Dynamic;
+	var drop: NodeDropTable;
 
 	public function onConstruct(pos: EngineVector3): Void {
 		// nil
