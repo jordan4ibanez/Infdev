@@ -197,18 +197,17 @@ class NodeDefinition extends ItemDefinition {
 		return true;
 	}
 
-	// todo: No fucking clue what node is
-	public function onPunch(pos: EngineVector3, node: Dynamic, puncher: Null<ObjectRefBase>, pointedThing: PointedThing): Void {
+	public function onPunch(pos: EngineVector3, node: NodeTable, puncher: Null<ObjectRefBase>, pointedThing: PointedThing): Void {
 		// core.node_punch
 		Core.nodePunch(pos, node, puncher, pointedThing);
 	}
 
-	public function onRightClick(pos: EngineVector3, node: Dynamic, clicker: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: Null<PointedThing>): ItemStack {
+	public function onRightClick(pos: EngineVector3, node: NodeTable, clicker: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: Null<PointedThing>): ItemStack {
 		// nil
 		return itemStack;
 	}
 
-	public function onDig(pos: EngineVector3, node: Dynamic, digger: Null<ObjectRefBase>): Bool {
+	public function onDig(pos: EngineVector3, node: NodeTable, digger: Null<ObjectRefBase>): Bool {
 		// core.node_dig;
 		return Core.nodeDig(pos, node, digger);
 	}
