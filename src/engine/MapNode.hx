@@ -3,8 +3,8 @@ package engine;
 // {name="ignore", param1=0, param2=0}
 class MapNode {
 	private var name: String;
-	private var param1: Int;
-	private var param2: Int;
+	private var param1: Int = 0;
+	private var param2: Int = 0;
 
 	public function new(name: String) {
 		this.name = name;
