@@ -1,5 +1,10 @@
 package engine.definition.basic;
 
 enum abstract ConnectSides(String) to String {
-	var  = "";
+	var top;
+	var bottom;
+	var front;
+	var left;
+	var back;
+	var right;
 }
