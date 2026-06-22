@@ -1,5 +1,6 @@
 package engine.definition.basic;
 
+import haxe.extern.EitherType;
 import lua.Table;
 import haxe.Rest;
 
@@ -11,6 +12,8 @@ class NodeDrop {
 	var tools: Table<Int, String>;
 	@:native("inherit_color")
 	var inheritColor: Bool;
+	@:native("tool_groups")
+	var toolGroups: Table<Int, EitherType<String, Array<String>>>;
 
 	public function new() {}
 
@@ -32,6 +35,17 @@ class NodeDrop {
 		}
 		for (requirement in requirements) {
 			Table.insert(this.tools, requirement);
+		}
+		return this;
+	}
+
+	public function addToolGroupRequirements(groupRequirements: Rest<EitherType<String, Array<String>>>): NodeDrop {
+		if (toolGroups == null) {
+			toolGroups = Table.create();
+		}
+
+		for (groupRequirement in groupRequirements) {
+			Table.insert(this.toolGroups, groupRequirement);
 		}
 		return this;
 	}
