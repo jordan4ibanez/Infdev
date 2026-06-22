@@ -13,7 +13,7 @@ class NodeDrop {
 	@:native("inherit_color")
 	var inheritColor: Bool;
 	@:native("tool_groups")
-	var toolGroups: Table<Int, EitherType<String, Array<String>>>;
+	var toolGroups: Table<Int, EitherType<String, Table<Int, String>>>;
 
 	public function new() {}
 
