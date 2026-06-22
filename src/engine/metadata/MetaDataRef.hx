@@ -1,5 +1,6 @@
 package engine.metadata;
 
+import luantitypes.LuaArray;
 import lua.Table;
 
 abstract class MetaDataRef {
