@@ -1,5 +1,6 @@
 package luantitypes;
 
+import engine.metadata.NodeMetaRef;
 import engine.NodeTimerRef;
 import engine.entity.objectref.ObjectRefEntity;
 import engine.definition.PointedThing;
@@ -165,6 +166,9 @@ extern class Core {
 
 	@:native("get_node_timer")
 	static function getNodeTimer(pos: EngineVector3): NodeTimerRef;
+
+	@:native("get_meta")
+	static function getMeta(pos: EngineVector3): NodeMetaRef;
 }
 
 @:noCompletion
