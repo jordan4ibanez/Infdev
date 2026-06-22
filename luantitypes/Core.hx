@@ -10,7 +10,7 @@ import engine.vector.EngineVector3;
 import engine.entity.LuaEntity;
 import haxe.Rest;
 import Reflect;
-import luantitypes.metadata.StorageRef;
+import engine.metadata.StorageRef;
 // These are public imports. :)
 import engine.LogLevel;
 

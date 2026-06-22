@@ -2,7 +2,7 @@ package engine;
 
 import haxe.Constraints.Constructible;
 import luantitypes.Core;
-import luantitypes.metadata.StorageRef;
+import engine.metadata.StorageRef;
 
 final class ModStorage {
 	private static var storage: StorageRef;
