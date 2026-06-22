@@ -105,10 +105,10 @@ final class Dirt extends NodeDefinition {
 		super.onReceiveFields(pos, formName, fields, sender);
 	}
 
-	override function onRightClick(pos: EngineVector3, node: Dynamic, clicker: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: Null<PointedThing>): ItemStack {
-		trace("I have been clicked");
-		return super.onRightClick(pos, node, clicker, itemStack, pointedThing);
-	}
+	// override function onRightClick(pos: EngineVector3, node: Dynamic, clicker: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: Null<PointedThing>): ItemStack {
+	// 	trace("I have been clicked");
+	// 	return super.onRightClick(pos, node, clicker, itemStack, pointedThing);
+	// }
 
 	override function onSecondaryUse(itemstack: ItemStack, user: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
 		return super.onSecondaryUse(itemstack, user, pointedThing);
