@@ -172,7 +172,6 @@ class NodeDefinition extends ItemDefinition {
 		// nil
 	}
 
-	// todo: check if these are nullable
 	public function onFlood(pos: EngineVector3, oldNode: NodeTable, newNode: NodeTable): Bool {
 		// nil
 		return false;
