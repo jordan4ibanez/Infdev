@@ -152,7 +152,8 @@ class ItemDefinitionDuctTape {
 										// trace("[DEBUG]: skipped mod_origin for " + $v{wrapperClassName});
 										continue;
 									}
-									trace($v{wrapperClassName}, "field", field);
+									// ? This is extremely important for debugging meta static wrapper classes.
+									// trace($v{wrapperClassName}, "field", field);
 									untyped $i{wrapperClassName}[field] = Reflect.field(instance, field);
 								}
 
