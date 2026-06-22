@@ -179,7 +179,6 @@ class NodeDefinition extends ItemDefinition {
 		return false;
 	}
 
-	// todo: Metadata table
 	public function preserveMetadata(pos: EngineVector3, oldNode: NodeTable, oldMeta: NodeMetaRef, drops: Table<Int, ItemStack>): Void {
 		// nil
 	}
