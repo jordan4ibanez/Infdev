@@ -1,5 +1,6 @@
 package engine.definition;
 
+import lua.Table;
 import engine.definition.basic.ConnectSides;
 import engine.definition.basic.NodeDropTable;
 import engine.definition.sound.NodeSoundTable;
@@ -178,7 +179,7 @@ class NodeDefinition extends ItemDefinition {
 	}
 
 	// todo: Metadata table
-	public function preserveMetadata(pos: EngineVector3, oldNode: NodeTable, oldMeta: Dynamic, drops: Array<ItemStack>): Void {
+	public function preserveMetadata(pos: EngineVector3, oldNode: NodeTable, oldMeta: Dynamic, drops: Table<Int, ItemStack>): Void {
 		// nil
 	}
 
