@@ -50,7 +50,7 @@ final class Dirt extends NodeDefinition {
 	}
 
 	override function onTimer(pos: EngineVector3, elapsed: Float, node: NodeTable, timeout: Float): Bool {
-		trace("I have been on timered");
+		trace("I have been on timered", timeout);
 
 		return super.onTimer(pos, elapsed, node, timeout);
 	}

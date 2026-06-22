@@ -212,8 +212,6 @@ class NodeDefinition extends ItemDefinition {
 		return Core.nodeDig(pos, node, digger);
 	}
 
-	// todo: check if that last thing is float wtf
-
 	public function onTimer(pos: EngineVector3, elapsed: Float, node: NodeTable, timeout: Float): Bool {
 		// nil
 		return false;
