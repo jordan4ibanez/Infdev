@@ -1,5 +1,6 @@
 package engine.definition.basic;
 
+import lua.Table;
 import haxe.Rest;
 
 // Design goal: functional oop and make it look like lisp
@@ -7,7 +8,7 @@ import haxe.Rest;
 class NodeDrop {
 	var rarity: Int = 1;
 
-	var items: Array<String> = [];
+	var items: Table<Int, String> = Table.create();
 
 	public function new() {}
 
@@ -17,13 +18,13 @@ class NodeDrop {
 	}
 
 	public function addItem(item: String): NodeDrop {
-		this.items.push(item);
+		Table.insert(this.items, item);
 		return this;
 	}
 
 	public function addItems(items: Rest<String>): NodeDrop {
 		for (item in items) {
-			this.items.push(item);
+			Table.insert(this.items, item);
 		}
 		return this;
 	}
