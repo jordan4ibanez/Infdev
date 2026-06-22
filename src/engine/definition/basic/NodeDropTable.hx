@@ -76,6 +76,14 @@ class NodeDropTable {
 		this.maxItems = maxItems;
 		return this;
 	}
+
+	public function addDrop(drop: NodeDrop): NodeDropTable {
+		if (this.items == null) {
+			this.items = Table.create();
+		}
+		Table.insert(this.items, drop);
+		return this;
+	}
 }
 
 // class Blah {
