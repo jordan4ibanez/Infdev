@@ -168,12 +168,12 @@ class NodeDefinition extends ItemDefinition {
 		// nil
 	}
 
-	public function afterDestruct(pos: EngineVector3, oldNode: MapNode) {
+	public function afterDestruct(pos: EngineVector3, oldNode: NodeTable) {
 		// nil
 	}
 
 	// todo: check if these are nullable
-	public function onFlood(pos: EngineVector3, oldNode: MapNode, newNode: MapNode): Bool {
+	public function onFlood(pos: EngineVector3, oldNode: NodeTable, newNode: NodeTable): Bool {
 		// nil
 		return false;
 	}
