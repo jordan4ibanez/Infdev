@@ -1,5 +1,6 @@
 package engine.definition;
 
+import engine.definition.basic.ConnectSides;
 import engine.definition.basic.NodeDropTable;
 import engine.definition.sound.NodeSoundTable;
 import engine.definition.basic.ParamType2;
@@ -132,9 +133,8 @@ class NodeDefinition extends ItemDefinition {
 	@:native("connects_to")
 	var connectsTo: Array<String>;
 
-	// todo: ConnectSides Enum.
 	@:native("connect_sides")
-	var connectSides: Array<Dynamic>;
+	var connectSides: Array<ConnectSides>;
 
 	var mesh: String;
 
