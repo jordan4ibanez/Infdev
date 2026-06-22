@@ -68,6 +68,8 @@ class NodeDropTable {
 	@:native("max_items")
 	private var maxItems: Int = 1;
 
+	private var items: Table<Int, NodeDrop>;
+
 	public function new() {}
 
 	public function setMaxItems(maxItems: Int): NodeDropTable {
