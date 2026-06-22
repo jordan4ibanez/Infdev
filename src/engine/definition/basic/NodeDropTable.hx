@@ -9,6 +9,8 @@ class NodeDrop {
 	var rarity: Int = 1;
 	var items: Table<Int, String> = Table.create();
 	var tools: Table<Int, String>;
+	@:native("inherit_color")
+	var inheritColor: Bool;
 
 	public function new() {}
 
@@ -33,6 +35,11 @@ class NodeDrop {
 		}
 		return this;
 	}
+
+	public function setDugNodeColorInheritance(): NodeDrop {
+		this.inheritColor = true;
+		return this;
+	}
 }
 
 class NodeDropTable {
@@ -51,7 +58,8 @@ class Blah {
 	static function __init__() {
 		var i = new NodeDrop()
 			.addItems("test", "flop")
-			.addToolRequirements("shovel", "pickaxe");
+			.addToolRequirements("shovel", "pickaxe")
+			.setDugNodeColorInheritance();
 
 		untyped __lua__("print(dump(i))");
 	}
