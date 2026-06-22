@@ -5,10 +5,17 @@ package engine.definition.basic;
 class NodeDrop {
 	var rarity: Int = 1;
 
+	var items: Array<String> = [];
+
 	public function new() {}
 
 	public function setRarity(rarity: Int): NodeDrop {
 		this.rarity = rarity;
+		return this;
+	}
+
+	public function addItem(item: String): NodeDrop {
+		this.items.push(item);
 		return this;
 	}
 }
