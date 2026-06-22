@@ -214,7 +214,7 @@ class NodeDefinition extends ItemDefinition {
 
 	// todo: check if that last thing is float wtf
 
-	public function onTimer(pos: EngineVector3, elapsed: Float, node: Dynamic, timeout: Float): Bool {
+	public function onTimer(pos: EngineVector3, elapsed: Float, node: NodeTable, timeout: Float): Bool {
 		// nil
 		return false;
 	}
