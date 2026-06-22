@@ -45,7 +45,15 @@ class NodeDrop {
 		}
 
 		for (groupRequirement in groupRequirements) {
-			Table.insert(this.toolGroups, groupRequirement);
+			if (Std.isOfType(groupRequirement, String)) {
+				Table.insert(this.toolGroups, groupRequirement);
+			} else if (Std.isOfType(groupRequirement, Array)) {
+				var translatedToLuaTable = Table.create();
+				for (component in cast(groupRequirement, Array<Dynamic>)) {
+					Table.insert(translatedToLuaTable, component);
+				}
+				Table.insert(this.toolGroups, translatedToLuaTable);
+			}
 		}
 		return this;
 	}
