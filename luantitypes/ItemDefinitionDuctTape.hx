@@ -377,7 +377,8 @@ class ItemDefinitionDuctTape {
 			for (implementation in fieldChecks) {
 				final has = Lambda.find(fields, (f) -> f.name == implementation.classMethodName) != null;
 
-				trace(implementation.classMethodName, has);
+				// ? This is extremely important for debugging meta static container classes!
+				// trace(implementation.classMethodName, has);
 
 				if (has) {
 					var parsed = Context.parse(implementation.code, Context.currentPos());
