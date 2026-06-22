@@ -17,11 +17,6 @@ class NodeDrop {
 		return this;
 	}
 
-	public function addItem(item: String): NodeDrop {
-		Table.insert(this.items, item);
-		return this;
-	}
-
 	public function addItems(items: Rest<String>): NodeDrop {
 		for (item in items) {
 			Table.insert(this.items, item);
