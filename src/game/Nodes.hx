@@ -88,7 +88,8 @@ final class Dirt extends NodeDefinition {
 
 	override function onPunch(pos: EngineVector3, node: Dynamic, puncher: Null<ObjectRefBase>, pointedThing: PointedThing) {
 		// super.onPunch(pos, node, puncher, pointedThing);
-		Core.removeNode(pos);
+		// Core.removeNode(pos);
+		trace("flop");
 	}
 
 	// override function onReceiveFields(pos: EngineVector3, formName: String, fields: Dynamic, sender: Dynamic) {
