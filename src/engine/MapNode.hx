@@ -10,6 +10,10 @@ class MapNode {
 		this.name = name;
 	}
 
+	public inline function getName(): String {
+		return this.name;
+	}
+
 	public inline function setName(newName: String) {
 		this.name = newName;
 	}
