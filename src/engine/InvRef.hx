@@ -12,3 +12,6 @@ abstract class InvRef {
 
 	@:native("get_width")
 	public abstract function getWidth(listName: String): Int;
+
+	@:native("set_width")
+	public abstract function setWidth(listName: String, width: Int): Null<Bool>;
