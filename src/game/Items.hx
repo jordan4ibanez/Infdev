@@ -44,7 +44,7 @@ final class Stick extends ItemDefinition {
 	}
 
 	override function afterUse(itemstack: ItemStack, user: Null<ObjectRefBase>, node: NodeTable, digparams: Dynamic): Null<ItemStack> {
+		trace(digparams);
 		return super.afterUse(itemstack, user, node, digparams);
-		trace("hmmm");
 	}
 }
