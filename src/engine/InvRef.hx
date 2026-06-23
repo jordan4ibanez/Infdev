@@ -29,3 +29,6 @@ abstract class InvRef {
 
 	@:native("set_list")
 	public abstract function setList(listName: String, list: Table<Int, ItemStack>): Void;
+
+	@:native("get_lists")
+	public abstract function getLists(): Table<String, Table<Int, ItemStack>>;
