@@ -114,11 +114,10 @@ class ItemDefinition {
 		return null;
 	};
 
-	// todo: node thing
 	// todo: digparams
 
 	@:native("after_use")
-	public function afterUse(itemstack: ItemStack, user: Null<ObjectRefBase>, node: Dynamic, digparams: Dynamic): Null<ItemStack> {
+	public function afterUse(itemstack: ItemStack, user: Null<ObjectRefBase>, node: NodeTable, digparams: Dynamic): Null<ItemStack> {
 		// nil
 		return null;
 	};
