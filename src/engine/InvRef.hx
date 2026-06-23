@@ -38,3 +38,6 @@ abstract class InvRef {
 
 	@:native("add_item")
 	public abstract function addItem(listName: String, stack: ItemStack): ItemStack;
+
+	@:native("room_for_item")
+	public abstract function roomForItem(listName: String, stack: ItemStack): Bool;
