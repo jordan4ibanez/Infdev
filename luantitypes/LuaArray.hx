@@ -22,6 +22,11 @@ abstract LuaArray<T>(Table<Int, T>) from Table<Int, T> to Table<Int, T> {
 		return untyped __lua__("#({0})", this);
 	}
 
+	// Appends an item to the end of the Lua array (1-indexed safe)
+	inline public function push(value: T): Void {
+		untyped this[get_length() + 1] = value;
+	}
+
 	// Allows implicit casting: var la: LuaArray<Int> = [1, 2, 3];
 
 	@:from
