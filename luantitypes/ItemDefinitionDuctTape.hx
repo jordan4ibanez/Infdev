@@ -175,7 +175,8 @@ class ItemDefinitionDuctTape {
 								// This hackjob automatically does the registration.
 								luantitypes.Core.$luantiRegistrationMethod($v{registrationName}, $i{wrapperClassName});
 
-								trace("registered " + $v{registrationName} + " with " + $v{luantiRegistrationMethod});
+								// ? This is important for debugging.
+								// trace("registered " + $v{registrationName} + " with " + $v{luantiRegistrationMethod});
 
 								// trace(instance);
 								// trace($i{wrapperClassName});
