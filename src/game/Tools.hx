@@ -25,8 +25,8 @@ final class Hand extends ToolDefinition {
 	}
 }
 
-@:register("infdev:stick")
-final class Stick extends ToolDefinition {
+@:register("infdev:oracle_pickaxe")
+final class OraclePickaxe extends ToolDefinition {
 	public function new() {
 		super();
 
