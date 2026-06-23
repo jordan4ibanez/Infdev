@@ -40,7 +40,6 @@ final class OraclePickaxe extends ToolDefinition {
 				.setTimesFromArray([1.0, 0.5, 0.75])
 				.setUses(10)
 				.setMaxLevel(0));
-		Lua.print(Global.dump(this.toolCapabilities));
 	}
 
 	override function afterUse(itemstack: ItemStack, user: Null<ObjectRefBase>, node: NodeTable, digparams: DigParams): Null<ItemStack> {
