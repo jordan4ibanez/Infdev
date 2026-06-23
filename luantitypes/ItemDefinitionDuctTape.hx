@@ -66,21 +66,22 @@ class ItemDefinitionDuctTape {
 			var superClassName = superClassRef.name;
 
 			var registerTag = localClass.meta.has(":register");
+			var overrideTag = localClass.meta.has(":override");
 
-			var isToolDef = registerTag && superClassName == "ToolDefinition";
-			var isNodeDef = registerTag && superClassName == "NodeDefinition";
-			var isItemDef = registerTag && superClassName == "ItemDefinition";
+			var isToolDef = (registerTag || overrideTag) && superClassName == "ToolDefinition";
+			var isNodeDef = (registerTag || overrideTag) && superClassName == "NodeDefinition";
+			var isItemDef = (registerTag || overrideTag) && superClassName == "ItemDefinition";
 
 			// trace(isItemDef, isToolDef, isNodeDef, className);
 
 			if (!isItemDef && !isToolDef && !isNodeDef) {
 				switch (superClassRef.name) {
 					case "ItemDefinition":
-						Context.error('Please decorate this class with @:register("mod:item")', localClass.pos);
+						Context.error('Please decorate this class with @:register("mod:item") or @:override("mod:item")', localClass.pos);
 					case "NodeDefinition":
-						Context.error('Please decorate this class with @:register("mod:node")', localClass.pos);
+						Context.error('Please decorate this class with @:register("mod:node") or @:override("mod:node")', localClass.pos);
 					case "ToolDefinition":
-						Context.error('Please decorate this class with @:register("mod:tool")', localClass.pos);
+						Context.error('Please decorate this class with @:register("mod:tool") or @:override("mod:tool")', localClass.pos);
 
 					default:
 						Context.error(superClassRef.name + ' IS MISSING A DECORATOR SWITCH!!!', localClass.pos);
