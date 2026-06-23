@@ -218,9 +218,8 @@ class NodeDefinition extends ItemDefinition {
 	}
 
 	// todo: Fields can extend a base class :D I hope
-	// todo: who the fuck is the sender???
 
-	public function onReceiveFields(pos: EngineVector3, formName: String, fields: Dynamic, sender: Dynamic): Void {
+	public function onReceiveFields(pos: EngineVector3, formName: String, fields: Dynamic, sender: Null<ObjectRefBase>): Void {
 		// nil
 	}
 
