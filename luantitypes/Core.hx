@@ -54,6 +54,9 @@ extern class Core {
 	@:native("register_craftitem")
 	static function registerCraftItem(name: String, def: Dynamic): Void;
 
+	@:native("register_tool")
+	static function registerTool(name: String, def: Dynamic): Void;
+
 	@:native("override_item")
 	static function overrideItem(name: String, redef: Dynamic, ?delFields: Dynamic): Void;
 
