@@ -189,7 +189,7 @@ class NodeDefinition extends ItemDefinition {
 		return false;
 	}
 
-	public function afterDigNode(pos: EngineVector3, oldNode: Dynamic, oldMetaData: Dynamic, digger: Null<ObjectRefBase>): Void {
+	public function afterDigNode(pos: EngineVector3, oldNode: NodeTable, oldMetaData: NodeMetaRef, digger: Null<ObjectRefBase>): Void {
 		// nil
 	}
 
