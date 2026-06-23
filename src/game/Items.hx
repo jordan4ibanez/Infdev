@@ -20,6 +20,7 @@ final class Hand extends ToolDefinition {
 			.setFullPunchInterval(1.0)
 			.addGroupCap("oddly_breakable_by_hand", new GroupCapabilities()
 				.setTimesFromArray([3.0, 2.0, 1.0])
+				.setMaxLevel(0)
 				.setUses(0));
 
 		// Lua.print(Global.dump(this.toolCapabilities));
