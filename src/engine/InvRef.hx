@@ -1,8 +1,10 @@
 package engine;
 
+import lua.Table;
+
 abstract class InvRef {
 	@:native("is_empty")
-	public abstract function isEmpty(listName: String): Boolean;
+	public abstract function isEmpty(listName: String): Bool;
 
 	@:native("get_size")
 	public abstract function getSize(listName: String): Int;
