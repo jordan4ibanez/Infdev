@@ -49,5 +49,9 @@ abstract class InvRef {
 	public abstract function removeItem(listName: String, stack: ItemStack, ?matchMeta: Bool): ItemStack;
 
 	// todo: InventoryLocation
+
+	@:native("get_location")
+	public abstract function(listName: String): Dynamic;
+
 	// todo: implement callbacks, somehow
 }
