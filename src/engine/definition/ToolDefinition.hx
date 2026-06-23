@@ -15,7 +15,7 @@ package engine.definition;
  * 
  * Never call another override function unless 
  * 
- * Also another note: This one is for Toold. 
+ * Also another note: This one is for tools. 
  * Use the ItemDefinition class for items.
  * Use the NodeDefinition class for nodes.
  */
