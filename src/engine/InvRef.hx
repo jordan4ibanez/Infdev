@@ -1,5 +1,6 @@
 package engine;
 
+import luantitypes.LuaArray;
 import lua.Table;
 
 // todo: this needs a qol boost. Some kind of type conversion or something.
@@ -38,12 +39,12 @@ abstract class InvRef {
 	// This is horrible.
 
 	@:native("get_lists")
-	public abstract function getLists(): Table<String, Table<Int, ItemStack>>;
+	public abstract function getLists(): Table<String, LuaArray<ItemStack>>;
 
 	// This is horrible.
 
 	@:native("set_lists")
-	public abstract function setLists(lists: Table<String, Table<Int, ItemStack>>): Void;
+	public abstract function setLists(lists: Table<String, LuaArray<ItemStack>>): Void;
 
 	@:native("add_item")
 	public abstract function addItem(listName: String, stack: ItemStack): ItemStack;
