@@ -240,3 +240,12 @@ class NodeBoxConnected extends NodeBox {
 		return this;
 	}
 }
+
+// class Blah {
+// 	static function __init__() {
+// 		var i = new NodeBoxFixed();
+// 		i.addBox(1, 2, 3, 4, 5, 6);
+// 		i.addBox(1.0, 21.312, 1.123, 0.1, 0.11212, 94.0);
+// 		untyped __lua__("print(dump(i))");
+// 	}
+// }
