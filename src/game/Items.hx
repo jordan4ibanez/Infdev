@@ -1,5 +1,7 @@
 package game;
 
+import engine.definition.ToolDefinition;
+import engine.definition.PointedThing;
 import luantitypes.Core.Global;
 import lua.Lua;
 import engine.definition.ToolCapabilities;
@@ -35,9 +37,16 @@ final class Stick extends ToolDefinition {
 
 		this.toolCapabilities = new ToolCapabilities()
 			.setFullPunchInterval(1.0)
+			.setMaxDropLevel(0)
+			.addGroupCap("dirt", new GroupCapabilities()
 				.setTimesFromArray([1.0, 0.5, 0.75])
+				.setUses(10)
+				.setMaxLevel(0));
+		Lua.print(Global.dump(this.toolCapabilities));
 	}
 
 	override function afterUse(itemstack: ItemStack, user: Null<ObjectRefBase>, node: NodeTable, digparams: Dynamic): Null<ItemStack> {
+		trace(itemstack.getWear());
+		return itemstack;
 	}
 }
