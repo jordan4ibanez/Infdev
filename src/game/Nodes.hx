@@ -26,9 +26,9 @@ final class Dirt extends NodeDefinition {
 		Lua.print("I am created");
 
 		this.nodeColor = "blue";
-		// this.groups = {
-		// 	test: 1
-		// };
+		this.groups = {
+			test: 1
+		};
 
 		untyped __lua__("print(dump(self.groups))");
 	}
