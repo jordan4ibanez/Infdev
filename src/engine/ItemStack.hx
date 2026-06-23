@@ -9,6 +9,9 @@ extern class ItemStack {
 	@:native("get_count")
 	public function getCount(): Int;
 
+	@:native("get_wear")
+	public function getWear(): Int;
+
 	@:native("set_wear")
 	public function setWear(wear: Int): Void;
 
