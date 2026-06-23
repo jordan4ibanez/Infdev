@@ -27,7 +27,7 @@ final class Dirt extends NodeDefinition {
 
 		this.nodeColor = "blue";
 		this.groups = {
-			oddly_breakable_by_hand: 1
+			dirt: 1
 		};
 
 		// untyped __lua__("print(dump(self.groups))");
