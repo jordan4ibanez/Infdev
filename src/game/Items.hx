@@ -12,3 +12,9 @@ import engine.entity.objectref.ObjectRefBase;
 import engine.NodeTable;
 import engine.definition.ItemDefinition;
 
+@:register("infdev:stick")
+final class Stick extends ItemDefinition {
+	public function new() {
+		super();
+	}
+}
