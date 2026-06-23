@@ -12,7 +12,7 @@ final class Stick extends ItemDefinition {
 	public function new() {
 		super();
 
-		toolCapabilities.addGroupCap()
+		// toolCapabilities.addGroupCap()
 	}
 
 	override function afterUse(itemstack: ItemStack, user: Null<ObjectRefBase>, node: NodeTable, digparams: Dynamic): Null<ItemStack> {
