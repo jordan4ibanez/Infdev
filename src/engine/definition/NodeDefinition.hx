@@ -217,9 +217,7 @@ class NodeDefinition extends ItemDefinition {
 		return false;
 	}
 
-	// todo: Fields can extend a base class :D I hope
-
-	public function onReceiveFields(pos: EngineVector3, formName: String, fields: Dynamic, sender: Null<ObjectRefBase>): Void {
+	public function onReceiveFields(pos: EngineVector3, formName: String, fields: Table<Dynamic, Dynamic>, sender: Null<ObjectRefBase>): Void {
 		// nil
 	}
 

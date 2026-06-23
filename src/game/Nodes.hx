@@ -1,5 +1,6 @@
 package game;
 
+import lua.Table;
 import engine.InvRef;
 import engine.NodeTable;
 import lua.Lua;
@@ -52,6 +53,12 @@ final class Dirt extends NodeDefinition {
 
 		// Not allowed, perfect :D
 		// var blah = new InvRef();
+	}
+
+	override function onReceiveFields(pos: EngineVector3, formName: String, fields: Table<Dynamic, Dynamic>, sender: Null<ObjectRefBase>) {
+		super.onReceiveFields(pos, formName, fields, sender);
+
+		trace(fields);
 	}
 
 	override function onDestruct(pos: EngineVector3) {
