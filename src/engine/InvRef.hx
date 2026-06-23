@@ -50,3 +50,4 @@ abstract class InvRef {
 
 	// todo: InventoryLocation
 	// todo: implement callbacks, somehow
+}
