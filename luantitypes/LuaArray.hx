@@ -6,12 +6,25 @@ import lua.Table;
 
 @:forward
 abstract LuaArray<T>(Table<Int, T>) from Table<Int, T> to Table<Int, T> {
+	// Allows calling: var arr = new LuaArray<String>();
+	inline public function new() {
+		this = Table.create();
+	}
+
+	// Syntactic sugar alternative: var arr = LuaArray.create();
+	inline public static function create<T>(): LuaArray<T> {
+		return new LuaArray<T>();
+	}
+
 	public var length(get, never): Int;
 
 	inline function get_length(): Int {
 		return untyped __lua__("#({0})", this);
 	}
 
+	// Allows implicit casting: var la: LuaArray<Int> = [1, 2, 3];
+
+	@:from
 	public static inline function fromArray<T>(arr: Array<T>): LuaArray<T> {
 		return cast Table.fromArray(arr);
 	}
@@ -19,6 +32,14 @@ abstract LuaArray<T>(Table<Int, T>) from Table<Int, T> to Table<Int, T> {
 	@:arrayAccess
 	inline function get(index: Int): T {
 		return untyped this[index + 1];
+	}
+
+	// Adding array write access so you can actually populate it
+
+	@:arrayAccess
+	inline function set(index: Int, value: T): T {
+		untyped this[index + 1] = value;
+		return value;
 	}
 
 	inline public function iterator(): LuaArrayIterator<T> {
