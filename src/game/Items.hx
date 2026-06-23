@@ -11,7 +11,7 @@ import engine.NodeTable;
 import engine.definition.ItemDefinition;
 
 @:override("")
-final class Hand extends ItemDefinition {
+final class Hand extends ToolDefinition {
 	public function new() {
 		super();
 		wieldScale = new Vec3(1, 1, 1);
