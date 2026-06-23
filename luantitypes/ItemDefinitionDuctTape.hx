@@ -65,8 +65,8 @@ class ItemDefinitionDuctTape {
 			var superClassRef = localClass.superClass.t.get();
 			var superClassName = superClassRef.name;
 
-			var registerTag = localClass.meta.has(":register");
-			var overrideTag = localClass.meta.has(":override");
+			var registerTag: Bool = localClass.meta.has(":register");
+			var overrideTag: Bool = localClass.meta.has(":override");
 
 			var isToolDef = (registerTag || overrideTag) && superClassName == "ToolDefinition";
 			var isNodeDef = (registerTag || overrideTag) && superClassName == "NodeDefinition";
