@@ -54,6 +54,9 @@ extern class Core {
 	@:native("register_craftitem")
 	static function registerCraftItem(name: String, def: Dynamic): Void;
 
+	@:native("override_item")
+	static function overrideItem(name: String, redef: Dynamic, ?delFields: Dynamic): Void;
+
 	// fixme: this is incorrect.
 	@:native("request_shutdown")
 	static function requestShutdown(?message: String, ?reconnect: Bool, ?delay: Float): Void;
