@@ -14,11 +14,8 @@ import engine.definition.ItemDefinition;
 final class Hand extends ItemDefinition {
 	public function new() {
 		super();
-
 		wieldScale = new Vec3(1, 1, 1);
-
 		this.itemColor = "white";
-
 		this.toolCapabilities = new ToolCapabilities()
 			.setFullPunchInterval(1.0)
 			.addGroupCap("oddly_breakable_by_hand", new GroupCapabilities()
