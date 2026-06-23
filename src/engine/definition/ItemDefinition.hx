@@ -1,5 +1,6 @@
 package engine.definition;
 
+import engine.definition.basic.DigParams;
 import engine.definition.basic.Pointabilities;
 import luantitypes.Core;
 import engine.definition.graphics.WearBarColors;
@@ -122,10 +123,8 @@ class ItemDefinition {
 		return null;
 	};
 
-	// todo: digparams
-
 	@:native("after_use")
-	public function afterUse(itemstack: ItemStack, user: Null<ObjectRefBase>, node: NodeTable, digparams: Dynamic): Null<ItemStack> {
+	public function afterUse(itemstack: ItemStack, user: Null<ObjectRefBase>, node: NodeTable, digparams: DigParams): Null<ItemStack> {
 		// nil
 		return null;
 	};
