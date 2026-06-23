@@ -41,3 +41,6 @@ abstract class InvRef {
 
 	@:native("room_for_item")
 	public abstract function roomForItem(listName: String, stack: ItemStack): Bool;
+
+	@:native("contains_item")
+	public abstract function containsItem(listName: String, stack: ItemStack, ?matchMeta: Bool): Bool;
