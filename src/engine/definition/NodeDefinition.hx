@@ -218,6 +218,7 @@ class NodeDefinition extends ItemDefinition {
 		return false;
 	}
 
+	// ? note: this one is OK to use Dynamic!
 	public function onReceiveFields(pos: EngineVector3, formName: String, fields: Table<Dynamic, Dynamic>, sender: Null<ObjectRefBase>): Void {
 		// nil
 	}
