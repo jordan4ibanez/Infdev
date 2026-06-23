@@ -23,7 +23,9 @@ import engine.definition.graphics.ItemImageDefinition;
  * 
  * Never call another override function unless 
  * 
- * Also another note: This one is for tools/items. Use the NodeDefinition class for nodes.
+ * Also another note: This one is for items. 
+ * Use the ToolDefinition class for tools.
+ * Use the NodeDefinition class for nodes.
  */
 @:build(luantitypes.ItemDefinitionDuctTape.build())
 @:autoBuild(luantitypes.ItemDefinitionDuctTape.build())
