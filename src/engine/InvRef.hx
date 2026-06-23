@@ -44,3 +44,7 @@ abstract class InvRef {
 
 	@:native("contains_item")
 	public abstract function containsItem(listName: String, stack: ItemStack, ?matchMeta: Bool): Bool;
+
+	@:native("remove_item")
+	public abstract function removeItem(listName: String, stack: ItemStack, ?matchMeta: Bool): ItemStack;
+
