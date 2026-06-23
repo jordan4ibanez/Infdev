@@ -1,5 +1,6 @@
 package game;
 
+import engine.InvRef;
 import engine.NodeTable;
 import lua.Lua;
 import luantitypes.Core;
@@ -37,8 +38,20 @@ final class Dirt extends NodeDefinition {
 			+ "list[context;main;0,0;8,4;]"
 			+ "list[current_player;main;0,5;8,4;]");
 
-		meta.getInventory()
-			.setSize("main", 8 * 4);
+		var inv = meta.getInventory();
+		inv.setSize("main", 8 * 4);
+
+		var lists = inv.getLists();
+
+		for (index => stack in lists.main) {
+			trace(index, stack);
+		}
+
+		// todo: implement
+		trace(lists.main[1]);
+
+		// Not allowed, perfect :D
+		// var blah = new InvRef();
 	}
 
 	override function onDestruct(pos: EngineVector3) {
