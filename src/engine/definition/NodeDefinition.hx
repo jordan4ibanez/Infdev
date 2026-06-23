@@ -36,7 +36,9 @@ import engine.definition.graphics.ItemImageDefinition;
  * 
  * Never call another override function unless 
  * 
- * Also another note: This one is for nodes. Use the ItemDefinition class for tools/items.
+ * Also another note: This one is for nodes. 
+ * Use the ItemDefinition class for items.
+ * Use the ToolDefinition class for tools.
  */
 @:luantiDefinitionRoot
 class NodeDefinition extends ItemDefinition {
