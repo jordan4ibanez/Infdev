@@ -24,3 +24,8 @@ abstract class InvRef {
 
 	@:native("get_list")
 	public abstract function getList(listName: String): Null<Table<Int, ItemStack>>;
+
+	// todo: this needs a qol boost.
+
+	@:native("set_list")
+	public abstract function setList(listName: String, list: Table<Int, ItemStack>): Void;
