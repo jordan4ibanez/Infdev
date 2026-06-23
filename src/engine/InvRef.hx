@@ -6,7 +6,6 @@ import lua.Table;
 // todo: maybe have this be the base and just implement on top of it or something.
 // todo: could have all these things be a base with inlines or something.
 // todo: anything is better. Look into this.
-
 abstract class InvRef {
 	@:native("is_empty")
 	public abstract function isEmpty(listName: String): Bool;
@@ -58,5 +57,9 @@ abstract class InvRef {
 	@:native("get_location")
 	public abstract function getLocation(listName: String): Dynamic;
 
+	// todo: example:
+	// public inline function doThing() {
+	// 	untyped __lua__("self:do_lua_thing()");
+	// }
 	// todo: implement callbacks, somehow
 }
