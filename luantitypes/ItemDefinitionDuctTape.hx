@@ -100,7 +100,9 @@ class ItemDefinitionDuctTape {
 			}
 
 			{
-				var metaEntry = localClass.meta.extract(":register")[0];
+				var searchTag = registerTag ? ":register" : ":override";
+
+				var metaEntry = localClass.meta.extract(searchTag)[0];
 				// trace(metaEntry);
 				if (metaEntry == null) {
 					Context.error("Something blew up.", localClass.pos);
@@ -113,7 +115,7 @@ class ItemDefinitionDuctTape {
 						try {
 							registrationName = haxe.macro.ExprTools.getValue(metaEntry.params[0]);
 						} catch (e:Dynamic) {
-							Context.error("Could not parse @:register value as a string literal.", metaEntry.params[0].pos);
+							Context.error("Could not parse @" + searchTag + " value as a string literal.", metaEntry.params[0].pos);
 						}
 				}
 			}
