@@ -2,6 +2,11 @@ package engine;
 
 import lua.Table;
 
+// todo: this needs a qol boost. Some kind of type conversion or something.
+// todo: maybe have this be the base and just implement on top of it or something.
+// todo: could have all these things be a base with inlines or something.
+// todo: anything is better. Look into this.
+
 abstract class InvRef {
 	@:native("is_empty")
 	public abstract function isEmpty(listName: String): Bool;
@@ -26,8 +31,6 @@ abstract class InvRef {
 
 	@:native("get_list")
 	public abstract function getList(listName: String): Null<Table<Int, ItemStack>>;
-
-	// todo: this needs a qol boost.
 
 	@:native("set_list")
 	public abstract function setList(listName: String, list: Table<Int, ItemStack>): Void;
