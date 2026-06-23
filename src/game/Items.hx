@@ -5,7 +5,12 @@ import engine.entity.objectref.ObjectRefBase;
 import engine.NodeTable;
 import engine.definition.ItemDefinition;
 
-
+@:override("")
+final class Hand extends ItemDefinition {
+	public function new() {
+		super();
+	}
+}
 
 @:register("infdev:stick")
 final class Stick extends ItemDefinition {
