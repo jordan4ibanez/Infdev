@@ -36,6 +36,12 @@ class ItemDefinition {
 
 	public var groups: Dynamic<Int>;
 
+	@:native("inventory_image")
+	public var inventoryImage: ItemImageDefinitionOrString;
+
+	@:native("inventory_overlay")
+	public var inventoryOverlay: ItemImageDefinitionOrString;
+
 	@:native("wield_image")
 	public var wieldImage: ItemImageDefinitionOrString;
 
