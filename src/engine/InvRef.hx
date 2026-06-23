@@ -15,3 +15,6 @@ abstract class InvRef {
 
 	@:native("set_width")
 	public abstract function setWidth(listName: String, width: Int): Null<Bool>;
+
+	@:native("get_stack")
+	public abstract function getStack(listName: String, index: Int): ItemStack;
