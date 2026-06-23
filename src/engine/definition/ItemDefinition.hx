@@ -125,8 +125,12 @@ class ItemDefinition {
 
 	@:native("after_use")
 	public function afterUse(itemstack: ItemStack, user: Null<ObjectRefBase>, node: NodeTable, digparams: DigParams): Null<ItemStack> {
-		// nil
-		return null;
+		// nil <- in engine
+
+		// ? This is taking advantage of the fact that this only exists if you define it in your class.
+		// ? So if you want regular behavior, just return super.
+		itemstack.addWear(digparams.getWear());
+		return itemstack;
 	};
 
 	// public var testing: () -> Void;
