@@ -22,7 +22,7 @@ final class Hand extends ItemDefinition {
 		this.toolCapabilities = new ToolCapabilities()
 			.setFullPunchInterval(1.0)
 			.addGroupCap("oddly_breakable_by_hand", new GroupCapabilities()
-				.setTimesFromArray([3.0, 2.0, 3.0])
+				.setTimesFromArray([3.0, 2.0, 1.0])
 				.setUses(0));
 
 		// Lua.print(Global.dump(this.toolCapabilities));
@@ -33,6 +33,12 @@ final class Hand extends ItemDefinition {
 final class Stick extends ItemDefinition {
 	public function new() {
 		super();
+
+		this.toolCapabilities = new ToolCapabilities()
+			.setFullPunchInterval(1.0)
+			.addGroupCap("oddly_breakable_by_hand", new GroupCapabilities()
+				.setTimesFromArray([1.0, 0.5, 0.75])
+				.setUses(0));
 
 		// toolCapabilities.addGroupCap()
 	}
