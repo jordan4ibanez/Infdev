@@ -51,7 +51,7 @@ abstract class InvRef {
 	// todo: InventoryLocation
 
 	@:native("get_location")
-	public abstract function(listName: String): Dynamic;
+	public abstract function getLocation(listName: String): Dynamic;
 
 	// todo: implement callbacks, somehow
 }
