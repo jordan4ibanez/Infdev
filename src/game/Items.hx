@@ -26,7 +26,7 @@ final class Hand extends ToolDefinition {
 }
 
 @:register("infdev:stick")
-final class Stick extends ItemDefinition {
+final class Stick extends ToolDefinition {
 	public function new() {
 		super();
 
