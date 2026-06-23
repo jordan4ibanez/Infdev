@@ -36,6 +36,9 @@ final class Dirt extends NodeDefinition {
 			+ "button[2,2;4,1;btn_name;Click Me]"
 			+ "list[context;main;0,0;8,4;]"
 			+ "list[current_player;main;0,5;8,4;]");
+
+		meta.getInventory()
+			.setSize("main", 8 * 4);
 	}
 
 	override function onDestruct(pos: EngineVector3) {
