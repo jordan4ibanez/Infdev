@@ -91,7 +91,10 @@ class ItemDefinitionDuctTape {
 			var registrationName;
 			var luantiRegistrationMethod;
 
-			if (isItemDef) {
+			// Override takes precedence over everything else.
+			if (overrideTag) {
+				luantiRegistrationMethod = "overrideItem";
+			} else if (isItemDef) {
 				luantiRegistrationMethod = "registerCraftItem";
 			} else if (isToolDef) {
 				luantiRegistrationMethod = "registerTool";
