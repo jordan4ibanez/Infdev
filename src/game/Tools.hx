@@ -1,5 +1,6 @@
 package game;
 
+import engine.definition.basic.DigParams;
 import engine.NodeTable;
 import engine.entity.objectref.ObjectRefBase;
 import engine.ItemStack;
@@ -42,8 +43,8 @@ final class Stick extends ToolDefinition {
 		Lua.print(Global.dump(this.toolCapabilities));
 	}
 
-	override function afterUse(itemstack: ItemStack, user: Null<ObjectRefBase>, node: NodeTable, digparams: Dynamic): Null<ItemStack> {
-		trace(itemstack.getWear());
-		return itemstack;
+	override function afterUse(itemstack: ItemStack, user: Null<ObjectRefBase>, node: NodeTable, digparams: DigParams): Null<ItemStack> {
+		trace("I can still use this hooray!");
+		return super.afterUse(itemstack, user, node, digparams);
 	}
 }
