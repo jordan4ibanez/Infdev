@@ -35,15 +35,9 @@ final class Stick extends ToolDefinition {
 
 		this.toolCapabilities = new ToolCapabilities()
 			.setFullPunchInterval(1.0)
-			.addGroupCap("oddly_breakable_by_hand", new GroupCapabilities()
 				.setTimesFromArray([1.0, 0.5, 0.75])
-				.setUses(0));
-
-		// toolCapabilities.addGroupCap()
 	}
 
 	override function afterUse(itemstack: ItemStack, user: Null<ObjectRefBase>, node: NodeTable, digparams: Dynamic): Null<ItemStack> {
-		trace(digparams);
-		return super.afterUse(itemstack, user, node, digparams);
 	}
 }
