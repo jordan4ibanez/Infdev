@@ -27,10 +27,10 @@ final class Dirt extends NodeDefinition {
 
 		this.nodeColor = "blue";
 		this.groups = {
-			test: 1
+			oddly_breakable_by_hand: 1
 		};
 
-		untyped __lua__("print(dump(self.groups))");
+		// untyped __lua__("print(dump(self.groups))");
 	}
 	// override function onConstruct(pos: EngineVector3) {
 	// 	super.onConstruct(pos);
