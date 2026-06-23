@@ -163,6 +163,15 @@ class ItemDefinitionDuctTape {
 									untyped $i{wrapperClassName}[field] = Reflect.field(instance, field);
 								}
 
+								// Strip out the reflection table in this static wrapper so it doesn't blow up the engine.
+								untyped {
+									if ($i{wrapperClassName}.groups != null) {
+										$i{wrapperClassName}.groups.__fields__ = null;
+										// This is important debug probably.
+										// print("ye");
+									}
+								}
+
 								// This hackjob automatically does the registration.
 								luantitypes.Core.$luantiRegistrationMethod($v{registrationName}, $i{wrapperClassName});
 
