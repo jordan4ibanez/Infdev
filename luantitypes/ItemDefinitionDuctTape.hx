@@ -421,7 +421,8 @@ class ItemDefinitionDuctTape {
 
 			try {
 				Context.defineType(companionClassDefinition);
-				trace('DuctTape: Successfully generated companion class: ' + localClass.pack.join(".") + "." + wrapperClassName);
+				// ? This is important for debugging.
+				// trace('DuctTape: Successfully generated companion class: ' + localClass.pack.join(".") + "." + wrapperClassName);
 			} catch (e:Dynamic) {
 				// Prevent duplicate definition errors if the macro triggers multiple times.
 			}
