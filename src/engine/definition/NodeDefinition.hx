@@ -1,5 +1,6 @@
 package engine.definition;
 
+import luantitypes.LuaArray;
 import engine.metadata.NodeMetaRef;
 import lua.Table;
 import engine.definition.basic.ConnectSides;
@@ -45,13 +46,13 @@ class NodeDefinition extends ItemDefinition {
 	@:native("visual_scale")
 	var visualScale: Float;
 
-	var tiles: Array<TileDefinition>;
+	var tiles: LuaArray<TileDefinition>;
 
 	@:native("overlay_tiles")
-	var overlayTiles: Array<Dynamic>;
+	var overlayTiles: LuaArray<TileDefinition>;
 
 	@:native("special_tiles")
-	var specialTiles: Array<Dynamic>;
+	var specialTiles: LuaArray<TileDefinition>;
 
 	/**
 	 * This one is for nodes.
@@ -133,10 +134,10 @@ class NodeDefinition extends ItemDefinition {
 	var nodeBox: NodeBox;
 
 	@:native("connects_to")
-	var connectsTo: Array<String>;
+	var connectsTo: LuaArray<String>;
 
 	@:native("connect_sides")
-	var connectSides: Array<ConnectSides>;
+	var connectSides: LuaArray<ConnectSides>;
 
 	var mesh: String;
 
