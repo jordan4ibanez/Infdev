@@ -1,5 +1,7 @@
 package engine.definition;
 
+import luantitypes.LuaArray;
+
 private enum abstract NodeBoxType(String) to String {
 	var NodeBoxTypeRegular = "regular";
 	var NodeBoxTypeFixed = "fixed";
@@ -8,8 +10,8 @@ private enum abstract NodeBoxType(String) to String {
 	var NodeBoxTypeConnected = "connected";
 }
 
-typedef Box = Array<Float>;
-typedef BoxArray = Array<Box>;
+typedef Box = LuaArray<Float>;
+typedef BoxArray = LuaArray<Box>;
 
 abstract class NodeBox {
 	private var type: NodeBoxType;
