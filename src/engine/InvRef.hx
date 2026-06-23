@@ -6,6 +6,7 @@ import lua.Table;
 // todo: maybe have this be the base and just implement on top of it or something.
 // todo: could have all these things be a base with inlines or something.
 // todo: anything is better. Look into this.
+@:final
 abstract class InvRef {
 	@:native("is_empty")
 	public abstract function isEmpty(listName: String): Bool;
