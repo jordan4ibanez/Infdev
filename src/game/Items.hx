@@ -30,6 +30,9 @@ final class Stick extends ToolDefinition {
 	public function new() {
 		super();
 
+		this.inventoryImage = "debug_oracle.png";
+		this.wieldImage = "debug_oracle.png";
+
 		this.toolCapabilities = new ToolCapabilities()
 			.setFullPunchInterval(1.0)
 			.addGroupCap("oddly_breakable_by_hand", new GroupCapabilities()
