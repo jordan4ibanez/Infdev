@@ -1,5 +1,5 @@
 -cp terraingenerator
--main Main
+-main terraingenerator.TerrainGenerator
 -lua mods/infdev/mapgen.lua
 
 # Jit.
