@@ -1,21 +1,21 @@
 package luantitypes;
 
-import engine.NodeTable;
-import engine.metadata.NodeMetaRef;
-import engine.NodeTimerRef;
-import engine.entity.objectref.ObjectRefEntity;
-import engine.definition.PointedThing;
-import engine.ItemStack;
+import src.engine.NodeTable;
+import src.engine.metadata.NodeMetaRef;
+import src.engine.NodeTimerRef;
+import src.engine.entity.objectref.ObjectRefEntity;
+import src.engine.definition.PointedThing;
+import src.engine.ItemStack;
 import haxe.Constraints.Function;
-import engine.entity.objectref.ObjectRefPlayer;
-import engine.entity.objectref.ObjectRefBase;
-import engine.vector.EngineVector3;
-import engine.entity.LuaEntity;
+import src.engine.entity.objectref.ObjectRefPlayer;
+import src.engine.entity.objectref.ObjectRefBase;
+import src.engine.vector.EngineVector3;
+import src.engine.entity.LuaEntity;
 import haxe.Rest;
 import Reflect;
-import engine.metadata.StorageRef;
+import src.engine.metadata.StorageRef;
 // These are public imports. :)
-import engine.LogLevel;
+import src.engine.LogLevel;
 
 @:native("core")
 extern class Core {
