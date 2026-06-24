@@ -1,4 +1,4 @@
-package game;
+package game.nodes;
 
 import lua.Table;
 import engine.InvRef;
