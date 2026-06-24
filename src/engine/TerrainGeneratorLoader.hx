@@ -1,7 +1,17 @@
 package engine;
 
+import luantitypes.Core;
+
 final class TerrainGeneratorLoader {
 	static function __init__() {
-		trace("Mapgen program loaded.");
+		final modPath: Null<String> = Core.getModPath(Core.getCurrentModName());
+
+		if (modPath == null) {
+			throw "Current mod path was null. Cannot load terrain generator.";
+		}
+
+		Core.registerMapgenScript(modPath + "/mapgen.lua");
+
+		trace("Terrain generator loaded.");
 	}
 }
