@@ -1,4 +1,4 @@
-package engine.definition.sound;
+package src.engine.definition.sound;
 
 class SimpleSoundSpec {
 	var name: String;

@@ -1,4 +1,4 @@
-package engine.entity;
+package src.engine.entity;
 
 import engine.entity.objectref.ObjectRefEntity;
 import engine.entity.objectref.ObjectRefBase;

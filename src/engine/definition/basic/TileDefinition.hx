@@ -1,4 +1,4 @@
-package engine.definition.basic;
+package src.engine.definition.basic;
 
 import engine.definition.graphics.ColorSpec;
 import engine.definition.graphics.TileAnimationDefinition;

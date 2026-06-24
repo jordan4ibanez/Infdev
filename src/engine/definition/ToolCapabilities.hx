@@ -1,4 +1,4 @@
-package engine.definition;
+package src.engine.definition;
 
 import lua.Table;
 import haxe.DynamicAccess;

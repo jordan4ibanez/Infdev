@@ -1,3 +1,3 @@
-package engine.gui;
+package src.engine.gui;
 
 class GuiElement {}

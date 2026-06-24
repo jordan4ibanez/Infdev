@@ -1,4 +1,4 @@
-package engine.definition.basic;
+package src.engine.definition.basic;
 
 enum abstract ParamType2(String) to String {
 	var ParamType2FlowingLiquid = "flowingliquid";

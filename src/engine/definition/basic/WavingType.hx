@@ -1,4 +1,4 @@
-package engine.definition.basic;
+package src.engine.definition.basic;
 
 enum abstract WavingType(Int) to Int {
 	// var WavingTypeNone = 0;

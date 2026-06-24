@@ -1,4 +1,4 @@
-package engine;
+package src.engine;
 
 enum abstract LogLevel(String) to String {
 	var LogLevelNone = "none";

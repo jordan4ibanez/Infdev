@@ -1,4 +1,4 @@
-package engine.definition.graphics;
+package src.engine.definition.graphics;
 
 enum abstract NodeTextureAlpha(String) to String {
 	var NodeTextureAlphaOpaque = "opaque";

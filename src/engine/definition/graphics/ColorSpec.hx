@@ -1,4 +1,4 @@
-package engine.definition.graphics;
+package src.engine.definition.graphics;
 
 import engine.definition.graphics.RGBA;
 import haxe.extern.EitherType;

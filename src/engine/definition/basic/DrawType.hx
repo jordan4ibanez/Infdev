@@ -1,4 +1,4 @@
-package engine.definition.basic;
+package src.engine.definition.basic;
 
 enum abstract DrawType(String) to String {
 	var DrawTypeNormal = "normal";

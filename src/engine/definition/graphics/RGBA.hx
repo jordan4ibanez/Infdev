@@ -1,4 +1,4 @@
-package engine.definition.graphics;
+package src.engine.definition.graphics;
 
 final class RGBA {
 	var r: Int;

@@ -1,4 +1,4 @@
-package engine.entity.helpers;
+package src.engine.entity.helpers;
 
 import haxe.ds.StringMap;
 import luantitypes.Core;

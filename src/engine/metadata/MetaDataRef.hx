@@ -1,4 +1,4 @@
-package engine.metadata;
+package src.engine.metadata;
 
 import luantitypes.LuaArray;
 import lua.Table;

@@ -1,4 +1,4 @@
-package engine.definition.graphics;
+package src.engine.definition.graphics;
 
 enum abstract TileAnimationType(String) to String {
 	var TileAnimationTypeVerticalFrames = "vertical_frames";

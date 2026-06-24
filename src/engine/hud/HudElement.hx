@@ -1,3 +1,3 @@
-package engine.hud;
+package src.engine.hud;
 
 class HudElement {}

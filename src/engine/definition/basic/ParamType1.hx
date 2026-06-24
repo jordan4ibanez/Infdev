@@ -1,4 +1,4 @@
-package engine.definition.basic;
+package src.engine.definition.basic;
 
 enum abstract ParamType1(String) to String {
 	var ParamType1None = "none";

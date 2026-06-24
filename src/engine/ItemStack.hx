@@ -1,4 +1,4 @@
-package engine;
+package src.engine;
 
 // todo: getters
 // todo: rework this entire thing this is just a bootstrap

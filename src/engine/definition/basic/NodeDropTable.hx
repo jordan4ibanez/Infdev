@@ -1,4 +1,4 @@
-package engine.definition.basic;
+package src.engine.definition.basic;
 
 import haxe.extern.EitherType;
 import lua.Table;

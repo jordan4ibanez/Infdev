@@ -1,4 +1,4 @@
-package engine;
+package src.engine;
 
 // {name="ignore", param1=0, param2=0}
 class NodeTable {

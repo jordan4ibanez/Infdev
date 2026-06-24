@@ -1,4 +1,4 @@
-package engine.definition;
+package src.engine.definition;
 
 import engine.definition.basic.DigParams;
 import engine.definition.basic.Pointabilities;

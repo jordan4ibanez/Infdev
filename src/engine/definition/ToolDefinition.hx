@@ -1,4 +1,4 @@
-package engine.definition;
+package src.engine.definition;
 
 /**
  * When you extend this class, you get a specialty class which is extremely interesting.
