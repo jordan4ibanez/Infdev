@@ -1,23 +1,23 @@
 package src.game.node;
 
 import lua.Table;
-import engine.InvRef;
-import engine.NodeTable;
+import src.engine.InvRef;
+import src.engine.NodeTable;
 import lua.Lua;
 import luantitypes.Core;
 import haxe.extern.EitherType;
-import engine.definition.PointedThing;
-import engine.entity.objectref.ObjectRefBase;
-import engine.ItemStack;
-import engine.definition.TouchInteractionSetting;
-import engine.definition.sound.ItemSoundTable;
-import engine.definition.graphics.WearBarColors;
-import engine.definition.ToolCapabilities;
-import engine.definition.basic.Pointabilities;
-import engine.vector.EngineVector3;
-import engine.definition.graphics.ItemImageDefinition.ItemImageDefinitionOrString;
-import engine.definition.ItemDefinition;
-import engine.definition.NodeDefinition;
+import src.engine.definition.PointedThing;
+import src.engine.entity.objectref.ObjectRefBase;
+import src.engine.ItemStack;
+import src.engine.definition.TouchInteractionSetting;
+import src.engine.definition.sound.ItemSoundTable;
+import src.engine.definition.graphics.WearBarColors;
+import src.engine.definition.ToolCapabilities;
+import src.engine.definition.basic.Pointabilities;
+import src.engine.vector.EngineVector3;
+import src.engine.definition.graphics.ItemImageDefinition.ItemImageDefinitionOrString;
+import src.engine.definition.ItemDefinition;
+import src.engine.definition.NodeDefinition;
 
 @:register("infdev:dirt")
 final class Dirt extends NodeDefinition {

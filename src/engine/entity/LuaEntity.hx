@@ -1,7 +1,7 @@
 package src.engine.entity;
 
-import engine.entity.objectref.ObjectRefEntity;
-import engine.entity.objectref.ObjectRefBase;
+import src.engine.entity.objectref.ObjectRefEntity;
+import src.engine.entity.objectref.ObjectRefBase;
 
 @:autoBuild(luantitypes.EntityDuctTape.build())
 @:build(luantitypes.EntityDuctTape.build())

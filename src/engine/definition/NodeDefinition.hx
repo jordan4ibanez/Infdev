@@ -1,25 +1,25 @@
 package src.engine.definition;
 
 import luantitypes.LuaArray;
-import engine.metadata.NodeMetaRef;
+import src.engine.metadata.NodeMetaRef;
 import lua.Table;
-import engine.definition.basic.ConnectSides;
-import engine.definition.basic.NodeDropTable;
-import engine.definition.sound.NodeSoundTable;
-import engine.definition.basic.ParamType2;
-import engine.definition.basic.ParamType1;
-import engine.definition.graphics.NodeTextureAlpha;
-import engine.definition.basic.TileDefinition;
-import engine.definition.graphics.ColorSpec;
-import engine.definition.basic.DrawType;
-import engine.definition.basic.WavingType;
-import engine.definition.basic.LiquidType;
+import src.engine.definition.basic.ConnectSides;
+import src.engine.definition.basic.NodeDropTable;
+import src.engine.definition.sound.NodeSoundTable;
+import src.engine.definition.basic.ParamType2;
+import src.engine.definition.basic.ParamType1;
+import src.engine.definition.graphics.NodeTextureAlpha;
+import src.engine.definition.basic.TileDefinition;
+import src.engine.definition.graphics.ColorSpec;
+import src.engine.definition.basic.DrawType;
+import src.engine.definition.basic.WavingType;
+import src.engine.definition.basic.LiquidType;
 import luantitypes.Core;
-import engine.entity.objectref.ObjectRefBase;
-import engine.vector.EngineVector3;
-import engine.definition.graphics.TileAnimationDefinition;
+import src.engine.entity.objectref.ObjectRefBase;
+import src.engine.vector.EngineVector3;
+import src.engine.definition.graphics.TileAnimationDefinition;
 import haxe.extern.EitherType;
-import engine.definition.graphics.ItemImageDefinition;
+import src.engine.definition.graphics.ItemImageDefinition;
 
 /**
  * When you extend this class, you get a specialty class which is extremely interesting.

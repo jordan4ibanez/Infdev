@@ -1,7 +1,7 @@
 package src.engine.definition;
 
-import engine.entity.objectref.ObjectRefBase;
-import engine.vector.EngineVector3;
+import src.engine.entity.objectref.ObjectRefBase;
+import src.engine.vector.EngineVector3;
 
 enum abstract PointedThingType(String) to String {
 	var PointedThingTypeNode = "node";

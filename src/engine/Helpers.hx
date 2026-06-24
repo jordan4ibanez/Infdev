@@ -2,7 +2,7 @@ package src.engine;
 
 import luantitypes.Macros;
 import luantitypes.Core;
-import engine.entity.LuaEntity;
+import src.engine.entity.LuaEntity;
 import haxe.Constraints.Constructible;
 
 class Helpers {

@@ -1,6 +1,6 @@
 package src.engine.entity.objectref;
 
-import engine.vector.EngineVector3;
+import src.engine.vector.EngineVector3;
 
 /**
  * A Luanti C++ engine ServerActiveObject reference.

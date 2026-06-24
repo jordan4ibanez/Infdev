@@ -2,9 +2,9 @@ package src.game.entity;
 
 import luantitypes.Macros;
 import luantitypes.Core;
-import engine.vector.Vec3;
-import engine.entity.helpers.EntitySerialization;
-import engine.entity.LuaEntity;
+import src.engine.vector.Vec3;
+import src.engine.entity.helpers.EntitySerialization;
+import src.engine.entity.LuaEntity;
 
 // This is how your class gets registered into the engine.
 @:luantiEntity("infdev:mob")

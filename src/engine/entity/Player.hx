@@ -1,9 +1,9 @@
 package src.engine.entity;
 
-import engine.entity.objectref.ObjectRefBase;
-import engine.entity.objectref.ObjectRefPlayer;
+import src.engine.entity.objectref.ObjectRefBase;
+import src.engine.entity.objectref.ObjectRefPlayer;
 import luantitypes.Macros;
-import engine.entity.helpers.EntitySerialization;
+import src.engine.entity.helpers.EntitySerialization;
 
 final class Player {
 	public var object: ObjectRefPlayer = null;
