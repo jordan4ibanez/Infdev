@@ -178,6 +178,15 @@ extern class Core {
 
 	@:native("register_mapgen_script")
 	static function registerMapgenScript(path: String): Void;
+
+	@:native("get_current_modname")
+	static function getCurrentModName(): String;
+
+	@:native("get_modpath")
+	static function getModPath(modName: String): Null<String>;
+
+	@:native("get_modnames")
+	static function getModNames(loadOrder: Bool): LuaArray<String>;
 }
 
 @:noCompletion
