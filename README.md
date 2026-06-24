@@ -1,6 +1,12 @@
 # Infdev
 Testing out haxe with luanti
 
+this is the original one so I can look at my own code
+
+https://github.com/jordan4ibanez/Infdev_original
+
+
+
 ### Note:
 
 This started out as a curiosity, but it has quickly become apparent this is better than typescripttolua.
