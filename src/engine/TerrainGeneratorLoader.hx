@@ -12,6 +12,6 @@ final class TerrainGeneratorLoader {
 
 		Core.registerMapgenScript(modPath + "/terrain_generator.lua");
 
-		trace("Terrain generator loaded.");
+		
 	}
 }
