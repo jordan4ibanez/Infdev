@@ -1,5 +1,6 @@
 package luantitypes;
 
+import engine.NodeTable;
 import engine.metadata.NodeMetaRef;
 import engine.NodeTimerRef;
 import engine.entity.objectref.ObjectRefEntity;
@@ -159,13 +160,11 @@ extern class Core {
 		pointedThing: PointedThing,
 		timeFromLastPunch: Float): Null<ItemStack>;
 
-	// todo: node thing
 	@:native("node_punch")
-	static function nodePunch(pos: EngineVector3, node: Dynamic, puncher: Null<ObjectRefBase>, pointedThing: PointedThing): Void;
+	static function nodePunch(pos: EngineVector3, node: NodeTable, puncher: Null<ObjectRefBase>, pointedThing: PointedThing): Void;
 
-	// todo: node thing
 	@:native("node_dig")
-	static function nodeDig(pos: EngineVector3, node: Dynamic, digger: Null<ObjectRefBase>): Bool;
+	static function nodeDig(pos: EngineVector3, node: NodeTable, digger: Null<ObjectRefBase>): Bool;
 
 	@:native("remove_node")
 	static function removeNode(pos: EngineVector3): Void;
