@@ -81,7 +81,7 @@ final class PlayerHandling {
 		player.onActivate(serialData, dtimeS);
 	}
 
-	@:allow(engine.entity.objectref.ObjectRefPlayer)
+	@:allow(src.engine.entity.objectref.ObjectRefPlayer)
 	private static function getGlobalLuaEntity(name: String): Player {
 		var thisLuaEntity = playerLuaEntities.get(name);
 

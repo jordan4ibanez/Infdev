@@ -11,7 +11,7 @@ final class Player {
 	var iAmCoolVar = 5;
 	var totalTime: Float = 0;
 
-	@:allow(engine.entity.helpers.PlayerHandling)
+	@:allow(src.engine.entity.helpers.PlayerHandling)
 	private function new() {}
 
 	public function onActivate(staticData: String, dtimeS: Float) {
