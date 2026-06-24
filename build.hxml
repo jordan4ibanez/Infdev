@@ -10,7 +10,7 @@
 
 -D lua-ver=5.1
 
---macro LuantiCompilerFix.patch()
+--macro LuantiCompilerFix.patch("init.lua")
 
 # This is so using vector isn't needed everywhere.
 # --macro haxe.macro.Compiler.addGlobalMetadata("", "@:using(vector.EngineVector3)")

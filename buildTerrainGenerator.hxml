@@ -10,7 +10,7 @@
 
 -D lua-ver=5.1
 
---macro LuantiCompilerFix.patch()
+--macro LuantiCompilerFix.patch("terrain_generator.lua")
 
 --macro nullSafety("terraingenerator")
 
