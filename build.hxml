@@ -15,6 +15,10 @@
 # This is so using vector isn't needed everywhere.
 # --macro haxe.macro.Compiler.addGlobalMetadata("", "@:using(vector.EngineVector3)")
 
+# todo: go crazy with this
+# --macro nullSafety("engine")
+# --macro nullSafety("game")
+
 # This stops tree shaking.
 --macro include('engine')
 --macro include('engine.node')
