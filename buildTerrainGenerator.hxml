@@ -1,6 +1,6 @@
--cp src
+-cp terraingenerator
 -main Main
--lua mods/infdev/init.lua
+-lua mods/infdev/mapgen.lua
 
 # Jit.
 -D lua-jit
