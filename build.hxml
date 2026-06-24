@@ -1,5 +1,5 @@
 -cp src
--main Main
+-main src.Main
 -lua mods/infdev/init.lua
 
 # Jit.
