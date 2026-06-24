@@ -175,6 +175,9 @@ extern class Core {
 
 	@:native("get_meta")
 	static function getMeta(pos: EngineVector3): NodeMetaRef;
+
+	@:native("register_mapgen_script")
+	static function registerMapgenScript(path: String): Void;
 }
 
 @:noCompletion
