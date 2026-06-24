@@ -1,0 +1,24 @@
+-cp src
+-main Main
+-lua mods/infdev/init.lua
+
+# Jit.
+-D lua-jit
+
+# Disable utf8.
+-D lua-vanilla
+
+-D lua-ver=5.1
+
+--macro LuantiCompilerFix.patch()
+
+# This is so using vector isn't needed everywhere.
+# --macro haxe.macro.Compiler.addGlobalMetadata("", "@:using(vector.EngineVector3)")
+
+# This stops tree shaking.
+--macro include('engine')
+--macro include('engine.node')
+--macro include('engine.entity')
+--macro include('engine.definition')
+
+--macro include('game')
