@@ -5,9 +5,9 @@ import haxe.macro.Context;
 using StringTools;
 
 class LuantiCompilerFix {
-	public static function patch() {
+	public static function patch(fileName: String) {
 		Context.onAfterGenerate(() -> {
-			var content: String = File.getContent("mods/infdev/init.lua");
+			var content: String = File.getContent("mods/infdev/" + fileName);
 
 			var lines = content.split("\n");
 
