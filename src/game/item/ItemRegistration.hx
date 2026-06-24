@@ -1,4 +1,4 @@
-package game.items;
+package game.item;
 
 import engine.definition.ToolDefinition;
 import engine.definition.PointedThing;
