@@ -1,4 +1,4 @@
-package game.tool;
+package src.game.tool;
 
 import engine.definition.basic.DigParams;
 import engine.NodeTable;

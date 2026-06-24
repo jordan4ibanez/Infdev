@@ -1,4 +1,4 @@
-package game.entity;
+package src.game.entity;
 
 import luantitypes.Macros;
 import luantitypes.Core;
