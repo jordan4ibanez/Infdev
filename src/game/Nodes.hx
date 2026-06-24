@@ -23,59 +23,9 @@ import engine.definition.NodeDefinition;
 final class Dirt extends NodeDefinition {
 	public function new() {
 		super();
-		Lua.print("I am created");
-
 		this.nodeColor = "blue";
 		this.groups = {
 			dirt: 1
 		};
-
-		// untyped __lua__("print(dump(self.groups))");
 	}
-	// override function onConstruct(pos: EngineVector3) {
-	// 	super.onConstruct(pos);
-	// 	var meta = Core.getMeta(pos);
-	// 	meta.setString("formspec",
-	// 		"size[8,8]"
-	// 		+ "button[2,2;4,1;btn_name;Click Me]"
-	// 		+ "list[context;main;0,0;8,4;]"
-	// 		+ "list[current_player;main;0,5;8,4;]");
-	// 	var inv = meta.getInventory();
-	// 	inv.setSize("main", 8 * 4);
-	// 	var lists = inv.getLists();
-	// 	for (index => stack in lists.main) {
-	// 		trace(index, stack);
-	// 	}
-	// 	// todo: implement
-	// 	trace(lists.main[1]);
-	// 	// Not allowed, perfect :D
-	// 	// var blah = new InvRef();
-	// }
-	// override function onReceiveFields(pos: EngineVector3, formName: String, fields: Table<Dynamic, Dynamic>, sender: Null<ObjectRefBase>) {
-	// 	super.onReceiveFields(pos, formName, fields, sender);
-	// 	trace(fields);
-	// }
-	// override function onDestruct(pos: EngineVector3) {
-	// 	trace("ondestruct");
-	// 	super.onDestruct(pos);
-	// }
-	// override function afterDestruct(pos: EngineVector3, oldNode: Dynamic) {
-	// 	trace("after destruct");
-	// 	trace(oldNode);
-	// 	super.afterDestruct(pos, oldNode);
-	// }
-	// override function onPunch(pos: EngineVector3, node: Dynamic, puncher: Null<ObjectRefBase>, pointedThing: PointedThing) {
-	// 	// super.onPunch(pos, node, puncher, pointedThing);
-	// 	// Core.removeNode(pos);
-	// 	var timer = Core.getNodeTimer(pos);
-	// 	timer.start(0.5);
-	// }
-	// override function onTimer(pos: EngineVector3, elapsed: Float, node: NodeTable, timeout: Float): Bool {
-	// 	trace("I have been on timered", timeout);
-	// 	return super.onTimer(pos, elapsed, node, timeout);
-	// }
-	// override function onPlace(itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
-	// 	trace("cool!");
-	// 	return super.onPlace(itemstack, placer, pointedThing);
-	// }
 }
