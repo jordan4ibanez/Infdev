@@ -20,9 +20,9 @@
 # --macro nullSafety("game")
 
 # This stops tree shaking.
---macro include('engine')
---macro include('engine.node')
---macro include('engine.entity')
---macro include('engine.definition')
+--macro include('src.engine')
+--macro include('src.engine.node')
+--macro include('src.engine.entity')
+--macro include('src.engine.definition')
 
---macro include('game')
+--macro include('src.game')
