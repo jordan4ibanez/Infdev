@@ -23,6 +23,8 @@ todo: getters and setters of things like itemstack may need to be inlined
 
 ### some design decisions:
 
+item entity can have an animation where it just spins and moves a bone. Then another entity can be mounted to it as a visual
+
 I think it would be cool if the game had runescape skills bolted in
 
 so like you cut trees: (woodcutting)
