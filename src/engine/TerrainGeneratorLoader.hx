@@ -10,7 +10,7 @@ final class TerrainGeneratorLoader {
 			throw "Current mod path was null. Cannot load terrain generator.";
 		}
 
-		Core.registerMapgenScript(modPath + "/mapgen.lua");
+		Core.registerMapgenScript(modPath + "/terrain_generator.lua");
 
 		trace("Terrain generator loaded.");
 	}
