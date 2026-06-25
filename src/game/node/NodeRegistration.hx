@@ -31,7 +31,7 @@ final class Dirt extends NodeDefinition {
 			NodeGroupDirt => 1
 		];
 
-		Lua.print(Global.dump(this.itemGroups));
+		// Lua.print(Global.dump(this.itemGroups));
 	}
 }
 
@@ -51,6 +51,6 @@ final class WaterSource extends NodeDefinition {
 	public function new() {
 		super();
 
-		trace("I am aqua");
+		// trace("I am aqua");
 	}
 }
