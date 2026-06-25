@@ -1,11 +1,12 @@
 package src.engine.compilercode;
 
-// This is AI generated to create automated type constraint checking.
-// Basically this is making sure the lua string is the correct enum type.
 #if macro
 import haxe.macro.Context;
 import haxe.macro.Expr;
 
+// This is AI generated to create automated type constraint checking.
+// Basically this is making sure the lua string is the correct enum type.
+// ? This did not work as intended but it's good for future code to study.
 class EnumMacro {
 	public static function decorateValidator(): Array<Field> {
 		var fields = Context.getBuildFields();
@@ -23,7 +24,19 @@ class EnumMacro {
 			doc: null,
 			meta: [],
 			access: [APublic, AStatic],
-			kind: FVar(macro : Array<String>, macro $a{valueExprs}),
+			kind: FProp("get", "null", macro : Array<String>),
+			pos: Context.currentPos()
+		});
+		fields.push({
+			name: "get_all",
+			doc: null,
+			meta: [],
+			access: [APrivate, AStatic, AInline],
+			kind: FFun({
+				args: [],
+				ret: macro : Array<String>,
+				expr: macro {return $a{valueExprs};}
+			}),
 			pos: Context.currentPos()
 		});
 		fields.push({
