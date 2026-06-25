@@ -2,7 +2,6 @@ package src.engine.entity.objectref;
 
 import src.engine.compilercode.LuaArray;
 import src.engine.vector.EngineVector3;
-import lua.Lua;
 
 /**
  * A Luanti C++ engine ServerActiveObject reference.

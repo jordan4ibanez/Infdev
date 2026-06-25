@@ -1,14 +1,12 @@
 package src.game.tool;
 
-import src.engine.definition.basic.DigParams;
-import src.engine.NodeTable;
-import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.ItemStack;
-import src.engine.Core.Global;
-import lua.Lua;
+import src.engine.NodeTable;
 import src.engine.definition.ToolCapabilities;
-import src.engine.vector.Vec3;
 import src.engine.definition.ToolDefinition;
+import src.engine.definition.basic.DigParams;
+import src.engine.entity.objectref.ObjectRefBase;
+import src.engine.vector.Vec3;
 
 @:override("")
 final class Hand extends ToolDefinition {

@@ -1,8 +1,8 @@
 package src.engine.entity.objectref;
 
 import lua.Table;
-import src.engine.vector.EngineVector3;
 import src.engine.entity.helpers.PlayerHandling;
+import src.engine.vector.EngineVector3;
 
 /**
  * A Luanti C++ engine ServerActiveObject reference.

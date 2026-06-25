@@ -1,7 +1,7 @@
 package src.engine.metadata;
 
-import src.engine.compilercode.LuaArray;
 import lua.Table;
+import src.engine.compilercode.LuaArray;
 
 abstract class MetaDataRef {
 	@:native("contains")

@@ -1,8 +1,8 @@
 package src.engine.definition.basic;
 
+import haxe.Rest;
 import haxe.extern.EitherType;
 import lua.Table;
-import haxe.Rest;
 
 // Design goal: functional oop and make it look like lisp
 

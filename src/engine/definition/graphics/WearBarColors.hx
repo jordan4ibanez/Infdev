@@ -1,6 +1,5 @@
 package src.engine.definition.graphics;
 
-import haxe.extern.EitherType;
 import lua.Table;
 
 enum abstract WearBarBlend(String) to String {

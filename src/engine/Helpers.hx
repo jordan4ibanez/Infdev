@@ -1,10 +1,5 @@
 package src.engine;
 
-import src.engine.compilercode.Macros;
-import src.engine.Core;
-import src.engine.entity.LuaEntity;
-import haxe.Constraints.Constructible;
-
 class Helpers {
 	public static function toLuanti(classType: Class<Dynamic>): Dynamic {
 		if (Reflect.field(classType, "on_activate") != null) {

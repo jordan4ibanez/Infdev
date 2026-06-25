@@ -1,7 +1,7 @@
 package src.engine.definition;
 
-import lua.Table;
 import haxe.DynamicAccess;
+import lua.Table;
 
 // todo: these need getters.
 

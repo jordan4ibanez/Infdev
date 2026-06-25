@@ -1,27 +1,24 @@
 package src.engine.definition;
 
-import src.engine.compilercode.LuaMap;
-import src.game.groups.NodeGroup;
-import src.engine.compilercode.LuaArray;
-import src.engine.metadata.NodeMetaRef;
 import lua.Table;
-import src.engine.definition.basic.ConnectSides;
-import src.engine.definition.basic.NodeDropTable;
-import src.engine.definition.sound.NodeSoundTable;
-import src.engine.definition.basic.ParamType2;
-import src.engine.definition.basic.ParamType1;
-import src.engine.definition.graphics.NodeTextureAlpha;
-import src.engine.definition.basic.TileDefinition;
-import src.engine.definition.graphics.ColorSpec;
-import src.engine.definition.basic.DrawType;
-import src.engine.definition.basic.WavingType;
-import src.engine.definition.basic.LiquidType;
 import src.engine.Core;
+import src.engine.compilercode.LuaArray;
+import src.engine.compilercode.LuaMap;
+import src.engine.definition.basic.ConnectSides;
+import src.engine.definition.basic.DrawType;
+import src.engine.definition.basic.LiquidType;
+import src.engine.definition.basic.NodeDropTable;
+import src.engine.definition.basic.ParamType1;
+import src.engine.definition.basic.ParamType2;
+import src.engine.definition.basic.TileDefinition;
+import src.engine.definition.basic.WavingType;
+import src.engine.definition.graphics.ColorSpec;
+import src.engine.definition.graphics.NodeTextureAlpha;
+import src.engine.definition.sound.NodeSoundTable;
 import src.engine.entity.objectref.ObjectRefBase;
+import src.engine.metadata.NodeMetaRef;
 import src.engine.vector.EngineVector3;
-import src.engine.definition.graphics.TileAnimationDefinition;
-import haxe.extern.EitherType;
-import src.engine.definition.graphics.ItemImageDefinition;
+import src.game.groups.NodeGroup;
 
 /**
  * When you extend this class, you get a specialty class which is extremely interesting.

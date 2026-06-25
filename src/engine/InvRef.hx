@@ -1,7 +1,7 @@
 package src.engine;
 
-import src.engine.compilercode.LuaArray;
 import lua.Table;
+import src.engine.compilercode.LuaArray;
 
 // todo: this needs a qol boost. Some kind of type conversion or something.
 // todo: maybe have this be the base and just implement on top of it or something.

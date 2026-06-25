@@ -1,6 +1,5 @@
 package src.engine.vector;
 
-import src.engine.LogLevel;
 import src.engine.Core;
 
 class Vec3 extends EngineVector3 {
