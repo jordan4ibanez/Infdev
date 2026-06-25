@@ -108,7 +108,7 @@ class EntityDuctTape {
 				case FFun(func):
 					if (func.expr != null) {
 						var injectExpr = macro {
-							luantitypes.Macros.entityPatch();
+							src.engine.compilercode.Macros.entityPatch();
 							// trace("Auto-injected on_activate into " + $v{className});
 						};
 

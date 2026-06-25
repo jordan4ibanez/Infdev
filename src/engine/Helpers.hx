@@ -1,6 +1,6 @@
 package src.engine;
 
-import luantitypes.Macros;
+import src.engine.compilercode.Macros;
 import src.engine.Core;
 import src.engine.entity.LuaEntity;
 import haxe.Constraints.Constructible;

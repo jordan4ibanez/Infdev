@@ -1,6 +1,6 @@
 package src.game.entity;
 
-import luantitypes.Macros;
+import src.engine.compilercode.Macros;
 import src.engine.Core;
 import src.engine.vector.Vec3;
 import src.engine.entity.helpers.EntitySerialization;
