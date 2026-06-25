@@ -1,5 +1,7 @@
 package src.engine.definition;
 
+import src.engine.compilercode.LuaMap;
+import src.game.groups.ItemGroup;
 import src.engine.definition.basic.DigParams;
 import src.engine.definition.basic.Pointabilities;
 import src.engine.Core;
@@ -37,7 +39,8 @@ class ItemDefinition {
 	@:native("short_description")
 	public var shortDescription: String;
 
-	public var groups: Dynamic<Int>;
+	@:native("groups")
+	public var itemGroups: LuaMap<ItemGroup, Int>;
 
 	@:native("inventory_image")
 	public var inventoryImage: ItemImageDefinitionOrString;
