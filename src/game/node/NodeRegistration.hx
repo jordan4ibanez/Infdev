@@ -1,5 +1,6 @@
 package src.game.node;
 
+import src.game.groups.NodeGroup;
 import src.game.groups.ItemGroup;
 import lua.Table;
 import src.engine.InvRef;
@@ -26,8 +27,8 @@ final class Dirt extends NodeDefinition {
 		super();
 		this.nodeColor = "blue";
 
-		this.itemGroups = [
-			ItemGroupStick => 1
+		this.nodeGroups = [
+			NodeGroupDirt => 1
 		];
 
 		Lua.print(Global.dump(this.itemGroups));
@@ -39,8 +40,8 @@ final class Stone extends NodeDefinition {
 	public function new() {
 		super();
 		this.nodeColor = "blue";
-		this.itemGroups = [
-			ItemGroupStick => 1
+		this.nodeGroups = [
+			NodeGroupStone => 1
 		];
 	}
 }
