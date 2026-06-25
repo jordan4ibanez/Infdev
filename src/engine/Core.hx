@@ -187,6 +187,9 @@ extern class Core {
 
 	@:native("get_modnames")
 	static function getModNames(loadOrder: Bool): LuaArray<String>;
+
+	@:native("register_alias")
+	static function registerAlias(aliasName: String, thingToAlias: String): Void;
 }
 
 @:noCompletion
