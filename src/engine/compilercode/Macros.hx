@@ -1,4 +1,4 @@
-package luantitypes;
+package src.engine.compilercode;
 
 import haxe.macro.Context;
 import haxe.macro.Expr;
