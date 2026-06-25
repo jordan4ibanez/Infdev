@@ -1,12 +1,9 @@
 package src.engine;
 
 import src.engine.compilercode.LuaArray;
-import src.engine.NodeTable;
 import src.engine.metadata.NodeMetaRef;
-import src.engine.NodeTimerRef;
 import src.engine.entity.objectref.ObjectRefEntity;
 import src.engine.definition.PointedThing;
-import src.engine.ItemStack;
 import haxe.Constraints.Function;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.entity.objectref.ObjectRefBase;
@@ -15,8 +12,6 @@ import src.engine.entity.LuaEntity;
 import haxe.Rest;
 import Reflect;
 import src.engine.metadata.StorageRef;
-// These are public imports. :)
-import src.engine.LogLevel;
 
 @:native("core")
 extern class Core {
