@@ -6,8 +6,6 @@ final class TerrainGeneratorLoader {
 	static function __init__() {
 		fixCxxTerrainGenerator();
 
-		
-
 		final modPath: Null<String> = Core.getModPath(Core.getCurrentModName());
 
 		if (modPath == null) {
@@ -18,7 +16,9 @@ final class TerrainGeneratorLoader {
 	}
 
 	static function fixCxxTerrainGenerator() {
-		Core.registerAlias("mapgen_stone", "infdev:stone");
-		Core.registerAlias("mapgen_water_source", "infdev:water_source");
+		// Gotta set the mapgen setting manually or else this thing will try to load v7 with the makefile.
+
+		Core.setMapgenSetting("mg_name", "singlenode", true);
+		Core.setMapgenSetting("mg_flags", "nolight", true);
 	}
 }
