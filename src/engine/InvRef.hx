@@ -1,6 +1,6 @@
 package src.engine;
 
-import luantitypes.LuaArray;
+import src.engine.compilercode.LuaArray;
 import lua.Table;
 
 // todo: this needs a qol boost. Some kind of type conversion or something.

@@ -1,6 +1,6 @@
 package src.engine.definition;
 
-import luantitypes.LuaArray;
+import src.engine.compilercode.LuaArray;
 import src.engine.metadata.NodeMetaRef;
 import lua.Table;
 import src.engine.definition.basic.ConnectSides;

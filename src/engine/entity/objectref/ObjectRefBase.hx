@@ -1,6 +1,6 @@
 package src.engine.entity.objectref;
 
-import luantitypes.LuaArray;
+import src.engine.compilercode.LuaArray;
 import src.engine.vector.EngineVector3;
 import lua.Lua;
 

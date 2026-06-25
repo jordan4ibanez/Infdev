@@ -1,6 +1,6 @@
 package src.engine.definition;
 
-import luantitypes.LuaArray;
+import src.engine.compilercode.LuaArray;
 
 private enum abstract NodeBoxType(String) to String {
 	var NodeBoxTypeRegular = "regular";

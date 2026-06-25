@@ -1,6 +1,6 @@
 package src.engine;
 
-import luantitypes.LuaArray;
+import src.engine.compilercode.LuaArray;
 import src.engine.NodeTable;
 import src.engine.metadata.NodeMetaRef;
 import src.engine.NodeTimerRef;
