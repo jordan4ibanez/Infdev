@@ -190,6 +190,9 @@ extern class Core {
 
 	@:native("register_alias")
 	static function registerAlias(aliasName: String, thingToAlias: String): Void;
+
+	@:native("set_mapgen_setting")
+	static function setMapgenSetting(name: String, value: Dynamic, ?overrideMeta: Bool): Void;
 }
 
 @:noCompletion
