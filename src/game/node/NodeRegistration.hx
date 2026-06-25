@@ -45,3 +45,12 @@ final class Stone extends NodeDefinition {
 		];
 	}
 }
+
+@:register("infdev:water_source")
+final class WaterSource extends NodeDefinition {
+	public function new() {
+		super();
+
+		trace("I am aqua");
+	}
+}
