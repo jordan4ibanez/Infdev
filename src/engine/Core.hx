@@ -1,17 +1,17 @@
 package src.engine;
 
-import src.engine.compilercode.LuaArray;
-import src.engine.metadata.NodeMetaRef;
-import src.engine.entity.objectref.ObjectRefEntity;
-import src.engine.definition.PointedThing;
-import haxe.Constraints.Function;
-import src.engine.entity.objectref.ObjectRefPlayer;
-import src.engine.entity.objectref.ObjectRefBase;
-import src.engine.vector.EngineVector3;
-import src.engine.entity.LuaEntity;
-import haxe.Rest;
 import Reflect;
+import haxe.Constraints.Function;
+import haxe.Rest;
+import src.engine.compilercode.LuaArray;
+import src.engine.definition.PointedThing;
+import src.engine.entity.LuaEntity;
+import src.engine.entity.objectref.ObjectRefBase;
+import src.engine.entity.objectref.ObjectRefEntity;
+import src.engine.entity.objectref.ObjectRefPlayer;
+import src.engine.metadata.NodeMetaRef;
 import src.engine.metadata.StorageRef;
+import src.engine.vector.EngineVector3;
 
 @:native("core")
 extern class Core {
