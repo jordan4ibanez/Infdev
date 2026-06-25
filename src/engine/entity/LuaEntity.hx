@@ -3,8 +3,8 @@ package src.engine.entity;
 import src.engine.entity.objectref.ObjectRefEntity;
 import src.engine.entity.objectref.ObjectRefBase;
 
-@:autoBuild(luantitypes.EntityDuctTape.build())
-@:build(luantitypes.EntityDuctTape.build())
+@:autoBuild(src.engine.compilercode.EntityDuctTape.build())
+@:build(src.engine.compilercode.EntityDuctTape.build())
 abstract class LuaEntity {
 	final object: ObjectRefEntity = null;
 	final name: String = null;
