@@ -1,5 +1,8 @@
 package src.engine.definition;
 
+import src.engine.compilercode.LuaMap;
+import src.game.groups.ToolGroup;
+
 /**
  * When you extend this class, you get a specialty class which is extremely interesting.
  * 
@@ -21,6 +24,9 @@ package src.engine.definition;
  */
 @:luantiDefinitionRoot
 class ToolDefinition extends ItemDefinition {
+	@:native("groups")
+	public var toolGroups: LuaMap<ToolGroup, Int>;
+
 	public function new() {
 		super();
 	}
