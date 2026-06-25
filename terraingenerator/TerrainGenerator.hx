@@ -1,6 +1,5 @@
 package terraingenerator;
 
-import lua.Lua;
 import src.engine.Core;
 
 /**
@@ -10,7 +9,6 @@ import src.engine.Core;
  */
 class TerrainGenerator {
 	static function main() {
-		Lua.print("[Terrain generator loaded]");
 		Core.log(LogLevelNone, "test");
 	}
 }

@@ -1,5 +1,6 @@
 package src.engine;
 
+import lua.Lua;
 import src.engine.Core;
 
 final class TerrainGeneratorLoader {
@@ -13,6 +14,8 @@ final class TerrainGeneratorLoader {
 		}
 
 		Core.registerMapgenScript(modPath + "/terrain_generator.lua");
+
+		Lua.print("[Terrain generator loaded]");
 	}
 
 	static function fixCxxTerrainGenerator() {
