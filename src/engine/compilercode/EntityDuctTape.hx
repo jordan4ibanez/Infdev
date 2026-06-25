@@ -1,4 +1,4 @@
-package luantitypes;
+package src.engine.compilercode;
 
 // Note: This was heavily researched and assisted by AI because I have no idea
 // what all the intricasies of this language are to facilitate how this functions.
