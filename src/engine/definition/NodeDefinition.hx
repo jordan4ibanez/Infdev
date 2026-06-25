@@ -1,5 +1,7 @@
 package src.engine.definition;
 
+import src.engine.compilercode.LuaMap;
+import src.game.groups.NodeGroup;
 import src.engine.compilercode.LuaArray;
 import src.engine.metadata.NodeMetaRef;
 import lua.Table;
@@ -42,6 +44,9 @@ import src.engine.definition.graphics.ItemImageDefinition;
  */
 @:luantiDefinitionRoot
 class NodeDefinition extends ItemDefinition {
+	@:native("groups")
+	public var nodeGroups: LuaMap<NodeGroup, Int>;
+
 	@:native("drawtype")
 	var drawType: DrawType;
 
