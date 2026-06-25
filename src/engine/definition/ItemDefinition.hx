@@ -28,8 +28,8 @@ import src.engine.definition.graphics.ItemImageDefinition;
  * Use the ToolDefinition class for tools.
  * Use the NodeDefinition class for nodes.
  */
-@:build(luantitypes.ItemDefinitionDuctTape.build())
-@:autoBuild(luantitypes.ItemDefinitionDuctTape.build())
+@:build(src.engine.compilercode.ItemDefinitionDuctTape.build())
+@:autoBuild(src.engine.compilercode.ItemDefinitionDuctTape.build())
 @:luantiDefinitionRoot
 class ItemDefinition {
 	public var description: String;
