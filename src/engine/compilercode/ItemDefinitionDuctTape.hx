@@ -1,4 +1,4 @@
-package luantitypes;
+package src.engine.compilercode;
 
 #if macro
 import haxe.macro.Context;
