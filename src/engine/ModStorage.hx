@@ -9,7 +9,7 @@ final class ModStorage {
 
 	static function __init__() {
 		storage = Core.getModStorage();
-		trace("modstorage gotten");
+		trace("Mod storage has been loaded.");
 	}
 
 	public static function getString(key: String): String {
