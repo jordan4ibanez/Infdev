@@ -7,7 +7,7 @@ import haxe.macro.Context;
 import haxe.macro.Expr;
 
 class EnumMacro {
-	public static function build(): Array<Field> {
+	public static function decorateValidator(): Array<Field> {
 		var fields = Context.getBuildFields();
 		var valueExprs: Array<Expr> = [];
 		for (field in fields) {
