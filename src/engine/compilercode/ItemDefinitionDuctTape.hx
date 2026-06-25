@@ -38,6 +38,9 @@ class ItemDefinitionDuctTape {
 		// Fully qualified.
 		var className = Context.getLocalClass().toString();
 
+		// todo: this should probably check for the weird type specific things (like groups)
+		// todo: that was bolted on so things aren't accidentally cross-contaminated.
+
 		final hasNew: Field = Lambda.find(fields, (f: Field) -> f.name == "new");
 		if (hasNew == null) {
 			Context.error("This requires a constructor.", localClass.pos);
