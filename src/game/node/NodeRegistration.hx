@@ -29,3 +29,14 @@ final class Dirt extends NodeDefinition {
 		};
 	}
 }
+
+@:register("infdev:stone")
+final class Stone extends NodeDefinition {
+	public function new() {
+		super();
+		this.nodeColor = "blue";
+		this.groups = {
+			dirt: 1
+		};
+	}
+}
