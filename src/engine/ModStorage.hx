@@ -1,7 +1,7 @@
 package src.engine;
 
 import haxe.Constraints.Constructible;
-import luantitypes.Core;
+import src.engine.Core;
 import src.engine.metadata.StorageRef;
 
 final class ModStorage {

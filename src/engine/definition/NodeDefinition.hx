@@ -14,7 +14,7 @@ import src.engine.definition.graphics.ColorSpec;
 import src.engine.definition.basic.DrawType;
 import src.engine.definition.basic.WavingType;
 import src.engine.definition.basic.LiquidType;
-import luantitypes.Core;
+import src.engine.Core;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.vector.EngineVector3;
 import src.engine.definition.graphics.TileAnimationDefinition;

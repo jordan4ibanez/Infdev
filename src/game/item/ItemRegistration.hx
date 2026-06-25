@@ -2,7 +2,7 @@ package src.game.item;
 
 import src.engine.definition.ToolDefinition;
 import src.engine.definition.PointedThing;
-import luantitypes.Core.Global;
+import src.engine.Core.Global;
 import lua.Lua;
 import src.engine.definition.ToolCapabilities;
 import src.engine.definition.graphics.WearBarColors;

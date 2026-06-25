@@ -1,7 +1,7 @@
 package src.game.entity;
 
 import luantitypes.Macros;
-import luantitypes.Core;
+import src.engine.Core;
 import src.engine.vector.Vec3;
 import src.engine.entity.helpers.EntitySerialization;
 import src.engine.entity.LuaEntity;

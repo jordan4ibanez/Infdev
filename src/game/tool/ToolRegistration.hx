@@ -4,7 +4,7 @@ import src.engine.definition.basic.DigParams;
 import src.engine.NodeTable;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.ItemStack;
-import luantitypes.Core.Global;
+import src.engine.Core.Global;
 import lua.Lua;
 import src.engine.definition.ToolCapabilities;
 import src.engine.vector.Vec3;

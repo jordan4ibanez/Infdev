@@ -1,6 +1,6 @@
 package src.engine;
 
-import luantitypes.Core;
+import src.engine.Core;
 
 final class TerrainGeneratorLoader {
 	static function __init__() {

@@ -1,6 +1,6 @@
 package src.engine.entity.helpers;
 
-import luantitypes.Core;
+import src.engine.Core;
 
 final class EntitySerialization {
 	/**

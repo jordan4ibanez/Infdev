@@ -1,7 +1,7 @@
 package src.engine;
 
 import luantitypes.Macros;
-import luantitypes.Core;
+import src.engine.Core;
 import src.engine.entity.LuaEntity;
 import haxe.Constraints.Constructible;
 

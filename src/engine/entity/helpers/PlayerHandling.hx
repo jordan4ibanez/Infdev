@@ -1,7 +1,7 @@
 package src.engine.entity.helpers;
 
 import haxe.ds.StringMap;
-import luantitypes.Core;
+import src.engine.Core;
 
 @:noCompletion
 final class PlayerHandling {

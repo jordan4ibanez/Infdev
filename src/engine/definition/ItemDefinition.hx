@@ -2,7 +2,7 @@ package src.engine.definition;
 
 import src.engine.definition.basic.DigParams;
 import src.engine.definition.basic.Pointabilities;
-import luantitypes.Core;
+import src.engine.Core;
 import src.engine.definition.graphics.WearBarColors;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.definition.sound.ItemSoundTable;

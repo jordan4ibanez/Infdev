@@ -173,7 +173,7 @@ class ItemDefinitionDuctTape {
 								}
 
 								// This hackjob automatically does the registration.
-								luantitypes.Core.$luantiRegistrationMethod($v{registrationName}, $i{wrapperClassName});
+								src.engine.Core.$luantiRegistrationMethod($v{registrationName}, $i{wrapperClassName});
 
 								// ? This is important for debugging.
 								// trace("registered " + $v{registrationName} + " with " + $v{luantiRegistrationMethod});
@@ -466,7 +466,7 @@ class ItemDefinitionDuctTape {
 		// 											instance.groups['__fields__'] = nil;
 		// 										end
 		// 										");
-		// 										luantitypes.Core.registerNode($v{value}, instance);
+		// 										src.engine.Core.registerNode($v{value}, instance);
 		// 										// Wipe out the context.
 		// 										untyped __lua__("instance = nil;");
 		// 									};
@@ -491,7 +491,7 @@ class ItemDefinitionDuctTape {
 		// 								instance.groups['__fields__'] = nil;
 		// 							end
 		// 							");
-		// 							luantitypes.Core.registerNode($v{value}, instance);
+		// 							src.engine.Core.registerNode($v{value}, instance);
 		// 							// Wipe out the context.
 		// 							untyped __lua__("instance = nil;");
 		// 						};

@@ -4,7 +4,7 @@ import lua.Table;
 import src.engine.InvRef;
 import src.engine.NodeTable;
 import lua.Lua;
-import luantitypes.Core;
+import src.engine.Core;
 import haxe.extern.EitherType;
 import src.engine.definition.PointedThing;
 import src.engine.entity.objectref.ObjectRefBase;
