@@ -13,7 +13,7 @@ class TerrainGenerator {
 	final stoneID = Core.getContentID("infdev:stone");
 	final airID = Core.getContentID("air");
 	final grassID = Core.getContentID("infdev:grass");
-	final water_sourceID = Core.getContentID("infdev:water_source");
+	final waterSourceID = Core.getContentID("infdev:water_source");
 	final sandID = Core.getContentID("infdev:sand");
 	final bedrockID = Core.getContentID("infdev:bedrock");
 	final sandstoneID = Core.getContentID("infdev:sandstone");
