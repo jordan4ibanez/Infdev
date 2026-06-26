@@ -22,10 +22,8 @@ class TerrainGenerator {
 
 	public function new() {
 		Core.log(LogLevelNone, "test");
-	}
 
-	static function main() {
-		new TerrainGenerator();
+		// Core.registerOnGeneratedMapgenThread
 	}
 
 	function clamp(input: Float, low: Float, high: Float): Float {
