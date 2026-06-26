@@ -40,4 +40,7 @@ abstract extern class VoxelManip {
 
 	@:native("set_lighting")
 	public function setLighting(light: LuaArray<LightData>, ?p1: EngineVector3, ?p2: EngineVector3): Void;
+
+	@:native("get_light_data")
+	public function getLightData(?buffer: LuaArray<LightData>): LuaArray<LightData>;
 }
