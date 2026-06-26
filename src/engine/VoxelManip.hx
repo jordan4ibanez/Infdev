@@ -1,5 +1,4 @@
 package src.engine;
 
-extern class VoxelManip {
-    
-}
+@:final
+abstract extern class VoxelManip {}
