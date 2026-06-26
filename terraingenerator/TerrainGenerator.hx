@@ -1,5 +1,6 @@
 package terraingenerator;
 
+import src.engine.NodeTable;
 import lua.Lua;
 import lua.Table;
 import src.engine.VoxelManip;
@@ -37,9 +38,7 @@ class TerrainGenerator {
 
 		var data = voxelManip.getData();
 
-		var unknown = voxelManip.getNodeAt(minPos);
-
-		Lua.print(Global.dump(unknown));
+		var thisNode: NodeTable = voxelManip.getNodeAt(minPos);
 	}
 
 	// ? Everything below this is infrastructure to get the singleton map generator to load up.
