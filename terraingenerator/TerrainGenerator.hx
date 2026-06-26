@@ -21,12 +21,6 @@ class TerrainGenerator {
 	final bedrockID = Core.getContentID("infdev:bedrock");
 	final sandstoneID = Core.getContentID("infdev:sandstone");
 
-	public function new() {
-		Core.log(LogLevelNone, "test");
-
-		// Core.registerOnGeneratedMapgenThread
-	}
-
 	function clamp(input: Float, low: Float, high: Float): Float {
 		if (low > high) {
 			low = high;
