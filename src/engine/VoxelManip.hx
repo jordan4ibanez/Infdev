@@ -64,4 +64,9 @@ abstract extern class VoxelManip {
 
 	@:native("update_liquids")
 	public function updateLiquids(): Void;
+
+	@:native("get_emerged_area")
+	public function getEmergedArea(): MinMaxPos;
+
+	
 }
