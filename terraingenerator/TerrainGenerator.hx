@@ -44,5 +44,6 @@ class TerrainGenerator {
 
 	static function main() {
 		instance = new TerrainGenerator();
+		Core.registerOnGeneratedMapgenThread(classGenerateThreadWrapper);
 	}
 }
