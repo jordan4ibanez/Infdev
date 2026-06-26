@@ -12,4 +12,8 @@ extern class MinMaxPos {
 abstract extern class VoxelManip {
 	@:native("read_from_map")
 	public function readFromMap(p1: EngineVector3, p2: EngineVector3): MinMaxPos;
+
+	@:native("initialize")
+	public function initialize(p1: EngineVector3, p2: EngineVector3, ?node: Int): MinMaxPos;
+    
 }
