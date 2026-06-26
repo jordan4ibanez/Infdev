@@ -55,4 +55,10 @@ abstract extern class VoxelManip {
 
 	@:native("set_param2_data")
 	public function setParam2Data(param2Data: LuaArray<Int>): Void;
+
+	/**
+	 * To be used only with a VoxelManip object from core.get_mapgen_object.
+	 */
+	@:native("calc_lighting")
+	public function calcLighting(?p1: EngineVector3, ?p2: EngineVector3, ?propagateShadow: Bool): Void;
 }
