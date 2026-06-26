@@ -1,4 +1,4 @@
--cp src
+# -cp src
 -main src.Main
 -lua mods/infdev/init.lua
 
