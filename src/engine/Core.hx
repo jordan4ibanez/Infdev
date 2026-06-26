@@ -188,6 +188,12 @@ extern class Core {
 
 	@:native("set_mapgen_setting")
 	static function setMapgenSetting(name: String, value: Dynamic, ?overrideMeta: Bool): Void;
+
+	@:native("get_mapgen_chunksize")
+	static function getMapgenChunkSize(): Int;
+
+	@:native("get_content_id")
+	static function getContentID(name: String): Int;
 }
 
 @:noCompletion
