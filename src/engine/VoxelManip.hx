@@ -15,5 +15,7 @@ abstract extern class VoxelManip {
 
 	@:native("initialize")
 	public function initialize(p1: EngineVector3, p2: EngineVector3, ?node: Int): MinMaxPos;
-    
+
+	@:native("write_to_map")
+	public function writeToMap(?light: Bool): Void;
 }
