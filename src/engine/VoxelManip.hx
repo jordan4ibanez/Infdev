@@ -1,5 +1,6 @@
 package src.engine;
 
+import src.engine.compilercode.LuaArray;
 import lua.Table;
 import src.engine.vector.EngineVector3;
 
@@ -29,5 +30,5 @@ abstract extern class VoxelManip {
 	public function setNodeAt(pos: EngineVector3, node: NodeTable): Void;
 
 	@:native("get_data")
-	public function getData(?buffer: Table<Dynamic, Dynamic>): Null<Table<Dynamic, Dynamic>>;
+	public function getData(?buffer: LuaArray<Int>): Null<Table<Dynamic, Dynamic>>;
 }
