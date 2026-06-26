@@ -29,6 +29,10 @@ class TerrainGenerator {
 		return Math.max(low, Math.min(high, input));
 	}
 
+	public function new() {
+		Core.log(LogLevelNone, "Spawned generator thread.");
+	}
+
 	static function main() {
 		instance = new TerrainGenerator();
 	}
