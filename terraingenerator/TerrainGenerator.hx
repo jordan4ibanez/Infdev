@@ -37,7 +37,9 @@ class TerrainGenerator {
 
 		var data = voxelManip.getData();
 
-		Lua.print(Global.dump(data));
+		var unknown = voxelManip.getNodeAt(minPos);
+
+		Lua.print(Global.dump(unknown));
 	}
 
 	// ? Everything below this is infrastructure to get the singleton map generator to load up.
