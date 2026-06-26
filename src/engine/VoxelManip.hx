@@ -10,6 +10,11 @@ extern class MinMaxPos {
 	public var max: EngineVector3;
 }
 
+typedef LightData = {
+	var day: Int;
+	var night: Int;
+}
+
 @:final
 abstract extern class VoxelManip {
 	@:native("read_from_map")
@@ -32,4 +37,7 @@ abstract extern class VoxelManip {
 
 	@:native("set_data")
 	public function setData(data: LuaArray<Int>): Void;
+
+	@:native("set_lighting")
+	public function setLighting(light: LuaArray<LightData>, ?p1: EngineVector3, ?p2: EngineVector3): Void;
 }
