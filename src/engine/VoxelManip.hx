@@ -38,6 +38,9 @@ abstract extern class VoxelManip {
 	@:native("set_data")
 	public function setData(data: LuaArray<Int>): Void;
 
+	/**
+	 * To be used only by a VoxelManip object from core.get_mapgen_object.
+	 */
 	@:native("set_lighting")
 	public function setLighting(light: LuaArray<LightData>, ?p1: EngineVector3, ?p2: EngineVector3): Void;
 
