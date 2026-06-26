@@ -8,6 +8,8 @@ import src.engine.Core;
  * I think that's pretty neat.
  */
 class TerrainGenerator {
+	static var instance: TerrainGenerator;
+
 	final chunk_size = Core.getMapgenChunkSize();
 	final dirtID = Core.getContentID("infdev:dirt");
 	final stoneID = Core.getContentID("infdev:stone");
@@ -32,5 +34,9 @@ class TerrainGenerator {
 			high = low;
 		}
 		return Math.max(low, Math.min(high, input));
+	}
+
+	static function main() {
+		instance = new TerrainGenerator();
 	}
 }
