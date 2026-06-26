@@ -18,4 +18,14 @@ abstract extern class VoxelManip {
 
 	@:native("write_to_map")
 	public function writeToMap(?light: Bool): Void;
+
+    // todo: nodetable might be wrong
+
+	@:native("get_node_at")
+	public function getNodeAt(pos: EngineVector3): NodeTable;
+
+	@:native("set_node_at")
+	public function setNodeAt(pos: EngineVector3, node: NodeTable): Void;
+
+
 }
