@@ -1,5 +1,6 @@
 package src.engine;
 
+import lua.Table;
 import src.engine.vector.EngineVector3;
 
 @:multiReturn
@@ -27,5 +28,6 @@ abstract extern class VoxelManip {
 	@:native("set_node_at")
 	public function setNodeAt(pos: EngineVector3, node: NodeTable): Void;
 
-
+	@:native("get_data")
+	public function getData(?buffer: Table<Dynamic, Dynamic>): Null<Table<Dynamic, Dynamic>>;
 }
