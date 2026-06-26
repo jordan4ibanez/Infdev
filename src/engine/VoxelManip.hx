@@ -68,5 +68,12 @@ abstract extern class VoxelManip {
 	@:native("get_emerged_area")
 	public function getEmergedArea(): MinMaxPos;
 
-	
+	/**
+	 * Since Lua's garbage collector is not aware of the potentially significant 
+	 * memory behind a VoxelManip, frequent VoxelManip usage can cause the server
+	 * to run out of RAM. Therefore it's recommend to call this method once you're
+	 * done with the VoxelManip.
+	 */
+	@:native("close")
+	public function close(): Void;
 }
