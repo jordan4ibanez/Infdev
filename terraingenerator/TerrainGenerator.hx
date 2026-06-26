@@ -1,5 +1,6 @@
 package terraingenerator;
 
+import src.engine.VoxelManip;
 import src.engine.vector.EngineVector3;
 import src.engine.Core;
 
@@ -29,12 +30,12 @@ class TerrainGenerator {
 		return Math.max(low, Math.min(high, input));
 	}
 
-	function generateThread(voxelManip: Dynamic, minPos: EngineVector3, maxPos: EngineVector3, blockSeed: Int): Void {
+	function generateThread(voxelManip: VoxelManip, minPos: EngineVector3, maxPos: EngineVector3, blockSeed: Int): Void {
 		trace("Good day, I am a map generator thread being called.");
 	}
 
 	// ? Everything below this is infrastructure to get the singleton map generator to load up.
-	static function classGenerateThreadWrapper(voxelManip: Dynamic, minPos: EngineVector3, maxPos: EngineVector3, blockSeed: Int): Void {
+	static function classGenerateThreadWrapper(voxelManip: VoxelManip, minPos: EngineVector3, maxPos: EngineVector3, blockSeed: Int): Void {
 		instance.generateThread(voxelManip, minPos, maxPos, blockSeed);
 	}
 
