@@ -29,4 +29,7 @@ abstract extern class VoxelManip {
 
 	@:native("get_data")
 	public function getData(?buffer: LuaArray<Int>): LuaArray<Int>;
+
+	@:native("set_data")
+	public function setData(data: LuaArray<Int>): Void;
 }
