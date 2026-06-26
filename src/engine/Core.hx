@@ -200,7 +200,7 @@ extern class Core {
 	// That's fucking bullshit at least give them separate names in the api
 	// THEY HAVE 2 DIFFERENT ARGUMENT LISTS
 	@:native("register_on_generated")
-	static function registerOnGeneratedMapgenThread(delegate: (voxelManip: Dynamic, minPos: EngineVector3, maxPos: EngineVector3, blockSeed: Int) -> Void): Void;
+	static function registerOnGeneratedMapgenThread(delegate: (voxelManip: VoxelManip, minPos: EngineVector3, maxPos: EngineVector3, blockSeed: Int) -> Void): Void;
 }
 
 @:noCompletion
