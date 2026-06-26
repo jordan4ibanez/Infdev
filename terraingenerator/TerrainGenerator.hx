@@ -9,14 +9,14 @@ import src.engine.Core;
  */
 class TerrainGenerator {
 	final chunk_size = Core.getMapgenChunkSize();
-	final c_dirt = Core.getContentID("infdev:dirt");
-	final c_stone = Core.getContentID("infdev:stone");
-	final c_air = Core.getContentID("air");
-	final c_grass = Core.getContentID("infdev:grass");
-	final c_water_source = Core.getContentID("infdev:water_source");
-	final c_sand = Core.getContentID("infdev:sand");
-	final c_bedrock = Core.getContentID("infdev:bedrock");
-	final c_sandstone = Core.getContentID("infdev:sandstone");
+	final dirtID = Core.getContentID("infdev:dirt");
+	final stoneID = Core.getContentID("infdev:stone");
+	final airID = Core.getContentID("air");
+	final grassID = Core.getContentID("infdev:grass");
+	final water_sourceID = Core.getContentID("infdev:water_source");
+	final sandID = Core.getContentID("infdev:sand");
+	final bedrockID = Core.getContentID("infdev:bedrock");
+	final sandstoneID = Core.getContentID("infdev:sandstone");
 
 	public function new() {
 		Core.log(LogLevelNone, "test");
