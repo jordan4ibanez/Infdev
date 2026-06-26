@@ -12,7 +12,7 @@
 
 --macro LuantiCompilerFix.patch("terrain_generator.lua")
 
---macro nullSafety("terraingenerator")
+# --macro nullSafety("terraingenerator")
 
 # This is so using vector isn't needed everywhere.
 # --macro haxe.macro.Compiler.addGlobalMetadata("", "@:using(vector.EngineVector3)")
