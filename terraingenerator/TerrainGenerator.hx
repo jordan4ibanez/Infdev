@@ -1,5 +1,7 @@
 package terraingenerator;
 
+import lua.Lua;
+import lua.Table;
 import src.engine.VoxelManip;
 import src.engine.vector.EngineVector3;
 import src.engine.Core;
@@ -32,6 +34,10 @@ class TerrainGenerator {
 
 	function generateThread(voxelManip: VoxelManip, minPos: EngineVector3, maxPos: EngineVector3, blockSeed: Int): Void {
 		trace("Good day, I am a map generator thread being called.");
+
+		var data = voxelManip.getData();
+
+		Lua.print(Global.dump(data));
 	}
 
 	// ? Everything below this is infrastructure to get the singleton map generator to load up.
