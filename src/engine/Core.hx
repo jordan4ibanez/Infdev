@@ -194,6 +194,13 @@ extern class Core {
 
 	@:native("get_content_id")
 	static function getContentID(name: String): Int;
+
+	// There are 2 fucking register_on_generated. what the fuck.
+	// only fucking generate the fucking one for the terrain generator.
+	// That's fucking bullshit at least give them separate names in the api
+	// THEY HAVE 2 DIFFERENT ARGUMENT LISTS
+	@:native("register_on_generated")
+	static function registerOnGenerated(delegate: (voxelManip: Dynamic, minPos: EngineVector3, maxPos: EngineVector3, blockSeed: Int) -> Void): Void;
 }
 
 @:noCompletion
