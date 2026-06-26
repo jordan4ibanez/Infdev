@@ -1,5 +1,6 @@
 package terraingenerator;
 
+import src.engine.vector.EngineVector3;
 import src.engine.Core;
 
 /**
@@ -10,7 +11,7 @@ import src.engine.Core;
 class TerrainGenerator {
 	static var instance: TerrainGenerator;
 
-	final chunk_size = Core.getMapgenChunkSize();
+	final chunkSize = Core.getMapgenChunkSize();
 	final dirtID = Core.getContentID("infdev:dirt");
 	final stoneID = Core.getContentID("infdev:stone");
 	final airID = Core.getContentID("air");
