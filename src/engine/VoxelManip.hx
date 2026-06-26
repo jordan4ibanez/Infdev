@@ -61,4 +61,7 @@ abstract extern class VoxelManip {
 	 */
 	@:native("calc_lighting")
 	public function calcLighting(?p1: EngineVector3, ?p2: EngineVector3, ?propagateShadow: Bool): Void;
+
+	@:native("update_liquids")
+	public function updateLiquids(): Void;
 }
