@@ -8,6 +8,7 @@ import src.engine.Core;
  * I think that's pretty neat.
  */
 class TerrainGenerator {
+	
 	// final chunk_size = Core.get_mapgen_chunksize();
 	// final c_dirt = Core.get_content_id("infdev:dirt");
 	// final c_stone = Core.get_content_id("infdev:stone");
