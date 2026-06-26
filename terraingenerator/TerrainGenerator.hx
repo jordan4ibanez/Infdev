@@ -29,6 +29,11 @@ class TerrainGenerator {
 		return Math.max(low, Math.min(high, input));
 	}
 
+	// ? Everything below this is infrastructure to get the singleton map generator to load up.
+	static function classGenerateThreadWrapper(voxelManip: Dynamic, minPos: EngineVector3, maxPos: EngineVector3, blockSeed: Int): Void {
+		instance.generateThread(voxelManip, minPos, maxPos, blockSeed);
+	}
+
 	public function new() {
 		Core.log(LogLevelNone, "Spawned generator thread.");
 	}
