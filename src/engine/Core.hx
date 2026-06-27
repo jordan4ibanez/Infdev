@@ -204,6 +204,9 @@ extern class Core {
 
 	@:native("get_value_noise_map")
 	static function getValueNoiseMap(noiseParams: NoiseParams, size: Int): ValueNoiseMap;
+
+	@:native("get_mapgen_setting")
+	static function getMapgenSetting(name: String): String;
 }
 
 @:noCompletion
