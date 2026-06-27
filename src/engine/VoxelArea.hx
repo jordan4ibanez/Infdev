@@ -38,5 +38,7 @@ abstract extern class VoxelArea {
 	public function containsI(index: Int): Bool;
 
 	public function iter(minX: Int, minY: Int, minZ: Int, maxX: Int, maxY: Int, maxZ: Int): Iterator<Int>;
-	
+
+	@:native("iterp")
+	public function iterP(minPos: EngineVector3, maxPos: EngineVector3): Iterator<Int>;
 }
