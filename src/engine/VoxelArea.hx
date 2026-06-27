@@ -28,4 +28,6 @@ abstract extern class VoxelArea {
 	 * This is 1 indexed.
 	 */
 	public function position(i: Int): EngineVector3;
+
+	public function contains(x: Int, y: Int, z: Int): Bool;
 }
