@@ -28,10 +28,10 @@ class TerrainGenerator {
 	final sandstoneID = Core.getContentID("infdev:sandstone");
 
 	// local cave_blend_parameters                    = {
-	// 	offset = 0,
-	// 	scale = 0.5,
-	// 	spread = { x = 100, y = 100, z = 100 },
-	// 	seed = tonumber(core.get_mapgen_setting("seed")) + 111 or math.random(0, 999999999),
+	// 	offset = 0, //
+	// 	scale = 0.5, //
+	// 	spread = { x = 100, y = 100, z = 100 }, //
+	// 	seed = tonumber(core.get_mapgen_setting("seed")) + 111 or math.random(0, 999999999), //
 	// 	octaves = 2,
 	// 	persist = 1.0,
 	// 	lacunarity = 2.0,
