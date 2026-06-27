@@ -82,14 +82,20 @@ class TerrainGenerator {
 		.setLacunarity(3);
 
 	// local overworld_terrain_blend_parameters       = {
-	// 	offset = 0,
-	// 	scale = 1,
-	// 	spread = { x = 500, y = 500, z = 500 },
-	// 	seed = tonumber(core.get_mapgen_setting("seed")) + 111 or math.random(0, 999999999),
+	// 	offset = 0,//
+	// 	scale = 1,//
+	// 	spread = { x = 500, y = 500, z = 500 },//
+	// 	seed = tonumber(core.get_mapgen_setting("seed")) + 111 or math.random(0, 999999999),//
 	// 	octaves = 2,
 	// 	persist = 1.0,
 	// 	lacunarity = 2.0,
 	// }
+	var overWorldTerrainBlendParameters = new NoiseParams()
+		.setOffset(0)
+		.setScale(1)
+		.setSpread(new Vec3(500, 500, 500))
+		.setSeed(Lua.tonumber(Core.getMapgenSetting("seed")) + 111);
+
 	// local overworld_terrain_noise_parameters_big   = {
 	// 	offset = 0,
 	// 	scale = 0.5,
