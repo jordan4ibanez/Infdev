@@ -30,4 +30,9 @@ abstract extern class VoxelArea {
 	public function position(i: Int): EngineVector3;
 
 	public function contains(x: Int, y: Int, z: Int): Bool;
+
+	@:native("containsp")
+	public function containsP(pos: EngineVector3): Bool;
+
+	
 }
