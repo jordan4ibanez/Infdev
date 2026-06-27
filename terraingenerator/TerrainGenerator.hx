@@ -100,6 +100,58 @@ class TerrainGenerator {
 			(maxPos.z - minPos.z) + 1
 		);
 
+			// local cave_blend_noise                         = {}
+	// local __cave_blend_noise_map_3d                = core.get_value_noise_map(cave_blend_parameters,
+	// 	__constant_area_3d)
+	// __cave_blend_noise_map_3d:get_3d_map_flat(minp, cave_blend_noise)
+
+	// local big_cave_noise          = {}
+	// local __big_cave_noise_map_3d = core.get_value_noise_map(big_cave_noise_parameters,
+	// 	__constant_area_3d)
+	// __big_cave_noise_map_3d:get_3d_map_flat(minp, big_cave_noise)
+
+
+	// local small_cave_noise          = {}
+	// local __small_cave_noise_map_3d = core.get_value_noise_map(small_cave_noise_parameters, __constant_area_3d)
+	// __small_cave_noise_map_3d:get_3d_map_flat(minp, small_cave_noise)
+
+	// local __constant_area_2d                     = {
+	// 	x = (maxp.x - minp.x) + 1,
+	// 	y = (maxp.z - minp.z) + 1
+	// }
+
+	// local overworld_terrain_blend_noise          = {}
+	// local __overworld_terrain_blend_noise_map_2d = core.get_value_noise_map(overworld_terrain_blend_parameters,
+	// 	__constant_area_2d)
+	// __overworld_terrain_blend_noise_map_2d:get_2d_map_flat({ x = minp.x, y = minp.z },
+	// 	overworld_terrain_blend_noise)
+
+
+	// local overworld_terrain_noise_big          = {}
+	// local __overworld_terrain_noise_map_2d_big = core.get_value_noise_map(overworld_terrain_noise_parameters_big,
+	// 	__constant_area_2d)
+	// __overworld_terrain_noise_map_2d_big:get_2d_map_flat({ x = minp.x, y = minp.z }, overworld_terrain_noise_big)
+
+
+	// local overworld_terrain_noise_small          = {}
+	// local __overworld_terrain_noise_map_2d_small = core.get_value_noise_map(overworld_terrain_noise_parameters_small,
+	// 	__constant_area_2d)
+	// __overworld_terrain_noise_map_2d_small:get_2d_map_flat({ x = minp.x, y = minp.z }, overworld_terrain_noise_small)
+
+	// --- @type table, table
+	// local emin, emax = voxmanip:get_emerged_area()
+
+	// local data = {}
+
+	// voxmanip:get_data(data)
+
+	// local area = VoxelArea:new({ MinEdge = emin, MaxEdge = emax })
+
+	// local index = 1
+
+	// local width = (maxp.x - minp.x) + 1
+	// local depth = (maxp.z - minp.z) + 1
+
 		var data = voxelManip.getData();
 	}
 
