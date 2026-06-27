@@ -25,6 +25,67 @@ class TerrainGenerator {
 	final bedrockID = Core.getContentID("infdev:bedrock");
 	final sandstoneID = Core.getContentID("infdev:sandstone");
 
+
+	// local cave_blend_parameters                    = {
+	// 	offset = 0,
+	// 	scale = 0.5,
+	// 	spread = { x = 100, y = 100, z = 100 },
+	// 	seed = tonumber(core.get_mapgen_setting("seed")) + 111 or math.random(0, 999999999),
+	// 	octaves = 2,
+	// 	persist = 1.0,
+	// 	lacunarity = 2.0,
+	// }
+
+	// local big_cave_noise_parameters                = {
+	// 	offset = 0,
+	// 	scale = 1,
+	// 	spread = { x = 25, y = 25, z = 25 },
+	// 	seed = tonumber(core.get_mapgen_setting("seed")) or math.random(0, 999999999),
+	// 	octaves = 2,
+	// 	persist = 0.2,
+	// 	lacunarity = 5.0,
+	// }
+
+	// local small_cave_noise_parameters              = {
+	// 	offset = 0,
+	// 	scale = 1,
+	// 	spread = { x = 7, y = 7, z = 7 },
+	// 	seed = tonumber(core.get_mapgen_setting("seed")) or math.random(0, 999999999),
+	// 	octaves = 1,
+	// 	persist = 0.3,
+	// 	lacunarity = 3,
+	// }
+
+	// local overworld_terrain_blend_parameters       = {
+	// 	offset = 0,
+	// 	scale = 1,
+	// 	spread = { x = 500, y = 500, z = 500 },
+	// 	seed = tonumber(core.get_mapgen_setting("seed")) + 111 or math.random(0, 999999999),
+	// 	octaves = 2,
+	// 	persist = 1.0,
+	// 	lacunarity = 2.0,
+	// }
+
+	// local overworld_terrain_noise_parameters_big   = {
+	// 	offset = 0,
+	// 	scale = 0.5,
+	// 	spread = { x = 500, y = 400, z = 500 },
+	// 	seed = tonumber(core.get_mapgen_setting("seed")) or math.random(0, 999999999),
+	// 	octaves = 4,
+	// 	persist = 0.63,
+	// 	lacunarity = 2.0,
+	// }
+
+	// local overworld_terrain_noise_parameters_small = {
+	// 	offset = 0,
+	// 	scale = 0.5,
+	// 	spread = { x = 50, y = 60, z = 50 },
+	// 	seed = tonumber(core.get_mapgen_setting("seed")) or math.random(0, 999999999),
+	// 	octaves = 2,
+	// 	persist = 0.6,
+	// 	lacunarity = 4.0,
+	// }
+
 	function clamp(input: Float, low: Float, high: Float): Float {
 		if (low > high) {
 			low = high;
