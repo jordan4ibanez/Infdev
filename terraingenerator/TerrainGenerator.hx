@@ -37,11 +37,6 @@ class TerrainGenerator {
 		trace("Good day, I am a map generator thread being called.");
 
 		var data = voxelManip.getData();
-
-		var thisNode: NodeTable = voxelManip.getNodeAt(minPos);
-
-		// Done with it.
-		voxelManip.close();
 	}
 
 	// ? Everything below this is infrastructure to get the singleton map generator to load up.

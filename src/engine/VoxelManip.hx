@@ -72,6 +72,8 @@ abstract extern class VoxelManip {
 	 * memory behind a VoxelManip, frequent VoxelManip usage can cause the server
 	 * to run out of RAM. Therefore it's recommend to call this method once you're
 	 * done with the VoxelManip.
+	 * 
+	 * ! Do not call this in the external terrain generator threads.
 	 */
 	@:native("close")
 	public function close(): Void;
