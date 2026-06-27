@@ -47,4 +47,9 @@ final class NoiseParams {
 		this.lacunarity = lacunarity;
 		return this;
 	}
+
+	public function setFlags(flags: String): NoiseParams {
+		this.flags = flags;
+		return this;
+	}
 }
