@@ -64,14 +64,23 @@ class TerrainGenerator {
 		.setLacunarity(5.0);
 
 	// local small_cave_noise_parameters              = {
-	// 	offset = 0,
-	// 	scale = 1,
-	// 	spread = { x = 7, y = 7, z = 7 },
-	// 	seed = tonumber(core.get_mapgen_setting("seed")) or math.random(0, 999999999),
-	// 	octaves = 1,
-	// 	persist = 0.3,
-	// 	lacunarity = 3,
+	// 	offset = 0,//
+	// 	scale = 1,//
+	// 	spread = { x = 7, y = 7, z = 7 },//
+	// 	seed = tonumber(core.get_mapgen_setting("seed")) or math.random(0, 999999999),//
+	// 	octaves = 1,//
+	// 	persist = 0.3,//
+	// 	lacunarity = 3,//
 	// }
+	var smallCaveNoiseParameters = new NoiseParams()
+		.setOffset(0)
+		.setScale(1)
+		.setSpread(new Vec3(7, 7, 7))
+		.setSeed(Lua.tonumber(Core.getMapgenSetting("seed")))
+		.setOctaves(1)
+		.setPersistence(0.3)
+		.setLacunarity(3);
+
 	// local overworld_terrain_blend_parameters       = {
 	// 	offset = 0,
 	// 	scale = 1,
