@@ -33,4 +33,8 @@ final class NoiseParams {
 		return this;
 	}
 
+	public function setOctaves(octaves: Int): NoiseParams {
+		this.octaves = octaves;
+		return this;
+	}
 }
