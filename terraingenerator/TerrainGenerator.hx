@@ -37,6 +37,7 @@ class TerrainGenerator {
 	// 	lacunarity = 2.0,
 	// }
 	var caveBlendParameters = new NoiseParams()
+		.setOffset(0)
 
 	// local big_cave_noise_parameters                = {
 	// 	offset = 0,
