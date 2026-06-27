@@ -32,15 +32,18 @@ class TerrainGenerator {
 	// 	scale = 0.5, //
 	// 	spread = { x = 100, y = 100, z = 100 }, //
 	// 	seed = tonumber(core.get_mapgen_setting("seed")) + 111 or math.random(0, 999999999), //
-	// 	octaves = 2,
-	// 	persist = 1.0,
-	// 	lacunarity = 2.0,
+	// 	octaves = 2,//
+	// 	persist = 1.0, <- this was wrong lmao
+	// 	lacunarity = 2.0,//
 	// }
 	var caveBlendParameters = new NoiseParams()
 		.setOffset(0)
 		.setScale(0.5)
 		.setSpread(new Vec3(100, 100, 100))
-		.setSeed(Lua.tonumber(Core.getMapgenSetting("seed")) + 111);
+		.setSeed(Lua.tonumber(Core.getMapgenSetting("seed")) + 111)
+		.setOctaves(2)
+		.setPersistence(1.0)
+		.setLacunarity(2.0);
 
 	// local big_cave_noise_parameters                = {
 	// 	offset = 0,
