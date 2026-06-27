@@ -203,9 +203,8 @@ extern class Core {
 	static function registerOnGeneratedMapgenThread(delegate: (voxelManip: VoxelManip, minPos: EngineVector3, maxPos: EngineVector3, blockSeed: Int) -> Void): Void;
 
 	// todo: NoiseParams
-	// todo: ValueNoiseMap
 	@:native("get_value_noise_map")
-	static function getValueNoiseMap(noiseParams: Dynamic, size: Int): Dynamic;
+	static function getValueNoiseMap(noiseParams: Dynamic, size: Int): ValueNoiseMap;
 }
 
 @:noCompletion
