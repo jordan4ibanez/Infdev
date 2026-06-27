@@ -38,6 +38,8 @@ class TerrainGenerator {
 	// }
 	var caveBlendParameters = new NoiseParams()
 		.setOffset(0)
+		.setScale(0.5)
+		.setSpread(new Vec3(100, 100, 100))
 
 	// local big_cave_noise_parameters                = {
 	// 	offset = 0,
