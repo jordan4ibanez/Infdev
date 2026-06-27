@@ -37,4 +37,9 @@ final class NoiseParams {
 		this.octaves = octaves;
 		return this;
 	}
+
+	public function setPersistence(persistence: Float): NoiseParams {
+		this.persistence = persistence;
+		return this;
+	}
 }
