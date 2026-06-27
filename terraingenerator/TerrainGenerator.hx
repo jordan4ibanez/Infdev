@@ -17,6 +17,10 @@ import src.engine.NoiseParams;
 class TerrainGenerator {
 	static var instance: TerrainGenerator;
 
+	final oceanLevel = 72;
+
+	final stoneDisabled = false;
+
 	final chunkSize = Core.getMapgenChunkSize();
 	final dirtID = Core.getContentID("infdev:dirt");
 	final stoneID = Core.getContentID("infdev:stone");
