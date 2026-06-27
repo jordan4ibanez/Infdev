@@ -22,4 +22,7 @@ abstract extern class ValueNoiseMap {
 
 	@:native("calc_3d_map")
 	public extern function calc3DMap(pos: EngineVector3): Void;
+
+	@:native("get_map_slice")
+	public extern function getMapSlice(sliceOffset: EngineVector3, sliceSize: EngineVector3, buffer: LuaArray<Float>): Void;
 }
