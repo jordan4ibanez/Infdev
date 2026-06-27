@@ -1,5 +1,6 @@
 package terraingenerator;
 
+import src.engine.vector.Vec3;
 import src.engine.NodeTable;
 import lua.Lua;
 import lua.Table;
