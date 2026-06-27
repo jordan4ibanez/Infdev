@@ -195,10 +195,11 @@ extern class Core {
 	@:native("get_content_id")
 	static function getContentID(name: String): Int;
 
-	// There are 2 fucking register_on_generated. what the fuck.
-	// only fucking generate the fucking one for the terrain generator.
-	// That's fucking bullshit at least give them separate names in the api
-	// THEY HAVE 2 DIFFERENT ARGUMENT LISTS
+	// There are 2 register_on_generated.
+	// Only generate the one for the terrain generator.
+	// This is quite confusing for new users. 
+	// They at least need to be given separate names in the api.
+	// They have 2 different argument lists and contexts.
 	@:native("register_on_generated")
 	static function registerOnGeneratedMapgenThread(delegate: (voxelManip: VoxelManip, minPos: EngineVector3, maxPos: EngineVector3, blockSeed: Int) -> Void): Void;
 
