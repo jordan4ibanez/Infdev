@@ -13,6 +13,8 @@ final class NoiseParams {
 	var lacunarity: Float;
 	var flags: String;
 
+	public function new() {}
+
 	public function setOffset(offset: Float): NoiseParams {
 		this.offset = offset;
 		return this;
