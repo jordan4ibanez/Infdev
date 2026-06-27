@@ -18,4 +18,8 @@ final class NoiseParams {
 		return this;
 	}
 
+	public function setScale(scale: Float): NoiseParams {
+		this.scale = scale;
+		return this;
+	}
 }
