@@ -8,5 +8,6 @@ abstract extern class ValueNoiseMap {
 	@:native("get_2d_map")
 	public extern function get2DMap(pos: EngineVector3): LuaArray<LuaArray<Float>>;
 
-    
+	@:native("get_3d_map")
+	public extern function get3DMap(pos: EngineVector3): LuaArray<LuaArray<LuaArray<Float>>>;
 }
