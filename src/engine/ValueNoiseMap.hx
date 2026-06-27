@@ -20,5 +20,6 @@ abstract extern class ValueNoiseMap {
 	@:native("calc_2d_map")
 	public extern function calc2DMap(pos: EngineVector3): Void;
 
-    
+	@:native("calc_3d_map")
+	public extern function calc3DMap(pos: EngineVector3): Void;
 }
