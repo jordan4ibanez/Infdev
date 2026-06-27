@@ -36,4 +36,7 @@ abstract extern class VoxelArea {
 
 	@:native("containsi")
 	public function containsI(index: Int): Bool;
+
+	public function iter(minX: Int, minY: Int, minZ: Int, maxX: Int, maxY: Int, maxZ: Int): Iterator<Int>;
+	
 }
