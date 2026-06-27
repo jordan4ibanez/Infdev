@@ -118,14 +118,22 @@ class TerrainGenerator {
 		.setLacunarity(2);
 
 	// local overworld_terrain_noise_parameters_small = {
-	// 	offset = 0,
-	// 	scale = 0.5,
-	// 	spread = { x = 50, y = 60, z = 50 },
-	// 	seed = tonumber(core.get_mapgen_setting("seed")) or math.random(0, 999999999),
-	// 	octaves = 2,
-	// 	persist = 0.6,
-	// 	lacunarity = 4.0,
+	// 	offset = 0,//
+	// 	scale = 0.5,//
+	// 	spread = { x = 50, y = 60, z = 50 },//
+	// 	seed = tonumber(core.get_mapgen_setting("seed")) or math.random(0, 999999999),//
+	// 	octaves = 2,//
+	// 	persist = 0.6,//
+	// 	lacunarity = 4.0,//
 	// }
+	var overWorldTerrainNoiseParametersSmall = new NoiseParams()
+		.setOffset(0)
+		.setScale(0.5)
+		.setSpread(new Vec3(50, 60, 50))
+		.setSeed(Lua.tonumber(Core.getMapgenSetting("seed")))
+		.setOctaves(2)
+		.setPersistence(0.6)
+		.setLacunarity(4.0);
 
 	function clamp(input: Float, low: Float, high: Float): Float {
 		if (low > high) {
