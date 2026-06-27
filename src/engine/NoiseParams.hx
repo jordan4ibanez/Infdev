@@ -42,4 +42,9 @@ final class NoiseParams {
 		this.persistence = persistence;
 		return this;
 	}
+
+	public function setLacunarity(lacunarity: Float): NoiseParams {
+		this.lacunarity = lacunarity;
+		return this;
+	}
 }
