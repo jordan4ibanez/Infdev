@@ -6,6 +6,7 @@ import lua.Table;
 import src.engine.VoxelManip;
 import src.engine.vector.EngineVector3;
 import src.engine.Core;
+import src.engine.NoiseParams;
 
 /**
  * This is the terrain generator.
@@ -25,7 +26,6 @@ class TerrainGenerator {
 	final bedrockID = Core.getContentID("infdev:bedrock");
 	final sandstoneID = Core.getContentID("infdev:sandstone");
 
-
 	// local cave_blend_parameters                    = {
 	// 	offset = 0,
 	// 	scale = 0.5,
@@ -35,7 +35,6 @@ class TerrainGenerator {
 	// 	persist = 1.0,
 	// 	lacunarity = 2.0,
 	// }
-
 	var caveBlendParameters = new NoiseParams();
 
 	// local big_cave_noise_parameters                = {
@@ -47,7 +46,6 @@ class TerrainGenerator {
 	// 	persist = 0.2,
 	// 	lacunarity = 5.0,
 	// }
-
 	// local small_cave_noise_parameters              = {
 	// 	offset = 0,
 	// 	scale = 1,
@@ -57,7 +55,6 @@ class TerrainGenerator {
 	// 	persist = 0.3,
 	// 	lacunarity = 3,
 	// }
-
 	// local overworld_terrain_blend_parameters       = {
 	// 	offset = 0,
 	// 	scale = 1,
@@ -67,7 +64,6 @@ class TerrainGenerator {
 	// 	persist = 1.0,
 	// 	lacunarity = 2.0,
 	// }
-
 	// local overworld_terrain_noise_parameters_big   = {
 	// 	offset = 0,
 	// 	scale = 0.5,
@@ -77,7 +73,6 @@ class TerrainGenerator {
 	// 	persist = 0.63,
 	// 	lacunarity = 2.0,
 	// }
-
 	// local overworld_terrain_noise_parameters_small = {
 	// 	offset = 0,
 	// 	scale = 0.5,
