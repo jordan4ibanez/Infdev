@@ -22,4 +22,9 @@ final class NoiseParams {
 		this.scale = scale;
 		return this;
 	}
+
+	public function setSpread(spread: EngineVector3): NoiseParams {
+		this.spread = spread;
+		return this;
+	}
 }
