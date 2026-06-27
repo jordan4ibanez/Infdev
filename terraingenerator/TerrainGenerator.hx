@@ -104,15 +104,18 @@ class TerrainGenerator {
 	// 	scale = 0.5,//
 	// 	spread = { x = 500, y = 400, z = 500 },//
 	// 	seed = tonumber(core.get_mapgen_setting("seed")) or math.random(0, 999999999),//
-	// 	octaves = 4,
-	// 	persist = 0.63,
-	// 	lacunarity = 2.0,
+	// 	octaves = 4,//
+	// 	persist = 0.63,//
+	// 	lacunarity = 2.0,//
 	// }
 	var overWorldTerrainNoiseParametersBig = new NoiseParams()
 		.setOffset(0)
 		.setScale(0.5)
 		.setSpread(new Vec3(500, 400, 500))
-		.setSeed(Lua.tonumber(Core.getMapgenSetting("seed")));
+		.setSeed(Lua.tonumber(Core.getMapgenSetting("seed")))
+		.setOctaves(4)
+		.setPersistence(0.63)
+		.setLacunarity(2);
 
 	// local overworld_terrain_noise_parameters_small = {
 	// 	offset = 0,
