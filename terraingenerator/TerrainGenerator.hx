@@ -40,6 +40,7 @@ class TerrainGenerator {
 		.setOffset(0)
 		.setScale(0.5)
 		.setSpread(new Vec3(100, 100, 100))
+		.setSeed(Lua.tonumber(Core.getMapgenSetting("seed")) + 111);
 
 	// local big_cave_noise_parameters                = {
 	// 	offset = 0,
