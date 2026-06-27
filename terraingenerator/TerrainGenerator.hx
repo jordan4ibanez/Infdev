@@ -36,7 +36,7 @@ class TerrainGenerator {
 	// 	persist = 1.0,
 	// 	lacunarity = 2.0,
 	// }
-	var caveBlendParameters = new NoiseParams();
+	var caveBlendParameters = new NoiseParams()
 
 	// local big_cave_noise_parameters                = {
 	// 	offset = 0,
