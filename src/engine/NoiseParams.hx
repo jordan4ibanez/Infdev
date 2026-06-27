@@ -27,4 +27,10 @@ final class NoiseParams {
 		this.spread = spread;
 		return this;
 	}
+
+	public function setSeed(seed: Int): NoiseParams {
+		this.seed = seed;
+		return this;
+	}
+
 }
