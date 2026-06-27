@@ -201,6 +201,11 @@ extern class Core {
 	// THEY HAVE 2 DIFFERENT ARGUMENT LISTS
 	@:native("register_on_generated")
 	static function registerOnGeneratedMapgenThread(delegate: (voxelManip: VoxelManip, minPos: EngineVector3, maxPos: EngineVector3, blockSeed: Int) -> Void): Void;
+
+	// todo: NoiseParams
+	// todo: ValueNoiseMap
+	@:native("get_value_noise_map")
+	static function getValueNoiseMap(noiseParams: Dynamic, size: Int): Dynamic;
 }
 
 @:noCompletion
