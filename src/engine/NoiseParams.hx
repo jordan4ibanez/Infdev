@@ -8,4 +8,7 @@ final class NoiseParams {
 	var spread: EngineVector3;
 	var seed: Int;
 	var octaves: Int;
+	var persistence: Float;
+	var lacunarity: Float;
+	var flags: String;
 }
