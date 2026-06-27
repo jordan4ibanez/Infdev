@@ -27,7 +27,7 @@ class TerrainGenerator {
 	final bedrockID = Core.getContentID("infdev:bedrock");
 	final sandstoneID = Core.getContentID("infdev:sandstone");
 
-	var caveBlendParameters = new NoiseParams()
+	final caveBlendParameters = new NoiseParams()
 		.setOffset(0) //
 		.setScale(0.5) //
 		.setSpread(new Vec3(100, 100, 100)) //
@@ -36,7 +36,7 @@ class TerrainGenerator {
 		.setPersistence(1.0)
 		.setLacunarity(2.0);
 
-	var bigCaveNoiseParameters = new NoiseParams()
+	final bigCaveNoiseParameters = new NoiseParams()
 		.setOffset(0)
 		.setScale(1)
 		.setSpread(new Vec3(25, 25, 25))
@@ -45,7 +45,7 @@ class TerrainGenerator {
 		.setPersistence(0.2)
 		.setLacunarity(5.0);
 
-	var smallCaveNoiseParameters = new NoiseParams()
+	final smallCaveNoiseParameters = new NoiseParams()
 		.setOffset(0)
 		.setScale(1)
 		.setSpread(new Vec3(7, 7, 7))
@@ -54,7 +54,7 @@ class TerrainGenerator {
 		.setPersistence(0.3)
 		.setLacunarity(3);
 
-	var overWorldTerrainBlendParameters = new NoiseParams()
+	final overWorldTerrainBlendParameters = new NoiseParams()
 		.setOffset(0)
 		.setScale(1)
 		.setSpread(new Vec3(500, 500, 500))
@@ -63,7 +63,7 @@ class TerrainGenerator {
 		.setPersistence(1)
 		.setLacunarity(2);
 
-	var overWorldTerrainNoiseParametersBig = new NoiseParams()
+	final overWorldTerrainNoiseParametersBig = new NoiseParams()
 		.setOffset(0)
 		.setScale(0.5)
 		.setSpread(new Vec3(500, 400, 500))
@@ -72,7 +72,7 @@ class TerrainGenerator {
 		.setPersistence(0.63)
 		.setLacunarity(2);
 
-	var overWorldTerrainNoiseParametersSmall = new NoiseParams()
+	final overWorldTerrainNoiseParametersSmall = new NoiseParams()
 		.setOffset(0)
 		.setScale(0.5)
 		.setSpread(new Vec3(50, 60, 50))
