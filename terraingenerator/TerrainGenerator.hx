@@ -90,7 +90,11 @@ class TerrainGenerator {
 	}
 
 	function generateThread(voxelManip: VoxelManip, minPos: EngineVector3, maxPos: EngineVector3, blockSeed: Int): Void {
-		trace("Good day, I am a map generator thread being called.");
+		final constantArea3D = new Vec3(
+			(maxPos.x - minPos.x) + 1,
+			(maxPos.y - minPos.y) + 1,
+			(maxPos.z - minPos.z) + 1
+		);
 
 		var data = voxelManip.getData();
 	}
