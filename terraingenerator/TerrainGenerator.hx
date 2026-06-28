@@ -149,6 +149,8 @@ class TerrainGenerator {
 		// 	__constant_area_2d)
 		// __overworld_terrain_noise_map_2d_small:get_2d_map_flat({ x = minp.x, y = minp.z }, overworld_terrain_noise_small)
 
+		final overWorldTerrainNoiseSmall: LuaArray<Float> = Core.getValueNoiseMap(overWorldTerrainNoiseParametersSmall, constantArea2D).get2DMapFlat(new Vec2(minPos.x, minPos.z));
+
 		// --- @type table, table
 		// local emin, emax = voxmanip:get_emerged_area()
 
