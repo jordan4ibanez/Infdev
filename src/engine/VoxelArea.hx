@@ -14,10 +14,13 @@ abstract extern class VoxelArea {
 
 	public function getVolume(): Int;
 
-	/**
-	 * This is 1 indexed.
-	 */
-	public function index(x: Int, y: Int, z: Int): Int;
+	@:native("index") // 1 indexed. Don't use.
+	public function indexLua(x: Int, y: Int, z: Int): Int;
+
+	// 0 indexed.
+	public inline function index(x: Int, y: Int, z: Int): Int {
+		return indexLua(x, y, z) - 1;
+	}
 
 	@:native("indexp") // 1 indexed. Don't use.
 	private function indexPLua(pos: EngineVector3): Int;
