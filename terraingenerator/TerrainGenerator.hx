@@ -1,5 +1,6 @@
 package terraingenerator;
 
+import src.engine.vector.Vec2;
 import src.engine.compilercode.LuaArray;
 import src.engine.vector.Vec3;
 import src.engine.NodeTable;
@@ -125,7 +126,10 @@ class TerrainGenerator {
 		// 	y = (maxp.z - minp.z) + 1
 		// }
 
-		final constantArea2D = 
+		final constantArea2D = new Vec2(
+			(maxPos.x - minPos.x) + 1,
+			(maxPos.z - minPos.z) + 1
+		);
 
 		// local overworld_terrain_blend_noise          = {}
 		// local __overworld_terrain_blend_noise_map_2d = core.get_value_noise_map(overworld_terrain_blend_parameters,
