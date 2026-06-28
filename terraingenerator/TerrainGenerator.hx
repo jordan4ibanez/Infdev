@@ -150,6 +150,8 @@ class TerrainGenerator {
 
 		LuaLoop.nativeFor(i, area.iterP(minPos, maxPos), {
 			Lua.print(i);
+
+			LuaLoop.breakLoop();
 		});
 	}
 
