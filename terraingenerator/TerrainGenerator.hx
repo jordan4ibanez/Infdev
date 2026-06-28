@@ -180,17 +180,30 @@ class TerrainGenerator {
 				// 	(overworld_terrain_noise_small[index_2d] * small_noise_multiplier)
 				// )
 
+				var rawNoise = ((overWorldTerrainNoiseBig[index2D] * bigNoiseMultiplier) + (overWorldTerrainNoiseSmall[index2D] * smallNoiseMultiplier));
+
 				// if (raw_noise == nil) then
 				// 	error("terrain generation error at index: " .. tostring(index_2d))
 				// end
+
+				if (rawNoise == null) {
+					throw "terrain generator error at index: " + Lua.tostring(index2D);
+				}
 
 				// -- Amplitude in nodes.
 				// local amplitude = 80
 				// local base = 80
 
+				var amplitude = 80;
+				var base = 80;
+
 				// height_at_xz = ceil(base + (amplitude * raw_noise))
 
+				heightAtXZ = Math.ceil(base + (amplitude + rawNoise));
+
 				// local is_sandy = height_at_xz <= ocean_level + 3
+
+				var isSandy = heightAtXZ <= oceanLevel + 3;
 
 				// if (pos.y == height_at_xz) then
 				// 	data[i] = (is_sandy and c_sand) or c_grass
