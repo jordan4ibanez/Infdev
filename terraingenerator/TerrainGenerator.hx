@@ -26,12 +26,6 @@ class TerrainGenerator {
 
 	final stoneDisabled = false;
 
-	var luaTime = 0.0;
-	var luaCount = 0;
-
-	var haxeTime = 0.0;
-	var haxeCount = 0;
-
 	final chunkSize = Core.getMapgenChunkSize();
 	final dirtID = Core.getContentID("infdev:dirt");
 	final stoneID = Core.getContentID("infdev:stone");
@@ -154,38 +148,10 @@ class TerrainGenerator {
 		final width = (maxPos.x - minPos.x) + 1;
 		final depth = (maxPos.z - minPos.z) + 1;
 
-		// raw lua
-		var start = Os.clock();
-		var thing = 0;
-		untyped __lua__("for i in area:iterp(minPos, maxPos) do");
-		{
-			// var i = untyped i;
-			thing++;
-		}
-		untyped __lua__("end");
-
-		var end = Os.clock();
-		Lua.print(thing);
-		var time = end - start;
-
-		luaCount++;
-		luaTime += time;
-		Lua.print("lua average:", luaTime / luaCount, "samples:", luaCount);
-
-		var start = Os.clock();
-		var thing = 0;
-
 		LuaLoop.nativeFor(i, area.iterP(minPos, maxPos), {
 			// 'i' is automatically scoped and ready to use
 			trace(i);
 		});
-
-		var end = Os.clock();
-		Lua.print(thing);
-		var time = end - start;
-		haxeCount++;
-		haxeTime += time;
-		Lua.print("haxe average:", haxeTime / haxeCount, "samples:", haxeCount);
 	}
 
 	// ? Everything below this is infrastructure to get the singleton map generator to load up.
