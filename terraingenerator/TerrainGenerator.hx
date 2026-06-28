@@ -109,8 +109,7 @@ class TerrainGenerator {
 		final caveBlendNoise: LuaArray<Float> = Core.getValueNoiseMap(caveBlendParameters, constantArea3D).get3DMapFlat(minPos);
 
 		// local big_cave_noise          = {}
-		// local __big_cave_noise_map_3d = core.get_value_noise_map(big_cave_noise_parameters,
-		// 	__constant_area_3d)
+		// local __big_cave_noise_map_3d = core.get_value_noise_map(big_cave_noise_parameters, __constant_area_3d)
 		// __big_cave_noise_map_3d:get_3d_map_flat(minp, big_cave_noise)
 
 
