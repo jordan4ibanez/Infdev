@@ -1,5 +1,6 @@
 package src.engine.entity.objectref;
 
+import src.game.entity.Player;
 import lua.Table;
 import src.engine.entity.helpers.PlayerHandling;
 import src.engine.vector.EngineVector3;
