@@ -129,6 +129,8 @@ class TerrainGenerator {
 		// local data = {}
 		// voxmanip:get_data(data)
 
+		final data: LuaArray<Int> = voxelManip.getData();
+
 		// local area = VoxelArea:new({ MinEdge = emin, MaxEdge = emax })
 
 		// local index = 1
