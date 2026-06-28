@@ -44,4 +44,18 @@ class LuaLoop {
 			untyped __lua__("end");
 		};
 	}
+
+	/**
+	 * Cleanly breaks out of the current native Lua loop.
+	 */
+	public static macro function breakLoop(): Expr {
+		return macro untyped __lua__("break");
+	}
+
+	/**
+	 * Cleanly issues a native Lua return from inside the loop without tripping DCE syntax errors.
+	 */
+	public static macro function returnLoop(): Expr {
+		return macro untyped __lua__("return");
+	}
 }
