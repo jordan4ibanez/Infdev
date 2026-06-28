@@ -1,6 +1,7 @@
 package src.engine;
 
 import src.engine.vector.EngineVector3;
+import lua.NativeIterator;
 
 // ? This class is in camel case for some reason??
 @:final
@@ -37,8 +38,8 @@ abstract extern class VoxelArea {
 	@:native("containsi")
 	public function containsI(index: Int): Bool;
 
-	public function iter(minX: Int, minY: Int, minZ: Int, maxX: Int, maxY: Int, maxZ: Int): Iterator<Int>;
+	public function iter(minX: Int, minY: Int, minZ: Int, maxX: Int, maxY: Int, maxZ: Int): NativeIterator<Int>;
 
 	@:native("iterp")
-	public function iterP(minPos: EngineVector3, maxPos: EngineVector3): Iterator<Int>;
+	public function iterP(minPos: EngineVector3, maxPos: EngineVector3): NativeIterator<Int>;
 }
