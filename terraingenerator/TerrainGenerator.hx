@@ -164,10 +164,16 @@ class TerrainGenerator {
 				// -- Basically shove a 3D space into a 1D space.
 				// local index_2d = (z_in_data * depth) + x_in_data + 1
 
+				var index2D = (zInData * depth) + xInData;
+
 				// local skew = (clamp(-1, 1, overworld_terrain_blend_noise[index_2d]) + 1) * 0.5
+				var skew = (clamp(overWorldTerrainBlendNoise[index2D], -1, 1) + 1) * 0.5;
 
 				// local big_noise_multiplier = 1 - skew
 				// local small_noise_multiplier = skew
+
+				var bigNoiseMultiplier = 1 - skew;
+				var smallNoiseMultiplier = skew;
 
 				// local raw_noise = (
 				// 	(overworld_terrain_noise_big[index_2d] * big_noise_multiplier) +
