@@ -1,5 +1,6 @@
 package src.engine.definition.basic;
 
+import haxe.extern.EitherType;
 import src.engine.definition.graphics.ColorSpec;
 import src.engine.definition.graphics.TileAnimationDefinition;
 
@@ -10,6 +11,8 @@ abstract class TileDefinition {
 		this.name = name;
 	}
 }
+
+typedef TileDefinitionOrString = EitherType<TileDefinition, String>;
 
 class TileDefinitionAnimated extends TileDefinition {
 	var animation: TileAnimationDefinition;
