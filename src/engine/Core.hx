@@ -19,7 +19,7 @@ extern class Core {
 	static function log(level: LogLevel, text: String): Void;
 
 	// This is the real function.
-	public static extern function register_entity(name: String, prototype: Dynamic): Void;
+	public static function register_entity(name: String, prototype: Dynamic): Void;
 
 	// This is the hijacked function.
 	static public inline function registerEntity(name: String, clazz: Class<LuaEntity>): Void {
