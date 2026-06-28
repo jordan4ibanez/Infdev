@@ -16,6 +16,10 @@ final class Player {
 
 	public function onActivate(staticData: String, dtimeS: Float) {
 		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
+
+		this.object.setPhysicsOverride({
+			gravity: 0
+		});
 	}
 
 	public function onDeactivate(removal: Bool) {
