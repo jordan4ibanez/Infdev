@@ -114,6 +114,7 @@ class TerrainGenerator {
 		);
 
 		final overWorldTerrainBlendNoise: LuaArray<Float> = Core.getValueNoiseMap(overWorldTerrainBlendParameters, constantArea2D).get2DMapFlat(new Vec2(minPos.x, minPos.z));
+		final flatMapMinPos = new Vec2(minPos.x, minPos.z);
 
 		final overWorldTerrainNoiseBig: LuaArray<Float> = Core.getValueNoiseMap(overWorldTerrainNoiseParametersBig, constantArea2D).get2DMapFlat(new Vec2(minPos.x, minPos.z));
 
