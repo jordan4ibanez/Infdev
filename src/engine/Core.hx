@@ -197,7 +197,7 @@ extern class Core {
 
 	// There are 2 register_on_generated.
 	// Only generate the one for the terrain generator.
-	// This is quite confusing for new users. 
+	// This is quite confusing for new users.
 	// They at least need to be given separate names in the api.
 	// They have 2 different argument lists and contexts.
 	@:native("register_on_generated")
