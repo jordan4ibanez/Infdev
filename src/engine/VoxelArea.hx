@@ -15,7 +15,7 @@ abstract extern class VoxelArea {
 	public function getVolume(): Int;
 
 	@:native("index") // 1 indexed. Don't use.
-	public function indexLua(x: Int, y: Int, z: Int): Int;
+	private function indexLua(x: Int, y: Int, z: Int): Int;
 
 	// 0 indexed.
 	public inline function index(x: Int, y: Int, z: Int): Int {
