@@ -108,12 +108,14 @@ class TerrainGenerator {
 
 		final smallCaveNoise: LuaArray<Float> = Core.getValueNoiseMap(smallCaveNoiseParameters, constantArea3D).get3DMapFlat(minPos);
 
-		final flatMapMinPos = new Vec2(minPos.x, minPos.z);
+		
 
 		final constantArea2D = new Vec2(
 			(maxPos.x - minPos.x) + 1,
 			(maxPos.z - minPos.z) + 1
 		);
+
+		final flatMapMinPos = new Vec2(minPos.x, minPos.z);
 
 		final overWorldTerrainBlendNoise: LuaArray<Float> = Core.getValueNoiseMap(overWorldTerrainBlendParameters, constantArea2D).get2DMapFlat(flatMapMinPos);
 
