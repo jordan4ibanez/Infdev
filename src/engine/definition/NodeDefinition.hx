@@ -50,13 +50,13 @@ class NodeDefinition extends ItemDefinition {
 	@:native("visual_scale")
 	var visualScale: Float;
 
-	var tiles: LuaArray<TileDefinition>;
+	var tiles: LuaArray<TileDefinitionOrString>;
 
 	@:native("overlay_tiles")
-	var overlayTiles: LuaArray<TileDefinition>;
+	var overlayTiles: LuaArray<TileDefinitionOrString>;
 
 	@:native("special_tiles")
-	var specialTiles: LuaArray<TileDefinition>;
+	var specialTiles: LuaArray<TileDefinitionOrString>;
 
 	/**
 	 * This one is for nodes.
