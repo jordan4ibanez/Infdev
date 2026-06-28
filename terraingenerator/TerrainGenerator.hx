@@ -154,9 +154,12 @@ class TerrainGenerator {
 			var heightAtXZ = 0;
 
 			if (pos.y >= 0 && pos.y <= 160) {
+				// todo: make this a vector wtf
 				// Zero indices.
 				// local x_in_data = pos.x - minp.x
 				// local z_in_data = pos.z - minp.z
+				var xInData = pos.x - minPos.x;
+				var zInData = pos.z - minPos.z;
 
 				// -- Basically shove a 3D space into a 1D space.
 				// local index_2d = (z_in_data * depth) + x_in_data + 1
