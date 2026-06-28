@@ -9,11 +9,18 @@ import haxe.macro.Expr;
 class LuaLoop {
 	/**
 	 * Emits a raw, high-performance Lua generic for-loop.
-	 * @param loopVar The name of your loop variable (e.g., i)
+	 * @param loopVarExpr The identifier or string name of your loop variable (e.g., i or "i")
 	 * @param iteratorExpr The native iterator method call (e.g., area.iterP(min, max))
 	 * @param body The block of Haxe code to execute inside the loop
 	 */
-	public static macro function nativeFor(loopVar: String, iteratorExpr: Expr, body: Expr): Expr {
+	public static macro function nativeFor(loopVarExpr: Expr, iteratorExpr: Expr, body: Expr): Expr {
+		// Extract the variable name whether they typed a string or a raw identifier.
+		var loopVar: String = switch loopVarExpr.expr {
+			case EConst(CIdent(name)): name; // Handled raw tokens like: i
+			case EConst(CString(str, _)): str; // Handled backward compatibility strings: "i"
+			default: Context.error("First argument must be a variable name or a string", loopVarExpr.pos);
+		};
+
 		var openStr = 'for ' + loopVar + ' in {0} do';
 
 		// Create the Haxe expression for: var [loopVar] = untyped [loopVar];
@@ -29,7 +36,7 @@ class LuaLoop {
 			default:
 				// If it's a single-line expression, wrap it into a block with the injection.
 				{expr: EBlock([injection, body]), pos: body.pos};
-		}
+		};
 
 		return macro {
 			untyped __lua__($v{openStr}, $iteratorExpr);
