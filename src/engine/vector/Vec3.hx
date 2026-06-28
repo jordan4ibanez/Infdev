@@ -24,7 +24,7 @@ class Vec3 extends EngineVector3 {
 			output.z = engineVec3.z;
 		} else {
 			// Make a bunch of noise if input was null.
-			Core.log(LogLevelError, "Received null engine vec.");
+			Core.log(LogLevelError, "Received null engine vec3.");
 		}
 		return output;
 	}
@@ -44,7 +44,7 @@ class Vec3 extends EngineVector3 {
 			haxeVec.z = engineVec3.z;
 		} else {
 			// Make a bunch of noise if input was null.
-			Core.log(LogLevelError, "Received null engine vec.");
+			Core.log(LogLevelError, "Received null engine vec3.");
 		}
 	}
 
