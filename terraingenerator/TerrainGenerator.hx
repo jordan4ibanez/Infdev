@@ -154,7 +154,54 @@ class TerrainGenerator {
 			var heightAtXZ = 0;
 
 			if (pos.y >= 0 && pos.y <= 160) {
-				
+				// Zero indices.
+				// local x_in_data = pos.x - minp.x
+				// local z_in_data = pos.z - minp.z
+
+				// -- Basically shove a 3D space into a 1D space.
+				// local index_2d = (z_in_data * depth) + x_in_data + 1
+
+				// local skew = (clamp(-1, 1, overworld_terrain_blend_noise[index_2d]) + 1) * 0.5
+
+				// local big_noise_multiplier = 1 - skew
+				// local small_noise_multiplier = skew
+
+				// local raw_noise = (
+				// 	(overworld_terrain_noise_big[index_2d] * big_noise_multiplier) +
+				// 	(overworld_terrain_noise_small[index_2d] * small_noise_multiplier)
+				// )
+
+				// if (raw_noise == nil) then
+				// 	error("terrain generation error at index: " .. tostring(index_2d))
+				// end
+
+				// -- Amplitude in nodes.
+				// local amplitude = 80
+				// local base = 80
+
+				// height_at_xz = ceil(base + (amplitude * raw_noise))
+
+				// local is_sandy = height_at_xz <= ocean_level + 3
+
+				// if (pos.y == height_at_xz) then
+				// 	data[i] = (is_sandy and c_sand) or c_grass
+				// elseif (pos.y < height_at_xz and pos.y >= height_at_xz - 2) then
+				// 	data[i] = (is_sandy and c_sand) or c_dirt
+				// elseif (pos.y < height_at_xz) then
+				// 	if (not stone_disabled) then
+				// 		local is_sandstone = height_at_xz <= ocean_level + 3 and pos.y >= height_at_xz - 7
+
+				// 		if (is_sandstone) then
+				// 			data[i] = c_sandstone
+				// 		else
+				// 			data[i] = c_stone
+				// 		end
+				// 	end
+				// end
+
+				// -- print(raw_noise)
+
+				// -- print(value_noise_2d[index_2d])
 			}
 		});
 	}
