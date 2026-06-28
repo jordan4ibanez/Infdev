@@ -108,8 +108,6 @@ class TerrainGenerator {
 
 		final smallCaveNoise: LuaArray<Float> = Core.getValueNoiseMap(smallCaveNoiseParameters, constantArea3D).get3DMapFlat(minPos);
 
-		
-
 		final constantArea2D = new Vec2(
 			(maxPos.x - minPos.x) + 1,
 			(maxPos.z - minPos.z) + 1
@@ -126,8 +124,9 @@ class TerrainGenerator {
 		// --- @type table, table
 		// local emin, emax = voxmanip:get_emerged_area()
 
-		// local data = {}
+		final emergedArea = voxelManip.getEmergedArea();
 
+		// local data = {}
 		// voxmanip:get_data(data)
 
 		// local area = VoxelArea:new({ MinEdge = emin, MaxEdge = emax })
