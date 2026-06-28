@@ -1,5 +1,6 @@
 package src.game.entity;
 
+import lua.Lua;
 import src.engine.compilercode.Macros;
 import src.engine.entity.helpers.EntitySerialization;
 import src.engine.entity.objectref.ObjectRefBase;
@@ -8,8 +9,7 @@ import src.engine.entity.objectref.ObjectRefPlayer;
 final class Player {
 	public var object: ObjectRefPlayer = null;
 
-	var iAmCoolVar = 5;
-	var totalTime: Float = 0;
+	var name: String;
 
 	@:allow(src.engine.entity.helpers.PlayerHandling)
 	private function new() {}
@@ -17,9 +17,13 @@ final class Player {
 	public function onActivate(staticData: String, dtimeS: Float) {
 		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
 
+		this.name = this.object.getPlayerName();
+
 		this.object.setPhysicsOverride({
 			gravity: 0
 		});
+
+		Lua.print(this.name + " joined the game.");
 	}
 
 	public function onDeactivate(removal: Bool) {
@@ -34,11 +38,7 @@ final class Player {
 
 	// todo: I don't think moveresult is possible
 	// moveResult: Dynamic
-	public function onStep(delta: Float) {
-		this.totalTime += delta;
-
-		// trace(totalTime);
-	}
+	public function onStep(delta: Float) {}
 
 	public function onPunch(puncher: Null<ObjectRefBase>, timeFromLastPunch: Float, toolCapabilities: Dynamic, dir: Dynamic, damager: Int): Bool {
 		trace(this.object.getPlayerName() + " got punched! OUCH");
