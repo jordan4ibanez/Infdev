@@ -219,13 +219,17 @@ class TerrainGenerator {
 					// elseif (pos.y < height_at_xz) then
 				} else if (pos.y < heightAtXZ) {
 					// 	if (not stone_disabled) then
-					// 		local is_sandstone = height_at_xz <= ocean_level + 3 and pos.y >= height_at_xz - 7
+					if (!stoneDisabled) {
+						// 		local is_sandstone = height_at_xz <= ocean_level + 3 and pos.y >= height_at_xz - 7
+						var isSandstone = heightAtXZ <= oceanLevel + 3 && pos.y >= heightAtXZ - 7;
 
-					// 		if (is_sandstone) then
-					// 			data[i] = c_sandstone
-					// 		else
-					// 			data[i] = c_stone
-					// 		end
+						data[i] = isSandstone ? sandstoneID : stoneID;
+						// 		if (is_sandstone) then
+						// 			data[i] = c_sandstone
+						// 		else
+						// 			data[i] = c_stone
+						// 		end
+					}
 					// 	end
 				}
 				// end
