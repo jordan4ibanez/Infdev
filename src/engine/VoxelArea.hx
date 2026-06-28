@@ -25,10 +25,13 @@ abstract extern class VoxelArea {
 	@:native("indexp")
 	public function indexP(pos: EngineVector3): Int;
 
-	/**
-	 * This is 1 indexed.
-	 */
-	public function position(i: Int): EngineVector3;
+	@:native("position") // 1 indexed. Don't use.
+	private function positionLua(i: Int): EngineVector3;
+
+	// 0 indexed.
+	public inline function position(i: Int): EngineVector3 {
+		return positionLua(i + 1);
+	}
 
 	public function contains(x: Int, y: Int, z: Int): Bool;
 
