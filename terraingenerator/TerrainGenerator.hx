@@ -101,8 +101,8 @@ class TerrainGenerator {
 		);
 
 		// local cave_blend_noise                         = {}
-		// local __cave_blend_noise_map_3d                = core.get_value_noise_map(cave_blend_parameters,
-		// 	__constant_area_3d)
+		// local __cave_blend_noise_map_3d                = core.get_value_noise_map(cave_blend_parameters,	__constant_area_3d)
+		// 
 		// __cave_blend_noise_map_3d:get_3d_map_flat(minp, cave_blend_noise)
 
 		// local big_cave_noise          = {}
