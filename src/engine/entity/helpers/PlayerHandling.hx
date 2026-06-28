@@ -1,5 +1,6 @@
 package src.engine.entity.helpers;
 
+import src.game.entity.Player;
 import haxe.ds.StringMap;
 import src.engine.Core;
 
