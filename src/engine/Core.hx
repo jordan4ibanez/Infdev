@@ -1,5 +1,6 @@
 package src.engine;
 
+import src.engine.vector.EngineVector2;
 import Reflect;
 import haxe.Constraints.Function;
 import haxe.Rest;
@@ -204,7 +205,7 @@ extern class Core {
 	static function registerOnGeneratedMapgenThread(delegate: (voxelManip: VoxelManip, minPos: EngineVector3, maxPos: EngineVector3, blockSeed: Int) -> Void): Void;
 
 	@:native("get_value_noise_map")
-	static function getValueNoiseMap(noiseParams: NoiseParams, size: EngineVector3): ValueNoiseMap;
+	static function getValueNoiseMap(noiseParams: NoiseParams, size: EngineVector2): ValueNoiseMap;
 
 	@:native("get_mapgen_setting")
 	static function getMapgenSetting(name: String): String;
