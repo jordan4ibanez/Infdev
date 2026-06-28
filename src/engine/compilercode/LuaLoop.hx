@@ -25,7 +25,8 @@ class LuaLoop {
 
 		// Create the Haxe expression for: var [loopVar] = untyped [loopVar];
 		var varNameIdent = {expr: EConst(CIdent(loopVar)), pos: Context.currentPos()};
-		var injection = macro var $loopVar = untyped $varNameIdent;
+		// This shadows the underlying value.
+		var injection = macro var $loopVar = untyped $varNameIdent - 1;
 
 		// Combine the injection with the original loop body.
 		var newBody = switch body.expr {
