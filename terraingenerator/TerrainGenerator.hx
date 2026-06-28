@@ -244,22 +244,22 @@ class TerrainGenerator {
 					data[i] = stoneID;
 				}
 			}
-
-			// voxmanip:set_data(data)
-			voxelManip.setData(data);
-
-			// core.generate_ores(voxmanip, minp, maxp)
-			// todo:
-			// core.generate_decorations(voxmanip, minp, maxp)
-			// todo:
-
-			// voxmanip:calc_lighting()
-			voxelManip.calcLighting();
-			// voxmanip:update_liquids()
-			voxelManip.updateLiquids();
-
-			// -- vm:write_to_map()
 		});
+
+		// voxmanip:set_data(data)
+		voxelManip.setData(data);
+
+		// core.generate_ores(voxmanip, minp, maxp)
+		// todo:
+		// core.generate_decorations(voxmanip, minp, maxp)
+		// todo:
+
+		// voxmanip:calc_lighting()
+		voxelManip.calcLighting();
+		// voxmanip:update_liquids()
+		voxelManip.updateLiquids();
+
+		// -- vm:write_to_map()
 	}
 
 	// ? Everything below this is infrastructure to get the singleton map generator to load up.
