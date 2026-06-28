@@ -237,7 +237,23 @@ class TerrainGenerator {
 				// -- print(raw_noise)
 
 				// -- print(value_noise_2d[index_2d])
+			} else if (pos.y > -1024 && pos.y < 0) {
+				// Underground in the overworld.
+
+				if (!stoneDisabled) {
+					data[i] = stoneID;
+				}
 			}
+
+			// voxmanip:set_data(data)
+
+			// core.generate_ores(voxmanip, minp, maxp)
+			// core.generate_decorations(voxmanip, minp, maxp)
+
+			// voxmanip:calc_lighting()
+			// voxmanip:update_liquids()
+
+			// -- vm:write_to_map()
 		});
 	}
 
