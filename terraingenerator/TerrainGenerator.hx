@@ -156,87 +156,43 @@ class TerrainGenerator {
 			if (pos.y >= 0 && pos.y <= 160) {
 				// todo: make this a vector wtf
 				// Zero indices.
-				// local x_in_data = pos.x - minp.x
-				// local z_in_data = pos.z - minp.z
 				var xInData = pos.x - minPos.x;
 				var zInData = pos.z - minPos.z;
 
-				// -- Basically shove a 3D space into a 1D space.
-				// local index_2d = (z_in_data * depth) + x_in_data + 1
+				// Basically shove a 3D space into a 1D space.
 
 				var index2D = (zInData * depth) + xInData;
 
-				// local skew = (clamp(-1, 1, overworld_terrain_blend_noise[index_2d]) + 1) * 0.5
 				var skew = (clamp(overWorldTerrainBlendNoise[index2D], -1, 1) + 1) * 0.5;
-
-				// local big_noise_multiplier = 1 - skew
-				// local small_noise_multiplier = skew
 
 				var bigNoiseMultiplier = 1 - skew;
 				var smallNoiseMultiplier = skew;
 
-				// local raw_noise = (
-				// 	(overworld_terrain_noise_big[index_2d] * big_noise_multiplier) +
-				// 	(overworld_terrain_noise_small[index_2d] * small_noise_multiplier)
-				// )
-
 				var rawNoise = ((overWorldTerrainNoiseBig[index2D] * bigNoiseMultiplier) + (overWorldTerrainNoiseSmall[index2D] * smallNoiseMultiplier));
-
-				// if (raw_noise == nil) then
-				// 	error("terrain generation error at index: " .. tostring(index_2d))
-				// end
 
 				if (rawNoise == null) {
 					throw "terrain generator error at index: " + Lua.tostring(index2D);
 				}
 
-				// -- Amplitude in nodes.
-				// local amplitude = 80
-				// local base = 80
+				// Amplitude in nodes.
 
 				var amplitude = 80;
 				var base = 80;
 
-				// height_at_xz = ceil(base + (amplitude * raw_noise))
-
 				heightAtXZ = Math.ceil(base + (amplitude + rawNoise));
-
-				// local is_sandy = height_at_xz <= ocean_level + 3
 
 				var isSandy = heightAtXZ <= oceanLevel + 3;
 
-				// if (pos.y == height_at_xz) then
 				if (pos.y == heightAtXZ) {
-					// 	data[i] = (is_sandy and c_sand) or c_grass
 					data[i] = isSandy ? sandID : grassID;
-
-					// elseif (pos.y < height_at_xz and pos.y >= height_at_xz - 2) then
 				} else if (pos.y < heightAtXZ && pos.y >= heightAtXZ - 2) {
-					// 	data[i] = (is_sandy and c_sand) or c_dirt
-
 					data[i] = isSandy ? sandID : dirtID;
-
-					// elseif (pos.y < height_at_xz) then
 				} else if (pos.y < heightAtXZ) {
-					// 	if (not stone_disabled) then
 					if (!stoneDisabled) {
-						// 		local is_sandstone = height_at_xz <= ocean_level + 3 and pos.y >= height_at_xz - 7
 						var isSandstone = heightAtXZ <= oceanLevel + 3 && pos.y >= heightAtXZ - 7;
-
 						data[i] = isSandstone ? sandstoneID : stoneID;
-						// 		if (is_sandstone) then
-						// 			data[i] = c_sandstone
-						// 		else
-						// 			data[i] = c_stone
-						// 		end
 					}
-					// 	end
 				}
-				// end
-
-				// -- print(raw_noise)
-
-				// -- print(value_noise_2d[index_2d])
 			} else if (pos.y > -1024 && pos.y < 0) {
 				// Underground in the overworld.
 
