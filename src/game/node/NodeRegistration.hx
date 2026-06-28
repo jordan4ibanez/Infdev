@@ -7,7 +7,6 @@ import src.game.groups.NodeGroup;
 final class Dirt extends NodeDefinition {
 	public function new() {
 		super();
-		this.nodeColor = "blue";
 
 		this.nodeGroups = [
 			NodeGroupDirt => 1
@@ -28,10 +27,11 @@ final class Grass extends NodeDefinition {
 final class Stone extends NodeDefinition {
 	public function new() {
 		super();
-		this.nodeColor = "blue";
+
 		this.nodeGroups = [
 			NodeGroupStone => 1
 		];
+		this.tiles = ["default_stone.png"];
 	}
 }
 
