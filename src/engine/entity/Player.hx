@@ -16,7 +16,6 @@ final class Player {
 
 	public function onActivate(staticData: String, dtimeS: Float) {
 		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
-		trace(this.object.getBreath());
 	}
 
 	public function onDeactivate(removal: Bool) {
