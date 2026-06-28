@@ -43,8 +43,13 @@ abstract extern class VoxelArea {
 	@:native("containsp")
 	public function containsP(pos: EngineVector3): Bool;
 
-	@:native("containsi")
-	public function containsI(index: Int): Bool;
+	@:native("containsi") // 1 indexed. Don't use.
+	private function containsILua(index: Int): Bool;
+
+	// 0 indexed.
+	public inline function containsI(index: Int): Bool {
+		return containsILua(index + 1);
+	}
 
 	public function iter(minX: Int, minY: Int, minZ: Int, maxX: Int, maxY: Int, maxZ: Int): NativeIterator<Int>;
 
