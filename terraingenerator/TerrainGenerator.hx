@@ -1,5 +1,6 @@
 package terraingenerator;
 
+import src.engine.VoxelArea;
 import src.engine.vector.Vec2;
 import src.engine.compilercode.LuaArray;
 import src.engine.vector.Vec3;
@@ -132,6 +133,8 @@ class TerrainGenerator {
 		final data: LuaArray<Int> = voxelManip.getData();
 
 		// local area = VoxelArea:new({ MinEdge = emin, MaxEdge = emax })
+
+		final area: VoxelArea = VoxelArea.create(emergedArea.min, emergedArea.max);
 
 		// local index = 1
 
