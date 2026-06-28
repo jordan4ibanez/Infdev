@@ -206,19 +206,28 @@ class TerrainGenerator {
 				var isSandy = heightAtXZ <= oceanLevel + 3;
 
 				// if (pos.y == height_at_xz) then
-				// 	data[i] = (is_sandy and c_sand) or c_grass
-				// elseif (pos.y < height_at_xz and pos.y >= height_at_xz - 2) then
-				// 	data[i] = (is_sandy and c_sand) or c_dirt
-				// elseif (pos.y < height_at_xz) then
-				// 	if (not stone_disabled) then
-				// 		local is_sandstone = height_at_xz <= ocean_level + 3 and pos.y >= height_at_xz - 7
+				if (pos.y == heightAtXZ) {
+					// 	data[i] = (is_sandy and c_sand) or c_grass
+					data[i] = isSandy ? sandID : grassID;
 
-				// 		if (is_sandstone) then
-				// 			data[i] = c_sandstone
-				// 		else
-				// 			data[i] = c_stone
-				// 		end
-				// 	end
+					// elseif (pos.y < height_at_xz and pos.y >= height_at_xz - 2) then
+				} else if (pos.y < heightAtXZ && pos.y >= heightAtXZ - 2) {
+					// 	data[i] = (is_sandy and c_sand) or c_dirt
+
+					data[i] = isSandy ? sandID : dirtID;
+
+					// elseif (pos.y < height_at_xz) then
+				} else if (pos.y < heightAtXZ) {
+					// 	if (not stone_disabled) then
+					// 		local is_sandstone = height_at_xz <= ocean_level + 3 and pos.y >= height_at_xz - 7
+
+					// 		if (is_sandstone) then
+					// 			data[i] = c_sandstone
+					// 		else
+					// 			data[i] = c_stone
+					// 		end
+					// 	end
+				}
 				// end
 
 				// -- print(raw_noise)
