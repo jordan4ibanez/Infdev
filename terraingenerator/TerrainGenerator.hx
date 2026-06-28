@@ -119,7 +119,7 @@ class TerrainGenerator {
 		// local __small_cave_noise_map_3d = core.get_value_noise_map(small_cave_noise_parameters, __constant_area_3d)
 		// __small_cave_noise_map_3d:get_3d_map_flat(minp, small_cave_noise)
 
-		final smallCaveNoise = Core.getValueNoiseMap(smallCaveNoiseParameters, constantArea3D).get3DMapFlat(minPos);
+		final smallCaveNoise: LuaArray<Float> = Core.getValueNoiseMap(smallCaveNoiseParameters, constantArea3D).get3DMapFlat(minPos);
 
 		// local __constant_area_2d                     = {
 		// 	x = (maxp.x - minp.x) + 1,
