@@ -47,6 +47,17 @@ abstract LuaArray<T>(Table<Int, T>) from Table<Int, T> to Table<Int, T> {
 		return value;
 	}
 
+	@:arrayAccess
+	inline function getFloat(index: Float): T {
+		return untyped this[index + 1];
+	}
+
+	@:arrayAccess
+	inline function setFloat(index: Float, value: T): T {
+		untyped this[index + 1] = value;
+		return value;
+	}
+
 	inline public function iterator(): LuaArrayIterator<T> {
 		return new LuaArrayIterator(cast this);
 	}
