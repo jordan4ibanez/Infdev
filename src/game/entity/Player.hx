@@ -1,4 +1,4 @@
-package src.engine.entity;
+package src.game.entity;
 
 import src.engine.compilercode.Macros;
 import src.engine.entity.helpers.EntitySerialization;
