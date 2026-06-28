@@ -125,6 +125,8 @@ class TerrainGenerator {
 		// 	y = (maxp.z - minp.z) + 1
 		// }
 
+		final constantArea2D = 
+
 		// local overworld_terrain_blend_noise          = {}
 		// local __overworld_terrain_blend_noise_map_2d = core.get_value_noise_map(overworld_terrain_blend_parameters,
 		// 	__constant_area_2d)
