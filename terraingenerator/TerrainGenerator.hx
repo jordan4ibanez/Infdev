@@ -138,10 +138,13 @@ class TerrainGenerator {
 
 		// local index = 1
 
+		var index: Int = 1;
+
 		// local width = (maxp.x - minp.x) + 1
 		// local depth = (maxp.z - minp.z) + 1
 
-		var data = voxelManip.getData();
+		final width = (maxPos.x - minPos.x) + 1;
+		final depth = (maxPos.z - minPos.z) + 1;
 	}
 
 	// ? Everything below this is infrastructure to get the singleton map generator to load up.
