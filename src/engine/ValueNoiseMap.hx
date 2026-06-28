@@ -6,23 +6,23 @@ import src.engine.vector.EngineVector3;
 @:final
 abstract extern class ValueNoiseMap {
 	@:native("get_2d_map")
-	public extern function get2DMap(pos: EngineVector3): LuaArray<LuaArray<Float>>;
+	public function get2DMap(pos: EngineVector3): LuaArray<LuaArray<Float>>;
 
 	@:native("get_3d_map")
-	public extern function get3DMap(pos: EngineVector3): LuaArray<LuaArray<LuaArray<Float>>>;
+	public function get3DMap(pos: EngineVector3): LuaArray<LuaArray<LuaArray<Float>>>;
 
 	@:native("get_2d_map_flat")
-	public extern function get2DMapFlat(pos: EngineVector3, ?buffer: LuaArray<Float>): LuaArray<Float>;
+	public function get2DMapFlat(pos: EngineVector3, ?buffer: LuaArray<Float>): LuaArray<Float>;
 
 	@:native("get_3d_map_flat")
-	public extern function get3DMapFlat(pos: EngineVector3, ?buffer: LuaArray<Float>): LuaArray<Float>;
+	public function get3DMapFlat(pos: EngineVector3, ?buffer: LuaArray<Float>): LuaArray<Float>;
 
 	@:native("calc_2d_map")
-	public extern function calc2DMap(pos: EngineVector3): Void;
+	public function calc2DMap(pos: EngineVector3): Void;
 
 	@:native("calc_3d_map")
-	public extern function calc3DMap(pos: EngineVector3): Void;
+	public function calc3DMap(pos: EngineVector3): Void;
 
 	@:native("get_map_slice")
-	public extern function getMapSlice(sliceOffset: EngineVector3, sliceSize: EngineVector3, buffer: LuaArray<Float>): Void;
+	public function getMapSlice(sliceOffset: EngineVector3, sliceSize: EngineVector3, buffer: LuaArray<Float>): Void;
 }
