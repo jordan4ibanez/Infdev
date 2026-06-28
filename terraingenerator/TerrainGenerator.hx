@@ -132,8 +132,7 @@ class TerrainGenerator {
 		);
 
 		// local overworld_terrain_blend_noise          = {}
-		// local __overworld_terrain_blend_noise_map_2d = core.get_value_noise_map(overworld_terrain_blend_parameters,
-		// 	__constant_area_2d)
+		// local __overworld_terrain_blend_noise_map_2d = core.get_value_noise_map(overworld_terrain_blend_parameters, __constant_area_2d)
 		// __overworld_terrain_blend_noise_map_2d:get_2d_map_flat({ x = minp.x, y = minp.z },
 		// 	overworld_terrain_blend_noise)
 
