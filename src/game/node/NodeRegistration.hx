@@ -17,6 +17,13 @@ final class Dirt extends NodeDefinition {
 	}
 }
 
+@:register("infdev:grass")
+final class Grass extends NodeDefinition {
+	public function new() {
+		super();
+	}
+}
+
 @:register("infdev:stone")
 final class Stone extends NodeDefinition {
 	public function new() {
@@ -34,5 +41,19 @@ final class WaterSource extends NodeDefinition {
 		super();
 
 		// trace("I am aqua");
+	}
+}
+
+@:register("infdev:sandstone")
+final class Sandstone extends NodeDefinition {
+	public function new() {
+		super();
+	}
+}
+
+@:register("infdev:sand")
+final class Sand extends NodeDefinition {
+	public function new() {
+		super();
 	}
 }
