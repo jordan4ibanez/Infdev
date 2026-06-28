@@ -1,5 +1,6 @@
 package terraingenerator;
 
+import src.engine.compilercode.LuaArray;
 import src.engine.vector.Vec3;
 import src.engine.NodeTable;
 import lua.Lua;
@@ -102,8 +103,10 @@ class TerrainGenerator {
 
 		// local cave_blend_noise                         = {}
 		// local __cave_blend_noise_map_3d                = core.get_value_noise_map(cave_blend_parameters,	__constant_area_3d)
-		// 
+		//
 		// __cave_blend_noise_map_3d:get_3d_map_flat(minp, cave_blend_noise)
+
+		final caveBlendNoise: LuaArray<Float> = Core.getValueNoiseMap(caveBlendParameters, constantArea3D).get3DMapFlat(minPos);
 
 		// local big_cave_noise          = {}
 		// local __big_cave_noise_map_3d = core.get_value_noise_map(big_cave_noise_parameters,
