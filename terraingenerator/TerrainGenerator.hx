@@ -149,8 +149,7 @@ class TerrainGenerator {
 		final depth = (maxPos.z - minPos.z) + 1;
 
 		LuaLoop.nativeFor(i, area.iterP(minPos, maxPos), {
-			// 'i' is automatically scoped and ready to use
-			trace(i);
+			Lua.print(i);
 		});
 	}
 
