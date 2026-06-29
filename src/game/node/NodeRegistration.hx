@@ -103,8 +103,6 @@ final class Bedrock extends NodeDefinition {
 		this.nodeGroups = [
 			NodeGroupStone => 1
 		];
-		this.tiles = ["default_stone.png"];
-
-		this.nodeColor = "black";
+		this.tiles = ["default_stone.png^[contrast:100:-15"];
 	}
 }
