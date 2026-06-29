@@ -310,9 +310,9 @@ class TerrainGenerator {
 		voxelManip.setData(data);
 
 		// core.generate_ores(voxmanip, minp, maxp)
-		// todo:
+		Core.generateOres(voxelManip, minPos, maxPos);
 		// core.generate_decorations(voxmanip, minp, maxp)
-		// todo:
+		Core.generateDecorations(voxelManip, minPos, maxPos);
 
 		// voxmanip:calc_lighting()
 		voxelManip.calcLighting();
