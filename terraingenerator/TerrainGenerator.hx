@@ -212,6 +212,8 @@ class TerrainGenerator {
 				// 		(small_cave_noise[index] * small_noise_multiplier)
 				// 	)
 
+				var averageNoise = (bigCaveNoise[index] * bigNoiseMultiplier) + (smallCaveNoise[index] * smallNoiseMultiplier);
+
 				// 	if average_noise > 0.4 then
 				// 		data[i] = c_air
 				// 		hit = true
