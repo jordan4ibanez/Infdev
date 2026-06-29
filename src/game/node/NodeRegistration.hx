@@ -1,5 +1,6 @@
 package src.game.node;
 
+import src.engine.definition.graphics.TileAnimationDefinition.TileAnimationDefinitionVerticalFrames;
 import src.engine.definition.basic.NodeDropTable;
 import src.engine.definition.ToolCapabilities.GroupCapabilities;
 import src.engine.definition.basic.TileDefinition;
@@ -102,6 +103,15 @@ final class Bedrock extends NodeDefinition {
 final class WaterSource extends NodeDefinition {
 	public function new() {
 		super();
+
+		tiles = [
+			new TileDefinition("default_water_source_animated.png")
+				.setAnimation(new TileAnimationDefinitionVerticalFrames(16, 16, 2.0))
+				.setBackfaceCulling(false),
+			new TileDefinition("default_water_source_animated.png")
+				.setBackfaceCulling(true)
+				.setAnimation(new TileAnimationDefinitionVerticalFrames(16, 16, 2.0))
+		];
 
 		// trace("I am aqua");
 	}
