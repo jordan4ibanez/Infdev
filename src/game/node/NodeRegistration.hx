@@ -8,18 +8,7 @@ import src.engine.definition.basic.TileDefinition;
 import src.engine.definition.NodeDefinition;
 import src.game.groups.NodeGroup;
 
-@:register("infdev:dirt")
-final class Dirt extends NodeDefinition {
-	public function new() {
-		super();
 
-		this.nodeGroups = [
-			NodeGroupDirt => 1
-		];
-
-		tiles = ["default_dirt.png"];
-	}
-}
 
 @:register("infdev:grass")
 final class Grass extends NodeDefinition {
