@@ -295,9 +295,12 @@ class TerrainGenerator {
 			// -- 	end
 			// -- end
 
-			// -- Bedrock generation.
+			// Bedrock generation.
 			// if (pos.y == -1024) then
-			// 	data[i] = c_bedrock
+			if (pos.y == -1024) {
+				// 	data[i] = c_bedrock
+				data[i] = bedrockID;
+			}
 			// end
 
 			index++;
