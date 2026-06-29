@@ -1,5 +1,6 @@
 package src.game.node;
 
+import src.engine.definition.graphics.RGBA;
 import src.engine.definition.graphics.TileAnimationDefinition.TileAnimationDefinitionVerticalFrames;
 import src.engine.definition.basic.NodeDropTable;
 import src.engine.definition.ToolCapabilities.GroupCapabilities;
@@ -115,8 +116,27 @@ final class WaterSource extends NodeDefinition {
 
 		// trace("I am mac osx aqua");
 
-		
+		description = "Water Source";
+		drawType = DrawTypeLiquid;
+		waving = WavingTypeLiquids;
+		useTextureAlpha = NodeTextureAlphaBlend;
+		paramtype1 = ParamType1Light;
 
-
+		walkable = false;
+		pointable = false;
+		diggable = false;
+		buildableTo = true;
+		isGroundContent = false;
+		drop = "";
+		drowning = 1;
+		liquidType = LiquidTypeSource;
+		liquidAlternativeFlowing = "infdev:water_flowing";
+		liquidAlternativeSource = "infdev:water_source";
+		liquidViscosity = 1;
+		postEffectColor = new RGBA(30, 60, 90, 103);
+		nodeGroups = [
+			NodeGroupLiquidSource => 1,
+			NodeGroupWater => 1
+		];
 	}
 }
