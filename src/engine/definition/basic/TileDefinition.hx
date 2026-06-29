@@ -10,12 +10,21 @@ abstract class TileDefinition {
 	@:native("tileable_vertical")
 	var tileableVertical: Bool;
 
+	@:native("tileable_horizontal")
+	var tileableHorizontal: Bool;
+
 	public function new(name: String) {
 		this.name = name;
 	}
 
-	public function setTileableVertical(setting: Bool) {
+	public function setTileableVertical(setting: Bool): TileDefinition {
 		this.tileableVertical = setting;
+		return this;
+	}
+
+	public function setTileableHorizontal(setting: Bool): TileDefinition {
+		this.tileableHorizontal = setting;
+		return this;
 	}
 }
 
