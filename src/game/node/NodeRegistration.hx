@@ -48,6 +48,20 @@ final class Stone extends NodeDefinition {
 			NodeGroupStone => 1
 		];
 		this.tiles = ["default_stone.png"];
+
+		drop = "infdev:cobblestone";
+	}
+}
+
+@:register("infdev:cobblestone")
+final class Cobblestone extends NodeDefinition {
+	public function new() {
+		super();
+
+		this.nodeGroups = [
+			NodeGroupStone => 1
+		];
+		this.tiles = ["default_cobble.png"];
 	}
 }
 
