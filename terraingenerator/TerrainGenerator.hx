@@ -199,6 +199,10 @@ class TerrainGenerator {
 			// 	if (!stoneDisabled) {
 			// 		data[i] = stoneID;
 			// 	}
+
+			// var pos = area.position(i);
+			// if (pos.y == 80) {
+			// 	data[i] = stoneID;
 			// }
 		});
 
