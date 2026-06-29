@@ -8,23 +8,6 @@ import src.engine.definition.basic.TileDefinition;
 import src.engine.definition.NodeDefinition;
 import src.game.groups.NodeGroup;
 
-
-
-
-@:register("infdev:stone")
-final class Stone extends NodeDefinition {
-	public function new() {
-		super();
-
-		this.nodeGroups = [
-			NodeGroupStone => 1
-		];
-		this.tiles = ["default_stone.png"];
-
-		drop = "infdev:cobblestone";
-	}
-}
-
 @:register("infdev:cobblestone")
 final class Cobblestone extends NodeDefinition {
 	public function new() {
