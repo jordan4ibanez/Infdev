@@ -8,19 +8,6 @@ import src.engine.definition.basic.TileDefinition;
 import src.engine.definition.NodeDefinition;
 import src.game.groups.NodeGroup;
 
-@:register("infdev:sand")
-final class Sand extends NodeDefinition {
-	public function new() {
-		super();
-
-		tiles = ["default_sand.png"];
-
-		nodeGroups = [
-			NodeGroupSand => 1
-		];
-	}
-}
-
 @:register("infdev:bedrock")
 final class Bedrock extends NodeDefinition {
 	public function new() {
