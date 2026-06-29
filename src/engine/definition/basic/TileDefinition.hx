@@ -4,7 +4,7 @@ import haxe.extern.EitherType;
 import src.engine.definition.graphics.ColorSpec;
 import src.engine.definition.graphics.TileAnimationDefinition;
 
-abstract class TileDefinition {
+class TileDefinition {
 	var name: String;
 
 	@:native("tileable_vertical")
