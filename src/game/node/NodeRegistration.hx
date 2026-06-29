@@ -8,17 +8,6 @@ import src.engine.definition.basic.TileDefinition;
 import src.engine.definition.NodeDefinition;
 import src.game.groups.NodeGroup;
 
-@:register("infdev:bedrock")
-final class Bedrock extends NodeDefinition {
-	public function new() {
-		super();
-
-		this.nodeGroups = [
-			NodeGroupStone => 1
-		];
-		this.tiles = ["default_stone.png^[contrast:100:-15"];
-	}
-}
 
 @:register("infdev:water_source")
 final class WaterSource extends NodeDefinition {
