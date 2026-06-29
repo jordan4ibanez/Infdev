@@ -148,7 +148,7 @@ class TerrainGenerator {
 		final width = (maxPos.x - minPos.x) + 1;
 		final depth = (maxPos.z - minPos.z) + 1;
 
-		LuaLoop.nativeFor(i, area.iterP(minPos, maxPos), {
+		LuaLoop.nativeFor(i, area.iterP(emergedArea.min, emergedArea.max), {
 			final pos = area.position(i);
 
 			var heightAtXZ = 0;
