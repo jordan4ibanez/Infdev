@@ -135,7 +135,7 @@ final class WaterSource extends NodeDefinition {
 		drop = "";
 		drowning = 1;
 		liquidType = LiquidTypeSource;
-		liquidAlternativeFlowing = "infdev:water_flowing";
+		liquidAlternativeFlowing = "infdev:water_flow";
 		liquidAlternativeSource = "infdev:water_source";
 		liquidViscosity = 1;
 		postEffectColor = new RGBA(30, 60, 90, 103);
