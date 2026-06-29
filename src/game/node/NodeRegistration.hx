@@ -66,15 +66,6 @@ final class Cobblestone extends NodeDefinition {
 	}
 }
 
-@:register("infdev:water_source")
-final class WaterSource extends NodeDefinition {
-	public function new() {
-		super();
-
-		// trace("I am aqua");
-	}
-}
-
 @:register("infdev:sandstone")
 final class Sandstone extends NodeDefinition {
 	public function new() {
@@ -104,5 +95,14 @@ final class Bedrock extends NodeDefinition {
 			NodeGroupStone => 1
 		];
 		this.tiles = ["default_stone.png^[contrast:100:-15"];
+	}
+}
+
+@:register("infdev:water_source")
+final class WaterSource extends NodeDefinition {
+	public function new() {
+		super();
+
+		// trace("I am aqua");
 	}
 }
