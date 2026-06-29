@@ -16,6 +16,8 @@ class TileDefinition {
 	@:native("backface_culling")
 	var backfaceCulling: Bool;
 
+	var animation: TileAnimationDefinition;
+
 	public function new(name: String) {
 		this.name = name;
 	}
@@ -34,22 +36,14 @@ class TileDefinition {
 		this.backfaceCulling = backfaceCulling;
 		return this;
 	}
-}
 
-typedef TileDefinitionOrString = EitherType<TileDefinition, String>;
-
-class TileDefinitionAnimated extends TileDefinition {
-	var animation: TileAnimationDefinition;
-
-	public function new(name: String) {
-		super(name);
-	}
-
-	public function setAnimation(animation: TileAnimationDefinition): TileDefinitionAnimated {
+	public function setAnimation(animation: TileAnimationDefinition): TileDefinition {
 		this.animation = animation;
 		return this;
 	}
 }
+
+typedef TileDefinitionOrString = EitherType<TileDefinition, String>;
 
 enum abstract TileDefinitionAlignStyle(String) to String {
 	var TileDefinitionAlignStyleNode = "node";
