@@ -178,7 +178,7 @@ class TerrainGenerator {
 				var amplitude = 80;
 				var base = 80;
 
-				var heightAtXZ = Math.ceil(base + (amplitude + rawNoise));
+				var heightAtXZ = Math.ceil(base + (amplitude * rawNoise));
 
 				var isSandy = heightAtXZ <= oceanLevel + 3;
 
