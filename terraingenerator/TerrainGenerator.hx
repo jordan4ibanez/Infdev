@@ -153,7 +153,6 @@ class TerrainGenerator {
 			final pos = area.position(i);
 
 			if (pos.y >= 0 && pos.y <= 160) {
-				// todo: make this a vector wtf
 				// Zero indices.
 				var xInData = pos.x - minPos.x;
 				var zInData = pos.z - minPos.z;
