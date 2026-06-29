@@ -92,8 +92,9 @@ class TerrainGenerator {
 
 	function clamp(input: Float, low: Float, high: Float): Float {
 		if (low > high) {
+			final temp = low;
 			low = high;
-			high = low;
+			high = temp;
 		}
 		return Math.max(low, Math.min(high, input));
 	}
