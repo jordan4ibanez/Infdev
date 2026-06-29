@@ -7,8 +7,15 @@ import src.engine.definition.graphics.TileAnimationDefinition;
 abstract class TileDefinition {
 	var name: String;
 
+	@:native("tileable_vertical")
+	var tileableVertical: Bool;
+
 	public function new(name: String) {
 		this.name = name;
+	}
+
+	public function setTileableVertical(setting: Bool) {
+		this.tileableVertical = setting;
 	}
 }
 
