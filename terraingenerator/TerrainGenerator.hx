@@ -219,19 +219,27 @@ class TerrainGenerator {
 				// 		hit = true
 				// 	end
 
+				if (averageNoise > 0.4) {
+					data[i] = airID;
+					hit = true;
+				}
+
 				// 	if hit then
-				// 		-- Check if dirt so that there isn't a bunch of dirt all over the place on the surface.
-				// 		local possible_dirt_index = area:index(pos.x, pos.y - 1, pos.z)
 
-				// 		local grass_check_1 = area:index(pos.x, pos.y + 1, pos.z)
-				// 		local grass_check_2 = area:index(pos.x, pos.y + 2, pos.z)
+				if (hit) {
+					// 		-- Check if dirt so that there isn't a bunch of dirt all over the place on the surface.
+					// 		local possible_dirt_index = area:index(pos.x, pos.y - 1, pos.z)
 
-				// 		if data[possible_dirt_index] == c_dirt then
-				// 			-- Prevent double grass.
-				// 			if data[grass_check_1] ~= c_grass and data[grass_check_2] ~= c_grass then
-				// 				data[possible_dirt_index] = c_grass
-				// 			end
-				// 		end
+					// 		local grass_check_1 = area:index(pos.x, pos.y + 1, pos.z)
+					// 		local grass_check_2 = area:index(pos.x, pos.y + 2, pos.z)
+
+					// 		if data[possible_dirt_index] == c_dirt then
+					// 			-- Prevent double grass.
+					// 			if data[grass_check_1] ~= c_grass and data[grass_check_2] ~= c_grass then
+					// 				data[possible_dirt_index] = c_grass
+					// 			end
+					// 		end
+				}
 				// 	end
 			}
 			// end
