@@ -13,9 +13,9 @@ final class WaterFlow extends NodeDefinition {
 	public function new() {
 		super();
 
-		//     	description = "Flowing Water",
-		// drawtype = "flowingliquid",
-		// waving = 3,
+		description = "Flowing Water";
+		drawType = DrawTypeFlowingLiquid;
+		waving = WavingTypeLiquids;
 		// tiles = { "default_water.png" },
 		// special_tiles = {
 		// 	{
