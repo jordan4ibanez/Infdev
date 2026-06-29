@@ -61,6 +61,7 @@ final class Cobblestone extends NodeDefinition {
 		this.nodeGroups = [
 			NodeGroupStone => 1
 		];
+
 		this.tiles = ["default_cobble.png"];
 	}
 }
@@ -85,6 +86,12 @@ final class Sandstone extends NodeDefinition {
 final class Sand extends NodeDefinition {
 	public function new() {
 		super();
+
+		tiles = ["default_sand.png"];
+
+		nodeGroups = [
+			NodeGroupSand => 1
+		];
 	}
 }
 
