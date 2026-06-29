@@ -16,29 +16,16 @@ final class WaterFlow extends NodeDefinition {
 		description = "Flowing Water";
 		drawType = DrawTypeFlowingLiquid;
 		waving = WavingTypeLiquids;
-		// tiles = { "default_water.png" },
-		// special_tiles = {
-		// 	{
-		// 		name = "default_water_flowing_animated.png",
-		// 		backface_culling = false,
-		// 		animation = {
-		// 			type = "vertical_frames",
-		// 			aspect_w = 16,
-		// 			aspect_h = 16,
-		// 			length = 0.5,
-		// 		},
-		// 	},
-		// 	{
-		// 		name = "default_water_flowing_animated.png",
-		// 		backface_culling = true,
-		// 		animation = {
-		// 			type = "vertical_frames",
-		// 			aspect_w = 16,
-		// 			aspect_h = 16,
-		// 			length = 0.5,
-		// 		},
-		// 	},
-		// },
+		tiles = ["default_water.png"];
+		specialTiles = [
+			new TileDefinition("default_water_flowing_animated.png")
+				.setBackfaceCulling(false)
+				.setAnimation(new TileAnimationDefinitionVerticalFrames(16, 16, 0.5)),
+			new TileDefinition("default_water_flowing_animated.png")
+				.setBackfaceCulling(true)
+				.setAnimation(new TileAnimationDefinitionVerticalFrames(16, 16, 0.5))
+		];
+
 		// use_texture_alpha = "blend",
 		// paramtype = "light",
 		// paramtype2 = "flowingliquid",
