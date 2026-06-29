@@ -96,6 +96,8 @@ class NodeDropTable {
 	}
 }
 
+typedef NodeDropTableOrString = EitherType<NodeDropTable, String>;
+
 // class Blah {
 // 	static function __init__() {
 // 		var i = new NodeDropTable()
