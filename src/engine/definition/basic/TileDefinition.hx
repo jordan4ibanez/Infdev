@@ -4,6 +4,8 @@ import haxe.extern.EitherType;
 import src.engine.definition.graphics.ColorSpec;
 import src.engine.definition.graphics.TileAnimationDefinition;
 
+// todo: make this one class!
+
 class TileDefinition {
 	var name: String;
 
