@@ -191,6 +191,43 @@ class TerrainGenerator {
 			// if (pos.y == 80) {
 			// 	data[i] = stoneID;
 			// }
+
+			// -- Cave carving.
+			// if (pos.y <= 160) then
+			// 	local hit = false
+
+			// 	local skew = (clamp(-1, 1, cave_blend_noise[index]) + 1) * 0.5
+
+			// 	local big_noise_multiplier = 1 - skew
+			// 	local small_noise_multiplier = skew
+
+			// 	local average_noise = (
+			// 		(big_cave_noise[index] * big_noise_multiplier) +
+			// 		(small_cave_noise[index] * small_noise_multiplier)
+			// 	)
+
+			// 	if average_noise > 0.4 then
+			// 		data[i] = c_air
+			// 		hit = true
+			// 	end
+
+			// 	if hit then
+			// 		-- Check if dirt so that there isn't a bunch of dirt all over the place on the surface.
+			// 		local possible_dirt_index = area:index(pos.x, pos.y - 1, pos.z)
+
+			// 		local grass_check_1 = area:index(pos.x, pos.y + 1, pos.z)
+			// 		local grass_check_2 = area:index(pos.x, pos.y + 2, pos.z)
+
+			// 		if data[possible_dirt_index] == c_dirt then
+			// 			-- Prevent double grass.
+			// 			if data[grass_check_1] ~= c_grass and data[grass_check_2] ~= c_grass then
+			// 				data[possible_dirt_index] = c_grass
+			// 			end
+			// 		end
+			// 	end
+			// end
+
+			// -- todo: generate water without this nonsense, then do a flood fill afterwards
 		});
 
 		// voxmanip:set_data(data)
