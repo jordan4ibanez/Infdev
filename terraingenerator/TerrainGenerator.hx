@@ -152,7 +152,6 @@ class TerrainGenerator {
 		LuaLoop.nativeFor(i, area.iterP(minPos, maxPos), {
 			final pos = area.position(i);
 
-			var heightAtXZ = 0;
 			if (pos.y >= 0 && pos.y <= 160) {
 				// todo: make this a vector wtf
 				// Zero indices.
