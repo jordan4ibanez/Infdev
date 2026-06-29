@@ -57,3 +57,17 @@ final class Sand extends NodeDefinition {
 		super();
 	}
 }
+
+@:register("infdev:bedrock")
+final class Bedrock extends NodeDefinition {
+	public function new() {
+		super();
+
+		this.nodeGroups = [
+			NodeGroupStone => 1
+		];
+		this.tiles = ["default_stone.png"];
+
+		this.nodeColor = "black";
+	}
+}
