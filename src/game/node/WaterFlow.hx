@@ -8,4 +8,9 @@ import src.engine.definition.basic.TileDefinition;
 import src.engine.definition.NodeDefinition;
 import src.game.groups.NodeGroup;
 
-
+@:register("infdev:water_flow")
+final class WaterFlow extends NodeDefinition {
+	public function new() {
+		super();
+	}
+}
