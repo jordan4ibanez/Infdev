@@ -267,13 +267,17 @@ class TerrainGenerator {
 			// 	) then
 
 			if (pos.y <= oceanLevel && pos.y >= 0 && data[i] == airID) {
-				// 	-- Try not to go too deep into a cave.
-				// 	-- Don't flood all the above 0 Y caves.
+				// Try not to go too deep into a cave.
+				// Don't flood all the above 0 Y caves.
+
 				// 	if (
 				// 			pos.y >= height_at_xz - 3 or
 				// 			pos.y == ocean_level and height_at_xz > pos.y
 				// 		) then
-				// 		data[i] = c_water_source
+				if (pos.y >= heightAtXZ - 3 || pos.y == oceanLevel && heightAtXZ > pos.y) {
+					// 		data[i] = c_water_source
+					data[i] = waterSourceID;
+				}
 				// 	end
 			}
 			// end
