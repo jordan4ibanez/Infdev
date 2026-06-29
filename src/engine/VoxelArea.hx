@@ -7,7 +7,7 @@ import lua.NativeIterator;
 @:final
 abstract extern class VoxelArea {
 	static inline function create(minPos: EngineVector3, maxPos: EngineVector3): VoxelArea {
-		return untyped __lua__("VoxelArea(minPos, maxPos)");
+		return untyped __lua__("VoxelArea({0}, {1})", minPos, maxPos);
 	}
 
 	public function getExtent(): EngineVector3;
