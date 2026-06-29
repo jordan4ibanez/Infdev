@@ -212,6 +212,9 @@ extern class Core {
 
 	@:native("generate_ores")
 	static function generateOres(vm: VoxelManip, ?pos1: EngineVector3, ?pos2: EngineVector3): Void;
+
+	@:native("generate_decorations")
+	static function generateDecorations(vm: VoxelManip, ?pos1: EngineVector3, ?pos2: EngineVector3, ?useMapgenBiomes: Bool): Void;
 }
 
 @:noCompletion
