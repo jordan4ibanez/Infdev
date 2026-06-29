@@ -240,9 +240,12 @@ class TerrainGenerator {
 
 					// if data[possible_dirt_index] == c_dirt then
 					if (data[possibleDirtIndex] == dirtID) {
-						// 	-- Prevent double grass.
+						// Prevent double grass.
 						// 	if data[grass_check_1] ~= c_grass and data[grass_check_2] ~= c_grass then
-						// 		data[possible_dirt_index] = c_grass
+						if (data[grassCheck1] != grassID && data[grassCheck2] != grassID) {
+							// 		data[possible_dirt_index] = c_grass
+							data[possibleDirtIndex] = grassID;
+						}
 						// 	end
 					}
 					// end
