@@ -165,7 +165,7 @@ class NodeDefinition extends ItemDefinition {
 	@:native("sounds")
 	var nodeSounds: NodeSoundTable;
 
-	var drop: NodeDropTable;
+	var drop: NodeDropTableOrString;
 
 	public function onConstruct(pos: EngineVector3): Void {
 		// nil
