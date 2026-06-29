@@ -153,53 +153,53 @@ class TerrainGenerator {
 
 			var heightAtXZ = 0;
 
-			// if (pos.y >= 0 && pos.y <= 160) {
-			// 	// todo: make this a vector wtf
-			// 	// Zero indices.
-			// 	var xInData = pos.x - minPos.x;
-			// 	var zInData = pos.z - minPos.z;
+			if (pos.y >= 0 && pos.y <= 160) {
+				// todo: make this a vector wtf
+				// Zero indices.
+				var xInData = pos.x - minPos.x;
+				var zInData = pos.z - minPos.z;
 
-			// 	// Basically shove a 3D space into a 1D space.
+				// Basically shove a 3D space into a 1D space.
 
-			// 	var index2D = (zInData * depth) + xInData;
+				var index2D = (zInData * depth) + xInData;
 
-			// 	var skew = (clamp(overWorldTerrainBlendNoise[index2D], -1, 1) + 1) * 0.5;
+				var skew = (clamp(overWorldTerrainBlendNoise[index2D], -1, 1) + 1) * 0.5;
 
-			// 	var bigNoiseMultiplier = 1 - skew;
-			// 	var smallNoiseMultiplier = skew;
+				var bigNoiseMultiplier = 1 - skew;
+				var smallNoiseMultiplier = skew;
 
-			// 	var rawNoise = ((overWorldTerrainNoiseBig[index2D] * bigNoiseMultiplier) + (overWorldTerrainNoiseSmall[index2D] * smallNoiseMultiplier));
+				var rawNoise = ((overWorldTerrainNoiseBig[index2D] * bigNoiseMultiplier) + (overWorldTerrainNoiseSmall[index2D] * smallNoiseMultiplier));
 
-			// 	if (rawNoise == null) {
-			// 		throw "terrain generator error at index: " + Lua.tostring(index2D);
-			// 	}
+				if (rawNoise == null) {
+					throw "terrain generator error at index: " + Lua.tostring(index2D);
+				}
 
-			// 	// Amplitude in nodes.
+				// Amplitude in nodes.
 
-			// 	var amplitude = 80;
-			// 	var base = 80;
+				var amplitude = 80;
+				var base = 80;
 
-			// 	heightAtXZ = Math.ceil(base + (amplitude + rawNoise));
+				heightAtXZ = Math.ceil(base + (amplitude + rawNoise));
 
-			// 	var isSandy = heightAtXZ <= oceanLevel + 3;
+				var isSandy = heightAtXZ <= oceanLevel + 3;
 
-			// 	if (pos.y == heightAtXZ) {
-			// 		data[i] = isSandy ? sandID : grassID;
-			// 	} else if (pos.y < heightAtXZ && pos.y >= heightAtXZ - 2) {
-			// 		data[i] = isSandy ? sandID : dirtID;
-			// 	} else if (pos.y < heightAtXZ) {
-			// 		if (!stoneDisabled) {
-			// 			var isSandstone = heightAtXZ <= oceanLevel + 3 && pos.y >= heightAtXZ - 7;
-			// 			data[i] = isSandstone ? sandstoneID : stoneID;
-			// 		}
-			// 	}
-			// } else if (pos.y > -1024 && pos.y < 0) {
-			// 	// Underground in the overworld.
+				if (pos.y == heightAtXZ) {
+					data[i] = isSandy ? sandID : grassID;
+				} else if (pos.y < heightAtXZ && pos.y >= heightAtXZ - 2) {
+					data[i] = isSandy ? sandID : dirtID;
+				} else if (pos.y < heightAtXZ) {
+					if (!stoneDisabled) {
+						var isSandstone = heightAtXZ <= oceanLevel + 3 && pos.y >= heightAtXZ - 7;
+						data[i] = isSandstone ? sandstoneID : stoneID;
+					}
+				}
+			} else if (pos.y > -1024 && pos.y < 0) {
+				// Underground in the overworld.
 
-			// 	if (!stoneDisabled) {
-			// 		data[i] = stoneID;
-			// 	}
-			// }
+				if (!stoneDisabled) {
+					data[i] = stoneID;
+				}
+			}
 
 			// This is basically superflat.
 			// var pos = area.position(i);
