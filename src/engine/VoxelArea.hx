@@ -15,10 +15,10 @@ abstract extern class VoxelArea {
 	public function getVolume(): Int;
 
 	@:native("index") // 1 indexed. Don't use.
-	private function indexLua(x: Int, y: Int, z: Int): Int;
+	private function indexLua(x: Float, y: Float, z: Float): Int;
 
 	// 0 indexed.
-	public inline function index(x: Int, y: Int, z: Int): Int {
+	public inline function index(x: Float, y: Float, z: Float): Int {
 		return indexLua(x, y, z) - 1;
 	}
 
@@ -31,27 +31,27 @@ abstract extern class VoxelArea {
 	}
 
 	@:native("position") // 1 indexed. Don't use.
-	private function positionLua(i: Int): EngineVector3;
+	private function positionLua(i: Float): EngineVector3;
 
 	// 0 indexed.
-	public inline function position(i: Int): EngineVector3 {
+	public inline function position(i: Float): EngineVector3 {
 		return positionLua(i + 1);
 	}
 
-	public function contains(x: Int, y: Int, z: Int): Bool;
+	public function contains(x: Float, y: Float, z: Float): Bool;
 
 	@:native("containsp")
 	public function containsP(pos: EngineVector3): Bool;
 
 	@:native("containsi") // 1 indexed. Don't use.
-	private function containsILua(index: Int): Bool;
+	private function containsILua(index: Float): Bool;
 
 	// 0 indexed.
-	public inline function containsI(index: Int): Bool {
+	public inline function containsI(index: Float): Bool {
 		return containsILua(index + 1);
 	}
 
-	public function iter(minX: Int, minY: Int, minZ: Int, maxX: Int, maxY: Int, maxZ: Int): NativeIterator<Int>;
+	public function iter(minX: Float, minY: Float, minZ: Float, maxX: Float, maxY: Float, maxZ: Float): NativeIterator<Int>;
 
 	@:native("iterp")
 	public function iterP(minPos: EngineVector3, maxPos: EngineVector3): NativeIterator<Int>;
