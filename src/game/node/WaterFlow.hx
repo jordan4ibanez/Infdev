@@ -70,6 +70,11 @@ final class WaterFlow extends NodeDefinition {
 
 		// post_effect_color = { a = 103, r = 30, g = 60, b = 90 },
 		postEffectColor = new RGBA(30, 60, 90, 103);
+
+		nodeGroups = [
+			NodeGroupLiquidFlow => 1,
+			NodeGroupWater => 1
+		];
 		// groups = {
 		// 	[infdev.groups.liquid_flow] = 1,
 		// 	[infdev.groups.water] = 1,
