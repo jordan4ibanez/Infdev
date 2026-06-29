@@ -13,6 +13,9 @@ class TileDefinition {
 	@:native("tileable_horizontal")
 	var tileableHorizontal: Bool;
 
+	@:native("backface_culling")
+	var backfaceCulling: Bool;
+
 	public function new(name: String) {
 		this.name = name;
 	}
@@ -24,6 +27,11 @@ class TileDefinition {
 
 	public function setTileableHorizontal(setting: Bool): TileDefinition {
 		this.tileableHorizontal = setting;
+		return this;
+	}
+
+	public function setBackfaceCulling(backfaceCulling: Bool): TileDefinition {
+		this.backfaceCulling = backfaceCulling;
 		return this;
 	}
 }
@@ -50,9 +58,6 @@ enum abstract TileDefinitionAlignStyle(String) to String {
 }
 
 class TileDefinitionCustom extends TileDefinition {
-	@:native("backface_culling")
-	var backfaceCulling: Bool;
-
 	@:native("align_style")
 	var alignStyle: TileDefinitionAlignStyle;
 
@@ -60,11 +65,6 @@ class TileDefinitionCustom extends TileDefinition {
 
 	public function new(name: String) {
 		super(name);
-	}
-
-	public function setBackfaceCulling(backfaceCulling: Bool): TileDefinitionCustom {
-		this.backfaceCulling = backfaceCulling;
-		return this;
 	}
 
 	public function setAlignStyle(alignStyle: TileDefinitionAlignStyle): TileDefinitionCustom {
