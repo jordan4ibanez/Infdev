@@ -211,7 +211,7 @@ extern class Core {
 	static function getMapgenSetting(name: String): String;
 
 	@:native("generate_ores")
-	static function generateOres(vm: VoxelManip, pos1: EngineVector3, pos2: EngineVector3): Void;
+	static function generateOres(vm: VoxelManip, ?pos1: EngineVector3, ?pos2: EngineVector3): Void;
 }
 
 @:noCompletion
