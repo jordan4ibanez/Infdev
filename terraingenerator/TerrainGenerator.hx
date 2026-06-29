@@ -239,10 +239,12 @@ class TerrainGenerator {
 					var grassCheck2 = area.index(pos.x, pos.y + 2, pos.z);
 
 					// if data[possible_dirt_index] == c_dirt then
-					// 	-- Prevent double grass.
-					// 	if data[grass_check_1] ~= c_grass and data[grass_check_2] ~= c_grass then
-					// 		data[possible_dirt_index] = c_grass
-					// 	end
+					if (data[possibleDirtIndex] == dirtID) {
+						// 	-- Prevent double grass.
+						// 	if data[grass_check_1] ~= c_grass and data[grass_check_2] ~= c_grass then
+						// 		data[possible_dirt_index] = c_grass
+						// 	end
+					}
 					// end
 				}
 				// 	end
