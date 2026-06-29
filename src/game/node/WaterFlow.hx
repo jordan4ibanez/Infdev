@@ -26,43 +26,30 @@ final class WaterFlow extends NodeDefinition {
 				.setAnimation(new TileAnimationDefinitionVerticalFrames(16, 16, 0.5))
 		];
 
-		// use_texture_alpha = "blend",
 		useTextureAlpha = NodeTextureAlphaBlend;
 
-		// paramtype = "light",
 		paramtype1 = ParamType1Light;
 
-		// paramtype2 = "flowingliquid",
 		paramtype2 = ParamType2FlowingLiquid;
 
-		// walkable = false,
 		walkable = false;
 
-		// pointable = false,
 		pointable = false;
 
-		// diggable = false,
 		diggable = false;
 
-		// buildable_to = true,
 		buildableTo = true;
 
-		// is_ground_content = false,
 		isGroundContent = false;
 
-		// drop = "",
 		drop = "";
 
-		// drowning = 1,
 		drowning = 1;
 
-		// liquidtype = "flowing",
 		liquidType = LiquidTypeFlowing;
 
-		// liquid_alternative_flowing = "infdev:water_flowing",
 		liquidAlternativeFlowing = "infdev:water_flow";
 
-		// liquid_alternative_source = "infdev:water_source",
 		liquidAlternativeSource = "infdev:water_source";
 
 		liquidViscosity = 1;
