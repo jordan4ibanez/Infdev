@@ -227,11 +227,16 @@ class TerrainGenerator {
 				// 	if hit then
 
 				if (hit) {
-					// -- Check if dirt so that there isn't a bunch of dirt all over the place on the surface.
+					// Check if dirt so that there isn't a bunch of dirt all over the place on the surface.
+
 					// local possible_dirt_index = area:index(pos.x, pos.y - 1, pos.z)
+					var possibleDirtIndex = area.index(pos.x, pos.y - 1, pos.z);
 
 					// local grass_check_1 = area:index(pos.x, pos.y + 1, pos.z)
 					// local grass_check_2 = area:index(pos.x, pos.y + 2, pos.z)
+
+					var grassCheck1 = area.index(pos.x, pos.y + 1, pos.z);
+					var grassCheck2 = area.index(pos.x, pos.y + 2, pos.z);
 
 					// if data[possible_dirt_index] == c_dirt then
 					// 	-- Prevent double grass.
