@@ -68,7 +68,7 @@ class NodeDefinition extends ItemDefinition {
 	var useTextureAlpha: NodeTextureAlpha;
 
 	@:native("post_effect_color")
-	var postEffectColor: String;
+	var postEffectColor: ColorSpec;
 
 	@:native("post_effect_color_shaded")
 	var postEffectColorShaded: Bool;
