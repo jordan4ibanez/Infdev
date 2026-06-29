@@ -60,9 +60,16 @@ final class WaterFlow extends NodeDefinition {
 		liquidType = LiquidTypeFlowing;
 
 		// liquid_alternative_flowing = "infdev:water_flowing",
+		liquidAlternativeFlowing = "infdev:water_flow";
+
 		// liquid_alternative_source = "infdev:water_source",
+		liquidAlternativeSource = "infdev:water_source";
+
 		// liquid_viscosity = 1,
+		liquidViscosity = 1;
+
 		// post_effect_color = { a = 103, r = 30, g = 60, b = 90 },
+		postEffectColor = new RGBA(30, 60, 90, 103);
 		// groups = {
 		// 	[infdev.groups.liquid_flow] = 1,
 		// 	[infdev.groups.water] = 1,
