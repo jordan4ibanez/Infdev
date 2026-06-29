@@ -282,6 +282,24 @@ class TerrainGenerator {
 			}
 			// end
 
+			// ? I don't remember what this does hooray!
+			// -- if value_noise_3d[index] > 0.1 then
+			// -- 	data[i] = c_dirt
+			// -- else
+			// -- 	-- This puts grass on top
+			// -- 	pos.y = pos.y - 1
+			// -- 	local below_index = area:indexp(pos)
+
+			// -- 	if data[below_index] == c_dirt then
+			// -- 		data[below_index] = c_grass
+			// -- 	end
+			// -- end
+
+			// -- Bedrock generation.
+			// if (pos.y == -1024) then
+			// 	data[i] = c_bedrock
+			// end
+
 			index++;
 		});
 
