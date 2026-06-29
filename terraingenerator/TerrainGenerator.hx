@@ -139,6 +139,8 @@ class TerrainGenerator {
 		LuaLoop.nativeFor(i, area.iterP(minPos, maxPos), {
 			final pos = area.position(i);
 
+			var heightAtXZ = 0;
+
 			if (pos.y >= 0 && pos.y <= 160) {
 				// Zero indices.
 				var xInData = pos.x - minPos.x;
@@ -164,7 +166,7 @@ class TerrainGenerator {
 				var amplitude = 80;
 				var base = 80;
 
-				var heightAtXZ = Math.ceil(base + (amplitude * rawNoise));
+				heightAtXZ = Math.ceil(base + (amplitude * rawNoise));
 
 				var isSandy = heightAtXZ <= oceanLevel + 3;
 
