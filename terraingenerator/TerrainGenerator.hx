@@ -125,26 +125,13 @@ class TerrainGenerator {
 
 		final overWorldTerrainNoiseSmall: LuaArray<Float> = Core.getValueNoiseMap(overWorldTerrainNoiseParametersSmall, constantArea2D).get2DMapFlat(flatMapMinPos);
 
-		// --- @type table, table
-		// local emin, emax = voxmanip:get_emerged_area()
-
 		final emergedArea = voxelManip.getEmergedArea();
-
-		// local data = {}
-		// voxmanip:get_data(data)
 
 		final data: LuaArray<Int> = voxelManip.getData();
 
-		// local area = VoxelArea:new({ MinEdge = emin, MaxEdge = emax })
-
 		final area: VoxelArea = VoxelArea.create(emergedArea.min, emergedArea.max);
 
-		// local index = 1
-
 		var index: Int = 1;
-
-		// local width = (maxp.x - minp.x) + 1
-		// local depth = (maxp.z - minp.z) + 1
 
 		final width = (maxPos.x - minPos.x) + 1;
 		final depth = (maxPos.z - minPos.z) + 1;
