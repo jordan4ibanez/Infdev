@@ -20,7 +20,11 @@ final class Player {
 		this.name = this.object.getPlayerName();
 
 		this.object.setPhysicsOverride({
-			gravity: 0
+			gravity: 1.25,
+			jump: 1.25
+		});
+		this.object.setProperties({
+			step_up_mode: "floaty"
 		});
 
 		Lua.print(this.name + " joined the game.");
