@@ -152,7 +152,6 @@ class TerrainGenerator {
 			final pos = area.position(i);
 
 			var heightAtXZ = 0;
-
 			if (pos.y >= 0 && pos.y <= 160) {
 				// todo: make this a vector wtf
 				// Zero indices.
@@ -179,7 +178,7 @@ class TerrainGenerator {
 				var amplitude = 80;
 				var base = 80;
 
-				heightAtXZ = Math.ceil(base + (amplitude + rawNoise));
+				var heightAtXZ = Math.ceil(base + (amplitude + rawNoise));
 
 				var isSandy = heightAtXZ <= oceanLevel + 3;
 
