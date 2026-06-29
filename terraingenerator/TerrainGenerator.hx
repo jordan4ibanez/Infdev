@@ -131,7 +131,7 @@ class TerrainGenerator {
 
 		final area: VoxelArea = VoxelArea.create(emergedArea.min, emergedArea.max);
 
-		var index: Int = 1;
+		var index: Int = 0;
 
 		final width = (maxPos.x - minPos.x) + 1;
 		final depth = (maxPos.z - minPos.z) + 1;
@@ -196,11 +196,16 @@ class TerrainGenerator {
 			// if (pos.y <= 160) then
 			if (pos.y <= 160) {
 				// 	local hit = false
+				var hit = false;
 
 				// 	local skew = (clamp(-1, 1, cave_blend_noise[index]) + 1) * 0.5
+				var skew = (clamp(caveBlendNoise[index], -1, 1) + 1) * 0.5;
 
 				// 	local big_noise_multiplier = 1 - skew
 				// 	local small_noise_multiplier = skew
+
+				var bigNoiseMultiplier = 1 - skew;
+				var smallNoiseMultiplier = skew;
 
 				// 	local average_noise = (
 				// 		(big_cave_noise[index] * big_noise_multiplier) +
@@ -230,6 +235,8 @@ class TerrainGenerator {
 			// end
 
 			// -- todo: generate water without this nonsense, then do a flood fill afterwards
+
+			index++;
 		});
 
 		// voxmanip:set_data(data)
