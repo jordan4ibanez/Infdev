@@ -12,7 +12,7 @@ final class Dirt extends NodeDefinition {
 			NodeGroupDirt => 1
 		];
 
-		// Lua.print(Global.dump(this.itemGroups));
+		tiles = ["default_dirt.png"];
 	}
 }
 
