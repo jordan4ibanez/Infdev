@@ -256,6 +256,23 @@ class TerrainGenerator {
 
 			// -- todo: generate water without this nonsense, then do a flood fill afterwards
 
+			// -- Water generation.
+			// -- This is shaky at best and produces weird results along with flooding.
+			// if (
+			// 		pos.y <= ocean_level and
+			// 		pos.y >= 0 and
+			// 		data[i] == c_air
+			// 	) then
+			// 	-- Try not to go too deep into a cave.
+			// 	-- Don't flood all the above 0 Y caves.
+			// 	if (
+			// 			pos.y >= height_at_xz - 3 or
+			// 			pos.y == ocean_level and height_at_xz > pos.y
+			// 		) then
+			// 		data[i] = c_water_source
+			// 	end
+			// end
+
 			index++;
 		});
 
