@@ -25,40 +25,25 @@ final class WaterFlow extends NodeDefinition {
 				.setBackfaceCulling(true)
 				.setAnimation(new TileAnimationDefinitionVerticalFrames(16, 16, 0.5))
 		];
-
 		useTextureAlpha = NodeTextureAlphaBlend;
-
 		paramtype1 = ParamType1Light;
-
 		paramtype2 = ParamType2FlowingLiquid;
-
 		walkable = false;
-
 		pointable = false;
-
 		diggable = false;
-
 		buildableTo = true;
-
 		isGroundContent = false;
-
 		drop = "";
-
 		drowning = 1;
-
 		liquidType = LiquidTypeFlowing;
-
 		liquidAlternativeFlowing = "infdev:water_flow";
-
 		liquidAlternativeSource = "infdev:water_source";
-
 		liquidViscosity = 1;
 		postEffectColor = new RGBA(30, 60, 90, 103);
 		nodeGroups = [
 			NodeGroupLiquidFlow => 1,
 			NodeGroupWater => 1
 		];
-
 		// -- sounds = default.node_sound_water_defaults(),
 	}
 }
