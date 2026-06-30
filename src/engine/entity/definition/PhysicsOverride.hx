@@ -17,16 +17,16 @@ final class PhysicsOverride {
     @:native("liquid_fluidity_smooth")
     public var liquidFluiditySmooth: Float;
     @:native("liquid_sink")
-    public var liquidSink;
+    public var liquidSink: Float;
     @:native("acceleration_default")
-    public var accelerationDefault;
+    public var accelerationDefault: Float;
     @:native("acceleration_air")
-    public var accelerationAir;
+    public var accelerationAir: Float;
     @:native("acceleration_fast")
-    public var accelerationFast;
-    public var sneak;
+    public var accelerationFast: Float;
+    public var sneak: Bool;
     @:native("sneak_glitch")
-    public var sneakGlitch;
+    public var sneakGlitch: Bool;
     @:native("new_move")
-    public var newMove;
+    public var newMove: Bool;
 }
