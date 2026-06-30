@@ -31,4 +31,6 @@ final class PhysicsOverride {
 	public var newMove: Bool;
 
 	public function new() {}
+
+	// todo: write setters that return this thing for builder pattern
 }
