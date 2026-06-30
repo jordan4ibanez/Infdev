@@ -59,6 +59,8 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	@:native("get_formspec_prepend")
 	public abstract function getFormspecPrepend(): String;
 
+	// todo: player control
+
 	@:native("get_player_control")
 	public abstract function getPlayerControl(): Dynamic;
 
@@ -72,6 +74,8 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 
 	@:native("get_physics_override")
 	public abstract function getPhysicsOverride(): Dynamic;
+
+	// todo: hud things
 
 	@:native("hud_add")
 	public abstract function hudAdd(hudDef: Dynamic): Int;
@@ -112,8 +116,12 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	@:native("hud_get_hotbar_selected_image")
 	public abstract function hudGetHotbarSelectedImage(): String;
 
+	// todo: minimap modes
+
 	@:native("set_minimap_modes")
 	public abstract function setMinimapModes(modeTable: Dynamic, selectedMode: Int): Void;
+
+	// todo: sky things and sun, moon, stars, clouds
 
 	@:native("set_sky")
 	public abstract function setSky(skyParameters: Dynamic): Void;
@@ -169,6 +177,8 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	@:native("get_eye_offset")
 	public abstract function getEyeOffset(): Dynamic;
 
+	// todo: camera things
+
 	@:native("set_camera")
 	public abstract function setCamera(?params: Dynamic): Void;
 
@@ -178,6 +188,8 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	@:native("send_mapblock")
 	public abstract function sendMapblock(blockPos: EngineVector3): Bool;
 
+	// todo: lighting thing
+
 	@:native("set_lighting")
 	public abstract function setLighting(lightDef: Dynamic): Void;
 
@@ -186,6 +198,8 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 
 	@:native("respawn")
 	public abstract function respawn(): Void;
+
+	// todo: flags
 
 	@:native("get_flags")
 	public abstract function getFlags(): Dynamic;
