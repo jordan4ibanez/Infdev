@@ -24,11 +24,11 @@ final class PhysicsOverride {
 	public var accelerationAir: Float;//
 	@:native("acceleration_fast")
 	public var accelerationFast: Float;//
-	public var sneak: Bool;
+	public var sneak: Bool;//
 	@:native("sneak_glitch")
-	public var sneakGlitch: Bool;
+	public var sneakGlitch: Bool;//
 	@:native("new_move")
-	public var newMove: Bool;
+	public var newMove: Bool;//
 
 	public function new() {}
 
@@ -84,6 +84,21 @@ final class PhysicsOverride {
 	}
 	public function setAccelerationFast(accelerationFast : Float): PhysicsOverride {
 		this.accelerationFast =accelerationFast ;
+		return this;
+	}
+
+	public function setSneak(sneak : Bool): PhysicsOverride {
+		this.sneak =sneak ;
+		return this;
+	}
+
+	public function setSneakGlitch (sneakGlitch : Bool): PhysicsOverride {
+		this.sneakGlitch =sneakGlitch ;
+		return this;
+	}
+
+	public function setNewMove (newMove : Bool): PhysicsOverride {
+		this.newMove =newMove ;
 		return this;
 	}
 }
