@@ -29,4 +29,6 @@ final class PhysicsOverride {
 	public var sneakGlitch: Bool;
 	@:native("new_move")
 	public var newMove: Bool;
+
+	public function new() {}
 }
