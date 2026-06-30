@@ -10,12 +10,12 @@ final class PhysicsOverride {
 	public var speedCrouch: Float;//
 	@:native("speed_fast")
 	public var speedFast: Float;//
-	public var jump: Float;
-	public var gravity: Float;
+	public var jump: Float;//
+	public var gravity: Float;//
 	@:native("liquid_fluidity")
-	public var liquidFluidity: Float;
+	public var liquidFluidity: Float;//
 	@:native("liquid_fluidity_smooth")
-	public var liquidFluiditySmooth: Float;
+	public var liquidFluiditySmooth: Float;//
 	@:native("liquid_sink")
 	public var liquidSink: Float;
 	@:native("acceleration_default")
@@ -58,16 +58,16 @@ final class PhysicsOverride {
 		this.jump =  jump;
 		return this;
 	}
-	public function set( : Float): PhysicsOverride {
-		this. = ;
+	public function setGravity(gravity : Float): PhysicsOverride {
+		this.gravity =gravity ;
 		return this;
 	}
-	public function set( : Float): PhysicsOverride {
-		this. = ;
+	public function setLiquidFluidity(liquidFluidity : Float): PhysicsOverride {
+		this.liquidFluidity =  liquidFluidity;
 		return this;
 	}
-	public function set( : Float): PhysicsOverride {
-		this. = ;
+	public function setLiquidFluiditySmooth(liquidFluiditySmooth : Float): PhysicsOverride {
+		this.liquidFluiditySmooth = liquidFluiditySmooth;
 		return this;
 	}
 	public function set( : Float): PhysicsOverride {
