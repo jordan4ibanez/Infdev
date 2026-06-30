@@ -3,19 +3,19 @@ package src.engine.entity.definition;
 final class PhysicsOverride {
     public var speed: Float;
     @:native("speed_walk")
-    public var speedWalk;
+    public var speedWalk: Float;
     @:native("speed_climb")
-    public var speedClimb;
+    public var speedClimb: Float;
     @:native("speed_crouch")
-    public var speedCrouch;
+    public var speedCrouch: Float;
     @:native("speed_fast")
-    public var speedFast;
-    public var jump;
-    public var gravity;
+    public var speedFast: Float;
+    public var jump: Float;
+    public var gravity: Float;
     @:native("liquid_fluidity")
-    public var liquidFluidity;
+    public var liquidFluidity: Float;
     @:native("liquid_fluidity_smooth")
-    public var liquidFluiditySmooth;
+    public var liquidFluiditySmooth: Float;
     @:native("liquid_sink")
     public var liquidSink;
     @:native("acceleration_default")
