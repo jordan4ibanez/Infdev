@@ -32,82 +32,82 @@ final class PhysicsOverride {
 
 	public function new() {}
 
-	public function setSpeed(speed: Float): PhysicsOverride {
+	public inline function setSpeed(speed: Float): PhysicsOverride {
 		this.speed = speed;
 		return this;
 	}
 
-	public function setSpeedWalk(speedWalk: Float): PhysicsOverride {
+	public inline function setSpeedWalk(speedWalk: Float): PhysicsOverride {
 		this.speedWalk = speedWalk;
 		return this;
 	}
 
-	public function setSpeedClimb(speedClimb: Float): PhysicsOverride {
+	public inline function setSpeedClimb(speedClimb: Float): PhysicsOverride {
 		this.speedClimb = speedClimb;
 		return this;
 	}
 
-	public function setSpeedCrouch(speedCrouch: Float): PhysicsOverride {
+	public inline function setSpeedCrouch(speedCrouch: Float): PhysicsOverride {
 		this.speedCrouch = speedCrouch;
 		return this;
 	}
 
-	public function setSpeedFast(speedFast: Float): PhysicsOverride {
+	public inline function setSpeedFast(speedFast: Float): PhysicsOverride {
 		this.speedFast = speedFast;
 		return this;
 	}
 
-	public function setJump(jump: Float): PhysicsOverride {
+	public inline function setJump(jump: Float): PhysicsOverride {
 		this.jump = jump;
 		return this;
 	}
 
-	public function setGravity(gravity: Float): PhysicsOverride {
+	public inline function setGravity(gravity: Float): PhysicsOverride {
 		this.gravity = gravity;
 		return this;
 	}
 
-	public function setLiquidFluidity(liquidFluidity: Float): PhysicsOverride {
+	public inline function setLiquidFluidity(liquidFluidity: Float): PhysicsOverride {
 		this.liquidFluidity = liquidFluidity;
 		return this;
 	}
 
-	public function setLiquidFluiditySmooth(liquidFluiditySmooth: Float): PhysicsOverride {
+	public inline function setLiquidFluiditySmooth(liquidFluiditySmooth: Float): PhysicsOverride {
 		this.liquidFluiditySmooth = liquidFluiditySmooth;
 		return this;
 	}
 
-	public function setLiquidSink(liquidSink: Float): PhysicsOverride {
+	public inline function setLiquidSink(liquidSink: Float): PhysicsOverride {
 		this.liquidSink = liquidSink;
 		return this;
 	}
 
-	public function setAccelerationDefault(accelerationDefault: Float): PhysicsOverride {
+	public inline function setAccelerationDefault(accelerationDefault: Float): PhysicsOverride {
 		this.accelerationDefault = accelerationDefault;
 		return this;
 	}
 
-	public function setAccelerationAir(accelerationAir: Float): PhysicsOverride {
+	public inline function setAccelerationAir(accelerationAir: Float): PhysicsOverride {
 		this.accelerationAir = accelerationAir;
 		return this;
 	}
 
-	public function setAccelerationFast(accelerationFast: Float): PhysicsOverride {
+	public inline function setAccelerationFast(accelerationFast: Float): PhysicsOverride {
 		this.accelerationFast = accelerationFast;
 		return this;
 	}
 
-	public function setSneak(sneak: Bool): PhysicsOverride {
+	public inline function setSneak(sneak: Bool): PhysicsOverride {
 		this.sneak = sneak;
 		return this;
 	}
 
-	public function setSneakGlitch(sneakGlitch: Bool): PhysicsOverride {
+	public inline function setSneakGlitch(sneakGlitch: Bool): PhysicsOverride {
 		this.sneakGlitch = sneakGlitch;
 		return this;
 	}
 
-	public function setNewMove(newMove: Bool): PhysicsOverride {
+	public inline function setNewMove(newMove: Bool): PhysicsOverride {
 		this.newMove = newMove;
 		return this;
 	}
