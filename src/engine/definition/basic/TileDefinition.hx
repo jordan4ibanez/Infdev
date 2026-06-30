@@ -48,6 +48,16 @@ class TileDefinition {
 		this.animation = animation;
 		return this;
 	}
+
+	public function setAlignStyle(alignStyle: TileDefinitionAlignStyle): TileDefinition {
+		this.alignStyle = alignStyle;
+		return this;
+	}
+
+	public function setScale(scale: Int): TileDefinition {
+		this.scale = scale;
+		return this;
+	}
 }
 
 typedef TileDefinitionOrString = EitherType<TileDefinition, String>;
@@ -61,16 +71,6 @@ enum abstract TileDefinitionAlignStyle(String) to String {
 class TileDefinitionCustom extends TileDefinition {
 	public function new(name: String) {
 		super(name);
-	}
-
-	public function setAlignStyle(alignStyle: TileDefinitionAlignStyle): TileDefinitionCustom {
-		this.alignStyle = alignStyle;
-		return this;
-	}
-
-	public function setScale(scale: Int): TileDefinitionCustom {
-		this.scale = scale;
-		return this;
 	}
 }
 
