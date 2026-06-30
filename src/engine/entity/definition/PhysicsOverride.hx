@@ -17,13 +17,13 @@ final class PhysicsOverride {
 	@:native("liquid_fluidity_smooth")
 	public var liquidFluiditySmooth: Float;//
 	@:native("liquid_sink")
-	public var liquidSink: Float;
+	public var liquidSink: Float;//
 	@:native("acceleration_default")
-	public var accelerationDefault: Float;
+	public var accelerationDefault: Float;//
 	@:native("acceleration_air")
-	public var accelerationAir: Float;
+	public var accelerationAir: Float;//
 	@:native("acceleration_fast")
-	public var accelerationFast: Float;
+	public var accelerationFast: Float;//
 	public var sneak: Bool;
 	@:native("sneak_glitch")
 	public var sneakGlitch: Bool;
@@ -70,20 +70,20 @@ final class PhysicsOverride {
 		this.liquidFluiditySmooth = liquidFluiditySmooth;
 		return this;
 	}
-	public function set( : Float): PhysicsOverride {
-		this. = ;
+	public function setLiquidSink(liquidSink : Float): PhysicsOverride {
+		this.liquidSink = liquidSink;
 		return this;
 	}
-	public function set( : Float): PhysicsOverride {
-		this. = ;
+	public function setAccelerationDefault(accelerationDefault : Float): PhysicsOverride {
+		this.accelerationDefault = accelerationDefault;
 		return this;
 	}
-	public function set( : Float): PhysicsOverride {
-		this. = ;
+	public function setAccelerationAir( accelerationAir: Float): PhysicsOverride {
+		this.accelerationAir = accelerationAir;
 		return this;
 	}
-	public function set( : Float): PhysicsOverride {
-		this. = ;
+	public function setAccelerationFast(accelerationFast : Float): PhysicsOverride {
+		this.accelerationFast =accelerationFast ;
 		return this;
 	}
 }
