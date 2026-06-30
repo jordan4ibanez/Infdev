@@ -20,6 +20,11 @@ class TileDefinition {
 
 	var animation: TileAnimationDefinition;
 
+	@:native("align_style")
+	var alignStyle: TileDefinitionAlignStyle;
+
+	var scale: Int;
+
 	public function new(name: String) {
 		this.name = name;
 	}
@@ -54,11 +59,6 @@ enum abstract TileDefinitionAlignStyle(String) to String {
 }
 
 class TileDefinitionCustom extends TileDefinition {
-	@:native("align_style")
-	var alignStyle: TileDefinitionAlignStyle;
-
-	var scale: Int;
-
 	public function new(name: String) {
 		super(name);
 	}
