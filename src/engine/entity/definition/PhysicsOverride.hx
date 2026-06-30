@@ -32,8 +32,6 @@ final class PhysicsOverride {
 
 	public function new() {}
 
-	// todo: write setters that return this thing for builder pattern
-
 	public function setSpeed(speed: Float): PhysicsOverride {
 		this.speed = speed;
 		return this;
