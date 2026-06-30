@@ -4,8 +4,6 @@ import haxe.extern.EitherType;
 import src.engine.definition.graphics.ColorSpec;
 import src.engine.definition.graphics.TileAnimationDefinition;
 
-// todo: make this one class!
-
 enum abstract TileDefinitionAlignStyle(String) to String {
 	var TileDefinitionAlignStyleNode = "node";
 	var TileDefinitionAlignStyleWorld = "world";
