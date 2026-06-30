@@ -25,6 +25,8 @@ class TileDefinition {
 
 	var scale: Int;
 
+	var color: ColorSpec;
+
 	public function new(name: String) {
 		this.name = name;
 	}
@@ -58,6 +60,11 @@ class TileDefinition {
 		this.scale = scale;
 		return this;
 	}
+
+	public function setColor(color: ColorSpec): TileDefinition {
+		this.color = color;
+		return this;
+	}
 }
 
 typedef TileDefinitionOrString = EitherType<TileDefinition, String>;
@@ -69,14 +76,7 @@ enum abstract TileDefinitionAlignStyle(String) to String {
 }
 
 class TileDefinitionColorSpec extends TileDefinition {
-	var color: ColorSpec;
-
 	public function new(name: String) {
 		super(name);
-	}
-
-	public function setColor(color: ColorSpec): TileDefinitionColorSpec {
-		this.color = color;
-		return this;
 	}
 }
