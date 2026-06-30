@@ -1,15 +1,15 @@
 package src.engine.entity.definition;
 
 final class PhysicsOverride {
-	public var speed: Float;
+	public var speed: Float;//
 	@:native("speed_walk")
-	public var speedWalk: Float;
+	public var speedWalk: Float;//
 	@:native("speed_climb")
-	public var speedClimb: Float;
+	public var speedClimb: Float;//
 	@:native("speed_crouch")
-	public var speedCrouch: Float;
+	public var speedCrouch: Float;//
 	@:native("speed_fast")
-	public var speedFast: Float;
+	public var speedFast: Float;//
 	public var jump: Float;
 	public var gravity: Float;
 	@:native("liquid_fluidity")
@@ -33,4 +33,57 @@ final class PhysicsOverride {
 	public function new() {}
 
 	// todo: write setters that return this thing for builder pattern
+
+	public function setSpeed(speed : Float): PhysicsOverride {
+		this.speed= speed ;
+		return this;
+	}
+	public function setSpeedWalk(speedWalk : Float): PhysicsOverride {
+		this.speedWalk = speedWalk;
+		return this;
+	}
+	public function setSpeedClimb(speedClimb : Float): PhysicsOverride {
+		this.speedClimb =speedClimb ;
+		return this;
+	}
+	public function setSpeedCrouch(speedCrouch : Float): PhysicsOverride {
+		this.speedCrouch = speedCrouch;
+		return this;
+	}
+	public function setSpeedFast( speedFast: Float): PhysicsOverride {
+		this.speedFast = speedFast;
+		return this;
+	}
+	public function setJump(jump : Float): PhysicsOverride {
+		this.jump =  jump;
+		return this;
+	}
+	public function set( : Float): PhysicsOverride {
+		this. = ;
+		return this;
+	}
+	public function set( : Float): PhysicsOverride {
+		this. = ;
+		return this;
+	}
+	public function set( : Float): PhysicsOverride {
+		this. = ;
+		return this;
+	}
+	public function set( : Float): PhysicsOverride {
+		this. = ;
+		return this;
+	}
+	public function set( : Float): PhysicsOverride {
+		this. = ;
+		return this;
+	}
+	public function set( : Float): PhysicsOverride {
+		this. = ;
+		return this;
+	}
+	public function set( : Float): PhysicsOverride {
+		this. = ;
+		return this;
+	}
 }
