@@ -6,6 +6,12 @@ import src.engine.definition.graphics.TileAnimationDefinition;
 
 // todo: make this one class!
 
+enum abstract TileDefinitionAlignStyle(String) to String {
+	var TileDefinitionAlignStyleNode = "node";
+	var TileDefinitionAlignStyleWorld = "world";
+	var TileDefinitionAlignStyleUser = "user";
+}
+
 class TileDefinition {
 	var name: String;
 
@@ -68,9 +74,3 @@ class TileDefinition {
 }
 
 typedef TileDefinitionOrString = EitherType<TileDefinition, String>;
-
-enum abstract TileDefinitionAlignStyle(String) to String {
-	var TileDefinitionAlignStyleNode = "node";
-	var TileDefinitionAlignStyleWorld = "world";
-	var TileDefinitionAlignStyleUser = "user";
-}
