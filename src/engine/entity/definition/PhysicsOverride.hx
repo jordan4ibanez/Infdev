@@ -15,7 +15,7 @@ final class PhysicsOverride {
     @:native("liquid_fluidity")
     public var liquidFluidity;
     @:native("liquid_fluidity_smooth")
-    public var liquidFluidity_smooth;
+    public var liquidFluiditySmooth;
     @:native("liquid_sink")
     public var liquidSink;
     @:native("acceleration_default")
