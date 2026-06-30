@@ -74,9 +74,3 @@ enum abstract TileDefinitionAlignStyle(String) to String {
 	var TileDefinitionAlignStyleWorld = "world";
 	var TileDefinitionAlignStyleUser = "user";
 }
-
-class TileDefinitionColorSpec extends TileDefinition {
-	public function new(name: String) {
-		super(name);
-	}
-}
