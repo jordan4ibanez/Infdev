@@ -1,5 +1,6 @@
 package src.engine.entity.objectref;
 
+import src.engine.entity.definition.PhysicsOverride;
 import src.game.entity.Player;
 import lua.Table;
 import src.engine.entity.helpers.PlayerHandling;
@@ -70,10 +71,10 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	// todo: override table
 
 	@:native("set_physics_override")
-	public abstract function setPhysicsOverride(overrideTable: Dynamic): Void;
+	public abstract function setPhysicsOverride(overrideTable: PhysicsOverride): Void;
 
 	@:native("get_physics_override")
-	public abstract function getPhysicsOverride(): Dynamic;
+	public abstract function getPhysicsOverride(): PhysicsOverride;
 
 	// todo: hud things
 
