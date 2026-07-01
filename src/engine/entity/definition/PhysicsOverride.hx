@@ -1,5 +1,7 @@
 package src.engine.entity.definition;
 
+// This class was almost AI generated but that felt boring.
+// So, I wrote it by hand.
 final class PhysicsOverride {
 	public var speed: Float;
 	@:native("speed_walk")
