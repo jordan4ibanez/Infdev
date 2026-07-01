@@ -4,6 +4,18 @@ import src.engine.vector.EngineVector2;
 import src.engine.compilercode.LuaArray;
 import src.engine.vector.EngineVector3;
 
+@:multiReturn
+extern class GetAnimationReturn {
+	@:native("frame_range")
+	public var frameRange: EngineVector2;
+	@:native("frame_speed")
+	public var frameSpeed: Float;
+	@:native("frame_blend")
+	public var frameBlend: Float;
+	@:native("frame_loop")
+	public var frameLoop: Bool;
+}
+
 /**
  * A Luanti C++ engine ServerActiveObject reference.
  * This is the base form of it for when you do not know if it is an entity or a player.
@@ -83,10 +95,8 @@ abstract class ObjectRefBase {
 	@:native("set_animation")
 	public abstract function setAnimation(frameRange: EngineVector2, frameSpeed: Float, frameBlend: Float, frameLoop: Bool): Void;
 
-	// todo: Lua multi return
-
 	@:native("get_animation")
-	public abstract function getAnimation(): Dynamic;
+	public abstract function getAnimation(): GetAnimationReturn;
 
 	@:native("set_animation_frame_speed")
 	public abstract function setAnimationFrameSpeed(frameSpeed: Float): Void;
