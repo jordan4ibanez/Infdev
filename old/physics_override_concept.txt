@@ -1,0 +1,120 @@
+package src.engine.entity.definition;
+
+import lua.Table;
+
+// 1. The pure structural layout Luanti expects
+typedef PhysicsOverrideFields = {
+    var speed: Float;
+    @:native("speed_walk") var speedWalk: Float;
+    @:native("speed_climb") var speedClimb: Float;
+    @:native("speed_crouch") var speedCrouch: Float;
+    @:native("speed_fast") var speedFast: Float;
+    var jump: Float;
+    var gravity: Float;
+    @:native("liquid_fluidity") var liquidFluidity: Float;
+    @:native("liquid_fluidity_smooth") var liquidFluiditySmooth: Float;
+    @:native("liquid_sink") var liquidSink: Float;
+    @:native("acceleration_default") var accelerationDefault: Float;
+    @:native("acceleration_air") var accelerationAir: Float;
+    @:native("acceleration_fast") var accelerationFast: Float;
+    var sneak: Bool;
+    @:native("sneak_glitch") var sneakGlitch: Bool;
+    @:native("new_move") var newMove: Bool;
+}
+
+// 2. The Abstract wrapper that provides the Builder Pattern and Implicit Casting
+@:forward
+abstract PhysicsOverride(PhysicsOverrideFields) from PhysicsOverrideFields to PhysicsOverrideFields {
+    
+    inline public function new() {
+        this = cast Table.create(); // Instantiates as a raw, flat Lua table automatically
+    }
+
+    // --- Fluent Builder Pattern Setters ---
+
+    inline public function setSpeed(speed: Float): PhysicsOverride {
+        this.speed = speed;
+        return cast this;
+    }
+
+    inline public function setSpeedWalk(speedWalk: Float): PhysicsOverride {
+        this.speedWalk = speedWalk;
+        return cast this;
+    }
+
+    inline public function setSpeedClimb(speedClimb: Float): PhysicsOverride {
+        this.speedClimb = speedClimb;
+        return cast this;
+    }
+
+    inline public function setSpeedCrouch(speedCrouch: Float): PhysicsOverride {
+        this.speedCrouch = speedCrouch;
+        return cast this;
+    }
+
+    inline public function setSpeedFast(speedFast: Float): PhysicsOverride {
+        this.speedFast = speedFast;
+        return cast this;
+    }
+
+    inline public function setJump(jump: Float): PhysicsOverride {
+        this.jump = jump;
+        return cast this;
+    }
+
+    inline public function setGravity(gravity: Float): PhysicsOverride {
+        this.gravity = gravity;
+        return cast this;
+    }
+
+    inline public function setLiquidFluidity(liquidFluidity: Float): PhysicsOverride {
+        this.liquidFluidity = liquidFluidity;
+        return cast this;
+    }
+
+    inline public function setLiquidFluiditySmooth(liquidFluiditySmooth: Float): PhysicsOverride {
+        this.liquidFluiditySmooth = liquidFluiditySmooth;
+        return cast this;
+    }
+
+    inline public function setLiquidSink(liquidSink: Float): PhysicsOverride {
+        this.liquidSink = liquidSink;
+        return cast this;
+    }
+
+    inline public function setAccelerationDefault(accelerationDefault: Float): PhysicsOverride {
+        this.accelerationDefault = accelerationDefault;
+        return cast this;
+    }
+
+    inline public function setAccelerationAir(accelerationAir: Float): PhysicsOverride {
+        this.accelerationAir = accelerationAir;
+        return cast this;
+    }
+
+    inline public function setAccelerationFast(accelerationFast: Float): PhysicsOverride {
+        this.accelerationFast = accelerationFast;
+        return cast this;
+    }
+
+    inline public function setSneak(sneak: Bool): PhysicsOverride {
+        this.sneak = sneak;
+        return cast this;
+    }
+
+    inline public function setSneakGlitch(sneakGlitch: Bool): PhysicsOverride {
+        this.sneakGlitch = sneakGlitch;
+        return cast this;
+    }
+
+    inline public function setNewMove(newMove: Bool): PhysicsOverride {
+        this.newMove = newMove;
+        return cast this;
+    }
+
+    // 3. Implicitly allow passing this directly to Luanti functions requiring a raw table
+    @:to
+    inline public function toLuaTable(): Table<String, Dynamic> {
+        return cast this;
+    }
+}
