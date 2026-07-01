@@ -113,6 +113,8 @@ abstract class ObjectRefBase {
 	@:native("get_bone_overrides")
 	public abstract function getBoneOverrides(): LuaArray<Dynamic>;
 
+	// todo: object properties
+
 	@:native("set_properties")
 	public abstract function setProperties(propTable: Dynamic): Void;
 
