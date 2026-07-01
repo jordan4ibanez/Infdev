@@ -1,5 +1,6 @@
 package src.engine.entity.objectref;
 
+import src.engine.vector.EngineVector2;
 import src.engine.compilercode.LuaArray;
 import src.engine.vector.EngineVector3;
 
@@ -79,10 +80,8 @@ abstract class ObjectRefBase {
 	@:native("set_armor_groups")
 	public abstract function setArmorGroups(groupTable: Dynamic): Void;
 
-	// todo: This is a vec2d
-
 	@:native("set_animation")
-	public abstract function setAnimation(frameRange: Dynamic, frameSpeed: Float, frameBlend: Float, frameLoop: Bool): Void;
+	public abstract function setAnimation(frameRange: EngineVector2, frameSpeed: Float, frameBlend: Float, frameLoop: Bool): Void;
 
 	// todo: Lua multi return
 
