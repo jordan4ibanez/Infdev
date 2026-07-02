@@ -1,11 +1,11 @@
 package src.engine.entity.definition;
 
 enum abstract EntityVisual(String) to String {
-	var EntityVisualcube = "cube";
-	var EntityVisualsprite = "sprite";
-	var EntityVisualupright_sprite = "upright_sprite";
-	var EntityVisualmesh = "mesh";
-	var EntityVisualwielditem = "wielditem";
-	var EntityVisualitem = "item";
-	var EntityVisualnode = "node";
+	var EntityVisualCube = "cube";
+	var EntityVisualSprite = "sprite";
+	var EntityVisualUpright_sprite = "upright_sprite";
+	var EntityVisualMesh = "mesh";
+	var EntityVisualWielditem = "wielditem";
+	var EntityVisualItem = "item";
+	var EntityVisualNode = "node";
 }
