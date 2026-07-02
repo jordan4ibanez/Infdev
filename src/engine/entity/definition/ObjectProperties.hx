@@ -13,6 +13,9 @@ class ObjectProperties {
 
 	@:native("collisionbox")
 	var collisionBox: LuaArray<Float>;
+
+	@:native("selectionbox")
+	var selectionBox: LuaArray<Float>;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
