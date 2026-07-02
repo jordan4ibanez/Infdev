@@ -1,5 +1,6 @@
 package src.engine.entity;
 
+import src.engine.compilercode.LuaArray;
 import src.engine.vector.EngineVector3;
 import src.engine.entity.definition.EntityVisual;
 import src.engine.entity.definition.EntitySelectionBox;
@@ -31,6 +32,8 @@ class ObjectProperties {
 	public var visualSize: EngineVector3;
 
 	public var mesh: String;
+
+	public var textures: LuaArray<String>;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
