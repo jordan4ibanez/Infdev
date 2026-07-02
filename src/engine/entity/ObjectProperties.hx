@@ -1,6 +1,7 @@
 package src.engine.entity;
 
-import src.engine.compilercode.LuaArray;
+import src.engine.entity.definition.EntitySelectionBox;
+import src.engine.entity.definition.EntityCollisionBox;
 
 class ObjectProperties {
 	@:native("hp_max")
