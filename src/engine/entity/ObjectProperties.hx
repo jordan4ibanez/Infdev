@@ -1,5 +1,6 @@
 package src.engine.entity;
 
+import src.engine.entity.definition.EntityVisual;
 import src.engine.entity.definition.EntitySelectionBox;
 import src.engine.entity.definition.EntityCollisionBox;
 
@@ -19,6 +20,8 @@ class ObjectProperties {
 	public var selectionBox: EntitySelectionBox;
 
 	public var pointable: Bool;
+
+	public var visual: EntityVisual;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
