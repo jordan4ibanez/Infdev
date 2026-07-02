@@ -1,5 +1,6 @@
 package src.engine.entity;
 
+import src.engine.definition.graphics.ColorSpec;
 import src.engine.compilercode.LuaArray;
 import src.engine.vector.EngineVector3;
 import src.engine.entity.definition.EntityVisual;
@@ -35,8 +36,7 @@ class ObjectProperties {
 
 	public var textures: LuaArray<String>;
 
-	// Currently unused.
-	// public var colors: LuaArray<Any>;
+	public var colors: LuaArray<ColorSpec>;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
