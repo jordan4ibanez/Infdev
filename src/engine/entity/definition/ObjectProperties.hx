@@ -3,7 +3,9 @@ package src.engine.entity.definition;
 class ObjectProperties {
 	@:native("hp_max")
 	public var hpMax: Int;
+}
 
+class ObjectPropertiesPlayer extends ObjectProperties {
 	@:native("breath_max")
 	public var breathMax: Int;
 
@@ -11,10 +13,4 @@ class ObjectProperties {
 	public var zoomFOV: Float;
 }
 
-class ObjectPropertiesPlayer extends ObjectProperties {
-
-}
-
-class ObjectPropertiesEntity extends ObjectProperties {
-    
-}
+class ObjectPropertiesEntity extends ObjectProperties {}
