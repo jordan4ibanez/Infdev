@@ -1,5 +1,6 @@
 package src.engine.entity;
 
+import src.engine.vector.EngineVector3;
 import src.engine.entity.definition.EntityVisual;
 import src.engine.entity.definition.EntitySelectionBox;
 import src.engine.entity.definition.EntityCollisionBox;
@@ -25,6 +26,9 @@ class ObjectProperties {
 
 	@:native("wield_item")
 	public var wieldItem: String;
+
+	@:native("visual_size")
+	public var visualSize: EngineVector3;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
