@@ -34,6 +34,9 @@ class ObjectProperties {
 	public var mesh: String;
 
 	public var textures: LuaArray<String>;
+
+	// Currently unused.
+	// public var colors: LuaArray<Any>;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
