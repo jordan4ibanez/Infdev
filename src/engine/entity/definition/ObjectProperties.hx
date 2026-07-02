@@ -1,5 +1,7 @@
 package src.engine.entity.definition;
 
+import src.engine.compilercode.LuaArray;
+
 class ObjectProperties {
 	@:native("hp_max")
 	public var hpMax: Int;
@@ -8,6 +10,9 @@ class ObjectProperties {
 
 	@:native("collide_with_objects")
 	var collideWithObjects: Bool;
+
+	@:native("collisionbox")
+	var collisionBox: LuaArray<Float>;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
