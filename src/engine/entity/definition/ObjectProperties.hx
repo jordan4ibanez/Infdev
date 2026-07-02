@@ -6,18 +6,18 @@ class ObjectProperties {
 	@:native("hp_max")
 	public var hpMax: Int;
 
-	var physical: Bool;
+	public var physical: Bool;
 
 	@:native("collide_with_objects")
-	var collideWithObjects: Bool;
+	public var collideWithObjects: Bool;
 
 	@:native("collisionbox")
-	var collisionBox: EntityCollisionBox;
+	public var collisionBox: EntityCollisionBox;
 
 	@:native("selectionbox")
-	var selectionBox: EntitySelectionBox;
+	public var selectionBox: EntitySelectionBox;
 
-	var pointable: Bool;
+	public var pointable: Bool;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
