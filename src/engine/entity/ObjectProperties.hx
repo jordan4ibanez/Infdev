@@ -29,6 +29,8 @@ class ObjectProperties {
 
 	@:native("visual_size")
 	public var visualSize: EngineVector3;
+
+	public var mesh: String;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
