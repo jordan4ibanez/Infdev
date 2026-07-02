@@ -22,6 +22,9 @@ class ObjectProperties {
 	public var pointable: Bool;
 
 	public var visual: EntityVisual;
+
+	@:native("wield_item")
+	public var wieldItem: String;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
