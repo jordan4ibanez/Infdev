@@ -11,3 +11,10 @@ class ObjectProperties {
 	public var zoomFOV: Float;
 }
 
+class ObjectPropertiesPlayer extends ObjectProperties {
+
+}
+
+class ObjectPropertiesEntity extends ObjectProperties {
+    
+}
