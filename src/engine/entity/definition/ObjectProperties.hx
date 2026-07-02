@@ -3,6 +3,8 @@ package src.engine.entity.definition;
 class ObjectProperties {
 	@:native("hp_max")
 	public var hpMax: Int;
+
+    var physical: Bool;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
@@ -15,7 +17,7 @@ class ObjectPropertiesPlayer extends ObjectProperties {
     @:native("eye_height")
     public var eyeHeight: Float;
 
-    
+
 }
 
 class ObjectPropertiesEntity extends ObjectProperties {}
