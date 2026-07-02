@@ -16,6 +16,8 @@ class ObjectProperties {
 
 	@:native("selectionbox")
 	var selectionBox: EntitySelectionBox;
+
+	var pointable: Bool;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
