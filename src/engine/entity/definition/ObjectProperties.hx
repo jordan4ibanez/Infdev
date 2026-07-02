@@ -12,7 +12,7 @@ class ObjectProperties {
 	var collideWithObjects: Bool;
 
 	@:native("collisionbox")
-	var collisionBox: LuaArray<Float>;
+	var collisionBox: EntityCollisionBox;
 
 	@:native("selectionbox")
 	var selectionBox: EntitySelectionBox;
