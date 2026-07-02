@@ -11,6 +11,11 @@ class ObjectPropertiesPlayer extends ObjectProperties {
 
 	@:native("zoom_fov")
 	public var zoomFOV: Float;
+
+    @:native("eye_height")
+    public var eyeHeight: Float;
+
+    
 }
 
 class ObjectPropertiesEntity extends ObjectProperties {}
