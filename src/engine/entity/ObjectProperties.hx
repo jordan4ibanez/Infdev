@@ -67,6 +67,11 @@ class ObjectProperties {
 
 	@:native("automatic_face_movement_max_rotation_per_sec")
 	public var automaticFaceMovementMaxRotationPerSec: Float;
+
+	@:native("backface_culling")
+	public var backfaceCulling: Bool;
+
+	public var glow: Int;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
