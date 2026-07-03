@@ -3,12 +3,12 @@ package src.engine.definition.basic;
 import lua.Table;
 
 @:forward
-abstract ItemPointable(Dynamic) from Dynamic to Dynamic {
-	public static inline var ItemPointableTrue: Bool = true;
-	public static inline var ItemPointableFalse: Bool = false;
-	public static inline var ItemPointableBlocking: String = "blocking";
-	public static inline var ItemPointableLiquidsPointable: String = "liquids_pointable";
-	public static inline var ItemPointablePointable: String = "pointable";
+enum abstract ItemPointable(Dynamic) from Dynamic to Dynamic {
+	var ItemPointableTrue: Bool = true;
+	var ItemPointableFalse: Bool = false;
+	var ItemPointableBlocking: String = "blocking";
+	var ItemPointableLiquidsPointable: String = "liquids_pointable";
+	inline var ItemPointablePointable: String = "pointable";
 }
 
 @:forward
