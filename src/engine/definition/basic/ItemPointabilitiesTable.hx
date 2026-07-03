@@ -11,10 +11,8 @@ abstract ItemPointable(Dynamic) from Dynamic to Dynamic {
 	public static inline var ItemPointablePointable: String = "pointable";
 }
 
-// todo: this needs a custom type for creating a lua table.
-
 @:forward
-abstract ItemPointabilityTable(Table<String, ItemPointable>) from Table<String, ItemPointable> to Table<String, ItemPointable> {
+abstract ItemPointableMap(Table<String, ItemPointable>) from Table<String, ItemPointable> to Table<String, ItemPointable> {
 	public inline function new() {
 		this = Table.create();
 	}
@@ -31,14 +29,11 @@ abstract ItemPointabilityTable(Table<String, ItemPointable>) from Table<String, 
 	}
 }
 
-// I keep misreading this: It literally means Point Table.
-typedef PointTable = Table<String, ItemPointable>;
-
 class ItemPointabilitiesTable {
-	public var nodes: PointTable;
-	public var objects: PointTable;
+	public var nodes: ItemPointableMap;
+	public var objects: ItemPointableMap;
 
-	public function new(nodes: Null<PointTable>, objects: Null<PointTable>) {
+	public function new(?nodes: ItemPointableMap, ?objects: ItemPointableMap) {
 		this.nodes = nodes;
 		this.objects = objects;
 	}
