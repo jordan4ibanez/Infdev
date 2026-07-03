@@ -6,6 +6,7 @@ import src.engine.definition.graphics.ColorSpec;
 import src.engine.entity.definition.EntityCollisionBox;
 import src.engine.entity.definition.EntitySelectionBox;
 import src.engine.entity.definition.EntityVisual;
+import src.engine.entity.definition.StepUpMode;
 import src.engine.vector.EngineVector2;
 
 class ObjectProperties {
@@ -104,7 +105,8 @@ class ObjectProperties {
 	@:native("show_on_minimap")
 	public var showOnMinimap: Bool;
 
-	
+	@:native("step_up_mode")
+	public var stepUpMode: StepUpMode;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
