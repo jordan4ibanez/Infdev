@@ -46,6 +46,9 @@ class ObjectProperties {
 	@:native("spritediv")
 	public var spriteDiv: EngineVector2;
 
+	@:native("initial_sprite_basepos")
+	public var initialSpriteBasePos: EngineVector2;
+
 	
 }
 
