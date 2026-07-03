@@ -4,11 +4,11 @@ import lua.Table;
 
 @:forward
 abstract ItemPointable(Dynamic) from Dynamic to Dynamic {
-	public static inline var True: Bool = true;
-	public static inline var False: Bool = false;
-	public static inline var Blocking: String = "blocking";
-	public static inline var LiquidsPointable: String = "liquids_pointable";
-	public static inline var Pointable: String = "pointable";
+	public static inline var ItemPointableTrue: Bool = true;
+	public static inline var ItemPointableFalse: Bool = false;
+	public static inline var ItemPointableBlocking: String = "blocking";
+	public static inline var ItemPointableLiquidsPointable: String = "liquids_pointable";
+	public static inline var ItemPointablePointable: String = "pointable";
 }
 
 // I keep misreading this: It literally means Point Table.
