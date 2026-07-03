@@ -89,6 +89,9 @@ class ObjectProperties {
 	 */
 	@:native("nametag_scale_z")
 	public var nametagScaleZ: Bool;
+
+	@:native("infotext")
+	public var infoText: String;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
