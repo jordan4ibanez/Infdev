@@ -99,6 +99,11 @@ class ObjectProperties {
 	@:native("damage_texture_modifier")
 	public var damageTextureModifier: String;
 
+	public var shaded: Bool;
+
+	@:native("show_on_minimap")
+	public var showOnMinimap: Bool;
+
 	
 }
 
