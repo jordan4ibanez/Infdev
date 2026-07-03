@@ -3,7 +3,7 @@ package src.engine.definition;
 import src.engine.Core;
 import src.engine.compilercode.LuaMap;
 import src.engine.definition.basic.DigParams;
-import src.engine.definition.basic.ItemPointabilities;
+import src.engine.definition.basic.ItemPointabilitiesTable;
 import src.engine.definition.graphics.ItemImageDefinition;
 import src.engine.definition.graphics.WearBarColors;
 import src.engine.definition.sound.ItemSoundTable;
@@ -73,7 +73,7 @@ class ItemDefinition {
 	@:native("liquids_pointable")
 	public var liquidsPointable: Bool;
 
-	public var pointabilities: ItemPointabilities;
+	public var pointabilities: ItemPointabilitiesTable;
 
 	@:native("light_source")
 	public var lightSource: Int;

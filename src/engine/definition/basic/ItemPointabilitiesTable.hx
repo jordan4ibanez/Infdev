@@ -34,7 +34,7 @@ abstract ItemPointabilityTable(Table<String, ItemPointable>) from Table<String, 
 // I keep misreading this: It literally means Point Table.
 typedef PointTable = Table<String, ItemPointable>;
 
-class ItemPointabilities {
+class ItemPointabilitiesTable {
 	public var nodes: PointTable;
 	public var objects: PointTable;
 
