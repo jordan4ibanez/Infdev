@@ -1,5 +1,6 @@
 package src.engine.entity;
 
+import haxe.extern.EitherType;
 import src.engine.compilercode.LuaArray;
 import src.engine.definition.graphics.ColorSpec;
 import src.engine.entity.definition.EntityCollisionBox;
@@ -61,7 +62,8 @@ class ObjectProperties {
 	@:native("stepheight")
 	public var stepHeight: Float;
 
-	
+	@:native("automatic_face_movement_dir")
+	public var automaticFaceMovementDir: EitherType<Float, Bool>;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
