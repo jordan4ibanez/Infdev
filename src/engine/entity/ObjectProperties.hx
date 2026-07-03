@@ -72,6 +72,11 @@ class ObjectProperties {
 	public var backfaceCulling: Bool;
 
 	public var glow: Int;
+
+	public var nametag: String;
+
+	@:native("nametag_color")
+	public var nametagColor: ColorSpec;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
