@@ -14,7 +14,7 @@ abstract PointabilitySetting(Dynamic) from Dynamic to Dynamic {
 // I keep misreading this: It literally means Point Table.
 typedef PointTable = Table<String, PointabilitySetting>;
 
-class Pointabilities {
+class ItemPointabilities {
 	public var nodes: PointTable;
 	public var objects: PointTable;
 
