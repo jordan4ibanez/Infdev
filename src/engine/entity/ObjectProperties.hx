@@ -1,12 +1,11 @@
 package src.engine.entity;
 
-import src.engine.vector.EngineVector2;
-import src.engine.definition.graphics.ColorSpec;
 import src.engine.compilercode.LuaArray;
-import src.engine.vector.EngineVector3;
-import src.engine.entity.definition.EntityVisual;
-import src.engine.entity.definition.EntitySelectionBox;
+import src.engine.definition.graphics.ColorSpec;
 import src.engine.entity.definition.EntityCollisionBox;
+import src.engine.entity.definition.EntitySelectionBox;
+import src.engine.entity.definition.EntityVisual;
+import src.engine.vector.EngineVector2;
 
 class ObjectProperties {
 	@:native("hp_max")
