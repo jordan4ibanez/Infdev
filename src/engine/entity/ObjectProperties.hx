@@ -37,6 +37,8 @@ class ObjectProperties {
 	public var textures: LuaArray<String>;
 
 	public var colors: LuaArray<ColorSpec>;
+
+	public var node: NodeTable;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
