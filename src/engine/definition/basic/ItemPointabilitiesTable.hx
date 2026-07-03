@@ -37,4 +37,14 @@ class ItemPointabilitiesTable {
 		this.nodes = nodes;
 		this.objects = objects;
 	}
+
+	public function setNodes(nodes: ItemPointableMap): ItemPointabilitiesTable {
+		this.nodes = nodes;
+		return this;
+	}
+
+	public function setObjects(objects: ItemPointableMap): ItemPointabilitiesTable {
+		this.objects = objects;
+		return this;
+	}
 }
