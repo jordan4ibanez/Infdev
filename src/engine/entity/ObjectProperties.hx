@@ -80,6 +80,15 @@ class ObjectProperties {
 
 	@:native("nametag_bgcolor")
 	public var nametagBackgroundColor: EitherType<ColorSpec, Bool>;
+
+	@:native("nametag_fontsize")
+	public var nametagFontSize: Int;
+
+	/**
+	 * The further away the object is, the smaller the nametag becomes.
+	 */
+	@:native("nametag_scale_z")
+	public var nametagScaleZ: Bool;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
