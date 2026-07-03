@@ -54,6 +54,14 @@ class ObjectProperties {
 
 	@:native("makes_footstep_sound")
 	public var makesFootstepSound: Bool;
+
+	@:native("automatic_rotate")
+	public var automaticRotate: Float;
+
+	@:native("stepheight")
+	public var stepHeight: Float;
+
+	
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
