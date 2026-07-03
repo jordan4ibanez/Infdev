@@ -92,6 +92,14 @@ class ObjectProperties {
 
 	@:native("infotext")
 	public var infoText: String;
+
+	@:native("static_save")
+	public var staticSave: Bool;
+
+	@:native("damage_texture_modifier")
+	public var damageTextureModifier: String;
+
+	
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
