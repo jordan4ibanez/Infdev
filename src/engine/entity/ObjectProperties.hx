@@ -4,6 +4,7 @@ import haxe.extern.EitherType;
 import src.engine.compilercode.LuaArray;
 import src.engine.definition.graphics.ColorSpec;
 import src.engine.entity.definition.EntityCollisionBox;
+import src.engine.entity.definition.EntityPointable;
 import src.engine.entity.definition.EntitySelectionBox;
 import src.engine.entity.definition.EntityVisual;
 import src.engine.entity.definition.StepUpMode;
@@ -24,7 +25,7 @@ class ObjectProperties {
 	@:native("selectionbox")
 	public var selectionBox: EntitySelectionBox;
 
-	public var pointable: Bool;
+	public var pointable: EntityPointable;
 
 	public var visual: EntityVisual;
 
