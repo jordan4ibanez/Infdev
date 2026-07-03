@@ -3,7 +3,7 @@ package src.engine.definition.basic;
 import lua.Table;
 
 @:forward
-abstract PointabilitySetting(Dynamic) from Dynamic to Dynamic {
+abstract ItemPointabilitySetting(Dynamic) from Dynamic to Dynamic {
 	public static inline var True: Bool = true;
 	public static inline var False: Bool = false;
 	public static inline var Blocking: String = "blocking";
@@ -12,7 +12,7 @@ abstract PointabilitySetting(Dynamic) from Dynamic to Dynamic {
 }
 
 // I keep misreading this: It literally means Point Table.
-typedef PointTable = Table<String, PointabilitySetting>;
+typedef PointTable = Table<String, ItemPointabilitySetting>;
 
 class ItemPointabilities {
 	public var nodes: PointTable;
