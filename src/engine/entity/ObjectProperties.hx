@@ -77,6 +77,11 @@ class ObjectProperties {
 
 	@:native("nametag_color")
 	public var nametagColor: ColorSpec;
+
+	@:native("nametag_bgcolor")
+	public var nametagBackgroundColor: ColorSpec;
+
+	
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
