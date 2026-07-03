@@ -39,6 +39,14 @@ class ObjectProperties {
 	public var colors: LuaArray<ColorSpec>;
 
 	public var node: NodeTable;
+
+	@:native("use_texture_alpha")
+	public var useTextureAlpha: Bool;
+
+	@:native("spritediv")
+	public var spriteDiv: EngineVector2;
+
+	
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
