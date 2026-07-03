@@ -18,13 +18,13 @@ abstract ItemPointableMap(Table<String, ItemPointable>) from Table<String, ItemP
 	}
 
 	@:arrayAccess
-	inline public function set(key: String, value: ItemPointable): ItemPointable {
+	public inline function set(key: String, value: ItemPointable): ItemPointableMap {
 		this[cast key] = value;
-		return value;
+		return cast this;
 	}
 
 	@:arrayAccess
-	inline public function get(key: String): Null<ItemPointable> {
+	public inline function get(key: String): Null<ItemPointable> {
 		return this[cast key];
 	}
 }
