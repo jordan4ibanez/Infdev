@@ -10,6 +10,7 @@ import src.engine.entity.definition.EntityVisual;
 import src.engine.entity.definition.StepUpMode;
 import src.engine.vector.EngineVector2;
 
+// todo: builder pattern setters.
 class ObjectProperties {
 	@:native("hp_max")
 	public var hpMax: Int;
