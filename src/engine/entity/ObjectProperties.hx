@@ -49,7 +49,8 @@ class ObjectProperties {
 	@:native("initial_sprite_basepos")
 	public var initialSpriteBasePos: EngineVector2;
 
-	
+	@:native("is_visible")
+	public var isVisible: Bool;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
