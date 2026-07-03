@@ -51,6 +51,9 @@ class ObjectProperties {
 
 	@:native("is_visible")
 	public var isVisible: Bool;
+
+	@:native("makes_footstep_sound")
+	public var makesFootstepSound: Bool;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
