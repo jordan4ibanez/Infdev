@@ -108,9 +108,7 @@ class ObjectProperties {
 
 	@:native("step_up_mode")
 	public var stepUpMode: StepUpMode;
-}
 
-class ObjectPropertiesPlayer extends ObjectProperties {
 	@:native("breath_max")
 	public var breathMax: Int;
 
@@ -120,5 +118,3 @@ class ObjectPropertiesPlayer extends ObjectProperties {
 	@:native("eye_height")
 	public var eyeHeight: Float;
 }
-
-class ObjectPropertiesEntity extends ObjectProperties {}
