@@ -1,7 +1,7 @@
 package src.engine.entity.objectref;
 
-import src.engine.vector.EngineVector2;
 import src.engine.compilercode.LuaArray;
+import src.engine.vector.EngineVector2;
 import src.engine.vector.EngineVector3;
 
 @:multiReturn
@@ -122,13 +122,11 @@ abstract class ObjectRefBase {
 	@:native("get_bone_overrides")
 	public abstract function getBoneOverrides(): LuaArray<Dynamic>;
 
-	// todo: object properties
-
 	@:native("set_properties")
-	public abstract function setProperties(propTable: Dynamic): Void;
+	public abstract function setProperties(propTable: ObjectProperties): Void;
 
 	@:native("get_properties")
-	public abstract function getProperties(): Dynamic;
+	public abstract function getProperties(): ObjectProperties;
 
 	@:native("set_observers")
 	public abstract function setObservers(observers: LuaArray<Dynamic>): Void;
