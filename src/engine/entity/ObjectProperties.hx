@@ -1,5 +1,6 @@
 package src.engine.entity;
 
+import src.engine.vector.EngineVector2;
 import src.engine.definition.graphics.ColorSpec;
 import src.engine.compilercode.LuaArray;
 import src.engine.vector.EngineVector3;
@@ -30,7 +31,7 @@ class ObjectProperties {
 	public var wieldItem: String;
 
 	@:native("visual_size")
-	public var visualSize: EngineVector3;
+	public var visualSize: EngineVector2;
 
 	public var mesh: String;
 
