@@ -64,6 +64,9 @@ class ObjectProperties {
 
 	@:native("automatic_face_movement_dir")
 	public var automaticFaceMovementDir: EitherType<Float, Bool>;
+
+	@:native("automatic_face_movement_max_rotation_per_sec")
+	public var automaticFaceMovementMaxRotationPerSec: Float;
 }
 
 class ObjectPropertiesPlayer extends ObjectProperties {
