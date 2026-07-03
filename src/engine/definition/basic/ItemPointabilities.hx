@@ -19,7 +19,16 @@ abstract ItemPointabilityTable(Table<String, ItemPointable>) from Table<String, 
 		this = Table.create();
 	}
 
-	
+	@:arrayAccess
+	inline public function set(key: String, value: ItemPointable): ItemPointable {
+		this[cast key] = value;
+		return value;
+	}
+
+	@:arrayAccess
+	inline public function get(key: String): Null<ItemPointable> {
+		return this[cast key];
+	}
 }
 
 // I keep misreading this: It literally means Point Table.
