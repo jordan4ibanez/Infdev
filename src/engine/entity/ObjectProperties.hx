@@ -118,4 +118,155 @@ class ObjectProperties {
 
 	@:native("eye_height")
 	public var eyeHeight: Float;
+
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+	
 }
