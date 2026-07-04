@@ -6,6 +6,13 @@ import src.engine.entity.helpers.PlayerHandling;
 import src.engine.vector.EngineVector3;
 import src.game.entity.Player;
 
+@:multiReturn
+class FOVReturnValue {
+	public var fov: Float;
+	public var isMultiplier: Bool;
+	public var transitionTime: Float;
+}
+
 /**
  * A Luanti C++ engine ServerActiveObject reference.
  * This is the form of it to cast into when you know it is a player.
@@ -38,10 +45,8 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	@:native("set_fov")
 	public abstract function setFOV(fov: Float, isMultiplier: Bool, ?transitionTime: Float): Void;
 
-	// TODO: this may be a lua multireturn
-
 	@:native("get_fov")
-	public abstract function getFOV(): Dynamic;
+	public abstract function getFOV(): FOVReturnValue;
 
 	// todo: PlayerMetaRef -> MetaDataRef
 
