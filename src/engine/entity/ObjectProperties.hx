@@ -94,7 +94,7 @@ class ObjectProperties {
 	public var nametagScaleZ: Bool; //!
 
 	@:native("infotext")
-	public var infoText: String;
+	public var infoText: String; //!
 
 	@:native("static_save")
 	public var staticSave: Bool;
@@ -264,8 +264,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setInfoText (infoText: String ): ObjectProperties {
+		this.infoText = infoText;
 		return this;
 	}
 	
