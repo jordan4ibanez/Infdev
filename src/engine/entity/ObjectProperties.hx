@@ -54,7 +54,7 @@ class ObjectProperties {
 	public var initialSpriteBasePos: EngineVector2; //!
 
 	@:native("is_visible")
-	public var isVisible: Bool;
+	public var isVisible: Bool; //!
 
 	@:native("makes_footstep_sound")
 	public var makesFootstepSound: Bool;
@@ -199,8 +199,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setIsVisible (isVisible: Bool ): ObjectProperties {
+		this.isVisible = isVisible;
 		return this;
 	}
 	
