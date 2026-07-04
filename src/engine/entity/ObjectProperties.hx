@@ -60,7 +60,7 @@ class ObjectProperties {
 	public var makesFootstepSound: Bool; //!
 
 	@:native("automatic_rotate")
-	public var automaticRotate: Float;
+	public var automaticRotate: Float; //!
 
 	@:native("stepheight")
 	public var stepHeight: Float;
@@ -209,8 +209,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setAutomaticRotate (automaticRotate: Float ): ObjectProperties {
+		this.automaticRotate = automaticRotate;
 		return this;
 	}
 	
