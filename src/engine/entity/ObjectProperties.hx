@@ -85,7 +85,7 @@ class ObjectProperties {
 	public var nametagBackgroundColor: EitherType<ColorSpec, Bool>; //!
 
 	@:native("nametag_fontsize")
-	public var nametagFontSize: EitherType<Int, Bool>;
+	public var nametagFontSize: EitherType<Int, Bool>; //!
 
 	/**
 	 * The further away the object is, the smaller the nametag becomes.
@@ -254,8 +254,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setNametagFontSize (nametagFontSize:   EitherType<Int, Bool>): ObjectProperties {
+		this.nametagFontSize = nametagFontSize;
 		return this;
 	}
 	
