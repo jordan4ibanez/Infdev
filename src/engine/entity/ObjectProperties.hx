@@ -45,7 +45,7 @@ class ObjectProperties {
 	public var node: NodeTable; //!
 
 	@:native("use_texture_alpha")
-	public var useTextureAlpha: Bool;
+	public var useTextureAlpha: Bool; //!
 
 	@:native("spritediv")
 	public var spriteDiv: EngineVector2;
@@ -184,8 +184,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setUseTextureAlpha (useTextureAlpha: Bool ): ObjectProperties {
+		this.useTextureAlpha = useTextureAlpha;
 		return this;
 	}
 	
