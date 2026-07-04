@@ -1,8 +1,8 @@
 package src.game.entity;
 
-import src.engine.entity.definition.PhysicsOverride;
 import lua.Lua;
 import src.engine.compilercode.Macros;
+import src.engine.entity.definition.PhysicsOverride;
 import src.engine.entity.helpers.EntitySerialization;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefPlayer;
