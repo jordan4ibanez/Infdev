@@ -307,4 +307,6 @@ class ObjectProperties {
 		this.stepUpMode = stepUpMode;
 		return this;
 	}
+
+	public function new() {}
 }
