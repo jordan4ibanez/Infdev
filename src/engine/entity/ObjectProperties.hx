@@ -108,7 +108,7 @@ class ObjectProperties {
 	public var showOnMinimap: Bool; //!
 
 	@:native("step_up_mode")
-	public var stepUpMode: StepUpMode;
+	public var stepUpMode: StepUpMode; //!
 
 	@:native("breath_max")
 	public var breathMax: Int;
@@ -289,8 +289,8 @@ class ObjectProperties {
 		return this;
 	}
 		
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setStepUpMode (stepUpMode: StepUpMode ): ObjectProperties {
+		this.stepUpMode = stepUpMode;
 		return this;
 	}
 		
