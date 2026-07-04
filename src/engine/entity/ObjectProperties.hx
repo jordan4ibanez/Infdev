@@ -38,7 +38,7 @@ class ObjectProperties {
 
 	public var mesh: String; //!
 
-	public var textures: LuaArray<String>;
+	public var textures: LuaArray<String>; //!
 
 	public var colors: LuaArray<ColorSpec>;
 
@@ -169,8 +169,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setTextures (textures: LuaArray<String>): ObjectProperties {
+		this.textures = textures;
 		return this;
 	}
 	
