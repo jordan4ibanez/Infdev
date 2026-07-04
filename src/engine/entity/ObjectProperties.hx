@@ -72,7 +72,7 @@ class ObjectProperties {
 	public var automaticFaceMovementMaxRotationPerSec: Float; //!
 
 	@:native("backface_culling")
-	public var backfaceCulling: Bool;
+	public var backfaceCulling: Bool; //!
 
 	public var glow: Int;
 
@@ -229,8 +229,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setBackfaceCulling (backfaceCulling: Bool ): ObjectProperties {
+		this.backfaceCulling = backfaceCulling;
 		return this;
 	}
 	
