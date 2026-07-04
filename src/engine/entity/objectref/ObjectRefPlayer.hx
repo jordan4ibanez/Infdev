@@ -4,6 +4,7 @@ import lua.Table;
 import src.engine.entity.definition.PhysicsOverride;
 import src.engine.entity.helpers.PlayerHandling;
 import src.engine.metadata.PlayerMetaRef;
+import src.engine.vector.EngineVector2;
 import src.engine.vector.EngineVector3;
 import src.game.entity.Player;
 
@@ -160,10 +161,8 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	@:native("get_day_night_ratio")
 	public abstract function getDayNightRatio(): Null<Float>;
 
-	// todo: this is a vec2
-
 	@:native("set_local_animation")
-	public abstract function setLocalAnimation(idle: Dynamic, walk: Dynamic, dig: Dynamic, walkWhileDig: Dynamic, frameSpeed: Float): Void;
+	public abstract function setLocalAnimation(idle: EngineVector2, walk: EngineVector2, dig: EngineVector2, walkWhileDig: EngineVector2, frameSpeed: Float): Void;
 
 	// todo: lua multi return
 
