@@ -13,7 +13,7 @@ import src.engine.vector.EngineVector2;
 // todo: builder pattern setters.
 class ObjectProperties {
 	@:native("hp_max")
-	public var hpMax: Int;
+	public var hpMax: Int; //!
 
 	public var physical: Bool;
 
@@ -119,8 +119,8 @@ class ObjectProperties {
 	@:native("eye_height")
 	public var eyeHeight: Float;
 
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setHPMax (value: Int ): ObjectProperties {
+		this.hpMax = value;
 		return this;
 	}
 	
