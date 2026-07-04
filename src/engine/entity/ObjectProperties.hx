@@ -79,7 +79,7 @@ class ObjectProperties {
 	public var nametag: String; //!
 
 	@:native("nametag_color")
-	public var nametagColor: ColorSpec;
+	public var nametagColor: ColorSpec; //!
 
 	@:native("nametag_bgcolor")
 	public var nametagBackgroundColor: EitherType<ColorSpec, Bool>;
@@ -244,8 +244,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setNametagColor (nametagColor: ColorSpec ): ObjectProperties {
+		this.nametagColor = nametagColor;
 		return this;
 	}
 	
