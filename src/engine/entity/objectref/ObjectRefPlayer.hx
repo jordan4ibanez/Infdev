@@ -173,10 +173,8 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	@:native("set_local_animation")
 	public abstract function setLocalAnimation(idle: EngineVector2, walk: EngineVector2, dig: EngineVector2, walkWhileDig: EngineVector2, frameSpeed: Float): Void;
 
-	// todo: lua multi return
-
 	@:native("get_local_animation")
-	public abstract function getLocalAnimation(): Dynamic;
+	public abstract function getLocalAnimation(): LocalAnimationReturnValue;
 
 	@:native("set_eye_offset")
 	public abstract function setEyeOffset(firstPerson: EngineVector3, thirdPersonBack: EngineVector3, thirdPersonFront: EngineVector3): Void;
