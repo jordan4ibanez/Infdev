@@ -26,7 +26,7 @@ class ObjectProperties {
 	@:native("selectionbox")
 	public var selectionBox: EntitySelectionBox; //!
 
-	public var pointable: EntityPointable;
+	public var pointable: EntityPointable; //!
 
 	public var visual: EntityVisual;
 
@@ -144,8 +144,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setPointable (pointable: EntityPointable ): ObjectProperties {
+		this.pointable = pointable;
 		return this;
 	}
 	
