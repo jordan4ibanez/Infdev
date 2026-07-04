@@ -57,7 +57,7 @@ class ObjectProperties {
 	public var isVisible: Bool; //!
 
 	@:native("makes_footstep_sound")
-	public var makesFootstepSound: Bool;
+	public var makesFootstepSound: Bool; //!
 
 	@:native("automatic_rotate")
 	public var automaticRotate: Float;
@@ -204,8 +204,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setMakesFootstepSound (makesFootstepSound: Bool ): ObjectProperties {
+		this.makesFootstepSound = makesFootstepSound;
 		return this;
 	}
 	
