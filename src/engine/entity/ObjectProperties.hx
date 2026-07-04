@@ -63,7 +63,7 @@ class ObjectProperties {
 	public var automaticRotate: Float; //!
 
 	@:native("stepheight")
-	public var stepHeight: Float;
+	public var stepHeight: Float; //!
 
 	@:native("automatic_face_movement_dir")
 	public var automaticFaceMovementDir: EitherType<Float, Bool>;
@@ -214,8 +214,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setStepHeight (stepHeight: Float ): ObjectProperties {
+		this.stepHeight = stepHeight;
 		return this;
 	}
 	
