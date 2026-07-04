@@ -1,10 +1,10 @@
 package src.engine.entity.objectref;
 
-import src.engine.entity.definition.PhysicsOverride;
-import src.game.entity.Player;
 import lua.Table;
+import src.engine.entity.definition.PhysicsOverride;
 import src.engine.entity.helpers.PlayerHandling;
 import src.engine.vector.EngineVector3;
+import src.game.entity.Player;
 
 /**
  * A Luanti C++ engine ServerActiveObject reference.
