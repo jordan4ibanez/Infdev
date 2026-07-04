@@ -12,111 +12,111 @@ import src.engine.vector.EngineVector2;
 
 class ObjectProperties {
 	@:native("hp_max")
-	public var hpMax: Int; // !
+	public var hpMax: Int;
 
 	@:native("breath_max")
-	public var breathMax: Int; // !
+	public var breathMax: Int;
 
 	@:native("zoom_fov")
-	public var zoomFOV: Float; // !
+	public var zoomFOV: Float;
 
 	@:native("eye_height")
-	public var eyeHeight: Float; // !
+	public var eyeHeight: Float;
 
-	public var physical: Bool; // !
+	public var physical: Bool;
 
 	@:native("collide_with_objects")
-	public var collideWithObjects: Bool; // !
+	public var collideWithObjects: Bool;
 
 	@:native("collisionbox")
-	public var collisionBox: EntityCollisionBox; // !
+	public var collisionBox: EntityCollisionBox;
 
 	@:native("selectionbox")
-	public var selectionBox: EntitySelectionBox; // !
+	public var selectionBox: EntitySelectionBox;
 
-	public var pointable: EntityPointable; // !
+	public var pointable: EntityPointable;
 
-	public var visual: EntityVisual; // !
+	public var visual: EntityVisual;
 
 	@:native("wield_item")
-	public var wieldItem: String; // !
+	public var wieldItem: String;
 
 	@:native("visual_size")
-	public var visualSize: EngineVector2; // !
+	public var visualSize: EngineVector2;
 
-	public var mesh: String; // !
+	public var mesh: String;
 
-	public var textures: LuaArray<String>; // !
+	public var textures: LuaArray<String>;
 
-	public var colors: LuaArray<ColorSpec>; // !
+	public var colors: LuaArray<ColorSpec>;
 
-	public var node: NodeTable; // !
+	public var node: NodeTable;
 
 	@:native("use_texture_alpha")
-	public var useTextureAlpha: Bool; // !
+	public var useTextureAlpha: Bool;
 
 	@:native("spritediv")
-	public var spriteDiv: EngineVector2; // !
+	public var spriteDiv: EngineVector2;
 
 	@:native("initial_sprite_basepos")
-	public var initialSpriteBasePos: EngineVector2; // !
+	public var initialSpriteBasePos: EngineVector2;
 
 	@:native("is_visible")
-	public var isVisible: Bool; // !
+	public var isVisible: Bool;
 
 	@:native("makes_footstep_sound")
-	public var makesFootstepSound: Bool; // !
+	public var makesFootstepSound: Bool;
 
 	@:native("automatic_rotate")
-	public var automaticRotate: Float; // !
+	public var automaticRotate: Float;
 
 	@:native("stepheight")
-	public var stepHeight: Float; // !
+	public var stepHeight: Float;
 
 	@:native("automatic_face_movement_dir")
-	public var automaticFaceMovementDir: EitherType<Float, Bool>; // !
+	public var automaticFaceMovementDir: EitherType<Float, Bool>;
 
 	@:native("automatic_face_movement_max_rotation_per_sec")
-	public var automaticFaceMovementMaxRotationPerSec: Float; // !
+	public var automaticFaceMovementMaxRotationPerSec: Float;
 
 	@:native("backface_culling")
-	public var backfaceCulling: Bool; // !
+	public var backfaceCulling: Bool;
 
-	public var glow: Int; // !
+	public var glow: Int;
 
-	public var nametag: String; // !
+	public var nametag: String;
 
 	@:native("nametag_color")
-	public var nametagColor: ColorSpec; // !
+	public var nametagColor: ColorSpec;
 
 	@:native("nametag_bgcolor")
-	public var nametagBackgroundColor: EitherType<ColorSpec, Bool>; // !
+	public var nametagBackgroundColor: EitherType<ColorSpec, Bool>;
 
 	@:native("nametag_fontsize")
-	public var nametagFontSize: EitherType<Int, Bool>; // !
+	public var nametagFontSize: EitherType<Int, Bool>;
 
 	/**
 	 * The further away the object is, the smaller the nametag becomes.
 	 */
 	@:native("nametag_scale_z")
-	public var nametagScaleZ: Bool; // !
+	public var nametagScaleZ: Bool;
 
 	@:native("infotext")
-	public var infoText: String; // !
+	public var infoText: String;
 
 	@:native("static_save")
-	public var staticSave: Bool; // !
+	public var staticSave: Bool;
 
 	@:native("damage_texture_modifier")
-	public var damageTextureModifier: String; // !
+	public var damageTextureModifier: String;
 
-	public var shaded: Bool; // !
+	public var shaded: Bool;
 
 	@:native("show_on_minimap")
-	public var showOnMinimap: Bool; // !
+	public var showOnMinimap: Bool;
 
 	@:native("step_up_mode")
-	public var stepUpMode: StepUpMode; // !
+	public var stepUpMode: StepUpMode;
 
 	public inline function setHPMax(hpMax: Int): ObjectProperties {
 		this.hpMax = hpMax;
