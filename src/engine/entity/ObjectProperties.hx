@@ -48,7 +48,7 @@ class ObjectProperties {
 	public var useTextureAlpha: Bool; //!
 
 	@:native("spritediv")
-	public var spriteDiv: EngineVector2;
+	public var spriteDiv: EngineVector2; //!
 
 	@:native("initial_sprite_basepos")
 	public var initialSpriteBasePos: EngineVector2;
@@ -189,8 +189,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setSpriteDiv (spriteDiv: EngineVector2 ): ObjectProperties {
+		this.spriteDiv = spriteDiv;
 		return this;
 	}
 	
