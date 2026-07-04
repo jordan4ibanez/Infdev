@@ -69,7 +69,7 @@ class ObjectProperties {
 	public var automaticFaceMovementDir: EitherType<Float, Bool>; //!
 
 	@:native("automatic_face_movement_max_rotation_per_sec")
-	public var automaticFaceMovementMaxRotationPerSec: Float;
+	public var automaticFaceMovementMaxRotationPerSec: Float; //!
 
 	@:native("backface_culling")
 	public var backfaceCulling: Bool;
@@ -224,8 +224,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setAutomaticFaceMovementMaxRotationPerSec (automaticFaceMovementMaxRotationPerSec: Float): ObjectProperties {
+		this.automaticFaceMovementMaxRotationPerSec = automaticFaceMovementMaxRotationPerSec;
 		return this;
 	}
 	
