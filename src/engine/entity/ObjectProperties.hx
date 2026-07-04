@@ -40,7 +40,7 @@ class ObjectProperties {
 
 	public var textures: LuaArray<String>; //!
 
-	public var colors: LuaArray<ColorSpec>;
+	public var colors: LuaArray<ColorSpec>; //!
 
 	public var node: NodeTable;
 
@@ -174,8 +174,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setColors (colors:LuaArray<ColorSpec> ): ObjectProperties {
+		this.colors = colors;
 		return this;
 	}
 	
