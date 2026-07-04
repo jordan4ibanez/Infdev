@@ -74,7 +74,7 @@ class ObjectProperties {
 	@:native("backface_culling")
 	public var backfaceCulling: Bool; //!
 
-	public var glow: Int;
+	public var glow: Int; //!
 
 	public var nametag: String;
 
@@ -234,8 +234,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setGlow (glow: Int): ObjectProperties {
+		this.glow = glow;
 		return this;
 	}
 	
