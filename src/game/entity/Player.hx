@@ -24,9 +24,9 @@ final class Player {
 			.setGravity(1.25)
 			.setJump(1.25));
 
-		this.object.setProperties({
-			step_up_mode: "floaty"
-		});
+		// this.object.setProperties({
+		// 	step_up_mode: "floaty"
+		// });
 
 		Lua.print(this.name + " joined the game.");
 	}
