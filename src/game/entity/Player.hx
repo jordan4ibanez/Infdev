@@ -2,6 +2,7 @@ package src.game.entity;
 
 import lua.Lua;
 import src.engine.compilercode.Macros;
+import src.engine.entity.ObjectProperties;
 import src.engine.entity.definition.PhysicsOverride;
 import src.engine.entity.helpers.EntitySerialization;
 import src.engine.entity.objectref.ObjectRefBase;
@@ -24,9 +25,8 @@ final class Player {
 			.setGravity(1.25)
 			.setJump(1.25));
 
-		// this.object.setProperties({
-		// 	step_up_mode: "floaty"
-		// });
+		this.object.setProperties(new ObjectProperties()
+			.setStepUpMode(StepUpModeRigid));
 
 		Lua.print(this.name + " joined the game.");
 	}
