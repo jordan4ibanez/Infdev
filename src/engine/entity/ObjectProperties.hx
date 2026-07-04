@@ -16,7 +16,7 @@ class ObjectProperties {
 	public var hpMax: Int; //!
 
 	@:native("breath_max")
-	public var breathMax: Int;
+	public var breathMax: Int; //!
 
 	@:native("zoom_fov")
 	public var zoomFOV: Float;
@@ -128,8 +128,8 @@ class ObjectProperties {
 	}
 
 			
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setBreathMax (breathMax: Int ): ObjectProperties {
+		this.breathMax = breathMax;
 		return this;
 	}
 		
