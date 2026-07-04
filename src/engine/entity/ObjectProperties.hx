@@ -304,4 +304,10 @@ class ObjectProperties {
 		return this;
 	}
 		
+
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+		
 }
