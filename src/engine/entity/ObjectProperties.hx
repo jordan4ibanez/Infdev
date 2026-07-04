@@ -66,7 +66,7 @@ class ObjectProperties {
 	public var stepHeight: Float; //!
 
 	@:native("automatic_face_movement_dir")
-	public var automaticFaceMovementDir: EitherType<Float, Bool>;
+	public var automaticFaceMovementDir: EitherType<Float, Bool>; //!
 
 	@:native("automatic_face_movement_max_rotation_per_sec")
 	public var automaticFaceMovementMaxRotationPerSec: Float;
@@ -219,8 +219,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setAutomaticFaceMovementDir (automaticFaceMovementDir: EitherType<Float, Bool>): ObjectProperties {
+		this.automaticFaceMovementDir = automaticFaceMovementDir;
 		return this;
 	}
 	
