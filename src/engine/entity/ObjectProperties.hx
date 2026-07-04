@@ -51,7 +51,7 @@ class ObjectProperties {
 	public var spriteDiv: EngineVector2; //!
 
 	@:native("initial_sprite_basepos")
-	public var initialSpriteBasePos: EngineVector2;
+	public var initialSpriteBasePos: EngineVector2; //!
 
 	@:native("is_visible")
 	public var isVisible: Bool;
@@ -194,8 +194,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setInitialSpriteBasePos (initialSpriteBasePos: EngineVector2 ): ObjectProperties {
+		this.initialSpriteBasePos = initialSpriteBasePos;
 		return this;
 	}
 	
