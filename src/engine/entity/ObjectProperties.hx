@@ -36,7 +36,7 @@ class ObjectProperties {
 	@:native("visual_size")
 	public var visualSize: EngineVector2; //!
 
-	public var mesh: String;
+	public var mesh: String; //!
 
 	public var textures: LuaArray<String>;
 
@@ -164,8 +164,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setMesh (mesh: String ): ObjectProperties {
+		this.mesh = mesh;
 		return this;
 	}
 	
