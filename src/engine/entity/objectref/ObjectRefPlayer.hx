@@ -3,6 +3,7 @@ package src.engine.entity.objectref;
 import lua.Table;
 import src.engine.entity.definition.PhysicsOverride;
 import src.engine.entity.helpers.PlayerHandling;
+import src.engine.metadata.PlayerMetaRef;
 import src.engine.vector.EngineVector3;
 import src.game.entity.Player;
 
@@ -48,10 +49,8 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	@:native("get_fov")
 	public abstract function getFOV(): FOVReturnValue;
 
-	// todo: PlayerMetaRef -> MetaDataRef
-
 	@:native("get_meta")
-	public abstract function getMeta(): Dynamic;
+	public abstract function getMeta(): PlayerMetaRef;
 
 	@:native("set_inventory_formspec")
 	public abstract function setInventoryFormspec(formspec: String): Void;
