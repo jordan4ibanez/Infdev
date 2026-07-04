@@ -22,7 +22,7 @@ class ObjectProperties {
 	public var zoomFOV: Float; //!
 
 	@:native("eye_height")
-	public var eyeHeight: Float;
+	public var eyeHeight: Float; //!
 
 
 	public var physical: Bool; //!
@@ -139,8 +139,8 @@ class ObjectProperties {
 	}
 		
 
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setEyeHeight (eyeHeight: Float ): ObjectProperties {
+		this.eyeHeight = eyeHeight;
 		return this;
 	}
 	
