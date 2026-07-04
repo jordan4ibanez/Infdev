@@ -105,7 +105,7 @@ class ObjectProperties {
 	public var shaded: Bool; //!
 
 	@:native("show_on_minimap")
-	public var showOnMinimap: Bool;
+	public var showOnMinimap: Bool; //!
 
 	@:native("step_up_mode")
 	public var stepUpMode: StepUpMode;
@@ -284,8 +284,8 @@ class ObjectProperties {
 		return this;
 	}
 		
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setShowOnMinimap (showOnMinimap: Bool ): ObjectProperties {
+		this.showOnMinimap = showOnMinimap;
 		return this;
 	}
 		
