@@ -126,6 +126,23 @@ class ObjectProperties {
 		this.hpMax = hpMax;
 		return this;
 	}
+
+			
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+		
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
+		
+
+	public inline function set (value: ): ObjectProperties {
+		this. = value;
+		return this;
+	}
 	
 	public inline function setPhysical (physical: Bool ): ObjectProperties {
 		this.physical = physical;
@@ -296,21 +313,6 @@ class ObjectProperties {
 		this.stepUpMode = stepUpMode;
 		return this;
 	}
-		
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
-		return this;
-	}
-		
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
-		return this;
-	}
-		
 
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
-		return this;
-	}
 		
 }
