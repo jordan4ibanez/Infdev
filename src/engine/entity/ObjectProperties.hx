@@ -34,7 +34,7 @@ class ObjectProperties {
 	public var wieldItem: String; //!
 
 	@:native("visual_size")
-	public var visualSize: EngineVector2;
+	public var visualSize: EngineVector2; //!
 
 	public var mesh: String;
 
@@ -159,8 +159,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setVisualSize (visualSize: EngineVector2 ): ObjectProperties {
+		this.visualSize = visualSize;
 		return this;
 	}
 	
