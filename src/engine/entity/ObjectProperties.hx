@@ -102,7 +102,7 @@ class ObjectProperties {
 	@:native("damage_texture_modifier")
 	public var damageTextureModifier: String; //!
 
-	public var shaded: Bool;
+	public var shaded: Bool; //!
 
 	@:native("show_on_minimap")
 	public var showOnMinimap: Bool;
@@ -279,8 +279,8 @@ class ObjectProperties {
 		return this;
 	}
 		
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setShaded (shaded: Bool ): ObjectProperties {
+		this.shaded = shaded;
 		return this;
 	}
 		
