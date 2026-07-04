@@ -70,8 +70,6 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	@:native("get_player_control_bits")
 	public abstract function getPlayerControlBits(): Int;
 
-	// todo: override table
-
 	@:native("set_physics_override")
 	public abstract function setPhysicsOverride(overrideTable: PhysicsOverride): Void;
 
