@@ -31,7 +31,7 @@ class ObjectProperties {
 	public var visual: EntityVisual; //!
 
 	@:native("wield_item")
-	public var wieldItem: String;
+	public var wieldItem: String; //!
 
 	@:native("visual_size")
 	public var visualSize: EngineVector2;
@@ -154,8 +154,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setWieldItem (wieldItem: String ): ObjectProperties {
+		this.wieldItem = wieldItem;
 		return this;
 	}
 	
