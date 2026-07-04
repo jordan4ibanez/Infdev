@@ -15,6 +15,15 @@ class FOVReturnValue {
 	public var transitionTime: Float;
 }
 
+@:multiReturn
+class LocalAnimationReturnValue {
+	public var idle: EngineVector2;
+	public var walk: EngineVector2;
+	public var dig: EngineVector2;
+	public var walkWhileDig: EngineVector2;
+	public var frameSpeed: Float;
+}
+
 /**
  * A Luanti C++ engine ServerActiveObject reference.
  * This is the form of it to cast into when you know it is a player.
