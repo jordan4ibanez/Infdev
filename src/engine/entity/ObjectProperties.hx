@@ -119,8 +119,8 @@ class ObjectProperties {
 	@:native("eye_height")
 	public var eyeHeight: Float;
 
-	public inline function setHPMax (value: Int ): ObjectProperties {
-		this.hpMax = value;
+	public inline function setHPMax (hpMax: Int ): ObjectProperties {
+		this.hpMax = hpMax;
 		return this;
 	}
 	
