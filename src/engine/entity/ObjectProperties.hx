@@ -91,7 +91,7 @@ class ObjectProperties {
 	 * The further away the object is, the smaller the nametag becomes.
 	 */
 	@:native("nametag_scale_z")
-	public var nametagScaleZ: Bool;
+	public var nametagScaleZ: Bool; //!
 
 	@:native("infotext")
 	public var infoText: String;
@@ -259,8 +259,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setNametagScaleZ (nametagScaleZ: Bool ): ObjectProperties {
+		this.nametagScaleZ = nametagScaleZ;
 		return this;
 	}
 	
