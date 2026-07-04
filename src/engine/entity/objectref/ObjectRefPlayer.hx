@@ -64,13 +64,11 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	@:native("get_formspec_prepend")
 	public abstract function getFormspecPrepend(): String;
 
-	// todo: player control
-
 	@:native("get_player_control")
 	public abstract function getPlayerControl(): Dynamic;
 
 	@:native("get_player_control_bits")
-	public abstract function getPlayerControlBits(): Dynamic;
+	public abstract function getPlayerControlBits(): Int;
 
 	// todo: override table
 
