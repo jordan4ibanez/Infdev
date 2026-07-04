@@ -15,6 +15,16 @@ class ObjectProperties {
 	@:native("hp_max")
 	public var hpMax: Int; //!
 
+	@:native("breath_max")
+	public var breathMax: Int;
+
+	@:native("zoom_fov")
+	public var zoomFOV: Float;
+
+	@:native("eye_height")
+	public var eyeHeight: Float;
+
+
 	public var physical: Bool; //!
 
 	@:native("collide_with_objects")
@@ -110,14 +120,7 @@ class ObjectProperties {
 	@:native("step_up_mode")
 	public var stepUpMode: StepUpMode; //!
 
-	@:native("breath_max")
-	public var breathMax: Int;
-
-	@:native("zoom_fov")
-	public var zoomFOV: Float;
-
-	@:native("eye_height")
-	public var eyeHeight: Float;
+	
 
 	public inline function setHPMax (hpMax: Int ): ObjectProperties {
 		this.hpMax = hpMax;
