@@ -76,7 +76,7 @@ class ObjectProperties {
 
 	public var glow: Int; //!
 
-	public var nametag: String;
+	public var nametag: String; //!
 
 	@:native("nametag_color")
 	public var nametagColor: ColorSpec;
@@ -239,8 +239,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setNametag (nametag: String ): ObjectProperties {
+		this.nametag = nametag;
 		return this;
 	}
 	
