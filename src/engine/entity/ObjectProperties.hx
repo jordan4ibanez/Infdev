@@ -21,7 +21,7 @@ class ObjectProperties {
 	public var collideWithObjects: Bool; //!
 
 	@:native("collisionbox")
-	public var collisionBox: EntityCollisionBox;
+	public var collisionBox: EntityCollisionBox; //!
 
 	@:native("selectionbox")
 	public var selectionBox: EntitySelectionBox;
@@ -134,8 +134,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setCollisionBox (collisionBox: EntityCollisionBox ): ObjectProperties {
+		this.collisionBox = collisionBox;
 		return this;
 	}
 	
