@@ -15,7 +15,7 @@ class ObjectProperties {
 	@:native("hp_max")
 	public var hpMax: Int; //!
 
-	public var physical: Bool;
+	public var physical: Bool; //!
 
 	@:native("collide_with_objects")
 	public var collideWithObjects: Bool;
@@ -124,8 +124,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setPhysical (physical: Bool ): ObjectProperties {
+		this.physical = physical;
 		return this;
 	}
 	
