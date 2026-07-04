@@ -18,7 +18,7 @@ class ObjectProperties {
 	public var physical: Bool; //!
 
 	@:native("collide_with_objects")
-	public var collideWithObjects: Bool;
+	public var collideWithObjects: Bool; //!
 
 	@:native("collisionbox")
 	public var collisionBox: EntityCollisionBox;
@@ -129,8 +129,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setCollideWithObjects (collideWithObjects: Bool ): ObjectProperties {
+		this.collideWithObjects = collideWithObjects;
 		return this;
 	}
 	
