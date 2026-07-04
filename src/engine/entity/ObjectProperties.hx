@@ -97,7 +97,7 @@ class ObjectProperties {
 	public var infoText: String; //!
 
 	@:native("static_save")
-	public var staticSave: Bool;
+	public var staticSave: Bool; //!
 
 	@:native("damage_texture_modifier")
 	public var damageTextureModifier: String;
@@ -269,8 +269,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setStaticSave (staticSave: Bool ): ObjectProperties {
+		this.staticSave = staticSave;
 		return this;
 	}
 		
