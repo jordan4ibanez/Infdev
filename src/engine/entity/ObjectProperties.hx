@@ -19,7 +19,7 @@ class ObjectProperties {
 	public var breathMax: Int; //!
 
 	@:native("zoom_fov")
-	public var zoomFOV: Float;
+	public var zoomFOV: Float; //!
 
 	@:native("eye_height")
 	public var eyeHeight: Float;
@@ -133,8 +133,8 @@ class ObjectProperties {
 		return this;
 	}
 		
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setZoomFOV (zoomFOV: Float ): ObjectProperties {
+		this.zoomFOV = zoomFOV;
 		return this;
 	}
 		
