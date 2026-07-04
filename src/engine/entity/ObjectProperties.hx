@@ -42,7 +42,7 @@ class ObjectProperties {
 
 	public var colors: LuaArray<ColorSpec>; //!
 
-	public var node: NodeTable;
+	public var node: NodeTable; //!
 
 	@:native("use_texture_alpha")
 	public var useTextureAlpha: Bool;
@@ -179,8 +179,8 @@ class ObjectProperties {
 		return this;
 	}
 	
-	public inline function set (value: ): ObjectProperties {
-		this. = value;
+	public inline function setNode (node: NodeTable ): ObjectProperties {
+		this.node = node;
 		return this;
 	}
 	
