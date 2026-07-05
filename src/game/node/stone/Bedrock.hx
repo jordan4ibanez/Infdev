@@ -12,5 +12,7 @@ final class Bedrock extends NodeDefinition {
 			NodeGroupHandDiggable => BEDROCK
 		];
 		this.tiles = ["default_stone.png^[contrast:100:-15"];
+
+		this.drop = "";
 	}
 }
