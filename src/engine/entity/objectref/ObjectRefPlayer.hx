@@ -3,6 +3,7 @@ package src.engine.entity.objectref;
 import lua.Table;
 import src.engine.entity.definition.CameraSettings.CameraMode;
 import src.engine.entity.definition.PhysicsOverride;
+import src.engine.entity.definition.PlayerFlags;
 import src.engine.entity.helpers.PlayerHandling;
 import src.engine.metadata.PlayerMetaRef;
 import src.engine.vector.EngineVector2;
@@ -213,13 +214,11 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	@:native("respawn")
 	public abstract function respawn(): Void;
 
-	// todo: flags
-
 	@:native("get_flags")
-	public abstract function getFlags(): Dynamic;
+	public abstract function getFlags(): PlayerFlags;
 
 	@:native("set_flags")
-	public abstract function setFlags(flags: Dynamic): Void;
+	public abstract function setFlags(flags: PlayerFlags): Void;
 
 	public inline function getLuaEntity(): Player {
 		return PlayerHandling.getGlobalLuaEntity(this.getPlayerName());
