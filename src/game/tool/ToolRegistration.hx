@@ -9,7 +9,6 @@ import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.vector.Vec3;
 import src.game.groups.NodeGroup.BEDROCK;
 
-
 @:register("infdev:oracle_pickaxe")
 final class OraclePickaxe extends ToolDefinition {
 	public function new() {
