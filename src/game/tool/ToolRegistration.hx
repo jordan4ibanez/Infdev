@@ -17,7 +17,11 @@ final class Hand extends ToolDefinition {
 		this.toolCapabilities = new ToolCapabilities()
 			.setFullPunchInterval(1.0)
 			.addGroupCap("oddly_breakable_by_hand", new GroupCapabilities()
-				.setTimesFromArray([3.0, 2.0, 1.0])
+				.setTimesFromMap([
+					1 => 3.0,
+					2 => 2.0,
+					3 => 1.0
+				])
 				.setMaxLevel(0)
 				.setUses(0));
 	}
