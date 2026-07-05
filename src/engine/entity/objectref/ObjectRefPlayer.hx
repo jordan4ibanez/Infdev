@@ -12,7 +12,7 @@ import src.game.entity.Player;
 
 @:final
 @:multiReturn
-abstract class FOVReturnValue {
+abstract extern class FOVReturnValue {
 	public var fov: Float;
 	public var isMultiplier: Bool;
 	public var transitionTime: Float;
@@ -20,7 +20,7 @@ abstract class FOVReturnValue {
 
 @:final
 @:multiReturn
-abstract class LocalAnimationReturnValue {
+abstract extern class LocalAnimationReturnValue {
 	public var idle: EngineVector2;
 	public var walk: EngineVector2;
 	public var dig: EngineVector2;
@@ -30,7 +30,7 @@ abstract class LocalAnimationReturnValue {
 
 @:final
 @:multiReturn
-abstract class EyeOffsetReturnValue {
+abstract extern class EyeOffsetReturnValue {
 	public var firstPerson: EngineVector3;
 	public var thirdPersonBack: EngineVector3;
 	public var thirdPersonFront: EngineVector3;
