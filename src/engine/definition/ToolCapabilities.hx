@@ -1,7 +1,6 @@
 package src.engine.definition;
 
 import haxe.DynamicAccess;
-import lua.Table;
 import src.engine.compilercode.LuaMap;
 import src.game.groups.NodeGroup;
 
@@ -11,7 +10,7 @@ final class GroupCapabilities {
 	@:native("maxlevel")
 	var maxLevel: Null<Int>;
 	var uses: Null<Int>;
-	var times: Table<Int, Float>;
+	var times: LuaMap<Int, Float>;
 
 	public function new() {}
 
@@ -29,7 +28,7 @@ final class GroupCapabilities {
 	 * This one is easy mode.
 	 */
 	public function setTimesFromArray(times: Array<Float>): GroupCapabilities {
-		this.times = Table.create();
+		this.times = new LuaMap();
 		for (index => value in times) {
 			this.times[index + 1] = value;
 		}
@@ -45,11 +44,8 @@ final class GroupCapabilities {
 	 *    4 => 5243.9
 	 * ])
 	 */
-	public function setTimesFromMap(times: Map<Int, Float>): GroupCapabilities {
-		this.times = Table.create();
-		for (index => value in times) {
-			this.times[index] = value;
-		}
+	public function setTimesFromMap(times: LuaMap<Int, Float>): GroupCapabilities {
+		this.times = times;
 		return this;
 	}
 }
