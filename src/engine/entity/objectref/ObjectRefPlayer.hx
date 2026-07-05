@@ -24,6 +24,13 @@ class LocalAnimationReturnValue {
 	public var frameSpeed: Float;
 }
 
+@:multiReturn
+class EyeOffsetReturnValue {
+	public var firstPerson: EngineVector3;
+	public var thirdPersonBack: EngineVector3;
+	public var thirdPersonFront: EngineVector3;
+}
+
 /**
  * A Luanti C++ engine ServerActiveObject reference.
  * This is the form of it to cast into when you know it is a player.
@@ -179,10 +186,8 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	@:native("set_eye_offset")
 	public abstract function setEyeOffset(firstPerson: EngineVector3, thirdPersonBack: EngineVector3, thirdPersonFront: EngineVector3): Void;
 
-	// todo: lua multi return
-
 	@:native("get_eye_offset")
-	public abstract function getEyeOffset(): Dynamic;
+	public abstract function getEyeOffset(): EyeOffsetReturnValue;
 
 	// todo: camera things
 
