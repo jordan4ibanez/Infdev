@@ -10,7 +10,7 @@ enum abstract CameraMode(String) to String {
 class CameraSettings {
 	public var mode: CameraMode;
 
-	public function new(cameraMode: CameraMode) {
-		this.mode = cameraMode;
+	public function new(mode: CameraMode) {
+		this.mode = mode;
 	}
 }
