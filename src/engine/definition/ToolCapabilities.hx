@@ -2,6 +2,8 @@ package src.engine.definition;
 
 import haxe.DynamicAccess;
 import lua.Table;
+import src.engine.compilercode.LuaMap;
+import src.game.groups.NodeGroup;
 
 // todo: these need getters.
 
@@ -60,7 +62,7 @@ final class ToolCapabilities {
 	var maxDropLevel: Null<Int>;
 
 	@:native("groupcaps")
-	var groupCaps: DynamicAccess<GroupCapabilities>;
+	var groupCaps: LuaMap<NodeGroup, GroupCapabilities>;
 
 	@:native("damage_groups")
 	var damageGroups: DynamicAccess<Int>;
@@ -82,9 +84,9 @@ final class ToolCapabilities {
 		return this;
 	}
 
-	public function addGroupCap(group: String, groupCap: GroupCapabilities): ToolCapabilities {
+	public function addGroupCap(group: NodeGroup, groupCap: GroupCapabilities): ToolCapabilities {
 		if (this.groupCaps == null) {
-			this.groupCaps = new DynamicAccess();
+			this.groupCaps = new LuaMap();
 		}
 		this.groupCaps[group] = groupCap;
 		return this;
