@@ -1,5 +1,10 @@
 package src.game.tool;
 
+import src.engine.definition.ToolCapabilities;
+import src.engine.definition.ToolDefinition;
+import src.engine.vector.Vec3;
+import src.game.groups.NodeGroup;
+
 @:override("")
 final class Hand extends ToolDefinition {
 	public function new() {
