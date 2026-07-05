@@ -7,6 +7,7 @@ import src.engine.definition.ToolDefinition;
 import src.engine.definition.basic.DigParams;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.vector.Vec3;
+import src.game.groups.NodeGroup.BEDROCK;
 
 @:override("")
 final class Hand extends ToolDefinition {
@@ -18,9 +19,10 @@ final class Hand extends ToolDefinition {
 			.setFullPunchInterval(1.0)
 			.addGroupCap(NodeGroupHandDiggable, new GroupCapabilities()
 				.setTimesFromMap([
-					1 => 3.0,
+					1 => 1.0,
 					2 => 2.0,
-					3 => 1.0
+					3 => 3.0,
+					BEDROCK => Math.POSITIVE_INFINITY
 				])
 				.setMaxLevel(0)
 				.setUses(0));
