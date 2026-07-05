@@ -9,7 +9,7 @@ final class Cobblestone extends NodeDefinition {
 		super();
 
 		this.nodeGroups = [
-			NodeGroupStone => 1
+			NodeGroupStone => 2
 		];
 
 		this.tiles = ["default_cobble.png"];
