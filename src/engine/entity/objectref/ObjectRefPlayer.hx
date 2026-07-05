@@ -1,6 +1,7 @@
 package src.engine.entity.objectref;
 
 import lua.Table;
+import src.engine.entity.definition.CameraSettings.CameraMode;
 import src.engine.entity.definition.PhysicsOverride;
 import src.engine.entity.helpers.PlayerHandling;
 import src.engine.metadata.PlayerMetaRef;
@@ -192,13 +193,11 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	@:native("get_eye_offset")
 	public abstract function getEyeOffset(): EyeOffsetReturnValue;
 
-	// todo: camera things
-
 	@:native("set_camera")
-	public abstract function setCamera(?params: Dynamic): Void;
+	public abstract function setCamera(?params: CameraMode): Void;
 
 	@:native("get_camera")
-	public abstract function getCamera(): Dynamic;
+	public abstract function getCamera(): CameraMode;
 
 	@:native("send_mapblock")
 	public abstract function sendMapblock(blockPos: EngineVector3): Bool;
