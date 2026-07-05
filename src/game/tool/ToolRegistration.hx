@@ -16,7 +16,7 @@ final class Hand extends ToolDefinition {
 		this.itemColor = "white";
 		this.toolCapabilities = new ToolCapabilities()
 			.setFullPunchInterval(1.0)
-			.addGroupCap("oddly_breakable_by_hand", new GroupCapabilities()
+			.addGroupCap(NodeGroupHandDiggable, new GroupCapabilities()
 				.setTimesFromMap([
 					1 => 3.0,
 					2 => 2.0,
@@ -38,7 +38,7 @@ final class OraclePickaxe extends ToolDefinition {
 		this.toolCapabilities = new ToolCapabilities()
 			.setFullPunchInterval(1.0)
 			.setMaxDropLevel(0)
-			.addGroupCap("dirt", new GroupCapabilities()
+			.addGroupCap(NodeGroupDirt, new GroupCapabilities()
 				.setTimesFromArray([1.0, 0.5, 0.75])
 				.setUses(10)
 				.setMaxLevel(0));
