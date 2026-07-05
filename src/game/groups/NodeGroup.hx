@@ -19,3 +19,5 @@ enum abstract NodeGroup(String) to String {
 	var NodeGroupWater;
 	var NodeGroupLava;
 }
+
+final BEDROCK = 506;
