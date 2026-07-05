@@ -7,7 +7,7 @@ enum abstract CameraMode(String) to String {
 	var CameraModeThirdFront = "third_front";
 }
 
-class CameraSettings.hx {
+class CameraSettings {
 	public var mode: CameraMode;
 
 	public function new(cameraMode: CameraMode) {
