@@ -8,15 +8,17 @@ import src.engine.vector.EngineVector2;
 import src.engine.vector.EngineVector3;
 import src.game.entity.Player;
 
+@:final
 @:multiReturn
-class FOVReturnValue {
+abstract class FOVReturnValue {
 	public var fov: Float;
 	public var isMultiplier: Bool;
 	public var transitionTime: Float;
 }
 
+@:final
 @:multiReturn
-class LocalAnimationReturnValue {
+abstract class LocalAnimationReturnValue {
 	public var idle: EngineVector2;
 	public var walk: EngineVector2;
 	public var dig: EngineVector2;
@@ -24,8 +26,9 @@ class LocalAnimationReturnValue {
 	public var frameSpeed: Float;
 }
 
+@:final
 @:multiReturn
-class EyeOffsetReturnValue {
+abstract class EyeOffsetReturnValue {
 	public var firstPerson: EngineVector3;
 	public var thirdPersonBack: EngineVector3;
 	public var thirdPersonFront: EngineVector3;
