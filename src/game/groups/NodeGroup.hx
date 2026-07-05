@@ -20,4 +20,4 @@ enum abstract NodeGroup(String) to String {
 	var NodeGroupLava;
 }
 
-final BEDROCK = 506;
+inline final BEDROCK: Int = 506;
