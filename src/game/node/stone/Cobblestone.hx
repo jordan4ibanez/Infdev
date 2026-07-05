@@ -1,4 +1,4 @@
-package src.game.node;
+package src.game.node.stone;
 
 import src.engine.definition.NodeDefinition;
 import src.game.groups.NodeGroup;
