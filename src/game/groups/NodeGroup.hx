@@ -1,6 +1,7 @@
 package src.game.groups;
 
 enum abstract NodeGroup(String) to String {
+	var NodeGroupHandDiggable;
 	var NodeGroupDirt;
 	var NodeGroupSand;
 	var NodeGroupStone;
