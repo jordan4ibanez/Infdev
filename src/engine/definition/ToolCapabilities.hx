@@ -22,6 +22,19 @@ final class GroupCapabilities {
 		maxLevel: Int,
 		uses: Int,
 		?customValues: LuaMap<Int, Float>): GroupCapabilities {
+		this.times = new LuaMap();
+
+		final minRange = min;
+		final maxRange = max + 1;
+
+		var currentTime = baseTime;
+
+		for (i in minRange...maxRange) {
+			this.times[i] = currentTime;
+			currentTime += increment;
+		}
+		// Custom values overwrite.
+
 		return this;
 	}
 
