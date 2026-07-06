@@ -15,6 +15,6 @@ final class Stone extends NodeDefinition {
 
 		this.nodeSounds = StoneSound.get();
 
-		drop = "infdev:cobblestone";
+		this.drop = "infdev:cobblestone";
 	}
 }
