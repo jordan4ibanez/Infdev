@@ -17,7 +17,8 @@ final class Grass extends NodeDefinition {
 		];
 
 		this.nodeGroups = [
-			NodeGroupSoil => 1
+			NodeGroupDirt => 1,
+			NodeGroupSoil => 1,
 		];
 
 		this.nodeSounds = DirtSound.get();
