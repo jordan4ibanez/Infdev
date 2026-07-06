@@ -7,6 +7,11 @@ import src.game.groups.NodeGroup;
 
 // todo: these need getters.
 
+/**
+ * Basically this makes it so a thing can cut down anything in any group up to the MAX_LEVEL global.
+ * It flips the way the game engine originally functions where you can now cut down anything, but the node
+ * decides if you get the thing.
+ */
 final class GroupCapabilities {
 	@:native("maxlevel")
 	var maxLevel: Null<Int>;
