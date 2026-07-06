@@ -13,5 +13,7 @@ final class Sand extends NodeDefinition {
 		this.nodeGroups = [
 			NodeGroupSand => 1
 		];
+
+		this.nodeSounds = SandSound.get();
 	}
 }
