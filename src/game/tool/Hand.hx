@@ -7,24 +7,6 @@ import src.game.groups.NodeGroup;
 
 @:override("")
 final class Hand extends ToolDefinition {
-	function infillMap(min: Int, max: Int, baseTime: Float, increment: Float, ?customValues: LuaMap<Int, Float>): LuaMap<Int, Float> {
-		var output = new LuaMap();
-
-		final minRange = min;
-		final maxRange = max + 1;
-
-		var currentTime = baseTime;
-
-		for (i in minRange...maxRange) {
-			output[i] = currentTime;
-			currentTime += increment;
-		}
-
-		// Custom values overwrite.
-
-		return output;
-	}
-
 	public function new() {
 		super();
 		wieldScale = new Vec3(1, 1, 1);
