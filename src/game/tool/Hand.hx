@@ -14,6 +14,7 @@ final class Hand extends ToolDefinition {
 		this.toolCapabilities = new ToolCapabilities()
 			.setFullPunchInterval(1.0)
 			.addGroupCap(NodeGroupHandDiggable, new GroupCapabilities(2.0, 10.0, 0, 0, [BEDROCK => Math.POSITIVE_INFINITY]))
-			.addGroupCap(NodeGroupStone, new GroupCapabilities(10.0, 20.0, 0, 0));
+			.addGroupCap(NodeGroupStone, new GroupCapabilities(10.0, 20.0, 0, 0))
+			.addGroupCap(NodeGroupDirt, new GroupCapabilities(5.0, 10.0, 0, 0));
 	}
 }
