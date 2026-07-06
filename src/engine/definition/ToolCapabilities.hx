@@ -42,16 +42,6 @@ final class GroupCapabilities {
 		this.maxLevel = maxLevel;
 		this.uses = uses;
 	}
-
-	public function setMaxLevel(maxLevel: Int): GroupCapabilities {
-		this.maxLevel = maxLevel;
-		return this;
-	}
-
-	public function setUses(uses: Int): GroupCapabilities {
-		this.uses = uses;
-		return this;
-	}
 }
 
 final class ToolCapabilities {
