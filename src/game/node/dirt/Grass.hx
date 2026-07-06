@@ -9,14 +9,14 @@ final class Grass extends NodeDefinition {
 	public function new() {
 		super();
 
-		tiles = [
+		this.tiles = [
 			"default_grass.png",
 			"default_dirt.png",
 			new TileDefinition("default_dirt.png^default_grass_side.png")
 				.setTileableHorizontal(false)
 		];
 
-		nodeGroups = [
+		this.nodeGroups = [
 			NodeGroupSoil => 1
 		];
 

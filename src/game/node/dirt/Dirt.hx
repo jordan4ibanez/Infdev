@@ -14,6 +14,6 @@ final class Dirt extends NodeDefinition {
 
 		this.nodeSounds = DirtSound.get();
 
-		tiles = ["default_dirt.png"];
+		this.tiles = ["default_dirt.png"];
 	}
 }
