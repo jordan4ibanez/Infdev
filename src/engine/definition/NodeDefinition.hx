@@ -4,6 +4,7 @@ import lua.Table;
 import src.engine.Core;
 import src.engine.compilercode.LuaArray;
 import src.engine.compilercode.LuaMap;
+import src.engine.definition.MaxLevel.MAX_LEVEL;
 import src.engine.definition.basic.ConnectSides;
 import src.engine.definition.basic.DrawType;
 import src.engine.definition.basic.LiquidType;
@@ -19,6 +20,8 @@ import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.metadata.NodeMetaRef;
 import src.engine.vector.EngineVector3;
 import src.game.groups.NodeGroup;
+
+inline final MAX_NODE_LEVEL = MAX_LEVEL;
 
 /**
  * When you extend this class, you get a specialty class which is extremely interesting.
