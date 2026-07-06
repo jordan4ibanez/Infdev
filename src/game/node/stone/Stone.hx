@@ -13,6 +13,8 @@ final class Stone extends NodeDefinition {
 		];
 		this.tiles = ["default_stone.png"];
 
+		this.nodeSounds = StoneSound.get();
+
 		drop = "infdev:cobblestone";
 	}
 }
