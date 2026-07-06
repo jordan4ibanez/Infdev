@@ -12,16 +12,14 @@ final class GroupCapabilities {
 	var uses: Null<Int>;
 	var times: LuaMap<Int, Float>;
 
-	public function new() {}
-
-	public function set(
+	public function new(
 		min: Int,
 		max: Int,
 		baseTime: Float,
 		increment: Float,
 		maxLevel: Int,
 		uses: Int,
-		?customValues: Map<Int, Float>): GroupCapabilities {
+		?customValues: Map<Int, Float>) {
 		this.times = new LuaMap();
 
 		final minRange = min;
@@ -43,8 +41,6 @@ final class GroupCapabilities {
 
 		this.maxLevel = maxLevel;
 		this.uses = uses;
-
-		return this;
 	}
 
 	public function setMaxLevel(maxLevel: Int): GroupCapabilities {
