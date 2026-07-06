@@ -13,7 +13,6 @@ final class GroupCapabilities {
 	var times: LuaMap<Int, Float>;
 
 	public function new(
-		min: Int,
 		max: Int,
 		baseTime: Float,
 		increment: Float,
@@ -22,7 +21,7 @@ final class GroupCapabilities {
 		?customValues: Map<Int, Float>) {
 		this.times = new LuaMap();
 
-		final minRange = min;
+		final minRange = 1;
 		final maxRange = max + 1;
 
 		var currentTime = baseTime;
