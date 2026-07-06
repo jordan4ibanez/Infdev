@@ -41,6 +41,12 @@ final class GroupCapabilities {
 
 		for (i in minRange...maxRange) {
 			this.times[i] = currentTime;
+
+			// It takes a lot longer if you've exceeded the max level of your item.
+			// But only if it's max level is above 0. (excludes the hand)
+			if (maxLevel > 0 && i > maxLevel) {
+				currentTime += increment * 2.0;
+			}
 			currentTime += increment;
 		}
 
