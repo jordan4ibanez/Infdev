@@ -11,3 +11,9 @@ stone_step: https://freesound.org/people/allrealsound/sounds/161756/ (CC0)
 dirt_mine: https://freesound.org/people/soundandmelodies/sounds/852318/ (CC0)
 
 dirt_step: https://freesound.org/people/worthahep88/sounds/319224/ (CC0)
+
+## Sand:
+
+This pack was deemed too high quality for the shit sound quality I'm going for but maybe later.
+https://freesound.org/people/BlondPanda/sounds/778567/ 
+
