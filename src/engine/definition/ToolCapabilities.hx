@@ -56,31 +56,6 @@ final class GroupCapabilities {
 		this.uses = uses;
 		return this;
 	}
-
-	/**
-	 * This one is kinda lazy.
-	 */
-	public function setTimesFromArray(times: Array<Float>): GroupCapabilities {
-		this.times = new LuaMap();
-		for (index => value in times) {
-			this.times[index + 1] = value;
-		}
-		return this;
-	}
-
-	/**
-	 * This one is when you need to be specific. Or maybe you need custom times.
-	 * .setTimesFromMap([
-	 *    1 => 3.90,
-	 *    2 => 4.60,
-	 *    3 => 42.34,
-	 *    4 => 5243.9
-	 * ])
-	 */
-	public function setTimesFromMap(times: LuaMap<Int, Float>): GroupCapabilities {
-		this.times = times;
-		return this;
-	}
 }
 
 final class ToolCapabilities {
