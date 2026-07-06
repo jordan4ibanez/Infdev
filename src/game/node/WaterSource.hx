@@ -11,7 +11,7 @@ final class WaterSource extends NodeDefinition {
 	public function new() {
 		super();
 
-		tiles = [
+		this.tiles = [
 			new TileDefinition("default_water_source_animated.png")
 				.setAnimation(new TileAnimationDefinitionVerticalFrames(16, 16, 2.0))
 				.setBackfaceCulling(false),
@@ -22,25 +22,24 @@ final class WaterSource extends NodeDefinition {
 
 		// trace("I am mac osx aqua");
 
-		description = "Water Source";
-		drawType = DrawTypeLiquid;
-		waving = WavingTypeLiquids;
-		useTextureAlpha = NodeTextureAlphaBlend;
-		paramtype1 = ParamType1Light;
-
-		walkable = false;
-		pointable = false;
-		diggable = false;
-		buildableTo = true;
-		isGroundContent = false;
-		drop = "";
-		drowning = 1;
-		liquidType = LiquidTypeSource;
-		liquidAlternativeFlowing = "infdev:water_flow";
-		liquidAlternativeSource = "infdev:water_source";
-		liquidViscosity = 1;
-		postEffectColor = new RGBA(30, 60, 90, 103);
-		nodeGroups = [
+		this.description = "Water Source";
+		this.drawType = DrawTypeLiquid;
+		this.waving = WavingTypeLiquids;
+		this.useTextureAlpha = NodeTextureAlphaBlend;
+		this.paramtype1 = ParamType1Light;
+		this.walkable = false;
+		this.pointable = false;
+		this.diggable = false;
+		this.buildableTo = true;
+		this.isGroundContent = false;
+		this.drop = "";
+		this.drowning = 1;
+		this.liquidType = LiquidTypeSource;
+		this.liquidAlternativeFlowing = "infdev:water_flow";
+		this.liquidAlternativeSource = "infdev:water_source";
+		this.liquidViscosity = 1;
+		this.postEffectColor = new RGBA(30, 60, 90, 103);
+		this.nodeGroups = [
 			NodeGroupLiquidSource => 1,
 			NodeGroupWater => 1
 		];
