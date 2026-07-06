@@ -1,7 +1,7 @@
 package src.game.node.dirt;
 
-import src.engine.definition.basic.TileDefinition;
 import src.engine.definition.NodeDefinition;
+import src.engine.definition.basic.TileDefinition;
 import src.game.groups.NodeGroup;
 
 @:register("infdev:grass")
@@ -19,6 +19,8 @@ final class Grass extends NodeDefinition {
 		nodeGroups = [
 			NodeGroupSoil => 1
 		];
+
+		this.nodeSounds = DirtSound.get();
 
 		this.drop = "infdev:dirt";
 	}
