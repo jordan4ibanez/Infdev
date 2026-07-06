@@ -41,6 +41,9 @@ final class GroupCapabilities {
 			}
 		}
 
+		this.maxLevel = maxLevel;
+		this.uses = uses;
+
 		return this;
 	}
 
