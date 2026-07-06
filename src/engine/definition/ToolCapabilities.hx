@@ -18,6 +18,14 @@ final class GroupCapabilities {
 	var uses: Null<Int>;
 	var times: LuaMap<Int, Float>;
 
+	/**
+	 * Create a new group capabilities table.
+	 * @param baseTime The base mining time of level 1. Each level up from this will add additional time defined in increment. If it goes above maxLevel it then adds double this to each level from that point forward on top of the regular increment.
+	 * @param increment The increment of the time it takes to mine things past level 1. If it goes above maxLevel it takes a lot longer.
+	 * @param maxLevel The max level of the node which this tool is supposed to mine.
+	 * @param uses The number of uses this tool has before it breaks.
+	 * @param customValues A map of custom times which overrides the automated values. This can be used to do cool custom behavior.
+	 */
 	public function new(
 		baseTime: Float,
 		increment: Float,
