@@ -14,6 +14,7 @@ dirt_step: https://freesound.org/people/worthahep88/sounds/319224/ (CC0)
 
 ## Sand:
 
-This pack was deemed too high quality for the shit sound quality I'm going for but maybe later.
+Maybe use this later
 https://freesound.org/people/BlondPanda/sounds/778567/ 
 
+sand_mine: https://freesound.org/people/wniebelski/sounds/695981/ (CC0)
