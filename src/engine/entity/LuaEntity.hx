@@ -1,7 +1,10 @@
 package src.engine.entity;
 
+import src.engine.definition.MaxLevel.MAX_LEVEL;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefEntity;
+
+inline final MAX_ENTITY_LEVEL = MAX_LEVEL;
 
 @:autoBuild(src.engine.compilercode.EntityDuctTape.build())
 @:build(src.engine.compilercode.EntityDuctTape.build())
