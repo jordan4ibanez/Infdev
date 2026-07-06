@@ -12,5 +12,7 @@ final class Sandstone extends NodeDefinition {
 		nodeGroups = [
 			NodeGroupStone => 1
 		];
+
+		this.nodeSounds = StoneSound.get();
 	}
 }

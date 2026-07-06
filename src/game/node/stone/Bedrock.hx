@@ -13,6 +13,8 @@ final class Bedrock extends NodeDefinition {
 		];
 		this.tiles = ["default_stone.png^[contrast:100:-15"];
 
+		this.nodeSounds = StoneSound.get();
+
 		this.drop = "";
 	}
 }

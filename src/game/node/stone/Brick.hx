@@ -12,6 +12,8 @@ final class Brick extends NodeDefinition {
 			NodeGroupStone => 2
 		];
 
+		this.nodeSounds = StoneSound.get();
+
 		this.tiles = ["default_brick.png"];
 	}
 }
