@@ -1,5 +1,7 @@
 package src.engine.definition.sound;
 
+import src.engine.definition.sound.SimpleSoundSpecTable;
+
 class NodeSoundTable {
 	private var footstep: SimpleSoundSpec;
 
