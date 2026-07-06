@@ -21,7 +21,7 @@ final class GroupCapabilities {
 		increment: Float,
 		maxLevel: Int,
 		uses: Int,
-		?customValues: LuaMap<Int, Float>): GroupCapabilities {
+		?customValues: Map<Int, Float>): GroupCapabilities {
 		this.times = new LuaMap();
 
 		final minRange = min;
@@ -33,7 +33,11 @@ final class GroupCapabilities {
 			this.times[i] = currentTime;
 			currentTime += increment;
 		}
-		// Custom values overwrite.
+
+		// Custom values overwrite generated values.
+		for (k => v in customValues) {
+			this.times[k] = v;
+		}
 
 		return this;
 	}
