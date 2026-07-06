@@ -1,9 +1,20 @@
 package src.game.tool;
 
+import src.engine.definition.NodeDefinition;
 import src.engine.definition.ToolCapabilities;
 import src.engine.definition.ToolDefinition;
 import src.engine.vector.Vec3;
 import src.game.groups.NodeGroup;
+
+@:register("infdev:virtual_hand_3d")
+final class VirtualHand extends NodeDefinition {
+	public function new() {
+		super();
+
+		this.drawType = DrawTypeMesh;
+		this.mesh = "mcl_meshhand.b3d";
+	}
+}
 
 @:override("")
 final class Hand extends ToolDefinition {
