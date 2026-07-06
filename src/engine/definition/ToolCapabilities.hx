@@ -35,8 +35,10 @@ final class GroupCapabilities {
 		}
 
 		// Custom values overwrite generated values.
-		for (k => v in customValues) {
-			this.times[k] = v;
+		if (customValues != null) {
+			for (k => v in customValues) {
+				this.times[k] = v;
+			}
 		}
 
 		return this;
