@@ -8,8 +8,8 @@ final class Sandstone extends NodeDefinition {
 	public function new() {
 		super();
 
-		tiles = ["default_sandstone.png"];
-		nodeGroups = [
+		this.tiles = ["default_sandstone.png"];
+		this.nodeGroups = [
 			NodeGroupStone => 1
 		];
 
