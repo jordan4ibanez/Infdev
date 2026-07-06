@@ -7,15 +7,15 @@ import src.engine.definition.sound.SimpleSoundSpecTable;
 abstract class DirtSound {
 	public static function get(): NodeSoundTable {
 		return new NodeSoundTable()
-			.setDig(new SimpleSoundSpecTable("stone_mine")
+			.setDig(new SimpleSoundSpecTable("dirt_mine")
 				.setPitch(0.9))
-			.setDug(new SimpleSoundSpecTable("stone_mine")
+			.setDug(new SimpleSoundSpecTable("dirt_mine")
 				.setPitch(0.75))
-			.setFootstep(new SimpleSoundSpecTable("stone_step")
+			.setFootstep(new SimpleSoundSpecTable("dirt_step")
 				.setPitch(0.8))
-			.setPlace(new SimpleSoundSpecTable("stone_mine")
+			.setPlace(new SimpleSoundSpecTable("dirt_mine")
 				.setPitch(0.65))
-			.setPlaceFailed(new SimpleSoundSpecTable("stone_mine")
+			.setPlaceFailed(new SimpleSoundSpecTable("dirt_mine")
 				.setPitch(0.4));
 	}
 }
