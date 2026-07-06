@@ -1,5 +1,7 @@
 package src.engine.definition.sound;
 
+import haxe.extern.EitherType;
+
 class SimpleSoundSpecTable {
 	var name: String;
 	var gain: Float = 1.0;
