@@ -1,4 +1,4 @@
-package src.game.node;
+package src.game.node.dirt;
 
 import src.engine.definition.basic.TileDefinition;
 import src.engine.definition.NodeDefinition;
