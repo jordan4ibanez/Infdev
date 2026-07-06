@@ -14,6 +14,17 @@ final class GroupCapabilities {
 
 	public function new() {}
 
+	public function set(
+		min: Int,
+		max: Int,
+		baseTime: Float,
+		increment: Float,
+		maxLevel: Int,
+		uses: Int,
+		?customValues: LuaMap<Int, Float>): GroupCapabilities {
+		return this;
+	}
+
 	public function setMaxLevel(maxLevel: Int): GroupCapabilities {
 		this.maxLevel = maxLevel;
 		return this;
