@@ -2,5 +2,5 @@
 
 ## Stone:
 
-mining: https://freesound.org/people/qubodup/sounds/816019/ (CC0)
+stone_Mine: https://freesound.org/people/qubodup/sounds/816019/ (CC0)
 
