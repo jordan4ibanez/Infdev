@@ -6,6 +6,7 @@ import src.engine.definition.ToolDefinition;
 import src.engine.vector.Vec3;
 import src.game.groups.NodeGroup;
 
+@:noCompletion
 @:register("infdev:virtual_hand_3d")
 final class VirtualHand extends NodeDefinition {
 	public function new() {
@@ -13,6 +14,7 @@ final class VirtualHand extends NodeDefinition {
 
 		this.drawType = DrawTypeMesh;
 		this.mesh = "mcl_meshhand.b3d";
+		this.tiles = ["character.png"];
 	}
 }
 
