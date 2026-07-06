@@ -1,5 +1,7 @@
 package src.engine.definition.sound;
 
+import src.engine.definition.sound.SimpleSoundSpecTable;
+
 class ItemSoundTable {
 	var breaks: SimpleSoundSpec;
 	var eat: SimpleSoundSpec;
