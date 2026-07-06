@@ -25,7 +25,7 @@ final class GroupCapabilities {
 	}
 
 	/**
-	 * This one is easy mode.
+	 * This one is kinda lazy.
 	 */
 	public function setTimesFromArray(times: Array<Float>): GroupCapabilities {
 		this.times = new LuaMap();
