@@ -27,3 +27,5 @@ class SimpleSoundSpecTable {
 		return this;
 	}
 }
+
+typedef SimpleSoundSpec = EitherType<SimpleSoundSpecTable, String>;
