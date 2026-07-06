@@ -8,9 +8,9 @@ final class Sand extends NodeDefinition {
 	public function new() {
 		super();
 
-		tiles = ["default_sand.png"];
+		this.tiles = ["default_sand.png"];
 
-		nodeGroups = [
+		this.nodeGroups = [
 			NodeGroupSand => 1
 		];
 	}
