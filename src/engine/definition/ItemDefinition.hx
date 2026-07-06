@@ -2,7 +2,7 @@ package src.engine.definition;
 
 import src.engine.Core;
 import src.engine.compilercode.LuaMap;
-import src.engine.definition.ToolCapabilities.MAX_LEVEL;
+import src.engine.definition.MaxLevel.MAX_LEVEL;
 import src.engine.definition.basic.DigParams;
 import src.engine.definition.basic.ItemPointabilitiesTable;
 import src.engine.definition.graphics.ItemImageDefinition;
