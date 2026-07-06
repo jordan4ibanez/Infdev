@@ -2,6 +2,7 @@ package src.engine.definition;
 
 import haxe.DynamicAccess;
 import src.engine.compilercode.LuaMap;
+import src.engine.definition.NodeDefinition.MAX_NODE_LEVEL;
 import src.game.groups.NodeGroup;
 
 // todo: these need getters.
@@ -13,7 +14,6 @@ final class GroupCapabilities {
 	var times: LuaMap<Int, Float>;
 
 	public function new(
-		max: Int,
 		baseTime: Float,
 		increment: Float,
 		maxLevel: Int,
@@ -22,7 +22,7 @@ final class GroupCapabilities {
 		this.times = new LuaMap();
 
 		final minRange = 1;
-		final maxRange = max + 1;
+		final maxRange = MAX_NODE_LEVEL + 1;
 
 		var currentTime = baseTime;
 
