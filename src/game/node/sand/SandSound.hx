@@ -11,7 +11,7 @@ abstract class SandSound {
 				.setPitch(0.9))
 			.setDug(new SimpleSoundSpecTable("sand_mine")
 				.setPitch(0.75))
-			.setFootstep(new SimpleSoundSpecTable("sand_step")
+			.setFootstep(new SimpleSoundSpecTable("sand_mine")
 				.setPitch(0.8)
 				.setGain(0.5))
 			.setPlace(new SimpleSoundSpecTable("sand_mine")
