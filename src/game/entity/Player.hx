@@ -16,10 +16,19 @@ final class Player {
 	@:allow(src.engine.entity.helpers.PlayerHandling)
 	private function new() {}
 
+	function makeHand3D() {
+		var inv = this.object.getInventory();
+		// This also means that 3D hands be chambered to switch between in the hand inventory.
+		inv.set_size("hand", 1);
+		inv.set_stack("hand", 1, "infdev:virtual_hand_3d");
+	}
+
 	public function onActivate(staticData: String, dtimeS: Float) {
 		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
 
 		this.name = this.object.getPlayerName();
+
+		this.makeHand3D();
 
 		this.object.setPhysicsOverride(new PhysicsOverride()
 			.setGravity(1.25)
