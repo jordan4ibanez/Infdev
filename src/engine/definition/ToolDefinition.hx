@@ -1,7 +1,10 @@
 package src.engine.definition;
 
 import src.engine.compilercode.LuaMap;
+import src.engine.definition.ToolCapabilities.MAX_LEVEL;
 import src.game.groups.ToolGroup;
+
+inline final MAX_TOOL_LEVEL = MAX_LEVEL;
 
 /**
  * When you extend this class, you get a specialty class which is extremely interesting.
