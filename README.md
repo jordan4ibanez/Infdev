@@ -6,8 +6,12 @@ this is the original one so I can look at my own code
 https://github.com/jordan4ibanez/Infdev_original
 
 
+## Licensing/Credit Information Directories
 
-### Note:
+### [Textures](mods/infdev/textures/textures_directory.md)
+
+
+## Note:
 
 This started out as a curiosity, but it has quickly become apparent this is better than typescripttolua.
 
