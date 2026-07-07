@@ -7,6 +7,7 @@ import src.engine.entity.definition.PhysicsOverride;
 import src.engine.entity.helpers.EntitySerialization;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefPlayer;
+import src.engine.vector.Vec3;
 
 final class Player {
 	public var object: ObjectRefPlayer = null;
@@ -24,7 +25,11 @@ final class Player {
 	}
 
 	function setModel(): Void {
-		
+		this.object.setProperties(new ObjectProperties()
+			.setVisualSize(new Vec3(1, 1, 1))
+			.setVisual(EntityVisualMesh)
+			.setMesh("character.b3d")
+			.setTextures(["character.png"]));
 	}
 
 	public function onActivate(staticData: String, dtimeS: Float) {
