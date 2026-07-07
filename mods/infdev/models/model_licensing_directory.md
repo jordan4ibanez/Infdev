@@ -2,9 +2,9 @@
 
 Hello! Welcome the models section of the credits and licensing information!
 
-## mineclonia
+## Infdev
 
-### [mcl_meshhand](mineclonia/mcl_meshhand/LICENSE.md)
+### [infdev_hand](infdev/hand/LICENSE.md)
 
 ## minetest_game
 
