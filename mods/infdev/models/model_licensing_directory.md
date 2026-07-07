@@ -4,5 +4,5 @@ Hello! Welcome the models section of the credits and licensing information!
 
 ## mineclonia
 
-### [mcl_meshhand](mineclonia/LICENSE.md)
+### [mcl_meshhand](mineclonia/mcl_meshhand/LICENSE.md)
 
