@@ -23,12 +23,17 @@ final class Player {
 		inv.set_stack("hand", 1, "infdev:virtual_hand_3d");
 	}
 
+	function setModel(): Void {
+		
+	}
+
 	public function onActivate(staticData: String, dtimeS: Float) {
 		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
 
 		this.name = this.object.getPlayerName();
 
 		this.makeHand3D();
+		this.setModel();
 
 		this.object.setPhysicsOverride(new PhysicsOverride()
 			.setGravity(1.25)
