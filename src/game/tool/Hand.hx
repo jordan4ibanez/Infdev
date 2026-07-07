@@ -13,6 +13,7 @@ final class VirtualHand extends NodeDefinition {
 		super();
 
 		this.drawType = DrawTypeMesh;
+		// todo: this needs to be remade
 		this.mesh = "mcl_meshhand.b3d";
 		this.tiles = ["character.png"];
 	}
