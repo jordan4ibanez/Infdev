@@ -2,12 +2,11 @@
 
 ## Mesh hand:
 
-mcl_meshhand.b3d -> hand.gltf
+mcl_meshhand.b3d -> infdev_hand.gltf
 
 I made this a long time ago under CC0 and then it got put into Mineclone2. And then Crafter. And now I have turned it new again so everyone can enjoy it more.
 
 https://codeberg.org/mineclonia/mineclonia/src/branch/main/mods/PLAYER/mcl_meshhand/models/mcl_meshhand.b3d
-
 
 modlib was used to translate it to b3d. In fact I'll just show you the entire processes:
 
