@@ -18,18 +18,19 @@ https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 Licenses of media (textures, models and sounds)
 -----------------------------------------------
 
-Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
-Copyright (C) 2011 celeron55, Perttu Ahola <celeron55@gmail.com>
-Copyright (C) 2012 MirceaKitsune
-Copyright (C) 2012 Jordach
-Copyright (C) 2015 kilbith
-Copyright (C) 2016 sofar
-Copyright (C) 2016 xunto
-Copyright (C) 2016 Rogier-5
-Copyright (C) 2017 TeTpaAka
-Copyright (C) 2017 Desour
-Copyright (C) 2018 stujones11
-Copyright (C) 2019 An0n3m0us
+Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)<br>
+
+Copyright (C) 2011 celeron55, Perttu Ahola <celeron55@gmail.com><br>
+Copyright (C) 2012 MirceaKitsune<br>
+Copyright (C) 2012 Jordach<br>
+Copyright (C) 2015 kilbith<br>
+Copyright (C) 2016 sofar<br>
+Copyright (C) 2016 xunto<br>
+Copyright (C) 2016 Rogier-5<br>
+Copyright (C) 2017 TeTpaAka<br>
+Copyright (C) 2017 Desour<br>
+Copyright (C) 2018 stujones11<br>
+Copyright (C) 2019 An0n3m0us<br>
 
 You are free to:
 Share — copy and redistribute the material in any medium or format.
