@@ -8,7 +8,7 @@ https://github.com/jordan4ibanez/Infdev_original
 
 ## Licensing/Credit Information Directories
 
-### [Textures](mods/infdev/textures/textures_directory.md)
+### [Textures](mods/infdev/textures/texture_licensing_directory.md)
 
 
 ## Note:
