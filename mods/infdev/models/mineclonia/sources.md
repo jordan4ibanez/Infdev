@@ -9,7 +9,6 @@ I made this a long time ago under CC0 and then it got put into Mineclone2. And t
 https://codeberg.org/mineclonia/mineclonia/src/branch/main/mods/PLAYER/mcl_meshhand/models/mcl_meshhand.b3d
 
 
-
 modlib was used to translate it to b3d. In fact I'll just show you the entire processes:
 
 ```haxe
