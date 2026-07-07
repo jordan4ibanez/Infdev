@@ -60,5 +60,5 @@ rights may limit how you use the material.
 For more details:
 http://creativecommons.org/licenses/by-sa/3.0/
 
-If you have no internet access, I have provided an offline copy of the license for you:
+If you have no internet access, here is an offline copy of the license:
 [CC-BY-SA-3.0](../../../licenses/cc-by-sa-3.0.md)
