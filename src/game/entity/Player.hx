@@ -7,12 +7,18 @@ import src.engine.entity.definition.PhysicsOverride;
 import src.engine.entity.helpers.EntitySerialization;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefPlayer;
+import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
+
+class Animation extends Vec2 {}
 
 final class Player {
 	public var object: ObjectRefPlayer = null;
 
 	var name: String;
+
+	var standAnimation: Animation = new Animation(0, 1);
+	var walkAnimation: Animation = new Animation(2, 3);
 
 	@:allow(src.engine.entity.helpers.PlayerHandling)
 	private function new() {}
