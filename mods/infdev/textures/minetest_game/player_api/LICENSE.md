@@ -14,6 +14,8 @@ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
 See the GNU Lesser General Public License for more details:
 https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 
+If you have no internet access, here is an offline copy of the license:
+[Lesser GPL 2.1](../../../licenses/lesser-gpl-2.1.md)
 
 Licenses of media (textures, models and sounds)
 -----------------------------------------------
