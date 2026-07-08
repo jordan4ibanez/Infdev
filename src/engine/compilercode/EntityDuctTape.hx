@@ -131,13 +131,13 @@ class EntityDuctTape {
 
 			if (localClass.superClass == null) {
 				newFunction = macro function(staticData: String, dtimeS: Float) {
-					luantitypes.Macros.entityPatch();
+					src.engine.compilercode.engine.Macros.entityPatch();
 					// trace("Generated fallback on_activate for " + $v{className});
 				};
 			} else {
 				newFunction = macro function(staticData: String, dtimeS: Float) {
 					super.onActivate(staticData, dtimeS); // Super gets called first.
-					luantitypes.Macros.entityPatch();
+					src.engine.compilercode.Macros.entityPatch();
 					// trace("Generated fallback on_activate for " + $v{className});
 				};
 			}
