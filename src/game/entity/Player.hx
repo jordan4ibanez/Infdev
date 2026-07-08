@@ -79,6 +79,11 @@ final class Player {
 
 	function doPlayerAnimations(delta: Float) {
 		// todo: animations
+		final control = this.getControls();
+
+		if (control.LMB) {
+			Lua.print("lmb");
+		}
 	}
 
 	// todo: I don't think moveresult is possible
