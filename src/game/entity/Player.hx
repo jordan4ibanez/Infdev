@@ -28,8 +28,10 @@ final class Player {
 		this.object.setProperties(new ObjectProperties()
 			.setVisualSize(new Vec3(1, 1, 1))
 			.setVisual(EntityVisualMesh)
-			.setMesh("character.b3d")
+			.setMesh("character.glb")
 			.setTextures(["character.png"]));
+
+		this.object.playAnimation("stand");
 	}
 
 	public function onActivate(staticData: String, dtimeS: Float) {
