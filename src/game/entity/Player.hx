@@ -58,9 +58,9 @@ final class Player {
 		});
 	}
 
-	// inline function stopAnimation(animation: PlayerAnimation): Void {
-	// 	this.object.stopAnimation(animation);
-	// }
+	inline function stopAnimation(animation: PlayerAnimation): Void {
+		this.object.stopAnimation(animation);
+	}
 
 	inline function setAnimationSpeed(animation: PlayerAnimation, speed: Float): Void {
 		this.object.updateAnimation(animation, {speed: speed});
