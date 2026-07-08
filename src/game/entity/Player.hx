@@ -112,20 +112,55 @@ final class Player {
 	}
 
 	function doPlayerAnimations(delta: Float) {
-		// todo: animations
-
 		// Mining.
 		if (mining && !wasMining && !wasPlacing) {
-			this.playAnimation(PlayerAnimationMine, 2, 3);
+			this.playAnimation(PlayerAnimationArmsMine, armsPriority, 3);
+			armsPriority++;
 		} else if (wasMining && !mining && !placing) {
-			this.stopAnimation(PlayerAnimationMine);
+			if (walking) {
+				this.playAnimation(PlayerAnimationArmsWalk, armsPriority);
+			} else {
+				this.playAnimation(PlayerAnimationArmsStand, armsPriority);
+			}
+			armsPriority++;
 		}
 
 		// Placing.
 		if (placing && !wasPlacing && !wasMining) {
-			this.playAnimation(PlayerAnimationMine, 2, 3);
+			this.playAnimation(PlayerAnimationArmsMine, armsPriority, 3);
+			armsPriority++;
 		} else if (wasPlacing && !placing && !mining) {
-			this.stopAnimation(PlayerAnimationMine);
+			if (walking) {
+				this.playAnimation(PlayerAnimationArmsWalk, armsPriority);
+			} else {
+				this.playAnimation(PlayerAnimationArmsStand, armsPriority);
+			}
+			armsPriority++;
+		}
+
+		// Walking.
+		if (walking && !wasWalking) {
+			if (!mining) {
+				this.playAnimation(PlayerAnimationArmsWalk, armsPriority);
+				armsPriority++;
+			} else {
+				// Increase the priority to kick start it.
+				this.playAnimation(PlayerAnimationArmsWalk, armsPriority);
+				armsPriority++;
+				this.playAnimation(PlayerAnimationArmsMine, armsPriority, 3);
+				armsPriority++;
+			}
+			this.playAnimation(PlayerAnimationLegsWalk, legsPriority);
+			legsPriority++;
+		} else if (wasWalking && !walking) {
+			if (!mining) {
+				this.playAnimation(PlayerAnimationArmsStand, armsPriority);
+				armsPriority++;
+			} else {
+				this.stopAnimation(PlayerAnimationArmsWalk);
+			}
+			this.playAnimation(PlayerAnimationLegsStand, legsPriority);
+			legsPriority++;
 		}
 	}
 
