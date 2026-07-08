@@ -107,9 +107,19 @@ final class Player {
 	function doPlayerAnimations(delta: Float) {
 		// todo: animations
 
-		// if (control.LMB) {
-		// 	Lua.print("lmb");
-		// } else {}
+		// Mining.
+		if (mining && !wasMining && !wasPlacing) {
+			this.playAnimation(PlayerAnimationMine, 2, 3);
+		} else if (wasMining && !mining && !placing) {
+			this.stopAnimation(PlayerAnimationMine);
+		}
+
+		// Placing.
+		if (placing && !wasPlacing && !wasMining) {
+			this.playAnimation(PlayerAnimationMine, 2, 3);
+		} else if (wasPlacing && !placing && !mining) {
+			this.stopAnimation(PlayerAnimationMine);
+		}
 	}
 
 	function doStateLogic(): Void {
