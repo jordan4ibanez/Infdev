@@ -86,7 +86,8 @@ final class Player {
 			.setMesh("character.glb")
 			.setTextures(["character.png"]));
 
-		this.playAnimation(PlayerAnimationStand, animationPriority);
+		this.playAnimation(PlayerAnimationLegsStand);
+		this.playAnimation(PlayerAnimationArmsIdle);
 	}
 
 	public function onActivate(staticData: String, dtimeS: Float) {
@@ -151,26 +152,34 @@ final class Player {
 			legStateChange = true;
 		}
 
-		if (stateChange) {
-			// trace("state change", Math.random());
+		if (legStateChange) {
 			if (walking) {
-				if (mining || placing) {
-					trace(1);
-					playAnimation(PlayerAnimationMineWalk);
-				} else {
-					trace(2);
-					playAnimation(PlayerAnimationWalk);
-				}
+				playAnimation(PlayerAnimationLegsWalk);
 			} else {
-				if (mining || placing) {
-					trace(3);
-					playAnimation(PlayerAnimationMineStand);
-				} else {
-					trace(4);
-					playAnimation(PlayerAnimationStand);
-				}
+				playAnimation(PlayerAnimationLegsStand);
 			}
 		}
+
+		// if (armStateChange) {
+		// 	// trace("state change", Math.random());
+		// 	if (walking) {
+		// 		if (mining || placing) {
+		// 			trace(1);
+		// 			playAnimation(PlayerAnimationMineWalk);
+		// 		} else {
+		// 			trace(2);
+		// 			playAnimation(PlayerAnimationWalk);
+		// 		}
+		// 	} else {
+		// 		if (mining || placing) {
+		// 			trace(3);
+		// 			playAnimation(PlayerAnimationMineStand);
+		// 		} else {
+		// 			trace(4);
+		// 			playAnimation(PlayerAnimationStand);
+		// 		}
+		// 	}
+		// }
 	}
 
 	function doStateLogic(): Void {
