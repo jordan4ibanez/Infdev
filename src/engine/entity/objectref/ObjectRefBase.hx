@@ -92,14 +92,13 @@ abstract class ObjectRefBase {
 	@:native("set_armor_groups")
 	public abstract function setArmorGroups(groupTable: Dynamic): Void;
 
-	@:native("set_animation")
-	public abstract function setAnimation(frameRange: EngineVector2, frameSpeed: Float, frameBlend: Float, frameLoop: Bool): Void;
-
-	@:native("get_animation")
-	public abstract function getAnimation(): GetAnimationReturn;
-
-	@:native("set_animation_frame_speed")
-	public abstract function setAnimationFrameSpeed(frameSpeed: Float): Void;
+	// Old style 5.16 and below
+	// @:native("set_animation")
+	// public abstract function setAnimation(frameRange: EngineVector2, frameSpeed: Float, frameBlend: Float, frameLoop: Bool): Void;
+	// @:native("get_animation")
+	// public abstract function getAnimation(): GetAnimationReturn;
+	// @:native("set_animation_frame_speed")
+	// public abstract function setAnimationFrameSpeed(frameSpeed: Float): Void;
 
 	@:native("set_attach")
 	public abstract function setAttach(parent: ObjectRefBase, bone: String, position: EngineVector3, rotation: EngineVector3, forcedVisible: Bool): Void;
