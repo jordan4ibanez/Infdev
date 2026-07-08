@@ -18,6 +18,9 @@ final class Player {
 	public var object: ObjectRefPlayer = null;
 
 	var name: String;
+	// ? State bools.
+	var mining: Bool;
+	var wasMining: Bool;
 
 	@:allow(src.engine.entity.helpers.PlayerHandling)
 	private function new() {}
@@ -79,16 +82,23 @@ final class Player {
 
 	function doPlayerAnimations(delta: Float) {
 		// todo: animations
+
+		// if (control.LMB) {
+		// 	Lua.print("lmb");
+		// } else {}
+	}
+
+	function doStateLogic(): Void {
 		final control = this.getControls();
 
-		if (control.LMB) {
-			Lua.print("lmb");
-		}
+		wasMining = mining;
+		mining = control.LMB;
 	}
 
 	// todo: I don't think moveresult is possible
 	// moveResult: Dynamic
 	public function onStep(delta: Float) {
+		doStateLogic();
 		doPlayerAnimations(delta);
 	}
 
