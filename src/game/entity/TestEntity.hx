@@ -20,7 +20,7 @@ class TestEntity extends LuaEntity {
 
 		this.object.playAnimation("mine", {
 			priority: 2,
-            speed: 3
+			speed: 3
 		});
 
 		// so this would be like -90 to 90 + 90 / 180
