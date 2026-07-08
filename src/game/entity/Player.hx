@@ -28,7 +28,7 @@ final class Player {
 		inv.set_stack("hand", 1, "infdev:virtual_hand_3d");
 	}
 
-	function playAnimation(animation: PlayerAnimation): Void {
+	inline function playAnimation(animation: PlayerAnimation): Void {
 		this.object.playAnimation(animation);
 	}
 
