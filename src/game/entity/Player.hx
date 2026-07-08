@@ -71,7 +71,7 @@ final class Player {
 			.setMesh("character.glb")
 			.setTextures(["character.png"]));
 
-		this.playAnimation(PlayerAnimationStand);
+		this.playAnimation(PlayerAnimationStand, 1);
 	}
 
 	public function onActivate(staticData: String, dtimeS: Float) {
