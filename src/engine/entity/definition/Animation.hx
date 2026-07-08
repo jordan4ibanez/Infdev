@@ -1,17 +1,14 @@
 package src.engine.entity.definition;
 
 typedef Animation = {
-	@:native("min_frame")
 	@:optional
-	var minFrame: Float;
+	var min_frame: Float;
 
-	@:native("max_frame")
 	@:optional
-	var maxFrame: Float;
+	var max_frame: Float;
 
-	@:native("start_frame")
 	@:optional
-	var startFrame: Float;
+	var start_frame: Float;
 
 	@:optional
 	var speed: Float;
