@@ -25,6 +25,11 @@ final class Player {
 	}
 
 	function setModel(): Void {
+		// todo: set this thing invisible and just attach an entity which is baked into the player.
+		// todo: maybe somehow do an inline set animation thing for players and entities so
+		// todo: this.object can just be this instead.
+
+		throw "make the player invisible and attach an entity";
 		this.object.setProperties(new ObjectProperties()
 			.setVisualSize(new Vec3(1, 1, 1))
 			.setVisual(EntityVisualMesh)
