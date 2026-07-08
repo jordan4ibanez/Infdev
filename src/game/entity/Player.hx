@@ -28,6 +28,9 @@ final class Player {
 	var walking: Bool;
 	var wasWalking: Bool;
 
+	var sneaking: Bool;
+	var wasSneaking: Bool;
+
 	@:allow(src.engine.entity.helpers.PlayerHandling)
 	private function new() {}
 
@@ -105,6 +108,11 @@ final class Player {
 
 		wasWalking = walking;
 		walking = control.left || control.right || control.up || control.down;
+
+		wasSneaking = sneaking;
+		sneaking = control.sneak;
+
+		// todo: some way to support controllers dynamic range.
 	}
 
 	// todo: I don't think moveresult is possible
