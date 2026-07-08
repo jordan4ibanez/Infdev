@@ -1,5 +1,5 @@
 # Infdev
-Testing out haxe with luanti
+A Luanti game written in haxe. Targets: 5.17.0 (for play_animation multitrack)
 
 this is the original one so I can look at my own code
 
