@@ -72,9 +72,15 @@ final class Player {
 		// todo: fireworks and sound effect
 	}
 
+	function doPlayerAnimations(delta: Float) {
+		// todo: animations
+	}
+
 	// todo: I don't think moveresult is possible
 	// moveResult: Dynamic
-	public function onStep(delta: Float) {}
+	public function onStep(delta: Float) {
+		doPlayerAnimations(delta);
+	}
 
 	public function onPunch(puncher: Null<ObjectRefBase>, timeFromLastPunch: Float, toolCapabilities: Dynamic, dir: Dynamic, damager: Int): Bool {
 		trace(this.object.getPlayerName() + " got punched! OUCH");
