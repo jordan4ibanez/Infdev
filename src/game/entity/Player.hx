@@ -55,7 +55,7 @@ final class Player {
 		inv.set_stack("hand", 1, "infdev:virtual_hand_3d");
 	}
 
-	inline function playAnimation(animation: PlayerAnimation, ?speed: Float, ?loop: Bool = true): Void {
+	function playAnimation(animation: PlayerAnimation, ?speed: Float, ?loop: Bool = true): Void {
 		this.object.playAnimation(animation, {
 			priority: animationPriority,
 			speed: speed,
