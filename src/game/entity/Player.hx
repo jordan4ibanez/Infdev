@@ -11,11 +11,12 @@ import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.vector.Vec3;
 
 private enum abstract PlayerAnimation(String) to String {
-	var PlayerAnimationArmsStand = "arms_stand";
-	var PlayerAnimationArmsWalk = "arms_walk";
-	var PlayerAnimationLegsStand = "legs_stand";
-	var PlayerAnimationLegsWalk = "legs_walk";
-	var PlayerAnimationArmsMine = "arms_mine";
+	var PlayerAnimationWalk = "walk";
+	var PlayerAnimationStand = "stand";
+	var PlayerAnimationMineWalk = "mine_walk";
+	var PlayerAnimationMineStand = "mine_stand";
+	var PlayerAnimationLookPitch = "look_pitch";
+	var PlayerAnimationLookYaw = "look_yaw";
 }
 
 final class Player {
@@ -35,9 +36,10 @@ final class Player {
 	var sneaking: Bool;
 	var wasSneaking: Bool;
 
+	var animationTimer: Float = 0.0;
+
 	// Stop looking at my hackjob.
-	var armsPriority = -2_147_483_648;
-	var legsPriority = -2_147_483_648;
+	var animationPriority = -2_147_483_648;
 
 	@:allow(src.engine.entity.helpers.PlayerHandling)
 	private function new() {}
@@ -49,13 +51,16 @@ final class Player {
 		inv.set_stack("hand", 1, "infdev:virtual_hand_3d");
 	}
 
-	inline function playAnimation(animation: PlayerAnimation, priority: Int, ?speed: Float, ?loop: Bool = true): Void {
+	inline function playAnimation(animation: PlayerAnimation, ?speed: Float, ?loop: Bool = true): Void {
 		this.object.playAnimation(animation, {
-			priority: priority,
+			priority: animationPriority,
 			speed: speed,
-			blend: 0.25,
+			start_frame: animationTimer,
+			blend: 0.15,
 			loop: loop
 		});
+
+		animationPriority++;
 	}
 
 	inline function stopAnimation(animation: PlayerAnimation): Void {
@@ -77,8 +82,7 @@ final class Player {
 			.setMesh("character.glb")
 			.setTextures(["character.png"]));
 
-		this.playAnimation(PlayerAnimationArmsStand, armsPriority);
-		this.playAnimation(PlayerAnimationLegsStand, legsPriority);
+		this.playAnimation(PlayerAnimationStand, animationPriority);
 	}
 
 	public function onActivate(staticData: String, dtimeS: Float) {
@@ -111,56 +115,55 @@ final class Player {
 		// todo: fireworks and sound effect
 	}
 
+	function trackAnimationTimer(delta: Float): Void {
+		animationTimer += delta;
+
+		if (animationTimer >= 1.0) {
+			animationTimer -= 1.0;
+		}
+	}
+
 	function doPlayerAnimations(delta: Float) {
+		var stateChange = false;
+
 		// Mining.
 		if (mining && !wasMining && !wasPlacing) {
-			this.playAnimation(PlayerAnimationArmsMine, armsPriority, 3);
-			armsPriority++;
+			stateChange = true;
 		} else if (wasMining && !mining && !placing) {
-			if (walking) {
-				this.playAnimation(PlayerAnimationArmsWalk, armsPriority);
-			} else {
-				this.playAnimation(PlayerAnimationArmsStand, armsPriority);
-			}
-			armsPriority++;
+			stateChange = true;
 		}
-
 		// Placing.
-		if (placing && !wasPlacing && !wasMining) {
-			this.playAnimation(PlayerAnimationArmsMine, armsPriority, 3);
-			armsPriority++;
+		else if (placing && !wasPlacing && !wasMining) {
+			stateChange = true;
 		} else if (wasPlacing && !placing && !mining) {
-			if (walking) {
-				this.playAnimation(PlayerAnimationArmsWalk, armsPriority);
-			} else {
-				this.playAnimation(PlayerAnimationArmsStand, armsPriority);
-			}
-			armsPriority++;
+			stateChange = true;
+		}
+		// Walking.
+		else if (walking && !wasWalking) {
+			stateChange = true;
+		} else if (wasWalking && !walking) {
+			stateChange = true;
 		}
 
-		// Walking.
-		if (walking && !wasWalking) {
-			if (!mining) {
-				this.playAnimation(PlayerAnimationArmsWalk, armsPriority);
-				armsPriority++;
+		if (stateChange) {
+			// trace("state change", Math.random());
+			if (walking) {
+				if (mining || placing) {
+					trace(1);
+					playAnimation(PlayerAnimationMineWalk);
+				} else {
+					trace(2);
+					playAnimation(PlayerAnimationWalk);
+				}
 			} else {
-				// Increase the priority to kick start it.
-				this.playAnimation(PlayerAnimationArmsWalk, armsPriority);
-				armsPriority++;
-				this.playAnimation(PlayerAnimationArmsMine, armsPriority, 3);
-				armsPriority++;
+				if (mining || placing) {
+					trace(3);
+					playAnimation(PlayerAnimationMineStand);
+				} else {
+					trace(4);
+					playAnimation(PlayerAnimationStand);
+				}
 			}
-			this.playAnimation(PlayerAnimationLegsWalk, legsPriority);
-			legsPriority++;
-		} else if (wasWalking && !walking) {
-			if (!mining) {
-				this.playAnimation(PlayerAnimationArmsStand, armsPriority);
-				armsPriority++;
-			} else {
-				this.stopAnimation(PlayerAnimationArmsWalk);
-			}
-			this.playAnimation(PlayerAnimationLegsStand, legsPriority);
-			legsPriority++;
 		}
 	}
 
@@ -186,6 +189,7 @@ final class Player {
 	// moveResult: Dynamic
 	public function onStep(delta: Float) {
 		doStateLogic();
+		trackAnimationTimer(delta);
 		doPlayerAnimations(delta);
 	}
 
