@@ -35,6 +35,10 @@ final class Player {
 	var sneaking: Bool;
 	var wasSneaking: Bool;
 
+	// Stop looking at my hackjob.
+	var armsPriority = -2_147_483_648;
+	var legsPriority = -2_147_483_648;
+
 	@:allow(src.engine.entity.helpers.PlayerHandling)
 	private function new() {}
 
