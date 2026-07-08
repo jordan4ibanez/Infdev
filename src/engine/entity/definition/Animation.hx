@@ -25,3 +25,8 @@ typedef Animation = {
 	@:optional
 	var priority: Int;
 }
+
+typedef AnimationUpdate = {
+	@:optional
+	var speed: Float;
+}
