@@ -1,6 +1,8 @@
 package src.engine.entity.objectref;
 
 import src.engine.compilercode.LuaArray;
+import src.engine.compilercode.LuaMap;
+import src.engine.entity.definition.Animation;
 import src.engine.vector.EngineVector2;
 import src.engine.vector.EngineVector3;
 
@@ -99,6 +101,18 @@ abstract class ObjectRefBase {
 	// public abstract function getAnimation(): GetAnimationReturn;
 	// @:native("set_animation_frame_speed")
 	// public abstract function setAnimationFrameSpeed(frameSpeed: Float): Void;
+
+	@:native("play_animation")
+	public abstract function playAnimation(track: String, ?animation: Animation): Void;
+
+	@:native("update_animation")
+	public abstract function updateAnimation(track: String, update: AnimationUpdate): Void;
+
+	@:native("stop_animation")
+	public abstract function stopAnimation(?track: String): Void;
+
+	@:native("get_animations")
+	public abstract function getAnimations(): LuaMap<String, Animation>;
 
 	@:native("set_attach")
 	public abstract function setAttach(parent: ObjectRefBase, bone: String, position: EngineVector3, rotation: EngineVector3, forcedVisible: Bool): Void;
