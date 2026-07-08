@@ -4,6 +4,7 @@ import lua.Lua;
 import src.engine.compilercode.Macros;
 import src.engine.entity.ObjectProperties;
 import src.engine.entity.definition.PhysicsOverride;
+import src.engine.entity.definition.PlayerControl;
 import src.engine.entity.helpers.EntitySerialization;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefPlayer;
@@ -30,6 +31,10 @@ final class Player {
 
 	inline function playAnimation(animation: PlayerAnimation): Void {
 		this.object.playAnimation(animation);
+	}
+
+	inline function getControls(): PlayerControl {
+		return this.object.getPlayerControl();
 	}
 
 	function setModel(): Void {
