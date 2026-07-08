@@ -53,7 +53,7 @@ final class Player {
 		this.object.playAnimation(animation, {
 			priority: priority,
 			speed: speed,
-			blend: 0.5,
+			blend: 0.25,
 			loop: loop
 		});
 	}
