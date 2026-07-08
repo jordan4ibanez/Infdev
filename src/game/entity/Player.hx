@@ -11,9 +11,11 @@ import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.vector.Vec3;
 
 private enum abstract PlayerAnimation(String) to String {
-	var PlayerAnimationStand = "stand";
-	var PlayerAnimationWalk = "walk";
-	var PlayerAnimationMine = "mine";
+	var PlayerAnimationArmsStand = "arms_stand";
+	var PlayerAnimationArmsWalk = "arms_walk";
+	var PlayerAnimationLegsStand = "legs_stand";
+	var PlayerAnimationLegsWalk = "legs_walk";
+	var PlayerAnimationArmsMine = "arms_mine";
 }
 
 final class Player {
