@@ -7,7 +7,6 @@ import src.engine.entity.definition.PhysicsOverride;
 import src.engine.entity.helpers.EntitySerialization;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefPlayer;
-import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
 
 final class Player {
