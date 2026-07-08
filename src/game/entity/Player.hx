@@ -98,7 +98,13 @@ final class Player {
 		final control = this.getControls();
 
 		wasMining = mining;
-		mining = control.LMB;
+		mining = control.dig;
+
+		wasPlacing = placing;
+		placing = control.place;
+
+		wasWalking = walking;
+		walking = control.left || control.right || control.up || control.down;
 	}
 
 	// todo: I don't think moveresult is possible
