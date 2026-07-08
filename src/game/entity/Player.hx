@@ -9,6 +9,10 @@ import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.vector.Vec3;
 
+private enum abstract PlayerAnimation(String) to String {
+	var PlayerAnimationStand = "stand";
+}
+
 final class Player {
 	public var object: ObjectRefPlayer = null;
 
@@ -24,6 +28,10 @@ final class Player {
 		inv.set_stack("hand", 1, "infdev:virtual_hand_3d");
 	}
 
+	function playAnimation(animation: PlayerAnimation): Void {
+		this.object.playAnimation(animation);
+	}
+
 	function setModel(): Void {
 		this.object.setProperties(new ObjectProperties()
 			.setVisualSize(new Vec3(1, 1, 1))
@@ -31,7 +39,7 @@ final class Player {
 			.setMesh("character.glb")
 			.setTextures(["character.png"]));
 
-		this.object.playAnimation("stand");
+		this.playAnimation(PlayerAnimationStand);
 	}
 
 	public function onActivate(staticData: String, dtimeS: Float) {
