@@ -68,7 +68,9 @@ final class Player {
 		return EntitySerialization.safeSerialize(this, Macros.getCompileTimeClass());
 	}
 
-	public function onNewPlayer(): Void {}
+	public function onNewPlayer(): Void {
+		// todo: fireworks and sound effect
+	}
 
 	// todo: I don't think moveresult is possible
 	// moveResult: Dynamic
