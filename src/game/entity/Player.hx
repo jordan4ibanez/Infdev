@@ -22,6 +22,12 @@ final class Player {
 	var mining: Bool;
 	var wasMining: Bool;
 
+	var placing: Bool;
+	var wasPlacing: Bool;
+
+	var walking: Bool;
+	var wasWalking: Bool;
+
 	@:allow(src.engine.entity.helpers.PlayerHandling)
 	private function new() {}
 
