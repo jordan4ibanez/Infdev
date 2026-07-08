@@ -124,25 +124,27 @@ final class Player {
 	}
 
 	function doPlayerAnimations(delta: Float) {
-		var stateChange = false;
+		var legStateChange = false;
+		var armStateChange = false;
 
 		// Mining.
 		if (mining && !wasMining && !wasPlacing) {
-			stateChange = true;
+			armStateChange = true;
 		} else if (wasMining && !mining && !placing) {
-			stateChange = true;
+			armStateChange = true;
 		}
 		// Placing.
 		else if (placing && !wasPlacing && !wasMining) {
-			stateChange = true;
+			armStateChange = true;
 		} else if (wasPlacing && !placing && !mining) {
-			stateChange = true;
+			armStateChange = true;
 		}
+
 		// Walking.
-		else if (walking && !wasWalking) {
-			stateChange = true;
+		if (walking && !wasWalking) {
+			legStateChange = true;
 		} else if (wasWalking && !walking) {
-			stateChange = true;
+			legStateChange = true;
 		}
 
 		if (stateChange) {
