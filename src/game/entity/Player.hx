@@ -12,6 +12,8 @@ import src.engine.vector.Vec3;
 
 private enum abstract PlayerAnimation(String) to String {
 	var PlayerAnimationStand = "stand";
+	var PlayerAnimationWalk = "walk";
+	var PlayerAnimationMine = "mine";
 }
 
 final class Player {
