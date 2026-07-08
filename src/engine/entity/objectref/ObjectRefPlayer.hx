@@ -3,6 +3,7 @@ package src.engine.entity.objectref;
 import lua.Table;
 import src.engine.entity.definition.CameraSettings.CameraMode;
 import src.engine.entity.definition.PhysicsOverride;
+import src.engine.entity.definition.PlayerControl;
 import src.engine.entity.definition.PlayerFlags;
 import src.engine.entity.helpers.PlayerHandling;
 import src.engine.metadata.PlayerMetaRef;
@@ -87,7 +88,7 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	public abstract function getFormspecPrepend(): String;
 
 	@:native("get_player_control")
-	public abstract function getPlayerControl(): Dynamic;
+	public abstract function getPlayerControl(): PlayerControl;
 
 	@:native("get_player_control_bits")
 	public abstract function getPlayerControlBits(): Int;
