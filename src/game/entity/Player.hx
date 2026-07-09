@@ -47,13 +47,6 @@ final class Player {
 	@:allow(src.engine.entity.helpers.PlayerHandling)
 	private function new() {}
 
-	function makeHand3D() {
-		var inv = this.object.getInventory();
-		// This also means that 3D hands be chambered to switch between in the hand inventory.
-		inv.set_size("hand", 1);
-		inv.set_stack("hand", 1, "infdev:virtual_hand_3d");
-	}
-
 	function playAnimation(animation: PlayerAnimation, ?speed: Float, ?loop: Bool = true): Void {
 		this.object.playAnimation(animation, {
 			priority: animationPriority,
@@ -78,6 +71,13 @@ final class Player {
 		return this.object.getPlayerControl();
 	}
 
+	function makeHand3D() {
+		var inv = this.object.getInventory();
+		// This also means that 3D hands be chambered to switch between in the hand inventory.
+		inv.set_size("hand", 1);
+		inv.set_stack("hand", 1, "infdev:virtual_hand_3d");
+	}
+
 	function setModel(): Void {
 		this.object.setProperties(new ObjectProperties()
 			.setVisualSize(new Vec3(1, 1, 1))
@@ -87,6 +87,8 @@ final class Player {
 
 		this.playAnimation(PlayerAnimationIdle);
 	}
+
+	function adjustCamera(): Void {}
 
 	function trackAnimationTimer(delta: Float): Void {
 		animationTimer += delta;
