@@ -197,7 +197,7 @@ final class Player {
 			speed: 0,
 			min_frame: pitchAdjusted,
 			max_frame: pitchAdjusted,
-			blend: 0.15,
+			blend: 0.2,
 			loop: false
 		});
 
