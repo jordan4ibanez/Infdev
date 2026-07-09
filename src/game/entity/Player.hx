@@ -88,7 +88,13 @@ final class Player {
 		this.playAnimation(PlayerAnimationIdle);
 	}
 
-	function adjustCamera(): Void {}
+	function adjustCamera(): Void {
+		var height = -1.4;
+		this.object.setEyeOffset(
+			new Vec3(),
+			new Vec3(0,height,0),
+			new Vec3(0,height,0));
+	}
 
 	function trackAnimationTimer(delta: Float): Void {
 		animationTimer += delta;
@@ -195,6 +201,8 @@ final class Player {
 
 		this.object.setProperties(new ObjectProperties()
 			.setStepUpMode(StepUpModeRigid));
+
+		this.adjustCamera();
 
 		Lua.print(this.name + " joined the game.");
 	}
