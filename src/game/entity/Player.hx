@@ -88,36 +88,6 @@ final class Player {
 		this.playAnimation(PlayerAnimationIdle);
 	}
 
-	public function onActivate(staticData: String, dtimeS: Float) {
-		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
-
-		this.name = this.object.getPlayerName();
-
-		this.makeHand3D();
-		this.setModel();
-
-		this.object.setPhysicsOverride(new PhysicsOverride()
-			.setGravity(1.25)
-			.setJump(1.25));
-
-		this.object.setProperties(new ObjectProperties()
-			.setStepUpMode(StepUpModeRigid));
-
-		Lua.print(this.name + " joined the game.");
-	}
-
-	public function onDeactivate(removal: Bool) {
-		// trace("on_deactivate?");
-	}
-
-	public function getStaticData(): String {
-		return EntitySerialization.safeSerialize(this, Macros.getCompileTimeClass());
-	}
-
-	public function onNewPlayer(): Void {
-		// todo: fireworks and sound effect
-	}
-
 	function trackAnimationTimer(delta: Float): Void {
 		animationTimer += delta;
 
@@ -202,6 +172,36 @@ final class Player {
 		sneaking = control.sneak;
 
 		// todo: some way to support controllers dynamic range.
+	}
+
+	public function onActivate(staticData: String, dtimeS: Float) {
+		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
+
+		this.name = this.object.getPlayerName();
+
+		this.makeHand3D();
+		this.setModel();
+
+		this.object.setPhysicsOverride(new PhysicsOverride()
+			.setGravity(1.25)
+			.setJump(1.25));
+
+		this.object.setProperties(new ObjectProperties()
+			.setStepUpMode(StepUpModeRigid));
+
+		Lua.print(this.name + " joined the game.");
+	}
+
+	public function onDeactivate(removal: Bool) {
+		// trace("on_deactivate?");
+	}
+
+	public function getStaticData(): String {
+		return EntitySerialization.safeSerialize(this, Macros.getCompileTimeClass());
+	}
+
+	public function onNewPlayer(): Void {
+		// todo: fireworks and sound effect
 	}
 
 	// todo: I don't think moveresult is possible
