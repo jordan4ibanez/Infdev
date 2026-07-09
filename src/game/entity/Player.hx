@@ -42,6 +42,8 @@ final class Player {
 	// Stop looking at my hackjob.
 	var animationPriority = -2_147_483_648;
 
+	var oldLookPitch = 0.0;
+
 	@:allow(src.engine.entity.helpers.PlayerHandling)
 	private function new() {}
 
@@ -179,6 +181,27 @@ final class Player {
 				}
 			}
 		}
+
+		var newLookPitch = this.object.getLookDir().y;
+
+		if (newLookPitch == oldLookPitch) {
+			return;
+		}
+
+		var pitchAdjusted = (newLookPitch + 1) * 0.5;
+
+		// This isn't an animation. It's magic. You're a lizard, Barry.
+
+		this.object.playAnimation(PlayerAnimationLookPitch, {
+			priority: animationPriority,
+			speed: 0,
+			min_frame: pitchAdjusted,
+			max_frame: pitchAdjusted,
+			blend: 0.15,
+			loop: false
+		});
+
+		oldLookPitch = newLookPitch;
 	}
 
 	function doStateLogic(): Void {
