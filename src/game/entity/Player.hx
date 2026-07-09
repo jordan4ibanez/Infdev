@@ -55,8 +55,6 @@ final class Player {
 	}
 
 	function playAnimation(animation: PlayerAnimation, ?speed: Float, ?loop: Bool = true): Void {
-
-
 		this.object.playAnimation(animation, {
 			priority: animationPriority,
 			speed: speed,
