@@ -101,8 +101,7 @@ final class Player {
 			.setMesh("character.glb")
 			.setTextures(["character.png"]));
 
-		this.playAnimation(PlayerAnimationLegsStand);
-		this.playAnimation(PlayerAnimationArmsIdle);
+		this.playAnimation(PlayerAnimationIdle);
 	}
 
 	public function onActivate(staticData: String, dtimeS: Float) {
@@ -144,57 +143,42 @@ final class Player {
 	}
 
 	function doPlayerAnimations(delta: Float) {
-		var legStateChange = false;
-		var armStateChange = false;
+		var stateChange = false;
 
 		// Mining.
 		if (mining && !wasMining && !wasPlacing) {
-			armStateChange = true;
+			stateChange = true;
 		} else if (wasMining && !mining && !placing) {
-			armStateChange = true;
+			stateChange = true;
 		}
 		// Placing.
 		else if (placing && !wasPlacing && !wasMining) {
-			armStateChange = true;
+			stateChange = true;
 		} else if (wasPlacing && !placing && !mining) {
-			armStateChange = true;
+			stateChange = true;
 		}
-
 		// Walking.
-		if (walking && !wasWalking) {
-			legStateChange = true;
+		else if (walking && !wasWalking) {
+			stateChange = true;
 		} else if (wasWalking && !walking) {
-			legStateChange = true;
+			stateChange = true;
 		}
 
-		if (legStateChange) {
+		if (stateChange) {
 			if (walking) {
-				playAnimation(PlayerAnimationLegsWalk);
+				if (mining || placing) {
+					playAnimation(PlayerAnimationMineWalk);
+				} else {
+					playAnimation(PlayerAnimationWalk);
+				}
 			} else {
-				playAnimation(PlayerAnimationLegsStand);
+				if (mining || placing) {
+					playAnimation(PlayerAnimationMine);
+				} else {
+					playAnimation(PlayerAnimationIdle);
+				}
 			}
 		}
-
-		// if (armStateChange) {
-		// 	// trace("state change", Math.random());
-		// 	if (walking) {
-		// 		if (mining || placing) {
-		// 			trace(1);
-		// 			playAnimation(PlayerAnimationMineWalk);
-		// 		} else {
-		// 			trace(2);
-		// 			playAnimation(PlayerAnimationWalk);
-		// 		}
-		// 	} else {
-		// 		if (mining || placing) {
-		// 			trace(3);
-		// 			playAnimation(PlayerAnimationMineStand);
-		// 		} else {
-		// 			trace(4);
-		// 			playAnimation(PlayerAnimationStand);
-		// 		}
-		// 	}
-		// }
 	}
 
 	function doStateLogic(): Void {
