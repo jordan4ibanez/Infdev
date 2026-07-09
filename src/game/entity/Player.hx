@@ -174,6 +174,11 @@ final class Player {
 		// todo: some way to support controllers dynamic range.
 	}
 
+	// !
+	// !
+	// ! Do not add any custom functions below this line!
+	// !
+	// !
 	public function onActivate(staticData: String, dtimeS: Float) {
 		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
 
