@@ -12,15 +12,12 @@ import src.engine.vector.Vec3;
 
 private enum abstract PlayerAnimation(String) to String {
 	// var PlayerAnimation = "";
-	var PlayerAnimationArmsIdle = "arms_idle";
-	var PlayerAnimationArmsWalk = "arms_walk";
-	var PlayerAnimationArmsMine = "arms_mine";
-
-	var PlayerAnimationLegsStand = "legs_stand";
-	var PlayerAnimationLegsWalk = "legs_walk";
-
-	var PlayerAnimationHeadLookPitch = "head_look_pitch";
-	var PlayerAnimationHeadLookYaw = "head_look_yaw";
+	var PlayerAnimationIdle = "idle";
+	var PlayerAnimationMine = "mine";
+	var PlayerAnimationWalk = "walk";
+	var PlayerAnimationMineWalk = "mine_walk";
+	var PlayerAnimationLookPitch = "look_pitch";
+	var PlayerAnimationLookYaw = "look_yaw";
 }
 
 final class Player {
