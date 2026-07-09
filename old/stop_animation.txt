@@ -1,0 +1,17 @@
+		// ? This may be useful for something.
+		// var t: String = animation;
+		// if (StringTools.startsWith(animation, "arms_")) {
+		// 	LuaLoop.nativePairs(thisAnimationName, _, this.object.getAnimations(), {
+		// 		if (animation != PlayerAnimationArmsIdle) {
+		// 			if (StringTools.startsWith(thisAnimationName, "arms_")) {
+		// 				stopAnimation(thisAnimationName);
+		// 			}
+		// 		}
+		// 	});
+		// } else if (StringTools.startsWith(animation, "legs_")) {
+		// 	LuaLoop.nativePairs(thisAnimationName, _, this.object.getAnimations(), {
+		// 		if (StringTools.startsWith(thisAnimationName, "arms_")) {
+		// 			stopAnimation(thisAnimationName);
+		// 		}
+		// 	});
+		// } // Don't really care about the head that will just keep being replayed when needed.
