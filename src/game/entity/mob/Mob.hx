@@ -1,13 +1,12 @@
 package src.game.entity.mob;
 
-import src.engine.Core;
 import src.engine.compilercode.Macros;
 import src.engine.entity.LuaEntity;
 import src.engine.entity.helpers.EntitySerialization;
 import src.engine.vector.Vec3;
 
 // This is how your class gets registered into the engine.
-@:luantiEntity("infdev:mob")
+// @:luantiEntity("infdev:mob")
 abstract class Mob extends LuaEntity {
 	var helperVec3 = new Vec3();
 
