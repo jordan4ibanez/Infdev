@@ -1,12 +1,11 @@
 package src.game.entity.mob;
 
 import lua.Math;
-import src.engine.entity.LuaEntity;
 import src.engine.entity.ObjectProperties;
 import src.engine.vector.Vec3;
 
 @:luantiEntity("infdev:human")
-class Human extends LuaEntity {
+class Human extends Mob {
 	var velocityVector = new Vec3();
 
 	override function onActivate(staticData: String, dtimeS: Float) {
