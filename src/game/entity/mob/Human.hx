@@ -1,4 +1,4 @@
-package src.game.entity;
+package src.game.entity.mob;
 
 import lua.Math;
 import src.engine.entity.LuaEntity;

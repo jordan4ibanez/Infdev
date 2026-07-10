@@ -1,4 +1,4 @@
-package src.game.entity;
+package src.game.entity.mob;
 
 import src.engine.Core;
 import src.engine.compilercode.Macros;
