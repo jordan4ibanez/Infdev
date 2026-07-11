@@ -13,8 +13,8 @@ final class OraclePickaxe extends ToolDefinition {
 	public function new() {
 		super();
 
-		this.inventoryImage = "debug_oracle.png";
-		this.wieldImage = "debug_oracle.png";
+		this.inventoryImage = "oracle_pickaxe.png";
+		this.wieldImage = "oracle_pickaxe.png";
 
 		this.toolCapabilities = new ToolCapabilities()
 			.setFullPunchInterval(0.0)
