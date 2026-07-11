@@ -63,4 +63,13 @@ class Vec3 extends EngineVector3 {
 		this.z *= scalar;
 		return this;
 	}
+
+	// !
+	// !
+	// ! Only engine functions re-implemented to be more Haxe friendly below this point.
+	// !
+	// !
+	public function equals(b: Vec3): Bool {
+		return this.x == b.x && this.y == b.y && this.z == b.z;
+	}
 }
