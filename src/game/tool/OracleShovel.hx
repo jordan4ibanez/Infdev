@@ -13,13 +13,16 @@ final class OracleShovel extends ToolDefinition {
 	public function new() {
 		super();
 
-		this.inventoryImage = "debug_oracle.png";
-		this.wieldImage = "debug_oracle.png";
+		this.inventoryImage = "oracle_shovel.png";
+		this.wieldImage = "oracle_shovel.png";
 
 		this.toolCapabilities = new ToolCapabilities()
 			.setFullPunchInterval(0.0)
 			.setMaxDropLevel(0)
-			.addGroupCap(NodeGroupStone, new GroupCapabilities(0.1, 0.005, MAX_NODE_LEVEL, 1_000_000));
+			.addGroupCap(NodeGroupDirt, new GroupCapabilities(0.1, 0.005, MAX_NODE_LEVEL, 1_000_000))
+			.addGroupCap(NodeGroupSoil, new GroupCapabilities(0.1, 0.005, MAX_NODE_LEVEL, 1_000_000))
+			.addGroupCap(NodeGroupSand, new GroupCapabilities(0.1, 0.005, MAX_NODE_LEVEL, 1_000_000))
+			.addGroupCap(NodeGroupFarmLand, new GroupCapabilities(0.1, 0.005, MAX_NODE_LEVEL, 1_000_000));
 	}
 
 	override function afterUse(itemstack: ItemStack, user: Null<ObjectRefBase>, node: NodeTable, digparams: DigParams): Null<ItemStack> {
