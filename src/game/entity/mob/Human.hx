@@ -14,22 +14,26 @@ class Human extends Mob {
 
 	function doBasicMovementLogic(delta: Float): Void {
 		// Do some basic "thinking processing".
-		turnTimer -= delta;
+		this.turnTimer -= delta;
 
-		Lua.print(turnTimer);
+		Lua.print(this.turnTimer);
 
-		if (turnTimer > 0) {
+		if (this.turnTimer > 0) {
 			return;
 		}
 
-		turnTimer = Math.random(2, 10) + Math.random();
+		this.turnTimer = Math.random(2, 10) + Math.random();
 
 		// A thought has come through. Walk in a random direction.
 
-		velocityVector.x = Math.random() * Math.random(-1, 1);
-		velocityVector.z = Math.random() * Math.random(-1, 1);
-		this.object.addVelocity(velocityVector);
+		this.yawTarget = Math.random() * (Math.pi * 2);
+
+		// velocityVector.x = Math.random() * Math.random(-1, 1);
+		// velocityVector.z = Math.random() * Math.random(-1, 1);
+		// this.object.addVelocity(velocityVector);
 	}
+
+	function move() {};
 
 	function doModelYawVisual(): Void {
 		var vel = this.object.getVelocity();
@@ -67,5 +71,7 @@ class Human extends Mob {
 		this.doBasicMovementLogic(delta);
 
 		this.doModelYawVisual();
+
+		this.move();
 	}
 }
