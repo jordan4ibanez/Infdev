@@ -56,9 +56,10 @@ class Vec3 extends EngineVector3 {
 		return this;
 	}
 
-	public function multiplyScalar(scalar: Float) {
+	public function multiplyScalar(scalar: Float): Vec3 {
 		this.x *= scalar;
 		this.y *= scalar;
 		this.z *= scalar;
+		return this;
 	}
 }
