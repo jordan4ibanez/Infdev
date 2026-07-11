@@ -49,7 +49,9 @@ class Vec3 extends EngineVector3 {
 		}
 	}
 
-	public function doThing() {
-		trace(x, y, z);
+	public function multiplyScalar(scalar: Float) {
+		this.x *= scalar;
+		this.y *= scalar;
+		this.z *= scalar;
 	}
 }
