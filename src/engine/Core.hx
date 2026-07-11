@@ -1,6 +1,5 @@
 package src.engine;
 
-import src.engine.vector.EngineVector2;
 import Reflect;
 import haxe.Constraints.Function;
 import haxe.Rest;
@@ -12,6 +11,7 @@ import src.engine.entity.objectref.ObjectRefEntity;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.metadata.NodeMetaRef;
 import src.engine.metadata.StorageRef;
+import src.engine.vector.EngineVector2;
 import src.engine.vector.EngineVector3;
 
 @:native("core")
@@ -215,6 +215,9 @@ extern class Core {
 
 	@:native("generate_decorations")
 	static function generateDecorations(vm: VoxelManip, ?pos1: EngineVector3, ?pos2: EngineVector3, ?useMapgenBiomes: Bool): Void;
+
+	@:native("dir_to_yaw")
+	static function dirToYaw(dir: EngineVector3): Float;
 }
 
 @:noCompletion
