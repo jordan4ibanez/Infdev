@@ -4,6 +4,7 @@ import src.engine.Core;
 
 class Vec3 extends EngineVector3 {
 	public function new(?x: Float, ?y: Float, ?z: Float) {
+		// todo: this should call vector.new() to get metadata;
 		this.x = x ?? 0;
 		this.y = y ?? 0;
 		this.z = z ?? 0;
