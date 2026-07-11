@@ -218,6 +218,9 @@ extern class Core {
 
 	@:native("dir_to_yaw")
 	static function dirToYaw(dir: EngineVector3): Float;
+
+	@:native("yaw_to_dir")
+	static function yawToDir(yaw: Float): EngineVector3;
 }
 
 @:noCompletion
