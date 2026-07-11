@@ -7,7 +7,6 @@ private class InternalEntityData {
 }
 
 abstract class Mob extends LuaEntity {
-	@:noCompletion
 	private var hp: Int = 20;
 
 	public function getHP(): Int {
