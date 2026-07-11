@@ -9,6 +9,29 @@ class Human extends Mob {
 	var velocityVector: Vec3 = new Vec3();
 	var turnTimer: Float = 0;
 
+	function doBasicMovementLogic(delta: Float): Void {
+		// Do some basic "thinking processing".
+		turnTimer -= delta;
+
+		if (turnTimer > 0) {
+			return;
+		}
+
+		turnTimer = Math.random(2, 10) + Math.random();
+
+		// A thought has come through. Walk in a random direction.
+
+		velocityVector.x = Math.random() * Math.random(-1, 1);
+		velocityVector.z = Math.random() * Math.random(-1, 1);
+		this.object.addVelocity(velocityVector);
+
+		var vel = this.object.getVelocity();
+
+		var yaw = untyped __lua__("core.dir_to_yaw(vel)");
+
+		this.object.setYaw(yaw);
+	}
+
 	override function setHP(hp: Int) {
 		trace('The HP of human ${this.object.getGUID()} is now $hp');
 		this.hp = hp;
@@ -34,14 +57,6 @@ class Human extends Mob {
 	override function onStep(delta: Float, moveResult: Dynamic) {
 		super.onStep(delta, moveResult);
 
-		velocityVector.x = Math.random() * Math.random(-1, 1);
-		velocityVector.z = Math.random() * Math.random(-1, 1);
-		this.object.addVelocity(velocityVector);
-
-		var vel = this.object.getVelocity();
-
-		var yaw = untyped __lua__("core.dir_to_yaw(vel)");
-
-		this.object.setYaw(yaw);
+		this.doBasicMovementLogic(delta);
 	}
 }
