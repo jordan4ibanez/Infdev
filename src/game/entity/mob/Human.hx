@@ -1,6 +1,8 @@
 package src.game.entity.mob;
 
+import lua.Lua;
 import lua.Math;
+import src.engine.Core;
 import src.engine.entity.ObjectProperties;
 import src.engine.vector.Vec3;
 
@@ -8,10 +10,13 @@ import src.engine.vector.Vec3;
 class Human extends Mob {
 	var velocityVector: Vec3 = new Vec3();
 	var turnTimer: Float = 0;
+	var yawTarget: Float = 0;
 
 	function doBasicMovementLogic(delta: Float): Void {
 		// Do some basic "thinking processing".
 		turnTimer -= delta;
+
+		Lua.print(turnTimer);
 
 		if (turnTimer > 0) {
 			return;
@@ -24,10 +29,12 @@ class Human extends Mob {
 		velocityVector.x = Math.random() * Math.random(-1, 1);
 		velocityVector.z = Math.random() * Math.random(-1, 1);
 		this.object.addVelocity(velocityVector);
+	}
 
+	function doModelYawVisual(): Void {
 		var vel = this.object.getVelocity();
 
-		var yaw = untyped __lua__("core.dir_to_yaw(vel)");
+		var yaw = Core.dirToYaw(vel);
 
 		this.object.setYaw(yaw);
 	}
@@ -58,5 +65,7 @@ class Human extends Mob {
 		super.onStep(delta, moveResult);
 
 		this.doBasicMovementLogic(delta);
+
+		this.doModelYawVisual();
 	}
 }
