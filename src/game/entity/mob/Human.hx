@@ -9,6 +9,11 @@ class Human extends Mob {
 	var velocityVector: Vec3 = new Vec3();
 	var turnTimer: Float = 0;
 
+	override function setHP(hp: Int) {
+		trace('The HP of human ${this.object.getGUID()} is now $hp');
+		this.hp = hp;
+	}
+
 	override function onActivate(staticData: String, dtimeS: Float) {
 		super.onActivate(staticData, dtimeS);
 
@@ -38,10 +43,5 @@ class Human extends Mob {
 		var yaw = untyped __lua__("core.dir_to_yaw(vel)");
 
 		this.object.setYaw(yaw);
-	}
-
-	override function setHP(hp: Int) {
-		trace('The HP of human ${this.object.getGUID()} is now $hp');
-		this.hp = hp;
 	}
 }
