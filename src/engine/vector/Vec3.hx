@@ -49,10 +49,11 @@ class Vec3 extends EngineVector3 {
 		}
 	}
 
-	public function set(engineVec3: EngineVector3): Void {
+	public function set(engineVec3: EngineVector3): Vec3 {
 		this.x = engineVec3.x;
 		this.y = engineVec3.y;
 		this.z = engineVec3.z;
+		return this;
 	}
 
 	public function multiplyScalar(scalar: Float) {
