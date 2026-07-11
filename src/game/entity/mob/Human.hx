@@ -39,8 +39,10 @@ class Human extends Mob {
 		// todo: physics settings for mobs
 		this.velocityVector.set(Core.yawToDir(this.yawTarget));
 
-		this.velocityVector.multiplyScalar(delta);
-		this.velocityVector.multiplyScalar(acceleration);
+		this.velocityVector.multiplyScalar(delta)
+			.multiplyScalar(acceleration);
+
+		// todo: This should use the length of the 2D (x and z) vector to calculate it's speed and limit it's speed
 
 		this.object.addVelocity(this.velocityVector);
 	};
