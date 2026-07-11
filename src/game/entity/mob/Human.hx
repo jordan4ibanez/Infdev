@@ -11,6 +11,7 @@ class Human extends Mob {
 	var velocityVector: Vec3 = new Vec3();
 	var turnTimer: Float = 0;
 	var yawTarget: Float = 0;
+	var acceleration: Float = 10;
 
 	function doBasicMovementLogic(delta: Float): Void {
 		// Do some basic "thinking processing".
@@ -36,9 +37,12 @@ class Human extends Mob {
 	function move(delta: Float): Void {
 		// todo: this needs to smooth it with some kind of acceleration definition for the mob
 		// todo: physics settings for mobs
-		var dir = Core.yawToDir(this.yawTarget);
+		this.velocityVector.set(Core.yawToDir(this.yawTarget));
 
-		this.object.addVelocity(velocityVector);
+		this.velocityVector.multiplyScalar(delta);
+		this.velocityVector.multiplyScalar(acceleration);
+
+		this.object.addVelocity(this.velocityVector);
 	};
 
 	function doModelYawVisual(): Void {
