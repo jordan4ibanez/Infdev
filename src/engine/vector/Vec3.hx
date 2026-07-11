@@ -2,6 +2,7 @@ package src.engine.vector;
 
 import src.engine.Core;
 
+// ? note: this is using functions converted to methods from: https://github.com/luanti-org/luanti/blob/master/builtin/common/vector.lua
 class Vec3 extends EngineVector3 {
 	public function new(?x: Float, ?y: Float, ?z: Float) {
 		// todo: this should call vector.new() to get metadata;
