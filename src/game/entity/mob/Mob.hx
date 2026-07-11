@@ -1,6 +1,8 @@
 package src.game.entity.mob;
 
+import src.engine.compilercode.Macros;
 import src.engine.entity.LuaEntity;
+import src.engine.entity.helpers.EntitySerialization;
 
 private class InternalEntityData {
 	public function new() {}
@@ -15,5 +17,14 @@ abstract class Mob extends LuaEntity {
 
 	public function setHP(hp: Int): Void {
 		this.hp = hp;
+	}
+
+	override function onActivate(staticData: String, dtimeS: Float) {
+		super.onActivate(staticData, dtimeS);
+		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
+	}
+
+	override function getStaticData(): String {
+		return EntitySerialization.safeSerialize(this, Macros.getCompileTimeClass());
 	}
 }
