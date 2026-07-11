@@ -12,6 +12,7 @@ class Human extends Mob {
 	var turnTimer: Float = 0;
 	var yawTarget: Float = 0;
 	var acceleration: Float = 10;
+	var velocityTarget: Float = 2;
 
 	function doBasicMovementLogic(delta: Float): Void {
 		// Do some basic "thinking processing".
