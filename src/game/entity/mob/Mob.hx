@@ -2,19 +2,19 @@ package src.game.entity.mob;
 
 import src.engine.entity.LuaEntity;
 
-// This is how your class gets registered into the engine.
-// @:luantiEntity("infdev:mob")
+private class InternalEntityData {
+	public function new() {}
+}
+
 abstract class Mob extends LuaEntity {
-	// var helperVec3 = new Vec3();
-	// override function onActivate(staticData: String, dtimeS: Float) {
-	// 	super.onActivate(staticData, dtimeS);
-	// 	EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
-	// }
-	// override function onStep(delta: Float, moveResult: Dynamic) {
-	// 	super.onStep(delta, moveResult);
-	// 	this.object.rightClick(this.object);
-	// }
-	// override function getStaticData(): String {
-	// 	return EntitySerialization.safeSerialize(this, Macros.getCompileTimeClass());
-	// }
+	@:noCompletion
+	private var hp: Int = 20;
+
+	public function getHP(): Int {
+		return hp;
+	}
+
+	public function setHP(hp: Int): Void {
+		this.hp = hp;
+	}
 }
