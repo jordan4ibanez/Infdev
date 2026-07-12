@@ -60,6 +60,11 @@ abstract AdvancedVector3({
 	}
 }
 
+@:native("vector")
+extern class Vector {
+	
+}
+
 class TestIt {
 	static function __init__() {
 		var v1 = new AdvancedVector3(1, 1, 1);
