@@ -9,7 +9,6 @@ import src.engine.definition.graphics.ItemImageDefinition;
 import src.engine.definition.graphics.WearBarColors;
 import src.engine.definition.sound.ItemSoundTable;
 import src.engine.entity.objectref.ObjectRefBase;
-import src.engine.vector.EngineVector3;
 import src.game.groups.ItemGroup;
 
 inline final MAX_ITEM_LEVEL = MAX_LEVEL;

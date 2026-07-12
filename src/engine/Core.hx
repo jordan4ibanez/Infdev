@@ -12,7 +12,6 @@ import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.metadata.NodeMetaRef;
 import src.engine.metadata.StorageRef;
 import src.engine.vector.EngineVector2;
-import src.engine.vector.EngineVector3;
 
 @:native("core")
 extern class Core {

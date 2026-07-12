@@ -1,7 +1,6 @@
 package src.engine;
 
 import src.engine.compilercode.LuaArray;
-import src.engine.vector.EngineVector3;
 
 @:multiReturn
 extern class MinMaxPos {

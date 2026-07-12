@@ -1,6 +1,5 @@
 package src.engine;
 
-import src.engine.vector.EngineVector3;
 import lua.NativeIterator;
 
 // ? This class is in camel case for some reason??

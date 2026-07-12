@@ -18,7 +18,6 @@ import src.engine.definition.graphics.NodeTextureAlpha;
 import src.engine.definition.sound.NodeSoundTable;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.metadata.NodeMetaRef;
-import src.engine.vector.EngineVector3;
 import src.game.groups.NodeGroup;
 
 inline final MAX_NODE_LEVEL = MAX_LEVEL;

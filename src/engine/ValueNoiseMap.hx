@@ -1,8 +1,7 @@
 package src.engine;
 
-import src.engine.vector.EngineVector2;
 import src.engine.compilercode.LuaArray;
-import src.engine.vector.EngineVector3;
+import src.engine.vector.EngineVector2;
 
 @:final
 abstract extern class ValueNoiseMap {

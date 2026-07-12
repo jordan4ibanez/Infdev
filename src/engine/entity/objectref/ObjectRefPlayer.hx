@@ -8,7 +8,6 @@ import src.engine.entity.definition.PlayerFlags;
 import src.engine.entity.helpers.PlayerHandling;
 import src.engine.metadata.PlayerMetaRef;
 import src.engine.vector.EngineVector2;
-import src.engine.vector.EngineVector3;
 import src.game.entity.Player;
 
 @:final
