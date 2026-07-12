@@ -45,6 +45,11 @@ extern class Vector {
 	public static inline function dirToRotation(direction: Vec3, ?up: Vec3): Vec3 {
 		return untyped __lua__("vector.dir_to_rotation({0}, {1})", direction, up);
 	}
+
+	// ? Common to all vector types
+	public static inline function zero(): Vec3 {
+		return untyped __lua__("vector.zero()");
+	}
 }
 // class TestIt {
 // 	static function __init__() {
