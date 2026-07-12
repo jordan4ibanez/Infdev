@@ -72,6 +72,11 @@ abstract Vec3({
 	public inline function rotateAroundAxis(v2: Vec3, a: Float): Vec3 {
 		return untyped __lua__("vector.rotate_around_axis({0}, {1}, {2})", this, v2, a);
 	}
+
+	// ? Common to all vector types
+	public static inline function zero(): Vec3 {
+		return untyped __lua__("vector.zero()");
+	}
 }
 
 class TestIt {
