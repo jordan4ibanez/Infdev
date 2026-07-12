@@ -1,5 +1,6 @@
 package src.engine.vector;
 
+import haxe.Rest;
 import src.engine.compilercode.LuaArray;
 
 // This is a completely virtual class.
@@ -94,6 +95,12 @@ extern class Vector {
 	public static inline function abs(v: Vec3): Vec3 {
 		return untyped __lua__("vector.abs({0})", v);
 	}
+
+	public static inline function apply(v: Vec3, func: (Float) -> Void, whatever: Rest<Dynamic>): Vec3 {
+		return untyped __lua__("vector.abs({0}, {1}, {2})", v, func, whatever);
+	}
+
+	// I literally have no idea what vector.combine does.
 }
 // class TestIt {
 // 	static function __init__() {
