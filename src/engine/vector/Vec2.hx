@@ -38,10 +38,7 @@ abstract Vec2({
 	// !
 	// !
 	// ? Functions
-	public inline function sort(v2: Vec2): {
-		var first: Vec2;
-		var second: Vec2;
-	} {
+	public inline function sort(v2: Vec2): {first: Vec2, second: Vec2} {
 		var temp: LuaArray<Vec2> = untyped __lua__("{vector.sort({0}, {1})}", this, v2);
 		return {
 			first: temp[0],
