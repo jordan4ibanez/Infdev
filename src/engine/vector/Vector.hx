@@ -27,7 +27,7 @@ extern class Vector {
 	}
 
 	public static inline function offset(v: Vec3, x: Float, y: Float, z: Float): Vec3 {
-		return untyped __lua__("vector.offset({0}, {1}, {2}, {3})", v1, x, y, z);
+		return untyped __lua__("vector.offset({0}, {1}, {2}, {3})", v, x, y, z);
 	}
 
 	public static inline function randomInArea(min: Vec3, max: Vec3): Float {
@@ -97,7 +97,7 @@ extern class Vector {
 	}
 
 	public static inline function apply(v: Vec3, func: (Float) -> Void, whatever: Rest<Dynamic>): Vec3 {
-		return untyped __lua__("vector.abs({0}, {1}, {2})", v, func, whatever);
+		return untyped __lua__("vector.apply({0}, {1}, {2})", v, func, whatever);
 	}
 
 	// I literally have no idea what vector.combine does.
