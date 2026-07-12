@@ -9,6 +9,7 @@ import src.engine.entity.definition.EntitySelectionBox;
 import src.engine.entity.definition.EntityVisual;
 import src.engine.entity.definition.StepUpMode;
 import src.engine.vector.EngineVector2;
+import src.engine.vector.Vec3;
 
 class ObjectProperties {
 	@:native("hp_max")
@@ -173,7 +174,7 @@ class ObjectProperties {
 		return this;
 	}
 
-	public inline function setVisualSize(visualSize: EngineVector2): ObjectProperties {
+	public inline function setVisualSize(visualSize: EitherType<EngineVector2, Vec3>): ObjectProperties {
 		this.visualSize = visualSize;
 		return this;
 	}
