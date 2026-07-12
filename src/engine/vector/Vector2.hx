@@ -9,10 +9,7 @@ import src.engine.compilercode.LuaArray;
 @:native("vector2")
 extern class Vector2 {
 	// ? Functions
-	public static inline function sort(v1: Vec2, v2: Vec2): {
-		var first: Vec2;
-		var second: Vec2;
-	} {
+	public static inline function sort(v1: Vec2, v2: Vec2): {first: Vec2, second: Vec2} {
 		var temp: LuaArray<Vec2> = untyped __lua__("{vector2.sort({0}, {1})}", v1, v2);
 		return {
 			first: temp[0],
