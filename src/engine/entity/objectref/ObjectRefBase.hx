@@ -1,15 +1,15 @@
 package src.engine.entity.objectref;
 
-import src.engine.vector.Vec3;
 import src.engine.compilercode.LuaArray;
 import src.engine.compilercode.LuaMap;
 import src.engine.entity.definition.Animation;
-import src.engine.vector.EngineVector2;
+import src.engine.vector.Vec2;
+import src.engine.vector.Vec3;
 
 @:multiReturn
 extern class GetAnimationReturn {
 	@:native("frame_range")
-	public var frameRange: EngineVector2;
+	public var frameRange: Vec2;
 	@:native("frame_speed")
 	public var frameSpeed: Float;
 	@:native("frame_blend")
@@ -96,7 +96,7 @@ abstract class ObjectRefBase {
 
 	// Old style 5.16 and below
 	// @:native("set_animation")
-	// public abstract function setAnimation(frameRange: EngineVector2, frameSpeed: Float, frameBlend: Float, frameLoop: Bool): Void;
+	// public abstract function setAnimation(frameRange: Vec2, frameSpeed: Float, frameBlend: Float, frameLoop: Bool): Void;
 	// @:native("get_animation")
 	// public abstract function getAnimation(): GetAnimationReturn;
 	// @:native("set_animation_frame_speed")
