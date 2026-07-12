@@ -22,6 +22,10 @@ abstract AdvancedVector3({
 			second: temp[1]
 		};
 	}
+
+	public static function angle(v1: AdvancedVector3, v2: AdvancedVector3): Float {
+		return untyped __lua__("vector.angle({0}, {1})", v1, v2);
+	}
 }
 
 class TestIt {
