@@ -38,8 +38,8 @@ extern class Vector {
 		return untyped __lua__("vector.rotate({0}, {1})", v, r);
 	}
 
-	public static inline function rotateAroundAxis(v: AdvancedVector3, r: AdvancedVector3, a: Float): AdvancedVector3 {
-		return untyped __lua__("vector.rotate_around_axis({0}, {1}, {2})", min, max, a);
+	public static inline function rotateAroundAxis(v1: AdvancedVector3, v2: AdvancedVector3, a: Float): AdvancedVector3 {
+		return untyped __lua__("vector.rotate_around_axis({0}, {1}, {2})", v1, v2, a);
 	}
 
 	public static inline function dirToRotation(direction: AdvancedVector3, ?up: AdvancedVector3): AdvancedVector3 {
