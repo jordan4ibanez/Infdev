@@ -101,6 +101,9 @@ extern class Vector {
 	}
 
 	// I literally have no idea what vector.combine does.
+	public static inline function equals(v1: Vec3, v2: Vec3): Bool {
+		return untyped __lua__("vector.equals({0}, {1})", v1, v2);
+	}
 }
 // class TestIt {
 // 	static function __init__() {
