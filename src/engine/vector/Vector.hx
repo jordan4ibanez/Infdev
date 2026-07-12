@@ -108,6 +108,10 @@ extern class Vector {
 	public static inline function dot(v1: Vec3, v2: Vec3): Float {
 		return untyped __lua__("vector.dot({0}, {1})", v1, v2);
 	}
+
+	public static inline function check(v: Vec3): Bool {
+		return untyped __lua__("vector.check({0})", v);
+	}
 }
 // class TestIt {
 // 	static function __init__() {
