@@ -49,8 +49,8 @@ extern class Vector {
 	}
 
 	// ? Common to all vector types
-	public static inline function copy(): Vec3 {
-		return untyped __lua__("vector.copy()");
+	public static inline function copy(v: Vec3): Vec3 {
+		return untyped __lua__("vector.copy({0})", v);
 	}
 
 	public static inline function zero(): Vec3 {
