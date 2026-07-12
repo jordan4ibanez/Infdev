@@ -1,5 +1,6 @@
 package src.engine.vector;
 
+import haxe.extern.EitherType;
 import src.engine.compilercode.LuaArray;
 
 // This is a completely virtual class.
@@ -77,7 +78,6 @@ abstract Vec3({
 	public inline function copy(): Vec3 {
 		return untyped __lua__("vector.copy({0})", this);
 	}
-
 
 	public static inline function direction(p1: Vec3, p2: Vec3): Vec3 {
 		return untyped __lua__("vector.direction({0}, {1})", p1, p2);
