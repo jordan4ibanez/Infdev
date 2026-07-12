@@ -112,6 +112,10 @@ extern class Vector {
 	public static inline function check(v: Vec3): Bool {
 		return untyped __lua__("vector.check({0})", v);
 	}
+
+	public static inline function inArea(pos: Vec3, min: Vec3, max: Vec3): Bool {
+		return untyped __lua__("vector.in_area({0}, {1}, {2})", pos, min, max);
+	}
 }
 // class TestIt {
 // 	static function __init__() {
