@@ -74,8 +74,8 @@ abstract Vec3({
 	}
 
 	// ? Common to all vector types
-	public static inline function zero(): Vec3 {
-		return untyped __lua__("vector.zero()");
+	public inline function copy(): Vec3 {
+		return untyped __lua__("vector.copy({0})", this);
 	}
 }
 
