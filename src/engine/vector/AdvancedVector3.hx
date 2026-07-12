@@ -11,9 +11,13 @@ abstract AdvancedVector3({
 	public inline function new(x: Float, y: Float, z: Float) {
 		this = untyped __lua__("vector.new({0}, {1}, {2})", x, y, z);
 	}
+}
 
+// This is a completely virtual class.
+
+@:native("vector")
+extern class Vector {
 	// ? Functions
-
 	public static inline function sort(v1: AdvancedVector3, v2: AdvancedVector3): {
 		var first: AdvancedVector3;
 		var second: AdvancedVector3;
@@ -46,7 +50,6 @@ abstract AdvancedVector3({
 	//
 	//
 	// ? Rotation-related functions
-
 	public static inline function rotate(v: AdvancedVector3, r: AdvancedVector3): AdvancedVector3 {
 		return untyped __lua__("vector.rotate({0}, {1})", min, max);
 	}
@@ -60,17 +63,12 @@ abstract AdvancedVector3({
 	}
 }
 
-@:native("vector")
-extern class Vector {
-	
-}
-
 class TestIt {
 	static function __init__() {
 		var v1 = new AdvancedVector3(1, 1, 1);
 		var v2 = new AdvancedVector3(100, 199, 123123);
 
-		var sort = AdvancedVector3.randomInArea(v1, v2);
+		var sort = Vector.randomInArea(v1, v2);
 
 		untyped print(sort);
 
