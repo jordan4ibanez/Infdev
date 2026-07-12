@@ -12,6 +12,18 @@ abstract AdvancedVector3({
 		this = untyped __lua__("vector.new({0}, {1}, {2})", x, y, z);
 	}
 
+	public inline function set(engineVec3: EngineVector3): AdvancedVector3 {
+		this.x = engineVec3.x;
+		this.y = engineVec3.y;
+		this.z = engineVec3.z;
+		return cast this;
+	}
+
+	// !
+	// !
+	// ! Only engine functions below this point.
+	// !
+	// !
 	// ? Functions
 	public inline function sort(v2: AdvancedVector3): {
 		var first: AdvancedVector3;
