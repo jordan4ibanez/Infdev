@@ -11,10 +11,10 @@ abstract Vec3({
 	public var z: Float;
 }) {
 	public inline function new(?x: Float, ?y: Float, ?z: Float) {
-		this = untyped __lua__("vector.new({0}, {1}, {2})",
-			x ?? 0,
-			y ?? 0,
-			z ?? 0);
+		var x = x ?? 0;
+		var y = y ?? 0;
+		var z = z ?? 0;
+		this = untyped __lua__("vector.new({0}, {1}, {2})", x, y, z);
 	}
 
 	public inline function set(otherVec: Vec3): Vec3 {
