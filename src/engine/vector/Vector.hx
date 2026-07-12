@@ -74,6 +74,26 @@ extern class Vector {
 	public static inline function normalize(v: Vec3): Vec3 {
 		return untyped __lua__("vector.normalize({0})", v);
 	}
+
+	public static inline function floor(v: Vec3): Vec3 {
+		return untyped __lua__("vector.floor({0})", v);
+	}
+
+	public static inline function ceil(v: Vec3): Vec3 {
+		return untyped __lua__("vector.ceil({0})", v);
+	}
+
+	public static inline function round(v: Vec3): Vec3 {
+		return untyped __lua__("vector.round({0})", v);
+	}
+
+	public static inline function sign(v: Vec3, tolerance: Float): Vec3 {
+		return untyped __lua__("vector.sign({0}, {1})", v, tolerance);
+	}
+
+	public static inline function abs(v: Vec3): Vec3 {
+		return untyped __lua__("vector.abs({0})", v);
+	}
 }
 // class TestIt {
 // 	static function __init__() {
