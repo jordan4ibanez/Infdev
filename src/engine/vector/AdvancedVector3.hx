@@ -50,6 +50,10 @@ abstract AdvancedVector3({
 	public static inline function rotate(v: AdvancedVector3, r: AdvancedVector3): Float {
 		return untyped __lua__("vector.rotate({0}, {1})", min, max);
 	}
+
+	public static inline function rotateAroundAxis(v: AdvancedVector3, r: AdvancedVector3, a: Float): Float {
+		return untyped __lua__("vector.rotate_around_axis({0}, {1}, {2})", min, max, a);
+	}
 }
 
 class TestIt {
