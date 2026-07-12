@@ -11,24 +11,24 @@ abstract Vec2({
 	public var x: Float;
 	public var y: Float;
 }) {
-	public inline function new(?x: Float, ?y: Float, ?z: Float) {
+	public inline function new(?x: Float, ?y: Float) {
 		var x = x ?? 0;
 		var y = y ?? 0;
-		var z = z ?? 0;
-		this = untyped __lua__("vector.new({0}, {1}, {2})", x, y, z);
+
+		this = untyped __lua__("vector.new({0}, {1})", x, y);
 	}
 
 	public inline function set(otherVec: Vec2): Vec2 {
 		this.x = otherVec.x;
 		this.y = otherVec.y;
-		this.z = otherVec.z;
+
 		return cast this;
 	}
 
 	public inline function multiplyScalar(scalar: Float): Vec2 {
 		this.x *= scalar;
 		this.y *= scalar;
-		this.z *= scalar;
+
 		return cast this;
 	}
 
