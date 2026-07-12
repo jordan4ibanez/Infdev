@@ -5,7 +5,6 @@ import haxe.extern.EitherType;
 import src.engine.compilercode.LuaArray;
 
 // This is a completely virtual class.
-
 @:forward
 abstract Vec3({
 	public var x: Float;
@@ -158,16 +157,12 @@ abstract Vec3({
 		return untyped __lua__("vector.divide({0}, {1})", this, x);
 	}
 }
-
-class TestIt {
-	static function __init__() {
-		var v1 = new Vec3(1, 1, 1);
-		var v2 = new Vec3(100, 199, 123123);
-
-		var sort = v1.angle(v2) + 1;
-
-		untyped print(sort);
-
-		Core.requestShutdown("heck");
-	}
-}
+// class TestIt {
+// 	static function __init__() {
+// 		var v1 = new Vec3(1, 1, 1);
+// 		var v2 = new Vec3(100, 199, 123123);
+// 		var sort = v1.angle(v2) + 1;
+// 		untyped print(sort);
+// 		Core.requestShutdown("heck");
+// 	}
+// }
