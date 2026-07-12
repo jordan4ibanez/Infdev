@@ -8,7 +8,7 @@ import src.engine.entity.definition.EntityPointable;
 import src.engine.entity.definition.EntitySelectionBox;
 import src.engine.entity.definition.EntityVisual;
 import src.engine.entity.definition.StepUpMode;
-import src.engine.vector.EngineVector2;
+import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
 
 class ObjectProperties {
@@ -43,7 +43,7 @@ class ObjectProperties {
 	public var wieldItem: String;
 
 	@:native("visual_size")
-	public var visualSize: EngineVector2;
+	public var visualSize: Vec2;
 
 	public var mesh: String;
 
@@ -57,10 +57,10 @@ class ObjectProperties {
 	public var useTextureAlpha: Bool;
 
 	@:native("spritediv")
-	public var spriteDiv: EngineVector2;
+	public var spriteDiv: Vec2;
 
 	@:native("initial_sprite_basepos")
-	public var initialSpriteBasePos: EngineVector2;
+	public var initialSpriteBasePos: Vec2;
 
 	@:native("is_visible")
 	public var isVisible: Bool;
@@ -174,7 +174,7 @@ class ObjectProperties {
 		return this;
 	}
 
-	public inline function setVisualSize(visualSize: EitherType<EngineVector2, Vec3>): ObjectProperties {
+	public inline function setVisualSize(visualSize: EitherType<Vec2, Vec3>): ObjectProperties {
 		this.visualSize = visualSize;
 		return this;
 	}
@@ -204,12 +204,12 @@ class ObjectProperties {
 		return this;
 	}
 
-	public inline function setSpriteDiv(spriteDiv: EngineVector2): ObjectProperties {
+	public inline function setSpriteDiv(spriteDiv: Vec2): ObjectProperties {
 		this.spriteDiv = spriteDiv;
 		return this;
 	}
 
-	public inline function setInitialSpriteBasePos(initialSpriteBasePos: EngineVector2): ObjectProperties {
+	public inline function setInitialSpriteBasePos(initialSpriteBasePos: Vec2): ObjectProperties {
 		this.initialSpriteBasePos = initialSpriteBasePos;
 		return this;
 	}
