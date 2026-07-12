@@ -150,12 +150,11 @@ abstract Vec3({
 		return untyped __lua__("vector.subtract({0}, {1})", this, x);
 	}
 
-	// But multiply and divide using a float is deprectated??
-	public inline function multiply(x: Vec3): Vec3 {
+	public inline function multiply(x: EitherType<Vec3, Float>): Vec3 {
 		return untyped __lua__("vector.multiply({0}, {1})", this, x);
 	}
 
-	public inline function divide(x: Vec3): Vec3 {
+	public inline function divide(x: EitherType<Vec3, Float>): Vec3 {
 		return untyped __lua__("vector.divide({0}, {1})", this, x);
 	}
 }
