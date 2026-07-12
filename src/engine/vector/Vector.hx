@@ -118,7 +118,11 @@ extern class Vector {
 		return untyped __lua__("vector.in_area({0}, {1}, {2})", pos, min, max);
 	}
 
+	// ?
+	// ?
 	// ? For the following functions x can be either a vector or a number:
+	// ?
+	// ?
 	public static inline function add(v: Vec3, x: EitherType<Vec3, Float>): Vec3 {
 		return untyped __lua__("vector.add({0}, {1})", v, x);
 	}
