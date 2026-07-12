@@ -25,11 +25,11 @@ abstract AdvancedVector3({
 	}
 
 	public inline function angle(v2: AdvancedVector3): Float {
-		return untyped __lua__("vector.angle({0}, {1})", v1, v2);
+		return untyped __lua__("vector.angle({0}, {1})", this, v2);
 	}
 
 	public inline function cross(v2: AdvancedVector3): Float {
-		return untyped __lua__("vector.cross({0}, {1})", v1, v2);
+		return untyped __lua__("vector.cross({0}, {1})", this, v2);
 	}
 
 	public inline function offset(x: Float, y: Float, z: Float): AdvancedVector3 {
