@@ -1,6 +1,5 @@
 package src.engine.entity.objectref;
 
-import src.engine.vector.Vec3;
 import lua.Table;
 import src.engine.entity.definition.CameraSettings.CameraMode;
 import src.engine.entity.definition.PhysicsOverride;
@@ -8,7 +7,8 @@ import src.engine.entity.definition.PlayerControl;
 import src.engine.entity.definition.PlayerFlags;
 import src.engine.entity.helpers.PlayerHandling;
 import src.engine.metadata.PlayerMetaRef;
-import src.engine.vector.EngineVector2;
+import src.engine.vector.Vec2;
+import src.engine.vector.Vec3;
 import src.game.entity.Player;
 
 @:final
@@ -22,10 +22,10 @@ abstract extern class FOVReturnValue {
 @:final
 @:multiReturn
 abstract extern class LocalAnimationReturnValue {
-	public var idle: EngineVector2;
-	public var walk: EngineVector2;
-	public var dig: EngineVector2;
-	public var walkWhileDig: EngineVector2;
+	public var idle: Vec2;
+	public var walk: Vec2;
+	public var dig: Vec2;
+	public var walkWhileDig: Vec2;
 	public var frameSpeed: Float;
 }
 
@@ -184,7 +184,7 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	public abstract function getDayNightRatio(): Null<Float>;
 
 	@:native("set_local_animation")
-	public abstract function setLocalAnimation(idle: EngineVector2, walk: EngineVector2, dig: EngineVector2, walkWhileDig: EngineVector2, frameSpeed: Float): Void;
+	public abstract function setLocalAnimation(idle: Vec2, walk: Vec2, dig: Vec2, walkWhileDig: Vec2, frameSpeed: Float): Void;
 
 	@:native("get_local_animation")
 	public abstract function getLocalAnimation(): LocalAnimationReturnValue;
