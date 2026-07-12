@@ -47,8 +47,16 @@ extern class Vector {
 	}
 
 	// ? Common to all vector types
+	public static inline function copy(): Vec3 {
+		return untyped __lua__("vector.copy()");
+	}
+
 	public static inline function zero(): Vec3 {
 		return untyped __lua__("vector.zero()");
+	}
+
+	public static inline function randomDirection(): Vec3 {
+		return untyped __lua__("vector.random_direction()");
 	}
 }
 // class TestIt {
