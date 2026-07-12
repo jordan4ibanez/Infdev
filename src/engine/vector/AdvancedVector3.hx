@@ -4,9 +4,9 @@ import src.engine.compilercode.LuaArray;
 
 // This is a completely virtual class.
 abstract AdvancedVector3({
-	var x: Float;
-	var y: Float;
-	var z: Float;
+	public var x: Float;
+	public var y: Float;
+	public var z: Float;
 }) {
 	public inline function new(x: Float, y: Float, z: Float) {
 		this = untyped __lua__("vector.new({0}, {1}, {2})", x, y, z);
@@ -45,8 +45,11 @@ abstract AdvancedVector3({
 		return untyped __lua__("vector.rotate({0}, {1})", this, r);
 	}
 
-	public inline function rotateAroundAxis(r: AdvancedVector3, a: Float): AdvancedVector3 {
-		return untyped __lua__("vector.rotate_around_axis({0}, {1}, {2})", min, max, a);
+	public inline function rotateAroundAxis(v2: AdvancedVector3, a: Float): AdvancedVector3 {
+		return untyped __lua__("vector.rotate_around_axis({0}, {1}, {2})", this, v2, a);
+	}
+}
+
 class TestIt {
 	static function __init__() {
 		var v1 = new AdvancedVector3(1, 1, 1);
