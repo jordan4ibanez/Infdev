@@ -56,5 +56,6 @@ class TestIt {
 
 		untyped print(sort);
 
+		Core.requestShutdown("heck");
 	}
 }
