@@ -142,21 +142,21 @@ abstract Vec3({
 	// ? For the following functions x can be either a vector or a number:
 	// ?
 	// ?
-	public inline function add(v: Vec3, x: EitherType<Vec3, Float>): Vec3 {
-		return untyped __lua__("vector.add({0}, {1})", v, x);
+	public inline function add(x: EitherType<Vec3, Float>): Vec3 {
+		return untyped __lua__("vector.add({0}, {1})", this, x);
 	}
 
-	public inline function subtract(v: Vec3, x: EitherType<Vec3, Float>): Vec3 {
-		return untyped __lua__("vector.subtract({0}, {1})", v, x);
+	public inline function subtract(x: EitherType<Vec3, Float>): Vec3 {
+		return untyped __lua__("vector.subtract({0}, {1})", this, x);
 	}
 
 	// But multiply and divide using a float is deprectated??
-	public inline function multiply(v: Vec3, x: Vec3): Vec3 {
-		return untyped __lua__("vector.multiply({0}, {1})", v, x);
+	public inline function multiply(x: Vec3): Vec3 {
+		return untyped __lua__("vector.multiply({0}, {1})", this, x);
 	}
 
-	public inline function divide(v: Vec3, x: Vec3): Vec3 {
-		return untyped __lua__("vector.divide({0}, {1})", v, x);
+	public inline function divide(x: Vec3): Vec3 {
+		return untyped __lua__("vector.divide({0}, {1})", this, x);
 	}
 }
 
