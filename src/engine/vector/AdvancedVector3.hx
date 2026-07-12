@@ -19,6 +19,13 @@ abstract AdvancedVector3({
 		return cast this;
 	}
 
+	public inline function multiplyScalar(scalar: Float): AdvancedVector3 {
+		this.x *= scalar;
+		this.y *= scalar;
+		this.z *= scalar;
+		return cast this;
+	}
+
 	// !
 	// !
 	// ! Only engine functions below this point.
