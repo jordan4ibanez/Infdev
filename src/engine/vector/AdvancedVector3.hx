@@ -47,11 +47,11 @@ abstract AdvancedVector3({
 	//
 	// ? Rotation-related functions
 
-	public static inline function rotate(v: AdvancedVector3, r: AdvancedVector3): Float {
+	public static inline function rotate(v: AdvancedVector3, r: AdvancedVector3): AdvancedVector3 {
 		return untyped __lua__("vector.rotate({0}, {1})", min, max);
 	}
 
-	public static inline function rotateAroundAxis(v: AdvancedVector3, r: AdvancedVector3, a: Float): Float {
+	public static inline function rotateAroundAxis(v: AdvancedVector3, r: AdvancedVector3, a: Float): AdvancedVector3 {
 		return untyped __lua__("vector.rotate_around_axis({0}, {1}, {2})", min, max, a);
 	}
 }
