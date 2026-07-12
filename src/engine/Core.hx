@@ -12,7 +12,7 @@ import src.engine.entity.objectref.ObjectRefEntity;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.metadata.NodeMetaRef;
 import src.engine.metadata.StorageRef;
-import src.engine.vector.EngineVector2;
+import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
 
 @:native("core")
@@ -206,7 +206,7 @@ extern class Core {
 	static function registerOnGeneratedMapgenThread(delegate: (voxelManip: VoxelManip, minPos: Vec3, maxPos: Vec3, blockSeed: Int) -> Void): Void;
 
 	@:native("get_value_noise_map")
-	static function getValueNoiseMap(noiseParams: NoiseParams, size: EitherType<EngineVector2, Vec3>): ValueNoiseMap;
+	static function getValueNoiseMap(noiseParams: NoiseParams, size: EitherType<Vec2, Vec3>): ValueNoiseMap;
 
 	@:native("get_mapgen_setting")
 	static function getMapgenSetting(name: String): String;
