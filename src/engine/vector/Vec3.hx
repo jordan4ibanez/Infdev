@@ -88,12 +88,12 @@ abstract Vec3({
 		return untyped __lua__("vector.distance({0}, {1})", this, p2);
 	}
 
-	public inline function length(v: Vec3): Float {
-		return untyped __lua__("vector.length({0})", v);
+	public inline function length(): Float {
+		return untyped __lua__("vector.length({0})", this);
 	}
 
-	public inline function normalize(v: Vec3): Vec3 {
-		return untyped __lua__("vector.normalize({0})", v);
+	public inline function normalize(): Vec3 {
+		return untyped __lua__("vector.normalize({0})", this);
 	}
 
 	public inline function floor(v: Vec3): Vec3 {
