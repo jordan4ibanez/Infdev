@@ -41,7 +41,7 @@ class TestIt {
 		var v1 = new AdvancedVector3(4, 4, 1);
 		var v2 = new AdvancedVector3(2, 2, 1);
 
-		var sort = AdvancedVector3.sort(v1, v2);
+		var sort = AdvancedVector3.offset(v1, 1, 2, 3);
 
 		untyped print(sort);
 
