@@ -13,7 +13,7 @@
 --macro LuantiCompilerFix.patch("init.lua")
 
 # This is so using vector isn't needed everywhere.
-# --macro haxe.macro.Compiler.addGlobalMetadata("", "@:using(vector.EngineVector3)")
+# --macro haxe.macro.Compiler.addGlobalMetadata("", "@:using(vector.Vec3)")
 
 # todo: go crazy with this
 # --macro nullSafety("engine")
