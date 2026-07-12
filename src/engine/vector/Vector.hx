@@ -3,7 +3,6 @@ package src.engine.vector;
 import src.engine.compilercode.LuaArray;
 
 // This is a completely virtual class.
-
 @:native("vector")
 extern class Vector {
 	// ? Functions
@@ -47,16 +46,12 @@ extern class Vector {
 		return untyped __lua__("vector.dir_to_rotation({0}, {1})", direction, up);
 	}
 }
-
-class TestIt {
-	static function __init__() {
-		var v1 = new AdvancedVector3(1, 1, 1);
-		var v2 = new AdvancedVector3(100, 199, 123123);
-
-		var sort = Vector.randomInArea(v1, v2);
-
-		untyped print(sort);
-
-		Core.requestShutdown("heck");
-	}
-}
+// class TestIt {
+// 	static function __init__() {
+// 		var v1 = new AdvancedVector3(1, 1, 1);
+// 		var v2 = new AdvancedVector3(100, 199, 123123);
+// 		var sort = Vector.randomInArea(v1, v2);
+// 		untyped print(sort);
+// 		Core.requestShutdown("heck");
+// 	}
+// }
