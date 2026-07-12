@@ -17,7 +17,7 @@ abstract AdvancedVector3({
 		var first: AdvancedVector3;
 		var second: AdvancedVector3;
 	} {
-		var temp: LuaArray<AdvancedVector3> = untyped __lua__("{vector.sort({0}, {1})}", v1, v2);
+		var temp: LuaArray<AdvancedVector3> = untyped __lua__("{vector.sort({0}, {1})}", this, v2);
 		return {
 			first: temp[0],
 			second: temp[1]
