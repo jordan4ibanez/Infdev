@@ -1,5 +1,6 @@
 package src.engine.definition;
 
+import src.engine.vector.Vec3;
 import src.engine.Core;
 import src.engine.compilercode.LuaMap;
 import src.engine.definition.MaxLevel.MAX_LEVEL;

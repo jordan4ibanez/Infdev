@@ -1,5 +1,6 @@
 package src.engine;
 
+import src.engine.vector.Vec3;
 import Reflect;
 import haxe.Constraints.Function;
 import haxe.Rest;

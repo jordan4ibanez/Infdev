@@ -1,5 +1,7 @@
 package src.engine;
 
+import src.engine.vector.Vec3;
+
 // This is basically just a read only setter.
 final class NoiseParams {
 	var offset: Float;

@@ -1,5 +1,6 @@
 package src.engine.definition;
 
+import src.engine.vector.Vec3;
 import lua.Table;
 import src.engine.Core;
 import src.engine.compilercode.LuaArray;

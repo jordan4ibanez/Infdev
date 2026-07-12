@@ -1,5 +1,6 @@
 package src.engine.entity.objectref;
 
+import src.engine.vector.Vec3;
 import lua.Table;
 import src.engine.entity.definition.CameraSettings.CameraMode;
 import src.engine.entity.definition.PhysicsOverride;

@@ -1,5 +1,6 @@
 package src.engine;
 
+import src.engine.vector.Vec3;
 import src.engine.compilercode.LuaArray;
 import src.engine.vector.EngineVector2;
 

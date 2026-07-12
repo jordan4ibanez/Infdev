@@ -1,5 +1,6 @@
 package src.engine.definition;
 
+import src.engine.vector.Vec3;
 import src.engine.entity.objectref.ObjectRefBase;
 
 enum abstract PointedThingType(String) to String {
