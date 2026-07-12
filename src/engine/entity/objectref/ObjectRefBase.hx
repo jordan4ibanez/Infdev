@@ -4,7 +4,6 @@ import src.engine.compilercode.LuaArray;
 import src.engine.compilercode.LuaMap;
 import src.engine.entity.definition.Animation;
 import src.engine.vector.EngineVector2;
-import src.engine.vector.EngineVector3;
 
 @:multiReturn
 extern class GetAnimationReturn {
