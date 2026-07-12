@@ -58,6 +58,10 @@ extern class Vector {
 	public static inline function randomDirection(): Vec3 {
 		return untyped __lua__("vector.random_direction()");
 	}
+
+	public static inline function direction(p1: Vec3, p2: Vec3): Vec3 {
+		return untyped __lua__("vector.direction({0}, {1})", p1, p2);
+	}
 }
 // class TestIt {
 // 	static function __init__() {
