@@ -48,8 +48,4 @@ abstract AdvancedVector3({
 	public inline function rotateAroundAxis(v: AdvancedVector3, r: AdvancedVector3, a: Float): AdvancedVector3 {
 		return untyped __lua__("vector.rotate_around_axis({0}, {1}, {2})", min, max, a);
 	}
-
-	public inline function dirToRotation(direction: AdvancedVector3, ?up: AdvancedVector3): AdvancedVector3 {
-		return untyped __lua__("vector.dir_to_rotation({0}, {1})", direction, up);
-	}
 }
