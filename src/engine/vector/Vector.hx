@@ -34,10 +34,6 @@ extern class Vector {
 		return untyped __lua__("vector.random_in_area({0}, {1})", min, max);
 	}
 
-	// ? Operators (just kinda works)
-	//
-	//
-	//
 	// ? Rotation-related functions
 	public static inline function rotate(v: AdvancedVector3, r: AdvancedVector3): AdvancedVector3 {
 		return untyped __lua__("vector.rotate({0}, {1})", min, max);
