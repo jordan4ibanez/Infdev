@@ -36,10 +36,6 @@ abstract AdvancedVector3({
 		return untyped __lua__("vector.offset({0}, {1}, {2}, {3})", v1, x, y, z);
 	}
 
-	public inline function randomInArea(min: AdvancedVector3, max: AdvancedVector3): Float {
-		return untyped __lua__("vector.random_in_area({0}, {1})", min, max);
-	}
-
 	// ? Operators (just kinda works)
 	//
 	//
