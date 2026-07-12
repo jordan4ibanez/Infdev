@@ -17,10 +17,10 @@ abstract Vec3({
 			z ?? 0);
 	}
 
-	public inline function set(?x: Float, ?y: Float, ?z: Float): Vec3 {
-		this.x = x ?? 0;
-		this.y = y ?? 0;
-		this.z = z ?? 0;
+	public inline function set(otherVec: Vec3): Vec3 {
+		this.x = otherVec.x;
+		this.y = otherVec.y;
+		this.z = otherVec.z;
 		return cast this;
 	}
 
