@@ -3,6 +3,8 @@ package src.engine.vector;
 import src.engine.compilercode.LuaArray;
 
 // This is a completely virtual class.
+
+@:forward
 abstract Vec3({
 	public var x: Float;
 	public var y: Float;
