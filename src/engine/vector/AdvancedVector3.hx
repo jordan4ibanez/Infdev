@@ -33,7 +33,7 @@ abstract AdvancedVector3({
 	}
 
 	public inline function offset(x: Float, y: Float, z: Float): AdvancedVector3 {
-		return untyped __lua__("vector.offset({0}, {1}, {2}, {3})", v1, x, y, z);
+		return untyped __lua__("vector.offset({0}, {1}, {2}, {3})", this, x, y, z);
 	}
 
 	// ? Operators (just kinda work)
@@ -42,7 +42,7 @@ abstract AdvancedVector3({
 	//
 	// ? Rotation-related functions
 	public inline function rotate(r: AdvancedVector3): AdvancedVector3 {
-		return untyped __lua__("vector.rotate({0}, {1})", min, max);
+		return untyped __lua__("vector.rotate({0}, {1})", this, r);
 	}
 
 	public inline function rotateAroundAxis(r: AdvancedVector3, a: Float): AdvancedVector3 {
