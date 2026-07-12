@@ -12,10 +12,10 @@ abstract Vec3({
 		this = untyped __lua__("vector.new({0}, {1}, {2})", x, y, z);
 	}
 
-	public inline function set(x: Float, y: Float, z: Float): Vec3 {
-		this.x = x;
-		this.y = y;
-		this.z = z;
+	public inline function set(?x: Float, ?y: Float, ?z: Float): Vec3 {
+		this.x = x ?? 0;
+		this.y = y ?? 0;
+		this.z = z ?? 0;
 		return cast this;
 	}
 
