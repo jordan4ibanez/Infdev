@@ -1,5 +1,6 @@
 package src.engine.vector;
 
+import haxe.Rest;
 import haxe.extern.EitherType;
 import src.engine.compilercode.LuaArray;
 
