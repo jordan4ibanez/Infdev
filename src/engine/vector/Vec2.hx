@@ -4,6 +4,7 @@ import haxe.Rest;
 import haxe.extern.EitherType;
 import src.engine.compilercode.LuaArray;
 
+// todo: check all this. This was copied from Vec3 and just slightly changed.
 // This is a completely virtual class.
 @:forward
 abstract Vec2({
