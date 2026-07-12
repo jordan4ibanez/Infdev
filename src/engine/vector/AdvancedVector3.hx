@@ -34,14 +34,18 @@ abstract AdvancedVector3({
 	public static inline function offset(v: AdvancedVector3, x: Float, y: Float, z: Float): AdvancedVector3 {
 		return untyped __lua__("vector.offset({0}, {1}, {2}, {3})", v1, x, y, z);
 	}
+
+	public static inline function randomInArea(min: AdvancedVector3, max: AdvancedVector3): Float {
+		return untyped __lua__("vector.random_in_area({0}, {1})", min, max);
+	}
 }
 
 class TestIt {
 	static function __init__() {
-		var v1 = new AdvancedVector3(4, 4, 1);
-		var v2 = new AdvancedVector3(2, 2, 1);
+		var v1 = new AdvancedVector3(1,1, 1);
+		var v2 = new AdvancedVector3(100, 199, 123123);
 
-		var sort = AdvancedVector3.offset(v1, 1, 2, 3);
+		var sort = AdvancedVector3.randomInArea(v1, v2);
 
 		untyped print(sort);
 
