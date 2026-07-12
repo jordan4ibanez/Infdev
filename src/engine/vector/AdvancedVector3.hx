@@ -12,6 +12,8 @@ abstract AdvancedVector3({
 		this = untyped __lua__("vector.new({0}, {1}, {2})", x, y, z);
 	}
 
+	// ? Functions
+
 	public static inline function sort(v1: AdvancedVector3, v2: AdvancedVector3): {
 		var first: AdvancedVector3;
 		var second: AdvancedVector3;
@@ -38,11 +40,21 @@ abstract AdvancedVector3({
 	public static inline function randomInArea(min: AdvancedVector3, max: AdvancedVector3): Float {
 		return untyped __lua__("vector.random_in_area({0}, {1})", min, max);
 	}
+
+	// ? Operators (just kinda works)
+	//
+	//
+	//
+	// ? Rotation-related functions
+
+	public static inline function rotate(v: AdvancedVector3, r: AdvancedVector3): Float {
+		return untyped __lua__("vector.rotate({0}, {1})", min, max);
+	}
 }
 
 class TestIt {
 	static function __init__() {
-		var v1 = new AdvancedVector3(1,1, 1);
+		var v1 = new AdvancedVector3(1, 1, 1);
 		var v2 = new AdvancedVector3(100, 199, 123123);
 
 		var sort = AdvancedVector3.randomInArea(v1, v2);
