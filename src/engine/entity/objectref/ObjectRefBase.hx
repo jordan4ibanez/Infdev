@@ -35,33 +35,33 @@ abstract class ObjectRefBase {
 	public abstract function isValid(): Bool;
 
 	@:native("get_pos")
-	public abstract function getPos(): EngineVector3;
+	public abstract function getPos(): Vec3;
 
 	// final public function getPosFast(output: Vec3): Void {
 	// 	return untyped Vec3.fromEngineFast(__lua__("self.object:get_pos()"), output);
 	// }
 
 	@:native("set_pos")
-	public abstract function setPos(pos: EngineVector3): Void;
+	public abstract function setPos(pos: Vec3): Void;
 
 	@:native("add_pos")
-	public abstract function addPos(posAddition: EngineVector3): Void;
+	public abstract function addPos(posAddition: Vec3): Void;
 
 	@:native("get_velocity")
-	public abstract function getVelocity(): EngineVector3;
+	public abstract function getVelocity(): Vec3;
 
 	// final public function getVelocityFast(output: Vec3): Void {
 	// 	return untyped Vec3.fromEngineFast(__lua__("self.object:get_velocity()"), output);
 	// }
 
 	@:native("add_velocity")
-	public abstract function addVelocity(vel: EngineVector3): Void;
+	public abstract function addVelocity(vel: Vec3): Void;
 
 	@:native("move_to")
-	public abstract function moveTo(pos: EngineVector3, ?continuous: Bool): Void;
+	public abstract function moveTo(pos: Vec3, ?continuous: Bool): Void;
 
 	@:native("punch")
-	public abstract function punch(puncher: Null<ObjectRefBase>, time_from_last_punch: Null<Float>, tool_capabilities: Dynamic, dir: Null<EngineVector3>): Void;
+	public abstract function punch(puncher: Null<ObjectRefBase>, time_from_last_punch: Null<Float>, tool_capabilities: Dynamic, dir: Null<Vec3>): Void;
 
 	@:native("right_click")
 	public abstract function rightClick(clicker: ObjectRefBase): Void;
@@ -114,7 +114,7 @@ abstract class ObjectRefBase {
 	public abstract function getAnimations(): LuaMap<String, Animation>;
 
 	@:native("set_attach")
-	public abstract function setAttach(parent: ObjectRefBase, bone: String, position: EngineVector3, rotation: EngineVector3, forcedVisible: Bool): Void;
+	public abstract function setAttach(parent: ObjectRefBase, bone: String, position: Vec3, rotation: Vec3, forcedVisible: Bool): Void;
 
 	@:native("get_attach")
 	public abstract function getAttach(): Null<Dynamic>;

@@ -1,18 +1,18 @@
 package terraingenerator;
 
-import src.engine.compilercode.LuaLoop;
-import lua.Os;
-import src.engine.VoxelArea;
-import src.engine.vector.Vec2;
-import src.engine.compilercode.LuaArray;
-import src.engine.vector.Vec3;
-import src.engine.NodeTable;
 import lua.Lua;
+import lua.Os;
 import lua.Table;
-import src.engine.VoxelManip;
-import src.engine.vector.EngineVector3;
 import src.engine.Core;
+import src.engine.NodeTable;
 import src.engine.NoiseParams;
+import src.engine.VoxelArea;
+import src.engine.VoxelManip;
+import src.engine.compilercode.LuaArray;
+import src.engine.compilercode.LuaLoop;
+import src.engine.vector.Vec2;
+import src.engine.vector.Vec3;
+import src.engine.vector.Vec3;
 
 /**
  * This is the terrain generator.
@@ -99,7 +99,7 @@ class TerrainGenerator {
 		return Math.max(low, Math.min(high, input));
 	}
 
-	function generateThread(voxelManip: VoxelManip, minPos: EngineVector3, maxPos: EngineVector3, blockSeed: Int): Void {
+	function generateThread(voxelManip: VoxelManip, minPos: Vec3, maxPos: Vec3, blockSeed: Int): Void {
 		final constantArea3D = new Vec3(
 			(maxPos.x - minPos.x) + 1,
 			(maxPos.y - minPos.y) + 1,
@@ -323,7 +323,7 @@ class TerrainGenerator {
 	}
 
 	// ? Everything below this is infrastructure to get the singleton map generator to load up.
-	static function classGenerateThreadWrapper(voxelManip: VoxelManip, minPos: EngineVector3, maxPos: EngineVector3, blockSeed: Int): Void {
+	static function classGenerateThreadWrapper(voxelManip: VoxelManip, minPos: Vec3, maxPos: Vec3, blockSeed: Int): Void {
 		instance.generateThread(voxelManip, minPos, maxPos, blockSeed);
 	}
 

@@ -61,8 +61,8 @@ abstract class PointedThing {
 }
 
 final class PointedThingNode extends PointedThing {
-	var under: EngineVector3;
-	var above: EngineVector3;
+	var under: Vec3;
+	var above: Vec3;
 	// public function new() {
 	// 	this.type = PointedThingTypeNode;
 	// }
@@ -87,13 +87,13 @@ final class PointedThingNothing extends PointedThing {
  */
 final class PointedThingRayCast {
 	@:native("intersection_point")
-	var intersectionPoint: EngineVector3;
+	var intersectionPoint: Vec3;
 
 	@:native("box_id")
 	var boxID: Int;
 
 	@:native("intersection_normal")
-	var intersectionNormal: EngineVector3;
+	var intersectionNormal: Vec3;
 }
 
 // class Blah {

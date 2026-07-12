@@ -9,19 +9,19 @@ abstract class ObjectRefEntity extends ObjectRefBase {
 	public abstract function remove(): Void;
 
 	@:native("set_velocity")
-	public abstract function setVelocity(vel: EngineVector3): Void;
+	public abstract function setVelocity(vel: Vec3): Void;
 
 	@:native("set_acceleration")
-	public abstract function setAcceleration(acc: EngineVector3): Void;
+	public abstract function setAcceleration(acc: Vec3): Void;
 
 	@:native("get_acceleration")
-	public abstract function getAcceleration(): EngineVector3;
+	public abstract function getAcceleration(): Vec3;
 
 	@:native("set_rotation")
-	public abstract function setRotation(rot: EngineVector3): Void;
+	public abstract function setRotation(rot: Vec3): Void;
 
 	@:native("get_rotation")
-	public abstract function getRotation(): EngineVector3;
+	public abstract function getRotation(): Vec3;
 
 	@:native("set_yaw")
 	public abstract function setYaw(yaw: Float): Void;

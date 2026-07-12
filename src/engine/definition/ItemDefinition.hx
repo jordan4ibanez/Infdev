@@ -57,7 +57,7 @@ class ItemDefinition {
 	public var wieldOverLay: ItemImageDefinitionOrString;
 
 	@:native("wield_scale")
-	public var wieldScale: EngineVector3;
+	public var wieldScale: Vec3;
 
 	public var palette: String;
 
@@ -112,7 +112,7 @@ class ItemDefinition {
 	};
 
 	@:native("on_drop")
-	public function onDrop(itemstack: ItemStack, dropper: Null<ObjectRefBase>, pos: EngineVector3): Null<ItemStack> {
+	public function onDrop(itemstack: ItemStack, dropper: Null<ObjectRefBase>, pos: Vec3): Null<ItemStack> {
 		return Core.itemDrop(itemstack, dropper, pos).itemstack;
 	};
 

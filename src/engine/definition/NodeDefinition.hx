@@ -169,95 +169,95 @@ class NodeDefinition extends ItemDefinition {
 
 	var drop: NodeDropTableOrString;
 
-	public function onConstruct(pos: EngineVector3): Void {
+	public function onConstruct(pos: Vec3): Void {
 		// nil
 	}
 
-	public function onDestruct(pos: EngineVector3): Void {
+	public function onDestruct(pos: Vec3): Void {
 		// nil
 	}
 
-	public function afterDestruct(pos: EngineVector3, oldNode: NodeTable) {
+	public function afterDestruct(pos: Vec3, oldNode: NodeTable) {
 		// nil
 	}
 
-	public function onFlood(pos: EngineVector3, oldNode: NodeTable, newNode: NodeTable): Bool {
-		// nil
-		return false;
-	}
-
-	public function preserveMetadata(pos: EngineVector3, oldNode: NodeTable, oldMeta: NodeMetaRef, drops: Table<Int, ItemStack>): Void {
-		// nil
-	}
-
-	public function afterPlaceNode(pos: EngineVector3, placer: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: PointedThing): Bool {
+	public function onFlood(pos: Vec3, oldNode: NodeTable, newNode: NodeTable): Bool {
 		// nil
 		return false;
 	}
 
-	public function afterDigNode(pos: EngineVector3, oldNode: NodeTable, oldMetaData: NodeMetaRef, digger: Null<ObjectRefBase>): Void {
+	public function preserveMetadata(pos: Vec3, oldNode: NodeTable, oldMeta: NodeMetaRef, drops: Table<Int, ItemStack>): Void {
 		// nil
 	}
 
-	public function canDig(pos: EngineVector3, player: Null<ObjectRefBase>): Bool {
+	public function afterPlaceNode(pos: Vec3, placer: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: PointedThing): Bool {
+		// nil
+		return false;
+	}
+
+	public function afterDigNode(pos: Vec3, oldNode: NodeTable, oldMetaData: NodeMetaRef, digger: Null<ObjectRefBase>): Void {
+		// nil
+	}
+
+	public function canDig(pos: Vec3, player: Null<ObjectRefBase>): Bool {
 		// nil
 		return true;
 	}
 
-	public function onPunch(pos: EngineVector3, node: NodeTable, puncher: Null<ObjectRefBase>, pointedThing: PointedThing): Void {
+	public function onPunch(pos: Vec3, node: NodeTable, puncher: Null<ObjectRefBase>, pointedThing: PointedThing): Void {
 		// core.node_punch
 		Core.nodePunch(pos, node, puncher, pointedThing);
 	}
 
-	public function onRightClick(pos: EngineVector3, node: NodeTable, clicker: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: Null<PointedThing>): ItemStack {
+	public function onRightClick(pos: Vec3, node: NodeTable, clicker: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: Null<PointedThing>): ItemStack {
 		// nil
 		return itemStack;
 	}
 
-	public function onDig(pos: EngineVector3, node: NodeTable, digger: Null<ObjectRefBase>): Bool {
+	public function onDig(pos: Vec3, node: NodeTable, digger: Null<ObjectRefBase>): Bool {
 		// core.node_dig;
 		return Core.nodeDig(pos, node, digger);
 	}
 
-	public function onTimer(pos: EngineVector3, elapsed: Float, node: NodeTable, timeout: Float): Bool {
+	public function onTimer(pos: Vec3, elapsed: Float, node: NodeTable, timeout: Float): Bool {
 		// nil
 		return false;
 	}
 
 	// ? note: this one is OK to use Dynamic!
-	public function onReceiveFields(pos: EngineVector3, formName: String, fields: Table<Dynamic, Dynamic>, sender: Null<ObjectRefBase>): Void {
+	public function onReceiveFields(pos: Vec3, formName: String, fields: Table<Dynamic, Dynamic>, sender: Null<ObjectRefBase>): Void {
 		// nil
 	}
 
-	public function allowMetadataInventoryMove(pos: EngineVector3, fromList: String, fromIndex: Int, toList: String, toIndex: Int, count: Int, player: Null<ObjectRefBase>): Int {
+	public function allowMetadataInventoryMove(pos: Vec3, fromList: String, fromIndex: Int, toList: String, toIndex: Int, count: Int, player: Null<ObjectRefBase>): Int {
 		// literally does not say so nil
 		return count;
 	}
 
-	public function allowMetadataInventoryPut(pos: EngineVector3, listName: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Int {
+	public function allowMetadataInventoryPut(pos: Vec3, listName: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Int {
 		// literally does not say so nil
 		return -1;
 	}
 
-	public function allowMetadataInventoryTake(pos: EngineVector3, listName: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Int {
+	public function allowMetadataInventoryTake(pos: Vec3, listName: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Int {
 		// literally does not say so nil
 		return -1;
 	}
 
-	public function onMetadataInventoryMove(pos: EngineVector3, fromList: String, fromIndex: Int, toList: String, toIndex: Int, count: Int,
+	public function onMetadataInventoryMove(pos: Vec3, fromList: String, fromIndex: Int, toList: String, toIndex: Int, count: Int,
 		player: Null<ObjectRefBase>): Void {
 		// nil
 	}
 
-	public function onMetadataInventoryPut(pos: EngineVector3, listName: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Void {
+	public function onMetadataInventoryPut(pos: Vec3, listName: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Void {
 		// nil
 	}
 
-	public function onMetadataInventoryTake(pos: EngineVector3, listName: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Void {
+	public function onMetadataInventoryTake(pos: Vec3, listName: String, index: Int, stack: ItemStack, player: Null<ObjectRefBase>): Void {
 		// nil
 	}
 
-	public function onBlast(pos: EngineVector3, intensity: Float): Void {
+	public function onBlast(pos: Vec3, intensity: Float): Void {
 		// nil
 	}
 

@@ -80,7 +80,7 @@ extern class Core {
 	static function registerOnLeavePlayer(delegate: (player: ObjectRefPlayer, timedOut: Bool) -> Void): Void;
 
 	@:native("get_objects_inside_radius")
-	static function getObjectsInsideRadius(center: EngineVector3, radius: Float): LuaArray<ObjectRefBase>;
+	static function getObjectsInsideRadius(center: Vec3, radius: Float): LuaArray<ObjectRefBase>;
 
 	@:native("register_on_shutdown")
 	static function registerOnShutDown(delegate: () -> Void): Void;
@@ -99,7 +99,7 @@ extern class Core {
 
 	@:native("register_on_punchplayer")
 	static function registerOnPunchPlayer(delegate: (player: ObjectRefPlayer, hitter: Null<ObjectRefBase>, timeFromLastPunch: Null<Float>,
-		toolCapabilities: Null<Dynamic>, dir: EngineVector3, damage: Int) -> Bool): Void;
+		toolCapabilities: Null<Dynamic>, dir: Vec3, damage: Int) -> Bool): Void;
 
 	@:native("register_on_rightclickplayer")
 	static function registerOnRightClickPlayer(delegate: (player: ObjectRefPlayer, clicker: Null<ObjectRefBase>) -> Void): Void;
@@ -147,7 +147,7 @@ extern class Core {
 	static function itemDrop(
 		itemstack: ItemStack,
 		dropper: Null<ObjectRefBase>,
-		pos: EngineVector3): ReturnItemStackObjectRef;
+		pos: Vec3): ReturnItemStackObjectRef;
 
 	@:native("item_pickup")
 	static function itemPickup(
@@ -157,19 +157,19 @@ extern class Core {
 		timeFromLastPunch: Float): Null<ItemStack>;
 
 	@:native("node_punch")
-	static function nodePunch(pos: EngineVector3, node: NodeTable, puncher: Null<ObjectRefBase>, pointedThing: PointedThing): Void;
+	static function nodePunch(pos: Vec3, node: NodeTable, puncher: Null<ObjectRefBase>, pointedThing: PointedThing): Void;
 
 	@:native("node_dig")
-	static function nodeDig(pos: EngineVector3, node: NodeTable, digger: Null<ObjectRefBase>): Bool;
+	static function nodeDig(pos: Vec3, node: NodeTable, digger: Null<ObjectRefBase>): Bool;
 
 	@:native("remove_node")
-	static function removeNode(pos: EngineVector3): Void;
+	static function removeNode(pos: Vec3): Void;
 
 	@:native("get_node_timer")
-	static function getNodeTimer(pos: EngineVector3): NodeTimerRef;
+	static function getNodeTimer(pos: Vec3): NodeTimerRef;
 
 	@:native("get_meta")
-	static function getMeta(pos: EngineVector3): NodeMetaRef;
+	static function getMeta(pos: Vec3): NodeMetaRef;
 
 	@:native("register_mapgen_script")
 	static function registerMapgenScript(path: String): Void;
@@ -201,7 +201,7 @@ extern class Core {
 	// They at least need to be given separate names in the api.
 	// They have 2 different argument lists and contexts.
 	@:native("register_on_generated")
-	static function registerOnGeneratedMapgenThread(delegate: (voxelManip: VoxelManip, minPos: EngineVector3, maxPos: EngineVector3, blockSeed: Int) -> Void): Void;
+	static function registerOnGeneratedMapgenThread(delegate: (voxelManip: VoxelManip, minPos: Vec3, maxPos: Vec3, blockSeed: Int) -> Void): Void;
 
 	@:native("get_value_noise_map")
 	static function getValueNoiseMap(noiseParams: NoiseParams, size: EngineVector2): ValueNoiseMap;
@@ -210,16 +210,16 @@ extern class Core {
 	static function getMapgenSetting(name: String): String;
 
 	@:native("generate_ores")
-	static function generateOres(vm: VoxelManip, ?pos1: EngineVector3, ?pos2: EngineVector3): Void;
+	static function generateOres(vm: VoxelManip, ?pos1: Vec3, ?pos2: Vec3): Void;
 
 	@:native("generate_decorations")
-	static function generateDecorations(vm: VoxelManip, ?pos1: EngineVector3, ?pos2: EngineVector3, ?useMapgenBiomes: Bool): Void;
+	static function generateDecorations(vm: VoxelManip, ?pos1: Vec3, ?pos2: Vec3, ?useMapgenBiomes: Bool): Void;
 
 	@:native("dir_to_yaw")
-	static function dirToYaw(dir: EngineVector3): Float;
+	static function dirToYaw(dir: Vec3): Float;
 
 	@:native("yaw_to_dir")
-	static function yawToDir(yaw: Float): EngineVector3;
+	static function yawToDir(yaw: Float): Vec3;
 }
 
 @:noCompletion
@@ -233,7 +233,7 @@ extern class ReturnItemStackObjectRef {
 @:multiReturn
 extern class ReturnItemStackPosition {
 	var itemstack: ItemStack;
-	var pos: Null<EngineVector3>;
+	var pos: Null<Vec3>;
 }
 
 @:native("")

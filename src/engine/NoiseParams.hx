@@ -4,7 +4,7 @@ package src.engine;
 final class NoiseParams {
 	var offset: Float;
 	var scale: Float;
-	var spread: EngineVector3;
+	var spread: Vec3;
 	var seed: Int;
 	var octaves: Int;
 	var persistence: Float;
@@ -23,7 +23,7 @@ final class NoiseParams {
 		return this;
 	}
 
-	public function setSpread(spread: EngineVector3): NoiseParams {
+	public function setSpread(spread: Vec3): NoiseParams {
 		this.spread = spread;
 		return this;
 	}

@@ -31,9 +31,9 @@ abstract extern class LocalAnimationReturnValue {
 @:final
 @:multiReturn
 abstract extern class EyeOffsetReturnValue {
-	public var firstPerson: EngineVector3;
-	public var thirdPersonBack: EngineVector3;
-	public var thirdPersonFront: EngineVector3;
+	public var firstPerson: Vec3;
+	public var thirdPersonBack: Vec3;
+	public var thirdPersonFront: Vec3;
 }
 
 /**
@@ -45,7 +45,7 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	public abstract function getPlayerName(): String;
 
 	@:native("get_look_dir")
-	public abstract function getLookDir(): EngineVector3;
+	public abstract function getLookDir(): Vec3;
 
 	@:native("get_look_vertical")
 	public abstract function getLookVertical(): Float;
@@ -189,7 +189,7 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	public abstract function getLocalAnimation(): LocalAnimationReturnValue;
 
 	@:native("set_eye_offset")
-	public abstract function setEyeOffset(firstPerson: EngineVector3, thirdPersonBack: EngineVector3, thirdPersonFront: EngineVector3): Void;
+	public abstract function setEyeOffset(firstPerson: Vec3, thirdPersonBack: Vec3, thirdPersonFront: Vec3): Void;
 
 	@:native("get_eye_offset")
 	public abstract function getEyeOffset(): EyeOffsetReturnValue;
@@ -201,7 +201,7 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	public abstract function getCamera(): CameraMode;
 
 	@:native("send_mapblock")
-	public abstract function sendMapblock(blockPos: EngineVector3): Bool;
+	public abstract function sendMapblock(blockPos: Vec3): Bool;
 
 	// todo: lighting thing
 

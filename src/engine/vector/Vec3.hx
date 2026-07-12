@@ -12,7 +12,7 @@ abstract Vec3({
 		this = untyped __lua__("vector.new({0}, {1}, {2})", x, y, z);
 	}
 
-	public inline function set(engineVec3: EngineVector3): Vec3 {
+	public inline function set(engineVec3: Vec3): Vec3 {
 		this.x = engineVec3.x;
 		this.y = engineVec3.y;
 		this.z = engineVec3.z;
