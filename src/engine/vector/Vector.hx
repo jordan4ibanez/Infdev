@@ -97,7 +97,7 @@ extern class Vector {
 	}
 
 	public static inline function apply(v: Vec3, func: (Float) -> Void, whatever: Rest<Dynamic>): Vec3 {
-		return untyped __lua__("vector.apply({0}, {1}, {2})", v, func, whatever);
+		return untyped __lua__("vector.apply({0}, {1}, table.unpack({2}))", v, func, whatever);
 	}
 
 	// I literally have no idea what vector.combine does.
