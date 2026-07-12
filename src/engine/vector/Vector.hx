@@ -6,43 +6,43 @@ import src.engine.compilercode.LuaArray;
 @:native("vector")
 extern class Vector {
 	// ? Functions
-	public static inline function sort(v1: AdvancedVector3, v2: AdvancedVector3): {
-		var first: AdvancedVector3;
-		var second: AdvancedVector3;
+	public static inline function sort(v1: Vec3, v2: Vec3): {
+		var first: Vec3;
+		var second: Vec3;
 	} {
-		var temp: LuaArray<AdvancedVector3> = untyped __lua__("{vector.sort({0}, {1})}", v1, v2);
+		var temp: LuaArray<Vec3> = untyped __lua__("{vector.sort({0}, {1})}", v1, v2);
 		return {
 			first: temp[0],
 			second: temp[1]
 		};
 	}
 
-	public static inline function angle(v1: AdvancedVector3, v2: AdvancedVector3): Float {
+	public static inline function angle(v1: Vec3, v2: Vec3): Float {
 		return untyped __lua__("vector.angle({0}, {1})", v1, v2);
 	}
 
-	public static inline function cross(v1: AdvancedVector3, v2: AdvancedVector3): Float {
+	public static inline function cross(v1: Vec3, v2: Vec3): Float {
 		return untyped __lua__("vector.cross({0}, {1})", v1, v2);
 	}
 
-	public static inline function offset(v: AdvancedVector3, x: Float, y: Float, z: Float): AdvancedVector3 {
+	public static inline function offset(v: Vec3, x: Float, y: Float, z: Float): Vec3 {
 		return untyped __lua__("vector.offset({0}, {1}, {2}, {3})", v1, x, y, z);
 	}
 
-	public static inline function randomInArea(min: AdvancedVector3, max: AdvancedVector3): Float {
+	public static inline function randomInArea(min: Vec3, max: Vec3): Float {
 		return untyped __lua__("vector.random_in_area({0}, {1})", min, max);
 	}
 
 	// ? Rotation-related functions
-	public static inline function rotate(v: AdvancedVector3, r: AdvancedVector3): AdvancedVector3 {
+	public static inline function rotate(v: Vec3, r: Vec3): Vec3 {
 		return untyped __lua__("vector.rotate({0}, {1})", v, r);
 	}
 
-	public static inline function rotateAroundAxis(v1: AdvancedVector3, v2: AdvancedVector3, a: Float): AdvancedVector3 {
+	public static inline function rotateAroundAxis(v1: Vec3, v2: Vec3, a: Float): Vec3 {
 		return untyped __lua__("vector.rotate_around_axis({0}, {1}, {2})", v1, v2, a);
 	}
 
-	public static inline function dirToRotation(direction: AdvancedVector3, ?up: AdvancedVector3): AdvancedVector3 {
+	public static inline function dirToRotation(direction: Vec3, ?up: Vec3): Vec3 {
 		return untyped __lua__("vector.dir_to_rotation({0}, {1})", direction, up);
 	}
 }
