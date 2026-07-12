@@ -15,7 +15,7 @@
 # --macro nullSafety("terraingenerator")
 
 # This is so using vector isn't needed everywhere.
-# --macro haxe.macro.Compiler.addGlobalMetadata("", "@:using(vector.EngineVector3)")
+# --macro haxe.macro.Compiler.addGlobalMetadata("", "@:using(vector.Vec3)")
 
 # This enables aggressive Dead Code Elimination.
 # This is specifically used to ensure that things like the ModStorage class
