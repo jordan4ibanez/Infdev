@@ -1,5 +1,7 @@
 package src.engine.vector;
 
+import src.engine.compilercode.LuaArray;
+
 // This is a completely virtual class.
 
 @:native("vector")
