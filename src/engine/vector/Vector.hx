@@ -131,12 +131,11 @@ extern class Vector {
 		return untyped __lua__("vector.subtract({0}, {1})", v, x);
 	}
 
-	// But multiply and divide using a float is deprectated??
-	public static inline function multiply(v: Vec3, x: Vec3): Vec3 {
+	public static inline function multiply(v: Vec3, x: EitherType<Vec3, Float>): Vec3 {
 		return untyped __lua__("vector.multiply({0}, {1})", v, x);
 	}
 
-	public static inline function divide(v: Vec3, x: Vec3): Vec3 {
+	public static inline function divide(v: Vec3, x: EitherType<Vec3, Float>): Vec3 {
 		return untyped __lua__("vector.divide({0}, {1})", v, x);
 	}
 }
