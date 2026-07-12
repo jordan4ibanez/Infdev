@@ -2,11 +2,6 @@ package src.engine.vector;
 
 import src.engine.compilercode.LuaArray;
 
-typedef DoubleVectorReturn = {
-	var first: AdvancedVector3;
-	var second: AdvancedVector3;
-}
-
 // This is a completely virtual class.
 abstract AdvancedVector3({
 	var x: Float;
@@ -17,7 +12,10 @@ abstract AdvancedVector3({
 		this = untyped __lua__("vector.new({0}, {1}, {2})", x, y, z);
 	}
 
-	public static inline function sort(v1: AdvancedVector3, v2: AdvancedVector3): DoubleVectorReturn {
+	public static inline function sort(v1: AdvancedVector3, v2: AdvancedVector3): {
+		var first: AdvancedVector3;
+		var second: AdvancedVector3;
+	} {
 		var temp: LuaArray<AdvancedVector3> = untyped __lua__("{vector.sort({0}, {1})}", v1, v2);
 		return {
 			first: temp[0],
