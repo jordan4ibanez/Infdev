@@ -92,8 +92,8 @@ final class Player {
 		var height = -1.4;
 		this.object.setEyeOffset(
 			new Vec3(),
-			new Vec3(0,height,0),
-			new Vec3(0,height,0));
+			new Vec3(0, height, 0),
+			new Vec3(0, height, 0));
 	}
 
 	function trackAnimationTimer(delta: Float): Void {
