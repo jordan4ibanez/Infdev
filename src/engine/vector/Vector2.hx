@@ -28,8 +28,8 @@ extern class Vector2 {
 		return untyped __lua__("vector2.cross({0}, {1})", v1, v2);
 	}
 
-	public static inline function offset(v: Vec2, x: Float, y: Float, z: Float): Vec2 {
-		return untyped __lua__("vector2.offset({0}, {1}, {2}, {3})", v, x, y, z);
+	public static inline function offset(v: Vec2, x: Float, y: Float): Vec2 {
+		return untyped __lua__("vector2.offset({0}, {1}, {2}, {3})", v, x, y);
 	}
 
 	public static inline function randomInArea(min: Vec2, max: Vec2): Float {
@@ -37,7 +37,7 @@ extern class Vector2 {
 	}
 
 	// ? Rotation-related functions
-	public static inline function rotate(v: Vec2, r: Vec2): Vec2 {
+	public static inline function rotate(v: Vec2, r: Float): Vec2 {
 		return untyped __lua__("vector2.rotate({0}, {1})", v, r);
 	}
 
