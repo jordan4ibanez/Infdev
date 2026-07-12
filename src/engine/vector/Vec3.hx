@@ -121,20 +121,20 @@ abstract Vec3({
 	}
 
 	// I literally have no idea what vector.combine does.
-	public inline function equals(v1: Vec3, v2: Vec3): Bool {
-		return untyped __lua__("vector.equals({0}, {1})", v1, v2);
+	public inline function equals(v2: Vec3): Bool {
+		return untyped __lua__("vector.equals({0}, {1})", this, v2);
 	}
 
-	public inline function dot(v1: Vec3, v2: Vec3): Float {
-		return untyped __lua__("vector.dot({0}, {1})", v1, v2);
+	public inline function dot(v2: Vec3): Float {
+		return untyped __lua__("vector.dot({0}, {1})", this, v2);
 	}
 
-	public inline function check(v: Vec3): Bool {
-		return untyped __lua__("vector.check({0})", v);
+	public inline function check(): Bool {
+		return untyped __lua__("vector.check({0})", this);
 	}
 
-	public inline function inArea(pos: Vec3, min: Vec3, max: Vec3): Bool {
-		return untyped __lua__("vector.in_area({0}, {1}, {2})", pos, min, max);
+	public inline function inArea(min: Vec3, max: Vec3): Bool {
+		return untyped __lua__("vector.in_area({0}, {1}, {2})", this, min, max);
 	}
 
 	// ?
