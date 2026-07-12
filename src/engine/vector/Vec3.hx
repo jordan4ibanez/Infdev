@@ -96,28 +96,28 @@ abstract Vec3({
 		return untyped __lua__("vector.normalize({0})", this);
 	}
 
-	public inline function floor(v: Vec3): Vec3 {
-		return untyped __lua__("vector.floor({0})", v);
+	public inline function floor(): Vec3 {
+		return untyped __lua__("vector.floor({0})", this);
 	}
 
-	public inline function ceil(v: Vec3): Vec3 {
-		return untyped __lua__("vector.ceil({0})", v);
+	public inline function ceil(): Vec3 {
+		return untyped __lua__("vector.ceil({0})", this);
 	}
 
-	public inline function round(v: Vec3): Vec3 {
-		return untyped __lua__("vector.round({0})", v);
+	public inline function round(): Vec3 {
+		return untyped __lua__("vector.round({0})", this);
 	}
 
-	public inline function sign(v: Vec3, tolerance: Float): Vec3 {
-		return untyped __lua__("vector.sign({0}, {1})", v, tolerance);
+	public inline function sign(tolerance: Float): Vec3 {
+		return untyped __lua__("vector.sign({0}, {1})", this, tolerance);
 	}
 
-	public inline function abs(v: Vec3): Vec3 {
-		return untyped __lua__("vector.abs({0})", v);
+	public inline function abs(): Vec3 {
+		return untyped __lua__("vector.abs({0})", this);
 	}
 
-	public inline function apply(v: Vec3, func: (Float) -> Void, whatever: Rest<Dynamic>): Vec3 {
-		return untyped __lua__("vector.apply({0}, {1}, table.unpack({2}))", v, func, whatever);
+	public inline function apply(func: (Float) -> Void, whatever: Rest<Dynamic>): Vec3 {
+		return untyped __lua__("vector.apply({0}, {1}, table.unpack({2}))", this, func, whatever);
 	}
 
 	// I literally have no idea what vector.combine does.
