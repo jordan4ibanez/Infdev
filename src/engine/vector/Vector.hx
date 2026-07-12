@@ -35,7 +35,7 @@ extern class Vector {
 
 	// ? Rotation-related functions
 	public static inline function rotate(v: AdvancedVector3, r: AdvancedVector3): AdvancedVector3 {
-		return untyped __lua__("vector.rotate({0}, {1})", min, max);
+		return untyped __lua__("vector.rotate({0}, {1})", v, r);
 	}
 
 	public static inline function rotateAroundAxis(v: AdvancedVector3, r: AdvancedVector3, a: Float): AdvancedVector3 {
