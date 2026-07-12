@@ -1,6 +1,7 @@
 package src.engine.vector;
 
 import haxe.Rest;
+import haxe.extern.EitherType;
 import src.engine.compilercode.LuaArray;
 
 // This is a completely virtual class.
@@ -115,6 +116,22 @@ extern class Vector {
 
 	public static inline function inArea(pos: Vec3, min: Vec3, max: Vec3): Bool {
 		return untyped __lua__("vector.in_area({0}, {1}, {2})", pos, min, max);
+	}
+	// ? For the following functions x can be either a vector or a number:
+	public static inline function add(v: Vec3, x: EitherType<Vec3, Float>): Vec3 {
+		return untyped __lua__("vector.add({0}, {1})", v, x);
+	}
+
+	public static inline function subtract(v: Vec3, x: EitherType<Vec3, Float>): Vec3 {
+		return untyped __lua__("vector.subtract({0}, {1})", v, x);
+	}
+
+	public static inline function multiply(v: Vec3, x: Vec3): Vec3 {
+		return untyped __lua__("vector.multiply({0}, {1})", v, x);
+	}
+
+	public static inline function divide(v: Vec3, x: Vec3): Vec3 {
+		return untyped __lua__("vector.divide({0}, {1})", v, x);
 	}
 }
 // class TestIt {
