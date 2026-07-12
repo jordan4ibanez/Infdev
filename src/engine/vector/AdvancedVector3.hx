@@ -47,5 +47,14 @@ abstract AdvancedVector3({
 
 	public inline function rotateAroundAxis(r: AdvancedVector3, a: Float): AdvancedVector3 {
 		return untyped __lua__("vector.rotate_around_axis({0}, {1}, {2})", min, max, a);
+class TestIt {
+	static function __init__() {
+		var v1 = new AdvancedVector3(1, 1, 1);
+		var v2 = new AdvancedVector3(100, 199, 123123);
+
+		var sort = v1.angle(v2) + 1;
+
+		untyped print(sort);
+
 	}
 }
