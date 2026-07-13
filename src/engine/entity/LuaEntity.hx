@@ -33,11 +33,11 @@ abstract class LuaEntity {
 	}
 
 	/**
-	 * Get the size of the entity. This is a clone so it might hammer the GC.
+	 * Get the size of the entity.
 	 * @return Vec2 The size of the entity.
 	 */
 	public function getSize(): Vec2 {
-		return this.size.copy();
+		return this.size;
 	}
 
 	// ? Here begins programmer facing overrideable methods.
