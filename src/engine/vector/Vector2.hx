@@ -91,7 +91,7 @@ extern class Vector2 {
 		return untyped __lua__("vector2.abs({0})", v);
 	}
 
-	public static inline function apply(v: Vec2, func: (Float) -> Void, whatever: Rest<Dynamic>): Vec2 {
+	public static inline function apply(v: Vec2, func: (Float) -> Float, whatever: Rest<Dynamic>): Vec2 {
 		return untyped __lua__("vector2.apply({0}, {1}, table.unpack({2}))", v, func, whatever);
 	}
 
