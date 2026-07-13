@@ -37,9 +37,15 @@ class Human extends Mob {
 		var currentVelocity = this.object.getVelocity();
 		currentVelocity.y = 0;
 
-		this.velocityVector.multiplyScalar(accelerationModulation * acceleration * delta);
+		var steeringForce = new Vec3(
+			targetVelocity.x - currentVelocity.x,
+			0,
+			targetVelocity.z - currentVelocity.z
+		);
 
-		this.object.addVelocity(this.velocityVector);
+		steeringForce.multiplyScalar(Math.min(1.0, this.acceleration * delta));
+
+		this.object.addVelocity(steeringForce);
 	};
 
 	function doModelYawVisual(): Void {
