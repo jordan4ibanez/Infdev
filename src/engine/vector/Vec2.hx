@@ -55,6 +55,8 @@ abstract Vec2({
 		return untyped __lua__("vector2.angle({0}, {1})", this, v2);
 	}
 
+	public inline function offset(x: Float, y: Float): Vec2 {
+		return untyped __lua__("vector2.offset({0}, {1}, {2})", this, x, y);
 	}
 
 	}
