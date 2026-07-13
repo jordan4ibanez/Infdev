@@ -4,9 +4,20 @@ import src.engine.compilercode.LuaArray;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.vector.Vec3;
 
+enum abstract CollisionAxis(String) to String {
+	var CollisionAxisX = "x";
+	var CollisionAxisY = "y";
+	var CollisionAxisZ = "z";
+}
+
+enum abstract CollisionType(String) to String {
+	var CollisionTypeNode = "node";
+	var CollisionTypeObject = "object";
+}
+
 typedef CollisionInfo = {
-	var type: String; // "node" or "object",
-	var axis: String; // "x", "y" or "z"
+	var type: CollisionType; // "node" or "object",
+	var axis: CollisionAxis; // "x", "y" or "z"
 	var node_pos: Vec3; // if type is "node"
 	var object: ObjectRefBase; // if type is "object"
 	// The position of the entity when the collision occurred.
