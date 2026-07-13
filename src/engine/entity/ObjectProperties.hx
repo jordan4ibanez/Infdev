@@ -11,83 +11,121 @@ import src.engine.entity.definition.StepUpMode;
 import src.engine.vector.Vec2;
 
 typedef ObjectProperties = {
+	@:optional
 	var hp_max: Int;
 
+	@:optional
 	var breath_max: Int;
 
+	@:optional
 	var zoom_fov: Float;
 
+	@:optional
 	var eye_height: Float;
 
+	@:optional
 	var physical: Bool;
 
+	@:optional
 	var collide_with_objects: Bool;
 
+	@:optional
 	var collisionbox: EntityCollisionBox;
 
+	@:optional
 	var selectionbox: EntitySelectionBox;
 
+	@:optional
 	var pointable: EntityPointable;
 
+	@:optional
 	var visual: EntityVisual;
 
+	@:optional
 	var wield_item: String;
 
+	@:optional
 	var visual_size: Vec2;
 
+	@:optional
 	var mesh: String;
 
+	@:optional
 	var textures: LuaArray<String>;
 
+	@:optional
 	var colors: LuaArray<ColorSpec>;
 
+	@:optional
 	var node: NodeTable;
 
+	@:optional
 	var use_texture_alpha: Bool;
 
+	@:optional
 	var spritediv: Vec2;
 
+	@:optional
 	var initial_sprite_basepos: Vec2;
 
+	@:optional
 	var is_visible: Bool;
 
+	@:optional
 	var makes_footstep_sound: Bool;
 
+	@:optional
 	var automatic_rotate: Float;
 
+	@:optional
 	var stepheight: Float;
 
+	@:optional
 	var automatic_face_movement_dir: EitherType<Float, Bool>;
 
+	@:optional
 	var automatic_face_movement_max_rotation_per_sec: Float;
 
+	@:optional
 	var backface_culling: Bool;
 
+	@:optional
 	var glow: Int;
 
+	@:optional
 	var nametag: String;
 
+	@:optional
 	var nametag_color: ColorSpec;
 
+	@:optional
 	var nametag_bgcolor: EitherType<ColorSpec, Bool>;
 
+	@:optional
 	var nametag_fontsize: EitherType<Int, Bool>;
 
 	/**
 	 * The further away the object is, the smaller the nametag becomes.
 	 */
+	@:optional
 	var nametag_scale_z: Bool;
 
+	@:optional
 	var infotext: String;
 
+	@:optional
 	var static_save: Bool;
 
+	@:optional
 	var damage_texture_modifier: String;
 
+	@:optional
 	var shaded: Bool;
 
+	@:optional
 	var show_on_minimap: Bool;
 
+	@:optional
 	var step_up_mode: StepUpMode;
 	// public inline function setHPMax(hpMax: Int): ObjectProperties {
 	// 	this.hpMax = hpMax;
