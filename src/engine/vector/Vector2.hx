@@ -30,7 +30,7 @@ extern class Vector2 {
 	}
 
 	public static inline function offset(v: Vec2, x: Float, y: Float): Vec2 {
-		return untyped __lua__("vector2.offset({0}, {1}, {2}, {3})", v, x, y);
+		return untyped __lua__("vector2.offset({0}, {1}, {2})", v, x, y);
 	}
 
 	public static inline function randomInArea(min: Vec2, max: Vec2): Vec2 {
