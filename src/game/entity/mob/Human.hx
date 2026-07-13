@@ -9,8 +9,8 @@ class Human extends Mob {
 	var velocityVector: Vec3 = new Vec3();
 	var turnTimer: Float = 0;
 	var yawTarget: Float = 0;
-	var acceleration: Float = 1;
-	var velocityTarget: Float = 2;
+	var acceleration: Float = 3;
+	var velocityTarget: Float = 4;
 
 	function doBasicMovementLogic(delta: Float): Void {
 		// Do some basic "thinking processing".
