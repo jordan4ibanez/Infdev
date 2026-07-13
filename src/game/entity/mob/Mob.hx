@@ -23,7 +23,8 @@ abstract class Mob extends LuaEntity {
 		super.onActivate(staticData, dtimeS);
 		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
 		this.object.setProperties({
-			collide_with_objects: false
+			collide_with_objects: false,
+			step_up_mode: StepUpModeRigid
 		});
 	}
 
