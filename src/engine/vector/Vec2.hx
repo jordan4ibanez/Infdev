@@ -22,6 +22,12 @@ abstract Vec2({
 		return cast this;
 	}
 
+	public inline function setFloats(x: Float, y: Float): Vec2 {
+		this.x = x;
+		this.y = y;
+		return cast this;
+	}
+
 	public inline function multiplyScalar(scalar: Float): Vec2 {
 		this.x *= scalar;
 		this.y *= scalar;
