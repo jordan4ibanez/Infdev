@@ -1,8 +1,8 @@
 package src.game.entity.mob;
 
-import src.engine.entity.MoveResult;
 import lua.Math;
 import src.engine.Core;
+import src.engine.entity.MoveResult;
 import src.engine.vector.Vec3;
 
 @:luantiEntity("infdev:human")
@@ -14,9 +14,16 @@ class Human extends Mob {
 	var acceleration: Float = 3;
 	var velocityTarget: Float = 4;
 
-	function doBasicMovementLogic(delta: Float): Void {
+	function doBasicMovementLogic(delta: Float, moveResult: MoveResult): Void {
 		// Do some basic "thinking processing".
 		this.turnTimer -= delta;
+
+		if (moveResult.collides) {
+			untyped print("==============");
+			for (collision in moveResult.collisions) {
+				untyped print(dump(collision));
+			}
+		}
 
 		if (this.turnTimer > 0) {
 			return;
@@ -82,7 +89,7 @@ class Human extends Mob {
 	override function onStep(delta: Float, moveResult: MoveResult) {
 		super.onStep(delta, moveResult);
 
-		this.doBasicMovementLogic(delta);
+		this.doBasicMovementLogic(delta, moveResult);
 
 		this.doModelYawVisual();
 
