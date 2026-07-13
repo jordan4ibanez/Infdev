@@ -3,7 +3,6 @@ package src.game.entity.mob;
 import lua.Lua;
 import lua.Math;
 import src.engine.Core;
-import src.engine.entity.ObjectProperties;
 import src.engine.vector.Vec3;
 
 @:luantiEntity("infdev:human")
@@ -64,12 +63,13 @@ class Human extends Mob {
 	override function onActivate(staticData: String, dtimeS: Float) {
 		super.onActivate(staticData, dtimeS);
 
-		this.object.setProperties(new ObjectProperties()
-			.setVisual(EntityVisualMesh)
-			.setMesh("character.glb")
-			.setTextures(["character.png"])
-			.setMakesFootstepSound(true)
-			.setPhysical(true));
+		this.object.setProperties({
+			visual: EntityVisualMesh,
+			mesh: "character.glb",
+			textures: ["character.png"],
+			makes_footstep_sound: true,
+			physical: true
+		});
 
 		this.object.setAcceleration(new Vec3(0, -10, 0));
 
