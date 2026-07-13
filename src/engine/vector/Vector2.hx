@@ -9,6 +9,10 @@ import src.engine.compilercode.LuaArray;
 @:native("vector2")
 extern class Vector2 {
 	// ? Functions
+	public static inline function fromAngle(angle: Float): Vec2 {
+		return untyped __lua__("vector2.from_angle({0})", angle);
+	}
+
 	public static inline function sort(v1: Vec2, v2: Vec2): {first: Vec2, second: Vec2} {
 		var temp: LuaArray<Vec2> = untyped __lua__("{vector2.sort({0}, {1})}", v1, v2);
 		return {
@@ -21,29 +25,17 @@ extern class Vector2 {
 		return untyped __lua__("vector2.angle({0}, {1})", v1, v2);
 	}
 
-	public static inline function cross(v1: Vec2, v2: Vec2): Float {
-		return untyped __lua__("vector2.cross({0}, {1})", v1, v2);
-	}
-
 	public static inline function offset(v: Vec2, x: Float, y: Float): Vec2 {
 		return untyped __lua__("vector2.offset({0}, {1}, {2}, {3})", v, x, y);
 	}
 
-	public static inline function randomInArea(min: Vec2, max: Vec2): Float {
+	public static inline function randomInArea(min: Vec2, max: Vec2): Vec2 {
 		return untyped __lua__("vector2.random_in_area({0}, {1})", min, max);
 	}
 
 	// ? Rotation-related functions
 	public static inline function rotate(v: Vec2, r: Float): Vec2 {
 		return untyped __lua__("vector2.rotate({0}, {1})", v, r);
-	}
-
-	public static inline function rotateAroundAxis(v1: Vec2, v2: Vec2, a: Float): Vec2 {
-		return untyped __lua__("vector2.rotate_around_axis({0}, {1}, {2})", v1, v2, a);
-	}
-
-	public static inline function dirToRotation(direction: Vec2, ?up: Vec2): Vec2 {
-		return untyped __lua__("vector2.dir_to_rotation({0}, {1})", direction, up);
 	}
 
 	// ? Common to all vector types
