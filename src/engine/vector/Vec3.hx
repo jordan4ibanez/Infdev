@@ -39,6 +39,10 @@ abstract Vec3({
 		return cast this;
 	}
 
+	public inline function equalsFloats(x: Float, y: Float, z: Float): Bool {
+		return this.x == x && this.y == y && this.z == z;
+	}
+
 	// !
 	// !
 	// ! Only engine functions below this point.
