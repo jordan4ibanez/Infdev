@@ -38,6 +38,11 @@ abstract Vec2({
 	// !
 	// !
 	// ? Functions
+
+	public inline function toAngle(): Float {
+		return untyped __lua__("vector2.to_angle({0})", this);
+	}
+
 	public inline function sort(v2: Vec2): {first: Vec2, second: Vec2} {
 		var temp: LuaArray<Vec2> = untyped __lua__("{vector2.sort({0}, {1})}", this, v2);
 		return {
