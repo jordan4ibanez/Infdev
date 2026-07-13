@@ -29,13 +29,13 @@ class Human extends Mob {
 		}
 
 		if (moveResult.collides) {
-			untyped print("==============");
+			// untyped print("==============");
 			if (moveResult.touching_ground) {
 				for (collision in moveResult.collisions) {
 					if (collision.axis == CollisionAxisX || collision.axis == CollisionAxisZ) {
 						if (this.object.getVelocity().y == 0) {
-							this.object.addVelocity(new Vec3(0, 5, 0));
-							trace("jump");
+							this.object.addVelocity(new Vec3(0, 5.5, 0));
+							trace('jump${Math.random()}');
 						}
 					}
 					// untyped print(dump(collision));
