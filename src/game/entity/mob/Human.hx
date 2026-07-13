@@ -6,6 +6,11 @@ import src.engine.entity.MoveResult;
 import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
 
+private enum abstract MobState(String) to String {
+	var MobStateIdle;
+	var MobStateWalk;
+}
+
 @:luantiEntity("infdev:human")
 class Human extends Mob {
 	var velocityVector: Vec3 = new Vec3();
@@ -17,6 +22,8 @@ class Human extends Mob {
 	var jumpAttempts: Int = 0;
 	var jumpAttemptLimit: Int = cast Math.random(1, 4);
 	var oldJumpPosition: Vec2 = new Vec2();
+
+	var state: MobState = MobStateIdle;
 
 	function jump(): Void {
 		var pos = this.object.getPos();
