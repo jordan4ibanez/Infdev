@@ -64,10 +64,6 @@ abstract Vec2({
 		return untyped __lua__("vector2.rotate({0}, {1})", this, r);
 	}
 
-	public inline function rotateAroundAxis(v2: Vec2, a: Float): Vec2 {
-		return untyped __lua__("vector2.rotate_around_axis({0}, {1}, {2})", this, v2, a);
-	}
-
 	// ? Common to all vector types
 	public inline function copy(): Vec2 {
 		return untyped __lua__("vector2.copy({0})", this);
