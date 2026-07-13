@@ -34,6 +34,10 @@ abstract Vec2({
 		return cast this;
 	}
 
+	public inline function equalsFloats(x: Float, y: Float): Bool {
+		return this.x == x && this.y == y;
+	}
+
 	// !
 	// !
 	// ! Only engine functions below this point.
