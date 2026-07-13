@@ -43,7 +43,9 @@ abstract class LuaEntity {
 	// ? Here begins programmer facing overrideable methods.
 
 	@:native("on_activate")
-	public function onActivate(staticData: String, dtimeS: Float) {}
+	public function onActivate(staticData: String, dtimeS: Float) {
+		this.setSize(1, 1);
+	}
 
 	@:native("on_deactivate")
 	public function onDeactivate(removal: Bool) {}
