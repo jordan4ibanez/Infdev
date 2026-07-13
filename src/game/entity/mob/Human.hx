@@ -49,11 +49,7 @@ class Human extends Mob {
 	};
 
 	function doModelYawVisual(): Void {
-		var vel = this.object.getVelocity();
-
-		var yaw = Core.dirToYaw(vel);
-
-		this.object.setYaw(yaw);
+		this.object.setYaw(yawTarget);
 	}
 
 	override function setHP(hp: Int) {
