@@ -18,6 +18,16 @@ class Human extends Mob {
 		// Do some basic "thinking processing".
 		this.turnTimer -= delta;
 
+		// I think I accidentally discovered how wolved work in the other game.
+		var home = Core.getPlayerByName("singleplayer");
+		if (home != null) {
+			var homePos = home.getPos();
+			var distance = homePos.distance(this.object.getPos());
+			if (distance > 20) {
+				this.object.setPos(homePos);
+			}
+		}
+
 		if (moveResult.collides) {
 			untyped print("==============");
 			if (moveResult.touching_ground) {
