@@ -55,7 +55,7 @@ abstract class LuaEntity {
 	// todo: fix return types.
 
 	@:native("on_step")
-	public function onStep(delta: Float, moveResult: Dynamic) {}
+	public function onStep(delta: Float, moveResult: MoveResult) {}
 
 	@:native("on_punch")
 	public function onPunch(puncher: Null<ObjectRefBase>, timeFromLastPunch: Float, toolCapabilities: Dynamic, dir: Dynamic, damager: Int) {}
