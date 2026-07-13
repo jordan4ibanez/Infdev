@@ -1,27 +1,30 @@
 package src.engine.entity;
 
+import src.engine.compilercode.LuaArray;
+import src.engine.entity.objectref.ObjectRefBase;
+import src.engine.vector.Vec3;
+
+typedef CollisionInfo = {
+	var type: String; // "node" or "object",
+	var axis: String; // "x", "y" or "z"
+	var node_pos: Vec3; // if type is "node"
+	var object: ObjectRefBase; // if type is "object"
+	// The position of the entity when the collision occurred.
+	// Available since feature "moveresult_new_pos".
+	var new_pos: Vec3;
+	var old_velocity: Vec3;
+	var new_velocity: Vec3;
+}
+
 typedef MoveResult = {
-        touching_ground = boolean,
-    // Note that touching_ground is only true if the entity was moving and
-    // collided with ground.
+	var touching_ground: Bool;
 
-    collides = boolean,
-    standing_on_object = boolean,
+	// Note that touching_ground is only true if the entity was moving and
+	// collided with ground.
+	var collides: Bool;
+	var standing_on_object: Bool;
 
-    collisions = {
-        {
-            type = string, // "node" or "object",
-            axis = string, // "x", "y" or "z"
-            node_pos = vector, // if type is "node"
-            object = ObjectRef, // if type is "object"
-            // The position of the entity when the collision occurred.
-            // Available since feature "moveresult_new_pos".
-            new_pos = vector,
-            old_velocity = vector,
-            new_velocity = vector,
-        },
-        ...
-    }
-    // `collisions` does not contain data of unloaded mapblock collisions
-    // or when the velocity changes are negligibly small
+	var collisions: LuaArray<CollisionInfo>;
+	// `collisions` does not contain data of unloaded mapblock collisions
+	// or when the velocity changes are negligibly small
 }
