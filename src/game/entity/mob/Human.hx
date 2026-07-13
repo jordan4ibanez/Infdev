@@ -36,9 +36,6 @@ class Human extends Mob {
 
 		var currentVelocity = this.object.getVelocity();
 		currentVelocity.y = 0;
-		var speed = currentVelocity.length();
-		trace(speed);
-		var accelerationModulation = velocityTarget - speed;
 
 		this.velocityVector.multiplyScalar(accelerationModulation * acceleration * delta);
 
