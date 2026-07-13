@@ -1,8 +1,10 @@
 package src.engine.entity;
 
 import src.engine.definition.MaxLevel.MAX_LEVEL;
+import src.engine.entity.definition.EntityCollisionBox;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefEntity;
+import src.engine.vector.Vec2;
 
 inline final MAX_ENTITY_LEVEL = MAX_LEVEL;
 
@@ -12,13 +14,28 @@ abstract class LuaEntity {
 	final object: ObjectRefEntity = null;
 	final name: String = null;
 
+	// ? Custom stuff so everything is uniform across the game.
+	var size: Vec2 = new Vec2(1, 1);
+
+	/**
+	 * Set the size of the entity.
+	 * @param width Collision box width total.
+	 * @param height Collision box height total.
+	 */
+	public function setSize(width: Float, height: Float): Void {
+		this.size.setFloats(width, height);
+		// This sets the collisionbox where it's bottom is it's actual position.
+		// Makes things a lot easier.
+		this.object.setProperties(new ObjectProperties()
+			.setCollisionBox(new EntityCollisionBox(
+				-this.size.x * 0.5, 0, -this.size.x * 0.5,
+				this.size.x * 0.5, this.size.y, this.size.x * 0.5)));
+	}
+
 	// ? Here begins programmer facing overrideable methods.
 
 	@:native("on_activate")
-	public function onActivate(staticData: String, dtimeS: Float) {
-		// trace(this.uuid);
-		// Lua.print("hello world! from ObjectRef");
-	}
+	public function onActivate(staticData: String, dtimeS: Float) {}
 
 	@:native("on_deactivate")
 	public function onDeactivate(removal: Bool) {}
