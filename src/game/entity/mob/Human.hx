@@ -18,6 +18,27 @@ class Human extends Mob {
 	var jumpAttemptLimit: Int = cast Math.random(1, 4);
 	var oldJumpPosition: Vec2 = new Vec2();
 
+	function jump(): Void {
+		var pos = this.object.getPos();
+		if (oldJumpPosition.x == pos.x || oldJumpPosition.y == pos.z) {
+			trace('trying $jumpAttempts');
+			jumpAttempts++;
+			if (jumpAttempts >= 2) {
+				turnTimer = -1;
+				jumpAttempts = 0;
+				jumpAttemptLimit = cast Math.random(0, 4);
+				trace("failure. turning");
+			}
+		} else {
+			jumpAttempts = 0;
+		}
+
+		this.object.addVelocity(new Vec3(0, 5.5, 0));
+		trace('jump${Math.random()}');
+
+		oldJumpPosition.setFloats(pos.x, pos.z);
+	}
+
 	function doBasicMovementLogic(delta: Float, moveResult: MoveResult): Void {
 		// Do some basic "thinking processing".
 		this.turnTimer -= delta;
@@ -38,24 +59,7 @@ class Human extends Mob {
 				for (collision in moveResult.collisions) {
 					if (collision.axis == CollisionAxisX || collision.axis == CollisionAxisZ) {
 						if (this.object.getVelocity().y == 0) {
-							var pos = this.object.getPos();
-							if (oldJumpPosition.x == pos.x || oldJumpPosition.y == pos.z) {
-								trace('trying $jumpAttempts');
-								jumpAttempts++;
-								if (jumpAttempts >= 2) {
-									turnTimer = -1;
-									jumpAttempts = 0;
-									jumpAttemptLimit = cast Math.random(0, 4);
-									trace("failure. turning");
-								}
-							} else {
-								jumpAttempts = 0;
-							}
-
-							this.object.addVelocity(new Vec3(0, 5.5, 0));
-							trace('jump${Math.random()}');
-
-							oldJumpPosition.setFloats(pos.x, pos.z);
+							this.jump();
 						}
 					}
 					// untyped print(dump(collision));
