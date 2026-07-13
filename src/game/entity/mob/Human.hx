@@ -20,7 +20,7 @@ class Human extends Mob {
 			return;
 		}
 
-		this.turnTimer = Math.random(2, 10) + Math.random();
+		this.turnTimer = Math.random(4, 8) + Math.random();
 
 		// A thought has come through. Walk in a random direction.
 
