@@ -25,10 +25,6 @@ class Human extends Mob {
 		// A thought has come through. Walk in a random direction.
 
 		this.yawTarget = Math.random() * (Math.pi * 2);
-
-		// velocityVector.x = Math.random() * Math.random(-1, 1);
-		// velocityVector.z = Math.random() * Math.random(-1, 1);
-		// this.object.addVelocity(velocityVector);
 	}
 
 	function move(delta: Float): Void {
