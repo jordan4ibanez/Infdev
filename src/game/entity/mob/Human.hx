@@ -1,6 +1,5 @@
 package src.game.entity.mob;
 
-import lua.Lua;
 import lua.Math;
 import src.engine.Core;
 import src.engine.vector.Vec3;
@@ -10,14 +9,12 @@ class Human extends Mob {
 	var velocityVector: Vec3 = new Vec3();
 	var turnTimer: Float = 0;
 	var yawTarget: Float = 0;
-	var acceleration: Float = 10;
+	var acceleration: Float = 1;
 	var velocityTarget: Float = 2;
 
 	function doBasicMovementLogic(delta: Float): Void {
 		// Do some basic "thinking processing".
 		this.turnTimer -= delta;
-
-		Lua.print(this.turnTimer);
 
 		if (this.turnTimer > 0) {
 			return;
@@ -39,10 +36,13 @@ class Human extends Mob {
 		// todo: physics settings for mobs
 		this.velocityVector.set(Core.yawToDir(this.yawTarget));
 
-		this.velocityVector.multiplyScalar(delta)
-			.multiplyScalar(acceleration);
+		var currentVelocity = this.object.getVelocity();
+		currentVelocity.y = 0;
+		var speed = currentVelocity.length();
+		trace(speed);
+		var accelerationModulation = velocityTarget - speed;
 
-		// todo: This should use the length of the 2D (x and z) vector to calculate it's speed and limit it's speed
+		this.velocityVector.multiplyScalar(accelerationModulation * acceleration * delta);
 
 		this.object.addVelocity(this.velocityVector);
 	};
