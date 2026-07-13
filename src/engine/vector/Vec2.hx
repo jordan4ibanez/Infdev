@@ -59,12 +59,6 @@ abstract Vec2({
 		return untyped __lua__("vector2.offset({0}, {1}, {2})", this, x, y);
 	}
 
-	}
-
-	// ? Operators (just kinda work)
-	//
-	//
-	//
 	// ? Rotation-related functions
 	public inline function rotate(r: Float): Vec2 {
 		return untyped __lua__("vector2.rotate({0}, {1})", this, r);
