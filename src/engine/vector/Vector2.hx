@@ -135,9 +135,9 @@ extern class Vector2 {
 }
 // class TestIt {
 // 	static function __init__() {
-// 		var v1 = new AdvancedVector3(1, 1, 1);
-// 		var v2 = new AdvancedVector3(100, 199, 123123);
-// 		var sort = vector2.randomInArea(v1, v2);
+// 		var v1 = new Vec2(1, 1);
+// 		var v2 = new Vec2(100, 199);
+// 		var sort = Vector2.sort(v1, v2);
 // 		untyped print(sort);
 // 		Core.requestShutdown("heck");
 // 	}
