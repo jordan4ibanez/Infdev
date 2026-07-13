@@ -32,6 +32,14 @@ abstract class LuaEntity {
 				this.size.x * 0.5, this.size.y, this.size.x * 0.5)));
 	}
 
+	/**
+	 * Get the size of the entity. This is a clone so it might hammer the GC.
+	 * @return Vec2 The size of the entity.
+	 */
+	public function getSize(): Vec2 {
+		return this.size.copy();
+	}
+
 	// ? Here begins programmer facing overrideable methods.
 
 	@:native("on_activate")
