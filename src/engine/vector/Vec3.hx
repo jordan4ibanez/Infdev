@@ -25,7 +25,7 @@ abstract Vec3({
 		return cast this;
 	}
 
-	public inline function setFloats(x: Float, y: Float, z: Float): Vec2 {
+	public inline function setFloats(x: Float, y: Float, z: Float): Vec3 {
 		this.x = x;
 		this.y = y;
 		this.z = z;
