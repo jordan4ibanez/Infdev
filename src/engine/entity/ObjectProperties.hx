@@ -9,6 +9,7 @@ import src.engine.entity.definition.EntitySelectionBox;
 import src.engine.entity.definition.EntityVisual;
 import src.engine.entity.definition.StepUpMode;
 import src.engine.vector.Vec2;
+import src.engine.vector.Vec3;
 
 typedef ObjectProperties = {
 	@:optional
@@ -45,7 +46,7 @@ typedef ObjectProperties = {
 	var wield_item: String;
 
 	@:optional
-	var visual_size: Vec2;
+	var visual_size: EitherType<Vec2, Vec3>;
 
 	@:optional
 	var mesh: String;
