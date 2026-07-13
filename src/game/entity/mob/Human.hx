@@ -95,7 +95,8 @@ class Human extends Mob {
 			physical: true
 		});
 
-		this.object.setAcceleration(new Vec3(0, -10, 0));
+		// But things that fly or swim shouldn't get this.
+		this.object.setAcceleration(new Vec3(0, -12.2625, 0));
 
 		this.object.playAnimation("human", {
 			speed: 1,
