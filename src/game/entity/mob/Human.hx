@@ -33,8 +33,10 @@ class Human extends Mob {
 			if (moveResult.touching_ground) {
 				for (collision in moveResult.collisions) {
 					if (collision.axis == CollisionAxisX || collision.axis == CollisionAxisZ) {
-						this.object.addVelocity(new Vec3(0, 10, 0));
-						trace("jump");
+						if (this.object.getVelocity().y == 0) {
+							this.object.addVelocity(new Vec3(0, 5, 0));
+							trace("jump");
+						}
 					}
 					// untyped print(dump(collision));
 				}
