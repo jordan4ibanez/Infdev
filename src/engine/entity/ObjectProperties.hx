@@ -59,47 +59,36 @@ typedef ObjectProperties = {
 
 	var automatic_face_movement_dir: EitherType<Float, Bool>;
 
-	@:native("automatic_face_movement_max_rotation_per_sec")
-	var automaticFaceMovementMaxRotationPerSec: Float;
+	var automatic_face_movement_max_rotation_per_sec: Float;
 
-	@:native("backface_culling")
-	var backfaceCulling: Bool;
+	var backface_culling: Bool;
 
 	var glow: Int;
 
 	var nametag: String;
 
-	@:native("nametag_color")
-	var nametagColor: ColorSpec;
+	var nametag_color: ColorSpec;
 
-	@:native("nametag_bgcolor")
-	var nametagBackgroundColor: EitherType<ColorSpec, Bool>;
+	var nametag_bgcolor: EitherType<ColorSpec, Bool>;
 
-	@:native("nametag_fontsize")
-	var nametagFontSize: EitherType<Int, Bool>;
+	var nametag_fontsize: EitherType<Int, Bool>;
 
 	/**
 	 * The further away the object is, the smaller the nametag becomes.
 	 */
-	@:native("nametag_scale_z")
-	var nametagScaleZ: Bool;
+	var nametag_scale_z: Bool;
 
-	@:native("infotext")
-	var infoText: String;
+	var infotext: String;
 
-	@:native("static_save")
-	var staticSave: Bool;
+	var static_save: Bool;
 
-	@:native("damage_texture_modifier")
-	var damageTextureModifier: String;
+	var damage_texture_modifier: String;
 
 	var shaded: Bool;
 
-	@:native("show_on_minimap")
-	var showOnMinimap: Bool;
+	var show_on_minimap: Bool;
 
-	@:native("step_up_mode")
-	var stepUpMode: StepUpMode;
+	var step_up_mode: StepUpMode;
 	// public inline function setHPMax(hpMax: Int): ObjectProperties {
 	// 	this.hpMax = hpMax;
 	// 	return this;
