@@ -55,8 +55,6 @@ abstract Vec2({
 		return untyped __lua__("vector2.angle({0}, {1})", this, v2);
 	}
 
-	public inline function cross(v2: Vec2): Float {
-		return untyped __lua__("vector2.cross({0}, {1})", this, v2);
 	}
 
 	}
