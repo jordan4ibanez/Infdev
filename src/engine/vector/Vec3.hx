@@ -25,6 +25,13 @@ abstract Vec3({
 		return cast this;
 	}
 
+	public inline function setFloats(x: Float, y: Float, z: Float): Vec2 {
+		this.x = x;
+		this.y = y;
+		this.z = z;
+		return cast this;
+	}
+
 	public inline function multiplyScalar(scalar: Float): Vec3 {
 		this.x *= scalar;
 		this.y *= scalar;
