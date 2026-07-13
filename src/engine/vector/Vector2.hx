@@ -13,6 +13,10 @@ extern class Vector2 {
 		return untyped __lua__("vector2.from_angle({0})", angle);
 	}
 
+	public static inline function toAngle(v: Vec2): Float {
+		return untyped __lua__("vector2.to_angle({0})", v);
+	}
+
 	public static inline function sort(v1: Vec2, v2: Vec2): {first: Vec2, second: Vec2} {
 		var temp: LuaArray<Vec2> = untyped __lua__("{vector2.sort({0}, {1})}", v1, v2);
 		return {
