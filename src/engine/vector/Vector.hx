@@ -28,7 +28,7 @@ extern class Vector {
 		return untyped __lua__("vector.offset({0}, {1}, {2}, {3})", v, x, y, z);
 	}
 
-	public static inline function randomInArea(min: Vec3, max: Vec3): Float {
+	public static inline function randomInArea(min: Vec3, max: Vec3): Vec3 {
 		return untyped __lua__("vector.random_in_area({0}, {1})", min, max);
 	}
 
