@@ -112,7 +112,7 @@ abstract Vec3({
 		return untyped __lua__("vector.abs({0})", this);
 	}
 
-	public inline function apply(func: (Float) -> Void, whatever: Rest<Dynamic>): Vec3 {
+	public inline function apply(func: (Float) -> Float, whatever: Rest<Dynamic>): Vec3 {
 		return untyped __lua__("vector.apply({0}, {1}, table.unpack({2}))", this, func, whatever);
 	}
 
