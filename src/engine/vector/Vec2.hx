@@ -66,7 +66,7 @@ abstract Vec2({
 	//
 	//
 	// ? Rotation-related functions
-	public inline function rotate(r: Vec2): Vec2 {
+	public inline function rotate(r: Float): Vec2 {
 		return untyped __lua__("vector2.rotate({0}, {1})", this, r);
 	}
 
