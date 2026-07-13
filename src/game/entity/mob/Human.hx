@@ -106,7 +106,14 @@ class Human extends Mob {
 		this.object.addVelocity(drivingForce);
 	};
 
-	function doModelYawVisual(): Void {
+	inline function walkLogic(delta: Float, moveResult: MoveResult): Void {
+		this.doBasicMovementLogic(delta, moveResult);
+		this.move(delta);
+	}
+
+	inline function idleLogic(delta: Float, moveResult: MoveResult): Void {}
+
+	inline function doModelYawVisual(): Void {
 		this.object.setYaw(yawTarget);
 	}
 
@@ -139,10 +146,13 @@ class Human extends Mob {
 	override function onStep(delta: Float, moveResult: MoveResult) {
 		super.onStep(delta, moveResult);
 
-		this.doBasicMovementLogic(delta, moveResult);
+		switch (this.state) {
+			case MobStateIdle:
+				this.idleLogic(delta, moveResult);
+			case MobStateWalk:
+				this.walkLogic(delta, moveResult);
+		}
 
 		this.doModelYawVisual();
-
-		this.move(delta);
 	}
 }
