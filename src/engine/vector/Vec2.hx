@@ -59,8 +59,6 @@ abstract Vec2({
 		return untyped __lua__("vector2.cross({0}, {1})", this, v2);
 	}
 
-	public inline function offset(x: Float, y: Float, z: Float): Vec2 {
-		return untyped __lua__("vector2.offset({0}, {1}, {2}, {3})", this, x, y, z);
 	}
 
 	// ? Operators (just kinda work)
