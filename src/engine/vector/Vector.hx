@@ -20,7 +20,7 @@ extern class Vector {
 		return untyped __lua__("vector.angle({0}, {1})", v1, v2);
 	}
 
-	public static inline function cross(v1: Vec3, v2: Vec3): Float {
+	public static inline function cross(v1: Vec3, v2: Vec3): Vec3 {
 		return untyped __lua__("vector.cross({0}, {1})", v1, v2);
 	}
 
