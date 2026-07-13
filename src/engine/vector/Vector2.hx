@@ -4,7 +4,6 @@ import haxe.Rest;
 import haxe.extern.EitherType;
 import src.engine.compilercode.LuaArray;
 
-// todo: check all this. This was copied from Vector3 and just slightly changed.
 // This is a completely virtual class.
 @:native("vector2")
 extern class Vector2 {
