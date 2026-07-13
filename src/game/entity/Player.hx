@@ -2,7 +2,6 @@ package src.game.entity;
 
 import lua.Lua;
 import src.engine.compilercode.Macros;
-import src.engine.entity.ObjectProperties;
 import src.engine.entity.definition.PhysicsOverride;
 import src.engine.entity.definition.PlayerControl;
 import src.engine.entity.helpers.EntitySerialization;
@@ -79,11 +78,12 @@ final class Player {
 	}
 
 	function setModel(): Void {
-		this.object.setProperties(new ObjectProperties()
-			.setVisualSize(new Vec3(1, 1, 1))
-			.setVisual(EntityVisualMesh)
-			.setMesh("character.glb")
-			.setTextures(["character.png"]));
+		this.object.setProperties({
+			visual_size: new Vec3(1, 1, 1),
+			visual: EntityVisualMesh,
+			mesh: "character.glb",
+			textures: ["character.png"]
+		});
 
 		this.playAnimation(PlayerAnimationIdle);
 	}
@@ -199,8 +199,9 @@ final class Player {
 			.setGravity(1.25)
 			.setJump(1.25));
 
-		this.object.setProperties(new ObjectProperties()
-			.setStepUpMode(StepUpModeRigid));
+		this.object.setProperties({
+			step_up_mode: StepUpModeRigid
+		});
 
 		this.adjustCamera();
 
