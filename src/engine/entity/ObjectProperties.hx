@@ -11,112 +11,110 @@ import src.engine.entity.definition.StepUpMode;
 import src.engine.vector.Vec2;
 
 typedef ObjectProperties = {
-	@:native("hp_max")
-	public var hpMax: Int;
+	 var hp_max: Int;
 
-	@:native("breath_max")
-	public var breathMax: Int;
+	 var breath_max: Int;
 
 	@:native("zoom_fov")
-	public var zoomFOV: Float;
+	var zoomFOV: Float;
 
 	@:native("eye_height")
-	public var eyeHeight: Float;
+	var eyeHeight: Float;
 
-	public var physical: Bool;
+	var physical: Bool;
 
 	@:native("collide_with_objects")
-	public var collideWithObjects: Bool;
+	var collideWithObjects: Bool;
 
 	@:native("collisionbox")
-	public var collisionBox: EntityCollisionBox;
+	var collisionBox: EntityCollisionBox;
 
 	@:native("selectionbox")
-	public var selectionBox: EntitySelectionBox;
+	var selectionBox: EntitySelectionBox;
 
-	public var pointable: EntityPointable;
+	var pointable: EntityPointable;
 
-	public var visual: EntityVisual;
+	var visual: EntityVisual;
 
 	@:native("wield_item")
-	public var wieldItem: String;
+	var wieldItem: String;
 
 	@:native("visual_size")
-	public var visualSize: Vec2;
+	var visualSize: Vec2;
 
-	public var mesh: String;
+	var mesh: String;
 
-	public var textures: LuaArray<String>;
+	var textures: LuaArray<String>;
 
-	public var colors: LuaArray<ColorSpec>;
+	var colors: LuaArray<ColorSpec>;
 
-	public var node: NodeTable;
+	var node: NodeTable;
 
 	@:native("use_texture_alpha")
-	public var useTextureAlpha: Bool;
+	var useTextureAlpha: Bool;
 
 	@:native("spritediv")
-	public var spriteDiv: Vec2;
+	var spriteDiv: Vec2;
 
 	@:native("initial_sprite_basepos")
-	public var initialSpriteBasePos: Vec2;
+	var initialSpriteBasePos: Vec2;
 
 	@:native("is_visible")
-	public var isVisible: Bool;
+	var isVisible: Bool;
 
 	@:native("makes_footstep_sound")
-	public var makesFootstepSound: Bool;
+	var makesFootstepSound: Bool;
 
 	@:native("automatic_rotate")
-	public var automaticRotate: Float;
+	var automaticRotate: Float;
 
 	@:native("stepheight")
-	public var stepHeight: Float;
+	var stepHeight: Float;
 
 	@:native("automatic_face_movement_dir")
-	public var automaticFaceMovementDir: EitherType<Float, Bool>;
+	var automaticFaceMovementDir: EitherType<Float, Bool>;
 
 	@:native("automatic_face_movement_max_rotation_per_sec")
-	public var automaticFaceMovementMaxRotationPerSec: Float;
+	var automaticFaceMovementMaxRotationPerSec: Float;
 
 	@:native("backface_culling")
-	public var backfaceCulling: Bool;
+	var backfaceCulling: Bool;
 
-	public var glow: Int;
+	var glow: Int;
 
-	public var nametag: String;
+	var nametag: String;
 
 	@:native("nametag_color")
-	public var nametagColor: ColorSpec;
+	var nametagColor: ColorSpec;
 
 	@:native("nametag_bgcolor")
-	public var nametagBackgroundColor: EitherType<ColorSpec, Bool>;
+	var nametagBackgroundColor: EitherType<ColorSpec, Bool>;
 
 	@:native("nametag_fontsize")
-	public var nametagFontSize: EitherType<Int, Bool>;
+	var nametagFontSize: EitherType<Int, Bool>;
 
 	/**
 	 * The further away the object is, the smaller the nametag becomes.
 	 */
 	@:native("nametag_scale_z")
-	public var nametagScaleZ: Bool;
+	var nametagScaleZ: Bool;
 
 	@:native("infotext")
-	public var infoText: String;
+	var infoText: String;
 
 	@:native("static_save")
-	public var staticSave: Bool;
+	var staticSave: Bool;
 
 	@:native("damage_texture_modifier")
-	public var damageTextureModifier: String;
+	var damageTextureModifier: String;
 
-	public var shaded: Bool;
+	var shaded: Bool;
 
 	@:native("show_on_minimap")
-	public var showOnMinimap: Bool;
+	var showOnMinimap: Bool;
 
 	@:native("step_up_mode")
-	public var stepUpMode: StepUpMode;
+	var stepUpMode: StepUpMode;
 	// public inline function setHPMax(hpMax: Int): ObjectProperties {
 	// 	this.hpMax = hpMax;
 	// 	return this;
