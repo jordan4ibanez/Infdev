@@ -46,7 +46,7 @@ class Human extends Mob {
 		oldJumpPosition.setFloats(pos.x, pos.z);
 	}
 
-	function doBasicMovementLogic(delta: Float, moveResult: MoveResult): Void {
+	function walkLogic(delta: Float, moveResult: MoveResult): Void {
 		// Do some basic "thinking processing".
 		this.turnTimer -= delta;
 
@@ -85,6 +85,12 @@ class Human extends Mob {
 		this.yawTarget = Math.random() * (Math.pi * 2);
 	}
 
+	inline function idleLogic(delta: Float, moveResult: MoveResult): Void {
+		trace("idling");
+		this.yawTarget = Math.random() * (Math.pi * 2);
+		this.velocityTarget = 0;
+	}
+
 	function move(delta: Float): Void {
 		// todo: this needs to smooth it with some kind of acceleration definition for the mob
 		// todo: physics settings for mobs
@@ -105,13 +111,6 @@ class Human extends Mob {
 
 		this.object.addVelocity(drivingForce);
 	};
-
-	inline function walkLogic(delta: Float, moveResult: MoveResult): Void {
-		this.doBasicMovementLogic(delta, moveResult);
-		this.move(delta);
-	}
-
-	inline function idleLogic(delta: Float, moveResult: MoveResult): Void {}
 
 	inline function doModelYawVisual(): Void {
 		this.object.setYaw(yawTarget);
@@ -152,6 +151,8 @@ class Human extends Mob {
 			case MobStateWalk:
 				this.walkLogic(delta, moveResult);
 		}
+
+		this.move(delta);
 
 		this.doModelYawVisual();
 	}
