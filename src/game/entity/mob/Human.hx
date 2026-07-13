@@ -7,6 +7,7 @@ import src.engine.vector.Vec3;
 @:luantiEntity("infdev:human")
 class Human extends Mob {
 	var velocityVector: Vec3 = new Vec3();
+	var drivingForce: Vec3 = new Vec3();
 	var turnTimer: Float = 0;
 	var yawTarget: Float = 0;
 	var acceleration: Float = 3;
@@ -37,15 +38,15 @@ class Human extends Mob {
 		var currentVelocity = this.object.getVelocity();
 		currentVelocity.y = 0;
 
-		var steeringForce = new Vec3(
+		drivingForce.setFloats(
 			targetVelocity.x - currentVelocity.x,
 			0,
 			targetVelocity.z - currentVelocity.z
 		);
 
-		steeringForce.multiplyScalar(Math.min(1.0, this.acceleration * delta));
+		drivingForce.multiplyScalar(Math.min(1.0, this.acceleration * delta));
 
-		this.object.addVelocity(steeringForce);
+		this.object.addVelocity(drivingForce);
 	};
 
 	function doModelYawVisual(): Void {
