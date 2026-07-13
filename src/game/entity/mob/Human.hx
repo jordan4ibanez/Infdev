@@ -76,6 +76,8 @@ class Human extends Mob {
 		this.object.playAnimation("human", {
 			speed: 1,
 		});
+
+		this.setSize(1, 2);
 	}
 
 	override function onStep(delta: Float, moveResult: Dynamic) {
