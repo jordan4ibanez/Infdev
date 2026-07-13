@@ -11,36 +11,29 @@ import src.engine.entity.definition.StepUpMode;
 import src.engine.vector.Vec2;
 
 typedef ObjectProperties = {
-	 var hp_max: Int;
+	var hp_max: Int;
 
-	 var breath_max: Int;
+	var breath_max: Int;
 
-	@:native("zoom_fov")
-	var zoomFOV: Float;
+	var zoom_fov: Float;
 
-	@:native("eye_height")
-	var eyeHeight: Float;
+	var eye_height: Float;
 
 	var physical: Bool;
 
-	@:native("collide_with_objects")
-	var collideWithObjects: Bool;
+	var collide_with_objects: Bool;
 
-	@:native("collisionbox")
-	var collisionBox: EntityCollisionBox;
+	var collisionbox: EntityCollisionBox;
 
-	@:native("selectionbox")
-	var selectionBox: EntitySelectionBox;
+	var selectionbox: EntitySelectionBox;
 
 	var pointable: EntityPointable;
 
 	var visual: EntityVisual;
 
-	@:native("wield_item")
-	var wieldItem: String;
+	var wield_item: String;
 
-	@:native("visual_size")
-	var visualSize: Vec2;
+	var visual_size: Vec2;
 
 	var mesh: String;
 
@@ -50,29 +43,21 @@ typedef ObjectProperties = {
 
 	var node: NodeTable;
 
-	@:native("use_texture_alpha")
-	var useTextureAlpha: Bool;
+	var use_texture_alpha: Bool;
 
-	@:native("spritediv")
-	var spriteDiv: Vec2;
+	var spritediv: Vec2;
 
-	@:native("initial_sprite_basepos")
-	var initialSpriteBasePos: Vec2;
+	var initial_sprite_basepos: Vec2;
 
-	@:native("is_visible")
-	var isVisible: Bool;
+	var is_visible: Bool;
 
-	@:native("makes_footstep_sound")
-	var makesFootstepSound: Bool;
+	var makes_footstep_sound: Bool;
 
-	@:native("automatic_rotate")
-	var automaticRotate: Float;
+	var automatic_rotate: Float;
 
-	@:native("stepheight")
-	var stepHeight: Float;
+	var stepheight: Float;
 
-	@:native("automatic_face_movement_dir")
-	var automaticFaceMovementDir: EitherType<Float, Bool>;
+	var automatic_face_movement_dir: EitherType<Float, Bool>;
 
 	@:native("automatic_face_movement_max_rotation_per_sec")
 	var automaticFaceMovementMaxRotationPerSec: Float;
