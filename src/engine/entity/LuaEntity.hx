@@ -26,10 +26,11 @@ abstract class LuaEntity {
 		this.size.setFloats(width, height);
 		// This sets the collisionbox where it's bottom is it's actual position.
 		// Makes things a lot easier.
-		this.object.setProperties(new ObjectProperties()
-			.setCollisionBox(new EntityCollisionBox(
+		this.object.setProperties({
+			collisionbox: new EntityCollisionBox(
 				-this.size.x * 0.5, 0, -this.size.x * 0.5,
-				this.size.x * 0.5, this.size.y, this.size.x * 0.5)));
+				this.size.x * 0.5, this.size.y, this.size.x * 0.5)
+		});
 	}
 
 	/**
