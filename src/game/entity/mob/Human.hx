@@ -3,6 +3,7 @@ package src.game.entity.mob;
 import lua.Math;
 import src.engine.Core;
 import src.engine.entity.MoveResult;
+import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
 
 @:luantiEntity("infdev:human")
@@ -13,6 +14,8 @@ class Human extends Mob {
 	var yawTarget: Float = 0;
 	var acceleration: Float = 3;
 	var velocityTarget: Float = 4;
+	var jumpAttempts: Int = 0;
+	var oldJumpPosition: Vec2 = new Vec2();
 
 	function doBasicMovementLogic(delta: Float, moveResult: MoveResult): Void {
 		// Do some basic "thinking processing".
@@ -34,8 +37,23 @@ class Human extends Mob {
 				for (collision in moveResult.collisions) {
 					if (collision.axis == CollisionAxisX || collision.axis == CollisionAxisZ) {
 						if (this.object.getVelocity().y == 0) {
+							var pos = this.object.getPos();
+							if (oldJumpPosition.x == pos.x || oldJumpPosition.y == pos.z) {
+								trace('trying $jumpAttempts');
+								jumpAttempts++;
+								if (jumpAttempts >= 2) {
+									turnTimer = -1;
+									jumpAttempts = 0;
+									trace("failure. turning");
+								}
+							} else {
+								jumpAttempts = 0;
+							}
+
 							this.object.addVelocity(new Vec3(0, 5.5, 0));
 							trace('jump${Math.random()}');
+
+							oldJumpPosition.setFloats(pos.x, pos.z);
 						}
 					}
 					// untyped print(dump(collision));
