@@ -15,6 +15,7 @@ class Human extends Mob {
 	var acceleration: Float = 3;
 	var velocityTarget: Float = 4;
 	var jumpAttempts: Int = 0;
+	var jumpAttemptLimit: Int = cast Math.random(1, 4);
 	var oldJumpPosition: Vec2 = new Vec2();
 
 	function doBasicMovementLogic(delta: Float, moveResult: MoveResult): Void {
@@ -44,6 +45,7 @@ class Human extends Mob {
 								if (jumpAttempts >= 2) {
 									turnTimer = -1;
 									jumpAttempts = 0;
+									jumpAttemptLimit = cast Math.random(0, 4);
 									trace("failure. turning");
 								}
 							} else {
