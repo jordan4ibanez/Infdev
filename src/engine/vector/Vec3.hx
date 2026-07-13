@@ -158,7 +158,7 @@ abstract Vec3({
 // 	static function __init__() {
 // 		var v1 = new Vec3(1, 1, 1);
 // 		var v2 = new Vec3(100, 199, 123123);
-// 		var sort = v1.angle(v2) + 1;
+// 		var sort = v1.sort(v2);
 // 		untyped print(sort);
 // 		Core.requestShutdown("heck");
 // 	}
