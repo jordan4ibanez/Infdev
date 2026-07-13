@@ -1,5 +1,6 @@
 package src.game.entity.mob;
 
+import src.engine.entity.MoveResult;
 import lua.Math;
 import src.engine.Core;
 import src.engine.vector.Vec3;
@@ -78,7 +79,7 @@ class Human extends Mob {
 		this.setSize(1, 2);
 	}
 
-	override function onStep(delta: Float, moveResult: Dynamic) {
+	override function onStep(delta: Float, moveResult: MoveResult) {
 		super.onStep(delta, moveResult);
 
 		this.doBasicMovementLogic(delta);
