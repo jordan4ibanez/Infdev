@@ -126,6 +126,8 @@ class Human extends Mob {
 
 		// A thought has come through. Walk in a random direction.
 
+		trace("walking");
+
 		this.yawTarget = Math.random() * (Math.pi * 2);
 	}
 
