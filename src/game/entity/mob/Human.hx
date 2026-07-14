@@ -101,6 +101,8 @@ class Human extends Mob {
 			return;
 		}
 
+		this.turnSpeed = cast Math.random(3, 5);
+
 		this.turnTimer = Math.random(0, 4) + Math.random();
 
 		trace("idling");
