@@ -9,7 +9,7 @@ import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.vector.Vec3;
 
-private enum abstract PlayerAnimation(String) to String {
+enum abstract PlayerAnimation(String) to String {
 	// var PlayerAnimation = "";
 	var PlayerAnimationIdle = "idle";
 	var PlayerAnimationMine = "mine";
@@ -17,6 +17,8 @@ private enum abstract PlayerAnimation(String) to String {
 	var PlayerAnimationMineWalk = "mine_walk";
 	var PlayerAnimationLookPitch = "look_pitch";
 	var PlayerAnimationLookYaw = "look_yaw";
+	// Crazy animation.
+	var PlayerAnimationHuman = "human";
 }
 
 final class Player {
