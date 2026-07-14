@@ -32,6 +32,7 @@ class Human extends Mob {
 	var state: MobState = MobStateIdle;
 
 	function changeState(newState: MobState, animation: PlayerAnimation): Void {
+		this.state = newState;
 		if (this.currentAnimation == animation) {
 			return;
 		}
@@ -92,6 +93,15 @@ class Human extends Mob {
 	}
 
 	inline function idleLogic(delta: Float, moveResult: MoveResult): Void {
+		// Do some basic "thinking processing".
+		this.turnTimer -= delta;
+
+		if (this.turnTimer > 0) {
+			return;
+		}
+
+		this.turnTimer = Math.random(0, 4) + Math.random();
+
 		trace("idling");
 		this.yawTarget = Math.random() * (Math.pi * 2);
 		this.velocityTarget = 0;
@@ -154,9 +164,11 @@ class Human extends Mob {
 		// But things that fly or swim shouldn't get this.
 		this.object.setAcceleration(new Vec3(0, -12.2625, 0));
 
-		this.object.playAnimation("human", {
-			speed: 1,
-		});
+		// this.object.playAnimation("human", {
+		// 	speed: 1,
+		// 	priority: animationPriority
+		// });
+		// animationPriority++;
 
 		this.setSize(1, 2);
 
