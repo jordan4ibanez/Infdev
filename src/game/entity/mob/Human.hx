@@ -120,8 +120,6 @@ class Human extends Mob {
 			this.performingState = false;
 		}
 
-		this.velocityTarget = 4;
-
 		this.turnTimer = Math.random(4, 8) + Math.random();
 
 		// A thought has come through. Walk in a random direction.
@@ -129,6 +127,7 @@ class Human extends Mob {
 		trace("walking");
 
 		this.yawTarget = Math.random() * (Math.pi * 2);
+		this.velocityTarget = 4;
 	}
 
 	inline function idleLogic(delta: Float, moveResult: MoveResult): Void {
