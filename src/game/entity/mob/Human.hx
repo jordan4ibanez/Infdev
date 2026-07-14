@@ -30,6 +30,7 @@ class Human extends Mob {
 	var jumpAttemptLimit: Int = cast Math.random(1, 4);
 	var oldJumpPosition: Vec2 = new Vec2();
 	var turnSpeed = 5;
+	var performingState = true;
 
 	var currentAnimation: PlayerAnimation;
 
