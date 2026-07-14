@@ -52,6 +52,20 @@ class Human extends Mob {
 		this.animationPriority++;
 	}
 
+	/**
+	 * Randomly changes the state.
+	 * @return Bool Returns true if state changed.
+	 */
+	function randomizeState(): Bool {
+		// Flip a coin and maybe it'll change state.
+		if (Math.random() > 0.5) {
+			// Maybe it'll be the same state. Who knows!
+			this.state = cast MobState.all[Std.random(MobState.all.length)];
+			return true;
+		}
+		return false;
+	}
+
 	function jump(): Void {
 		var pos = this.object.getPos();
 		if (oldJumpPosition.x == pos.x || oldJumpPosition.y == pos.z) {
