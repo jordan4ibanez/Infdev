@@ -56,7 +56,7 @@ class Human extends Mob {
 			jumpAttempts = 0;
 		}
 
-		this.object.addVelocity(new Vec3(0, 5.5, 0));
+		this.object.addVelocity(new Vec3(0, 6.5, 0));
 		trace('jump${Math.random()}');
 
 		oldJumpPosition.setFloats(pos.x, pos.z);
@@ -65,16 +65,6 @@ class Human extends Mob {
 	function walkLogic(delta: Float, moveResult: MoveResult): Void {
 		// Do some basic "thinking processing".
 		this.turnTimer -= delta;
-
-		// I think I accidentally discovered how wolved work in the other game.
-		var home = Core.getPlayerByName("singleplayer");
-		if (home != null) {
-			var homePos = home.getPos();
-			var distance = homePos.distance(this.object.getPos());
-			if (distance > 20) {
-				this.object.setPos(homePos);
-			}
-		}
 
 		if (moveResult.collides) {
 			// untyped print("==============");
@@ -128,6 +118,19 @@ class Human extends Mob {
 		this.object.addVelocity(drivingForce);
 	};
 
+	function teleportToPlayer(): Void {
+		// I think I accidentally discovered how wolved work in the other game.
+		var home = Core.getPlayerByName("singleplayer");
+		if (home == null) {
+			return;
+		}
+		var homePos = home.getPos();
+		var distance = homePos.distance(this.object.getPos());
+		if (distance > 20) {
+			this.object.setPos(homePos);
+		}
+	}
+
 	inline function doModelYawVisual(): Void {
 		this.object.setYaw(yawTarget);
 	}
@@ -156,6 +159,8 @@ class Human extends Mob {
 		});
 
 		this.setSize(1, 2);
+
+		this.changeState(MobStateIdle, PlayerAnimationIdle);
 	}
 
 	override function onStep(delta: Float, moveResult: MoveResult) {
@@ -169,6 +174,8 @@ class Human extends Mob {
 		}
 
 		this.move(delta);
+
+		this.teleportToPlayer();
 
 		this.doModelYawVisual();
 	}
