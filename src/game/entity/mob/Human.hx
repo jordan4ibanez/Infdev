@@ -57,14 +57,21 @@ class Human extends Mob {
 	 * Randomly changes the state.
 	 * @return Bool Returns true if state changed.
 	 */
-	function randomizeState(): Bool {
+	function randomizeState(): Void {
+		// trace(this.performingState);
+
+		if (this.performingState) {
+			return;
+		}
+
 		// Flip a coin and maybe it'll change state.
-		if (Math.random() > 0.5) {
+		if (Math.random() > 0.1) {
+			trace("CHANGE");
 			// Maybe it'll be the same state. Who knows!
 			this.changeState(cast MobState.all[Std.random(MobState.all.length)]);
-			return true;
+
+			trace(this.state);
 		}
-		return false;
 	}
 
 	function jump(): Void {
