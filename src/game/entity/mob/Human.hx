@@ -69,20 +69,20 @@ class Human extends Mob {
 	function jump(): Void {
 		var pos = this.object.getPos();
 		if (oldJumpPosition.x == pos.x || oldJumpPosition.y == pos.z) {
-			trace('trying $jumpAttempts');
+			// trace('trying $jumpAttempts');
 			jumpAttempts++;
 			if (jumpAttempts >= 2) {
 				turnTimer = -1;
 				jumpAttempts = 0;
 				jumpAttemptLimit = cast Math.random(0, 4);
-				trace("failure. turning");
+				// trace("failure. turning");
 			}
 		} else {
 			jumpAttempts = 0;
 		}
 
 		this.object.addVelocity(new Vec3(0, 6.5, 0));
-		trace('jump${Math.random()}');
+		// trace('jump${Math.random()}');
 
 		oldJumpPosition.setFloats(pos.x, pos.z);
 	}
