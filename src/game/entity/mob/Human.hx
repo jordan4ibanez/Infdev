@@ -130,7 +130,7 @@ class Human extends Mob {
 		this.velocityTarget = 4;
 	}
 
-	inline function idleLogic(delta: Float, moveResult: MoveResult): Void {
+	function idleLogic(delta: Float, moveResult: MoveResult): Void {
 		// Do some basic "thinking processing".
 		this.turnTimer -= delta;
 
