@@ -135,13 +135,12 @@ class Human extends Mob {
 		this.turnTimer -= delta;
 
 		if (this.turnTimer > 0) {
+			trace(this.turnTimer);
+			this.performingState = true;
 			return;
+		} else {
+			this.performingState = false;
 		}
-
-		if (this.randomizeState()) {
-			return;
-		}
-
 		this.turnSpeed = cast Math.random(3, 5);
 
 		this.turnTimer = Math.random(0, 4) + Math.random();
