@@ -23,6 +23,9 @@ class Human extends Mob {
 	var jumpAttemptLimit: Int = cast Math.random(1, 4);
 	var oldJumpPosition: Vec2 = new Vec2();
 
+	// Stop looking at my hackjob.
+	var animationPriority = -2_147_483_648;
+
 	var state: MobState = MobStateIdle;
 
 	function jump(): Void {
