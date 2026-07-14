@@ -5,8 +5,7 @@ import haxe.macro.Context;
 import haxe.macro.Expr;
 
 // This is AI generated to create automated type constraint checking.
-// Basically this is making sure the lua string is the correct enum type.
-// ? This did not work as intended but it's good for future code to study.
+// This code adds special functions to enums.
 class EnumMacro {
 	public static function decorateValidator(): Array<Field> {
 		var fields = Context.getBuildFields();
@@ -21,7 +20,7 @@ class EnumMacro {
 		}
 		fields.push({
 			name: "all",
-			doc: null,
+			doc: "Get all entries in the enum as an array.",
 			meta: [],
 			access: [APublic, AStatic],
 			kind: FProp("get", "null", macro : Array<String>),
