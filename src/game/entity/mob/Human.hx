@@ -128,9 +128,7 @@ class Human extends Mob {
 
 		this.turnTimer = Math.random(0, 4) + Math.random();
 
-		// Flip a coin and maybe it'll start walking.
-		if (Math.random() > 0.5) {
-			this.changeState(MobStateWalk);
+		if (this.randomizeState()) {
 			return;
 		}
 
