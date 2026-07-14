@@ -250,6 +250,8 @@ class Human extends Mob {
 				this.walkLogic(delta, moveResult);
 		}
 
+		this.randomizeState();
+
 		this.move(delta);
 
 		this.teleportToPlayer();
