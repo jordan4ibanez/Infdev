@@ -109,6 +109,10 @@ class Human extends Mob {
 			return;
 		}
 
+		if (this.randomizeState()) {
+			return;
+		}
+
 		this.velocityTarget = 4;
 
 		this.turnTimer = Math.random(4, 8) + Math.random();
