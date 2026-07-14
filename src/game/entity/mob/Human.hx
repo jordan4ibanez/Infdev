@@ -12,6 +12,11 @@ private enum abstract MobState(String) to String {
 	var MobStateWalk;
 }
 
+private final stateAnimationDictionary: Map<MobState, PlayerAnimation> = [
+	MobStateIdle => PlayerAnimationIdle,
+	MobStateWalk => PlayerAnimationHuman,
+];
+
 @:luantiEntity("infdev:human")
 class Human extends Mob {
 	var velocityVector: Vec3 = new Vec3();
@@ -32,14 +37,17 @@ class Human extends Mob {
 
 	var state: MobState = MobStateIdle;
 
-	function changeState(newState: MobState, animation: PlayerAnimation): Void {
+	function changeState(newState: MobState): Void {
 		this.state = newState;
-		if (this.currentAnimation == animation) {
+
+		var anim = stateAnimationDictionary[newState];
+
+		if (this.currentAnimation == anim) {
 			return;
 		}
 
-		this.object.playAnimation(animation, {priority: animationPriority});
-		this.currentAnimation = animation;
+		this.object.playAnimation(anim, {priority: animationPriority});
+		this.currentAnimation = anim;
 		this.animationPriority++;
 	}
 
@@ -86,6 +94,8 @@ class Human extends Mob {
 			return;
 		}
 
+		this.velocityTarget = 4;
+
 		this.turnTimer = Math.random(4, 8) + Math.random();
 
 		// A thought has come through. Walk in a random direction.
@@ -98,6 +108,14 @@ class Human extends Mob {
 		this.turnTimer -= delta;
 
 		if (this.turnTimer > 0) {
+			return;
+		}
+
+		this.turnTimer = Math.random(0, 4) + Math.random();
+
+		// Flip a coin and maybe it'll start walking.
+		if (Math.random() > 0.5) {
+			this.changeState(MobStateWalk);
 			return;
 		}
 
@@ -197,7 +215,7 @@ class Human extends Mob {
 
 		this.setSize(1, 2);
 
-		this.changeState(MobStateIdle, PlayerAnimationIdle);
+		this.changeState(MobStateIdle);
 	}
 
 	override function onStep(delta: Float, moveResult: MoveResult) {
