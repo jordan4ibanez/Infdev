@@ -5,6 +5,7 @@ import src.engine.Core;
 import src.engine.entity.MoveResult;
 import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
+import src.game.entity.Player.PlayerAnimation;
 
 private enum abstract MobState(String) to String {
 	var MobStateIdle;
@@ -23,10 +24,22 @@ class Human extends Mob {
 	var jumpAttemptLimit: Int = cast Math.random(1, 4);
 	var oldJumpPosition: Vec2 = new Vec2();
 
+	var currentAnimation: PlayerAnimation;
+
 	// Stop looking at my hackjob.
 	var animationPriority = -2_147_483_648;
 
 	var state: MobState = MobStateIdle;
+
+	function setAnimation(animation: PlayerAnimation): Void {
+		if (this.currentAnimation == animation) {
+			return;
+		}
+
+		this.object.playAnimation(animation, {priority: animationPriority});
+		this.currentAnimation = animation;
+		this.animationPriority++;
+	}
 
 	function jump(): Void {
 		var pos = this.object.getPos();
