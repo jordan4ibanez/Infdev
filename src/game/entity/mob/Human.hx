@@ -23,6 +23,7 @@ class Human extends Mob {
 	var jumpAttempts: Int = 0;
 	var jumpAttemptLimit: Int = cast Math.random(1, 4);
 	var oldJumpPosition: Vec2 = new Vec2();
+	var turnSpeed = 5;
 
 	var currentAnimation: PlayerAnimation;
 
@@ -141,8 +142,30 @@ class Human extends Mob {
 		}
 	}
 
-	inline function doModelYawVisual(): Void {
-		this.object.setYaw(yawTarget);
+	inline function doModelYawVisual(delta: Float): Void {
+		// "Smoothly" rotates the mob. This was AI generated but it needed to be overhauled.
+		var yaw = this.object.getYaw();
+
+		var diff = this.yawTarget - yaw;
+
+		while (diff > Math.PI) {
+			diff -= Math.PI * 2;
+		}
+		while (diff < -Math.PI) {
+			diff += Math.PI * 2;
+		}
+
+		var step = turnSpeed * delta;
+
+		if (Math.abs(diff) <= step) {
+			yaw = this.yawTarget;
+		} else {
+			yaw += (diff > 0) ? step : -step;
+		}
+
+		yaw = (yaw + Math.PI * 2) % (Math.PI * 2);
+
+		this.object.setYaw(yaw);
 	}
 
 	override function setHP(hp: Int) {
@@ -189,6 +212,6 @@ class Human extends Mob {
 
 		this.teleportToPlayer();
 
-		this.doModelYawVisual();
+		this.doModelYawVisual(delta);
 	}
 }
