@@ -31,7 +31,7 @@ class Human extends Mob {
 
 	var state: MobState = MobStateIdle;
 
-	function setAnimation(animation: PlayerAnimation): Void {
+	function changeState(newState: MobState, animation: PlayerAnimation): Void {
 		if (this.currentAnimation == animation) {
 			return;
 		}
