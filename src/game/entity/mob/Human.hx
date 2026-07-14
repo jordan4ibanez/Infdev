@@ -114,11 +114,10 @@ class Human extends Mob {
 		}
 
 		if (this.turnTimer > 0) {
+			this.performingState = true;
 			return;
-		}
-
-		if (this.randomizeState()) {
-			return;
+		} else {
+			this.performingState = false;
 		}
 
 		this.velocityTarget = 4;
