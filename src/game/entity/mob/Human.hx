@@ -78,6 +78,28 @@ class Human extends Mob {
 		}
 	}
 
+	/**
+	 * A very basic optimization for mobs.
+	 * If the state timer is above 0 or ranLogic is true it will return true.
+	 * If your state timer is less than or equal to 0 this will set runningLogic to false.
+	 * This is to trigger an initial cycle of the state logic.
+	 * @return Bool
+	 */
+	function catchLogic(): Bool {
+		if (this.stateTimer > 0) {
+			if (this.ranLogic) {
+				return true;
+			}
+		} else {
+			this.runningLogic = false;
+		}
+		// And this catches an attempted second run and prevents weird double behavior.
+		if (this.ranLogic) {
+			return true;
+		}
+		return false;
+	}
+
 	function jump(): Void {
 		var pos = this.object.getPos();
 		if (oldJumpPosition.x == pos.x || oldJumpPosition.y == pos.z) {
@@ -117,15 +139,7 @@ class Human extends Mob {
 			}
 		}
 
-		if (this.stateTimer > 0) {
-			if (this.ranLogic) {
-				return;
-			}
-		} else {
-			this.runningLogic = false;
-		}
-		// And this catches an attempted second run and prevents weird double behavior.
-		if (this.ranLogic) {
+		if (this.catchLogic()) {
 			return;
 		}
 
@@ -147,15 +161,7 @@ class Human extends Mob {
 		// Do some basic "thinking processing".
 		this.stateTimer -= delta;
 
-		if (this.stateTimer > 0) {
-			if (this.ranLogic) {
-				return;
-			}
-		} else {
-			this.runningLogic = false;
-		}
-		// And this catches an attempted second run and prevents weird double behavior.
-		if (this.ranLogic) {
+		if (this.catchLogic()) {
 			return;
 		}
 
