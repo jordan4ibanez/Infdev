@@ -49,7 +49,10 @@ class Human extends Mob {
 			return;
 		}
 
-		this.object.playAnimation(anim, {priority: animationPriority});
+		this.object.playAnimation(anim, {
+			priority: animationPriority,
+			blend: 0.25,
+		});
 		this.currentAnimation = anim;
 		this.animationPriority++;
 	}
