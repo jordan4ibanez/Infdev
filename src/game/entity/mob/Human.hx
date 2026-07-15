@@ -30,7 +30,8 @@ class Human extends Mob {
 	var jumpAttemptLimit: Int = cast Math.random(1, 4);
 	var oldJumpPosition: Vec2 = new Vec2();
 	var turnSpeed = 5;
-	var performingState = true;
+	var runningLogic = true;
+	var ranLogic = false;
 
 	var currentAnimation: PlayerAnimation;
 
@@ -60,9 +61,11 @@ class Human extends Mob {
 	function randomizeState(): Void {
 		// trace(this.performingState);
 
-		if (this.performingState) {
+		if (this.runningLogic) {
 			return;
 		}
+
+		this.ranLogic = false;
 
 		// Flip a coin and maybe it'll change state.
 		if (Math.random() > 0.1) {
@@ -114,10 +117,10 @@ class Human extends Mob {
 		}
 
 		if (this.stateTimer > 0) {
-			this.performingState = true;
+			this.runningLogic = true;
 			return;
 		} else {
-			this.performingState = false;
+			this.runningLogic = false;
 		}
 
 		this.stateTimer = Math.random(4, 8) + Math.random();
@@ -136,10 +139,10 @@ class Human extends Mob {
 
 		if (this.stateTimer > 0) {
 			// trace(this.turnTimer);
-			this.performingState = true;
+			this.runningLogic = true;
 			return;
 		} else {
-			this.performingState = false;
+			this.runningLogic = false;
 		}
 
 		this.turnSpeed = cast Math.random(3, 5);
