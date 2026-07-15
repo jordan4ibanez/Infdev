@@ -14,8 +14,8 @@ private enum abstract MobState(String) to String {
 }
 
 private final stateAnimationDictionary: Map<MobState, PlayerAnimation> = [
-	MobStateIdle => PlayerAnimationIdle,
-	MobStateWalk => PlayerAnimationHuman,
+	MobStateIdle => PlayerAnimationHumanIdle,
+	MobStateWalk => PlayerAnimationHumanWalk,
 ];
 
 @:luantiEntity("infdev:human")
