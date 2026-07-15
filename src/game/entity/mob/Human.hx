@@ -118,6 +118,7 @@ class Human extends Mob {
 
 		if (this.stateTimer > 0) {
 			this.runningLogic = true;
+			return;
 		} else {
 			this.runningLogic = false;
 		}
@@ -144,8 +145,8 @@ class Human extends Mob {
 		this.stateTimer -= delta;
 
 		if (this.stateTimer > 0) {
-			// trace(this.turnTimer);
 			this.runningLogic = true;
+			return;
 		} else {
 			this.runningLogic = false;
 		}
