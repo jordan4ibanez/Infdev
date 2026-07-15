@@ -118,8 +118,9 @@ class Human extends Mob {
 		}
 
 		if (this.stateTimer > 0) {
-			this.runningLogic = true;
-			return;
+			if (this.ranLogic) {
+				return;
+			}
 		} else {
 			this.runningLogic = false;
 		}
