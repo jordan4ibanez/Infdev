@@ -153,6 +153,8 @@ class Human extends Mob {
 
 		this.stateTimer = Math.random(4, 8) + Math.random();
 
+		this.acceleration = 3;
+
 		// A thought has come through. Walk in a random direction.
 
 		trace("walking", Math.random());
@@ -172,6 +174,8 @@ class Human extends Mob {
 		}
 
 		this.turnSpeed = cast Math.random(3, 5);
+
+		this.acceleration = 6;
 
 		this.stateTimer = Math.random(0, 4) + Math.random();
 
