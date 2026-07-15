@@ -137,7 +137,8 @@ class Human extends Mob {
 		this.yawTarget = Math.random() * (Math.pi * 2);
 		this.velocityTarget = 4;
 
-		// Tell the logic director it ran.
+		// Tell the logic director it is running.
+		this.runningLogic = true;
 		this.ranLogic = true;
 	}
 
