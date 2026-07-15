@@ -85,7 +85,7 @@ class Human extends Mob {
 	 * This is to trigger an initial cycle of the state logic.
 	 * 
 	 * ! Your initialization code should go under this. And call didInitCode() after it!
-	 * @return Bool
+	 * @return Bool If the state intialization already ran.
 	 */
 	function initAlreadyRan(): Bool {
 		if (this.stateTimer > 0) {
@@ -157,7 +157,7 @@ class Human extends Mob {
 
 		// A thought has come through. Walk in a random direction.
 
-		trace("walking", Math.random());
+		// trace("walking", Math.random());
 
 		this.yawTarget = Math.random() * (Math.pi * 2);
 		this.velocityTarget = 4;
@@ -179,7 +179,7 @@ class Human extends Mob {
 
 		this.stateTimer = Math.random(0, 4) + Math.random();
 
-		trace("idling", Math.random());
+		// trace("idling", Math.random());
 		this.yawTarget = Math.random() * (Math.pi * 2);
 		this.velocityTarget = 0;
 
