@@ -129,7 +129,7 @@ class Human extends Mob {
 
 		// A thought has come through. Walk in a random direction.
 
-		trace("walking");
+		trace("walking", Math.random());
 
 		this.yawTarget = Math.random() * (Math.pi * 2);
 		this.velocityTarget = 4;
@@ -156,7 +156,7 @@ class Human extends Mob {
 
 		this.stateTimer = Math.random(0, 4) + Math.random();
 
-		trace("idling");
+		trace("idling", Math.random());
 		this.yawTarget = Math.random() * (Math.pi * 2);
 		this.velocityTarget = 0;
 
