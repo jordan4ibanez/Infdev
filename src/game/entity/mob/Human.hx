@@ -102,6 +102,12 @@ class Human extends Mob {
 		return false;
 	}
 
+	function didInitCode(): Void {
+		// Tell the logic director it is running.
+		this.runningLogic = true;
+		this.ranLogic = true;
+	}
+
 	function jump(): Void {
 		var pos = this.object.getPos();
 		if (oldJumpPosition.x == pos.x || oldJumpPosition.y == pos.z) {
@@ -154,9 +160,7 @@ class Human extends Mob {
 		this.yawTarget = Math.random() * (Math.pi * 2);
 		this.velocityTarget = 4;
 
-		// Tell the logic director it is running.
-		this.runningLogic = true;
-		this.ranLogic = true;
+		this.didInitCode();
 	}
 
 	function idleLogic(delta: Float, moveResult: MoveResult): Void {
@@ -175,9 +179,7 @@ class Human extends Mob {
 		this.yawTarget = Math.random() * (Math.pi * 2);
 		this.velocityTarget = 0;
 
-		// Tell the logic director it is running.
-		this.runningLogic = true;
-		this.ranLogic = true;
+		this.didInitCode();
 	}
 
 	function move(delta: Float): Void {
