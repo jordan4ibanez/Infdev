@@ -22,7 +22,7 @@ private final stateAnimationDictionary: Map<MobState, PlayerAnimation> = [
 class Human extends Mob {
 	var velocityVector: Vec3 = new Vec3();
 	var drivingForce: Vec3 = new Vec3();
-	var turnTimer: Float = 0;
+	var stateTimer: Float = 0;
 	var yawTarget: Float = 0;
 	var acceleration: Float = 3;
 	var velocityTarget: Float = 4;
@@ -80,7 +80,7 @@ class Human extends Mob {
 			// trace('trying $jumpAttempts');
 			jumpAttempts++;
 			if (jumpAttempts >= 2) {
-				turnTimer = -1;
+				stateTimer = -1;
 				jumpAttempts = 0;
 				jumpAttemptLimit = cast Math.random(0, 4);
 				// trace("failure. turning");
@@ -97,7 +97,7 @@ class Human extends Mob {
 
 	function walkLogic(delta: Float, moveResult: MoveResult): Void {
 		// Do some basic "thinking processing".
-		this.turnTimer -= delta;
+		this.stateTimer -= delta;
 
 		if (moveResult.collides) {
 			// untyped print("==============");
@@ -113,14 +113,14 @@ class Human extends Mob {
 			}
 		}
 
-		if (this.turnTimer > 0) {
+		if (this.stateTimer > 0) {
 			this.performingState = true;
 			return;
 		} else {
 			this.performingState = false;
 		}
 
-		this.turnTimer = Math.random(4, 8) + Math.random();
+		this.stateTimer = Math.random(4, 8) + Math.random();
 
 		// A thought has come through. Walk in a random direction.
 
@@ -132,9 +132,9 @@ class Human extends Mob {
 
 	function idleLogic(delta: Float, moveResult: MoveResult): Void {
 		// Do some basic "thinking processing".
-		this.turnTimer -= delta;
+		this.stateTimer -= delta;
 
-		if (this.turnTimer > 0) {
+		if (this.stateTimer > 0) {
 			// trace(this.turnTimer);
 			this.performingState = true;
 			return;
@@ -144,7 +144,7 @@ class Human extends Mob {
 
 		this.turnSpeed = cast Math.random(3, 5);
 
-		this.turnTimer = Math.random(0, 4) + Math.random();
+		this.stateTimer = Math.random(0, 4) + Math.random();
 
 		trace("idling");
 		this.yawTarget = Math.random() * (Math.pi * 2);
