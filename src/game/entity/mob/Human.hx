@@ -118,7 +118,9 @@ class Human extends Mob {
 
 		if (this.stateTimer > 0) {
 			this.runningLogic = true;
-			return;
+			if (this.ranLogic) {
+				return;
+			}
 		} else {
 			this.runningLogic = false;
 		}
@@ -131,6 +133,9 @@ class Human extends Mob {
 
 		this.yawTarget = Math.random() * (Math.pi * 2);
 		this.velocityTarget = 4;
+
+		// Tell the logic director it ran.
+		this.ranLogic = true;
 	}
 
 	function idleLogic(delta: Float, moveResult: MoveResult): Void {
@@ -140,7 +145,9 @@ class Human extends Mob {
 		if (this.stateTimer > 0) {
 			// trace(this.turnTimer);
 			this.runningLogic = true;
-			return;
+			if (this.ranLogic) {
+				return;
+			}
 		} else {
 			this.runningLogic = false;
 		}
@@ -152,6 +159,9 @@ class Human extends Mob {
 		trace("idling");
 		this.yawTarget = Math.random() * (Math.pi * 2);
 		this.velocityTarget = 0;
+
+		// Tell the logic director it ran.
+		this.ranLogic = true;
 	}
 
 	function move(delta: Float): Void {
