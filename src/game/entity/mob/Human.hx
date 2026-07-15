@@ -158,6 +158,8 @@ class Human extends Mob {
 
 		this.acceleration = 3;
 
+		this.turnSpeed = 5;
+
 		// A thought has come through. Walk in a random direction.
 
 		// trace("walking", Math.random());
@@ -190,6 +192,7 @@ class Human extends Mob {
 	}
 
 	function move(delta: Float): Void {
+		// this.object.getYaw() is smoother looking but this is more accurate.
 		var targetVelocity = Core.yawToDir(this.yawTarget);
 		targetVelocity.multiplyScalar(this.velocityTarget);
 
