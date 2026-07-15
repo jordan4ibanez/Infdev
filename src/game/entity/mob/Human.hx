@@ -118,11 +118,12 @@ class Human extends Mob {
 
 		if (this.stateTimer > 0) {
 			this.runningLogic = true;
-			if (this.ranLogic) {
-				return;
-			}
 		} else {
 			this.runningLogic = false;
+		}
+		// And this catches an attempted second run and prevents weird double behavior.
+		if (this.ranLogic) {
+			return;
 		}
 
 		this.stateTimer = Math.random(4, 8) + Math.random();
@@ -145,11 +146,12 @@ class Human extends Mob {
 		if (this.stateTimer > 0) {
 			// trace(this.turnTimer);
 			this.runningLogic = true;
-			if (this.ranLogic) {
-				return;
-			}
 		} else {
 			this.runningLogic = false;
+		}
+		// And this catches an attempted second run and prevents weird double behavior.
+		if (this.ranLogic) {
+			return;
 		}
 
 		this.turnSpeed = cast Math.random(3, 5);
