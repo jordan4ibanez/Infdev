@@ -70,8 +70,7 @@ class Human extends Mob {
 		// trace("===RESET===", Math.random(), runningLogic);
 
 		// Flip a coin and maybe it'll change state.
-		if (Math.random() > 0.1) {
-			trace("CHANGE");
+		if (Math.random() > 0.5) {
 			// Maybe it'll be the same state. Who knows!
 			this.changeState(cast MobState.all[Std.random(MobState.all.length)]);
 
