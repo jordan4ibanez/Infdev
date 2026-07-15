@@ -190,9 +190,6 @@ class Human extends Mob {
 	}
 
 	function move(delta: Float): Void {
-		// todo: this needs to smooth it with some kind of acceleration definition for the mob
-		// todo: physics settings for mobs
-
 		var targetVelocity = Core.yawToDir(this.yawTarget);
 		targetVelocity.multiplyScalar(this.velocityTarget);
 
