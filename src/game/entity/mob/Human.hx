@@ -83,9 +83,11 @@ class Human extends Mob {
 	 * If the state timer is above 0 or ranLogic is true it will return true.
 	 * If your state timer is less than or equal to 0 this will set runningLogic to false.
 	 * This is to trigger an initial cycle of the state logic.
+	 * 
+	 * ! Your initialization code should go under this. And call didInitCode() after it!
 	 * @return Bool
 	 */
-	function catchLogic(): Bool {
+	function initAlreadyRan(): Bool {
 		if (this.stateTimer > 0) {
 			if (this.ranLogic) {
 				return true;
@@ -139,7 +141,7 @@ class Human extends Mob {
 			}
 		}
 
-		if (this.catchLogic()) {
+		if (this.initAlreadyRan()) {
 			return;
 		}
 
@@ -161,7 +163,7 @@ class Human extends Mob {
 		// Do some basic "thinking processing".
 		this.stateTimer -= delta;
 
-		if (this.catchLogic()) {
+		if (this.initAlreadyRan()) {
 			return;
 		}
 
