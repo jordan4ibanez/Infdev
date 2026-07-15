@@ -146,8 +146,9 @@ class Human extends Mob {
 		this.stateTimer -= delta;
 
 		if (this.stateTimer > 0) {
-			this.runningLogic = true;
-			return;
+			if (this.ranLogic) {
+				return;
+			}
 		} else {
 			this.runningLogic = false;
 		}
@@ -164,7 +165,8 @@ class Human extends Mob {
 		this.yawTarget = Math.random() * (Math.pi * 2);
 		this.velocityTarget = 0;
 
-		// Tell the logic director it ran.
+		// Tell the logic director it is running.
+		this.runningLogic = true;
 		this.ranLogic = true;
 	}
 
