@@ -17,8 +17,9 @@ enum abstract PlayerAnimation(String) to String {
 	var PlayerAnimationMineWalk = "mine_walk";
 	var PlayerAnimationLookPitch = "look_pitch";
 	var PlayerAnimationLookYaw = "look_yaw";
-	// Crazy animation.
-	var PlayerAnimationHuman = "human";
+	// Crazy animation for human mob.
+	var PlayerAnimationHumanIdle = "human_idle";
+	var PlayerAnimationHumanWalk = "human_walk";
 }
 
 final class Player {
