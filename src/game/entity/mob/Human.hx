@@ -18,7 +18,7 @@ private final stateAnimationDictionary: Map<MobState, PlayerAnimation> = [
 	MobStateWalk => PlayerAnimationHumanWalk,
 ];
 
-@:luantiEntity("infdev:human")
+@:register("infdev:human")
 class Human extends Mob {
 	var velocityVector: Vec3 = new Vec3();
 	var drivingForce: Vec3 = new Vec3();
