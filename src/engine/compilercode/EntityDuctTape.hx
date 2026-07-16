@@ -32,7 +32,7 @@ class EntityDuctTape {
 
 		for (meta in localClass.meta.get()) {
 			// trace(meta.name);
-			if (meta.name == ":luantiEntity") {
+			if (meta.name == ":register") {
 				final firstParameter = meta.params[0];
 				if (firstParameter == null) {
 					Context.error("luantiClass requires a string parameter", meta.pos);
