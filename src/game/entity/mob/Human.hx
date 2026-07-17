@@ -7,7 +7,7 @@ import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
 import src.game.entity.Player.PlayerAnimation;
 
-@:build(src.engine.compilercode.EnumMacro.decorateValidator())
+@:build(src.engine.compilercode.EnumMacro.decorate())
 private enum abstract MobState(String) to String {
 	var MobStateIdle;
 	var MobStateWalk;
