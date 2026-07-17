@@ -35,6 +35,7 @@ inline final MAX_ITEM_LEVEL = MAX_LEVEL;
  * Also another note: This one is for items. 
  * Use the ToolDefinition class for tools.
  * Use the NodeDefinition class for nodes.
+ * Use the OreDefinition class for ores.
  */
 @:build(src.engine.compilercode.ItemDefinitionDuctTape.build())
 @:autoBuild(src.engine.compilercode.ItemDefinitionDuctTape.build())
