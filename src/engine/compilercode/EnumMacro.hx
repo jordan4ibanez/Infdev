@@ -7,7 +7,7 @@ import haxe.macro.Expr;
 // This is AI generated to create automated type constraint checking.
 // This code adds special functions to enums.
 class EnumMacro {
-	public static function decorateValidator(): Array<Field> {
+	public static function decorate(): Array<Field> {
 		var fields = Context.getBuildFields();
 		var valueExprs: Array<Expr> = [];
 		for (field in fields) {
