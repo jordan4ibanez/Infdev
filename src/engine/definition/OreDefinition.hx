@@ -18,6 +18,7 @@ package src.engine.definition;
  * Also another note: This one is for ores. 
  * Use the ItemDefinition class for items.
  * Use the ToolDefinition class for tools.
+ * Use the NodeDefinition class for nodes.
  */
 @:luantiDefinitionRoot
 class OreDefinition extends NodeDefinition {
