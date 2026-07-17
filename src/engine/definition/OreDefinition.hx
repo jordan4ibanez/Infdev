@@ -15,7 +15,7 @@ package src.engine.definition;
  * 
  * Never call another override function unless 
  * 
- * Also another note: This one is for nodes. 
+ * Also another note: This one is for ores. 
  * Use the ItemDefinition class for items.
  * Use the ToolDefinition class for tools.
  */
