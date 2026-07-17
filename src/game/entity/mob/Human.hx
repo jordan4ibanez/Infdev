@@ -77,7 +77,7 @@ class Human extends Mob {
 			// Maybe it'll be the same state. Who knows!
 			this.changeState(cast MobState.all[Std.random(MobState.all.length)]);
 
-			trace(this.state);
+			// trace(this.state);
 		}
 	}
 
