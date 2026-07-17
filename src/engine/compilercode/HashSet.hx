@@ -28,15 +28,15 @@ abstract HashSet<T:{}>(Map<T, Bool>) {
 	}
 }
 
-class Blah {
-	static function __init__() {
-		trace("BEGIN TEST OF HASHSET");
-		var x = new HashSet<String>();
-		x.insert("test");
-		trace(x.contains("test"));
-		trace(x.length());
-		x.remove("test");
-		trace(x.length());
-		trace(x.contains("test"));
-	}
-}
+// class Blah {
+// 	static function __init__() {
+// 		trace("BEGIN TEST OF HASHSET");
+// 		var x = new HashSet<String>();
+// 		x.insert("test");
+// 		trace(x.contains("test"));
+// 		trace(x.length());
+// 		x.remove("test");
+// 		trace(x.length());
+// 		trace(x.contains("test"));
+// 	}
+// }
