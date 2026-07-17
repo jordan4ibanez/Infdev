@@ -1,17 +1,18 @@
 package src.engine.definition;
 
-import src.engine.vector.Vec3;
 import lua.Table;
 import src.engine.Core;
 import src.engine.compilercode.LuaArray;
 import src.engine.compilercode.LuaMap;
-import src.engine.definition.MaxLevel.MAX_LEVEL;
 import src.engine.definition.basic.ConnectSides;
 import src.engine.definition.basic.DrawType;
 import src.engine.definition.basic.LiquidType;
+import src.engine.definition.basic.MaxLevel.MAX_LEVEL;
+import src.engine.definition.basic.NodeBox;
 import src.engine.definition.basic.NodeDropTable;
 import src.engine.definition.basic.ParamType1;
 import src.engine.definition.basic.ParamType2;
+import src.engine.definition.basic.PointedThing;
 import src.engine.definition.basic.TileDefinition;
 import src.engine.definition.basic.WavingType;
 import src.engine.definition.graphics.ColorSpec;
@@ -19,6 +20,7 @@ import src.engine.definition.graphics.NodeTextureAlpha;
 import src.engine.definition.sound.NodeSoundTable;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.metadata.NodeMetaRef;
+import src.engine.vector.Vec3;
 import src.game.groups.NodeGroup;
 
 inline final MAX_NODE_LEVEL = MAX_LEVEL;
