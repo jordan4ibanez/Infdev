@@ -24,6 +24,7 @@ inline final MAX_TOOL_LEVEL = MAX_LEVEL;
  * Also another note: This one is for tools. 
  * Use the ItemDefinition class for items.
  * Use the NodeDefinition class for nodes.
+ * Use the OreDefinition class for ores.
  */
 @:luantiDefinitionRoot
 class ToolDefinition extends ItemDefinition {
