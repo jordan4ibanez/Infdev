@@ -3,7 +3,7 @@ package src.game.tool;
 import src.engine.ItemStack;
 import src.engine.NodeTable;
 import src.engine.definition.NodeDefinition.MAX_NODE_LEVEL;
-import src.engine.definition.ToolCapabilities;
+import src.engine.definition.basic.ToolCapabilities;
 import src.engine.definition.ToolDefinition;
 import src.engine.definition.basic.DigParams;
 import src.engine.entity.objectref.ObjectRefBase;
