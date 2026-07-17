@@ -274,7 +274,8 @@ class Human extends Mob {
 		// });
 		// animationPriority++;
 
-		this.setSize(1, 2);
+		// Mimic the player.
+		this.setSize(0.6, 1.77);
 
 		this.changeState(MobStateIdle);
 	}
