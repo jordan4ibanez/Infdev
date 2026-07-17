@@ -1,15 +1,18 @@
 package src.engine.definition;
 
-import src.engine.vector.Vec3;
 import src.engine.Core;
 import src.engine.compilercode.LuaMap;
-import src.engine.definition.MaxLevel.MAX_LEVEL;
 import src.engine.definition.basic.DigParams;
 import src.engine.definition.basic.ItemPointabilitiesTable;
+import src.engine.definition.basic.MaxLevel.MAX_LEVEL;
+import src.engine.definition.basic.PointedThing;
+import src.engine.definition.basic.ToolCapabilities;
+import src.engine.definition.basic.TouchInteractionSetting;
 import src.engine.definition.graphics.ItemImageDefinition;
 import src.engine.definition.graphics.WearBarColors;
 import src.engine.definition.sound.ItemSoundTable;
 import src.engine.entity.objectref.ObjectRefBase;
+import src.engine.vector.Vec3;
 import src.game.groups.ItemGroup;
 
 inline final MAX_ITEM_LEVEL = MAX_LEVEL;
