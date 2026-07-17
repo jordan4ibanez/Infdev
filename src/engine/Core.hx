@@ -5,7 +5,7 @@ import haxe.Constraints.Function;
 import haxe.Rest;
 import haxe.extern.EitherType;
 import src.engine.compilercode.LuaArray;
-import src.engine.definition.PointedThing;
+import src.engine.definition.basic.PointedThing;
 import src.engine.entity.LuaEntity;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefEntity;
