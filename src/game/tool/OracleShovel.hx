@@ -1,7 +1,7 @@
 package src.game.tool;
 
 import src.engine.definition.NodeDefinition.MAX_NODE_LEVEL;
-import src.engine.definition.ToolCapabilities;
+import src.engine.definition.basic.ToolCapabilities;
 import src.engine.definition.ToolDefinition;
 
 @:register("infdev:oracle_shovel")
