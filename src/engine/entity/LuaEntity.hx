@@ -1,6 +1,6 @@
 package src.engine.entity;
 
-import src.engine.definition.MaxLevel.MAX_LEVEL;
+import src.engine.definition.basic.MaxLevel.MAX_LEVEL;
 import src.engine.entity.definition.EntityCollisionBox;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefEntity;
