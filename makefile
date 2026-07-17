@@ -6,4 +6,4 @@ default:
 package:
 	@haxe build.hxml
 	@haxe buildTerrainGenerator.hxml
-	@haxe --run Package.hx
+	@haxe --run Packager.hx
