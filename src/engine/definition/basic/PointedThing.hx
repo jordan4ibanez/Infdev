@@ -1,4 +1,4 @@
-package src.engine.definition;
+package src.engine.definition.basic;
 
 import src.engine.vector.Vec3;
 import src.engine.entity.objectref.ObjectRefBase;
