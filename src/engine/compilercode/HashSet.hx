@@ -36,6 +36,7 @@ class Blah {
 		trace(x.contains("test"));
 		trace(x.length());
 		x.remove("test");
+		trace(x.length());
 		trace(x.contains("test"));
 	}
 }
