@@ -71,10 +71,11 @@ class ItemDefinitionDuctTape {
 			var isToolDef = (registerTag || overrideTag) && superClassName == "ToolDefinition";
 			var isNodeDef = (registerTag || overrideTag) && superClassName == "NodeDefinition";
 			var isItemDef = (registerTag || overrideTag) && superClassName == "ItemDefinition";
+			var isOreDef = (registerTag || overrideTag) && superClassName == "OreDefinition";
 
 			// trace(isItemDef, isToolDef, isNodeDef, className);
 
-			if (!isItemDef && !isToolDef && !isNodeDef) {
+			if (!isItemDef && !isToolDef && !isNodeDef && !isOreDef) {
 				switch (superClassRef.name) {
 					case "ItemDefinition":
 						Context.error('Please decorate this class with @:register("mod:item") or @:override("mod:item")', localClass.pos);
@@ -82,6 +83,8 @@ class ItemDefinitionDuctTape {
 						Context.error('Please decorate this class with @:register("mod:node") or @:override("mod:node")', localClass.pos);
 					case "ToolDefinition":
 						Context.error('Please decorate this class with @:register("mod:tool") or @:override("mod:tool")', localClass.pos);
+					case "OreDefinition":
+						Context.error('Please decorate this class with @:register("mod:ore") or @:override("mod:ore")', localClass.pos);
 
 					default:
 						Context.error(superClassRef.name + ' IS MISSING A DECORATOR SWITCH!!!', localClass.pos);
@@ -98,7 +101,7 @@ class ItemDefinitionDuctTape {
 				luantiRegistrationMethod = "registerCraftItem";
 			} else if (isToolDef) {
 				luantiRegistrationMethod = "registerTool";
-			} else if (isNodeDef) {
+			} else if (isNodeDef || isOreDef) {
 				luantiRegistrationMethod = "registerNode";
 			}
 
