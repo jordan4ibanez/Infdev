@@ -16,7 +16,11 @@ abstract HashSet<T:{}>(Map<T, Bool>) {
 	}
 
 	public inline function length(): Int {
-		return Lambda.count(this);
+		var count = 0;
+		for (_ in this.keys()) {
+			count++;
+		}
+		return count;
 	}
 
 	public inline function remove(thing: T): Bool {
