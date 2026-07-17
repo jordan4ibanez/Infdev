@@ -1,4 +1,4 @@
-package src.engine.definition;
+package src.engine.definition.basic;
 
 // Why 30? I have no idea.
 // Max level for everything. Tools, nodes, items, etc.
