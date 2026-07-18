@@ -25,10 +25,7 @@ typedef OreSpawn = {
 	var clust_size: Int;
 	var y_min: Int;
 	var y_max: Int;
-	// Lower and upper limits for ore (inclusive).
-	// Integer [s16]
 	var flags: String;
-	// Attributes for the ore generation, see 'Ore attributes' section above
 	var noise_threshold: Int;
 	var noise_params: NoiseParams;
 	var biomes: LuaArray<String>;
