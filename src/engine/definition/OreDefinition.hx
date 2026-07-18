@@ -46,16 +46,11 @@ typedef OreSpawn = {
 	var column_height_min: Int;
 	var column_height_max: Int;
 	var column_midpoint_factor: Float;
-	// "puff"
 	var np_puff_top: NoiseParams;
 	var np_puff_bottom: NoiseParams;
-	// "vein"
 	var random_factor: Float;
-	// "stratum"
 	var np_stratum_thickness: NoiseParams;
 	var stratum_thickness: Int;
-	// only used if no noise defined
-	// integer [u16]
 }
 
 /**
