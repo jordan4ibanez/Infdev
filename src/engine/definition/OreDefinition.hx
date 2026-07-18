@@ -14,10 +14,10 @@ enum abstract OreType(String) to String {
 typedef OreSpawnDefinition = {
 	// todo: this should automatically inject itself.
 	// todo: make everything optional
-	var name: String;
-	var ore_type: OreType;
 	// Ore node to place
-	var ore: String;
+	// var name: String;
+	// var ore: String;
+	var ore_type: OreType;
 	var ore_param2: Param2;
 	var wherein: String;
 	var clust_scarcity: Int;
