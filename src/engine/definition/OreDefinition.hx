@@ -4,7 +4,7 @@ import src.engine.compilercode.LuaArray;
 
 typedef OreSpawn = {
 	{
-		name = "",
+		name:String;
 		// If set, core.registered_ores[that_name] will return this definition.
 		ore_type = "",
 		// Supported: "scatter", "sheet", "puff", "blob", "vein", "stratum"
