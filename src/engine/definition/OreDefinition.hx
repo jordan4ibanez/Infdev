@@ -20,7 +20,6 @@ typedef OreSpawn = {
 	var ore: String;
 	var ore_param2: Param2;
 	var wherein: String;
-	// Node to place ore in. Multiple are possible by passing a list.
 	var clust_scarcity: Int;
 	// Ore has a 1 out of clust_scarcity chance of spawning in a node.
 	// If the desired average distance between ores is 'd', set this to
