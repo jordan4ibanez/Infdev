@@ -13,34 +13,34 @@ enum abstract OreType(String) to String {
 
 typedef OreSpawn = {
 	// todo: this should automatically inject itself.
+	// todo: make everything optional
 	var name: String;
 	var ore_type: OreType;
 	// Ore node to place
 	var ore: String;
 	var ore_param2: Param2;
-	// Param2 to set for ore (e.g. facedir rotation)
-	var wherein = "";
+	var wherein: String;
 	// Node to place ore in. Multiple are possible by passing a list.
-	var clust_scarcity = 8 * 8 * 8;
+	var clust_scarcity: Int;
 	// Ore has a 1 out of clust_scarcity chance of spawning in a node.
 	// If the desired average distance between ores is 'd', set this to
 	// d * d * d.
 	// Integer in range [u32]
-	var clust_num_ores = 8;
+	var clust_num_ores: Int;
 	// Amount of ores in a cluster.
 	// Integer in range: [0, 32767]
-	var clust_size = 3;
+	var clust_size: Int;
 	// Size of the bounding box of the cluster.
 	// Integer in range: [0, 32767].
 	// In this example, there is a 3 * 3 * 3 cluster where 8 out of the 27
 	// nodes are coal ore.
-	var y_min = -31000;
-	var y_max = 31000;
+	var y_min: Int;
+	var y_max: Int;
 	// Lower and upper limits for ore (inclusive).
 	// Integer [s16]
-	var flags = "";
+	var flags: String;
 	// Attributes for the ore generation, see 'Ore attributes' section above
-	var noise_threshold = 0;
+	var noise_threshold: Int;
 	// If noise is above this threshold, ore is placed. Not needed for a
 	// uniform distribution.
 	var noise_params = {
