@@ -15,8 +15,8 @@ typedef OreSpawn = {
 	{
 		name:String;
 		// If set, core.registered_ores[that_name] will return this definition.
-		ore_type = "",
-		// Supported: "scatter", "sheet", "puff", "blob", "vein", "stratum"
+		ore_type:OreType;
+		// Supported: "", "", "", "", "", ""
 		ore = "",
 		// Ore node to place
 		ore_param2 = 0,
