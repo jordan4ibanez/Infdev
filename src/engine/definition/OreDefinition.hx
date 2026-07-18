@@ -59,23 +59,23 @@ typedef OreSpawn = {
 	// Can be a list of (or a single) biome names, IDs, or definitions.
 	// Type-specific parameters
 	// "sheet"
-	column_height_min = 1,
-	column_height_max = 16,
-	column_midpoint_factor = 0.5,
+	column_height_min = 1;
+	column_height_max = 16;
+	column_midpoint_factor = 0.5;
 	// "puff"
 	np_puff_top = {
 		offset = 4, scale = 2, spread = {x = 100, y = 100, z = 100}, seed = 47, octaves = 3, persistence = 0.7
-	},
+	};
 	np_puff_bottom = {
 		offset = 4, scale = 2, spread = {x = 100, y = 100, z = 100}, seed = 11, octaves = 3, persistence = 0.7
-	},
+	};
 	// "vein"
-	random_factor = 1.0,
+	random_factor = 1.0;
 	// "stratum"
 	np_stratum_thickness = {
 		offset = 8, scale = 4, spread = {x = 100, y = 100, z = 100}, seed = 17, octaves = 3, persistence = 0.7
-	},
-	stratum_thickness = 8,
+	};
+	stratum_thickness = 8;
 	// only used if no noise defined
 	// integer [u16]
 }
