@@ -23,10 +23,6 @@ typedef OreSpawn = {
 	var clust_scarcity: Int;
 	var clust_num_ores: Int;
 	var clust_size: Int;
-	// Size of the bounding box of the cluster.
-	// Integer in range: [0, 32767].
-	// In this example, there is a 3 * 3 * 3 cluster where 8 out of the 27
-	// nodes are coal ore.
 	var y_min: Int;
 	var y_max: Int;
 	// Lower and upper limits for ore (inclusive).
