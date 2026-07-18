@@ -1,5 +1,7 @@
 package src.engine.definition;
 
+import src.engine.compilercode.LuaArray;
+
 typedef OreSpawn =  {
         /*
 {
@@ -134,6 +136,7 @@ typedef OreSpawn =  {
 @:luantiDefinitionRoot
 class OreDefinition extends NodeDefinition {
 
+    var spawns: LuaArray<OreSpawn>;
 
 	public function new() {
 		super();
