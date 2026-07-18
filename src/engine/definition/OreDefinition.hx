@@ -43,9 +43,7 @@ typedef OreSpawn = {
 	var noise_threshold: Int;
 	// If noise is above this threshold, ore is placed. Not needed for a
 	// uniform distribution.
-	var noise_params = {
-		offset = 0, scale = 1, spread = {x = 100, y = 100, z = 100}, seed = 23, octaves = 3, persistence = 0.7
-	};
+	var noise_params: NoiseParams;
 	// NoiseParams structure describing one of the noises used for
 	// ore distribution.
 	// Needed by "sheet", "puff", "blob" and "vein" ores.
