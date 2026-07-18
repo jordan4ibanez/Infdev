@@ -50,7 +50,7 @@ typedef OreSpawn = {
 	// Omit from "scatter" ore for a uniform ore distribution.
 	// Omit from "stratum" ore for a simple horizontal strata from y_min to
 	// y_max.
-	var biomes = {"desert", "rainforest"};
+	var biomes: LuaArray<String>;
 	// List of biomes in which this ore occurs.
 	// Occurs in all biomes if this is omitted, and ignored if the Mapgen
 	// being used does not support biomes.
