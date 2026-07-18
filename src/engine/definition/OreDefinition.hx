@@ -17,25 +17,45 @@ typedef OreSpawnDefinition = {
 	// Ore node to place
 	// var name: String;
 	// var ore: String;
+	@:optional
 	var ore_type: OreType;
+	@:optional
 	var ore_param2: Param2;
+	@:optional
 	var wherein: String;
+	@:optional
 	var clust_scarcity: Int;
+	@:optional
 	var clust_num_ores: Int;
+	@:optional
 	var clust_size: Int;
+	@:optional
 	var y_min: Int;
+	@:optional
 	var y_max: Int;
+	@:optional
 	var flags: String;
+	@:optional
 	var noise_threshold: Int;
+	@:optional
 	var noise_params: NoiseParams;
+	@:optional
 	var biomes: LuaArray<String>;
+	@:optional
 	var column_height_min: Int;
+	@:optional
 	var column_height_max: Int;
+	@:optional
 	var column_midpoint_factor: Float;
+	@:optional
 	var np_puff_top: NoiseParams;
+	@:optional
 	var np_puff_bottom: NoiseParams;
+	@:optional
 	var random_factor: Float;
+	@:optional
 	var np_stratum_thickness: NoiseParams;
+	@:optional
 	var stratum_thickness: Int;
 }
 
