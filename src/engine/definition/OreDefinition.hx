@@ -41,8 +41,6 @@ typedef OreSpawn = {
 	var flags: String;
 	// Attributes for the ore generation, see 'Ore attributes' section above
 	var noise_threshold: Int;
-	// If noise is above this threshold, ore is placed. Not needed for a
-	// uniform distribution.
 	var noise_params: NoiseParams;
 	// NoiseParams structure describing one of the noises used for
 	// ore distribution.
