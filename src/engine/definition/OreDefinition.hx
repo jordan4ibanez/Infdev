@@ -15,9 +15,9 @@ typedef OreSpawn = {
 	// todo: this should automatically inject itself.
 	name: String;
 	ore_type: OreType;
-	ore: String,
 	// Ore node to place
-	ore_param2 = 0,
+	ore: String;
+	ore_param2: Param2;
 	// Param2 to set for ore (e.g. facedir rotation)
 	wherein = "",
 	// Node to place ore in. Multiple are possible by passing a list.
