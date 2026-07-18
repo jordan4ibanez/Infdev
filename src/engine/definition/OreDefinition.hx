@@ -22,8 +22,6 @@ typedef OreSpawn = {
 	var wherein: String;
 	var clust_scarcity: Int;
 	var clust_num_ores: Int;
-	// Amount of ores in a cluster.
-	// Integer in range: [0, 32767]
 	var clust_size: Int;
 	// Size of the bounding box of the cluster.
 	// Integer in range: [0, 32767].
