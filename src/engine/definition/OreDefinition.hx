@@ -2,6 +2,15 @@ package src.engine.definition;
 
 import src.engine.compilercode.LuaArray;
 
+enum abstract OreType(String) to String {
+	var OreTypescatter = "scatter";
+	var OreTypesheet = "sheet";
+	var OreTypepuff = "puff";
+	var OreTypeblob = "blob";
+	var OreTypevein = "vein";
+	var OreTypestratum = "stratum";
+}
+
 typedef OreSpawn = {
 	{
 		name:String;
