@@ -21,11 +21,19 @@ jobs:
           haxe-version: 4.3.7
 
       - name: Run Build Script
-        run: haxe --run Packager
+        env:
+          # This pulls the tag name from the release.
+          VERSION: ${{ github.ref_name }}
+        run: |
+          make package
+          # Rename the file if a version exists.
+          if [ -n "$VERSION" ]; then
+              mv Infdev.zip "Infdev-$VERSION.zip"
+          fi
 
       - name: Upload Artifact
         if: github.event_name == 'push' || github.event_name == 'release'
         uses: actions/upload-artifact@v4
         with:
           name: mod-package
-          path: dist/*.zip
+          path: Infdev-*.zip
