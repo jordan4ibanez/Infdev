@@ -12,7 +12,7 @@ enum abstract OreType(String) to String {
 }
 
 typedef OreSpawn = {
-	{
+	
 		// todo: this should automatically inject itself.
 		name:String;
 		ore_type:OreType;
@@ -79,7 +79,7 @@ typedef OreSpawn = {
 		stratum_thickness = 8,
 		// only used if no noise defined
 		// integer [u16]
-	}
+	
 }
 
 /**
