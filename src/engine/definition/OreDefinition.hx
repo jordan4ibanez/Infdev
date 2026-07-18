@@ -3,7 +3,7 @@ package src.engine.definition;
 import src.engine.compilercode.LuaArray;
 
 typedef OreSpawn = {
-	/*
+	
 		{
 		name = "",
 		-- If set, core.registered_ores[that_name] will return this definition.
@@ -110,7 +110,7 @@ typedef OreSpawn = {
 		-- only used if no noise defined
 		-- integer [u16]
 		}
-	 */
+	 
 }
 
 /**
