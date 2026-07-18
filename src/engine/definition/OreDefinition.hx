@@ -43,12 +43,6 @@ typedef OreSpawn = {
 	var noise_threshold: Int;
 	var noise_params: NoiseParams;
 	var biomes: LuaArray<String>;
-	// List of biomes in which this ore occurs.
-	// Occurs in all biomes if this is omitted, and ignored if the Mapgen
-	// being used does not support biomes.
-	// Can be a list of (or a single) biome names, IDs, or definitions.
-	// Type-specific parameters
-	// "sheet"
 	var column_height_min: Int;
 	var column_height_max: Int;
 	var column_midpoint_factor: Float;
