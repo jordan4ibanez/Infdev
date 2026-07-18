@@ -11,7 +11,7 @@ enum abstract OreType(String) to String {
 	var OreTypeStratum = "stratum";
 }
 
-typedef OreSpawn = {
+typedef OreSpawnDefinition = {
 	// todo: this should automatically inject itself.
 	// todo: make everything optional
 	var name: String;
@@ -61,7 +61,7 @@ typedef OreSpawn = {
  */
 @:luantiDefinitionRoot
 class OreDefinition extends NodeDefinition {
-	var spawns: LuaArray<OreSpawn>;
+	var spawns: LuaArray<OreSpawnDefinition>;
 
 	public function new() {
 		super();
