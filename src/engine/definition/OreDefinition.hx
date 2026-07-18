@@ -42,12 +42,6 @@ typedef OreSpawn = {
 	// Attributes for the ore generation, see 'Ore attributes' section above
 	var noise_threshold: Int;
 	var noise_params: NoiseParams;
-	// NoiseParams structure describing one of the noises used for
-	// ore distribution.
-	// Needed by "sheet", "puff", "blob" and "vein" ores.
-	// Omit from "scatter" ore for a uniform ore distribution.
-	// Omit from "stratum" ore for a simple horizontal strata from y_min to
-	// y_max.
 	var biomes: LuaArray<String>;
 	// List of biomes in which this ore occurs.
 	// Occurs in all biomes if this is omitted, and ignored if the Mapgen
