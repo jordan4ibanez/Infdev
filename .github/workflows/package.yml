@@ -34,3 +34,12 @@ jobs:
         with:
           name: mod-package
           path: Infdev-*.zip
+
+      - name: Upload to Release
+        uses: softprops/action-gh-release@v2
+        # This ensures it only tries to upload to a release.
+        if: github.event_name == 'release'
+        with:
+          files: Infdev-*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
