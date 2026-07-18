@@ -7,7 +7,7 @@ class Packager {
 		final ____components = '
 			mods/
 			game.conf
-			LICENSE
+			LICENSE.md
 			README.md
 		';
 
