@@ -13,11 +13,10 @@ enum abstract OreType(String) to String {
 
 typedef OreSpawn = {
 	{
+		// todo: this should automatically inject itself.
 		name:String;
-		// If set, core.registered_ores[that_name] will return this definition.
 		ore_type:OreType;
-		// Supported: "", "", "", "", "", ""
-		ore = "",
+		ore:String,
 		// Ore node to place
 		ore_param2 = 0,
 		// Param2 to set for ore (e.g. facedir rotation)
