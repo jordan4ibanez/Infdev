@@ -21,10 +21,6 @@ typedef OreSpawn = {
 	var ore_param2: Param2;
 	var wherein: String;
 	var clust_scarcity: Int;
-	// Ore has a 1 out of clust_scarcity chance of spawning in a node.
-	// If the desired average distance between ores is 'd', set this to
-	// d * d * d.
-	// Integer in range [u32]
 	var clust_num_ores: Int;
 	// Amount of ores in a cluster.
 	// Integer in range: [0, 32767]
