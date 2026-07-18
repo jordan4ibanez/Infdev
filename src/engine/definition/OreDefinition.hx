@@ -61,7 +61,7 @@ typedef OreSpawnDefinition = {
  */
 @:luantiDefinitionRoot
 class OreDefinition extends NodeDefinition {
-	var spawns: LuaArray<OreSpawnDefinition>;
+	var oreSpawns: LuaArray<OreSpawnDefinition>;
 
 	public function new() {
 		super();
