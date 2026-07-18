@@ -19,40 +19,40 @@ typedef OreSpawn = {
 	ore: String;
 	ore_param2: Param2;
 	// Param2 to set for ore (e.g. facedir rotation)
-	wherein = "",
+	wherein = "";
 	// Node to place ore in. Multiple are possible by passing a list.
-	clust_scarcity = 8 * 8 * 8,
+	clust_scarcity = 8 * 8 * 8;
 	// Ore has a 1 out of clust_scarcity chance of spawning in a node.
 	// If the desired average distance between ores is 'd', set this to
 	// d * d * d.
 	// Integer in range [u32]
-	clust_num_ores = 8,
+	clust_num_ores = 8;
 	// Amount of ores in a cluster.
 	// Integer in range: [0, 32767]
-	clust_size = 3,
+	clust_size = 3;
 	// Size of the bounding box of the cluster.
 	// Integer in range: [0, 32767].
 	// In this example, there is a 3 * 3 * 3 cluster where 8 out of the 27
 	// nodes are coal ore.
-	y_min = -31000,
-	y_max = 31000,
+	y_min = -31000;
+	y_max = 31000;
 	// Lower and upper limits for ore (inclusive).
 	// Integer [s16]
-	flags = "",
+	flags = "";
 	// Attributes for the ore generation, see 'Ore attributes' section above
-	noise_threshold = 0,
+	noise_threshold = 0;
 	// If noise is above this threshold, ore is placed. Not needed for a
 	// uniform distribution.
 	noise_params = {
 		offset = 0, scale = 1, spread = {x = 100, y = 100, z = 100}, seed = 23, octaves = 3, persistence = 0.7
-	},
+	};
 	// NoiseParams structure describing one of the noises used for
 	// ore distribution.
 	// Needed by "sheet", "puff", "blob" and "vein" ores.
 	// Omit from "scatter" ore for a uniform ore distribution.
 	// Omit from "stratum" ore for a simple horizontal strata from y_min to
 	// y_max.
-	biomes = {"desert", "rainforest"},
+	biomes = {"desert", "rainforest"};
 	// List of biomes in which this ore occurs.
 	// Occurs in all biomes if this is omitted, and ignored if the Mapgen
 	// being used does not support biomes.
