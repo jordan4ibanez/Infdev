@@ -42,7 +42,7 @@ class TerrainGenerator {
 		spread: new Vec3(100, 100, 100),
 		seed: Lua.tonumber(Core.getMapgenSetting("seed")) + 111,
 		octaves: 2,
-		persistance: 1.0,
+		persistence: 1.0,
 		lacunarity: 2.0,
 	};
 
@@ -52,7 +52,7 @@ class TerrainGenerator {
 		spread: new Vec3(25, 25, 25),
 		seed: Lua.tonumber(Core.getMapgenSetting("seed")),
 		octaves: 2,
-		persistance: 0.2,
+		persistence: 0.2,
 		lacunarity: 5.0,
 	};
 
@@ -62,7 +62,7 @@ class TerrainGenerator {
 		spread: new Vec3(7, 7, 7),
 		seed: Lua.tonumber(Core.getMapgenSetting("seed")),
 		octaves: 1,
-		persistance: 0.3,
+		persistence: 0.3,
 		lacunarity: 3,
 	};
 
@@ -72,7 +72,7 @@ class TerrainGenerator {
 		spread: new Vec3(500, 500, 500),
 		seed: Lua.tonumber(Core.getMapgenSetting("seed")) + 111,
 		octaves: 2,
-		persistance: 1,
+		persistence: 1,
 		lacunarity: 2,
 	};
 
@@ -82,7 +82,7 @@ class TerrainGenerator {
 		spread: new Vec3(500, 400, 500),
 		seed: Lua.tonumber(Core.getMapgenSetting("seed")),
 		octaves: 4,
-		persistance: 0.63,
+		persistence: 0.63,
 		lacunarity: 2,
 	};
 
@@ -92,7 +92,7 @@ class TerrainGenerator {
 		spread: new Vec3(50, 60, 50),
 		seed: Lua.tonumber(Core.getMapgenSetting("seed")),
 		octaves: 2,
-		persistance: 0.6,
+		persistence: 0.6,
 		lacunarity: 4.0,
 	};
 
