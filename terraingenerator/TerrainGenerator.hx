@@ -36,59 +36,65 @@ class TerrainGenerator {
 	final bedrockID = Core.getContentID("infdev:bedrock");
 	final sandstoneID = Core.getContentID("infdev:sandstone");
 
-	final caveBlendParameters = new NoiseParams()
+	final caveBlendParameters = {
 		.setOffset(0) //
 		.setScale(0.5) //
 		.setSpread(new Vec3(100, 100, 100)) //
 		.setSeed(Lua.tonumber(Core.getMapgenSetting("seed")) + 111)
 		.setOctaves(2)
 		.setPersistence(1.0)
-		.setLacunarity(2.0);
+		.setLacunarity(2.0)
+	};
 
-	final bigCaveNoiseParameters = new NoiseParams()
+	final bigCaveNoiseParameters = {
 		.setOffset(0)
 		.setScale(1)
 		.setSpread(new Vec3(25, 25, 25))
 		.setSeed(Lua.tonumber(Core.getMapgenSetting("seed")))
 		.setOctaves(2)
 		.setPersistence(0.2)
-		.setLacunarity(5.0);
+		.setLacunarity(5.0)
+	};
 
-	final smallCaveNoiseParameters = new NoiseParams()
+	final smallCaveNoiseParameters = {
 		.setOffset(0)
 		.setScale(1)
 		.setSpread(new Vec3(7, 7, 7))
 		.setSeed(Lua.tonumber(Core.getMapgenSetting("seed")))
 		.setOctaves(1)
 		.setPersistence(0.3)
-		.setLacunarity(3);
+		.setLacunarity(3)
+	};
 
-	final overWorldTerrainBlendParameters = new NoiseParams()
+	final overWorldTerrainBlendParameters = {
 		.setOffset(0)
 		.setScale(1)
 		.setSpread(new Vec3(500, 500, 500))
 		.setSeed(Lua.tonumber(Core.getMapgenSetting("seed")) + 111)
 		.setOctaves(2)
 		.setPersistence(1)
-		.setLacunarity(2);
+		.setLacunarity(2)
+	};
 
-	final overWorldTerrainNoiseParametersBig = new NoiseParams()
+	final overWorldTerrainNoiseParametersBig = {
 		.setOffset(0)
 		.setScale(0.5)
 		.setSpread(new Vec3(500, 400, 500))
 		.setSeed(Lua.tonumber(Core.getMapgenSetting("seed")))
 		.setOctaves(4)
 		.setPersistence(0.63)
-		.setLacunarity(2);
+		.setLacunarity(2)
+	};
 
-	final overWorldTerrainNoiseParametersSmall = new NoiseParams()
+	final overWorldTerrainNoiseParametersSmall = {
 		.setOffset(0)
 		.setScale(0.5)
 		.setSpread(new Vec3(50, 60, 50))
 		.setSeed(Lua.tonumber(Core.getMapgenSetting("seed")))
 		.setOctaves(2)
 		.setPersistence(0.6)
-		.setLacunarity(4.0);
+		.setLacunarity(4.0)
+	};
 
 	function clamp(input: Float, low: Float, high: Float): Float {
 		if (low > high) {
