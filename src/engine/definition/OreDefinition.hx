@@ -2,6 +2,7 @@ package src.engine.definition;
 
 import haxe.extern.EitherType;
 import src.engine.compilercode.LuaArray;
+import src.engine.definition.basic.ParamType2;
 
 enum abstract OreType(String) to String {
 	var OreTypeScatter = "scatter";
@@ -21,7 +22,7 @@ typedef OreSpawnDefinition = {
 	@:optional
 	var ore_type: OreType;
 	@:optional
-	var ore_param2: Param2;
+	var ore_param2: ParamType2;
 	@:optional
 	var wherein: String;
 	@:optional
