@@ -36,64 +36,64 @@ class TerrainGenerator {
 	final bedrockID = Core.getContentID("infdev:bedrock");
 	final sandstoneID = Core.getContentID("infdev:sandstone");
 
-	final caveBlendParameters = {
-		offset:0,
-		scale:0.5,
-		spread:new Vec3(100, 100, 100),
-		seed:Lua.tonumber(Core.getMapgenSetting("seed")) + 111,
-		octaves:2,
-		persistance:1.0,
-		lacunarity:2.0,
+	final caveBlendParameters: NoiseParams = {
+		offset: 0,
+		scale: 0.5,
+		spread: new Vec3(100, 100, 100),
+		seed: Lua.tonumber(Core.getMapgenSetting("seed")) + 111,
+		octaves: 2,
+		persistance: 1.0,
+		lacunarity: 2.0,
 	};
 
-	final bigCaveNoiseParameters = {
-		offset:0,
-		scale:1,
-		spread:new Vec3(25, 25, 25),
-		seed:Lua.tonumber(Core.getMapgenSetting("seed")),
-		octaves:2,
-		persistance:0.2,
-		lacunarity:5.0,
+	final bigCaveNoiseParameters: NoiseParams = {
+		offset: 0,
+		scale: 1,
+		spread: new Vec3(25, 25, 25),
+		seed: Lua.tonumber(Core.getMapgenSetting("seed")),
+		octaves: 2,
+		persistance: 0.2,
+		lacunarity: 5.0,
 	};
 
-	final smallCaveNoiseParameters = {
-		offset:0,
-		scale:1,
-		spread:new Vec3(7, 7, 7),
-		seed:Lua.tonumber(Core.getMapgenSetting("seed")),
-		octaves:1,
-		persistance:0.3,
-		lacunarity:3,
+	final smallCaveNoiseParameters: NoiseParams = {
+		offset: 0,
+		scale: 1,
+		spread: new Vec3(7, 7, 7),
+		seed: Lua.tonumber(Core.getMapgenSetting("seed")),
+		octaves: 1,
+		persistance: 0.3,
+		lacunarity: 3,
 	};
 
-	final overWorldTerrainBlendParameters = {
-		offset:0,
-		scale:1,
-		spread:new Vec3(500, 500, 500),
-		seed:Lua.tonumber(Core.getMapgenSetting("seed")) + 111,
-		octaves:2,
-		persistance:1,
-		lacunarity:2,
+	final overWorldTerrainBlendParameters: NoiseParams = {
+		offset: 0,
+		scale: 1,
+		spread: new Vec3(500, 500, 500),
+		seed: Lua.tonumber(Core.getMapgenSetting("seed")) + 111,
+		octaves: 2,
+		persistance: 1,
+		lacunarity: 2,
 	};
 
-	final overWorldTerrainNoiseParametersBig = {
-		offset:0,
-		scale:0.5,
-		spread:new Vec3(500, 400, 500),
-		seed:Lua.tonumber(Core.getMapgenSetting("seed")),
-		octaves:4,
-		persistance:0.63,
-		lacunarity:2,
+	final overWorldTerrainNoiseParametersBig: NoiseParams = {
+		offset: 0,
+		scale: 0.5,
+		spread: new Vec3(500, 400, 500),
+		seed: Lua.tonumber(Core.getMapgenSetting("seed")),
+		octaves: 4,
+		persistance: 0.63,
+		lacunarity: 2,
 	};
 
-	final overWorldTerrainNoiseParametersSmall = {
-		offset:0,
-		scale:0.5,
-		spread:new Vec3(50, 60, 50),
-		seed:Lua.tonumber(Core.getMapgenSetting("seed")),
-		octaves:2,
-		persistance:0.6,
-		lacunarity:4.0,
+	final overWorldTerrainNoiseParametersSmall: NoiseParams = {
+		offset: 0,
+		scale: 0.5,
+		spread: new Vec3(50, 60, 50),
+		seed: Lua.tonumber(Core.getMapgenSetting("seed")),
+		octaves: 2,
+		persistance: 0.6,
+		lacunarity: 4.0,
 	};
 
 	function clamp(input: Float, low: Float, high: Float): Float {
