@@ -1,5 +1,6 @@
 package src.engine.definition;
 
+import haxe.extern.EitherType;
 import src.engine.compilercode.LuaArray;
 
 enum abstract OreType(String) to String {
@@ -81,7 +82,7 @@ typedef OreSpawnDefinition = {
  */
 @:luantiDefinitionRoot
 class OreDefinition extends NodeDefinition {
-	var oreSpawns: LuaArray<OreSpawnDefinition>;
+	var oreSpawns: EitherType<OreSpawnDefinition, LuaArray<OreSpawnDefinition>>;
 
 	public function new() {
 		super();
