@@ -87,13 +87,13 @@ class TerrainGenerator {
 	};
 
 	final overWorldTerrainNoiseParametersSmall = {
-		offset:0)
-		scale:0.5)
-		spread:new Vec3(50, 60, 50))
-		seed:Lua.tonumber(Core.getMapgenSetting("seed")))
-		octaves:2)
-		persistance:0.6)
-		lacunarity:4.0)
+		offset:0,
+		scale:0.5,
+		spread:new Vec3(50, 60, 50),
+		seed:Lua.tonumber(Core.getMapgenSetting("seed")),
+		octaves:2,
+		persistance:0.6,
+		lacunarity:4.0,
 	};
 
 	function clamp(input: Float, low: Float, high: Float): Float {
