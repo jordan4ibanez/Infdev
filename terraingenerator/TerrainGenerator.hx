@@ -77,13 +77,13 @@ class TerrainGenerator {
 	};
 
 	final overWorldTerrainNoiseParametersBig = {
-		offset:0)
-		scale:0.5)
-		spread:new Vec3(500, 400, 500))
-		seed:Lua.tonumber(Core.getMapgenSetting("seed")))
-		octaves:4)
-		persistance:0.63)
-		lacunarity:2)
+		offset:0,
+		scale:0.5,
+		spread:new Vec3(500, 400, 500),
+		seed:Lua.tonumber(Core.getMapgenSetting("seed")),
+		octaves:4,
+		persistance:0.63,
+		lacunarity:2,
 	};
 
 	final overWorldTerrainNoiseParametersSmall = {
