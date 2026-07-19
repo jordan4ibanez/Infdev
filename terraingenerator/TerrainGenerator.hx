@@ -37,13 +37,13 @@ class TerrainGenerator {
 	final sandstoneID = Core.getContentID("infdev:sandstone");
 
 	final caveBlendParameters = {
-		offset:0)
-		scale:0.5)
-		spread:new Vec3(100, 100, 100))
-		seed:Lua.tonumber(Core.getMapgenSetting("seed")) + 111)
-		octaves:2)
-		persistance:1.0)
-		lacunarity:2.0)
+		offset:0,
+		scale:0.5,
+		spread:new Vec3(100, 100, 100),
+		seed:Lua.tonumber(Core.getMapgenSetting("seed")) + 111,
+		octaves:2,
+		persistance:1.0,
+		lacunarity:2.0,
 	};
 
 	final bigCaveNoiseParameters = {
