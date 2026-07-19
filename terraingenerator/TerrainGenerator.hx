@@ -57,13 +57,13 @@ class TerrainGenerator {
 	};
 
 	final smallCaveNoiseParameters = {
-		offset:0)
-		scale:1)
-		spread:new Vec3(7, 7, 7))
-		seed:Lua.tonumber(Core.getMapgenSetting("seed")))
-		octaves:1)
-		persistance:0.3)
-		lacunarity:3)
+		offset:0,
+		scale:1,
+		spread:new Vec3(7, 7, 7),
+		seed:Lua.tonumber(Core.getMapgenSetting("seed")),
+		octaves:1,
+		persistance:0.3,
+		lacunarity:3,
 	};
 
 	final overWorldTerrainBlendParameters = {
