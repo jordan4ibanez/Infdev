@@ -11,5 +11,6 @@ typedef NoiseParams = {
 	var octaves: Int;
 	var persistence: Float;
 	var lacunarity: Float;
+	@:optional
 	var flags: String;
 }
