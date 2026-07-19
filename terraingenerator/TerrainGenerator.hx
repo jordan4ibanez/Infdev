@@ -1,17 +1,13 @@
 package terraingenerator;
 
 import lua.Lua;
-import lua.Os;
-import lua.Table;
 import src.engine.Core;
-import src.engine.NodeTable;
 import src.engine.NoiseParams;
 import src.engine.VoxelArea;
 import src.engine.VoxelManip;
 import src.engine.compilercode.LuaArray;
 import src.engine.compilercode.LuaLoop;
 import src.engine.vector.Vec2;
-import src.engine.vector.Vec3;
 import src.engine.vector.Vec3;
 
 /**
