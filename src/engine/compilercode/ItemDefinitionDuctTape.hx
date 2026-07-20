@@ -143,6 +143,8 @@ class ItemDefinitionDuctTape {
 							((cast spawn : haxe.DynamicAccess<Dynamic>)["name"] = $v{registrationName} + '_$i');
 							((cast spawn : haxe.DynamicAccess<Dynamic>)["ore"] = $v{registrationName});
 
+							spawn.clust_scarcity = cast lua.Math.pow(spawn.clust_scarcity, 3);
+
 							// trace(i, spawn);
 
 							untyped __lua__("core.register_ore({0})", spawn);
