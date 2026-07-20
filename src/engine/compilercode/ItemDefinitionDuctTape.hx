@@ -137,12 +137,13 @@ class ItemDefinitionDuctTape {
 				macro {
 					var flarp: src.engine.definition.OreDefinition = instance;
 
+					// Automatic component injection as part of the OreDefinition class itself.
 					if (instance.oreSpawns != null) {
 						for (i => spawn in instance.oreSpawns) {
-							(cast spawn : haxe.DynamicAccess<Dynamic>)['ore_$i'] = "classname$i";
-							(cast spawn : haxe.DynamicAccess<Dynamic>)["ore"] = "registrationname";
+							((cast spawn : haxe.DynamicAccess<Dynamic>)["name"] = $v{registrationName} + '_$i');
+							((cast spawn : haxe.DynamicAccess<Dynamic>)["ore"] = $v{registrationName});
 
-							trace(i, spawn);
+							// trace(i, spawn);
 
 							// todo: inline register ore
 						}
