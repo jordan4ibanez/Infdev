@@ -19,17 +19,12 @@ typedef OreSpawnDefinition = {
 	// Ore node to place
 	// var name: String;
 	// var ore: String;
-	@:optional
 	var ore_type: OreType;
 	@:optional
 	var ore_param2: ParamType2;
-	@:optional
 	var wherein: String;
-	@:optional
 	var clust_scarcity: Int;
-	@:optional
 	var clust_num_ores: Int;
-	@:optional
 	var clust_size: Int;
 	@:optional
 	var y_min: Int;
