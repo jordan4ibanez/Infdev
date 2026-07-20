@@ -21,7 +21,7 @@ final class CoalOre extends OreDefinition {
 		// todo: make this an actual item
 		this.drop = "infdev:coal";
 
-		this.oreSpawns = {
+		this.oreSpawns = [{
 			ore_type: OreTypeScatter,
 			wherein: "infdev:stone",
 			clust_scarcity: 10,
@@ -29,6 +29,6 @@ final class CoalOre extends OreDefinition {
 			clust_size: 3,
 			y_max: 160,
 			y_min: -1023,
-		};
+		}];
 	}
 }
