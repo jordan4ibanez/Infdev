@@ -10,7 +10,7 @@ final class IronOre extends OreDefinition {
 		super();
 
 		this.nodeGroups = [
-			NodeGroupStone => 1
+			NodeGroupStone => 2
 		];
 
 		this.tiles = ["default_stone.png^default_mineral_iron.png"];
