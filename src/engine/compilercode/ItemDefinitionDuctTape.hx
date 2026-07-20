@@ -145,6 +145,8 @@ class ItemDefinitionDuctTape {
 
 							// trace(i, spawn);
 
+							untyped __lua__("core.register_ore({0})", spawn);
+
 							// todo: inline register ore
 						}
 					}
