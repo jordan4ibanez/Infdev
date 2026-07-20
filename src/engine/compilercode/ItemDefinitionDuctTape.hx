@@ -131,6 +131,27 @@ class ItemDefinitionDuctTape {
 
 			var localClassComplexType = Context.toComplexType(TInst(Context.getLocalClass(), []));
 
+			// ? This part is for ore registration. :D
+
+			var oreRegistrationCode = if (isOreDef) {
+				macro {
+					var flarp: src.engine.definition.OreDefinition = instance;
+
+					if (instance.oreSpawns != null) {
+						for (i => spawn in instance.oreSpawns) {
+							(cast spawn : haxe.DynamicAccess<Dynamic>)['ore_$i'] = "classname$i";
+							(cast spawn : haxe.DynamicAccess<Dynamic>)["ore"] = "registrationname";
+
+							trace(i, spawn);
+
+							// todo: inline register ore
+						}
+					}
+				};
+			} else {
+				macro {};
+			}
+
 			// ? Set up the raw static wrapper class first.
 
 			var companionClassDefinition: TypeDefinition = {
@@ -177,6 +198,9 @@ class ItemDefinitionDuctTape {
 
 								// This automatically does the registration.
 								src.engine.Core.$luantiRegistrationMethod($v{registrationName}, $i{wrapperClassName});
+
+								// This automatically registers an ore if it's an ore.
+								$oreRegistrationCode;
 
 								// ? This is important for debugging.
 								// trace("registered " + $v{registrationName} + " with " + $v{luantiRegistrationMethod});
