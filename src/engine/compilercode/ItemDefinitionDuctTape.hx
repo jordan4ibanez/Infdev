@@ -175,7 +175,7 @@ class ItemDefinitionDuctTape {
 									}
 								}
 
-								// This hackjob automatically does the registration.
+								// This automatically does the registration.
 								src.engine.Core.$luantiRegistrationMethod($v{registrationName}, $i{wrapperClassName});
 
 								// ? This is important for debugging.
