@@ -145,6 +145,11 @@ class ItemDefinitionDuctTape {
 
 							spawn.clust_scarcity = cast lua.Math.pow(spawn.clust_scarcity, 3);
 
+							// Debugging weirdness.
+							if (true) {
+								spawn.wherein = "air";
+							}
+
 							// trace(i, spawn);
 
 							untyped __lua__("core.register_ore({0})", spawn);
