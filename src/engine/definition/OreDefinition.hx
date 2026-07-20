@@ -1,6 +1,5 @@
 package src.engine.definition;
 
-import haxe.extern.EitherType;
 import src.engine.compilercode.LuaArray;
 import src.engine.definition.basic.ParamType2;
 
@@ -78,7 +77,7 @@ typedef OreSpawnDefinition = {
  */
 @:luantiDefinitionRoot
 class OreDefinition extends NodeDefinition {
-	var oreSpawns: EitherType<OreSpawnDefinition, LuaArray<OreSpawnDefinition>>;
+	public var oreSpawns: Array<OreSpawnDefinition>;
 
 	public function new() {
 		super();
