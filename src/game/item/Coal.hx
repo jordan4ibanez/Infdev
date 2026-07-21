@@ -1,0 +1,12 @@
+package src.game.item;
+
+import src.engine.definition.ItemDefinition;
+
+@:register("infdev:coal")
+final class Coal extends ItemDefinition {
+	public function new() {
+		super();
+
+		this.inventoryImage = "default_coal_lump.png";
+	}
+}
