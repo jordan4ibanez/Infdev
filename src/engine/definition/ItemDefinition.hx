@@ -147,5 +147,6 @@ class ItemDefinition {
 	// _custom_field = whatever,
 	public function new() {
 		// trace("triggered itemdefinition constructor");
+		this.stackMax = 64;
 	}
 }
