@@ -10,6 +10,7 @@ final class Dirt extends NodeDefinition {
 
 		this.nodeGroups = [
 			NodeGroupDirt => 1,
+			NodeGroupSoil => 1,
 		];
 
 		this.nodeSounds = DirtSound.get();
