@@ -265,12 +265,12 @@ class NodeDefinition extends ItemDefinition {
 		// nil
 	}
 
-	final DEBUG_MODE = true;
+	final DEBUG_TERRAIN_MODE = false;
 
 	public function new() {
 		super();
 
-		if (DEBUG_MODE) {
+		if (DEBUG_TERRAIN_MODE) {
 			this.lightSource = 14;
 		}
 	}
