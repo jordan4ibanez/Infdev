@@ -23,10 +23,10 @@ final class SapphireOre extends OreDefinition {
 		this.oreSpawns = [{
 			ore_type: OreTypeScatter,
 			wherein: "infdev:stone",
-			clust_scarcity: 18,
+			clust_scarcity: 20,
 			clust_num_ores: 7,
 			clust_size: 3,
-			y_max: -384,
+			y_max: -448,
 			y_min: -1023,
 		}];
 	}
