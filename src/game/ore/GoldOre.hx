@@ -18,7 +18,7 @@ final class GoldOre extends OreDefinition {
 		this.nodeSounds = StoneSound.get();
 
 		// todo: make this an actual item
-		this.drop = "infdev:iron";
+		this.drop = "infdev:gold";
 
 		this.oreSpawns = [{
 			ore_type: OreTypeScatter,
