@@ -46,3 +46,5 @@ maybe the tree randomly drops things as you chop it down
 when a new player joins, a jingle plays at their position
 
 when a player returns, a teleport sound plays at their position
+
+hot bar starts off with 1 slot and your general level increases this until it maxes out at like 40 slots or some ridiculous number
