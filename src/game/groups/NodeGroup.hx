@@ -5,6 +5,7 @@ enum abstract NodeGroup(String) to String {
 	var NodeGroupDirt;
 	var NodeGroupSand;
 	var NodeGroupStone;
+	var NodeGroupCobblestone;
 	var NodeGroupBrick;
 	var NodeGroupGlass;
 	var NodeGroupTree;

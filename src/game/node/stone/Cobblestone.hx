@@ -9,7 +9,8 @@ final class Cobblestone extends NodeDefinition {
 		super();
 
 		this.nodeGroups = [
-			NodeGroupStone => 2
+			NodeGroupStone => 2,
+			NodeGroupCobblestone => 2,
 		];
 
 		this.nodeSounds = StoneSound.get();
