@@ -13,7 +13,6 @@ final class CoalOre extends OreDefinition {
 			NodeGroupStone => 2
 		];
 
-		// Why is this called mineral and not ore?????
 		this.tiles = ["default_stone.png^default_mineral_coal.png"];
 
 		this.nodeSounds = StoneSound.get();
