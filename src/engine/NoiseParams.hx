@@ -2,7 +2,6 @@ package src.engine;
 
 import src.engine.vector.Vec3;
 
-// This is basically just a read only setter.
 typedef NoiseParams = {
 	var offset: Float;
 	var scale: Float;
