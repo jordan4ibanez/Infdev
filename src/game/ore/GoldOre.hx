@@ -10,7 +10,7 @@ final class GoldOre extends OreDefinition {
 		super();
 
 		this.nodeGroups = [
-			NodeGroupStone => 2
+			NodeGroupStone => 3
 		];
 
 		this.tiles = ["default_stone.png^default_mineral_gold.png"];

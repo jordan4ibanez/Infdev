@@ -10,7 +10,7 @@ final class RubyOre extends OreDefinition {
 		super();
 
 		this.nodeGroups = [
-			NodeGroupStone => 4
+			NodeGroupStone => 5
 		];
 
 		this.tiles = ["default_stone.png^(default_mineral_diamond.png^[colorize:red:190)"];

@@ -10,7 +10,7 @@ final class SapphireOre extends OreDefinition {
 		super();
 
 		this.nodeGroups = [
-			NodeGroupStone => 5
+			NodeGroupStone => 6
 		];
 
 		this.tiles = ["default_stone.png^(default_mineral_diamond.png^[colorize:blue:190)"];

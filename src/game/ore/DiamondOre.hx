@@ -10,7 +10,7 @@ final class DiamondOre extends OreDefinition {
 		super();
 
 		this.nodeGroups = [
-			NodeGroupStone => 3
+			NodeGroupStone => 4
 		];
 
 		this.tiles = ["default_stone.png^default_mineral_diamond.png"];

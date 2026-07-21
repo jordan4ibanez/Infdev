@@ -10,7 +10,7 @@ final class CoalOre extends OreDefinition {
 		super();
 
 		this.nodeGroups = [
-			NodeGroupStone => 1
+			NodeGroupStone => 2
 		];
 
 		// Why is this called mineral and not ore?????
