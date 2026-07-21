@@ -265,8 +265,14 @@ class NodeDefinition extends ItemDefinition {
 		// nil
 	}
 
+	final DEBUG_MODE = true;
+
 	public function new() {
 		super();
+
+		if (DEBUG_MODE) {
+			this.lightSource = 14;
+		}
 	}
 
 	@:native("mod_origin")
