@@ -78,14 +78,15 @@ final class ToolCapabilities {
 	@:native("punch_attack_uses")
 	var punchAttackUses: Null<Int>;
 
-	public function new() {}
+	public function new() {
+		this.fullPunchInterval = 0.0;
+	}
 
 	// Uses builder pattern.
-
-	public function setFullPunchInterval(fullPunchInterval: Float): ToolCapabilities {
-		this.fullPunchInterval = fullPunchInterval;
-		return this;
-	}
+	// public function setFullPunchInterval(fullPunchInterval: Float): ToolCapabilities {
+	// 	this.fullPunchInterval = fullPunchInterval;
+	// 	return this;
+	// }
 
 	public function setMaxDropLevel(maxDropLevel: Int): ToolCapabilities {
 		this.maxDropLevel = maxDropLevel;
