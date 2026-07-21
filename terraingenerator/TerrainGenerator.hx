@@ -20,7 +20,7 @@ class TerrainGenerator {
 
 	final oceanLevel = 72;
 
-	final stoneDisabled = true;
+	final stoneDisabled = false;
 
 	final chunkSize = Core.getMapgenChunkSize();
 	final dirtID = Core.getContentID("infdev:dirt");
