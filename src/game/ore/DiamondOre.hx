@@ -18,15 +18,15 @@ final class DiamondOre extends OreDefinition {
 		this.nodeSounds = StoneSound.get();
 
 		// todo: make this an actual item
-		this.drop = "infdev:iron";
+		this.drop = "infdev:diamond";
 
 		this.oreSpawns = [{
 			ore_type: OreTypeScatter,
 			wherein: "infdev:stone",
-			clust_scarcity: 14,
-			clust_num_ores: 5,
+			clust_scarcity: 15,
+			clust_num_ores: 7,
 			clust_size: 3,
-			y_max: -128,
+			y_max: -256,
 			y_min: -1023,
 		}];
 	}
