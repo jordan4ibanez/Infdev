@@ -66,7 +66,8 @@ class NodeDrop {
 
 class NodeDropTable {
 	@:native("max_items")
-	private var maxItems: Int = 1;
+	private var maxItems: Int = 0;
+	private var ___manualMax = false;
 
 	private var items: Table<Int, NodeDrop>;
 
@@ -84,6 +85,7 @@ class NodeDropTable {
 
 	public function setMaxItems(maxItems: Int): NodeDropTable {
 		this.maxItems = maxItems;
+		___manualMax = true;
 		return this;
 	}
 
@@ -92,6 +94,9 @@ class NodeDropTable {
 			this.items = Table.create();
 		}
 		Table.insert(this.items, drop);
+		if (!___manualMax) {
+			this.maxItems++;
+		}
 		return this;
 	}
 }
