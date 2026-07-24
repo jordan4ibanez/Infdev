@@ -2,7 +2,7 @@ package src.engine.entity.definition;
 
 // This class was almost AI generated but that felt boring.
 // So, I wrote it by hand.
-final class PhysicsOverride {
+typedef PhysicsOverride = {
 	@:optional
 	public var speed: Float;
 
