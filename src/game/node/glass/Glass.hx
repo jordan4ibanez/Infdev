@@ -23,6 +23,11 @@ final class Glass extends NodeDefinition {
 			"default_glass_detail.png"
 		];
 
+		this.useTextureAlpha = NodeTextureAlphaClip;
+
+		this.paramtype1 = ParamType1Light;
+
+		this.sunlightPropagates = true;
 		this.isGroundContent = false;
 	}
 }
