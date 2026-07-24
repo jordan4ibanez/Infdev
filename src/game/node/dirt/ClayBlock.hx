@@ -28,7 +28,5 @@ final class ClayBlock extends NodeDefinition {
 			.addDrop(new NodeDrop()
 				.addItems("infdev:clay")
 				.setRarity(100));
-
-		untyped print(dump(this.drop));
 	}
 }
