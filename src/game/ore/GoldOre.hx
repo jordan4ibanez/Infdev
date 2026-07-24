@@ -9,6 +9,8 @@ final class GoldOre extends OreDefinition {
 	public function new() {
 		super();
 
+		this.description = "Gold Ore";
+
 		this.nodeGroups = [
 			NodeGroupStone => 3
 		];
