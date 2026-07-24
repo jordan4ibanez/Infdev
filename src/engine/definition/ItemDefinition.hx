@@ -159,4 +159,6 @@ class ItemDefinition {
 	public var recipesShaped: Array<CraftRecipeShaped>;
 
 	public var recipesShapeless: Array<CraftRecipeShapeless>;
+
+	public var recipesCooking: Array<CraftRecipeCooking>;
 }
