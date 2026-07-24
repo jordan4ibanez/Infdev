@@ -38,5 +38,14 @@ typedef CraftRecipeCooking = {
 	@:optional
 	var replacements: Map<String, String>;
 }
-	// replacements? Looks very strange
+
+typedef CraftRecipeFuel = {
+	// todo: needs: type = "fuel"
+	// todo: recipe is itself
+	// var recipe: String;
+	@:optional
+	var burntime: Float;
+
+	@:optional
+	var replacements: Map<String, String>;
 }
