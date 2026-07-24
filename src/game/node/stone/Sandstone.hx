@@ -9,6 +9,7 @@ final class Sandstone extends NodeDefinition {
 		super();
 
 		this.tiles = ["default_sandstone.png"];
+
 		this.nodeGroups = [
 			NodeGroupStone => 1
 		];
