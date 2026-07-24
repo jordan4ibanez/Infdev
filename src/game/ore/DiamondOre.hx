@@ -9,6 +9,8 @@ final class DiamondOre extends OreDefinition {
 	public function new() {
 		super();
 
+		this.description = "Diamond Ore";
+
 		this.nodeGroups = [
 			NodeGroupStone => 4
 		];
