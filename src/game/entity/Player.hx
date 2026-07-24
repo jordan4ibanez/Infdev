@@ -2,7 +2,6 @@ package src.game.entity;
 
 import lua.Lua;
 import src.engine.compilercode.Macros;
-import src.engine.entity.definition.PhysicsOverride;
 import src.engine.entity.definition.PlayerControl;
 import src.engine.entity.helpers.EntitySerialization;
 import src.engine.entity.objectref.ObjectRefBase;
@@ -198,9 +197,10 @@ final class Player {
 		this.makeHand3D();
 		this.setModel();
 
-		this.object.setPhysicsOverride(new PhysicsOverride()
-			.setGravity(1.25)
-			.setJump(1.25));
+		this.object.setPhysicsOverride({
+			gravity: 1.25,
+			jump: 1.25,
+		});
 
 		this.object.setProperties({
 			step_up_mode: StepUpModeRigid
