@@ -27,7 +27,8 @@ final class Sugarcane extends NodeDefinition {
 			.addBox(-6 / 16, -0.5, -6 / 16, 6 / 16, 0.5, 6 / 16);
 
 		this.nodeGroups = [
-			NodeGroupPlant => 1
+			NodeGroupPlant => 1,
+			NodeGroupAttachedNode => AttachedNodeSettingAlwaysToBelow,
 		];
 
 		this.nodeSounds = PlantSound.get();
