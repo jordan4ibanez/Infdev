@@ -34,5 +34,9 @@ typedef CraftRecipeCooking = {
 	// Defaults to 1.
 	@:optional
 	var amount: Int;
+
+	@:optional
+	var replacements: Map<String, String>;
+}
 	// replacements? Looks very strange
 }
