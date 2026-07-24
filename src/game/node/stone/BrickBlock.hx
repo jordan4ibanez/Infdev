@@ -4,7 +4,7 @@ import src.engine.definition.NodeDefinition;
 import src.game.groups.NodeGroup;
 
 @:register("infdev:brick")
-final class Brick extends NodeDefinition {
+final class BrickBlock extends NodeDefinition {
 	public function new() {
 		super();
 
