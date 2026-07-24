@@ -12,7 +12,7 @@ import src.engine.definition.graphics.ItemImageDefinition;
 import src.engine.definition.graphics.WearBarColors;
 import src.engine.definition.sound.ItemSoundTable;
 import src.engine.entity.objectref.ObjectRefBase;
-import src.engine.recipe.CraftRecipeShaped;
+import src.engine.recipe.CraftRecipeTypes;
 import src.engine.vector.Vec3;
 import src.game.groups.ItemGroup;
 

@@ -5,4 +5,7 @@ typedef CraftRecipeShaped = {
 
 	@:optional
 	var replacements: Map<String, String>;
+
+	@:optional
+	var amount: Int;
 }
