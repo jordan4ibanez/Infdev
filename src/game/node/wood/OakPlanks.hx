@@ -50,5 +50,9 @@ final class OakPlanks extends NodeDefinition {
 				recipe: "infdev:coal"
 			}
 		];
+
+		this.recipeFuel = {
+			burntime: 3
+		};
 	}
 }
