@@ -8,6 +8,8 @@ final class Sand extends NodeDefinition {
 	public function new() {
 		super();
 
+		this.description = "Sand";
+
 		this.tiles = ["default_sand.png"];
 
 		this.nodeGroups = [
