@@ -1,9 +1,9 @@
 package src.engine.recipe;
 
 typedef CraftRecipeShaped = {
+	// todo: needs: type = "shaped"
 	var recipe: Array<Array<String>>;
 
-	// todo: needs: type = "shaped"
 	@:optional
 	var replacements: Map<String, String>;
 
@@ -13,9 +13,9 @@ typedef CraftRecipeShaped = {
 }
 
 typedef CraftRecipeShapeless = {
+	// todo: needs: type = "shapeless"
 	var recipe: Array<String>;
 
-	// todo: needs: type = "shapeless"
 	@:optional
 	var replacements: Map<String, String>;
 
@@ -25,9 +25,9 @@ typedef CraftRecipeShapeless = {
 }
 
 typedef CraftRecipeCooking = {
+	// todo: needs: type = "cooking"
 	var recipe: String;
 
-	// todo: needs: type = "cooking"
 	@:optional
 	var cooktime: Float;
 
