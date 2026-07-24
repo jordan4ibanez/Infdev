@@ -9,6 +9,8 @@ final class Grass extends NodeDefinition {
 	public function new() {
 		super();
 
+		this.description = "Grass";
+
 		this.tiles = [
 			"default_grass.png",
 			"default_dirt.png",
