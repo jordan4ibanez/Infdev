@@ -7,7 +7,7 @@ enum abstract DrawType(String) to String {
 	var DrawTypeFlowingLiquid = "flowingliquid";
 	var DrawTypeGlassLike = "glasslike";
 	var DrawTypeGlassLikeFramed = "glasslike_framed";
-	var DrawTypeGlassLikeFramedOptional = "glasslike_framed_optional ";
+	var DrawTypeGlassLikeFramedOptional = "glasslike_framed_optional";
 	var DrawTypeAllFaces = "allfaces";
 	var DrawTypeAllFacesOptional = "allfaces_optional";
 	var DrawTypeTorchLike = "torchlike";
