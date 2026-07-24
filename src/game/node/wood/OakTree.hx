@@ -16,8 +16,6 @@ final class OakTree extends NodeDefinition {
 			"default_tree.png"
 		];
 
-		this.drawType = DrawTypePlantLike;
-
 		this.paramtype2 = ParamType2FaceDir;
 
 		this.isGroundContent = false;
