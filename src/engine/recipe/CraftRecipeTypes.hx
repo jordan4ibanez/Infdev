@@ -16,12 +16,12 @@ typedef CraftRecipeShapeless = {
 	// todo: needs: type = "shapeless"
 	var recipe: Array<String>;
 
-	@:optional
-	var replacements: Map<String, String>;
-
 	// Defaults to 1.
 	@:optional
 	var amount: Int;
+
+	@:optional
+	var replacements: Map<String, String>;
 }
 
 typedef CraftRecipeCooking = {
