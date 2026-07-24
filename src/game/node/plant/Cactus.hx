@@ -11,9 +11,9 @@ final class Cactus extends NodeDefinition {
 		this.description = "Cactus";
 
 		this.tiles = [
+			"default_cactus_side.png",
 			"default_cactus_top.png",
-			"default_cactus_top.png",
-			"default_cactus_side.png"
+			"default_cactus_side.png",
 		];
 
 		this.nodeGroups = [
