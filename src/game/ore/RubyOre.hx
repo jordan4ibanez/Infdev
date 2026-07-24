@@ -9,6 +9,8 @@ final class RubyOre extends OreDefinition {
 	public function new() {
 		super();
 
+		this.description = "Ruby Ore";
+
 		this.nodeGroups = [
 			NodeGroupStone => 5
 		];
