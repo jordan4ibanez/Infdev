@@ -1,14 +1,8 @@
 package src.engine.recipe;
 
-import lua.Table;
+typedef CraftRecipeShaped = {
+	var recipe: Array<Array<String>>;
 
-class CraftRecipeShaped {
-	final type = "shaped";
-
-	var recipe: Table<Int, Table<Int, String>> = Table.create();
-
-	public function new(data: Array<Array<String>>) {
-		
-
-	}
+	@:optional
+	var replacements: Map<String, String>;
 }

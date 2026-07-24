@@ -22,5 +22,16 @@ final class OakPlanks extends NodeDefinition {
 		];
 
 		this.nodeSounds = WoodSound.get();
+
+		this.recipesShaped = [
+			{
+				recipe: [
+					["infdev:tree", "infdev:tree", "infdev:tree"]
+				],
+				replacements: [
+					"test" => "test"
+				]
+			}
+		];
 	}
 }
