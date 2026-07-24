@@ -12,6 +12,8 @@ final class BrickBlock extends NodeDefinition {
 			NodeGroupStone => 1
 		];
 
+		this.description = "Brick Block";
+
 		this.nodeSounds = StoneSound.get();
 
 		this.tiles = [
