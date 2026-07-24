@@ -43,89 +43,89 @@ final class PhysicsOverride {
 
 	@:native("sneak_glitch")
 	public var sneakGlitch: Bool;
-	
+
 	@:native("new_move")
 	public var newMove: Bool;
 
-	public function new() {}
+	// public function new() {}
 
-	public inline function setSpeed(speed: Float): PhysicsOverride {
-		this.speed = speed;
-		return this;
-	}
+	// public inline function setSpeed(speed: Float): PhysicsOverride {
+	// 	this.speed = speed;
+	// 	return this;
+	// }
 
-	public inline function setSpeedWalk(speedWalk: Float): PhysicsOverride {
-		this.speedWalk = speedWalk;
-		return this;
-	}
+	// public inline function setSpeedWalk(speedWalk: Float): PhysicsOverride {
+	// 	this.speedWalk = speedWalk;
+	// 	return this;
+	// }
 
-	public inline function setSpeedClimb(speedClimb: Float): PhysicsOverride {
-		this.speedClimb = speedClimb;
-		return this;
-	}
+	// public inline function setSpeedClimb(speedClimb: Float): PhysicsOverride {
+	// 	this.speedClimb = speedClimb;
+	// 	return this;
+	// }
 
-	public inline function setSpeedCrouch(speedCrouch: Float): PhysicsOverride {
-		this.speedCrouch = speedCrouch;
-		return this;
-	}
+	// public inline function setSpeedCrouch(speedCrouch: Float): PhysicsOverride {
+	// 	this.speedCrouch = speedCrouch;
+	// 	return this;
+	// }
 
-	public inline function setSpeedFast(speedFast: Float): PhysicsOverride {
-		this.speedFast = speedFast;
-		return this;
-	}
+	// public inline function setSpeedFast(speedFast: Float): PhysicsOverride {
+	// 	this.speedFast = speedFast;
+	// 	return this;
+	// }
 
-	public inline function setJump(jump: Float): PhysicsOverride {
-		this.jump = jump;
-		return this;
-	}
+	// public inline function setJump(jump: Float): PhysicsOverride {
+	// 	this.jump = jump;
+	// 	return this;
+	// }
 
-	public inline function setGravity(gravity: Float): PhysicsOverride {
-		this.gravity = gravity;
-		return this;
-	}
+	// public inline function setGravity(gravity: Float): PhysicsOverride {
+	// 	this.gravity = gravity;
+	// 	return this;
+	// }
 
-	public inline function setLiquidFluidity(liquidFluidity: Float): PhysicsOverride {
-		this.liquidFluidity = liquidFluidity;
-		return this;
-	}
+	// public inline function setLiquidFluidity(liquidFluidity: Float): PhysicsOverride {
+	// 	this.liquidFluidity = liquidFluidity;
+	// 	return this;
+	// }
 
-	public inline function setLiquidFluiditySmooth(liquidFluiditySmooth: Float): PhysicsOverride {
-		this.liquidFluiditySmooth = liquidFluiditySmooth;
-		return this;
-	}
+	// public inline function setLiquidFluiditySmooth(liquidFluiditySmooth: Float): PhysicsOverride {
+	// 	this.liquidFluiditySmooth = liquidFluiditySmooth;
+	// 	return this;
+	// }
 
-	public inline function setLiquidSink(liquidSink: Float): PhysicsOverride {
-		this.liquidSink = liquidSink;
-		return this;
-	}
+	// public inline function setLiquidSink(liquidSink: Float): PhysicsOverride {
+	// 	this.liquidSink = liquidSink;
+	// 	return this;
+	// }
 
-	public inline function setAccelerationDefault(accelerationDefault: Float): PhysicsOverride {
-		this.accelerationDefault = accelerationDefault;
-		return this;
-	}
+	// public inline function setAccelerationDefault(accelerationDefault: Float): PhysicsOverride {
+	// 	this.accelerationDefault = accelerationDefault;
+	// 	return this;
+	// }
 
-	public inline function setAccelerationAir(accelerationAir: Float): PhysicsOverride {
-		this.accelerationAir = accelerationAir;
-		return this;
-	}
+	// public inline function setAccelerationAir(accelerationAir: Float): PhysicsOverride {
+	// 	this.accelerationAir = accelerationAir;
+	// 	return this;
+	// }
 
-	public inline function setAccelerationFast(accelerationFast: Float): PhysicsOverride {
-		this.accelerationFast = accelerationFast;
-		return this;
-	}
+	// public inline function setAccelerationFast(accelerationFast: Float): PhysicsOverride {
+	// 	this.accelerationFast = accelerationFast;
+	// 	return this;
+	// }
 
-	public inline function setSneak(sneak: Bool): PhysicsOverride {
-		this.sneak = sneak;
-		return this;
-	}
+	// public inline function setSneak(sneak: Bool): PhysicsOverride {
+	// 	this.sneak = sneak;
+	// 	return this;
+	// }
 
-	public inline function setSneakGlitch(sneakGlitch: Bool): PhysicsOverride {
-		this.sneakGlitch = sneakGlitch;
-		return this;
-	}
+	// public inline function setSneakGlitch(sneakGlitch: Bool): PhysicsOverride {
+	// 	this.sneakGlitch = sneakGlitch;
+	// 	return this;
+	// }
 
-	public inline function setNewMove(newMove: Bool): PhysicsOverride {
-		this.newMove = newMove;
-		return this;
-	}
+	// public inline function setNewMove(newMove: Bool): PhysicsOverride {
+	// 	this.newMove = newMove;
+	// 	return this;
+	// }
 }
