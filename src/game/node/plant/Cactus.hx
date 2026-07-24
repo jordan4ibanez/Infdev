@@ -1,2 +1,23 @@
 package src.game.node.plant;
 
+import src.engine.definition.NodeDefinition;
+import src.game.groups.NodeGroup;
+
+@:register("infdev:sandstone")
+final class Sandstone extends NodeDefinition {
+	public function new() {
+		super();
+
+		this.description = "Sandstone";
+
+		this.tiles = ["default_sandstone.png"];
+
+		this.nodeGroups = [
+			NodeGroupStone => 1
+		];
+
+		this.nodeSounds = StoneSound.get();
+
+		// todo: sandstone cobblestone would be cool. :)
+	}
+}
