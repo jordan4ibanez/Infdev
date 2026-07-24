@@ -28,6 +28,8 @@ api was transposed may-june 2026
 
 todo: getters and setters of things like itemstack may need to be inlined
 
+todo: implement craft recipe in the item itself as an array of craft recipes so shit isn't scattered all over the place like usual in luanti mods. This cascades to everything else.
+
 
 ### some design decisions:
 
