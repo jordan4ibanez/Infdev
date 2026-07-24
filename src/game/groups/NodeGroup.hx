@@ -27,8 +27,17 @@ enum abstract NodeGroup(String) to String {
 	var NodeGroupWater;
 	var NodeGroupLava;
 
-	// Specialized.
+	// Specialized engine groups.
 	var NodeGroupAttachedNode = "attached_node";
+	var NodeGroupBouncy = "";
+	var NodeGroup = "";
+	var NodeGroup = "";
+	var NodeGroup = "";
+	var NodeGroup = "";
+	var NodeGroup = "";
+	var NodeGroup = "";
+	var NodeGroup = "";
+	var NodeGroup = "";
 }
 
 inline final BEDROCK: Int = 506;
