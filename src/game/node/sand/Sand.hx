@@ -13,7 +13,8 @@ final class Sand extends NodeDefinition {
 		this.tiles = ["default_sand.png"];
 
 		this.nodeGroups = [
-			NodeGroupSand => 1
+			NodeGroupSand => 1,
+			NodeGroupFallingNode => 1,
 		];
 
 		this.nodeSounds = SandSound.get();
