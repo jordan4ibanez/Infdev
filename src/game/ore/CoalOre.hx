@@ -9,6 +9,8 @@ final class CoalOre extends OreDefinition {
 	public function new() {
 		super();
 
+		this.description = "Coal Ore";
+
 		this.nodeGroups = [
 			NodeGroupStone => 2
 		];
