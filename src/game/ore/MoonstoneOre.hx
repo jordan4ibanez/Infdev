@@ -9,6 +9,8 @@ final class MoonstoneOre extends OreDefinition {
 	public function new() {
 		super();
 
+		this.description = "Moonstone Ore";
+
 		this.nodeGroups = [
 			NodeGroupStone => 9
 		];
