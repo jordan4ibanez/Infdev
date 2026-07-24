@@ -15,6 +15,7 @@ final class Bedrock extends NodeDefinition {
 
 		this.nodeSounds = StoneSound.get();
 
+		// This is in case anyone figures out how to delete bedrock.
 		this.drop = "";
 	}
 }
