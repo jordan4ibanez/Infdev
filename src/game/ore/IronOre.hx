@@ -9,6 +9,8 @@ final class IronOre extends OreDefinition {
 	public function new() {
 		super();
 
+		this.description = "Iron Ore";
+
 		this.nodeGroups = [
 			NodeGroupStone => 2
 		];
