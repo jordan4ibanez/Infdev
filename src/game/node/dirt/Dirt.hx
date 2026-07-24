@@ -8,6 +8,8 @@ final class Dirt extends NodeDefinition {
 	public function new() {
 		super();
 
+		this.description = "Dirt";
+
 		this.nodeGroups = [
 			NodeGroupDirt => 1,
 			NodeGroupSoil => 1,
