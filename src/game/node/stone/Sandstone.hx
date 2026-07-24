@@ -8,6 +8,8 @@ final class Sandstone extends NodeDefinition {
 	public function new() {
 		super();
 
+		this.description = "Sandstone";
+
 		this.tiles = ["default_sandstone.png"];
 
 		this.nodeGroups = [
@@ -15,5 +17,7 @@ final class Sandstone extends NodeDefinition {
 		];
 
 		this.nodeSounds = StoneSound.get();
+
+		// todo: sandstone cobblestone would be cool. :)
 	}
 }
