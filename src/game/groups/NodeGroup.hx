@@ -28,7 +28,7 @@ enum abstract NodeGroup(String) to String {
 	var NodeGroupLava;
 
 	// Specialized.
-	var NodeGroupAttachedNode;
+	var NodeGroupAttachedNode = "attached_node";
 }
 
 inline final BEDROCK: Int = 506;
