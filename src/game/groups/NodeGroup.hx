@@ -1,10 +1,10 @@
 package src.game.groups;
 
-enum abstract AttachedNode(Int) to Int {
-	var AttachedNodeWallMounted = 1;
-	var AttachedNodeFaceDirOr4Dir = 2;
-	var AttachedNodeAlwaysToBelow = 3;
-	var AttachedNodeAlwaysToAbove = 4;
+enum abstract AttachedNodeSetting(Int) to Int {
+	var AttachedNodeSettingWallMounted = 1;
+	var AttachedNodeSettingFaceDirOr4Dir = 2;
+	var AttachedNodeSettingAlwaysToBelow = 3;
+	var AttachedNodeSettingAlwaysToAbove = 4;
 }
 
 enum abstract NodeGroup(String) to String {
