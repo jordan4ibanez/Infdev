@@ -8,6 +8,8 @@ final class Stone extends NodeDefinition {
 	public function new() {
 		super();
 
+		this.description = "Stone";
+
 		this.nodeGroups = [
 			NodeGroupStone => 1
 		];
