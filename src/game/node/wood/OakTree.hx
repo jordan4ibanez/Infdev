@@ -1,7 +1,6 @@
 package src.game.node.wood;
 
 import src.engine.definition.NodeDefinition;
-import src.engine.definition.basic.NodeBox;
 import src.game.groups.NodeGroup;
 
 @:register("infdev:oak_tree")
