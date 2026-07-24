@@ -29,15 +29,16 @@ enum abstract NodeGroup(String) to String {
 
 	// Specialized engine groups.
 	var NodeGroupAttachedNode = "attached_node";
-	var NodeGroupBouncy = "";
-	var NodeGroup = "";
-	var NodeGroup = "";
-	var NodeGroup = "";
-	var NodeGroup = "";
-	var NodeGroup = "";
-	var NodeGroup = "";
-	var NodeGroup = "";
-	var NodeGroup = "";
+	var NodeGroupBouncy = "bouncy";
+	var NodeGroupConnectToRaillike = "connect_to_raillike";
+	// var NodeGroupDigImmediate = "dig_immediate";
+	var NodeGroupDisableJump = "disable_jump";
+	var NodeGroupDisableDescend = "disable_descend";
+	var NodeGroupFallDamageAddPercent = "fall_damage_add_percent";
+	var NodeGroupFallingNode = "falling_node";
+	var NodeGroupFloat = "float";
+	var NodeGroupLevel = "level";
+	var NodeGroupSlippery = "slippery";
 }
 
 inline final BEDROCK: Int = 506;
