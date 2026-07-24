@@ -26,8 +26,8 @@ typedef CraftRecipeShapeless = {
 
 typedef CraftRecipeCooking = {
 	// todo: needs: type = "cooking"
-	var recipe: String;
-
+	// todo: recipe is itself
+	// var recipe: String;
 	@:optional
 	var cooktime: Float;
 
