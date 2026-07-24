@@ -3,36 +3,52 @@ package src.engine.entity.definition;
 // This class was almost AI generated but that felt boring.
 // So, I wrote it by hand.
 final class PhysicsOverride {
+	@:optional
 	public var speed: Float;
 
+	@:optional
 	public var speed_walk: Float;
 
+	@:optional
 	public var speed_climb: Float;
 
+	@:optional
 	public var speed_crouch: Float;
 
+	@:optional
 	public var speed_fast: Float;
 
+	@:optional
 	public var jump: Float;
 
+	@:optional
 	public var gravity: Float;
 
+	@:optional
 	public var liquid_fluidity: Float;
 
+	@:optional
 	public var liquid_fluidity_smooth: Float;
 
+	@:optional
 	public var liquid_sink: Float;
 
+	@:optional
 	public var acceleration_default: Float;
 
+	@:optional
 	public var acceleration_air: Float;
 
+	@:optional
 	public var acceleration_fast: Float;
 
+	@:optional
 	public var sneak: Bool;
 
+	@:optional
 	public var sneak_glitch: Bool;
 
+	@:optional
 	public var new_move: Bool;
 	// public function new() {}
 	// public inline function setSpeed(speed: Float): PhysicsOverride {
