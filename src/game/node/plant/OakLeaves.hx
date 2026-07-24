@@ -10,6 +10,8 @@ final class OakLeaves extends NodeDefinition {
 
 		this.description = "Oak Leaves";
 
+		this.drawType = DrawTypeAllFacesOptional;
+
 		this.tiles = ["default_leaves.png"];
 
 		this.specialTiles = ["default_leaves_simple.png"];
