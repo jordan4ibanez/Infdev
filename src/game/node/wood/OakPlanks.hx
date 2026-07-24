@@ -43,5 +43,12 @@ final class OakPlanks extends NodeDefinition {
 				amount: 100
 			}
 		];
+
+		this.recipesCooking = [
+			{
+				// You cook coal to get planks.
+				recipe: "infdev:coal"
+			}
+		];
 	}
 }
