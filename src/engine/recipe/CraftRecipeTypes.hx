@@ -23,3 +23,16 @@ typedef CraftRecipeShapeless = {
 	@:optional
 	var amount: Int;
 }
+
+typedef CraftRecipeCooking = {
+	var recipe: String;
+
+	// todo: needs: type = "cooking"
+	@:optional
+	var cooktime: Float;
+
+	// Defaults to 1.
+	@:optional
+	var amount: Int;
+	// replacements? Looks very strange
+}
