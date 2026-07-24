@@ -9,6 +9,8 @@ final class OracleShovel extends ToolDefinition {
 	public function new() {
 		super();
 
+		this.description = "Oracle Shovel";
+
 		this.inventoryImage = "oracle_shovel.png";
 		this.wieldImage = "oracle_shovel.png";
 
