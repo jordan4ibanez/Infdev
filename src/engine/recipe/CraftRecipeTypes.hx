@@ -43,7 +43,6 @@ typedef CraftRecipeFuel = {
 	// todo: needs: type = "fuel"
 	// todo: recipe is itself
 	// var recipe: String;
-	@:optional
 	var burntime: Float;
 
 	@:optional
