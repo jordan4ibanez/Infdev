@@ -33,5 +33,15 @@ final class OakPlanks extends NodeDefinition {
 				]
 			}
 		];
+
+		this.recipesShapeless = [
+			{
+				recipe: ["toast", "butter", "ketchup"],
+				replacements: [
+					"ketchup" => "jam"
+				],
+				amount: 100
+			}
+		];
 	}
 }
