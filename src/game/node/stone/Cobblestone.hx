@@ -8,6 +8,8 @@ final class Cobblestone extends NodeDefinition {
 	public function new() {
 		super();
 
+		this.description = "Cobblestone";
+
 		this.nodeGroups = [
 			NodeGroupStone => 2,
 			NodeGroupCobblestone => 2,
