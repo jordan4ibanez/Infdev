@@ -9,6 +9,8 @@ final class SapphireOre extends OreDefinition {
 	public function new() {
 		super();
 
+		this.description = "Sapphire Ore";
+
 		this.nodeGroups = [
 			NodeGroupStone => 6
 		];
