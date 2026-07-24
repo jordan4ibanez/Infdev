@@ -9,6 +9,8 @@ final class LapisOre extends OreDefinition {
 	public function new() {
 		super();
 
+		this.description = "Lapis Ore";
+
 		this.nodeGroups = [
 			NodeGroupStone => 8
 		];
