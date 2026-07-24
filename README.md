@@ -30,6 +30,8 @@ todo: getters and setters of things like itemstack may need to be inlined
 
 todo: implement craft recipe in the item itself as an array of craft recipes so shit isn't scattered all over the place like usual in luanti mods. This cascades to everything else.
 
+todo: implement decorations in the node itself as an array of decorations so shit isn't all over the place etc
+
 
 ### some design decisions:
 
