@@ -200,6 +200,9 @@ final class Player {
 		this.object.setPhysicsOverride({
 			gravity: 1.25,
 			jump: 1.25,
+			acceleration_default: 0.5,
+			acceleration_fast: 0.5,
+			acceleration_air: 0.5,
 		});
 
 		this.object.setProperties({
