@@ -1,4 +1,4 @@
-package src.game.node.glass;
+package src.game.node.plant;
 
 import src.engine.definition.sound.NodeSoundTable;
 import src.engine.definition.sound.SimpleSoundSpecTable;
@@ -7,15 +7,15 @@ import src.engine.definition.sound.SimpleSoundSpecTable;
 abstract class PlantSound {
 	public static function get(): NodeSoundTable {
 		return new NodeSoundTable()
-			.setDig(new SimpleSoundSpecTable("glass_mine")
+			.setDig(new SimpleSoundSpecTable("plant_mine")
 				.setPitch(0.9))
-			.setDug(new SimpleSoundSpecTable("glass_mine")
+			.setDug(new SimpleSoundSpecTable("plant_mine")
 				.setPitch(0.75))
-			.setFootstep(new SimpleSoundSpecTable("glass_step")
+			.setFootstep(new SimpleSoundSpecTable("plant_step")
 				.setPitch(0.8))
-			.setPlace(new SimpleSoundSpecTable("glass_mine")
+			.setPlace(new SimpleSoundSpecTable("plant_mine")
 				.setPitch(0.65))
-			.setPlaceFailed(new SimpleSoundSpecTable("glass_mine")
+			.setPlaceFailed(new SimpleSoundSpecTable("plant_mine")
 				.setPitch(0.4));
 	}
 }
