@@ -8,6 +8,8 @@ final class Bedrock extends NodeDefinition {
 	public function new() {
 		super();
 
+		this.description = "Bedrock";
+
 		this.nodeGroups = [
 			NodeGroupHandDiggable => BEDROCK
 		];
