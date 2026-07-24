@@ -13,6 +13,8 @@ final class OraclePickaxe extends ToolDefinition {
 	public function new() {
 		super();
 
+		this.description = "Oracle Pickaxe";
+
 		this.inventoryImage = "oracle_pickaxe.png";
 		this.wieldImage = "oracle_pickaxe.png";
 
