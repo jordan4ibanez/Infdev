@@ -218,6 +218,16 @@ class ItemDefinitionDuctTape {
 								if (instance.recipesShaped != null) {
 									for (recipe in instance.recipesShaped) {
 										var amount = recipe.amount ?? 1;
+
+										// Rebuild the haxe typed data with raw lua tables.
+										if (recipe.replacements != null) {
+											var tempReplacements = lua.Table.create();
+											for (k => v in recipe.replacements) {
+												lua.Table.insert(tempReplacements, lua.Table.create([k, v]));
+											}
+											untyped recipe.replacements = tempReplacements;
+										}
+
 										untyped {
 											recipe.type = "shaped";
 											recipe.output = $v{registrationName} + " " + amount;
