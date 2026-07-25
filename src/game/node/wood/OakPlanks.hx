@@ -29,7 +29,7 @@ final class OakPlanks extends NodeDefinition {
 					["infdev:tree", "infdev:tree", "infdev:tree"]
 				],
 				replacements: [
-					"test" => "test"
+					["test", "testother"]
 				]
 			}
 		];
@@ -38,7 +38,7 @@ final class OakPlanks extends NodeDefinition {
 			{
 				recipe: ["toast", "butter", "ketchup"],
 				replacements: [
-					"ketchup" => "jam"
+					["ketchup", "jam"]
 				],
 				amount: 100
 			}
