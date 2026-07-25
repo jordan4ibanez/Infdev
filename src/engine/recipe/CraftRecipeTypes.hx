@@ -1,27 +1,30 @@
 package src.engine.recipe;
 
+import src.engine.compilercode.LuaArray;
+import src.engine.compilercode.LuaMap;
+
 typedef CraftRecipeShaped = {
 	// todo: needs: type = "shaped"
-	var recipe: Array<Array<String>>;
+	var recipe: LuaArray<LuaArray<String>>;
 
 	// Defaults to 1.
 	@:optional
 	var amount: Int;
 
 	@:optional
-	var replacements: Map<String, String>;
+	var replacements: LuaMap<String, String>;
 }
 
 typedef CraftRecipeShapeless = {
 	// todo: needs: type = "shapeless"
-	var recipe: Array<String>;
+	var recipe: LuaArray<String>;
 
 	// Defaults to 1.
 	@:optional
 	var amount: Int;
 
 	@:optional
-	var replacements: Map<String, String>;
+	var replacements: LuaMap<String, String>;
 }
 
 typedef CraftRecipeCooking = {
@@ -36,7 +39,7 @@ typedef CraftRecipeCooking = {
 	var amount: Int;
 
 	@:optional
-	var replacements: Map<String, String>;
+	var replacements: LuaMap<String, String>;
 }
 
 typedef CraftRecipeFuel = {
@@ -46,5 +49,5 @@ typedef CraftRecipeFuel = {
 	var burntime: Float;
 
 	@:optional
-	var replacements: Map<String, String>;
+	var replacements: LuaMap<String, String>;
 }
