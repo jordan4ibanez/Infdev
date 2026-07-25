@@ -12,7 +12,7 @@ typedef CraftRecipeShaped = {
 	var amount: Int;
 
 	@:optional
-	var replacements: LuaArray<LuaArray<String>>;
+	var replacements: Map<String, String>;
 }
 
 typedef CraftRecipeShapeless = {
