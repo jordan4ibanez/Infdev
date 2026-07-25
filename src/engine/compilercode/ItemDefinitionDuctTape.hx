@@ -220,12 +220,9 @@ class ItemDefinitionDuctTape {
 										var amount = recipe.amount ?? 1;
 										untyped {
 											recipe.type = "shaped";
-
 											recipe.output = $v{registrationName} + " " + amount;
-
 											// Purge  haxe metadata.
 											recipe.__fields__ = null;
-
 											print(dump(recipe));
 										}
 
