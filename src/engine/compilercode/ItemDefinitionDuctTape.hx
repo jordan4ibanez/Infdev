@@ -135,8 +135,6 @@ class ItemDefinitionDuctTape {
 
 			var oreRegistrationCode = if (isOreDef) {
 				macro {
-					var flarp: src.engine.definition.OreDefinition = instance;
-
 					// Automatic component injection as part of the OreDefinition class itself.
 					if (instance.oreSpawns != null) {
 						for (i => spawn in instance.oreSpawns) {
