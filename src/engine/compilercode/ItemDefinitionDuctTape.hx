@@ -213,6 +213,25 @@ class ItemDefinitionDuctTape {
 
 								// trace(instance);
 								// trace($i{wrapperClassName});
+
+								// ? Finally register the craft recipes.
+								if (instance.recipesShaped != null) {
+									for (recipe in instance.recipesShaped) {
+										var amount = recipe.amount ?? 1;
+										untyped {
+											recipe.type = "shaped";
+
+											recipe.output = $v{registrationName} + " " + amount;
+
+											// Purge  haxe metadata.
+											recipe.__fields__ = null;
+
+											print(dump(recipe));
+										}
+
+										untyped __lua__("core.register_craft({0})", recipe);
+									}
+								}
 							}
 						})
 					}
