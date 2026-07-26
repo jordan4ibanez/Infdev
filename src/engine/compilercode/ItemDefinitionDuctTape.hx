@@ -215,6 +215,8 @@ class ItemDefinitionDuctTape {
 								// trace($i{wrapperClassName});
 
 								// ? Finally register the craft recipes.
+
+								// ! Shaped.
 								if (instance.recipesShaped != null) {
 									for (recipe in instance.recipesShaped) {
 										var amount = recipe.amount ?? 1;
@@ -239,6 +241,8 @@ class ItemDefinitionDuctTape {
 										untyped __lua__("core.register_craft({0})", recipe);
 									}
 								}
+
+								// ! Unshaped.
 							}
 						})
 					}
