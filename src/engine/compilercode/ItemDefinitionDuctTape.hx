@@ -235,7 +235,7 @@ class ItemDefinitionDuctTape {
 											recipe.output = $v{registrationName} + " " + amount;
 											// Purge  haxe metadata.
 											recipe.__fields__ = null;
-											print(dump(recipe));
+											// print(dump(recipe));
 										}
 
 										untyped __lua__("core.register_craft({0})", recipe);
