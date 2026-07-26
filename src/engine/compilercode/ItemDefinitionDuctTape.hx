@@ -243,6 +243,11 @@ class ItemDefinitionDuctTape {
 								}
 
 								// ! Unshaped.
+								if (instance.recipesShapeless != null) {
+									for (recipe in instance.recipesShapeless) {
+										
+									}
+								}
 							}
 						})
 					}
