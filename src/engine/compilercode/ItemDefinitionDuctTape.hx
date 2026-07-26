@@ -255,6 +255,14 @@ class ItemDefinitionDuctTape {
 											}
 											untyped recipe.replacements = tempReplacements;
 										}
+
+										untyped {
+											recipe.type = "shapeless";
+											recipe.output = $v{registrationName} + " " + amount;
+											// Purge  haxe metadata.
+											recipe.__fields__ = null;
+											print(dump(recipe));
+										}
 									}
 								}
 							}
