@@ -30,7 +30,8 @@ final class OakPlanks extends NodeDefinition {
 				],
 				replacements: [
 					"test" => "testother"
-				]
+				],
+				amount: 2
 			}
 		];
 
