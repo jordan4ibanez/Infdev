@@ -260,6 +260,7 @@ class ItemDefinitionDuctTape {
 										untyped {
 											recipe.type = "shapeless";
 											recipe.output = $v{registrationName} + " " + amount;
+											recipe.amount = null;
 											// Purge  haxe metadata.
 											recipe.__fields__ = null;
 											print(dump(recipe));
