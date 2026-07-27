@@ -1,10 +1,8 @@
 package src.engine.recipe;
 
 import src.engine.compilercode.LuaArray;
-import src.engine.compilercode.LuaMap;
 
 typedef CraftRecipeShaped = {
-	// todo: needs: type = "shaped"
 	var recipe: LuaArray<LuaArray<String>>;
 
 	// Defaults to 1.
@@ -16,7 +14,6 @@ typedef CraftRecipeShaped = {
 }
 
 typedef CraftRecipeShapeless = {
-	// todo: needs: type = "shapeless"
 	var recipe: LuaArray<String>;
 
 	// Defaults to 1.
