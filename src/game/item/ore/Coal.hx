@@ -7,7 +7,7 @@ final class Coal extends ItemDefinition {
 	public function new() {
 		super();
 
-		this.inventoryImage = "default_coal_lump.png";
+		this.inventoryImage = "default_coal_lump.png^[colorize:black:170";
 
 		this.recipeFuel = {
 			burntime: 45
