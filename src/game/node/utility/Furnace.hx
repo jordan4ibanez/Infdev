@@ -21,6 +21,18 @@ final class FurnaceOff extends NodeDefinition {
 		this.nodeSounds = StoneSound.get();
 
 		this.tiles = ["default_cobble.png"];
+
+		final cobble = NodeGroupCobblestone.groupify();
+
+		this.paramtype2 = ParamType2FourDir;
+
+		this.recipesShaped = [{
+			recipe: [
+				[cobble, cobble, cobble,],
+				[cobble, "", cobble,],
+				[cobble, cobble, cobble,],
+			]
+		}];
 	}
 }
 
@@ -35,6 +47,8 @@ final class FurnaceOn extends NodeDefinition {
 			NodeGroupStone => 2,
 			NodeGroupCobblestone => 2,
 		];
+
+		this.paramtype2 = ParamType2FourDir;
 
 		this.nodeSounds = StoneSound.get();
 
