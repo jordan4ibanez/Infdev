@@ -29,5 +29,11 @@ final class Glass extends NodeDefinition {
 
 		this.sunlightPropagates = true;
 		this.isGroundContent = false;
+
+		this.recipesCooking = [
+			{
+				recipe: "infdev:sand",
+			}
+		];
 	}
 }
