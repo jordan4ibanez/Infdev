@@ -25,5 +25,9 @@ final class Stick extends ItemDefinition {
 				amount: 4
 			}
 		];
+
+		this.recipeFuel = {
+			burntime: 3
+		}
 	}
 }
