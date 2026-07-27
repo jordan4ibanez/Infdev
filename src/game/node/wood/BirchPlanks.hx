@@ -29,5 +29,9 @@ final class BirchPlanks extends NodeDefinition {
 				amount: 4,
 			}
 		];
+
+		this.recipeFuel = {
+			burntime: 10
+		}
 	}
 }
