@@ -1,4 +1,4 @@
-package src.game.item;
+package src.game.item.ore;
 
 import src.engine.definition.ItemDefinition;
 
