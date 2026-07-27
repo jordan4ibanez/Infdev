@@ -7,6 +7,8 @@ final class Diamond extends ItemDefinition {
 	public function new() {
 		super();
 
+		this.description = "Diamond";
+
 		this.inventoryImage = "default_diamond.png";
 	}
 }
