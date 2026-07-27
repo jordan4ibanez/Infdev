@@ -265,6 +265,8 @@ class ItemDefinitionDuctTape {
 											recipe.__fields__ = null;
 											// print(dump(recipe));
 										}
+
+										untyped __lua__("core.register_craft({0})", recipe);
 									}
 								}
 
