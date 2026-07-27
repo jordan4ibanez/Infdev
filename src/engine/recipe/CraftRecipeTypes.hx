@@ -36,7 +36,7 @@ typedef CraftRecipeCooking = {
 	var amount: Int;
 
 	@:optional
-	var replacements: LuaMap<String, String>;
+	var replacements: Map<String, String>;
 }
 
 typedef CraftRecipeFuel = {
@@ -46,5 +46,5 @@ typedef CraftRecipeFuel = {
 	var burntime: Float;
 
 	@:optional
-	var replacements: LuaMap<String, String>;
+	var replacements: Map<String, String>;
 }
