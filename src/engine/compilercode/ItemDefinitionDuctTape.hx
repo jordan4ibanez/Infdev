@@ -270,7 +270,7 @@ class ItemDefinitionDuctTape {
 									}
 								}
 
-								//! Cooking.
+								// ! Cooking.
 								if (instance.recipesCooking != null) {
 									for (recipe in instance.recipesCooking) {
 										
