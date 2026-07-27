@@ -273,8 +273,29 @@ class ItemDefinitionDuctTape {
 								// ! Cooking.
 								if (instance.recipesCooking != null) {
 									for (recipe in instance.recipesCooking) {
-										
-									}		
+										var amount = recipe.amount ?? 1;
+
+										// Rebuild the haxe typed data with raw lua tables.
+										if (recipe.replacements != null) {
+											var tempReplacements = lua.Table.create();
+											for (k => v in recipe.replacements) {
+												lua.Table.insert(tempReplacements, lua.Table.create([k, v]));
+											}
+											untyped recipe.replacements = tempReplacements;
+										}
+
+										untyped {
+											recipe.type = "cooking";
+											recipe.output = $v{registrationName} + " " + amount;
+											recipe.amount = null;
+											// Purge  haxe metadata.
+											recipe.__fields__ = null;
+
+											// print(dump(recipe));
+										}
+
+										untyped __lua__("core.register_craft({0})", recipe);
+									}
 								}
 							}
 						})
