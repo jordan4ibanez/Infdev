@@ -46,5 +46,5 @@ typedef CraftRecipeFuel = {
 	var burntime: Float;
 
 	@:optional
-	var replacements: Map<String, String>;
+	var replacement: String;
 }
