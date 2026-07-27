@@ -22,9 +22,9 @@ final class FurnaceOff extends NodeDefinition {
 
 		this.tiles = ["default_cobble.png"];
 
-		final cobble = NodeGroupCobblestone.groupify();
-
 		this.paramtype2 = ParamType2FourDir;
+
+		final cobble = NodeGroupCobblestone.groupify();
 
 		this.recipesShaped = [{
 			recipe: [
