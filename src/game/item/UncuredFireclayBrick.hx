@@ -18,7 +18,14 @@ final class UncuredFireclayBrick extends ItemDefinition {
 					["infdev:clay", "infdev:sand"],
 				],
 				amount: 2
-			}
+			},
+			{
+				recipe: [
+					["infdev:clay", "infdev:sand"],
+					["infdev:sand", "infdev:clay"],
+				],
+				amount: 2
+			},
 		];
 	}
 }
