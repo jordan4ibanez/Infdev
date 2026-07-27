@@ -267,6 +267,13 @@ class ItemDefinitionDuctTape {
 										}
 									}
 								}
+
+								//! Cooking.
+								if (instance.recipesCooking != null) {
+									for (recipe in instance.recipesCooking) {
+										
+									}		
+								}
 							}
 						})
 					}
