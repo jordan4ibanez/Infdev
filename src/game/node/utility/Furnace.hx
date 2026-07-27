@@ -24,15 +24,17 @@ final class FurnaceOff extends NodeDefinition {
 
 		this.paramtype2 = ParamType2FourDir;
 
-		final cobble = NodeGroupCobblestone.groupify();
+		{
+			final cobble = NodeGroupCobblestone.groupify();
 
-		this.recipesShaped = [{
-			recipe: [
-				[cobble, cobble, cobble,],
-				[cobble, "", cobble,],
-				[cobble, cobble, cobble,],
-			]
-		}];
+			this.recipesShaped = [{
+				recipe: [
+					[cobble, cobble, cobble,],
+					[cobble, "", cobble,],
+					[cobble, cobble, cobble,],
+				]
+			}];
+		}
 	}
 }
 
