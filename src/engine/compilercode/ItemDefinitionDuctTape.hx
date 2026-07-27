@@ -297,6 +297,11 @@ class ItemDefinitionDuctTape {
 										untyped __lua__("core.register_craft({0})", recipe);
 									}
 								}
+
+								// ! Fuel.
+								if (instance.recipeFuel != null) {
+									
+								}
 							}
 						})
 					}
