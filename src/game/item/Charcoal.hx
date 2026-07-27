@@ -15,5 +15,9 @@ final class Charcoal extends ItemDefinition {
 				recipe: NodeGroupTree.groupify()
 			}
 		];
+
+		this.recipeFuel = {
+			burntime: 40
+		}
 	}
 }
