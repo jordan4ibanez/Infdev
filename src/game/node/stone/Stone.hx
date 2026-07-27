@@ -18,5 +18,11 @@ final class Stone extends NodeDefinition {
 		this.nodeSounds = StoneSound.get();
 
 		this.drop = "infdev:cobblestone";
+
+		this.recipesCooking = [
+			{
+				recipe: "infdev:cobblestone"
+			}
+		];
 	}
 }
