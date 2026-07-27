@@ -2,7 +2,7 @@ package src.game.item.ore;
 
 import src.engine.definition.ItemDefinition;
 
-@:register("infdev:iron_ore")
+@:register("infdev:iron")
 final class Iron extends ItemDefinition {
 	public function new() {
 		super();
