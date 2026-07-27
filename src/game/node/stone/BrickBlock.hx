@@ -22,5 +22,14 @@ final class BrickBlock extends NodeDefinition {
 		];
 
 		this.isGroundContent = false;
+
+		this.recipesShaped = [
+			{
+				recipe: [
+					["infdev:brick", "infdev:brick"],
+					["infdev:brick", "infdev:brick"],
+				]
+			}
+		];
 	}
 }
