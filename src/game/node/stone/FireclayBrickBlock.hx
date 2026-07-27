@@ -22,5 +22,14 @@ final class FireclayBrickBlock extends NodeDefinition {
 		];
 
 		this.isGroundContent = false;
+
+		this.recipesShaped = [
+			{
+				recipe: [
+					["infdev:fireclay_brick", "infdev:fireclay_brick"],
+					["infdev:fireclay_brick", "infdev:fireclay_brick"],
+				]
+			}
+		];
 	}
 }
