@@ -54,7 +54,9 @@ final class OakPlanks extends NodeDefinition {
 		];
 
 		this.recipeFuel = {
-			burntime: 3
+			burntime: 3,
+			// This plank turns to stone.
+			replacement: "infdev:stone"
 		};
 	}
 }
