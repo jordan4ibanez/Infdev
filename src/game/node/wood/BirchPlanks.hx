@@ -22,5 +22,12 @@ final class BirchPlanks extends NodeDefinition {
 		];
 
 		this.nodeSounds = WoodSound.get();
+
+		this.recipesShapeless = [
+			{
+				recipe: ["infdev:birch_tree"],
+				amount: 4,
+			}
+		];
 	}
 }
