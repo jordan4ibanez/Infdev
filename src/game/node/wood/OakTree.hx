@@ -26,5 +26,9 @@ final class OakTree extends NodeDefinition {
 		];
 
 		this.nodeSounds = WoodSound.get();
+
+		this.recipeFuel = {
+			burntime: 20
+		}
 	}
 }
