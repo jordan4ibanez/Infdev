@@ -15,5 +15,11 @@ final class FireclayBrick extends ItemDefinition {
 			recipe: ["infdev:fireclay_brick_block"],
 			amount: 4
 		}];
+
+		this.recipesCooking = [
+			{
+				recipe: "infdev:uncured_fireclay_brick"
+			}
+		];
 	}
 }
