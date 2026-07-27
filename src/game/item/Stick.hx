@@ -9,6 +9,8 @@ final class Stick extends ItemDefinition {
 	public function new() {
 		super();
 
+		this.description = "Stick";
+
 		this.inventoryImage = "default_stick.png";
 
 		// this.pointabilities = new ItemPointabilitiesTable()
