@@ -2,6 +2,7 @@ package src.game.item;
 
 import src.engine.definition.ItemDefinition;
 import src.engine.definition.basic.ItemPointabilitiesTable;
+import src.game.groups.ItemGroup;
 import src.game.groups.NodeGroup;
 
 @:register("infdev:stick")
@@ -15,6 +16,11 @@ final class Stick extends ItemDefinition {
 			.setNodes(new ItemPointableMap()
 				.set("infdev:dirt", ItemPointableTrue)
 				.set("infdev:sand", ItemPointableBlocking));
+
+		this.itemGroups = [
+			ItemGroupStick => 1,
+			ItemGroupWood => 1,
+		];
 
 		this.recipesShaped = [
 			{
