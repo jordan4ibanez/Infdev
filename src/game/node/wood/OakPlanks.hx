@@ -23,40 +23,11 @@ final class OakPlanks extends NodeDefinition {
 
 		this.nodeSounds = WoodSound.get();
 
-		this.recipesShaped = [
-			{
-				recipe: [
-					["infdev:tree", "infdev:tree", "infdev:tree"]
-				],
-				replacements: [
-					"test" => "testother"
-				],
-				amount: 2
-			}
-		];
-
 		this.recipesShapeless = [
 			{
-				recipe: ["toast", "butter", "ketchup"],
-				replacements: ["ketchup" => "jam"],
-				amount: 100
+				recipe: ["infdev:oak_tree"],
+				amount: 4,
 			}
 		];
-
-		this.recipesCooking = [
-			{
-				// You cook coal to get planks.
-				recipe: "infdev:coal",
-				replacements: ["ketchup" => "jam"],
-				amount: 234,
-				cooktime: 5000
-			}
-		];
-
-		this.recipeFuel = {
-			burntime: 3,
-			// This plank turns to stone.
-			replacement: "infdev:stone"
-		};
 	}
 }
