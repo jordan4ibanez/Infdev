@@ -46,7 +46,10 @@ final class OakPlanks extends NodeDefinition {
 		this.recipesCooking = [
 			{
 				// You cook coal to get planks.
-				recipe: "infdev:coal"
+				recipe: "infdev:coal",
+				replacements: ["ketchup" => "jam"],
+				amount: 234,
+				cooktime: 5000
 			}
 		];
 
