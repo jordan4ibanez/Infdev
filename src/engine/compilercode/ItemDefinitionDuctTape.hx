@@ -263,7 +263,7 @@ class ItemDefinitionDuctTape {
 											recipe.amount = null;
 											// Purge  haxe metadata.
 											recipe.__fields__ = null;
-											print(dump(recipe));
+											// print(dump(recipe));
 										}
 									}
 								}
