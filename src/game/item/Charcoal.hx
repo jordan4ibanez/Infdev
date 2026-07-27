@@ -8,7 +8,9 @@ final class Charcoal extends ItemDefinition {
 	public function new() {
 		super();
 
-		this.inventoryImage = "default_coal_lump.png";
+		this.description = "Charcoal";
+
+		this.inventoryImage = "default_coal_lump.png^[colorize:black:100";
 
 		this.recipesCooking = [
 			{
