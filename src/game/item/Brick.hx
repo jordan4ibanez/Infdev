@@ -17,5 +17,11 @@ final class Brick extends ItemDefinition {
 				amount: 4
 			}
 		];
+
+		this.recipesCooking = [
+			{
+				recipe: "infdev:clay"
+			}
+		];
 	}
 }
