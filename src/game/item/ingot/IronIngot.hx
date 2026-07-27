@@ -3,7 +3,7 @@ package src.game.item.ingot;
 import src.engine.definition.ItemDefinition;
 
 @:register("infdev:iron_ingot")
-final class Iron extends ItemDefinition {
+final class IronIngot extends ItemDefinition {
 	public function new() {
 		super();
 
