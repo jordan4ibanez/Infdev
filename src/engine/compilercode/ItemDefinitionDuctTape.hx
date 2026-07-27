@@ -300,7 +300,26 @@ class ItemDefinitionDuctTape {
 
 								// ! Fuel.
 								if (instance.recipeFuel != null) {
-									
+									// This one is a singular rebuild into a lua "pair array".
+									if (instance.recipeFuel.replacement != null) {
+										var tempReplacements = lua.Table.create();
+										var output = instance.recipeFuel.replacement;
+										lua.Table.insert(tempReplacements, lua.Table.create([$v{registrationName}, output]));
+										untyped instance.recipeFuel.replacements = tempReplacements;
+									}
+
+									untyped {
+										instance.recipeFuel.type = "fuel";
+										instance.recipeFuel.recipe = $v{registrationName};
+										instance.recipeFuel.replacement = null;
+
+										// Purge  haxe metadata.
+										instance.recipeFuel.__fields__ = null;
+
+										print(dump(instance.recipeFuel));
+									}
+
+									untyped __lua__("core.register_craft({0})", instance.recipeFuel);
 								}
 							}
 						})
