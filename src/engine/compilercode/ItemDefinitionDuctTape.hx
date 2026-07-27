@@ -316,7 +316,7 @@ class ItemDefinitionDuctTape {
 										// Purge  haxe metadata.
 										instance.recipeFuel.__fields__ = null;
 
-										print(dump(instance.recipeFuel));
+										// print(dump(instance.recipeFuel));
 									}
 
 									untyped __lua__("core.register_craft({0})", instance.recipeFuel);
