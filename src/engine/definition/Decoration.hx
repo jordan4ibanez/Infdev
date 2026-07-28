@@ -90,7 +90,9 @@ interface Decoration {
 	//   ceiling decorations will be aligned vertically.
 	// todo: combine this together in the compiler.
 	var flags: Array<DecorationFlags>;
+}
 
+interface DecorationSimple extends Decoration {
 	// The node name used as the decoration.
 	// If instead a list of strings, a randomly selected node from the list
 	// is placed as the decoration.
