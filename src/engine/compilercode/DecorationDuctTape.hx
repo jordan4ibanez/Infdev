@@ -32,6 +32,15 @@ class DecorationDuctTape {
 			Context.error("Do not use a constructor in decorations. It's a data class.", localClass.pos);
 		}
 
+		var decoType: String;
+		var interfaceName = localClass.interfaces[0].t.get().name;
+
+		switch (interfaceName) {
+			case "DecorationSimple":
+				decoType = simple;
+			default:
+				throw "Forgotten decoration interface: " + interfaceName;
+		}
 		// I could probably make this dump a bunch of instances into a single static class.
 		// But, this is easier.
 
