@@ -7,20 +7,20 @@ enum abstract DecorationType(String) to String {
 }
 
 typedef DecorationDefinition = {
-    var deco_type = "simple";
+    var deco_type: DecorationType;
     // Type. "simple", "schematic" or "lsystem" supported
 
-    var place_on = "default:dirt_with_grass";
+    var place_on: LuaArray<String>;
     // Node (or list of nodes) that the decoration can be placed on
 
-    var sidelen = 8;
+    var sidelen :Int;
     // Size of the square (X / Z) divisions of the mapchunk being generated.
     // Determines the resolution of noise variation if used.
     // If the chunk size is not evenly divisible by sidelen, sidelen is made
     // equal to the chunk size.
     // Integer in range: [1, 32767]
 
-    var fill_ratio = 0.02;
+    var fill_ratio :Float;
     // The value determines 'decorations per surface node'.
     // Used only if noise_params is not specified.
     // If >= 10.0 complete coverage is enabled and decoration placement uses
