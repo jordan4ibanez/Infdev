@@ -7,35 +7,27 @@ enum abstract DecorationType(String) to String {
 }
 
 typedef DecorationDefinition = {
-    var deco_type = "simple",
+    var deco_type = "simple";
     // Type. "simple", "schematic" or "lsystem" supported
 
-    var place_on = "default:dirt_with_grass",
+    var place_on = "default:dirt_with_grass";
     // Node (or list of nodes) that the decoration can be placed on
 
-    var sidelen = 8,
+    var sidelen = 8;
     // Size of the square (X / Z) divisions of the mapchunk being generated.
     // Determines the resolution of noise variation if used.
     // If the chunk size is not evenly divisible by sidelen, sidelen is made
     // equal to the chunk size.
     // Integer in range: [1, 32767]
 
-    var fill_ratio = 0.02,
+    var fill_ratio = 0.02;
     // The value determines 'decorations per surface node'.
     // Used only if noise_params is not specified.
     // If >= 10.0 complete coverage is enabled and decoration placement uses
     // a different and much faster method.
 
-    var noise_params = {
-        offset = 0,
-        scale = 0.45,
-        spread = {x = 100, y = 100, z = 100},
-        seed = 354,
-        octaves = 3,
-        persistence = 0.7,
-        lacunarity = 2.0,
-        flags = "absvalue"
-    },
+    var noise_params: NoiseParams;
+    
     // NoiseParams structure describing the noise used for decoration
     // distribution.
     // A noise value is calculated for each square division and determines
