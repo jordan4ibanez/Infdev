@@ -145,7 +145,7 @@ class ItemDefinitionDuctTape {
 							spawn.clust_scarcity = cast lua.Math.pow(spawn.clust_scarcity, 3);
 
 							// Debugging weirdness.
-							if (true) {
+							if (false) {
 								spawn.wherein = "air";
 							}
 
