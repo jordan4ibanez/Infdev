@@ -27,7 +27,7 @@ typedef DecorationDefinition = {
     // a different and much faster method.
 
     var noise_params: NoiseParams;
-    
+
     // NoiseParams structure describing the noise used for decoration
     // distribution.
     // A noise value is calculated for each square division and determines
@@ -35,6 +35,7 @@ typedef DecorationDefinition = {
     // If the noise value >= 10.0 complete coverage is enabled and
     // decoration placement uses a different and much faster method.
 
+    // todo: Define this as an array of biomes types. When biomes are implemented properly and not just a random mapgen thing.
     var biomes = {"Oceanside", "Hills", "Plains"},
     // List of biomes in which this decoration occurs. Occurs in all biomes
     // if this is omitted, and ignored if the Mapgen being used does not
