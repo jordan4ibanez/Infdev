@@ -222,6 +222,9 @@ extern class Core {
 
 	@:native("yaw_to_dir")
 	static function yawToDir(yaw: Float): Vec3;
+
+	@:native("get_node")
+	static function getNode(pos: Vec3): NodeTable;
 }
 
 @:noCompletion
