@@ -41,6 +41,7 @@ class DecorationDuctTape {
 			default:
 				throw "Forgotten decoration interface: " + interfaceName;
 		}
+
 		// I could probably make this dump a bunch of instances into a single static class.
 		// But, this is easier.
 
