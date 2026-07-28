@@ -27,7 +27,10 @@ final class Sugarcane extends NodeDefinition {
 
 		this.sunlightPropagates = true;
 
-		this.walkable = false;
+		// A collisionbox that abuses the game's collision detection to still be counted as walkable.
+		// But you cannot walk on it.
+		this.collisionBox = new NodeBoxFixed()
+			.addBox(0, 0, 0, 0, 0, 0);
 
 		this.selectionBox = new NodeBoxFixed()
 			.addBox(-6 / 16, -0.5, -6 / 16, 6 / 16, 0.5, 6 / 16);
