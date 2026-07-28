@@ -57,6 +57,7 @@ class ItemDefinitionDuctTape {
 
 		final isRoot = localClass.meta.has(":luantiDefinitionRoot");
 
+		// todo: Why doesn't this just return null???
 		if (!isRoot) {
 			if (!localClass.isFinal) {
 				Context.error("Class must be final.", localClass.pos);
