@@ -16,11 +16,6 @@ interface Decoration {
 	// Node (or list of nodes) that the decoration can be placed on
 	var place_on: LuaArray<String>;
 
-	// Size of the square (X / Z) divisions of the mapchunk being generated.
-	// Determines the resolution of noise variation if used.
-	// If the chunk size is not evenly divisible by sidelen, sidelen is made
-	// equal to the chunk size.
-	// Integer in range: [1, 32767]
 	var sidelen: Int;
 
 	// The value determines 'decorations per surface node'.
