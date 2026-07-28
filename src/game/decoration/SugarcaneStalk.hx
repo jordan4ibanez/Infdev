@@ -4,9 +4,9 @@ import src.engine.NoiseParams;
 import src.engine.compilercode.LuaArray;
 import src.engine.definition.Decoration;
 
-class SugarcaneStalk implements DecorationSimple {
+final class SugarcaneStalk implements DecorationSimple {
 	public var place_on: LuaArray<String>;
-	public var sidelen: Int;
+	public var sidelen: Int = 1;
 	public var fill_ratio: Float;
 	public var noise_params: NoiseParams;
 	public var biomes: LuaArray<String>;
