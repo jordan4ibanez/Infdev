@@ -20,6 +20,11 @@ class DecorationDuctTape {
 		// Fully qualified.
 		var className = Context.getLocalClass().toString();
 
+		// Require a class to be final.
+		if (!localClass.isFinal) {
+			Context.error("Class must be final.", localClass.pos);
+		}
+
 		// I could probably make this dump a bunch of instances into a single static class.
 		// But, this is easier.
 
