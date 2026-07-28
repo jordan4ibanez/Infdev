@@ -89,7 +89,7 @@ class DecorationDuctTape {
 			meta: []
 		}
 
-		trace(className);
+		// trace(className);
 
 		// ? Finally inject the class directly into the compiler compilation pool.
 
