@@ -8,6 +8,19 @@ class DecorationDuctTape {
 	public static function build(): Array<Field> {
 		var fields = Context.getBuildFields();
 
+		var localClass = Context.getLocalClass().get();
+
+		// Fully qualified.
+		var className = Context.getLocalClass().toString();
+
+		for (meta in localClass.meta.get()) {
+			if (meta.name == ":decorationRoot") {
+				return fields;
+			}
+		}
+
+		trace(className);
+
 		return fields;
 	}
 }
