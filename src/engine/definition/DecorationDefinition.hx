@@ -15,7 +15,7 @@ enum abstract DecorationFlags(String) to String {
 	var DecorationFlagsAllCeilings = "all_ceilings";
 }
 
-typedef DecorationDefinition = {
+interface DecorationDefinition {
 	// Type. "simple", "schematic" or "lsystem" supported
 	var deco_type: DecorationType;
 
