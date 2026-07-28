@@ -19,9 +19,6 @@ enum abstract DecorationFlags(String) to String {
 @:decorationRoot
 @:autoBuild(src.engine.compilercode.DecorationDuctTape.build())
 interface Decoration {
-	// Type. "simple", "schematic" or "lsystem" supported
-	// todo: inject this in the compiler
-	// var deco_type: DecorationType;
 	// Node (or list of nodes) that the decoration can be placed on
 	var place_on: LuaArray<String>;
 
