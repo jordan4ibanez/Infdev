@@ -1,7 +1,10 @@
 package src.game.node.plant;
 
+import src.engine.Core;
+import src.engine.NodeTable;
 import src.engine.definition.NodeDefinition;
 import src.engine.definition.basic.NodeBox;
+import src.engine.vector.Vec3;
 import src.game.groups.NodeGroup;
 
 @:register("infdev:sugarcane")
@@ -31,5 +34,16 @@ final class Sugarcane extends NodeDefinition {
 		];
 
 		this.nodeSounds = PlantSound.get();
+	}
+
+	override function afterDestruct(pos: Vec3, oldNode: NodeTable) {
+		super.afterDestruct(pos, oldNode);
+
+		pos.y += 1;
+		var nodeAbove = Core.getNode(pos);
+
+		if (nodeAbove.name == "infdev:sugarcane") {
+			Core.digNode(pos);
+		}
 	}
 }
