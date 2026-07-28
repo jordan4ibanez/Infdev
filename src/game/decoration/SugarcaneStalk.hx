@@ -5,7 +5,6 @@ import src.engine.compilercode.LuaArray;
 import src.engine.definition.Decoration;
 
 class SugarcaneStalk implements DecorationSimple {
-	public var param2: Int;
 	public var place_on: LuaArray<String>;
 	public var sidelen: Int;
 	public var fill_ratio: Float;
@@ -20,6 +19,7 @@ class SugarcaneStalk implements DecorationSimple {
 	public var decoration: String;
 	public var height: Int;
 	public var height_max: Int;
+	public var param2: Int;
 	public var param2_max: Int;
 	public var place_offset_y: Int;
 }
