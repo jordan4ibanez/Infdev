@@ -16,6 +16,7 @@ enum abstract DecorationFlags(String) to String {
 }
 
 @:noCompletion
+@:autoBuild(src.engine.compilercode.DecorationDuctTape.build())
 interface Decoration {
 	// Type. "simple", "schematic" or "lsystem" supported
 	// todo: inject this in the compiler
