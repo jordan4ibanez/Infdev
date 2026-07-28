@@ -61,3 +61,11 @@ ironman with no access to the central market
 
 chunklocked ironmen BUILT INTO THE SERVER! With awesome plugins to visualize where you are
 also they can't escape the chunk and they can have their interactions disabled with things outside of the chunk
+
+polynomial xp requirements. level 2 starts at 1000 and increases by old level + (new level * 1000)
+so in a loop:
+i = new level
+w = old level xp requirement
+new level xp requirement = w + (i * 1000) 
+should probably calculate the max a lua float can handle then cap the level at this
+Also figure out a formula to calculate this unless looping is just easier
