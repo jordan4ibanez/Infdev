@@ -37,7 +37,7 @@ class DecorationDuctTape {
 
 		switch (interfaceName) {
 			case "DecorationSimple":
-				decoType = simple;
+				decoType = "simple";
 			default:
 				throw "Forgotten decoration interface: " + interfaceName;
 		}
