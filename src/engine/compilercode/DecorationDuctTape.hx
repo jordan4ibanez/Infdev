@@ -43,7 +43,7 @@ class DecorationDuctTape {
 			case "DecorationLSystemTree":
 				decoType = "lsystem";
 			case "Decoration":
-				throw "Do not use decoration. It's marked no complete for a reason.";
+				throw "Do not use decoration. It's marked noCompletion for a reason.";
 			default:
 				throw "Forgotten decoration interface: " + interfaceName;
 		}
