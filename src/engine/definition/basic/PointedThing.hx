@@ -1,7 +1,7 @@
 package src.engine.definition.basic;
 
-import src.engine.vector.Vec3;
 import src.engine.entity.objectref.ObjectRefBase;
+import src.engine.vector.Vec3;
 
 enum abstract PointedThingType(String) to String {
 	var PointedThingTypeNode = "node";
@@ -9,77 +9,11 @@ enum abstract PointedThingType(String) to String {
 	var PointedThingTypeNothing = "nothing";
 }
 
-abstract class PointedThing {
-	public final type: PointedThingType;
-
-	public inline function isNode(): Bool {
-		return this.type == PointedThingTypeNode;
-	}
-
-	public inline function isObject(): Bool {
-		return this.type == PointedThingTypeObject;
-	}
-
-	public inline function isNothing(): Bool {
-		return this.type == PointedThingTypeNothing;
-	}
-
-	public inline function whenIsNode(delegate: (PointedThingNode) -> Void): Void {
-		if (this.isNode()) {
-			delegate(cast(this));
-		}
-	}
-
-	public inline function whenIsObject(delegate: (PointedThingObject) -> Void): Void {
-		if (this.isObject()) {
-			delegate(cast(this));
-		}
-	}
-
-	public inline function whenIsNothing(delegate: (PointedThingNothing) -> Void): Void {
-		if (this.isNothing()) {
-			delegate(cast(this));
-		}
-	}
-
-	public inline function match(nodeDelegate: Null<(PointedThingNode) -> Void>, objectDelegate: Null<(PointedThingObject) -> Void>,
-		nothingDelegate: Null<(PointedThingNothing) -> Void>): Void {
-		switch (this.type) {
-			case PointedThingTypeNode:
-				if (nodeDelegate != null) {
-					nodeDelegate(cast(this));
-				}
-			case PointedThingTypeObject:
-				if (objectDelegate != null) {
-					objectDelegate(cast(this));
-				}
-			case PointedThingTypeNothing:
-				if (nothingDelegate != null) {
-					nothingDelegate(cast(this));
-				}
-		}
-	}
-}
-
-final class PointedThingNode extends PointedThing {
+typedef PointedThing = {
+	final type: PointedThingType;
 	var under: Vec3;
 	var above: Vec3;
-	// public function new() {
-	// 	this.type = PointedThingTypeNode;
-	// }
-}
-
-final class PointedThingObject extends PointedThing {
 	var ref: ObjectRefBase;
-	// public function new() {
-	// 	this.type = PointedThingTypeObject;
-	// }
-}
-
-final class PointedThingNothing extends PointedThing {
-	// public function new() {
-	// 	this.type = PointedThingTypeNothing;
-	// }
 }
 
 /**
