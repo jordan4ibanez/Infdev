@@ -22,20 +22,18 @@ typedef DecorationDefinition = {
 	// Node (or list of nodes) that the decoration can be placed on
 	var place_on: LuaArray<String>;
 
-	var sidelen: Int;
-
 	// Size of the square (X / Z) divisions of the mapchunk being generated.
 	// Determines the resolution of noise variation if used.
 	// If the chunk size is not evenly divisible by sidelen, sidelen is made
 	// equal to the chunk size.
 	// Integer in range: [1, 32767]
-	var fill_ratio: Float;
+	var sidelen: Int;
 
 	// The value determines 'decorations per surface node'.
 	// Used only if noise_params is not specified.
 	// If >= 10.0 complete coverage is enabled and decoration placement uses
 	// a different and much faster method.
-	var noise_params: NoiseParams;
+	var fill_ratio: Float;
 
 	// NoiseParams structure describing the noise used for decoration
 	// distribution.
@@ -43,6 +41,8 @@ typedef DecorationDefinition = {
 	// 'decorations per surface node' within each division.
 	// If the noise value >= 10.0 complete coverage is enabled and
 	// decoration placement uses a different and much faster method.
+	var noise_params: NoiseParams;
+
 	// todo: Define this as an array of biomes types. When biomes are implemented properly and not just a random mapgen thing.
 	var biomes: LuaArray<String>;
 
