@@ -5,9 +5,9 @@ import src.engine.compilercode.LuaArray;
 import src.engine.definition.Decoration;
 
 final class SugarcaneStalk implements DecorationSimple {
-	public var place_on: LuaArray<String>;
-	public var sidelen: Int = 1;
-	public var fill_ratio: Float;
+	public var place_on: LuaArray<String> = ["infdev:grass"];
+	public var sidelen: Int;
+	public var fill_ratio: Float = 1.0;
 	public var noise_params: NoiseParams;
 	public var biomes: LuaArray<String>;
 	public var y_min: Int;
@@ -16,7 +16,7 @@ final class SugarcaneStalk implements DecorationSimple {
 	public var check_offset: Int;
 	public var num_spawn_by: Int;
 	public var flags: Array<DecorationFlags>;
-	public var decoration: String;
+	public var decoration: String = "infdev:sugarcane";
 	public var height: Int;
 	public var height_max: Int;
 	public var param2: Int;
