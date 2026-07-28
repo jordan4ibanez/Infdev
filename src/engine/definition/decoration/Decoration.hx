@@ -16,12 +16,12 @@ enum abstract DecorationFlags(String) to String {
 }
 
 typedef DecorationDefinition = {
+	// Type. "simple", "schematic" or "lsystem" supported
 	var deco_type: DecorationType;
 
-	// Type. "simple", "schematic" or "lsystem" supported
+	// Node (or list of nodes) that the decoration can be placed on
 	var place_on: LuaArray<String>;
 
-	// Node (or list of nodes) that the decoration can be placed on
 	var sidelen: Int;
 
 	// Size of the square (X / Z) divisions of the mapchunk being generated.
