@@ -36,14 +36,14 @@ typedef DecorationDefinition = {
     // decoration placement uses a different and much faster method.
 
     // todo: Define this as an array of biomes types. When biomes are implemented properly and not just a random mapgen thing.
-    var biomes = {"Oceanside", "Hills", "Plains"},
+    var biomes: LuaArray<String>;
     // List of biomes in which this decoration occurs. Occurs in all biomes
     // if this is omitted, and ignored if the Mapgen being used does not
     // support biomes.
     // Can be a list of (or a single) biome names, IDs, or definitions.
 
-    var y_min = -31000,
-    var y_max = 31000,
+    var y_min:Int;
+    var y_max:Int;
     // Lower and upper limits for decoration (inclusive).
     // These parameters refer to the Y coordinate of the 'place_on' node.
     // Integer [s16]
