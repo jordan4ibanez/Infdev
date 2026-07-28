@@ -2,12 +2,10 @@ package src.game.node.plant;
 
 import src.engine.Core;
 import src.engine.ItemStack;
-import src.engine.NodeTable;
 import src.engine.definition.NodeDefinition;
 import src.engine.definition.basic.NodeBox;
 import src.engine.definition.basic.PointedThing;
 import src.engine.entity.objectref.ObjectRefBase;
-import src.engine.vector.Vec3;
 import src.game.groups.NodeGroup;
 
 @:register("infdev:sugarcane")
