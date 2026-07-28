@@ -32,26 +32,8 @@ interface Decoration {
 	// todo: this should probably be an enum
 	var check_offset: Int;
 
-	// Amount of spawn_by nodes that must be surrounding the decoration
-	// position to occur.
-	// If absent or -1, decorations occur next to any nodes.
 	var num_spawn_by: Int;
 
-	// Flags for all decoration types.
-	// "liquid_surface": Find the highest liquid (not solid) surface under
-	//   open air. Search stops and fails on the first solid node.
-	//   Cannot be used with "all_floors" or "all_ceilings" below.
-	// "force_placement": Nodes other than "air" and "ignore" are replaced
-	//   by the decoration.
-	// "all_floors", "all_ceilings": Instead of placement on the highest
-	//   surface in a mapchunk the decoration is placed on all floor and/or
-	//   ceiling surfaces, for example in caves and dungeons.
-	//   Ceiling decorations act as an inversion of floor decorations so the
-	//   effect of 'place_offset_y' is inverted.
-	//   Y-slice probabilities do not function correctly for ceiling
-	//   schematic decorations as the behavior is unchanged.
-	//   If a single decoration registration has both flags the floor and
-	//   ceiling decorations will be aligned vertically.
 	// todo: combine this together in the compiler.
 	var flags: Array<DecorationFlags>;
 }
