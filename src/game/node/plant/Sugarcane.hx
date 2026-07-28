@@ -1,9 +1,12 @@
 package src.game.node.plant;
 
 import src.engine.Core;
+import src.engine.ItemStack;
 import src.engine.NodeTable;
 import src.engine.definition.NodeDefinition;
 import src.engine.definition.basic.NodeBox;
+import src.engine.definition.basic.PointedThing;
+import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.vector.Vec3;
 import src.game.groups.NodeGroup;
 
@@ -36,6 +39,19 @@ final class Sugarcane extends NodeDefinition {
 		];
 
 		this.nodeSounds = PlantSound.get();
+	}
+
+	override function onPlace(itemstack: ItemStack, placer: Null<ObjectRefBase>, pointedThing: PointedThing): Null<ItemStack> {
+		// Only allow placing on sand and not itself because farms get very annoying with that.
+		if (pointedThing.type == PointedThingTypeNode) {
+			var pos = pointedThing.above.copy();
+			pos.y -= 1;
+			var nodeUnder = Core.getNode(pos);
+			if (Core.getItemGroup(nodeUnder.name, NodeGroupSand) > 0) {
+				return Core.itemPlace(itemstack, placer, pointedThing).itemstack;
+			}
+		}
+		return null;
 	}
 
 	override function afterDestruct(pos: Vec3, oldNode: NodeTable) {
