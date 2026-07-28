@@ -48,12 +48,13 @@ typedef DecorationDefinition = {
     // These parameters refer to the Y coordinate of the 'place_on' node.
     // Integer [s16]
 
-    var spawn_by = "default:water",
+    var spawn_by: LuaArray<String>;
     // Node (or list of nodes) that the decoration only spawns next to.
     // Checks the 8 neighboring nodes on the same height,
     // and also the ones at the height plus the check_offset, excluding both center nodes.
 
-    var check_offset = -1,
+    // todo: this should probably be an enum
+    var check_offset: Int;
     // Specifies the offset that spawn_by should also check
     // The default value of -1 is useful to e.g check for water next to the base node.
     // 0 disables additional checks, valid values: {-1, 0, 1}
