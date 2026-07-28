@@ -2,12 +2,6 @@ package src.engine.definition;
 
 import src.engine.compilercode.LuaArray;
 
-enum abstract DecorationType(String) to String {
-	var DecorationTypeSimple = "simple";
-	var DecorationTypeSchematic = "schematic";
-	var DecorationTypeLSystem = "lsystem";
-}
-
 enum abstract DecorationFlags(String) to String {
 	var DecorationFlagsLiquidSurface = "liquid_surface";
 	var DecorationFlagsForcePlacement = "force_placement";
