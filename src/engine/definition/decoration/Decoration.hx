@@ -155,13 +155,16 @@ typedef DecorationDefinition = {
     // var replacements = {["oldname"] = "convert_to", ...},
     // Map of node names to replace in the schematic after reading it.
 
-    var flags = "place_center_x, place_center_y, place_center_z",
+    // todo: schematic attributes.
+    // var flags = "place_center_x, place_center_y, place_center_z",
     // Flags for schematic decorations. See 'Schematic attributes'.
 
-    var rotation = "90",
+    // todo: schematic rotation.
+    // var rotation = "90",
     // Rotation can be "0", "90", "180", "270", or "random"
 
-    var place_offset_y = 0,
+    // todo: schematic place offset.
+    // var place_offset_y = 0,
     // If the flag 'place_center_y' is set this parameter is ignored.
     // Y offset of the schematic base node layer relative to the 'place_on'
     // node.
@@ -172,7 +175,8 @@ typedef DecorationDefinition = {
 
     ////- L-system-type parameters
 
-    var treedef = {},
+    // todo: a turtle cursor system that I can read.
+    // var treedef = {},
     // Same as for `core.spawn_tree`.
     // See section [L-system trees] for more details.
 }
