@@ -41,15 +41,10 @@ interface Decoration {
 @:decorationRoot
 interface DecorationSimple extends Decoration {
 	var decoration: String;
-
 	var height: Int;
-
 	var height_max: Int;
-
 	var param2: Int;
-
 	var param2_max: Int;
-
 	var place_offset_y: Int;
 }
 
