@@ -55,7 +55,7 @@ hot bar starts off with 1 slot and your general level increases this until it ma
 
 Central Market which is like the grand exchange but won't let jagex sue me
 
-Can probably make a nice GUI for the cm
+Can probably make a nice GUI for the central market
 
 ironman with no access to the central market
 
