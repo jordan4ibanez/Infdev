@@ -13,46 +13,22 @@ enum abstract DecorationFlags(String) to String {
 @:decorationRoot
 @:autoBuild(src.engine.compilercode.DecorationDuctTape.build())
 interface Decoration {
-	// Node (or list of nodes) that the decoration can be placed on
 	var place_on: LuaArray<String>;
 
 	var sidelen: Int;
 
-	// The value determines 'decorations per surface node'.
-	// Used only if noise_params is not specified.
-	// If >= 10.0 complete coverage is enabled and decoration placement uses
-	// a different and much faster method.
 	var fill_ratio: Float;
 
-	// NoiseParams structure describing the noise used for decoration
-	// distribution.
-	// A noise value is calculated for each square division and determines
-	// 'decorations per surface node' within each division.
-	// If the noise value >= 10.0 complete coverage is enabled and
-	// decoration placement uses a different and much faster method.
 	var noise_params: NoiseParams;
 
-	// List of biomes in which this decoration occurs. Occurs in all biomes
-	// if this is omitted, and ignored if the Mapgen being used does not
-	// support biomes.
-	// Can be a list of (or a single) biome names, IDs, or definitions.
 	// todo: Define this as an array of biomes types. When biomes are implemented properly and not just a random mapgen thing.
 	var biomes: LuaArray<String>;
 
-	// Lower and upper limits for decoration (inclusive).
-	// These parameters refer to the Y coordinate of the 'place_on' node.
-	// Integer [s16]
 	var y_min: Int;
 	var y_max: Int;
 
-	// Node (or list of nodes) that the decoration only spawns next to.
-	// Checks the 8 neighboring nodes on the same height,
-	// and also the ones at the height plus the check_offset, excluding both center nodes.
 	var spawn_by: LuaArray<String>;
 
-	// Specifies the offset that spawn_by should also check
-	// The default value of -1 is useful to e.g check for water next to the base node.
-	// 0 disables additional checks, valid values: {-1, 0, 1}
 	// todo: this should probably be an enum
 	var check_offset: Int;
 
