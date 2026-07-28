@@ -42,33 +42,14 @@ interface Decoration {
 interface DecorationSimple extends Decoration {
 	var decoration: String;
 
-	// Decoration height in nodes.
-	// If height_max is not 0, this is the lower limit of a randomly
-	// selected height.
-	// Integer in range: [1, 32767]
 	var height: Int;
 
-	// Upper limit of the randomly selected height.
-	// If absent, the parameter 'height' is used as a constant.
-	// Integer in range: [1, 32767]
 	var height_max: Int;
 
-	// Param2 value of decoration nodes.
-	// If param2_max is not 0, this is the lower limit of a randomly
-	// selected param2.
 	var param2: Int;
 
-	// Upper limit of the randomly selected param2.
-	// If absent, the parameter 'param2' is used as a constant.
 	var param2_max: Int;
 
-	// Y offset of the decoration base node relative to the standard base
-	// node position.
-	// Can be positive or negative. Default is 0.
-	// Effect is inverted for "all_ceilings" decorations.
-	// Ignored by 'y_min', 'y_max' and 'spawn_by' checks, which always refer
-	// to the 'place_on' node.
-	// Integer [s16]
 	var place_offset_y: Int;
 }
 
