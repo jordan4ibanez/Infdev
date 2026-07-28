@@ -53,15 +53,4 @@ final class Sugarcane extends NodeDefinition {
 		}
 		return null;
 	}
-
-	override function afterDestruct(pos: Vec3, oldNode: NodeTable) {
-		super.afterDestruct(pos, oldNode);
-
-		pos.y += 1;
-		var nodeAbove = Core.getNode(pos);
-
-		if (nodeAbove.name == "infdev:sugarcane") {
-			Core.digNode(pos);
-		}
-	}
 }
