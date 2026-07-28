@@ -52,3 +52,12 @@ when a new player joins, a jingle plays at their position
 when a player returns, a teleport sound plays at their position
 
 hot bar starts off with 1 slot and your general level increases this until it maxes out at like 40 slots or some ridiculous number
+
+Central Market which is like the grand exchange but won't let jagex sue me
+
+Can probably make a nice GUI for the cm
+
+ironman with no access to the central market
+
+chunklocked ironmen BUILT INTO THE SERVER! With awesome plugins to visualize where you are
+also they can't escape the chunk and they can have their interactions disabled with things outside of the chunk
