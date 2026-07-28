@@ -179,7 +179,7 @@ interface DecorationSchematic extends Decoration {
 }
 
 @:decorationRoot
-interface DecorationLTree extends Decoration {
+interface DecorationLSystemTree extends Decoration {
 	// ? L-system-type parameters
 	// todo: a turtle cursor system that I can read.
 	// var treedef = {},
