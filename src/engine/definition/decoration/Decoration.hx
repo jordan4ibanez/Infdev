@@ -125,6 +125,7 @@ typedef DecorationDefinition = {
 	// Integer [s16]
 	var place_offset_y: Int;
 
+	// ! Note: the comments flip back  to after the var name after this comment.
 	// ? Schematic-type parameters
 	var schematic: String;
 	// If schematic is a string, it is the filepath relative to the current
