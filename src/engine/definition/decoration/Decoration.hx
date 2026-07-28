@@ -96,27 +96,25 @@ typedef DecorationDefinition = {
 	// ? Simple-type parameters
 	var decoration: String;
 
-	var height: Int;
-
 	// Decoration height in nodes.
 	// If height_max is not 0, this is the lower limit of a randomly
 	// selected height.
 	// Integer in range: [1, 32767]
-	var height_max: Int;
+	var height: Int;
 
 	// Upper limit of the randomly selected height.
 	// If absent, the parameter 'height' is used as a constant.
 	// Integer in range: [1, 32767]
-	var param2: Int;
+	var height_max: Int;
 
 	// Param2 value of decoration nodes.
 	// If param2_max is not 0, this is the lower limit of a randomly
 	// selected param2.
-	var param2_max: Int;
+	var param2: Int;
 
 	// Upper limit of the randomly selected param2.
 	// If absent, the parameter 'param2' is used as a constant.
-	var place_offset_y: Int;
+	var param2_max: Int;
 
 	// Y offset of the decoration base node relative to the standard base
 	// node position.
@@ -125,7 +123,9 @@ typedef DecorationDefinition = {
 	// Ignored by 'y_min', 'y_max' and 'spawn_by' checks, which always refer
 	// to the 'place_on' node.
 	// Integer [s16]
-	////- Schematic-type parameters
+	var place_offset_y: Int;
+
+	// ? Schematic-type parameters
 	var schematic: String;
 	// If schematic is a string, it is the filepath relative to the current
 	// working directory of the specified Luanti schematic file.
