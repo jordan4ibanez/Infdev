@@ -96,27 +96,27 @@ typedef DecorationDefinition = {
     // If instead a list of strings, a randomly selected node from the list
     // is placed as the decoration.
 
-    var height = 1,
+    var height: Int;
     // Decoration height in nodes.
     // If height_max is not 0, this is the lower limit of a randomly
     // selected height.
     // Integer in range: [1, 32767]
 
-    var height_max = 0,
+    var height_max:Int;
     // Upper limit of the randomly selected height.
     // If absent, the parameter 'height' is used as a constant.
     // Integer in range: [1, 32767]
 
-    var param2 = 0,
+    var param2: Int;
     // Param2 value of decoration nodes.
     // If param2_max is not 0, this is the lower limit of a randomly
     // selected param2.
 
-    var param2_max = 0,
+    var param2_max: Int;
     // Upper limit of the randomly selected param2.
     // If absent, the parameter 'param2' is used as a constant.
 
-    var place_offset_y = 0,
+    var place_offset_y: Int;
     // Y offset of the decoration base node relative to the standard base
     // node position.
     // Can be positive or negative. Default is 0.
@@ -127,30 +127,32 @@ typedef DecorationDefinition = {
 
     ////- Schematic-type parameters
 
-    var schematic = "foobar.mts",
+    var schematic : String;
     // If schematic is a string, it is the filepath relative to the current
     // working directory of the specified Luanti schematic file.
     // Could also be the ID of a previously registered schematic.
 
-    var schematic = {
-        size = {x = 4, y = 6, z = 4},
-        data = {
-            {name = "default:cobble", param1 = 255, param2 = 0},
-            {name = "default:dirt_with_grass", param1 = 255, param2 = 0},
-            {name = "air", param1 = 255, param2 = 0},
-              ...
-        },
-        yslice_prob = {
-            {ypos = 2, prob = 128},
-            {ypos = 5, prob = 64},
-              ...
-        },
-    },
+    // todo: schematic typedef
+    // var schematic = {
+    //     size = {x = 4, y = 6, z = 4},
+    //     data = {
+    //         {name = "default:cobble", param1 = 255, param2 = 0},
+    //         {name = "default:dirt_with_grass", param1 = 255, param2 = 0},
+    //         {name = "air", param1 = 255, param2 = 0},
+    //           ...
+    //     },
+    //     yslice_prob = {
+    //         {ypos = 2, prob = 128},
+    //         {ypos = 5, prob = 64},
+    //           ...
+    //     },
+    // },
     // Alternative schematic specification by supplying a table. The fields
     // size and data are mandatory whereas yslice_prob is optional.
     // See 'Schematic specifier' for details.
 
-    var replacements = {["oldname"] = "convert_to", ...},
+    // todo: whatever this is
+    // var replacements = {["oldname"] = "convert_to", ...},
     // Map of node names to replace in the schematic after reading it.
 
     var flags = "place_center_x, place_center_y, place_center_z",
