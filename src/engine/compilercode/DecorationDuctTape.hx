@@ -69,7 +69,15 @@ class DecorationDuctTape {
 						args: [],
 						ret: null,
 						expr: macro {
-							trace("Test static class");
+							var instance = Type.createInstance(Type.resolveClass($v{className}), []);
+
+							untyped {
+								instance.deco_type = $v{decoType};
+								// Remove haxe metadata.
+								instance.__fields__ = null;
+								// print(dump(instance));
+							}
+							untyped __lua__("core.register_decoration({0})", instance);
 						}
 					})
 				},
