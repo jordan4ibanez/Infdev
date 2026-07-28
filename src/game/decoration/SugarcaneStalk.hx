@@ -15,7 +15,7 @@ final class SugarcaneStalk implements DecorationSimple {
 	public var spawn_by: LuaArray<String>;
 	public var check_offset: Int;
 	public var num_spawn_by: Int;
-	public var flags: Array<DecorationFlags> = [DecorationFlagsLiquidSurface, DecorationFlagsAllFloors];
+	public var flags: LuaArray<DecorationFlags> = [DecorationFlagsLiquidSurface, DecorationFlagsAllFloors];
 	public var decoration: String = "infdev:sugarcane";
 	public var height: Int;
 	public var height_max: Int;

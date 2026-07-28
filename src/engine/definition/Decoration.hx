@@ -35,7 +35,7 @@ interface Decoration {
 	var num_spawn_by: Int;
 
 	// todo: combine this together in the compiler.
-	var flags: Array<DecorationFlags>;
+	var flags: LuaArray<DecorationFlags>;
 }
 
 @:decorationRoot
