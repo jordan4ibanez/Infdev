@@ -16,6 +16,7 @@ enum abstract DecorationFlags(String) to String {
 }
 
 @:noCompletion
+@:decorationRoot
 @:autoBuild(src.engine.compilercode.DecorationDuctTape.build())
 interface Decoration {
 	// Type. "simple", "schematic" or "lsystem" supported
@@ -93,6 +94,7 @@ interface Decoration {
 	var flags: Array<DecorationFlags>;
 }
 
+@:decorationRoot
 interface DecorationSimple extends Decoration {
 	// The node name used as the decoration.
 	// If instead a list of strings, a randomly selected node from the list
@@ -130,6 +132,7 @@ interface DecorationSimple extends Decoration {
 	var place_offset_y: Int;
 }
 
+@:decorationRoot
 interface DecorationSchematic extends Decoration {
 	// ! Note: the comments flip back  to after the var name after this comment.
 	// ? Schematic-type parameters
