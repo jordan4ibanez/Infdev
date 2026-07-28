@@ -43,37 +43,34 @@ typedef DecorationDefinition = {
 	// decoration placement uses a different and much faster method.
 	var noise_params: NoiseParams;
 
-	// todo: Define this as an array of biomes types. When biomes are implemented properly and not just a random mapgen thing.
-	var biomes: LuaArray<String>;
-
 	// List of biomes in which this decoration occurs. Occurs in all biomes
 	// if this is omitted, and ignored if the Mapgen being used does not
 	// support biomes.
 	// Can be a list of (or a single) biome names, IDs, or definitions.
-	var y_min: Int;
-	var y_max: Int;
+	// todo: Define this as an array of biomes types. When biomes are implemented properly and not just a random mapgen thing.
+	var biomes: LuaArray<String>;
 
 	// Lower and upper limits for decoration (inclusive).
 	// These parameters refer to the Y coordinate of the 'place_on' node.
 	// Integer [s16]
-	var spawn_by: LuaArray<String>;
+	var y_min: Int;
+	var y_max: Int;
 
 	// Node (or list of nodes) that the decoration only spawns next to.
 	// Checks the 8 neighboring nodes on the same height,
 	// and also the ones at the height plus the check_offset, excluding both center nodes.
-	// todo: this should probably be an enum
-	var check_offset: Int;
+	var spawn_by: LuaArray<String>;
 
 	// Specifies the offset that spawn_by should also check
 	// The default value of -1 is useful to e.g check for water next to the base node.
 	// 0 disables additional checks, valid values: {-1, 0, 1}
-	var num_spawn_by: Int;
+	// todo: this should probably be an enum
+	var check_offset: Int;
 
 	// Amount of spawn_by nodes that must be surrounding the decoration
 	// position to occur.
 	// If absent or -1, decorations occur next to any nodes.
-	// todo: combine this together in the compiler.
-	var flags: Array<DecorationFlags>;
+	var num_spawn_by: Int;
 
 	// Flags for all decoration types.
 	// "liquid_surface": Find the highest liquid (not solid) surface under
@@ -90,12 +87,15 @@ typedef DecorationDefinition = {
 	//   schematic decorations as the behavior is unchanged.
 	//   If a single decoration registration has both flags the floor and
 	//   ceiling decorations will be aligned vertically.
-	// ? Simple-type parameters
-	var decoration: String;
+	// todo: combine this together in the compiler.
+	var flags: Array<DecorationFlags>;
 
 	// The node name used as the decoration.
 	// If instead a list of strings, a randomly selected node from the list
 	// is placed as the decoration.
+	// ? Simple-type parameters
+	var decoration: String;
+
 	var height: Int;
 
 	// Decoration height in nodes.
