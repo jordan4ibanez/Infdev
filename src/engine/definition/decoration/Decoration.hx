@@ -1,5 +1,7 @@
 package src.engine.definition.decoration;
 
+import src.engine.compilercode.LuaArray;
+
 enum abstract DecorationType(String) to String {
 	var DecorationTypeSimple = "simple";
 	var DecorationTypeSchematic = "schematic";
