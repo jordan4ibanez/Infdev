@@ -73,6 +73,10 @@ class DecorationDuctTape {
 
 							untyped {
 								instance.deco_type = $v{decoType};
+								// Auto concatenate enum table into string.
+								if (instance.flags != null) {
+									instance.flags = lua.Table.concat(instance.flags, ", ");
+								}
 								// Remove haxe metadata.
 								instance.__fields__ = null;
 								// print(dump(instance));
