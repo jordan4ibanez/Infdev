@@ -20,6 +20,42 @@ class DecorationDuctTape {
 		// Fully qualified.
 		var className = Context.getLocalClass().toString();
 
+		// I could probably make this dump a bunch of instances into a single static class.
+		// But, this is easier.
+
+		var wrapperClassName = localClass.name + "Wrapper";
+
+		var localClassComplexType = Context.toComplexType(TInst(Context.getLocalClass(), []));
+
+		var companionClassDefinition: TypeDefinition = {
+			pack: localClass.pack, // Places it in the exact same package/folder path.
+			name: wrapperClassName,
+			pos: Context.currentPos(),
+			kind: TDClass(null, null, false, true, false), // Final.
+			fields: [
+				{
+					name: "instance",
+					access: [AStatic],
+					pos: Context.currentPos(),
+					kind: FVar(localClassComplexType, null)
+				},
+
+				{
+					name: "__init__",
+					access: [AStatic],
+					pos: Context.currentPos(),
+					kind: FFun({
+						args: [],
+						ret: null,
+						expr: macro {
+							trace("Test static class");
+						}
+					})
+				},
+			],
+			meta: []
+		}
+
 		trace(className);
 
 		return fields;
