@@ -42,6 +42,8 @@ class DecorationDuctTape {
 				decoType = "schematic";
 			case "DecorationLSystemTree":
 				decoType = "lsystem";
+			case "Decoration":
+				throw "Do not use decoration. It's marked no complete for a reason.";
 			default:
 				throw "Forgotten decoration interface: " + interfaceName;
 		}
