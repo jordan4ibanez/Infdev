@@ -6,6 +6,13 @@ enum abstract DecorationType(String) to String {
 	var DecorationTypeLSystem = "lsystem";
 }
 
+enum abstract DecorationFlags(String) to String {
+	var DecorationFlagsLiquidSurface = "liquid_surface";
+    var DecorationFlagsForcePlacement = "force_placement";
+    var DecorationFlagsAllFloors = "all_floors";
+    var DecorationFlagsAllCeilings = "all_ceilings";	
+}
+
 typedef DecorationDefinition = {
     var deco_type: DecorationType;
     // Type. "simple", "schematic" or "lsystem" supported
@@ -59,12 +66,13 @@ typedef DecorationDefinition = {
     // The default value of -1 is useful to e.g check for water next to the base node.
     // 0 disables additional checks, valid values: {-1, 0, 1}
 
-    var num_spawn_by = 1,
+    var num_spawn_by: Int;
     // Amount of spawn_by nodes that must be surrounding the decoration
     // position to occur.
     // If absent or -1, decorations occur next to any nodes.
 
-    var flags = "liquid_surface, force_placement, all_floors, all_ceilings",
+    // todo: combine this together in the compiler.
+    var flags: Array<DecorationFlags>;
     // Flags for all decoration types.
     // "liquid_surface": Find the highest liquid (not solid) surface under
     //   open air. Search stops and fails on the first solid node.
@@ -81,9 +89,9 @@ typedef DecorationDefinition = {
     //   If a single decoration registration has both flags the floor and
     //   ceiling decorations will be aligned vertically.
 
-    ////- Simple-type parameters
+    //? Simple-type parameters
 
-    var decoration = "default:grass",
+    var decoration: String;
     // The node name used as the decoration.
     // If instead a list of strings, a randomly selected node from the list
     // is placed as the decoration.
