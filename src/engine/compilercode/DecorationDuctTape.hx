@@ -25,6 +25,13 @@ class DecorationDuctTape {
 			Context.error("Class must be final.", localClass.pos);
 		}
 
+		// Do not allow decorations to be constructed.
+		// It's a pure data class with no interaction.
+		final hasNew: Field = Lambda.find(fields, (f: Field) -> f.name == "new");
+		if (hasNew != null) {
+			Context.error("Do not use a constructor in decorations. It's a data class.", localClass.pos);
+		}
+
 		// I could probably make this dump a bunch of instances into a single static class.
 		// But, this is easier.
 
