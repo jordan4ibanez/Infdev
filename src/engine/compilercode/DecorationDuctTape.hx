@@ -38,6 +38,10 @@ class DecorationDuctTape {
 		switch (interfaceName) {
 			case "DecorationSimple":
 				decoType = "simple";
+			case "DecorationSchematic":
+				decoType = "schematic";
+			case "DecorationLSystemTree":
+				decoType = "lsystem";
 			default:
 				throw "Forgotten decoration interface: " + interfaceName;
 		}
