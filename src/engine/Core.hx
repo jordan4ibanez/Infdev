@@ -228,6 +228,9 @@ extern class Core {
 
 	@:native("dig_node")
 	static function digNode(pos: Vec3, ?digger: ObjectRefBase): Bool;
+
+	@:native("get_item_group")
+	static function getItemGroup(name: String, group: String): Int;
 }
 
 @:noCompletion
