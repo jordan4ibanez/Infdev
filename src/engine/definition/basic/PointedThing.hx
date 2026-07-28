@@ -11,8 +11,11 @@ enum abstract PointedThingType(String) to String {
 
 typedef PointedThing = {
 	final type: PointedThingType;
+	@:optional
 	var under: Vec3;
+	@:optional
 	var above: Vec3;
+	@:optional
 	var ref: ObjectRefBase;
 }
 
