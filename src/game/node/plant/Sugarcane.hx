@@ -18,6 +18,8 @@ final class Sugarcane extends NodeDefinition {
 			"default_papyrus.png"
 		];
 
+		this.nodePlacementPrediction = "";
+
 		this.drawType = DrawTypePlantLike;
 
 		this.paramtype1 = ParamType1Light;
