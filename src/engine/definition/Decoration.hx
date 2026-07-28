@@ -20,7 +20,6 @@ interface Decoration {
 	// Type. "simple", "schematic" or "lsystem" supported
 	// todo: inject this in the compiler
 	// var deco_type: DecorationType;
-
 	// Node (or list of nodes) that the decoration can be placed on
 	var place_on: LuaArray<String>;
 
@@ -128,7 +127,9 @@ interface DecorationSimple extends Decoration {
 	// to the 'place_on' node.
 	// Integer [s16]
 	var place_offset_y: Int;
+}
 
+interface DecorationSchematic extends Decoration {
 	// ! Note: the comments flip back  to after the var name after this comment.
 	// ? Schematic-type parameters
 	var schematic: String;
