@@ -1,4 +1,4 @@
-package src.engine.definition.decoration;
+package src.engine.definition;
 
 import src.engine.compilercode.LuaArray;
 
