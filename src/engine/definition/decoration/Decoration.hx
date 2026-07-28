@@ -6,7 +6,7 @@ enum abstract DecorationType(String) to String {
 	var DecorationTypeLSystem = "lsystem";
 }
 
-{
+typedef DecorationDefinition = {
     deco_type = "simple",
     -- Type. "simple", "schematic" or "lsystem" supported
 
