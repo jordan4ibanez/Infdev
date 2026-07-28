@@ -176,7 +176,11 @@ interface DecorationSchematic extends Decoration {
 	// Effect is inverted for "all_ceilings" decorations.
 	// Ignored by 'y_min', 'y_max' and 'spawn_by' checks, which always refer
 	// to the 'place_on' node.
-	////- L-system-type parameters
+}
+
+@:decorationRoot
+interface DecorationLTree extends Decoration {
+	// ? L-system-type parameters
 	// todo: a turtle cursor system that I can read.
 	// var treedef = {},
 	// Same as for `core.spawn_tree`.
