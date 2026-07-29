@@ -32,6 +32,10 @@ class ChatCommandDuctTape {
 			Context.error("Do not use a constructor in chat commands. It's a data class.", localClass.pos);
 		}
 
+		if (!localClass.meta.has(":register")) {
+			Context.error('Please register your chat command with @:register("my_command")', localClass.pos);
+		}
+
 		var wrapperClassName = localClass.name + "Wrapper";
 
 		var localClassComplexType = Context.toComplexType(TInst(Context.getLocalClass(), []));
