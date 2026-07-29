@@ -226,6 +226,9 @@ extern class Core {
 	@:native("get_node")
 	static function getNode(pos: Vec3): NodeTable;
 
+	@:native("set_node")
+	static function setNode(pos: Vec3, node: NodeTable): Void;
+
 	@:native("dig_node")
 	static function digNode(pos: Vec3, ?digger: ObjectRefBase): Bool;
 
