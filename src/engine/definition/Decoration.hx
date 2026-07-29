@@ -93,11 +93,18 @@ interface DecorationSchematic extends Decoration {
 	// to the 'place_on' node.
 }
 
+// This is simplified cause this is complicated as it is.
+typedef TreeDefinition = {
+	var axiom: String;
+	var trunk: String;
+	var leaves: String;
+	var angle: Int;
+	var iterations: Int;
+	var random_level: Int;
+	var trunk_type: String;
+}
+
 @:decorationRoot
 interface DecorationLSystemTree extends Decoration {
-	// ? L-system-type parameters
-	// todo: a turtle cursor system that I can read.
-	// var treedef = {},
-	// Same as for `core.spawn_tree`.
-	// See section [L-system trees] for more details.
+	var treedef: TreeDefinition;
 }
