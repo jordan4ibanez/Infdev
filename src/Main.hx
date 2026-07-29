@@ -7,18 +7,6 @@ class Main {
 		Lua.print("Hello Infdev.");
 
 		untyped __lua__('
-core.register_chatcommand("floor", {
-    func = function(name)
-        local player = core.get_player_by_name(name)
-	local pos = player:get_pos()
-	print(pos)
-	for x = -100,100 do
-		for z = -100,100 do
-			core.set_node(vector.new(pos.x + x,pos.y,pos.z + z), {name = "infdev:cobblestone"})
-		end
-	end        
-    end,
-})
 
 core.register_chatcommand("floortestentityjump", {
     func = function(name)
