@@ -1,5 +1,6 @@
 package src.game.command;
 
+import src.engine.Core;
 import src.engine.command.ChatCommand;
 import src.engine.compilercode.LuaMap;
 
@@ -24,7 +25,7 @@ final class Count implements ChatCommand {
 
 		var count = counter.get(name);
 
-		trace('$name is at $count');
+		Core.chatSendPlayer(name, 'You have counted to: $count');
 
 		return new CommandStatus(true);
 	}
