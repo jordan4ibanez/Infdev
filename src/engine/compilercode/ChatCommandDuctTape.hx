@@ -68,6 +68,36 @@ class ChatCommandDuctTape {
 						}
 					})
 				},
+
+				// ? This is literally catching the statically typed haxe data and converting it to
+				// ? a lua multireturn because chat commands are minimal performance intensive so
+				// ? I'd rather have it easier to use while writing.
+				{
+					name: "func",
+					access: [AStatic],
+					pos: Context.currentPos(),
+					meta: [],
+					kind: FFun({
+						args: [
+							{
+								name: "name",
+								type: macro : String,
+								opt: false,
+								value: null
+							},
+							{
+								name: "param",
+								type: macro : String,
+								opt: false,
+								value: null
+							},
+						],
+						ret: null,
+						expr: macro {
+							instance.func(name, param);
+						}
+					})
+				}
 			],
 			meta: []
 		}
