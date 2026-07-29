@@ -57,11 +57,11 @@ class ChatCommandDuctTape {
 						ret: null,
 						expr: macro {
 							// ! Note: If nothing is defined in your class, this will error out.
-							var instance = Type.createInstance(Type.resolveClass($v{className}), []);
+							instance = Type.createInstance(Type.resolveClass($v{className}), []);
 
 							untyped {
 								// Remove haxe metadata.
-								// instance.__fields__ = null;
+								instance.__fields__ = null;
 								print(dump(instance));
 							}
 							// untyped __lua__("core.register_decoration({0})", instance);
