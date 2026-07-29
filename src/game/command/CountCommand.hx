@@ -12,6 +12,8 @@ final class CountCommand implements ChatCommand {
 		"server" => true
 	];
 
+	static var instance: CountCommand;
+
 	var counter = new Map<String, Int>();
 
 	public function func(name: String, param: String): CommandStatus {
@@ -28,5 +30,9 @@ final class CountCommand implements ChatCommand {
 		Core.chatSendPlayer(name, 'You have counted to: $count');
 
 		return new CommandStatus(true);
+	}
+
+	public function new() {
+		instance = this;
 	}
 }
