@@ -42,6 +42,26 @@ class ChatCommandDuctTape {
 			pos: Context.currentPos(),
 			kind: TDClass(null, null, false, true, false), // Final.
 			fields: [
+				// ? The preliminary components of a chat command.
+				{
+					name: "params",
+					access: [AStatic],
+					pos: Context.currentPos(),
+					kind: FVar(macro : String, null)
+				},
+				{
+					name: "description",
+					access: [AStatic],
+					pos: Context.currentPos(),
+					kind: FVar(macro : String, null)
+				},
+				{
+					name: "privs",
+					access: [AStatic],
+					pos: Context.currentPos(),
+					kind: FVar(macro : src.engine.compilercode.LuaMap<String, Bool>, null)
+				},
+				// ? End preliminary components.
 				{
 					name: "instance",
 					access: [AStatic],
