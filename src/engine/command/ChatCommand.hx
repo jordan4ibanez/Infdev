@@ -3,6 +3,7 @@ package src.engine.command;
 import src.engine.compilercode.LuaMap;
 
 final class CommandStatus {
+	// If false and missing the output, it automatically throws a help message in the engine.
 	public var success: Bool;
 	public var output: String;
 
