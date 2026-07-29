@@ -5,8 +5,8 @@ import src.engine.command.ChatCommand;
 import src.engine.compilercode.LuaMap;
 import src.engine.vector.Vec3;
 
-@:register("floor")
-final class FloorCommand implements ChatCommand {
+@:register("floortestentityjump")
+final class FloorTestEntityJumpCommand implements ChatCommand {
 	public var params: String;
 	public var description: String;
 	public var privs: LuaMap<String, Bool> = [
