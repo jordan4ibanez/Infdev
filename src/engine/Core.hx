@@ -231,6 +231,11 @@ extern class Core {
 
 	@:native("get_item_group")
 	static function getItemGroup(name: String, group: String): Int;
+
+	@:native("chat_send_all")
+	static function chatSendAll(text: String): Void;
+	
+
 }
 
 @:noCompletion
