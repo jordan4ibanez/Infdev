@@ -271,7 +271,8 @@ class NodeDefinition extends ItemDefinition {
 		super();
 
 		// Allows players to feel the tickrate of the server.
-		this.nodePlacementPrediction = "";
+		// todo: But, there's no placement audio. Soooo, that's gotta be implemented separately.
+		// this.nodePlacementPrediction = "";
 
 		if (DEBUG_TERRAIN_MODE) {
 			this.lightSource = 14;
