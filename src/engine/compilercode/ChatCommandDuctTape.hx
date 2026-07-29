@@ -88,7 +88,6 @@ class ChatCommandDuctTape {
 							// 	 print(dump(instance));
 							// 	 print(dump($i{wrapperClassName}));
 							// }
-							// untyped __lua__("core.register_decoration({0})", instance);
 						}
 					})
 				},
