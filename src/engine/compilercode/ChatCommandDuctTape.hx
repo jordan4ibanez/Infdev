@@ -36,6 +36,27 @@ class ChatCommandDuctTape {
 			Context.error('Please register your chat command with @:register("my_command")', localClass.pos);
 		}
 
+		var registrationName;
+
+		{
+			var metaEntry = localClass.meta.extract(":register")[0];
+			// trace(metaEntry);
+			if (metaEntry == null) {
+				Context.error("Something blew up.", localClass.pos);
+			}
+			var constantEnum = metaEntry.params[0].expr.getParameters()[0];
+			switch (constantEnum) {
+				case CString(s, _):
+					registrationName = s;
+				case _:
+					try {
+						registrationName = haxe.macro.ExprTools.getValue(metaEntry.params[0]);
+					} catch (e:Dynamic) {
+						Context.error("Could not parse @:register value as a string literal.", metaEntry.params[0].pos);
+					}
+			}
+		}
+
 		var wrapperClassName = localClass.name + "Wrapper";
 
 		var localClassComplexType = Context.toComplexType(TInst(Context.getLocalClass(), []));
