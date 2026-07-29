@@ -78,7 +78,7 @@ class ChatCommandDuctTape {
 					pos: Context.currentPos(),
 					meta: [],
 					kind: FFun({
-						args: [
+						args: [ // func(name: String, param: String): Void
 							{
 								name: "name",
 								type: macro : String,
