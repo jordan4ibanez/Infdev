@@ -5,7 +5,7 @@ import src.engine.command.ChatCommand;
 import src.engine.compilercode.LuaMap;
 
 @:register("count")
-final class Count implements ChatCommand {
+final class CountCommand implements ChatCommand {
 	public var params: String;
 	public var description: String = "Count for fun!";
 	public var privs: LuaMap<String, Bool> = [
