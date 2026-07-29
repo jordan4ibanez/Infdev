@@ -3,6 +3,7 @@ package src.game.command;
 import src.engine.Core;
 import src.engine.command.ChatCommand;
 import src.engine.compilercode.LuaMap;
+import src.engine.vector.Vec3;
 
 @:register("floor")
 final class FloorCommand implements ChatCommand {
@@ -18,6 +19,13 @@ final class FloorCommand implements ChatCommand {
 			return new CommandStatus(true);
 		}
 
+		var pos = player.getPos();
+
+		for (x in -100...101) {
+			for (z in -100...101) {
+				Core.setNode(new Vec3(x, 0, z).add(pos), {name: "infdev:cobblestone"});
+			}
+		}
 		return new CommandStatus(true);
 	}
 }
