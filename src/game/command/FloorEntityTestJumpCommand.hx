@@ -24,7 +24,9 @@ final class FloorTestEntityJumpCommand implements ChatCommand {
 		for (x in -100...101) {
 			for (z in -100...101) {
 				Core.setNode(new Vec3(x, 0, z).add(pos), {name: "infdev:cobblestone"});
-				Core.setNode(new Vec3(x, 1, z).add(pos), {name: "infdev:cobblestone"});
+				if (lua.Math.random() > 0.75) {
+					Core.setNode(new Vec3(x, 1, z).add(pos), {name: "infdev:cobblestone"});
+				}
 			}
 		}
 
