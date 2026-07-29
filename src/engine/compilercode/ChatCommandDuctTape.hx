@@ -32,6 +32,50 @@ class ChatCommandDuctTape {
 			Context.error("Do not use a constructor in chat commands. It's a data class.", localClass.pos);
 		}
 
+		var wrapperClassName = localClass.name + "Wrapper";
+
+		var localClassComplexType = Context.toComplexType(TInst(Context.getLocalClass(), []));
+
+		var companionClassDefinition: TypeDefinition = {
+			pack: localClass.pack, // Places it in the exact same package/folder path.
+			name: wrapperClassName,
+			pos: Context.currentPos(),
+			kind: TDClass(null, null, false, true, false), // Final.
+			fields: [
+				{
+					name: "__init__",
+					access: [AStatic],
+					pos: Context.currentPos(),
+					kind: FFun({
+						args: [],
+						ret: null,
+						expr: macro {
+							// ! Note: If nothing is defined in your class, this will error out.
+							var instance = Type.createInstance(Type.resolveClass($v{className}), []);
+
+							untyped {
+								// Remove haxe metadata.
+								// instance.__fields__ = null;
+								print(dump(instance));
+							}
+							// untyped __lua__("core.register_decoration({0})", instance);
+						}
+					})
+				},
+			],
+			meta: []
+		}
+
+		// ? Finally inject the class directly into the compiler compilation pool.
+
+		try {
+			Context.defineType(companionClassDefinition);
+			// ? This is important for debugging.
+			// trace('DuctTape: Successfully generated companion class: ' + localClass.pack.join(".") + "." + wrapperClassName);
+		} catch (e:Dynamic) {
+			// Prevent duplicate definition errors if the macro triggers multiple times.
+		}
+
 		return fields;
 	}
 }
