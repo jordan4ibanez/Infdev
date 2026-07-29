@@ -79,6 +79,11 @@ class ChatCommandDuctTape {
 							// ! Note: If nothing is defined in your class, this will error out.
 							instance = Type.createInstance(Type.resolveClass($v{className}), []);
 
+							// Hook the static wrapper into the instance components.
+							params = instance.params;
+							description = instance.description;
+							privs = instance.privs;
+
 							untyped {
 								// Remove haxe metadata.
 								instance.__fields__ = null;
