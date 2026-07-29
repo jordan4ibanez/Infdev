@@ -35,6 +35,8 @@ todo: implement decorations in the node itself as an array of decorations so shi
 
 ### some design decisions:
 
+Default node placement prediction to "" so people can feel the server tickrate
+
 item entity can have an animation where it just spins and moves a bone. Then another entity can be mounted to it as a visual
 
 I think it would be cool if the game had runescape skills bolted in
