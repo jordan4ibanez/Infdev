@@ -69,6 +69,7 @@ class DecorationDuctTape {
 						args: [],
 						ret: null,
 						expr: macro {
+							// ! Note: If nothing is defined in your class, this will error out.
 							var instance = Type.createInstance(Type.resolveClass($v{className}), []);
 
 							untyped {
