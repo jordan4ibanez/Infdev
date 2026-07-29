@@ -25,11 +25,17 @@ class ChatCommandDuctTape {
 			Context.error("Class must be final.", localClass.pos);
 		}
 
-		// Do not allow chat commands to be constructed.
-		// It's a pure data class with no interaction.
+		// Allow chat commands to have a constructor with no parameters optionally to do ridiculous things.
 		final hasNew: Field = Lambda.find(fields, (f: Field) -> f.name == "new");
 		if (hasNew != null) {
-			Context.error("Do not use a constructor in chat commands. It's a data class.", localClass.pos);
+			switch (hasNew.kind) {
+				case FFun(func):
+					if (func.args.length > 0) {
+						Context.error("Constructors in chat commands must have no parameters.", hasNew.pos);
+					}
+
+				default:
+			}
 		}
 
 		if (!localClass.meta.has(":register")) {
