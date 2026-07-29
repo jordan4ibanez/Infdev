@@ -270,6 +270,9 @@ class NodeDefinition extends ItemDefinition {
 	public function new() {
 		super();
 
+		// Allows players to feel the tickrate of the server.
+		this.nodePlacementPrediction = "";
+
 		if (DEBUG_TERRAIN_MODE) {
 			this.lightSource = 14;
 		}

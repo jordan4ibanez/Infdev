@@ -23,7 +23,7 @@ This started out as a curiosity, but it has quickly become apparent this is bett
 This is going to be infdev.
 infdev originally started out as a clone of minecraft infdev but I think it would be cooler to have a fuck ton of rpg elements in it.
 
-api was transposed may-june 2026
+api was transposed may-august 2026
 
 
 todo: getters and setters of things like itemstack may need to be inlined
@@ -34,8 +34,6 @@ todo: implement decorations in the node itself as an array of decorations so shi
 
 
 ### some design decisions:
-
-Default node placement prediction to "" so people can feel the server tickrate
 
 item entity can have an animation where it just spins and moves a bone. Then another entity can be mounted to it as a visual
 
