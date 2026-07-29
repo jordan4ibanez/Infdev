@@ -3,6 +3,7 @@ package src.engine.command;
 import haxe.extern.EitherType;
 import src.engine.compilercode.LuaMap;
 
+@:autoBuild(src.engine.compilercode.ChatCommandDuctTape.build())
 interface ChatCommand {
 	var params: String;
 	var description: String;
