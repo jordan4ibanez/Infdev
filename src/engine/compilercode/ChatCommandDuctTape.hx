@@ -118,7 +118,9 @@ class ChatCommandDuctTape {
 						],
 						ret: null,
 						expr: macro {
-							instance.func(name, param);
+							var outputData = instance.func(name, param);
+							// trace(outputData);
+							return untyped __lua__("{0}, {1}", outputData.success, outputData.output);
 						}
 					})
 				}
