@@ -43,6 +43,12 @@ class ChatCommandDuctTape {
 			kind: TDClass(null, null, false, true, false), // Final.
 			fields: [
 				{
+					name: "instance",
+					access: [AStatic],
+					pos: Context.currentPos(),
+					kind: FVar(localClassComplexType, null)
+				},
+				{
 					name: "__init__",
 					access: [AStatic],
 					pos: Context.currentPos(),
