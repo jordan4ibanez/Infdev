@@ -234,8 +234,9 @@ extern class Core {
 
 	@:native("chat_send_all")
 	static function chatSendAll(text: String): Void;
-	
 
+	@:native("chat_send_player")
+	static function chatSendPlayer(name: String, text: String): Void;
 }
 
 @:noCompletion
