@@ -84,11 +84,10 @@ class ChatCommandDuctTape {
 							description = instance.description;
 							privs = instance.privs;
 
-							untyped {
-								// Remove haxe metadata.
-								instance.__fields__ = null;
-								print(dump(instance));
-							}
+							// untyped {
+							// 	 print(dump(instance));
+							// 	 print(dump($i{wrapperClassName}));
+							// }
 							// untyped __lua__("core.register_decoration({0})", instance);
 						}
 					})
