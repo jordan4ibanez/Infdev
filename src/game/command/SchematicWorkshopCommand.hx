@@ -55,7 +55,12 @@ final class SchematicWorkshopCommand implements ChatCommand {
 				Core.chatSendPlayer(name, 'Size Z promoted to $z');
 			}
 
-			size.setFloats(x, y, z);
+			// Set it to be centered and have the bedrock be the outer edge.
+			size.setFloats(
+				lua.Math.floor(x / 2) + 1,
+				y + 1,
+				lua.Math.floor(z / 2) + 1
+			);
 
 			Core.chatSendPlayer(name, 'Creating new Schematic Editor with size [ $x $y $z ]');
 		}
