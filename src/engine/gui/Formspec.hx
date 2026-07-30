@@ -17,6 +17,7 @@ class Formspec {
 	var elements: Map<String, FormspecElement> = new Map();
 
 	// todo: element containers.
+	// todo: do not allow nested containers because that can become a nightmare.
 
 	public function new(name: String) {
 		this.name = name;
