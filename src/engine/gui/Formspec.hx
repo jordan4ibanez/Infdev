@@ -32,6 +32,8 @@ class Formspec {
 		append('formspec_version[${this.version}]');
 		append('size[${this.size.x},${this.size.y},${this.fixedSize}]');
 
+		// todo: run through the formspec elements and fire them out.
+
 		untyped print(this.data);
 		return this.data;
 	}
