@@ -13,6 +13,7 @@ class Formspec {
 	var size: Vec2 = new Vec2(10, 10);
 	var fixedSize: Bool = false;
 	var backgroundColor: String = "white";
+	var fullscreen: Bool = false;
 
 	// Elements not in a container.
 	var elements: Map<String, FormspecElement> = new Map();
@@ -36,7 +37,7 @@ class Formspec {
 	public function serialize(): String {
 		append('formspec_version[${this.version}]');
 		append('size[${this.size.x},${this.size.y},${this.fixedSize}]');
-		append('bgcolor[${this.backgroundColor};<fullscreen>;<fbgcolor>]');
+		append('bgcolor[${this.backgroundColor};${this.fullscreen};<fbgcolor>]');
 
 		// todo: run through the formspec elements and fire them out.
 
@@ -56,6 +57,11 @@ class Formspec {
 
 	public function setBackgroundColor(color: String): Formspec {
 		this.backgroundColor = color;
+		return this;
+	}
+
+	public function setFullscreen(fullscreen: Bool): Formspec {
+		this.fullscreen = fullscreen;
 		return this;
 	}
 
