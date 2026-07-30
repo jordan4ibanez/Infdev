@@ -27,6 +27,11 @@ class Formspec {
 		untyped print(this.data);
 		return this.data;
 	}
+
+	public function setSize(x: Float, y: Float): Formspec {
+		this.size.setFloats(x, y);
+		return this;
+	}
 }
 
 class FormspecElement {}
