@@ -76,7 +76,7 @@ final class SchematicWorkshopCommand implements ChatCommand {
 					var edgeX = (x == size.x || x == -size.x);
 					var edgeY = (y == 0 || y == size.y);
 					var edgeZ = (z == size.z || z == -size.z);
-					if ((edgeX && edgeY) || (edgeX && edgeZ) || (edgeY && edgeZ)) {
+					if ((edgeX && edgeY) || (edgeX && edgeZ) || (edgeY && edgeZ) || (y == 0)) {
 						Core.setNode(pos.add(new Vec3(x, y, z)), {name: "infdev:bedrock"});
 					}
 				}
