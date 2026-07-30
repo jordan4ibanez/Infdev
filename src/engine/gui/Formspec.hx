@@ -1,5 +1,6 @@
 package src.engine.gui;
 
+import src.engine.definition.graphics.RGBA;
 import src.engine.vector.Vec2;
 
 // This file contains a bunch of classes to allow a single import.
@@ -12,7 +13,7 @@ class Formspec {
 	final version = 10;
 	var size: Vec2 = new Vec2(10, 10);
 	var fixedSize: Bool = false;
-	var backgroundColor: String = "white";
+	var backgroundColor: String = new RGBA(77, 77, 77, 248).toHex();
 	var fullscreen: Bool = false;
 	var foregroundColor: String = "";
 
