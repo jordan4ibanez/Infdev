@@ -4,8 +4,8 @@ import src.engine.Core;
 import src.engine.command.ChatCommand;
 import src.engine.compilercode.LuaMap;
 
-@:register("tree")
-final class TreeCommand implements ChatCommand {
+@:register("schematic_workshop")
+final class SchematicWorkshopCommand implements ChatCommand {
 	public var params: String = "";
 	public var description: String = "";
 	public var privs: LuaMap<String, Bool>;
