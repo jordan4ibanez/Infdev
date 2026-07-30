@@ -8,9 +8,11 @@ import src.engine.vector.Vec3;
 
 @:register("s")
 final class SchematicWorkshopCommand implements ChatCommand {
-	public var params: String = "";
-	public var description: String = "";
-	public var privs: LuaMap<String, Bool>;
+	public var params: String = "<x> <y> <z>";
+	public var description: String = "Specialized development tool for creating schematics.";
+	public var privs: LuaMap<String, Bool> = [
+		"server" => true
+	];
 
 	public function func(name: String, args: String): CommandStatus {
 		var player = Core.getPlayerByName(name);
