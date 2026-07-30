@@ -94,17 +94,16 @@ interface DecorationSchematic extends Decoration {
 }
 
 // This is simplified cause this is complicated as it is.
-typedef TreeDefinition = {
-	var axiom: String;
-	var trunk: String;
-	var leaves: String;
-	var angle: Int;
-	var iterations: Int;
-	var random_level: Int;
-	var trunk_type: String;
-}
-
-@:decorationRoot
-interface DecorationLSystemTree extends Decoration {
-	var treedef: TreeDefinition;
-}
+// typedef TreeDefinition = {
+// 	var axiom: String;
+// 	var trunk: String;
+// 	var leaves: String;
+// 	var angle: Int;
+// 	var iterations: Int;
+// 	var random_level: Int;
+// 	var trunk_type: String;
+// }
+// @:decorationRoot
+// interface DecorationLSystemTree extends Decoration {
+// 	var treedef: TreeDefinition;
+// }
