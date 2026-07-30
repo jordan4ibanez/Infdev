@@ -1,3 +1,11 @@
 package src.engine.gui;
 
-class Formspec {}
+class Formspec {
+	var data = "";
+
+	public function new() {}
+
+	public function serialize(): String {
+		return this.data;
+	}
+}
