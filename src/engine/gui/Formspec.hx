@@ -2,6 +2,8 @@ package src.engine.gui;
 
 import src.engine.vector.Vec2;
 
+// This file contains a bunch of classes to allow a single import.
+
 class Formspec {
 	var data = "";
 
