@@ -10,7 +10,7 @@ final class SchematicWorkshopCommand implements ChatCommand {
 	public var description: String = "";
 	public var privs: LuaMap<String, Bool>;
 
-	public function func(name: String, param: String): CommandStatus {
+	public function func(name: String, args: String): CommandStatus {
 		var player = Core.getPlayerByName(name);
 		if (player == null) {
 			return new CommandStatus(true);
