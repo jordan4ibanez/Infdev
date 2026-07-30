@@ -15,7 +15,7 @@ import src.game.node.stone.StoneSound;
 
 @:register("infdev:schematic_saver")
 final class SchematicSaver extends NodeDefinition {
-	var formspec: Formspec = new Formspec();
+	var formspec: Formspec = new Formspec("schematic_saver");
 
 	public function new() {
 		super();
