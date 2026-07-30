@@ -13,12 +13,19 @@ final class RGBA {
 		this.a = a;
 	}
 
-	public function toHex(): String {
-		var rHex = StringTools.hex(this.r & 0xFF, 2);
-		var gHex = StringTools.hex(this.g & 0xFF, 2);
-		var bHex = StringTools.hex(this.b & 0xFF, 2);
-		var aHex = StringTools.hex(this.a & 0xFF, 2);
+	// This is AI assisted.
+	function hexify(input: Float): Float {
+		return input < 0 ? 0 : (input > 255 ? 255 : input);
+	}
 
-		return '#$rHex$gHex$bHex$aHex';
+	// This is AI assisted.
+	public function toHex(): String {
+		var hexR = hexify(r);
+		var hexG = hexify(g);
+		var hexB = hexify(b);
+		var hexA = hexify(a);
+		// Also haxe doesn't have a built in formatter or string.format for lua in this version??
+		// That's why the AI was originally needed but this code could have been created without it if I knew that.
+		return untyped __lua__('string.format("#%02X%02X%02X%02X", {0}, {1}, {2}, {3})', hexR, hexG, hexB, hexA);
 	}
 }
