@@ -14,6 +14,11 @@ final class SchematicWorkshopCommand implements ChatCommand {
 		"server" => true
 	];
 
+	// This could be an npm package one day.
+	function isEven(input: Float): Bool {
+		return input % 2 == 0;
+	}
+
 	public function func(name: String, args: String): CommandStatus {
 		var player = Core.getPlayerByName(name);
 		if (player == null) {
@@ -21,7 +26,7 @@ final class SchematicWorkshopCommand implements ChatCommand {
 		}
 
 		// Parse the command input.
-		var sizeOfEditor = new Vec3();
+		var size = new Vec3();
 		{
 			var argArray = args.split(" ");
 
@@ -33,16 +38,47 @@ final class SchematicWorkshopCommand implements ChatCommand {
 			var y = Lua.tonumber(argArray[1]);
 			var z = Lua.tonumber(argArray[2]);
 
-			if (x == null || y == null || z == null) {
+			if (x == null || y == null || z == null || x <= 0 || y <= 0 || z <= 0) {
 				return new CommandStatus(false);
 			}
 
-			sizeOfEditor.setFloats(x, y, z);
+			if (isEven(x)) {
+				x++;
+				Core.chatSendPlayer(name, 'Size X promoted to $x');
+			}
+			if (isEven(y)) {
+				y++;
+				Core.chatSendPlayer(name, 'Size Y promoted to $y');
+			}
+			if (isEven(z)) {
+				z++;
+				Core.chatSendPlayer(name, 'Size Z promoted to $z');
+			}
+
+			size.setFloats(x, y, z);
 
 			Core.chatSendPlayer(name, 'Creating new Schematic Editor with size [ $x $y $z ]');
 		}
 
 		var pos = player.getPos();
+
+		// Under the admin.
+		pos.y -= 1;
+
+		for (x in Std.int(-size.x)...Std.int(size.x + 1)) {
+			for (z in Std.int(-size.z)...Std.int(size.z + 1)) {
+				for (y in 0...Std.int(size.y + 1)) {
+					var edgeX = (x == size.x || x == -size.x);
+					var edgeY = (y == 0 || y == size.y);
+					var edgeZ = (z == size.z || z == -size.z);
+					if ((edgeX && edgeY) || (edgeX && edgeZ) || (edgeY && edgeZ)) {
+						Core.setNode(pos.add(new Vec3(x, y, z)), {name: "infdev:bedrock"});
+					}
+				}
+			}
+		}
+
+		Core.setNode(pos, {name: "infdev:bedrock"});
 
 		return new CommandStatus(true);
 	}
