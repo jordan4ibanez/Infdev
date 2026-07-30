@@ -6,7 +6,7 @@ import src.engine.command.ChatCommand;
 import src.engine.compilercode.LuaMap;
 import src.engine.vector.Vec3;
 
-@:register("schematic_workshop")
+@:register("s")
 final class SchematicWorkshopCommand implements ChatCommand {
 	public var params: String = "";
 	public var description: String = "";
