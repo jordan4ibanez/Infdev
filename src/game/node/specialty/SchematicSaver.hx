@@ -1,7 +1,10 @@
 package src.game.node.specialty;
 
 import lua.Table;
+import src.engine.ItemStack;
+import src.engine.NodeTable;
 import src.engine.definition.NodeDefinition;
+import src.engine.definition.basic.PointedThing;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.vector.Vec3;
 import src.game.groups.NodeGroup;
@@ -21,6 +24,12 @@ final class SchematicSaver extends NodeDefinition {
 		this.nodeSounds = StoneSound.get();
 
 		this.tiles = ["default_cobble.png^[invert:rgb"];
+	}
+
+	override function onRightClick(pos: Vec3, node: NodeTable, clicker: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: Null<PointedThing>): ItemStack {
+		// todo: put a static formspec thing in here. :)
+
+		return super.onRightClick(pos, node, clicker, itemStack, pointedThing);
 	}
 
 	override function onReceiveFields(pos: Vec3, formName: String, fields: Table<Dynamic, Dynamic>, sender: Null<ObjectRefBase>) {
