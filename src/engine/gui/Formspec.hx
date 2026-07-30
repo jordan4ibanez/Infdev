@@ -13,7 +13,10 @@ class Formspec {
 	var size: Vec2 = new Vec2(10, 10);
 	var fixedSize: Bool = false;
 
+	// Elements not in a container.
 	var elements: Map<String, FormspecElement> = new Map();
+
+	// todo: element containers.
 
 	public function new(name: String) {
 		this.name = name;
