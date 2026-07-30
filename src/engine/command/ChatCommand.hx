@@ -18,5 +18,5 @@ interface ChatCommand {
 	var params: String;
 	var description: String;
 	var privs: LuaMap<String, Bool>;
-	function func(name: String, param: String): CommandStatus;
+	function func(name: String, args: String): CommandStatus;
 }
