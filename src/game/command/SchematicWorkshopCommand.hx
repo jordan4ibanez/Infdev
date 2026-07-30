@@ -20,6 +20,28 @@ final class SchematicWorkshopCommand implements ChatCommand {
 			return new CommandStatus(true);
 		}
 
+		// Parse the command input.
+		var sizeOfEditor = new Vec3();
+		{
+			var argArray = args.split(" ");
+
+			if (argArray.length != 3) {
+				return new CommandStatus(false);
+			}
+
+			var x = Lua.tonumber(argArray[0]);
+			var y = Lua.tonumber(argArray[1]);
+			var z = Lua.tonumber(argArray[2]);
+
+			if (x == null || y == null || z == null) {
+				return new CommandStatus(false);
+			}
+
+			sizeOfEditor.setFloats(x, y, z);
+
+			Core.chatSendPlayer(name, 'Creating new Schematic Editor with size [ $x $y $z ]');
+		}
+
 		var pos = player.getPos();
 
 		return new CommandStatus(true);
