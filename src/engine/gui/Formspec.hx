@@ -11,6 +11,8 @@ class Formspec {
 	var size: Vec2 = new Vec2(10, 10);
 	var fixedSize: Bool = false;
 
+	var elements: Map<String, FormspecElement> = new Map();
+
 	public function new() {}
 
 	function append(newData: String): Void {
@@ -25,5 +27,6 @@ class Formspec {
 		untyped print(this.data);
 		return this.data;
 	}
-
 }
+
+class FormspecElement {}
