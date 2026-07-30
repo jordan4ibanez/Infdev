@@ -1,17 +1,22 @@
 package src.game.node.specialty;
 
 import lua.Table;
+import src.engine.Core;
 import src.engine.ItemStack;
 import src.engine.NodeTable;
 import src.engine.definition.NodeDefinition;
 import src.engine.definition.basic.PointedThing;
 import src.engine.entity.objectref.ObjectRefBase;
+import src.engine.entity.objectref.ObjectRefPlayer;
+import src.engine.gui.Formspec;
 import src.engine.vector.Vec3;
 import src.game.groups.NodeGroup;
 import src.game.node.stone.StoneSound;
 
 @:register("infdev:schematic_saver")
 final class SchematicSaver extends NodeDefinition {
+	var formspec: Formspec = new Formspec();
+
 	public function new() {
 		super();
 
@@ -28,6 +33,14 @@ final class SchematicSaver extends NodeDefinition {
 
 	override function onRightClick(pos: Vec3, node: NodeTable, clicker: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: Null<PointedThing>): ItemStack {
 		// todo: put a static formspec thing in here. :)
+
+		if (!clicker.isPlayer()) {
+			return super.onRightClick(pos, node, clicker, itemStack, pointedThing);
+		}
+
+		var player: ObjectRefPlayer = cast clicker;
+
+		Core.showFormspec(player.getPlayerName(), "infdev:testing", formspec.serialize());
 
 		return super.onRightClick(pos, node, clicker, itemStack, pointedThing);
 	}
