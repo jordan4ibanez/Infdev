@@ -48,9 +48,10 @@ class Formspec {
 
 	public function addElement(elementName: String, formspecElement: FormspecElement): Formspec {
 		// This errors out to prevent catastrophic bugs.
-		if (elements.exists(elementName)) {
+		if (this.elements.exists(elementName)) {
 			throw 'Tried to add element [${elementName}] into formspec [${this.name}] when it already exists.';
 		}
+		this.elements.set(elementName, formspecElement);
 		return this;
 	}
 }
