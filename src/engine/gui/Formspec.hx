@@ -32,6 +32,11 @@ class Formspec {
 		this.size.setFloats(x, y);
 		return this;
 	}
+
+	public function isFixedSize(fixedSize: Bool): Formspec {
+		this.fixedSize = fixedSize;
+		return this;
+	}
 }
 
 class FormspecElement {}
