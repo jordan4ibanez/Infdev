@@ -23,6 +23,10 @@ class Formspec {
 		this.data += newData;
 	}
 
+	function getName(): String {
+		return this.name;
+	}
+
 	// This is the function that turns this thing into a string the game can process.
 	public function serialize(): String {
 		append('formspec_version[${this.version}]');
