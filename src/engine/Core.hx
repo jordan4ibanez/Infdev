@@ -240,6 +240,9 @@ extern class Core {
 
 	@:native("chat_send_player")
 	static function chatSendPlayer(name: String, text: String): Void;
+
+	@:native("show_formspec")
+	static function showFormspec(playername: String, formname: String, formspec: String): Void;
 }
 
 @:noCompletion
