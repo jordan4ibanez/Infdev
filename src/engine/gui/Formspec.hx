@@ -5,6 +5,8 @@ import src.engine.vector.Vec2;
 // This file contains a bunch of classes to allow a single import.
 
 class Formspec {
+	final name: String;
+
 	var data = "";
 
 	final version = 10;
@@ -13,7 +15,9 @@ class Formspec {
 
 	var elements: Map<String, FormspecElement> = new Map();
 
-	public function new() {}
+	public function new(name: String) {
+		this.name = name;
+	}
 
 	function append(newData: String): Void {
 		this.data += newData;
