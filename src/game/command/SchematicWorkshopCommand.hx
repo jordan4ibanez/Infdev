@@ -1,8 +1,10 @@
 package src.game.command;
 
+import lua.Lua;
 import src.engine.Core;
 import src.engine.command.ChatCommand;
 import src.engine.compilercode.LuaMap;
+import src.engine.vector.Vec3;
 
 @:register("schematic_workshop")
 final class SchematicWorkshopCommand implements ChatCommand {
