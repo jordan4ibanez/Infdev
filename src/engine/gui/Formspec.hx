@@ -15,6 +15,7 @@ class Formspec {
 		this.data += newData;
 	}
 
+	// This is the function that turns this thing into a string the game can process.
 	public function serialize(): String {
 		append('formspec_version[${this.version}]');
 		append('size[${this.size.x},${this.size.y},${this.fixedSize}]');
@@ -22,4 +23,5 @@ class Formspec {
 		untyped print(this.data);
 		return this.data;
 	}
+
 }
