@@ -73,6 +73,8 @@ final class SchematicWorkshopCommand implements ChatCommand {
 		for (x in Std.int(-size.x)...Std.int(size.x + 1)) {
 			for (z in Std.int(-size.z)...Std.int(size.z + 1)) {
 				for (y in 0...Std.int(size.y + 1)) {
+					Core.removeNode(pos.add(new Vec3(x, y, z)));
+
 					var edgeX = (x == size.x || x == -size.x);
 					var edgeY = (y == 0 || y == size.y);
 					var edgeZ = (z == size.z || z == -size.z);
