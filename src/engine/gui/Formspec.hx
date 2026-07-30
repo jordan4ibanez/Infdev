@@ -1,3 +1,3 @@
 package src.engine.gui;
 
-class GuiElement {}
+class Formspec {}
