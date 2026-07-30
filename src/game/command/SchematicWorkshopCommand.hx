@@ -9,7 +9,7 @@ import src.engine.vector.Vec3;
 @:register("s")
 final class SchematicWorkshopCommand implements ChatCommand {
 	public var params: String = "<x> <y> <z>";
-	public var description: String = "Specialized development tool for creating schematics.";
+	public var description: String = "Specialized development tool for creating schematics. The size should be odd on all axis. It will be promoted if not.";
 	public var privs: LuaMap<String, Bool> = [
 		"server" => true
 	];
