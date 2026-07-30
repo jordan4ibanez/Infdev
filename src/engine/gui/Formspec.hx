@@ -37,6 +37,10 @@ class Formspec {
 		this.fixedSize = fixedSize;
 		return this;
 	}
+
+	public function addElement(element: FormspecElement): Formspec {
+		return this;
+	}
 }
 
 class FormspecElement {}
