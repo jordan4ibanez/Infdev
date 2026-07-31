@@ -18,10 +18,10 @@ import src.game.node.stone.StoneSound;
 final class SchematicSaver extends NodeDefinition {
 	var formspec: Formspec = new Formspec("schematic_saver")
 		.addElement("label", new FormspecLabel(0, 0, "test")
-			.setStyle(new FormspecStyleLabel()
+			.setStyle(new FormspecLabelStyle()
 				.setFontSize(48)))
 		.addElement("other_label", new FormspecLabel(0.5, 0.5, "cool")
-			.setStyle(new FormspecStyleLabel()
+			.setStyle(new FormspecLabelStyle()
 				.setFontSize(24)));
 
 	public function new() {

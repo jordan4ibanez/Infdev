@@ -8,7 +8,7 @@ import src.engine.gui.Formspec.FormspecStyle;
  * For every label you use it will inherit the previous styling and it is random.
  * So if any labels are styled, style them all.
  */
-class FormspecStyleLabel extends FormspecStyle {
+class FormspecLabelStyle extends FormspecStyle {
 	var font: String; // ? Done
 	var fontSize: Int; // ? Done
 	var noclip: Bool; // ? Done
@@ -47,27 +47,27 @@ class FormspecStyleLabel extends FormspecStyle {
 		return output;
 	}
 
-	public function setFont(font: String): FormspecStyleLabel {
+	public function setFont(font: String): FormspecLabelStyle {
 		this.font = font;
 		return this;
 	}
 
-	public function setFontSize(fontSize: Int): FormspecStyleLabel {
+	public function setFontSize(fontSize: Int): FormspecLabelStyle {
 		this.fontSize = fontSize;
 		return this;
 	}
 
-	public function setNoclip(noclip: Bool): FormspecStyleLabel {
+	public function setNoclip(noclip: Bool): FormspecLabelStyle {
 		this.noclip = noclip;
 		return this;
 	}
 
-	public function setHorizontalAlign(horizontalAlign: String): FormspecStyleLabel {
+	public function setHorizontalAlign(horizontalAlign: String): FormspecLabelStyle {
 		this.horizontalAlign = horizontalAlign;
 		return this;
 	}
 
-	public function setVerticalAlign(verticalAlign: String): FormspecStyleLabel {
+	public function setVerticalAlign(verticalAlign: String): FormspecLabelStyle {
 		this.verticalAlign = verticalAlign;
 		return this;
 	}
@@ -88,7 +88,7 @@ class FormspecLabel extends FormspecElement {
 		return 'label[${this.x},${this.y};${this.label}]';
 	}
 
-	public function setStyle(style: FormspecStyleLabel): FormspecLabel {
+	public function setStyle(style: FormspecLabelStyle): FormspecLabel {
 		this.style = style;
 		return this;
 	}
