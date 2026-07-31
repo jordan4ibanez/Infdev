@@ -8,11 +8,15 @@ import src.engine.gui.FormspecAlignment.FormspecVerticalAlignment;
 class FormspecLabel extends FormspecElement {
 	var x: Float;
 	var y: Float;
+	var width: Float;
+	var height: Float;
 	var label: String;
 
-	public function new(x: Float, y: Float, label: String) {
+	public function new(x: Float, y: Float, width: Float, height: Float, label: String) {
 		this.x = x;
 		this.y = y;
+		this.width = width;
+		this.height = height;
 		this.label = label;
 	}
 
