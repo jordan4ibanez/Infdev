@@ -45,6 +45,7 @@ class NodeDrop {
 		}
 
 		for (groupRequirement in groupRequirements) {
+			// todo: replace these with `is`
 			if (Std.isOfType(groupRequirement, String)) {
 				Table.insert(this.toolGroups, groupRequirement);
 			} else if (Std.isOfType(groupRequirement, Array)) {
