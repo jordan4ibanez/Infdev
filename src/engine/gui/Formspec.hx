@@ -113,6 +113,14 @@ interface FormspecStyle {
 }
 
 class FormspecStyleLabel implements FormspecStyle {
+	var font: String;
+	var fontSize: Int;
+	var noclip: Bool;
+	// todo: that's an enum.
+	var halign: String;
+	// todo: that's an enum.
+	var valign: String;
+
 	public function toFormspec(name: String): String {
 		throw new haxe.exceptions.NotImplementedException();
 	}
