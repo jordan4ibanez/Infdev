@@ -19,13 +19,13 @@ class FormspecLabelStyle extends FormspecStyle {
 
 	public function new() {}
 
-	public function toFormspec(name: String): String {
+	public function toFormspec(name: String, windowScale: Float): String {
 		append('style_type[label');
 		if (font != null) {
-			append('font=${this.font}');
+			append('font=*${this.font}');
 		}
 		if (fontSize != null) {
-			append('font_size=${this.fontSize}');
+			append('font_size=${this.fontSize * windowScale}');
 		}
 		if (noclip != null) {
 			append('noclip=${this.noclip}');
