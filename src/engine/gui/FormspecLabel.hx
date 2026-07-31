@@ -2,6 +2,8 @@ package src.engine.gui;
 
 import src.engine.gui.Formspec.FormspecElement;
 import src.engine.gui.Formspec.FormspecStyle;
+import src.engine.gui.FormspecAlignment.FormspecHorizontalAlignment;
+import src.engine.gui.FormspecAlignment.FormspecVerticalAlignment;
 
 /**
  * This is very weird and will act weird.
@@ -12,10 +14,8 @@ class FormspecLabelStyle extends FormspecStyle {
 	var font: String; // ? Done
 	var fontSize: Int; // ? Done
 	var noclip: Bool; // ? Done
-	// todo: that's an enum.
-	var horizontalAlign: String; // ? Done
-	// todo: that's an enum.
-	var verticalAlign: String; // ? Done
+	var horizontalAlign: FormspecHorizontalAlignment; // ? Done
+	var verticalAlign: FormspecVerticalAlignment; // ? Done
 
 	public function new() {}
 
@@ -62,12 +62,12 @@ class FormspecLabelStyle extends FormspecStyle {
 		return this;
 	}
 
-	public function setHorizontalAlign(horizontalAlign: String): FormspecLabelStyle {
+	public function setHorizontalAlign(horizontalAlign: FormspecHorizontalAlignment): FormspecLabelStyle {
 		this.horizontalAlign = horizontalAlign;
 		return this;
 	}
 
-	public function setVerticalAlign(verticalAlign: String): FormspecLabelStyle {
+	public function setVerticalAlign(verticalAlign: FormspecVerticalAlignment): FormspecLabelStyle {
 		this.verticalAlign = verticalAlign;
 		return this;
 	}
