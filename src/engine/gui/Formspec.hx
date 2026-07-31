@@ -126,7 +126,7 @@ abstract class FormspecStyle {
 }
 
 class FormspecStyleLabel extends FormspecStyle {
-	var font: String;
+	var font: String; // ? Done
 	var fontSize: Int;
 	var noclip: Bool;
 	// todo: that's an enum.
