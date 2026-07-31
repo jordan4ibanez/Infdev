@@ -5,6 +5,27 @@ import src.engine.gui.Formspec.FormspecStyle;
 import src.engine.gui.FormspecAlignment.FormspecHorizontalAlignment;
 import src.engine.gui.FormspecAlignment.FormspecVerticalAlignment;
 
+class FormspecLabel extends FormspecElement {
+	var x: Float;
+	var y: Float;
+	var label: String;
+
+	public function new(x: Float, y: Float, label: String) {
+		this.x = x;
+		this.y = y;
+		this.label = label;
+	}
+
+	public function toFormspec(): String {
+		return 'label[${this.x},${this.y};${this.label}]';
+	}
+
+	public function setStyle(style: FormspecLabelStyle): FormspecLabel {
+		this.style = style;
+		return this;
+	}
+}
+
 /**
  * This is very weird and will act weird.
  * For every label you use it will inherit the previous styling and it is random.
@@ -69,27 +90,6 @@ class FormspecLabelStyle extends FormspecStyle {
 
 	public function setVerticalAlign(verticalAlign: FormspecVerticalAlignment): FormspecLabelStyle {
 		this.verticalAlign = verticalAlign;
-		return this;
-	}
-}
-
-class FormspecLabel extends FormspecElement {
-	var x: Float;
-	var y: Float;
-	var label: String;
-
-	public function new(x: Float, y: Float, label: String) {
-		this.x = x;
-		this.y = y;
-		this.label = label;
-	}
-
-	public function toFormspec(): String {
-		return 'label[${this.x},${this.y};${this.label}]';
-	}
-
-	public function setStyle(style: FormspecLabelStyle): FormspecLabel {
-		this.style = style;
 		return this;
 	}
 }
