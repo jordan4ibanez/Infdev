@@ -45,10 +45,7 @@ class Formspec {
 		// todo: run through the formspec elements and fire them out.
 
 		for (element in elements) {
-			if (element is FormspecLabel) {
-				var e: FormspecLabel = cast element;
-				append('label[${e.x},${e.y};${e.label}]');
-			}
+			append(element.toFormspec());
 		}
 
 		untyped print(this.data);
@@ -90,8 +87,10 @@ class Formspec {
 	}
 }
 
-@:noCompletion
-class FormspecElement {}
+// @:noCompletion
+abstract class FormspecElement {
+	public abstract function toFormspec(): String;
+}
 
 class FormspecLabel extends FormspecElement {
 	var x: Float;
@@ -102,5 +101,9 @@ class FormspecLabel extends FormspecElement {
 		this.x = x;
 		this.y = y;
 		this.label = label;
+	}
+
+	public function toFormspec(): String {
+		return 'label[${this.x},${this.y};${this.label}]';
 	}
 }
