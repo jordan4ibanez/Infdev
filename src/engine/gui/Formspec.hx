@@ -1,5 +1,6 @@
 package src.engine.gui;
 
+import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.definition.graphics.RGBA;
 import src.engine.vector.Vec2;
 
@@ -37,12 +38,12 @@ class Formspec {
 	}
 
 	// This is the function that turns this thing into a string the game can process.
-	public function serialize(): String {
+	public function serialize(player: ObjectRefPlayer): String {
 		append('formspec_version[${this.version}]');
 		append('size[${this.size.x},${this.size.y},${this.fixedSize}]');
 		append('bgcolor[${this.backgroundColor};${this.fullscreen};${this.foregroundColor}]');
 
-		// todo: run through the formspec elements and fire them out.
+		var windowInfo = player.getLuaEntity().getWindowInformation();
 
 		for (name => element in elements) {
 			// This auto targets the styling to the element.
