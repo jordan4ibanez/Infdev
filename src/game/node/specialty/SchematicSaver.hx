@@ -45,7 +45,7 @@ final class SchematicSaver extends NodeDefinition {
 
 		var player: ObjectRefPlayer = cast clicker;
 
-		untyped print(dump(player.getLuaEntity().getPlayerInformation()));
+		untyped print(dump(player.getLuaEntity().getWindowInformation()));
 
 		Core.showFormspec(player.getPlayerName(), "infdev:testing", formspec.serialize());
 
