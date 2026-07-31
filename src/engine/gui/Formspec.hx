@@ -117,8 +117,11 @@ abstract class FormspecStyle {
 	// todo: @:noCompletion
 	public abstract function toFormspec(name: String): String;
 
-	inline function append(newData: String): Void {
+	inline function append(newData: String, ?doNotAddSeparator: Bool = false): Void {
 		this.data += newData;
+		if (!doNotAddSeparator) {
+			this.data += ";";
+		}
 	}
 }
 
