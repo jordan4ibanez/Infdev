@@ -103,10 +103,11 @@ class Formspec {
 
 // @:noCompletion
 abstract class FormspecElement {
-	var style: FormspecStyle;
+	// todo: @:noCompletion
+	public var style: FormspecStyle;
 
 	// todo: @:noCompletion
-	abstract function toFormspec(): String;
+	public abstract function toFormspec(): String;
 }
 
 abstract class FormspecStyle {
@@ -114,7 +115,7 @@ abstract class FormspecStyle {
 	var data: String = "";
 
 	// todo: @:noCompletion
-	abstract function toFormspec(name: String): String;
+	public abstract function toFormspec(name: String): String;
 }
 
 class FormspecStyleLabel extends FormspecStyle {
