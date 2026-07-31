@@ -9,6 +9,7 @@ import src.engine.definition.basic.PointedThing;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.gui.Formspec;
+import src.engine.gui.FormspecLabel;
 import src.engine.vector.Vec3;
 import src.game.groups.NodeGroup;
 import src.game.node.stone.StoneSound;
@@ -16,7 +17,12 @@ import src.game.node.stone.StoneSound;
 @:register("infdev:schematic_saver")
 final class SchematicSaver extends NodeDefinition {
 	var formspec: Formspec = new Formspec("schematic_saver")
-		.addElement("test", new FormspecLabel(0, 0, "test"));
+		.addElement("label", new FormspecLabel(0, 0, "test")
+			.setStyle(new FormspecStyleLabel()
+				.setFontSize(48)))
+		.addElement("other_label", new FormspecLabel(0.5, 0.5, "cool")
+			.setStyle(new FormspecStyleLabel()
+				.setFontSize(24)));
 
 	public function new() {
 		super();
