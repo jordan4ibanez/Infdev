@@ -3,6 +3,11 @@ package src.engine.gui;
 import src.engine.gui.Formspec.FormspecElement;
 import src.engine.gui.Formspec.FormspecStyle;
 
+/**
+ * This is very weird and will act weird.
+ * For every label you use it will inherit the previous styling and it is random.
+ * So if any labels are styled, style them all.
+ */
 class FormspecStyleLabel extends FormspecStyle {
 	var font: String; // ? Done
 	var fontSize: Int; // ? Done
@@ -15,7 +20,7 @@ class FormspecStyleLabel extends FormspecStyle {
 	public function new() {}
 
 	public function toFormspec(name: String): String {
-		append('style[$name');
+		append('style_type[label');
 		if (font != null) {
 			append('font=${this.font}');
 		}
