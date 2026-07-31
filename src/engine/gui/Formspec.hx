@@ -163,6 +163,31 @@ class FormspecStyleLabel extends FormspecStyle {
 
 		return output;
 	}
+
+	public function setFont(font: String): FormspecStyleLabel {
+		this.font = font;
+		return this;
+	}
+
+	public function setFontSize(fontSize: Int): FormspecStyleLabel {
+		this.fontSize = fontSize;
+		return this;
+	}
+
+	public function setNoclip(noclip: Bool): FormspecStyleLabel {
+		this.noclip = noclip;
+		return this;
+	}
+
+	public function setHorizontalAlign(horizontalAlign: String): FormspecStyleLabel {
+		this.horizontalAlign = horizontalAlign;
+		return this;
+	}
+
+	public function setVerticalAlign(verticalAlign: String): FormspecStyleLabel {
+		this.verticalAlign = verticalAlign;
+		return this;
+	}
 }
 
 class FormspecLabel extends FormspecElement {
