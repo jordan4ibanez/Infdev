@@ -7,6 +7,7 @@ import src.engine.entity.helpers.EntitySerialization;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.player.PlayerInformation;
+import src.engine.player.PlayerWindowInformation;
 import src.engine.vector.Vec3;
 
 enum abstract PlayerAnimation(String) to String {
@@ -51,6 +52,10 @@ final class Player {
 
 	public function getInformation(): PlayerInformation {
 		return untyped __lua__("core.get_player_information({0})", this.name);
+	}
+
+	public function getWindowInformation(): PlayerWindowInformation {
+		return untyped __lua("core.get_player_window_information({0})", this.name);
 	}
 
 	function playAnimation(animation: PlayerAnimation, ?speed: Float, ?loop: Bool = true): Void {
