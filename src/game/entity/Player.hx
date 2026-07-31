@@ -55,7 +55,7 @@ final class Player {
 	}
 
 	public function getWindowInformation(): PlayerWindowInformation {
-		return untyped __lua("core.get_player_window_information({0})", this.name);
+		return untyped __lua__("core.get_player_window_information({0})", this.name);
 	}
 
 	function playAnimation(animation: PlayerAnimation, ?speed: Float, ?loop: Bool = true): Void {
