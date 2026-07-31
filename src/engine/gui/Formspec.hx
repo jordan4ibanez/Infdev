@@ -70,7 +70,8 @@ class Formspec {
 	public function serialize(player: ObjectRefPlayer): String {
 		append('formspec_version[${this.version}]');
 		append('size[${this.size.x},${this.size.y},${this.fixedSize}]');
-		// append('bgcolor[${this.backgroundColor};${this.fullscreen};${this.foregroundColor}]');
+		append('bgcolor[#00000000;false;]');
+		append('background9[0,0;0,0;infdev_menu_background.png;true;40]');
 
 		var windowScale = getTrueWindowScale(player);
 
