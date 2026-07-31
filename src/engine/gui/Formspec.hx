@@ -1,6 +1,5 @@
 package src.engine.gui;
 
-import src.engine.definition.graphics.RGBA;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.vector.Vec2;
 
@@ -14,11 +13,11 @@ class Formspec {
 	final version = 10;
 	var size: Vec2 = new Vec2(10, 10);
 	var fixedSize: Bool = false;
-	// todo: replace this with a background texture using 9 segment and use it for EVERYTHING.
-	var backgroundColor: String = new RGBA(77, 77, 77, 248).toHex();
-	var fullscreen: Bool = false;
-	var foregroundColor: String = "";
 
+	// todo: replace this with a background texture using 9 segment and use it for EVERYTHING.
+	// var backgroundColor: String = new RGBA(77, 77, 77, 248).toHex();
+	// var fullscreen: Bool = false;
+	// var foregroundColor: String = "";
 	static inline final baseWindowSizeX = 1920;
 	static inline final baseWindowSizeY = 1080;
 
@@ -67,7 +66,7 @@ class Formspec {
 	public function serialize(player: ObjectRefPlayer): String {
 		append('formspec_version[${this.version}]');
 		append('size[${this.size.x},${this.size.y},${this.fixedSize}]');
-		append('bgcolor[${this.backgroundColor};${this.fullscreen};${this.foregroundColor}]');
+		// append('bgcolor[${this.backgroundColor};${this.fullscreen};${this.foregroundColor}]');
 
 		var windowScale = getTrueWindowScale(player);
 
@@ -99,20 +98,18 @@ class Formspec {
 		return this;
 	}
 
-	public function setBackgroundColor(color: String): Formspec {
-		this.backgroundColor = color;
-		return this;
-	}
-
-	public function setFullscreen(fullscreen: Bool): Formspec {
-		this.fullscreen = fullscreen;
-		return this;
-	}
-
-	public function setForegroundColor(color: String): Formspec {
-		this.foregroundColor = color;
-		return this;
-	}
+	// public function setBackgroundColor(color: String): Formspec {
+	// 	this.backgroundColor = color;
+	// 	return this;
+	// }
+	// public function setFullscreen(fullscreen: Bool): Formspec {
+	// 	this.fullscreen = fullscreen;
+	// 	return this;
+	// }
+	// public function setForegroundColor(color: String): Formspec {
+	// 	this.foregroundColor = color;
+	// 	return this;
+	// }
 
 	public function addElement(elementName: String, formspecElement: FormspecElement): Formspec {
 		// This errors out to prevent catastrophic bugs.
