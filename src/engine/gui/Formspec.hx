@@ -14,7 +14,6 @@ class Formspec {
 	var size: Vec2 = new Vec2(10, 10);
 	var fixedSize: Bool = false;
 
-	// todo: replace this with a background texture using 9 segment and use it for EVERYTHING.
 	// var backgroundColor: String = new RGBA(77, 77, 77, 248).toHex();
 	// var fullscreen: Bool = false;
 	// var foregroundColor: String = "";
