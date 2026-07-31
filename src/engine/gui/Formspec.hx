@@ -44,7 +44,12 @@ class Formspec {
 
 		// todo: run through the formspec elements and fire them out.
 
-		for (element in elements) {
+		for (name => element in elements) {
+			// This auto targets the styling to the element.
+			if (element.style != null) {
+				element.style.toFormspec(name);
+			}
+			trace(name);
 			append(element.toFormspec());
 		}
 
@@ -97,14 +102,28 @@ class Formspec {
 }
 
 // @:noCompletion
-abstract class FormspecElement {
-	public abstract function toFormspec(): String;
+interface FormspecElement {
+	var style: FormspecStyle;
+	function toFormspec(): String;
 }
 
-class FormspecLabel extends FormspecElement {
+interface FormspecStyle {
+	// todo: there's a lot of stuff in this one. So this will have to be thought about. For now it's just a simple one.
+	function toFormspec(name: String): String;
+}
+
+class FormspecStyleLabel implements FormspecStyle {
+	public function toFormspec(name: String): String {
+		throw new haxe.exceptions.NotImplementedException();
+	}
+}
+
+class FormspecLabel implements FormspecElement {
 	var x: Float;
 	var y: Float;
 	var label: String;
+
+	public var style: FormspecStyle;
 
 	public function new(x: Float, y: Float, label: String) {
 		this.x = x;
