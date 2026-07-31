@@ -17,11 +17,11 @@ import src.game.node.stone.StoneSound;
 @:register("infdev:schematic_saver")
 final class SchematicSaver extends NodeDefinition {
 	var formspec: Formspec = new Formspec("schematic_saver_ui")
-		.addElement("name_of_schematic", new FormspecLabel(0, 0, 10, 2, "This test")
+		.addElement("name_of_schematic", new FormspecLabel(0, 0.2, 10, 2, "This schematic is unnamed")
 			.setStyle(new FormspecLabelStyle()
 				.setFontSize(10)
 				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)
-				.setVerticalAlign(FormspecVerticalAlignmentCenter)
+				.setVerticalAlign(FormspecVerticalAlignmentTop)
 			));
 
 	public function new() {
