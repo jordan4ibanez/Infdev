@@ -137,6 +137,7 @@ class FormspecStyleLabel extends FormspecStyle {
 	public function new() {}
 
 	public function toFormspec(name: String): String {
+		append('style[$name');
 		// Then swap and clear.
 		var output = data;
 		data = "";
