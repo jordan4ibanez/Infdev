@@ -6,6 +6,7 @@ import src.engine.entity.definition.PlayerControl;
 import src.engine.entity.helpers.EntitySerialization;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefPlayer;
+import src.engine.player.PlayerInformation;
 import src.engine.vector.Vec3;
 
 enum abstract PlayerAnimation(String) to String {
@@ -47,6 +48,10 @@ final class Player {
 
 	@:allow(src.engine.entity.helpers.PlayerHandling)
 	private function new() {}
+
+	public function getPlayerInformation(): PlayerInformation {
+		return untyped __lua__("core.get_player_information({0})", this.name);
+	}
 
 	function playAnimation(animation: PlayerAnimation, ?speed: Float, ?loop: Bool = true): Void {
 		this.object.playAnimation(animation, {
