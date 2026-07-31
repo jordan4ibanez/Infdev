@@ -117,7 +117,7 @@ abstract class FormspecStyle {
 	// todo: @:noCompletion
 	public abstract function toFormspec(name: String): String;
 
-	function append(newData: String): Void {
+	inline function append(newData: String): Void {
 		this.data += newData;
 	}
 }
