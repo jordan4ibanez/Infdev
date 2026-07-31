@@ -1,5 +1,7 @@
 package src.engine.gui;
 
+import src.engine.gui.Formspec.FormspecElement;
+import src.engine.gui.Formspec.FormspecStyle;
 
 class FormspecStyleLabel extends FormspecStyle {
 	var font: String; // ? Done
