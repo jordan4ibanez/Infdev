@@ -69,12 +69,12 @@ class Formspec {
 		append('size[${this.size.x},${this.size.y},${this.fixedSize}]');
 		append('bgcolor[${this.backgroundColor};${this.fullscreen};${this.foregroundColor}]');
 
-		var scale = getTrueWindowScale(player);
+		var windowScale = getTrueWindowScale(player);
 
 		for (name => element in elements) {
 			// This auto targets the styling to the element.
 			if (element.style != null) {
-				append(element.style.toFormspec(name));
+				append(element.style.toFormspec(name, windowScale));
 			}
 			trace(name);
 			append(element.toFormspec());
@@ -143,7 +143,7 @@ abstract class FormspecStyle {
 	var data: String = "";
 
 	// todo: @:noCompletion
-	public abstract function toFormspec(name: String): String;
+	public abstract function toFormspec(name: String, windowScale: Float): String;
 
 	inline function append(newData: String, ?doNotAddSeparator: Bool = false): Void {
 		// Remove the last ; off the string if do not add separator is there.
