@@ -47,7 +47,7 @@ class Formspec {
 		for (name => element in elements) {
 			// This auto targets the styling to the element.
 			if (element.style != null) {
-				element.style.toFormspec(name);
+				append(element.style.toFormspec(name));
 			}
 			trace(name);
 			append(element.toFormspec());
