@@ -21,7 +21,7 @@ class FormspecLabel extends FormspecElement {
 	}
 
 	public function toFormspec(): String {
-		return 'label[${this.x},${this.y};${this.label}]';
+		return 'label[${this.x},${this.y};${this.width},${this.height};${this.label}]';
 	}
 
 	public function setStyle(style: FormspecLabelStyle): FormspecLabel {
