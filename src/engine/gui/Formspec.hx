@@ -49,7 +49,12 @@ class Formspec {
 		}
 
 		untyped print(this.data);
-		return this.data;
+
+		// Reset the data output to prevent a disaster.
+		var output = this.data;
+		this.data = "";
+
+		return output;
 	}
 
 	public function setSize(x: Float, y: Float): Formspec {
