@@ -46,7 +46,8 @@ class Formspec {
 
 		for (element in elements) {
 			if (element is FormspecLabel) {
-				untyped print("formspec label");
+				var e: FormspecLabel = cast element;
+				append('label[${e.x},${e.y};${e.label}]');
 			}
 		}
 
