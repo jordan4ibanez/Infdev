@@ -119,6 +119,10 @@ abstract class FormspecStyle {
 	public abstract function toFormspec(name: String): String;
 
 	inline function append(newData: String, ?doNotAddSeparator: Bool = false): Void {
+		// Remove the last ; off the string if do not add separator is there.
+		if (doNotAddSeparator) {
+			this.data = untyped __lua__("{0}:sub(1,-2)", this.data);
+		}
 		this.data += newData;
 		if (!doNotAddSeparator) {
 			this.data += ";";
