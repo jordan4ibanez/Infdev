@@ -90,6 +90,10 @@ class Formspec {
 		this.elements.set(elementName, formspecElement);
 		return this;
 	}
+
+	public function getElement<T: FormspecElement>(elementName: String): Null<T> {
+		return cast this.elements.get(elementName);
+	}
 }
 
 // @:noCompletion
