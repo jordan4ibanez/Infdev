@@ -44,6 +44,10 @@ class Formspec {
 
 		var windowInfo = player.getLuaEntity().getWindowInformation();
 
+		if (windowInfo == null) {
+			return 1;
+		}
+
 		var scaleX = windowInfo.size.x / baseWindowSizeX;
 		var scaleY = windowInfo.size.y / baseWindowSizeY;
 
