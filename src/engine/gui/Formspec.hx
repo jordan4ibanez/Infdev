@@ -101,7 +101,7 @@ class Formspec {
 	}
 }
 
-// @:noCompletion
+// todo: @:noCompletion
 abstract class FormspecElement {
 	// todo: @:noCompletion
 	public var style: FormspecStyle;
@@ -110,6 +110,7 @@ abstract class FormspecElement {
 	public abstract function toFormspec(): String;
 }
 
+// todo: @:noCompletion
 abstract class FormspecStyle {
 	// todo: there's a lot of stuff in this one. So this will have to be thought about. For now it's just a simple one.
 	var data: String = "";
