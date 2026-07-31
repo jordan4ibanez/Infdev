@@ -49,7 +49,7 @@ final class Player {
 	@:allow(src.engine.entity.helpers.PlayerHandling)
 	private function new() {}
 
-	public function getPlayerInformation(): PlayerInformation {
+	public function getInformation(): PlayerInformation {
 		return untyped __lua__("core.get_player_information({0})", this.name);
 	}
 
