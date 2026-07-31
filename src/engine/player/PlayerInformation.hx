@@ -9,11 +9,17 @@ typedef PlayerInformation = {
 	var lang_code: String;
 
 	// the following keys can be missing if no stats have been collected yet
+	@:optional
 	var min_rtt: Float;
+	@:optional
 	var max_rtt: Float;
+	@:optional
 	var avg_rtt: Float;
+	@:optional
 	var min_jitter: Float;
+	@:optional
 	var max_jitter: Float;
+	@:optional
 	var avg_jitter: Float;
 
 	// The version information is provided by the client and may be spoofed
