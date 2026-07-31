@@ -6,6 +6,8 @@ import src.engine.vector.Vec2;
 // This file contains a bunch of classes to allow a single import.
 
 class Formspec {
+	static inline final DEBUG_MODE = true;
+
 	final name: String;
 
 	var data = "";
@@ -32,6 +34,9 @@ class Formspec {
 
 	function append(newData: String): Void {
 		this.data += newData;
+		if (DEBUG_MODE) {
+			this.data += "\n";
+		}
 	}
 
 	function getName(): String {
