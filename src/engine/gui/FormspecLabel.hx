@@ -93,3 +93,5 @@ class FormspecLabel extends FormspecElement {
 		return this;
 	}
 }
+
+// todo: area label, vertical label
