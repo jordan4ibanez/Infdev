@@ -134,4 +134,9 @@ class FormspecLabel implements FormspecElement {
 	public function toFormspec(): String {
 		return 'label[${this.x},${this.y};${this.label}]';
 	}
+
+	public function setStyle(style: FormspecStyleLabel): FormspecLabel {
+		this.style = style;
+		return this;
+	}
 }
