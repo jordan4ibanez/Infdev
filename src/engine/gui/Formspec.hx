@@ -44,6 +44,12 @@ class Formspec {
 
 		// todo: run through the formspec elements and fire them out.
 
+		for (element in elements) {
+			if (element is FormspecLabel) {
+				untyped print("formspec label");
+			}
+		}
+
 		untyped print(this.data);
 		return this.data;
 	}
@@ -83,4 +89,17 @@ class Formspec {
 	}
 }
 
+@:noCompletion
 class FormspecElement {}
+
+class FormspecLabel extends FormspecElement {
+	var x: Float;
+	var y: Float;
+	var label: String;
+
+	public function new(x: Float, y: Float, label: String) {
+		this.x = x;
+		this.y = y;
+		this.label = label;
+	}
+}
