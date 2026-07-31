@@ -127,12 +127,12 @@ abstract class FormspecStyle {
 
 class FormspecStyleLabel extends FormspecStyle {
 	var font: String; // ? Done
-	var fontSize: Int;
-	var noclip: Bool;
+	var fontSize: Int; // ? Done
+	var noclip: Bool; // ? Done
 	// todo: that's an enum.
-	var horizontalAlign: String;
+	var horizontalAlign: String; // ? Done
 	// todo: that's an enum.
-	var verticalAlign: String;
+	var verticalAlign: String; // ? Done
 
 	public function new() {}
 
@@ -140,6 +140,18 @@ class FormspecStyleLabel extends FormspecStyle {
 		append('style[$name');
 		if (font != null) {
 			append('font=${this.font}');
+		}
+		if (fontSize != null) {
+			append('font_size=${this.fontSize}');
+		}
+		if (noclip != null) {
+			append('noclip=${this.noclip}');
+		}
+		if (horizontalAlign != null) {
+			append('halign=${this.horizontalAlign}');
+		}
+		if (verticalAlign != null) {
+			append('valign=${this.verticalAlign}');
 		}
 
 		// And finally close out the string.
