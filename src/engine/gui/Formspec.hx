@@ -1,7 +1,7 @@
 package src.engine.gui;
 
-import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.definition.graphics.RGBA;
+import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.vector.Vec2;
 
 // This file contains a bunch of classes to allow a single import.
@@ -18,6 +18,9 @@ class Formspec {
 	var backgroundColor: String = new RGBA(77, 77, 77, 248).toHex();
 	var fullscreen: Bool = false;
 	var foregroundColor: String = "";
+
+	static inline final baseWindowSizeX = 1920;
+	static inline final baseWindowSizeY = 1080;
 
 	// Elements not in a container.
 	var elements: Map<String, FormspecElement> = new Map();
@@ -37,13 +40,36 @@ class Formspec {
 		return this.name;
 	}
 
+	function getTrueWindowScale(player: ObjectRefPlayer): Float {
+		var scale: Float = 0;
+
+		var windowInfo = player.getLuaEntity().getWindowInformation();
+
+		var scaleX = windowInfo.size.x / baseWindowSizeX;
+		var scaleY = windowInfo.size.y / baseWindowSizeY;
+
+		// Pick the smaller scale.
+		if (scaleX >= scaleY) {
+			scale = scaleY;
+		} else {
+			scale = scaleX;
+		}
+
+		// Now apply gui scaling to it.
+		scale *= windowInfo.real_gui_scaling;
+
+		untyped print('new scale: $scale');
+
+		return scale;
+	}
+
 	// This is the function that turns this thing into a string the game can process.
 	public function serialize(player: ObjectRefPlayer): String {
 		append('formspec_version[${this.version}]');
 		append('size[${this.size.x},${this.size.y},${this.fixedSize}]');
 		append('bgcolor[${this.backgroundColor};${this.fullscreen};${this.foregroundColor}]');
 
-		var windowInfo = player.getLuaEntity().getWindowInformation();
+		var scale = getTrueWindowScale(player);
 
 		for (name => element in elements) {
 			// This auto targets the styling to the element.
