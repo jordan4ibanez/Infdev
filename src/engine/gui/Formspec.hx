@@ -138,6 +138,9 @@ class FormspecStyleLabel extends FormspecStyle {
 
 	public function toFormspec(name: String): String {
 		append('style[$name');
+		if (font != null) {
+			append('font=${this.font}');
+		}
 		// Then swap and clear.
 		var output = data;
 		data = "";
