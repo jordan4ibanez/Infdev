@@ -141,6 +141,10 @@ class FormspecStyleLabel extends FormspecStyle {
 		if (font != null) {
 			append('font=${this.font}');
 		}
+
+		// And finally close out the string.
+		append("]", true);
+
 		// Then swap and clear.
 		var output = data;
 		data = "";
