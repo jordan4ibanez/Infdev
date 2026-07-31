@@ -104,11 +104,13 @@ class Formspec {
 // @:noCompletion
 interface FormspecElement {
 	var style: FormspecStyle;
+	// @:noCompletion
 	function toFormspec(): String;
 }
 
 interface FormspecStyle {
 	// todo: there's a lot of stuff in this one. So this will have to be thought about. For now it's just a simple one.
+	// todo: @:noCompletion
 	function toFormspec(name: String): String;
 }
 
