@@ -40,7 +40,7 @@ class Formspec {
 	public function serialize(): String {
 		append('formspec_version[${this.version}]');
 		append('size[${this.size.x},${this.size.y},${this.fixedSize}]');
-		append('bgcolor[${this.backgroundColor};${this.fullscreen};${this.foregroundColor}');
+		append('bgcolor[${this.backgroundColor};${this.fullscreen};${this.foregroundColor}]');
 
 		// todo: run through the formspec elements and fire them out.
 
