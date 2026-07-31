@@ -102,19 +102,22 @@ class Formspec {
 }
 
 // @:noCompletion
-interface FormspecElement {
+abstract class FormspecElement {
 	var style: FormspecStyle;
+
 	// todo: @:noCompletion
-	function toFormspec(): String;
+	abstract function toFormspec(): String;
 }
 
-interface FormspecStyle {
+abstract class FormspecStyle {
 	// todo: there's a lot of stuff in this one. So this will have to be thought about. For now it's just a simple one.
+	var data: String = "";
+
 	// todo: @:noCompletion
-	function toFormspec(name: String): String;
+	abstract function toFormspec(name: String): String;
 }
 
-class FormspecStyleLabel implements FormspecStyle {
+class FormspecStyleLabel extends FormspecStyle {
 	var font: String;
 	var fontSize: Int;
 	var noclip: Bool;
@@ -123,17 +126,21 @@ class FormspecStyleLabel implements FormspecStyle {
 	// todo: that's an enum.
 	var verticalAlign: String;
 
+	public function new() {}
+
 	public function toFormspec(name: String): String {
-		throw new haxe.exceptions.NotImplementedException();
+		// Then swap and clear.
+		var output = data;
+		data = "";
+
+		return output;
 	}
 }
 
-class FormspecLabel implements FormspecElement {
+class FormspecLabel extends FormspecElement {
 	var x: Float;
 	var y: Float;
 	var label: String;
-
-	public var style: FormspecStyle;
 
 	public function new(x: Float, y: Float, label: String) {
 		this.x = x;
