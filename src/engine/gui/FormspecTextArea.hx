@@ -126,8 +126,12 @@ class FormspecTextAreaStyle extends FormspecStyle {
 		return this;
 	}
 
-	public function setFontSize(fontSize: Float): FormspecTextAreaStyle {
-		this.fontSize = fontSize;
+	public function setFontSize(?fontSize: Float): FormspecTextAreaStyle {
+		if (fontSize == null) {
+			this.fontSize = FormspecStyle.FONT_SIZE_DEFAULT;
+		} else {
+			this.fontSize = fontSize;
+		}
 		return this;
 	}
 

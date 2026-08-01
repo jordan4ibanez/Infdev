@@ -129,8 +129,12 @@ class FormspecButtonStyle extends FormspecStyle {
 		return this;
 	}
 
-	public function setFontSize(fontSize: Float): FormspecButtonStyle {
-		this.fontSize = fontSize;
+	public function setFontSize(?fontSize: Float): FormspecButtonStyle {
+		if (fontSize == null) {
+			this.fontSize = FormspecStyle.FONT_SIZE_DEFAULT;
+		} else {
+			this.fontSize = fontSize;
+		}
 		return this;
 	}
 

@@ -54,7 +54,7 @@ class FormspecLabel extends FormspecElement {
  */
 class FormspecLabelStyle extends FormspecStyle {
 	var font: String; // ! Done
-	var fontSize: Int; // ! Done
+	var fontSize: Float; // ! Done
 	var noclip: Bool; // ! Done
 	var textColor: String; // ! Done
 	var horizontalAlignment: FormspecHorizontalAlignment; // ! Done
@@ -98,8 +98,12 @@ class FormspecLabelStyle extends FormspecStyle {
 		return this;
 	}
 
-	public function setFontSize(fontSize: Int): FormspecLabelStyle {
-		this.fontSize = fontSize;
+	public function setFontSize(?fontSize: Float): FormspecLabelStyle {
+		if (fontSize == null) {
+			this.fontSize = FormspecStyle.FONT_SIZE_DEFAULT;
+		} else {
+			this.fontSize = fontSize;
+		}
 		return this;
 	}
 
