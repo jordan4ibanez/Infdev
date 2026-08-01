@@ -23,6 +23,7 @@ final class SchematicSaver extends NodeDefinition {
 	public static var formspec: Formspec = new Formspec("schematic_saver_ui")
 		.addElement("name_of_schematic", new FormspecLabel(0, 0.2, 10, 2, unnamedDefault)
 			.setStyle(new FormspecLabelStyle()
+				.setTextColor("white")
 				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)
 				.setVerticalAlign(FormspecVerticalAlignmentTop)))
 		.addElement("rename_field", new FormspecField(0.25, 4, 9.5, 1)
@@ -32,6 +33,7 @@ final class SchematicSaver extends NodeDefinition {
 		.addElement("error_message", new FormspecLabel(0, 3, 10, 2, "")
 			.setStyle(new FormspecLabelStyle()
 				.setTextColor("red")
+				.setFontSize(30)
 				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)
 				.setVerticalAlign(FormspecVerticalAlignmentTop)));
 
@@ -69,7 +71,6 @@ final class SchematicSaver extends NodeDefinition {
 
 		// ? This is literally updating the formspec and then making your player click it again.
 
-		// Core.showFormspec(player.getPlayerName(), "infdev:testing", output);
 		Core.getMeta(pos).setString("formspec", formspec.serialize(player));
 
 		this.reClick(player, pointedThing);
@@ -78,6 +79,26 @@ final class SchematicSaver extends NodeDefinition {
 	}
 
 	override function onReceiveFields(pos: Vec3, doNotUse: String, fields: Table<String, String>, sender: Null<ObjectRefBase>) {
+		if (sender == null || !sender.isPlayer()) {
+			return;
+		}
+
+		var player: ObjectRefPlayer = cast sender;
+
+		if (fields.rename_field != null && fields.rename_field == "") {
+			var formspecNameElement = (formspec.getElement("error_message") : FormspecLabel);
+			formspecNameElement.setLabel("Please input a name for your schematic.");
+
+			Core.getMeta(pos).setString("formspec", formspec.serialize(player));
+
+			this.reClick(player, {
+				type: PointedThingTypeNode,
+				under: pos
+			});
+
+			return;
+		}
+
 		untyped {
 			print(formName); // It doesn't have one
 			print(dump(fields));
