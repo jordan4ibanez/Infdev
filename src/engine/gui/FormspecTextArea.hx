@@ -15,6 +15,11 @@ class FormspecTextArea extends FormspecElement {
 	public function toFormspec(name: String): String {
 		return 'textarea[${this.x},${this.y};${this.width},${this.height};${name};${this.label};${this.defaultText}]';
 	}
+
+	public function setStyle(style: FormspecTextAreaStyle): FormspecTextArea {
+		this.style = style;
+		return this;
+	}
 }
 
 class FormspecTextAreaStyle extends FormspecStyle {
