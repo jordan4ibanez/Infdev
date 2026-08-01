@@ -53,12 +53,13 @@ final class SchematicSaver extends NodeDefinition {
 
 		var player: ObjectRefPlayer = cast clicker;
 
+		// If the schematic has a name, use it, or else, declare it's unnamed.
 		var schematicName = Core.getMeta(pos).getString("schematic_name");
 		var formspecNameElement = (cast formspec.getElement("name_of_schematic") : FormspecLabel);
 		if (schematicName == "") {
 			formspecNameElement.setLabel(unnamedDefault);
 		} else {
-			formspecNameElement.setLabel(schematicName);
+			formspecNameElement.setLabel("Name: " + schematicName);
 		}
 
 		// todo: get node metadata schematic_name
