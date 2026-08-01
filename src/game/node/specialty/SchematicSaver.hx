@@ -88,20 +88,25 @@ final class SchematicSaver extends NodeDefinition {
 		if (fields.rename_field != null && fields.rename_field == "") {
 			var formspecNameElement = (formspec.getElement("error_message") : FormspecLabel);
 			formspecNameElement.setLabel("Please input a name for your schematic.");
-
 			Core.getMeta(pos).setString("formspec", formspec.serialize(player));
-
 			this.reClick(player, {
 				type: PointedThingTypeNode,
 				under: pos
 			});
-
 			return;
 		}
 
-		untyped {
-			print(formName); // It doesn't have one
-			print(dump(fields));
-		}
+		Core.getMeta(pos).setString("schematic_name", fields.rename_field);
+
+		// untyped {
+		// 	print(formName); // It doesn't have one
+		// 	print(dump(fields));
+		// }
+
+		// Then trigger a reclick.
+		this.reClick(player, {
+			type: PointedThingTypeNode,
+			under: pos
+		});
 	}
 }
