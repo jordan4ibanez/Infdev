@@ -98,7 +98,9 @@ class Formspec {
 			append(element.toFormspec(name));
 		}
 
-		// untyped print(this.data);
+		if (DEBUG_MODE) {
+			untyped print(this.data);
+		}
 
 		// Reset the data output to prevent a disaster.
 		var output = this.data;
