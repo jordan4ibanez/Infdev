@@ -49,16 +49,16 @@ class FormspecButton extends FormspecElement {
 // todo: use this on: button, button_exit, image_button, item_image_button
 class FormspecButtonStyle extends FormspecStyle {
 	var alpha: Bool; // !
-	var bgcolor: String; // !
-	var bgimg: String; // !
+	var backgroundColor: String; // !
+	var backgroundImage: String; // !
 	var font: String; // !
-	var font_size: Float; // !
+	var fontSize: Float; // !
 	var border: Bool; // !
-	var content_offset: Vec2; // !
+	var contentOffset: Vec2; // !
 	var noclip: Bool; // !
 	var padding: Vec2; // !
 	var sound: String; // !
-	var textcolor: String; // !
+	var textColor: String; // !
 
 	public function toFormspec(name: String, windowScale: Float): String {
 		append('style[${name}');
@@ -67,23 +67,23 @@ class FormspecButtonStyle extends FormspecStyle {
 			append('alpha=${this.border}');
 		}
 
-		if (this.bgcolor != null) {
-			append('bgcolor=${this.bgcolor}');
+		if (this.backgroundColor != null) {
+			append('bgcolor=${this.backgroundColor}');
 		}
-		if (this.bgimg != null) {
-			append('bgimg=${this.bgimg}');
+		if (this.backgroundImage != null) {
+			append('bgimg=${this.backgroundImage}');
 		}
 		if (this.font != null) {
 			append('font=${this.font}');
 		}
-		if (this.font_size != null) {
-			append('font_size=${this.font_size}');
+		if (this.fontSize != null) {
+			append('font_size=${this.fontSize}');
 		}
 		if (this.border != null) {
 			append('border=${this.border}');
 		}
-		if (this.content_offset != null) {
-			append('content_offset=${this.content_offset.x},${this.content_offset.y}');
+		if (this.contentOffset != null) {
+			append('content_offset=${this.contentOffset.x},${this.contentOffset.y}');
 		}
 		if (this.noclip != null) {
 			append('noclip=${this.noclip}');
@@ -94,8 +94,8 @@ class FormspecButtonStyle extends FormspecStyle {
 		if (this.sound != null) {
 			append('sound=${this.sound}');
 		}
-		if (this.textcolor != null) {
-			append('textcolor=${this.textcolor}');
+		if (this.textColor != null) {
+			append('textcolor=${this.textColor}');
 		}
 
 		// And finally close out the string.
@@ -114,12 +114,12 @@ class FormspecButtonStyle extends FormspecStyle {
 	}
 
 	public function setBackgroundColor(backgroundColor: String): FormspecButtonStyle {
-		this.bgcolor = backgroundColor;
+		this.backgroundColor = backgroundColor;
 		return this;
 	}
 
 	public function setBackgroundImage(backgroundImage: String): FormspecButtonStyle {
-		this.bgimg = backgroundImage;
+		this.backgroundImage = backgroundImage;
 		return this;
 	}
 
@@ -129,7 +129,7 @@ class FormspecButtonStyle extends FormspecStyle {
 	}
 
 	public function setFontSize(fontSize: Float): FormspecButtonStyle {
-		this.font_size = fontSize;
+		this.fontSize = fontSize;
 		return this;
 	}
 
@@ -139,7 +139,7 @@ class FormspecButtonStyle extends FormspecStyle {
 	}
 
 	public function setContentOffset(x: Float, y: Float): FormspecButtonStyle {
-		this.content_offset = new Vec2(x, y);
+		this.contentOffset = new Vec2(x, y);
 		return this;
 	}
 
@@ -159,7 +159,7 @@ class FormspecButtonStyle extends FormspecStyle {
 	}
 
 	public function setTextColor(textColor: String): FormspecButtonStyle {
-		this.textcolor = textColor;
+		this.textColor = textColor;
 		return this;
 	}
 }
