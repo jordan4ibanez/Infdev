@@ -6,11 +6,11 @@ import src.engine.gui.FormspecAlignment.FormspecHorizontalAlignment;
 import src.engine.gui.FormspecAlignment.FormspecVerticalAlignment;
 
 class FormspecLabel extends FormspecElement {
-	var x: Float;
-	var y: Float;
-	var width: Float;
-	var height: Float;
-	var label: String;
+	var x: Float; // ? Done.
+	var y: Float; // ? Done.
+	var width: Float; // ? Done.
+	var height: Float; // ? Done.
+	var label: String; // ? Done.
 
 	public function new(x: Float, y: Float, width: Float, height: Float, label: String) {
 		this.x = x;
@@ -26,6 +26,23 @@ class FormspecLabel extends FormspecElement {
 
 	public function setStyle(style: FormspecLabelStyle): FormspecLabel {
 		this.style = style;
+		return this;
+	}
+
+	public function setPos(x: Float, y: Float): FormspecLabel {
+		this.x = x;
+		this.y = y;
+		return this;
+	}
+
+	public function setSize(width: Float, height: Float): FormspecLabel {
+		this.width = width;
+		this.height = height;
+		return this;
+	}
+
+	public function setLabel(label: String): FormspecLabel {
+		this.label = label;
 		return this;
 	}
 }
