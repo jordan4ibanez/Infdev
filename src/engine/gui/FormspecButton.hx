@@ -45,6 +45,7 @@ class FormspecButton extends FormspecElement {
 	}
 }
 
+// todo: use this on: button, button_exit, image_button, item_image_button
 class FormspecButtonStyle extends FormspecStyle {
 	public function toFormspec(name: String, windowScale: Float): String {
 		throw new haxe.exceptions.NotImplementedException();
