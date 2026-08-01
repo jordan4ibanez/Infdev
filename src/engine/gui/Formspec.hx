@@ -65,10 +65,10 @@ class Formspec {
 		// Now apply gui scaling to it.
 		var adjustmentFormula = (input: Float) -> {
 			// Got a HUGE HUD I guess. Clamp it.
-			if (input > 5) {
-				input = 5;
+			if (input > 4) {
+				input = 4;
 			}
-			return 1.20 - (0.2 * input);
+			return 1.25 - (0.25 * input);
 		};
 
 		var adjustment = adjustmentFormula(windowInfo.real_gui_scaling);
