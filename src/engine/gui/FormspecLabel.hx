@@ -18,6 +18,8 @@ class FormspecLabel extends FormspecElement {
 		this.width = width;
 		this.height = height;
 		this.label = label;
+
+		this.style = new FormspecLabelStyle();
 	}
 
 	public function toFormspec(name: String): String {
