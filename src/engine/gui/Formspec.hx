@@ -85,7 +85,7 @@ class Formspec {
 				append(element.style.toFormspec(name, windowScale));
 			}
 			trace(name);
-			append(element.toFormspec());
+			append(element.toFormspec(name));
 		}
 
 		untyped print(this.data);
@@ -140,7 +140,7 @@ abstract class FormspecElement {
 	public var style: FormspecStyle;
 
 	// todo: @:noCompletion
-	public abstract function toFormspec(): String;
+	public abstract function toFormspec(name: String): String;
 }
 
 // todo: @:noCompletion
