@@ -49,22 +49,53 @@ class FormspecButton extends FormspecElement {
 // todo: use this on: button, button_exit, image_button, item_image_button
 class FormspecButtonStyle extends FormspecStyle {
 	var alpha: Bool; // !
-	var bgcolor: String; // ?
-	var bgimg: String; // ?
-	var font: String; // ?
-	var font_size: Float; // ?
-	var border: Bool; // ?
-	var content_offset: Vec2; // ?
-	var noclip: Bool; // ?
-	var padding: Vec2; // ?
-	var sound: String; // ?
-	var textcolor: String; // ?
+	var bgcolor: String; // !
+	var bgimg: String; // !
+	var font: String; // !
+	var font_size: Float; // !
+	var border: Bool; // !
+	var content_offset: Vec2; // !
+	var noclip: Bool; // !
+	var padding: Vec2; // !
+	var sound: String; // !
+	var textcolor: String; // !
 
 	public function toFormspec(name: String, windowScale: Float): String {
 		append('style[${name}');
 
-		if (alpha != null) {
+		if (this.alpha != null) {
 			append('alpha=${this.border}');
+		}
+
+		if (this.bgcolor != null) {
+			append('bgcolor=${this.bgcolor}');
+		}
+		if (this.bgimg != null) {
+			append('bgimg=${this.bgimg}');
+		}
+		if (this.font != null) {
+			append('font=${this.font}');
+		}
+		if (this.font_size != null) {
+			append('font_size=${this.font_size}');
+		}
+		if (this.border != null) {
+			append('border=${this.border}');
+		}
+		if (this.content_offset != null) {
+			append('content_offset=${this.content_offset.x},${this.content_offset.y}');
+		}
+		if (this.noclip != null) {
+			append('noclip=${this.noclip}');
+		}
+		if (this.padding != null) {
+			append('padding=${this.padding.x},${this.padding.y}');
+		}
+		if (this.sound != null) {
+			append('sound=${this.sound}');
+		}
+		if (this.textcolor != null) {
+			append('textcolor=${this.textcolor}');
 		}
 
 		// And finally close out the string.
