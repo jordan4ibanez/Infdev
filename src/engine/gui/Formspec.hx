@@ -155,6 +155,8 @@ abstract class FormspecElement {
 
 // todo: @:noCompletion
 abstract class FormspecStyle {
+	public static inline final FONT_SIZE_DEFAULT: Float = 40;
+
 	// todo: there's a lot of stuff in this one. So this will have to be thought about. For now it's just a simple one.
 	var data: String = "";
 
