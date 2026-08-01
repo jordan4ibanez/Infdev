@@ -71,57 +71,57 @@ class FormspecTextAreaStyle extends FormspecStyle {
 		return output;
 	}
 
-	public function setAlpha(alpha: Bool): FormspecButtonStyle {
+	public function setAlpha(alpha: Bool): FormspecTextAreaStyle {
 		this.alpha = alpha;
 		return this;
 	}
 
-	public function setBackgroundColor(backgroundColor: String): FormspecButtonStyle {
+	public function setBackgroundColor(backgroundColor: String): FormspecTextAreaStyle {
 		this.backgroundColor = backgroundColor;
 		return this;
 	}
 
-	public function setBackgroundImage(backgroundImage: String): FormspecButtonStyle {
+	public function setBackgroundImage(backgroundImage: String): FormspecTextAreaStyle {
 		this.backgroundImage = backgroundImage;
 		return this;
 	}
 
-	public function setFont(font: String): FormspecButtonStyle {
+	public function setFont(font: String): FormspecTextAreaStyle {
 		this.font = font;
 		return this;
 	}
 
-	public function setFontSize(fontSize: Float): FormspecButtonStyle {
+	public function setFontSize(fontSize: Float): FormspecTextAreaStyle {
 		this.fontSize = fontSize;
 		return this;
 	}
 
-	public function setBorder(border: Bool): FormspecButtonStyle {
+	public function setBorder(border: Bool): FormspecTextAreaStyle {
 		this.border = border;
 		return this;
 	}
 
-	public function setContentOffset(x: Float, y: Float): FormspecButtonStyle {
+	public function setContentOffset(x: Float, y: Float): FormspecTextAreaStyle {
 		this.contentOffset = new Vec2(x, y);
 		return this;
 	}
 
-	public function setNoclip(noclip: Bool): FormspecButtonStyle {
+	public function setNoclip(noclip: Bool): FormspecTextAreaStyle {
 		this.noclip = noclip;
 		return this;
 	}
 
-	public function setPadding(x: Float, y: Float): FormspecButtonStyle {
+	public function setPadding(x: Float, y: Float): FormspecTextAreaStyle {
 		this.padding = new Vec2(x, y);
 		return this;
 	}
 
-	public function setSound(sound: String): FormspecButtonStyle {
+	public function setSound(sound: String): FormspecTextAreaStyle {
 		this.sound = sound;
 		return this;
 	}
 
-	public function setTextColor(textColor: String): FormspecButtonStyle {
+	public function setTextColor(textColor: String): FormspecTextAreaStyle {
 		this.textColor = textColor;
 		return this;
 	}
