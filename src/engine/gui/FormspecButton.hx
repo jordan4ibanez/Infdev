@@ -46,7 +46,7 @@ class FormspecButton extends FormspecElement {
 	}
 }
 
-// todo: use this on: button, button_exit, image_button, item_image_button
+// todo: use this on: button_exit, image_button, item_image_button
 class FormspecButtonStyle extends FormspecStyle {
 	var alpha: Bool; // !
 	var backgroundColor: String; // !
