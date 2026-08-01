@@ -1,6 +1,7 @@
 package src.engine.gui;
 
 import src.engine.gui.Formspec.FormspecElement;
+import src.engine.gui.Formspec.FormspecStyle;
 
 class FormspecField extends FormspecElement {
 	var x: Float;
