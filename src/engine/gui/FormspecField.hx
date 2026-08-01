@@ -4,8 +4,8 @@ import src.engine.gui.Formspec.FormspecElement;
 import src.engine.gui.Formspec.FormspecStyle;
 
 class FormspecField extends FormspecElement {
-	var x: Float;
-	var y: Float;
+	var x: Float; // ? Done.
+	var y: Float; // ? Done.
 	var width: Float;
 	var height: Float;
 	var label: String;
@@ -26,6 +26,12 @@ class FormspecField extends FormspecElement {
 
 	public function setStyle(style: FormspecFieldStyle): FormspecField {
 		this.style = style;
+		return this;
+	}
+
+	public function setPos(x: Float, y: Float): FormspecField {
+		this.x = x;
+		this.y = y;
 		return this;
 	}
 }
