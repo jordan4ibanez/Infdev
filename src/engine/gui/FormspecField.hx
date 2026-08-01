@@ -10,15 +10,17 @@ class FormspecField extends FormspecElement {
 	var y: Float; // ? Done.
 	var width: Float; // ? Done.
 	var height: Float; // ? Done.
-	var label: String; // ? Done.
+	var label: String = ""; // ? Done.
 	var defaultText: String = ""; // ? Done.
 
-	public function new(x: Float, y: Float, width: Float, height: Float, label: String, ?defaultText: String) {
+	public function new(x: Float, y: Float, width: Float, height: Float, ?label: String, ?defaultText: String) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
-		this.label = label;
+		if (label != null) {
+			this.label = label;
+		}
 		if (defaultText != null) {
 			this.defaultText = defaultText;
 		}
