@@ -85,7 +85,9 @@ final class SchematicWorkshopCommand implements ChatCommand {
 			}
 		}
 
-		Core.setNode(pos, {name: "infdev:bedrock"});
+		// Put this in a negative position so it can do a simpler math to save schematic.
+		final controllerPos = pos.add(new Vec3(-size.x, 0, -size.z));
+		Core.setNode(controllerPos, {name: "infdev:schematic_saver"});
 
 		return new CommandStatus(true);
 	}
