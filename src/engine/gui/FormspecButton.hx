@@ -66,7 +66,6 @@ class FormspecButtonStyle extends FormspecStyle {
 		if (this.alpha != null) {
 			append('alpha=${this.border}');
 		}
-
 		if (this.backgroundColor != null) {
 			append('bgcolor=${this.backgroundColor}');
 		}
