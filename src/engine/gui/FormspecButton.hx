@@ -53,12 +53,12 @@ class FormspecButtonStyle extends FormspecStyle {
 	var bgimg: String; //?
 	var font: String; //?
 	var font_size: Float;//?
-	var border: Bool;
-	var content_offset: Vec2;
-	var noclip: Bool;
-	var padding: Vec2;
-	var sound: String;
-	var textcolor: String; // color, default white.
+	var border: Bool; //?
+	var content_offset: Vec2; //?
+	var noclip: Bool; //?
+	var padding: Vec2; //?
+	var sound: String; //?
+	var textcolor: String;  //? 
 
 	public function toFormspec(name: String, windowScale: Float): String {
 		throw new haxe.exceptions.NotImplementedException();
@@ -86,28 +86,28 @@ class FormspecButtonStyle extends FormspecStyle {
 		this.font_size = fontSize;
 		return this;
 	}
-	public function set(: ): FormspecButtonStyle {
-		this. = ;
+	public function setBorder(border:Bool ): FormspecButtonStyle {
+		this.border = border;
 		return this;
 	}
-	public function set(: ): FormspecButtonStyle {
-		this. = ;
+	public function setContentOffset(x: Float, y: Float): FormspecButtonStyle {
+		this.content_offset = new Vec2(x,y);
 		return this;
 	}
-	public function set(: ): FormspecButtonStyle {
-		this. = ;
+	public function setNoclip(noclip:Bool ): FormspecButtonStyle {
+		this.noclip =noclip ;
 		return this;
 	}
-	public function set(: ): FormspecButtonStyle {
-		this. = ;
+	public function setPadding(x:Float, y: Float ): FormspecButtonStyle {
+		this.padding = new Vec2(x,y);
 		return this;
 	}
-	public function set(: ): FormspecButtonStyle {
-		this. = ;
+	public function setSound(sound:String ): FormspecButtonStyle {
+		this.sound = sound;
 		return this;
 	}
-	public function set(: ): FormspecButtonStyle {
-		this. = ;
+	public function setTextColor(textColor:String ): FormspecButtonStyle {
+		this.textcolor = textColor;
 		return this;
 	}
 }
