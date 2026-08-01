@@ -75,7 +75,7 @@ class Formspec {
 
 		scale *= adjustment;
 
-		untyped print('new scale: $scale');
+		// untyped print('new scale: $scale');
 
 		return scale;
 	}
