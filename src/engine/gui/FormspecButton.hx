@@ -19,7 +19,7 @@ class FormspecButton extends FormspecElement {
 	}
 
 	public function toFormspec(name: String): String {
-		return 'button[<X>,<Y>;<W>,<H>;<name>;<label>]';
+		return 'button[${this.x},${this.y};${this.width},${this.height};${name};${this.label}]';
 	}
 
 	public function setStyle(style: FormspecButtonStyle): FormspecButton {
