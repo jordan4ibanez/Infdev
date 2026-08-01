@@ -69,6 +69,10 @@ final class SchematicSaver extends NodeDefinition {
 			formspecNameElement.setLabel("Name: " + schematicName);
 		}
 
+		// Reset the error message.
+		(formspec.getElement("error_message") : FormspecLabel)
+			.setLabel("");
+
 		// ? This is literally updating the formspec and then making your player click it again.
 
 		Core.getMeta(pos).setString("formspec", formspec.serialize(player));
