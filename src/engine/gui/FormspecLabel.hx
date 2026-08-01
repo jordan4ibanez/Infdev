@@ -2,8 +2,8 @@ package src.engine.gui;
 
 import src.engine.gui.Formspec.FormspecElement;
 import src.engine.gui.Formspec.FormspecStyle;
-import src.engine.gui.FormspecAlignment.FormspecHorizontalAlignment;
-import src.engine.gui.FormspecAlignment.FormspecVerticalAlignment;
+import src.engine.gui.sharedcomponents.FormspecAlignment.FormspecHorizontalAlignment;
+import src.engine.gui.sharedcomponents.FormspecAlignment.FormspecVerticalAlignment;
 
 class FormspecLabel extends FormspecElement {
 	var x: Float; // ? Done.
