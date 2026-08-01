@@ -50,7 +50,7 @@ class FormspecButton extends FormspecElement {
 class FormspecButtonStyle extends FormspecStyle {
 	var alpha: Bool; // ?
 	var bgcolor: String; //?
-	var bgimg: String;
+	var bgimg: String; //?
 	var font: String;
 	var font_size: Float;
 	var border: Bool;
@@ -74,8 +74,8 @@ class FormspecButtonStyle extends FormspecStyle {
 		return this;
 	}
 
-	public function set(: ): FormspecButtonStyle {
-		this. = ;
+	public function setBackgroundImage(backgroundImage: String): FormspecButtonStyle {
+		this.bgimg = backgroundImage;
 		return this;
 	}
 	public function set(: ): FormspecButtonStyle {
