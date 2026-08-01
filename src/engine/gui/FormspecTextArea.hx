@@ -23,6 +23,8 @@ class FormspecTextArea extends FormspecElement {
 		if (defaultText != null) {
 			this.defaultText = defaultText;
 		}
+
+		this.style = new FormspecTextAreaStyle();
 	}
 
 	public function toFormspec(name: String): String {
