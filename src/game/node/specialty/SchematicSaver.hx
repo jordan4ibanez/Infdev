@@ -23,19 +23,19 @@ final class SchematicSaver extends NodeDefinition {
 	public static var formspec: Formspec = new Formspec("schematic_saver_ui")
 		.addElement("name_of_schematic", new FormspecLabel(0, 0.2, 10, 2, unnamedDefault)
 			.setStyle(new FormspecLabelStyle()
-				.setFontSize(40)
+				.setFontSize()
 				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)
 				.setVerticalAlign(FormspecVerticalAlignmentTop)))
 		.addElement("rename_field", new FormspecField(0.25, 4, 9.5, 1)
 			.setStyle(new FormspecFieldStyle()
-				.setFontSize(40)
+				.setFontSize()
 				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)))
 		.addElement("update_name", new FormspecButton(3, 6, 4, 1, "Update Name")
 			.setStyle(new FormspecButtonStyle()
-				.setFontSize(40)))
+				.setFontSize()))
 		.addElement("error_message", new FormspecLabel(0, 0, 10, 2, "testing")
 			.setStyle(new FormspecLabelStyle()
-				.setFontSize(40)));
+				.setFontSize()));
 
 	public function new() {
 		super();
