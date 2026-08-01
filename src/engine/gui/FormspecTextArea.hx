@@ -20,6 +20,28 @@ class FormspecTextArea extends FormspecElement {
 		this.style = style;
 		return this;
 	}
+
+	public function setPos(x: Float, y: Float): FormspecField {
+		this.x = x;
+		this.y = y;
+		return this;
+	}
+
+	public function setSize(width: Float, height: Float): FormspecField {
+		this.width = width;
+		this.height = height;
+		return this;
+	}
+
+	public function setLabel(label: String): FormspecField {
+		this.label = label;
+		return this;
+	}
+
+	public function setDefaultText(defaultText: String): FormspecField {
+		this.defaultText = defaultText;
+		return this;
+	}
 }
 
 class FormspecTextAreaStyle extends FormspecStyle {
