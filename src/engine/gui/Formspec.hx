@@ -63,7 +63,17 @@ class Formspec {
 		}
 
 		// Now apply gui scaling to it.
-		scale *= windowInfo.real_gui_scaling;
+		var adjustmentFormula = (input: Float) -> {
+			// Got a HUGE HUD I guess. Clamp it.
+			if (input > 5) {
+				input = 5;
+			}
+			return 1.20 - (0.2 * input);
+		};
+
+		var adjustment = adjustmentFormula(windowInfo.real_gui_scaling);
+
+		scale *= adjustment;
 
 		untyped print('new scale: $scale');
 
