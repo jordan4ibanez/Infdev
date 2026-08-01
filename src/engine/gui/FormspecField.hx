@@ -52,6 +52,7 @@ class FormspecField extends FormspecElement {
 	}
 }
 
+// todo: just copy paste this into pwdfield and textarea
 class FormspecFieldStyle extends FormspecStyle {
 	public function new() {}
 
