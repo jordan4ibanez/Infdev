@@ -37,6 +37,10 @@ class FormspecField extends FormspecElement {
 		return this;
 	}
 
+	public function getStyle(): FormspecFieldStyle {
+		return cast this.style;
+	}
+
 	public function setPos(x: Float, y: Float): FormspecField {
 		this.x = x;
 		this.y = y;
