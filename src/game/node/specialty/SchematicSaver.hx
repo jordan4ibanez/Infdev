@@ -9,6 +9,7 @@ import src.engine.definition.basic.PointedThing;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.gui.Formspec;
+import src.engine.gui.FormspecField;
 import src.engine.gui.FormspecLabel;
 import src.engine.vector.Vec3;
 import src.game.groups.NodeGroup;
@@ -16,13 +17,16 @@ import src.game.node.stone.StoneSound;
 
 @:register("infdev:schematic_saver")
 final class SchematicSaver extends NodeDefinition {
-	var formspec: Formspec = new Formspec("schematic_saver_ui")
+	public static var formspec: Formspec = new Formspec("schematic_saver_ui")
 		.addElement("name_of_schematic", new FormspecLabel(0, 0.2, 10, 2, "This schematic is unnamed")
 			.setStyle(new FormspecLabelStyle()
 				.setFontSize(40)
 				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)
-				.setVerticalAlign(FormspecVerticalAlignmentTop)
-			));
+				.setVerticalAlign(FormspecVerticalAlignmentTop)))
+		.addElement("rename_field", new FormspecField(0.25, 4, 9.5, 1)
+			.setStyle(new FormspecFieldStyle()
+				.setFontSize(40)
+				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)));
 
 	public function new() {
 		super();
@@ -46,6 +50,9 @@ final class SchematicSaver extends NodeDefinition {
 		}
 
 		var player: ObjectRefPlayer = cast clicker;
+
+		// todo: get node metadata schematic_name
+		(cast formspec.getElement("name_of_schematic") : FormspecLabel).setLabel("test");
 
 		Core.showFormspec(player.getPlayerName(), "infdev:testing", formspec.serialize(player));
 
