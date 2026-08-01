@@ -57,7 +57,9 @@ class FormspecTextAreaStyle extends FormspecStyle {
 	var sound: String; // !
 	var textColor: String; // !
 
-	public function new() {}
+	public function new() {
+		this.setFontSize();
+	}
 
 	public function toFormspec(name: String, windowScale: Float): String {
 		append('style[${name}');

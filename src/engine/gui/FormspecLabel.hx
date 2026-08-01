@@ -60,7 +60,9 @@ class FormspecLabelStyle extends FormspecStyle {
 	var horizontalAlignment: FormspecHorizontalAlignment; // ! Done
 	var verticalAlignment: FormspecVerticalAlignment; // ! Done
 
-	public function new() {}
+	public function new() {
+		this.setFontSize();
+	}
 
 	public function toFormspec(name: String, windowScale: Float): String {
 		append('style_type[label');
