@@ -19,7 +19,7 @@ final class SchematicSaver extends NodeDefinition {
 	var formspec: Formspec = new Formspec("schematic_saver_ui")
 		.addElement("name_of_schematic", new FormspecLabel(0, 0.2, 10, 2, "This schematic is unnamed")
 			.setStyle(new FormspecLabelStyle()
-				.setFontSize(10)
+				.setFontSize(40)
 				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)
 				.setVerticalAlign(FormspecVerticalAlignmentTop)
 			));
