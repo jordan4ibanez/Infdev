@@ -67,7 +67,31 @@ class FormspecFieldStyle extends FormspecStyle {
 	public function new() {}
 
 	public function toFormspec(name: String, windowScale: Float): String {
-		throw new haxe.exceptions.NotImplementedException();
+		append('style[${name}');
+		if (font != null) {
+			append('font=*${this.font}');
+		}
+		if (fontSize != null) {
+			append('font_size=${this.fontSize * windowScale}');
+		}
+		if (noclip != null) {
+			append('noclip=${this.noclip}');
+		}
+		if (horizontalAlignment != null) {
+			append('halign=${this.horizontalAlignment}');
+		}
+		if (verticalAlignment != null) {
+			append('valign=${this.verticalAlignment}');
+		}
+
+		// And finally close out the string.
+		append("]", true);
+
+		// Then swap and clear.
+		var output = data;
+		data = "";
+
+		return output;
 	}
 
 	public function setBorder(border: Bool): FormspecFieldStyle {
