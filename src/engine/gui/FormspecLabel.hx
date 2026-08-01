@@ -56,8 +56,8 @@ class FormspecLabelStyle extends FormspecStyle {
 	var font: String; // ? Done
 	var fontSize: Int; // ? Done
 	var noclip: Bool; // ? Done
-	var horizontalAlign: FormspecHorizontalAlignment; // ? Done
-	var verticalAlign: FormspecVerticalAlignment; // ? Done
+	var horizontalAlignment: FormspecHorizontalAlignment; // ? Done
+	var verticalAlignment: FormspecVerticalAlignment; // ? Done
 
 	public function new() {}
 
@@ -72,11 +72,11 @@ class FormspecLabelStyle extends FormspecStyle {
 		if (noclip != null) {
 			append('noclip=${this.noclip}');
 		}
-		if (horizontalAlign != null) {
-			append('halign=${this.horizontalAlign}');
+		if (horizontalAlignment != null) {
+			append('halign=${this.horizontalAlignment}');
 		}
-		if (verticalAlign != null) {
-			append('valign=${this.verticalAlign}');
+		if (verticalAlignment != null) {
+			append('valign=${this.verticalAlignment}');
 		}
 
 		// And finally close out the string.
@@ -105,12 +105,12 @@ class FormspecLabelStyle extends FormspecStyle {
 	}
 
 	public function setHorizontalAlign(horizontalAlign: FormspecHorizontalAlignment): FormspecLabelStyle {
-		this.horizontalAlign = horizontalAlign;
+		this.horizontalAlignment = horizontalAlign;
 		return this;
 	}
 
 	public function setVerticalAlign(verticalAlign: FormspecVerticalAlignment): FormspecLabelStyle {
-		this.verticalAlign = verticalAlign;
+		this.verticalAlignment = verticalAlign;
 		return this;
 	}
 }
