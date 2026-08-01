@@ -1,5 +1,6 @@
 package src.engine.gui;
 
+import src.engine.vector.Vec2;
 import src.engine.gui.Formspec.FormspecElement;
 import src.engine.gui.Formspec.FormspecStyle;
 
