@@ -61,7 +61,20 @@ class FormspecButtonStyle extends FormspecStyle {
 	var textcolor: String; // ?
 
 	public function toFormspec(name: String, windowScale: Float): String {
-		throw new haxe.exceptions.NotImplementedException();
+		append('style[${name}');
+
+		if (alpha != null) {
+			append('alpha=${this.border}');
+		}
+
+		// And finally close out the string.
+		append("]", true);
+
+		// Then swap and clear.
+		var output = data;
+		data = "";
+
+		return output;
 	}
 
 	public function setAlpha(alpha: Bool): FormspecButtonStyle {
