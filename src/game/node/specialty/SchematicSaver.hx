@@ -89,7 +89,7 @@ final class SchematicSaver extends NodeDefinition {
 
 		var player: ObjectRefPlayer = cast sender;
 
-		if (fields.rename_field != null && fields.rename_field == "") {
+		var meta = Core.getMeta(pos);
 
 		if (fields.rename_field == null || StringTools.trim(fields.rename_field) == "") {
 			(formspec.getElement("error_message") : FormspecLabel)
@@ -99,11 +99,16 @@ final class SchematicSaver extends NodeDefinition {
 				type: PointedThingTypeNode,
 				under: pos
 			});
+			meta.setInt(errorCode, 1);
 			return;
 		}
 
 		// Save the schematic name.
-		Core.getMeta(pos).setString("schematic_name", fields.rename_field);
+		var newName = StringTools.trim(fields.rename_field);
+		untyped print("setting: ", newName);
+
+		meta.setString("schematic_name", newName);
+		meta.setInt(errorCode, 0);
 
 		// Then trigger a reclick.
 		this.reClick(player, {
