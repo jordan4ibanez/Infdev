@@ -23,3 +23,9 @@ class FormspecField extends FormspecElement {
 		return 'field[${this.x},${this.y};${this.width},${this.height};${name};${this.label};${this.defaultText}]';
 	}
 }
+
+class FormspecFieldStyle extends FormspecStyle {
+	public function toFormspec(name: String, windowScale: Float): String {
+		throw new haxe.exceptions.NotImplementedException();
+	}
+}
