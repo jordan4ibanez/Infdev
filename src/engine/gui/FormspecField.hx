@@ -53,6 +53,8 @@ class FormspecField extends FormspecElement {
 }
 
 class FormspecFieldStyle extends FormspecStyle {
+	public function new() {}
+
 	public function toFormspec(name: String, windowScale: Float): String {
 		throw new haxe.exceptions.NotImplementedException();
 	}
