@@ -230,7 +230,7 @@ class NodeDefinition extends ItemDefinition {
 	}
 
 	// ? note: this one is OK to use Dynamic!
-	public function onReceiveFields(pos: Vec3, formName: String, fields: Table<String, String>, sender: Null<ObjectRefBase>): Void {
+	public function onReceiveFields(pos: Vec3, doNotUse: String, fields: Table<String, String>, sender: Null<ObjectRefBase>): Void {
 		// nil
 	}
 
