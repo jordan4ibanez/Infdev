@@ -12,6 +12,7 @@ import src.engine.gui.Formspec;
 import src.engine.gui.FormspecButton;
 import src.engine.gui.FormspecField;
 import src.engine.gui.FormspecLabel;
+import src.engine.metadata.NodeMetaRef;
 import src.engine.vector.Vec3;
 import src.game.groups.NodeGroup;
 import src.game.node.stone.StoneSound;
@@ -20,6 +21,16 @@ import src.game.node.stone.StoneSound;
 final class SchematicSaver extends NodeDefinition {
 	static final unnamedDefault = "This schematic is unnamed";
 	static final errorCode = "error_0_0_1";
+
+	function triggerError(meta: NodeMetaRef) {
+		meta.setInt(errorCode, 1);
+		// untyped print("triggered error");
+	}
+
+	function resetError(meta: NodeMetaRef) {
+		meta.setInt(errorCode, 0);
+		// untyped print("reset error");
+	}
 
 	public static var formspec: Formspec = new Formspec("schematic_saver_ui")
 		.addElement("name_of_schematic", new FormspecLabel(0, 0.2, 10, 2, unnamedDefault)
@@ -62,7 +73,8 @@ final class SchematicSaver extends NodeDefinition {
 		var player: ObjectRefPlayer = cast clicker;
 
 		// If the schematic has a name, use it, or else, declare it's unnamed.
-		var schematicName = Core.getMeta(pos).getString("schematic_name");
+		var meta = Core.getMeta(pos);
+		var schematicName = meta.getString("schematic_name");
 		var formspecNameElement = (formspec.getElement("name_of_schematic") : FormspecLabel);
 		if (schematicName == "") {
 			formspecNameElement.setLabel(unnamedDefault);
@@ -71,13 +83,14 @@ final class SchematicSaver extends NodeDefinition {
 		}
 
 		// Reset the error message.
-
-		(formspec.getElement("error_message") : FormspecLabel)
-			.setLabel("");
+		if (meta.getInt(errorCode) == 0) {
+			(formspec.getElement("error_message") : FormspecLabel)
+				.setLabel("");
+		}
 
 		// ? This is literally updating the formspec and then making your player click it again.
 
-		Core.getMeta(pos).setString("formspec", formspec.serialize(player));
+		meta.setString("formspec", formspec.serialize(player));
 
 		this.reClick(player, pointedThing);
 
@@ -96,12 +109,14 @@ final class SchematicSaver extends NodeDefinition {
 		if (fields.rename_field == null || StringTools.trim(fields.rename_field) == "") {
 			(formspec.getElement("error_message") : FormspecLabel)
 				.setLabel("Please input a name for your schematic.");
-			Core.getMeta(pos).setString("formspec", formspec.serialize(player));
+			meta.setString("formspec", formspec.serialize(player));
+			triggerError(meta);
+			// Then trigger a reclick.
 			this.reClick(player, {
 				type: PointedThingTypeNode,
 				under: pos
 			});
-			meta.setInt(errorCode, 1);
+
 			return;
 		}
 
@@ -110,7 +125,7 @@ final class SchematicSaver extends NodeDefinition {
 		untyped print("setting: ", newName);
 
 		meta.setString("schematic_name", newName);
-		meta.setInt(errorCode, 0);
+		resetError(meta);
 
 		// Then trigger a reclick.
 		this.reClick(player, {
