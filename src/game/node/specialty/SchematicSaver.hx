@@ -17,8 +17,10 @@ import src.game.node.stone.StoneSound;
 
 @:register("infdev:schematic_saver")
 final class SchematicSaver extends NodeDefinition {
+	static final unnamedDefault = "This schematic is unnamed";
+
 	public static var formspec: Formspec = new Formspec("schematic_saver_ui")
-		.addElement("name_of_schematic", new FormspecLabel(0, 0.2, 10, 2, "This schematic is unnamed")
+		.addElement("name_of_schematic", new FormspecLabel(0, 0.2, 10, 2, unnamedDefault)
 			.setStyle(new FormspecLabelStyle()
 				.setFontSize(40)
 				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)
@@ -51,8 +53,15 @@ final class SchematicSaver extends NodeDefinition {
 
 		var player: ObjectRefPlayer = cast clicker;
 
+		var schematicName = Core.getMeta(pos).getString("schematic_name");
+		var formspecNameElement = (cast formspec.getElement("name_of_schematic") : FormspecLabel);
+		if (schematicName == "") {
+			formspecNameElement.setLabel(unnamedDefault);
+		} else {
+			formspecNameElement.setLabel(schematicName);
+		}
+
 		// todo: get node metadata schematic_name
-		(cast formspec.getElement("name_of_schematic") : FormspecLabel).setLabel("test");
 
 		// todo: implement buttons.
 		var output = formspec.serialize(player);
