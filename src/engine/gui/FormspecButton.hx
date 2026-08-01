@@ -78,7 +78,7 @@ class FormspecButtonStyle extends FormspecStyle {
 			append('font=${this.font}');
 		}
 		if (this.fontSize != null) {
-			append('font_size=${this.fontSize}');
+			append('font_size=${this.fontSize * windowScale}');
 		}
 		if (this.border != null) {
 			append('border=${this.border}');
