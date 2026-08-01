@@ -48,8 +48,8 @@ class FormspecButton extends FormspecElement {
 
 // todo: use this on: button, button_exit, image_button, item_image_button
 class FormspecButtonStyle extends FormspecStyle {
-	var alpha: Bool;
-	var bgcolor: String;
+	var alpha: Bool; // ?
+	var bgcolor: String; //?
 	var bgimg: String;
 	var font: String;
 	var font_size: Float;
@@ -62,5 +62,52 @@ class FormspecButtonStyle extends FormspecStyle {
 
 	public function toFormspec(name: String, windowScale: Float): String {
 		throw new haxe.exceptions.NotImplementedException();
+	}
+
+	public function setAlpha(alpha: Bool): FormspecButtonStyle {
+		this.alpha = alpha;
+		return this;
+	}
+
+	public function setBackgroundColor(backgroundColor: String): FormspecButtonStyle {
+		this.bgcolor = backgroundColor;
+		return this;
+	}
+
+	public function set(: ): FormspecButtonStyle {
+		this. = ;
+		return this;
+	}
+	public function set(: ): FormspecButtonStyle {
+		this. = ;
+		return this;
+	}
+	public function set(: ): FormspecButtonStyle {
+		this. = ;
+		return this;
+	}
+	public function set(: ): FormspecButtonStyle {
+		this. = ;
+		return this;
+	}
+	public function set(: ): FormspecButtonStyle {
+		this. = ;
+		return this;
+	}
+	public function set(: ): FormspecButtonStyle {
+		this. = ;
+		return this;
+	}
+	public function set(: ): FormspecButtonStyle {
+		this. = ;
+		return this;
+	}
+	public function set(: ): FormspecButtonStyle {
+		this. = ;
+		return this;
+	}
+	public function set(: ): FormspecButtonStyle {
+		this. = ;
+		return this;
 	}
 }
