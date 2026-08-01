@@ -30,6 +30,10 @@ class FormspecButton extends FormspecElement {
 		return this;
 	}
 
+	public function getStyle(): FormspecButtonStyle {
+		return cast this.style;
+	}
+
 	public function setPos(x: Float, y: Float): FormspecButton {
 		this.x = x;
 		this.y = y;
