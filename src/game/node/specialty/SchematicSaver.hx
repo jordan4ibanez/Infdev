@@ -103,35 +103,40 @@ final class SchematicSaver extends NodeDefinition {
 			return;
 		}
 
+		untyped print(dump(fields));
+
 		var player: ObjectRefPlayer = cast sender;
 
 		var meta = Core.getMeta(pos);
 
-		if (fields.rename_field == null || StringTools.trim(fields.rename_field) == "") {
-			(formspec.getElement("error_message") : FormspecLabel)
-				.setLabel("Please input a name for your schematic.");
-			meta.setString("formspec", formspec.serialize(player));
-			triggerError(meta);
+		// Update Name button.
+		if (fields.update_name != null) {
+			if (StringTools.trim(fields.rename_field) == "") {
+				(formspec.getElement("error_message") : FormspecLabel)
+					.setLabel("Please input a name for your schematic.");
+				meta.setString("formspec", formspec.serialize(player));
+				triggerError(meta);
+				// Then trigger a reclick.
+				this.reClick(player, {
+					type: PointedThingTypeNode,
+					under: pos
+				});
+
+				return;
+			}
+
+			// Save the schematic name.
+			var newName = StringTools.trim(fields.rename_field);
+			untyped print("setting: ", newName);
+
+			meta.setString("schematic_name", newName);
+			resetError(meta);
+
 			// Then trigger a reclick.
 			this.reClick(player, {
 				type: PointedThingTypeNode,
 				under: pos
 			});
-
-			return;
 		}
-
-		// Save the schematic name.
-		var newName = StringTools.trim(fields.rename_field);
-		untyped print("setting: ", newName);
-
-		meta.setString("schematic_name", newName);
-		resetError(meta);
-
-		// Then trigger a reclick.
-		this.reClick(player, {
-			type: PointedThingTypeNode,
-			under: pos
-		});
 	}
 }
