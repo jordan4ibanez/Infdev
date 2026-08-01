@@ -32,6 +32,9 @@ final class SchematicSaver extends NodeDefinition {
 				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)))
 		.addElement("update_name", new FormspecButton(3, 6, 4, 1, "Update Name")
 			.setStyle(new FormspecButtonStyle()
+				.setFontSize(40)))
+		.addElement("error_message", new FormspecLabel(0, 0, 10, 2, "testing")
+			.setStyle(new FormspecLabelStyle()
 				.setFontSize(40)));
 
 	public function new() {
