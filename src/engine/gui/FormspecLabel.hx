@@ -56,6 +56,7 @@ class FormspecLabelStyle extends FormspecStyle {
 	var font: String; // ! Done
 	var fontSize: Int; // ! Done
 	var noclip: Bool; // ! Done
+	var textColor: String; // ! Done
 	var horizontalAlignment: FormspecHorizontalAlignment; // ! Done
 	var verticalAlignment: FormspecVerticalAlignment; // ! Done
 
@@ -71,6 +72,9 @@ class FormspecLabelStyle extends FormspecStyle {
 		}
 		if (noclip != null) {
 			append('noclip=${this.noclip}');
+		}
+		if (this.textColor != null) {
+			append('textcolor=${this.textColor}');
 		}
 		if (horizontalAlignment != null) {
 			append('halign=${this.horizontalAlignment}');
@@ -101,6 +105,11 @@ class FormspecLabelStyle extends FormspecStyle {
 
 	public function setNoclip(noclip: Bool): FormspecLabelStyle {
 		this.noclip = noclip;
+		return this;
+	}
+
+	public function setTextColor(textColor: String): FormspecLabelStyle {
+		this.textColor = textColor;
 		return this;
 	}
 
