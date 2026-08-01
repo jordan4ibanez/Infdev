@@ -5,8 +5,15 @@ import src.engine.gui.Formspec.FormspecStyle;
 import src.engine.vector.Vec2;
 
 class FormspecTextArea extends FormspecElement {
+	var x: Float; // ? Done.
+	var y: Float; // ? Done.
+	var width: Float; // ? Done.
+	var height: Float; // ? Done.
+	var label: String = ""; // ? Done.
+	var defaultText: String = ""; // ? Done.
+
 	public function toFormspec(name: String): String {
-		return 'textarea[<X>,<Y>;<W>,<H>;<name>;<label>;<default>]';
+		return 'textarea[${this.x},${this.y};${this.width},${this.height};${name};${this.label};${this.defaultText}]';
 	}
 }
 
