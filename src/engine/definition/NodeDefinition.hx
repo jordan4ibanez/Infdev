@@ -19,6 +19,7 @@ import src.engine.definition.graphics.ColorSpec;
 import src.engine.definition.graphics.NodeTextureAlpha;
 import src.engine.definition.sound.NodeSoundTable;
 import src.engine.entity.objectref.ObjectRefBase;
+import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.metadata.NodeMetaRef;
 import src.engine.vector.Vec3;
 import src.game.groups.NodeGroup;
@@ -281,4 +282,18 @@ class NodeDefinition extends ItemDefinition {
 
 	@:native("mod_origin")
 	public final modOrigin: String = "engineUse";
+
+	// ! Only custom stuff below this line.
+	//
+	//
+	// This is a horrendous hackjob and it's awesome.
+	var doClick = true;
+
+	inline function reClick(player: ObjectRefPlayer, pointedThing: PointedThing) {
+		doClick = !doClick;
+
+		if (doClick) {
+			Core.itemPlace(ItemStack.create(""), player, pointedThing);
+		}
+	}
 }

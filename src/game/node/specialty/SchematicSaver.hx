@@ -42,9 +42,6 @@ final class SchematicSaver extends NodeDefinition {
 		this.tiles = ["default_cobble.png^[invert:rgb"];
 	}
 
-	// This is a horrendous hackjob and it's awesome.
-	var doClick = true;
-
 	override function onRightClick(pos: Vec3, node: NodeTable, clicker: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: Null<PointedThing>): ItemStack {
 		// todo: put a static formspec thing in here. :)
 
@@ -63,16 +60,10 @@ final class SchematicSaver extends NodeDefinition {
 
 		// ? This is literally updating the formspec and then making your player click it again.
 
-		// todo: turn this absolute disaster into an api or something.
-
 		// Core.showFormspec(player.getPlayerName(), "infdev:testing", output);
 		Core.getMeta(pos).setString("formspec", output);
 
-		doClick = !doClick;
-
-		if (doClick) {
-			Core.itemPlace(ItemStack.create(""), player, pointedThing);
-		}
+		this.reClick(player, pointedThing);
 
 		return itemStack;
 	}
