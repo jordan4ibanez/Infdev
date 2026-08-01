@@ -30,7 +30,9 @@ final class SchematicSaver extends NodeDefinition {
 			.setStyle(new FormspecFieldStyle()
 				.setFontSize(40)
 				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)))
-		.addElement("update_name", new FormspecButton(3, 6, 4, 1, "Update Name"));
+		.addElement("update_name", new FormspecButton(3, 6, 4, 1, "Update Name")
+			.setStyle(new FormspecButtonStyle()
+				.setFontSize(40)));
 
 	public function new() {
 		super();
