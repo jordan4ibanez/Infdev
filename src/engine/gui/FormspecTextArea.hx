@@ -36,6 +36,10 @@ class FormspecTextArea extends FormspecElement {
 		return this;
 	}
 
+	public function getStyle(): FormspecTextAreaStyle {
+		return cast this.style;
+	}
+
 	public function setPos(x: Float, y: Float): FormspecTextArea {
 		this.x = x;
 		this.y = y;
