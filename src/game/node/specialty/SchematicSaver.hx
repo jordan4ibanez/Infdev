@@ -64,8 +64,6 @@ final class SchematicSaver extends NodeDefinition {
 			formspecNameElement.setLabel("Name: " + schematicName);
 		}
 
-		// todo: get node metadata schematic_name
-
 		// ? This is literally updating the formspec and then making your player click it again.
 
 		// Core.showFormspec(player.getPlayerName(), "infdev:testing", output);
