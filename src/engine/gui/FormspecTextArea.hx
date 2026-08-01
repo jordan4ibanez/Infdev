@@ -21,24 +21,24 @@ class FormspecTextArea extends FormspecElement {
 		return this;
 	}
 
-	public function setPos(x: Float, y: Float): FormspecField {
+	public function setPos(x: Float, y: Float): FormspecTextArea {
 		this.x = x;
 		this.y = y;
 		return this;
 	}
 
-	public function setSize(width: Float, height: Float): FormspecField {
+	public function setSize(width: Float, height: Float): FormspecTextArea {
 		this.width = width;
 		this.height = height;
 		return this;
 	}
 
-	public function setLabel(label: String): FormspecField {
+	public function setLabel(label: String): FormspecTextArea {
 		this.label = label;
 		return this;
 	}
 
-	public function setDefaultText(defaultText: String): FormspecField {
+	public function setDefaultText(defaultText: String): FormspecTextArea {
 		this.defaultText = defaultText;
 		return this;
 	}
