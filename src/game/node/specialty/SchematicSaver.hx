@@ -28,10 +28,12 @@ final class SchematicSaver extends NodeDefinition {
 		.addElement("rename_field", new FormspecField(0.25, 4, 9.5, 1)
 			.setStyle(new FormspecFieldStyle()
 				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)))
-		.addElement("update_name", new FormspecButton(3, 6, 4, 1, "Update Name")
-			.setStyle(new FormspecButtonStyle()))
-		.addElement("error_message", new FormspecLabel(0, 0, 10, 2, "testing")
-			.setStyle(new FormspecLabelStyle()));
+		.addElement("update_name", new FormspecButton(3, 6, 4, 1, "Update Name"))
+		.addElement("error_message", new FormspecLabel(0, 3, 10, 2, "")
+			.setStyle(new FormspecLabelStyle()
+				.setTextColor("red")
+				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)
+				.setVerticalAlign(FormspecVerticalAlignmentTop)));
 
 	public function new() {
 		super();
