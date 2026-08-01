@@ -19,6 +19,7 @@ import src.game.node.stone.StoneSound;
 @:register("infdev:schematic_saver")
 final class SchematicSaver extends NodeDefinition {
 	static final unnamedDefault = "This schematic is unnamed";
+	static final errorCode = "error_0_0_1";
 
 	public static var formspec: Formspec = new Formspec("schematic_saver_ui")
 		.addElement("name_of_schematic", new FormspecLabel(0, 0.2, 10, 2, unnamedDefault)
@@ -70,6 +71,7 @@ final class SchematicSaver extends NodeDefinition {
 		}
 
 		// Reset the error message.
+
 		(formspec.getElement("error_message") : FormspecLabel)
 			.setLabel("");
 
