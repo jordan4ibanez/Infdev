@@ -68,7 +68,7 @@ final class SchematicSaver extends NodeDefinition {
 		return itemStack;
 	}
 
-	override function onReceiveFields(pos: Vec3, formName: String, fields: Table<String, String>, sender: Null<ObjectRefBase>) {
+	override function onReceiveFields(pos: Vec3, doNotUse: String, fields: Table<String, String>, sender: Null<ObjectRefBase>) {
 		untyped {
 			print(formName); // It doesn't have one
 			print(dump(fields));
