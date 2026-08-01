@@ -60,6 +60,8 @@ class FormspecButtonStyle extends FormspecStyle {
 	var sound: String; // !
 	var textColor: String; // !
 
+	public function new() {}
+
 	public function toFormspec(name: String, windowScale: Float): String {
 		append('style[${name}');
 
