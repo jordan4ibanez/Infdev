@@ -31,6 +31,10 @@ class FormspecLabel extends FormspecElement {
 		return this;
 	}
 
+	public function getStyle(): FormspecLabelStyle {
+		return cast this.style;
+	}
+
 	public function setPos(x: Float, y: Float): FormspecLabel {
 		this.x = x;
 		this.y = y;
