@@ -6,7 +6,7 @@ import src.engine.vector.Vec2;
 
 class FormspecTextArea extends FormspecElement {
 	public function toFormspec(name: String): String {
-		throw new haxe.exceptions.NotImplementedException();
+		return 'textarea[<X>,<Y>;<W>,<H>;<name>;<label>;<default>]';
 	}
 }
 
