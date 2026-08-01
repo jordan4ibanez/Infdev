@@ -6,10 +6,10 @@ import src.engine.gui.Formspec.FormspecStyle;
 class FormspecField extends FormspecElement {
 	var x: Float; // ? Done.
 	var y: Float; // ? Done.
-	var width: Float;
-	var height: Float;
-	var label: String;
-	var defaultText: String = "";
+	var width: Float; // ? Done.
+	var height: Float; // ? Done.
+	var label: String; // ? Done.
+	var defaultText: String = ""; // ? Done.
 
 	public function new(x: Float, y: Float, width: Float, height: Float, label: String, defaultText: String) {
 		this.x = x;
@@ -32,6 +32,22 @@ class FormspecField extends FormspecElement {
 	public function setPos(x: Float, y: Float): FormspecField {
 		this.x = x;
 		this.y = y;
+		return this;
+	}
+
+	public function setSize(width: Float, height: Float): FormspecField {
+		this.width = width;
+		this.height = height;
+		return this;
+	}
+
+	public function setLabel(label: String): FormspecField {
+		this.label = label;
+		return this;
+	}
+
+	public function setDefaultText(defaultText: String): FormspecField {
+		this.defaultText = defaultText;
 		return this;
 	}
 }
