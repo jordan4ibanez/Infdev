@@ -58,7 +58,7 @@ class FormspecField extends FormspecElement {
 	}
 }
 
-// todo: just copy paste this into pwdfield and textarea
+// todo: just copy paste this into pwdfield
 class FormspecFieldStyle extends FormspecStyle {
 	var border: Bool; // ! Done
 	var font: String; // ! Done
