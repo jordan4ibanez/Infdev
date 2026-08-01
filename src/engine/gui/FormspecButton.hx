@@ -17,6 +17,8 @@ class FormspecButton extends FormspecElement {
 		this.width = width;
 		this.height = height;
 		this.label = label;
+
+		this.style = new FormspecButtonStyle();
 	}
 
 	public function toFormspec(name: String): String {
