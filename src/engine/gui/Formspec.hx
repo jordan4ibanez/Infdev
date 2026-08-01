@@ -6,7 +6,7 @@ import src.engine.vector.Vec2;
 // This file contains a bunch of classes to allow a single import.
 
 class Formspec {
-	static inline final DEBUG_MODE = true;
+	static inline final DEBUG_MODE = false;
 
 	final name: String;
 
