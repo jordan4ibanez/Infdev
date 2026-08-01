@@ -59,9 +59,12 @@ final class SchematicSaver extends NodeDefinition {
 
 		// todo: implement buttons.
 		var output = formspec.serialize(player);
-		output += 'button[3,6;4,1;asdf;asdf]';
+		output += 'button[3,6;4,1;update_name;Update Name]';
 
-		untyped (print(output));
+		// ? This is literally updating the formspec and then making your player click it again.
+
+		// todo: turn this absolute disaster into an api or something.
+
 		// Core.showFormspec(player.getPlayerName(), "infdev:testing", output);
 		Core.getMeta(pos).setString("formspec", output);
 
@@ -76,7 +79,7 @@ final class SchematicSaver extends NodeDefinition {
 
 	override function onReceiveFields(pos: Vec3, formName: String, fields: Table<Dynamic, Dynamic>, sender: Null<ObjectRefBase>) {
 		untyped {
-			print(formName);
+			print(formName); // It doesn't have one
 			print(dump(fields));
 		}
 	}
