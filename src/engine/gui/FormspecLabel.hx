@@ -20,7 +20,7 @@ class FormspecLabel extends FormspecElement {
 		this.label = label;
 	}
 
-	public function toFormspec(): String {
+	public function toFormspec(name: String): String {
 		return 'label[${this.x},${this.y};${this.width},${this.height};${this.label}]';
 	}
 
