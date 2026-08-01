@@ -22,6 +22,11 @@ class FormspecField extends FormspecElement {
 	public function toFormspec(name: String): String {
 		return 'field[${this.x},${this.y};${this.width},${this.height};${name};${this.label};${this.defaultText}]';
 	}
+
+	public function setStyle(style: FormspecFieldStyle): FormspecElement {
+		this.style = style;
+		return this;
+	}
 }
 
 class FormspecFieldStyle extends FormspecStyle {
