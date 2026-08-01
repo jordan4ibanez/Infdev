@@ -96,12 +96,8 @@ final class SchematicSaver extends NodeDefinition {
 			return;
 		}
 
+		// Save the schematic name.
 		Core.getMeta(pos).setString("schematic_name", fields.rename_field);
-
-		// untyped {
-		// 	print(formName); // It doesn't have one
-		// 	print(dump(fields));
-		// }
 
 		// Then trigger a reclick.
 		this.reClick(player, {
