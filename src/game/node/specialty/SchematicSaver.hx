@@ -9,6 +9,7 @@ import src.engine.definition.basic.PointedThing;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.gui.Formspec;
+import src.engine.gui.FormspecButton;
 import src.engine.gui.FormspecField;
 import src.engine.gui.FormspecLabel;
 import src.engine.vector.Vec3;
@@ -28,7 +29,8 @@ final class SchematicSaver extends NodeDefinition {
 		.addElement("rename_field", new FormspecField(0.25, 4, 9.5, 1)
 			.setStyle(new FormspecFieldStyle()
 				.setFontSize(40)
-				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)));
+				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)))
+		.addElement("update_name", new FormspecButton(3, 6, 4, 1, "Update Name"));
 
 	public function new() {
 		super();
@@ -66,7 +68,7 @@ final class SchematicSaver extends NodeDefinition {
 
 		// todo: implement buttons.
 		var output = formspec.serialize(player);
-		output += 'button[3,6;4,1;update_name;Update Name]';
+		// output += 'button[3,6;4,1;update_name;Update Name]';
 
 		// ? This is literally updating the formspec and then making your player click it again.
 
