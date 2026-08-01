@@ -1,8 +1,8 @@
 package src.engine.gui;
 
-import src.engine.vector.Vec2;
 import src.engine.gui.Formspec.FormspecElement;
 import src.engine.gui.Formspec.FormspecStyle;
+import src.engine.vector.Vec2;
 
 class FormspecTextArea extends FormspecElement {
 	public function toFormspec(name: String): String {
@@ -11,7 +11,7 @@ class FormspecTextArea extends FormspecElement {
 }
 
 class FormspecTextAreaStyle extends FormspecStyle {
-		var alpha: Bool; // !
+	var alpha: Bool; // !
 	var backgroundColor: String; // !
 	var backgroundImage: String; // !
 	var font: String; // !
