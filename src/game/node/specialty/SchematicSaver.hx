@@ -86,8 +86,8 @@ final class SchematicSaver extends NodeDefinition {
 		var player: ObjectRefPlayer = cast sender;
 
 		if (fields.rename_field != null && fields.rename_field == "") {
-			var formspecNameElement = (formspec.getElement("error_message") : FormspecLabel);
-			formspecNameElement.setLabel("Please input a name for your schematic.");
+			(formspec.getElement("error_message") : FormspecLabel)
+				.setLabel("Please input a name for your schematic.");
 			Core.getMeta(pos).setString("formspec", formspec.serialize(player));
 			this.reClick(player, {
 				type: PointedThingTypeNode,
