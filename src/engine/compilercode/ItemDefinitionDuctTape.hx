@@ -489,7 +489,7 @@ class ItemDefinitionDuctTape {
 					{
 						classMethodName: "onReceiveFields",
 						luantiMethodName: "on_receive_fields",
-						code: "instance.onReceiveFields(pos, formName, fields, sender)"
+						code: "instance.onReceiveFields(pos, doNotUse, fields, sender)"
 					},
 					{
 						classMethodName: "allowMetadataInventoryMove",
