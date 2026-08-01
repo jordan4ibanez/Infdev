@@ -1,4 +1,4 @@
-package src.engine.gui;
+package src.engine.gui.sharedcomponents;
 
 enum abstract FormspecHorizontalAlignment(String) to String {
 	var FormspecHorizontalAlignmentLeft = "left";
