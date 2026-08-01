@@ -53,18 +53,18 @@ class FormspecLabel extends FormspecElement {
  * So if any labels are styled, style them all.
  */
 class FormspecLabelStyle extends FormspecStyle {
-	var font: String; // ? Done
-	var fontSize: Int; // ? Done
-	var noclip: Bool; // ? Done
-	var horizontalAlignment: FormspecHorizontalAlignment; // ? Done
-	var verticalAlignment: FormspecVerticalAlignment; // ? Done
+	var font: String; // ! Done
+	var fontSize: Int; // ! Done
+	var noclip: Bool; // ! Done
+	var horizontalAlignment: FormspecHorizontalAlignment; // ! Done
+	var verticalAlignment: FormspecVerticalAlignment; // ! Done
 
 	public function new() {}
 
 	public function toFormspec(name: String, windowScale: Float): String {
 		append('style_type[label');
 		if (font != null) {
-			append('font=*${this.font}');
+			append('font=${this.font}');
 		}
 		if (fontSize != null) {
 			append('font_size=${this.fontSize * windowScale}');

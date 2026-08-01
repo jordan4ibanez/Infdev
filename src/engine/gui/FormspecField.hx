@@ -56,26 +56,32 @@ class FormspecField extends FormspecElement {
 
 // todo: just copy paste this into pwdfield and textarea
 class FormspecFieldStyle extends FormspecStyle {
-	var border: Bool; // ? Done
-	var font: String; // ? Done
-	var fontSize: Float; // ? Done
-	var noclip: Bool; // ? Done
-	var textColor: String; // ? Done
-	var horizontalAlignment: FormspecHorizontalAlignment; // ? Done
-	var verticalAlignment: FormspecVerticalAlignment; // ? Done
+	var border: Bool; // ! Done
+	var font: String; // ! Done
+	var fontSize: Float; // ! Done
+	var noclip: Bool; // ! Done
+	var textColor: String; // ! Done
+	var horizontalAlignment: FormspecHorizontalAlignment; // ! Done
+	var verticalAlignment: FormspecVerticalAlignment; // ! Done
 
 	public function new() {}
 
 	public function toFormspec(name: String, windowScale: Float): String {
 		append('style[${name}');
+		if (border != null) {
+			append('border=${this.border}');
+		}
 		if (font != null) {
-			append('font=*${this.font}');
+			append('font=${this.font}');
 		}
 		if (fontSize != null) {
 			append('font_size=${this.fontSize * windowScale}');
 		}
 		if (noclip != null) {
 			append('noclip=${this.noclip}');
+		}
+		if (this.textColor != null) {
+			append('textcolor=${this.textColor}');
 		}
 		if (horizontalAlignment != null) {
 			append('halign=${this.horizontalAlignment}');
