@@ -124,7 +124,7 @@ class FormspecFieldStyle extends FormspecStyle {
 		return this;
 	}
 
-	public function setTextureColor(textColor: String): FormspecFieldStyle {
+	public function setTextColor(textColor: String): FormspecFieldStyle {
 		this.textColor = textColor;
 		return this;
 	}
