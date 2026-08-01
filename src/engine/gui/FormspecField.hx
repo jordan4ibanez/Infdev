@@ -24,6 +24,8 @@ class FormspecField extends FormspecElement {
 		if (defaultText != null) {
 			this.defaultText = defaultText;
 		}
+
+		this.style = new FormspecFieldStyle();
 	}
 
 	public function toFormspec(name: String): String {
