@@ -66,14 +66,10 @@ final class SchematicSaver extends NodeDefinition {
 
 		// todo: get node metadata schematic_name
 
-		// todo: implement buttons.
-		var output = formspec.serialize(player);
-		// output += 'button[3,6;4,1;update_name;Update Name]';
-
 		// ? This is literally updating the formspec and then making your player click it again.
 
 		// Core.showFormspec(player.getPlayerName(), "infdev:testing", output);
-		Core.getMeta(pos).setString("formspec", output);
+		Core.getMeta(pos).setString("formspec", formspec.serialize(player));
 
 		this.reClick(player, pointedThing);
 
