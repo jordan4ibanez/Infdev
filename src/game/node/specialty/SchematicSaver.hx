@@ -42,6 +42,9 @@ final class SchematicSaver extends NodeDefinition {
 		this.tiles = ["default_cobble.png^[invert:rgb"];
 	}
 
+	// This is a horrendous hackjob and it's awesome.
+	var doClick = true;
+
 	override function onRightClick(pos: Vec3, node: NodeTable, clicker: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: Null<PointedThing>): ItemStack {
 		// todo: put a static formspec thing in here. :)
 
@@ -54,14 +57,24 @@ final class SchematicSaver extends NodeDefinition {
 		// todo: get node metadata schematic_name
 		(cast formspec.getElement("name_of_schematic") : FormspecLabel).setLabel("test");
 
-		Core.showFormspec(player.getPlayerName(), "infdev:testing", formspec.serialize(player));
+		// todo: implement buttons.
+		var output = formspec.serialize(player);
+		output += 'button[3,6;4,1;asdf;asdf]';
 
-		return super.onRightClick(pos, node, clicker, itemStack, pointedThing);
+		untyped (print(output));
+		// Core.showFormspec(player.getPlayerName(), "infdev:testing", output);
+		Core.getMeta(pos).setString("formspec", output);
+
+		doClick = !doClick;
+
+		if (doClick) {
+			Core.itemPlace(ItemStack.create(""), player, pointedThing);
+		}
+
+		return itemStack;
 	}
 
 	override function onReceiveFields(pos: Vec3, formName: String, fields: Table<Dynamic, Dynamic>, sender: Null<ObjectRefBase>) {
-		super.onReceiveFields(pos, formName, fields, sender);
-
 		untyped {
 			print(formName);
 			print(dump(fields));
