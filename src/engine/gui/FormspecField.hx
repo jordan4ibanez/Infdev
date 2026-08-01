@@ -56,17 +56,52 @@ class FormspecField extends FormspecElement {
 
 // todo: just copy paste this into pwdfield and textarea
 class FormspecFieldStyle extends FormspecStyle {
-	var border: Bool; // set to false to hide the textbox background and border. Default true.
-	var font: String; // Sets font type. See button font property for more information.
-	var font_size: Float; // Sets font size. See button font_size property for more information.
-	var noclip: Bool; // boolean, set to true to allow the element to exceed formspec bounds.
-	var textcolor: String; // color. Default white.
-	var horizontalAlignment: FormspecHorizontalAlignment; // Sets horizontal alignment of text. Can either be left, center, or right. Default left.
-	var verticalAlignment: FormspecVerticalAlignment; //  Sets vertical alignment of text. Can either be top, center, or bottom
+	var border: Bool; // ? Done
+	var font: String; // ? Done
+	var fontSize: Float; // ? Done
+	var noclip: Bool; // ? Done
+	var textColor: String; // ? Done
+	var horizontalAlignment: FormspecHorizontalAlignment; // ? Done
+	var verticalAlignment: FormspecVerticalAlignment; // ? Done
 
 	public function new() {}
 
 	public function toFormspec(name: String, windowScale: Float): String {
 		throw new haxe.exceptions.NotImplementedException();
+	}
+
+	public function setBorder(border: Bool): FormspecFieldStyle {
+		this.border = border;
+		return this;
+	}
+
+	public function setFont(font: String): FormspecFieldStyle {
+		this.font = font;
+		return this;
+	}
+
+	public function setFontSize(fontSize: Int): FormspecFieldStyle {
+		this.fontSize = fontSize;
+		return this;
+	}
+
+	public function setNoclip(noclip: Bool): FormspecFieldStyle {
+		this.noclip = noclip;
+		return this;
+	}
+
+	public function setTextureColor(textColor: String): FormspecFieldStyle {
+		this.textColor = textColor;
+		return this;
+	}
+
+	public function setHorizontalAlign(horizontalAlign: FormspecHorizontalAlignment): FormspecFieldStyle {
+		this.horizontalAlignment = horizontalAlign;
+		return this;
+	}
+
+	public function setVerticalAlign(verticalAlign: FormspecVerticalAlignment): FormspecFieldStyle {
+		this.verticalAlignment = verticalAlign;
+		return this;
 	}
 }
