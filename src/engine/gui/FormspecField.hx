@@ -2,6 +2,8 @@ package src.engine.gui;
 
 import src.engine.gui.Formspec.FormspecElement;
 import src.engine.gui.Formspec.FormspecStyle;
+import src.engine.gui.sharedcomponents.FormspecAlignment.FormspecHorizontalAlignment;
+import src.engine.gui.sharedcomponents.FormspecAlignment.FormspecVerticalAlignment;
 
 class FormspecField extends FormspecElement {
 	var x: Float; // ? Done.
@@ -54,6 +56,14 @@ class FormspecField extends FormspecElement {
 
 // todo: just copy paste this into pwdfield and textarea
 class FormspecFieldStyle extends FormspecStyle {
+	var border: Bool; // set to false to hide the textbox background and border. Default true.
+	var font: String; // Sets font type. See button font property for more information.
+	var font_size: Float; // Sets font size. See button font_size property for more information.
+	var noclip: Bool; // boolean, set to true to allow the element to exceed formspec bounds.
+	var textcolor: String; // color. Default white.
+	var horizontalAlignment: FormspecHorizontalAlignment; // Sets horizontal alignment of text. Can either be left, center, or right. Default left.
+	var verticalAlignment: FormspecVerticalAlignment; //  Sets vertical alignment of text. Can either be top, center, or bottom
+
 	public function new() {}
 
 	public function toFormspec(name: String, windowScale: Float): String {
