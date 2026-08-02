@@ -71,3 +71,10 @@ w = old level xp requirement
 new level xp requirement = w + (i * 1000) 
 should probably calculate the max a lua float can handle then cap the level at this
 Also figure out a formula to calculate this unless looping is just easier
+
+The Unknown:
+If you reach the border of the overworld you enter into the unknown dimension, which has pancake shaped floating islands with extremely difficult monsters. Everything should be like level 30 to mine. Everything should look spooky.
+- When you step into the edge of the world, it transports you exactly into the same spot but on a different Y dimension
+- This allows you to also step back into the overworld. But, it also allows mobs to enter into the overworld on the world border
+  
+
