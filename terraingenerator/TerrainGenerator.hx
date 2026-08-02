@@ -201,7 +201,7 @@ class TerrainGenerator {
 
 			// Cave carving.
 			// if (pos.y <= 160) then
-			if (pos.y <= 160) {
+			if (pos.y <= 160 && pos.y <= heightAtXZ) {
 				// 	local hit = false
 				var hit = false;
 
