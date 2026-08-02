@@ -120,7 +120,7 @@ final class SchematicSaver extends NodeDefinition {
 		var meta = Core.getMeta(pos);
 
 		// Update Name button.
-		if (fieldsButtonEnterCheck(fields, "update_name", "rename_field")) {
+		if (this.fieldsButtonEnterCheck(fields, "update_name", "rename_field")) {
 			if (StringTools.trim(fields.rename_field) == "") {
 				triggerError("Please input a name for your schematic.", meta, player, pos);
 				return;
