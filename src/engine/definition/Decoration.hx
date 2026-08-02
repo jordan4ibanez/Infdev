@@ -47,16 +47,7 @@ interface DecorationSimple extends Decoration {
 	var place_offset_y: Int;
 }
 
-@:decorationRoot
-interface DecorationSchematic extends Decoration {
-	// ! Note: the comments flip back  to after the var name after this comment.
-	// ? Schematic-type parameters
-	var schematic: String;
-	// If schematic is a string, it is the filepath relative to the current
-	// working directory of the specified Luanti schematic file.
-	// Could also be the ID of a previously registered schematic.
-	// todo: schematic typedef
-	// var schematic = {
+typedef SchematicDefinition = {
 	//     size = {x = 4, y = 6, z = 4},
 	//     data = {
 	//         {name = "default:cobble", param1 = 255, param2 = 0},
@@ -69,7 +60,17 @@ interface DecorationSchematic extends Decoration {
 	//         {ypos = 5, prob = 64},
 	//           ...
 	//     },
-	// },
+}
+
+@:decorationRoot
+interface DecorationSchematic extends Decoration {
+	// ! Note: the comments flip back  to after the var name after this comment.
+	// ? Schematic-type parameters
+	var schematic: String;
+	// If schematic is a string, it is the filepath relative to the current
+	// working directory of the specified Luanti schematic file.
+	// Could also be the ID of a previously registered schematic.
+	// todo: schematic typedef
 	// Alternative schematic specification by supplying a table. The fields
 	// size and data are mandatory whereas yslice_prob is optional.
 	// See 'Schematic specifier' for details.
