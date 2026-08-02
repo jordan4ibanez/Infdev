@@ -22,6 +22,8 @@ import src.game.node.stone.StoneSound;
 final class SchematicSaver extends NodeDefinition {
 	static inline final unnamedDefault = "This schematic is unnamed";
 
+	public static inline final schematicSizeTag = "schematic_size";
+
 	function triggerAlert(errorMessage: String, meta: NodeMetaRef, player: ObjectRefPlayer, pos: Vec3, ?successColor: Bool) {
 		var newColor = (successColor ? "lime" : "red");
 
