@@ -20,13 +20,16 @@ import src.game.node.stone.StoneSound;
 @:register("infdev:schematic_saver")
 final class SchematicSaver extends NodeDefinition {
 	static final unnamedDefault = "This schematic is unnamed";
-	static final errorCode = "error_0_0_1";
+	static final updateCode = "update_0_0_1";
 
-	function triggerError(errorMessage: String, meta: NodeMetaRef, player: ObjectRefPlayer, pos: Vec3) {
-		meta.setInt(errorCode, 1);
+	function triggerError(errorMessage: String, meta: NodeMetaRef, player: ObjectRefPlayer, pos: Vec3, ?successColor: Bool) {
+		meta.setInt(updateCode, 1);
+
+		var newColor = (successColor ? "lime" : "red");
 
 		(formspec.getElement("error_message") : FormspecLabel)
-			.setLabel(errorMessage);
+			.setLabel(errorMessage)
+			.getStyle().setTextColor(newColor);
 		meta.setString("formspec", formspec.serialize(player));
 
 		// Then trigger a reclick.
@@ -38,7 +41,7 @@ final class SchematicSaver extends NodeDefinition {
 	}
 
 	function resetError(meta: NodeMetaRef) {
-		meta.setInt(errorCode, 0);
+		meta.setInt(updateCode, 0);
 		// untyped print("reset error");
 	}
 
@@ -94,7 +97,7 @@ final class SchematicSaver extends NodeDefinition {
 		}
 
 		// Reset the error message.
-		if (meta.getInt(errorCode) == 0) {
+		if (meta.getInt(updateCode) == 0) {
 			(formspec.getElement("error_message") : FormspecLabel)
 				.setLabel("");
 		}
@@ -141,6 +144,17 @@ final class SchematicSaver extends NodeDefinition {
 				type: PointedThingTypeNode,
 				under: pos
 			});
+		} else if (fields.save_schematic != null) {
+			var schematicName = meta.getString("schematic_name");
+			if (schematicName == "") {
+				triggerError("Cannot save unnamed schematic.", meta, player, pos);
+				return;
+			} else {
+				triggerError("Schematic saved!", meta, player, pos, true);
+				return;
+				// formspecNameElement.setLabel("Name: " + schematicName);
+				untyped print("save it!");
+			}
 		}
 	}
 }
