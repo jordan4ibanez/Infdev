@@ -52,6 +52,11 @@ final class SchematicSaver extends NodeDefinition {
 				.setTextColor("white")
 				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)
 				.setVerticalAlign(FormspecVerticalAlignmentTop)))
+		.addElement("size_display", new FormspecLabel(0, 1, 10, 2, "")
+			.setStyle(new FormspecLabelStyle()
+				.setTextColor("lightgray")
+				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)
+				.setVerticalAlign(FormspecVerticalAlignmentTop)))
 		.addElement("error_message", new FormspecLabel(0, 2, 10, 2, "")
 			.setStyle(new FormspecLabelStyle()
 				.setTextColor("red")
@@ -95,6 +100,24 @@ final class SchematicSaver extends NodeDefinition {
 		} else {
 			formspecNameElement.setLabel("Name: " + schematicName);
 		}
+
+		// Update the size of the formspec.
+
+		var size: Null<Vec3> = Core.deserialize(meta.getString(schematicSizeTag));
+		var formspecSizeElement = (formspec.getElement("size_display") : FormspecLabel);
+
+		var sizeText = "Error: Size is null.";
+
+		// This is slightly overbuilt.
+		if (sizeText == null) {
+			formspecSizeElement.getStyle().setTextColor("red");
+			Core.log(LogLevelError, 'Error: Null schematic size at position: ${pos}');
+		} else {
+			formspecSizeElement.getStyle().setTextColor("lightgray");
+			sizeText = 'Size: ( ${size.x}, ${size.y}, ${size.z} )';
+		}
+
+		formspecSizeElement.setLabel(sizeText);
 
 		// ? This is literally updating the formspec and then making your player click it again.
 
