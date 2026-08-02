@@ -227,6 +227,9 @@ class TerrainGenerator {
 				// 	end
 
 				if (averageNoise > 0.4) {
+					// todo: if this is inverted to use stoneID, this algorithm creates sky islands.
+					// todo: use this for the unknown. At least for a base of it.
+					// Note: Use stoneID to debug this.
 					data[i] = airID;
 					hit = true;
 				}
