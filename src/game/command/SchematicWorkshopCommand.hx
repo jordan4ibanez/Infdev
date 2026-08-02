@@ -89,7 +89,10 @@ final class SchematicWorkshopCommand implements ChatCommand {
 		// Put this in a negative position so it can do a simpler math to save schematic.
 		final controllerPos = pos.add(new Vec3(-size.x, 0, -size.z));
 		Core.setNode(controllerPos, {name: "infdev:schematic_saver"});
-		Core.getMeta(controllerPos).setString(SchematicSaver.schematicSizeTag, Core.serialize(size));
+		var meta = Core.getMeta(controllerPos);
+		meta.setString(SchematicSaver.schematicSizeTag, Core.serialize(size));
+		// This stops a bug where onRightClick doesn't work on the first click even with a reclick.
+		meta.setString("formspec", SchematicSaver.formspec.serialize(player));
 
 		return new CommandStatus(true);
 	}
