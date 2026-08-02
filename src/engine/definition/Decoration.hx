@@ -1,5 +1,6 @@
 package src.engine.definition;
 
+import haxe.extern.EitherType;
 import src.engine.compilercode.LuaArray;
 
 enum abstract DecorationFlags(String) to String {
@@ -66,7 +67,7 @@ typedef SchematicDefinition = {
 interface DecorationSchematic extends Decoration {
 	// ! Note: the comments flip back  to after the var name after this comment.
 	// ? Schematic-type parameters
-	var schematic: String;
+	var schematic: EitherType<String, SchematicDefinition>;
 	// If schematic is a string, it is the filepath relative to the current
 	// working directory of the specified Luanti schematic file.
 	// Could also be the ID of a previously registered schematic.
