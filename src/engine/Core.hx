@@ -243,6 +243,9 @@ extern class Core {
 
 	@:native("show_formspec")
 	static function showFormspec(playername: String, formname: String, formspec: String): Void;
+
+	@:native("get_worldpath")
+	static function getWorldPath(): String;
 }
 
 @:noCompletion
