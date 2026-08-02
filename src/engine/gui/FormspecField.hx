@@ -12,6 +12,8 @@ class FormspecField extends FormspecElement {
 	var height: Float; // ? Done.
 	var label: String = ""; // ? Done.
 	var defaultText: String = ""; // ? Done.
+	// This is automatically disabled because it can be very annoying.
+	var closeOnEnter = false;
 
 	public function new(x: Float, y: Float, width: Float, height: Float, ?label: String, ?defaultText: String) {
 		this.x = x;
@@ -60,6 +62,11 @@ class FormspecField extends FormspecElement {
 
 	public function setDefaultText(defaultText: String): FormspecField {
 		this.defaultText = defaultText;
+		return this;
+	}
+
+	public function enableCloseOnEnter(): FormspecField {
+		this.closeOnEnter = true;
 		return this;
 	}
 }
