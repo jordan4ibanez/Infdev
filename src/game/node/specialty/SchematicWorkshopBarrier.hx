@@ -3,12 +3,12 @@ package src.game.node.specialty;
 import src.engine.definition.NodeDefinition;
 import src.game.groups.NodeGroup;
 
-@:register("infdev:schematic_saver_barrier")
-final class SchematicSaverBarrier extends NodeDefinition {
+@:register("infdev:schematic_workshop_barrier")
+final class SchematicWorkshopBarrier extends NodeDefinition {
 	public function new() {
 		super();
 
-		this.description = "Schematic Saver Barrier";
+		this.description = "Schematic Workshop Barrier";
 
 		this.nodeGroups = [
 			NodeGroupBedrock => BEDROCK
