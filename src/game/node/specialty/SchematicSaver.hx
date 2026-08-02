@@ -42,6 +42,8 @@ final class SchematicSaver extends NodeDefinition {
 
 	function resetError(meta: NodeMetaRef) {
 		meta.setInt(updateCode, 0);
+		(formspec.getElement("error_message") : FormspecLabel)
+			.setLabel("");
 		// untyped print("reset error");
 	}
 
@@ -94,12 +96,6 @@ final class SchematicSaver extends NodeDefinition {
 			formspecNameElement.setLabel(unnamedDefault);
 		} else {
 			formspecNameElement.setLabel("Name: " + schematicName);
-		}
-
-		// Reset the error message.
-		if (meta.getInt(updateCode) == 0) {
-			(formspec.getElement("error_message") : FormspecLabel)
-				.setLabel("");
 		}
 
 		// ? This is literally updating the formspec and then making your player click it again.
@@ -155,6 +151,8 @@ final class SchematicSaver extends NodeDefinition {
 				// formspecNameElement.setLabel("Name: " + schematicName);
 				untyped print("save it!");
 			}
+		} else if (fields.quit == "true") {
+			resetError(meta);
 		}
 	}
 }
