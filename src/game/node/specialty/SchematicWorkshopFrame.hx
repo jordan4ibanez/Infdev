@@ -11,7 +11,7 @@ final class SchematicWorkshopFrame extends NodeDefinition {
 		this.description = "Schematic Workshop Frame";
 
 		this.nodeGroups = [
-			NodeGroupBedrock => BEDROCK
+			NodeGroupHandDiggable => BEDROCK
 		];
 		this.lightSource = 14;
 		this.inventoryImage = "default_cobble";
