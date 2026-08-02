@@ -151,7 +151,8 @@ final class SchematicSaver extends NodeDefinition {
 				}
 
 				var p1 = pos.add(new Vec3(1, 1, 1));
-				var p2 = pos.add(size).add(new Vec3(1, 1, 1));
+				var p2 = pos.add(size);
+
 				untyped __lua__("core.create_schematic({0}, {1}, {2}, {3}, {4})", p1, p2, null, Core.getWorldPath() + "/" + schematicName + ".mts", null);
 				triggerAlert("Schematic saved to world folder!", meta, player, pos, true);
 				Core.log(LogLevelAction, 'Saved schematic ${schematicName} to ${Core.getWorldPath}');
