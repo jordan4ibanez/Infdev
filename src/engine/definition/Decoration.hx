@@ -80,13 +80,6 @@ interface DecorationSchematic extends Decoration {
 	// ! Note: the comments flip back  to after the var name after this comment.
 	// ? Schematic-type parameters
 	var schematic: EitherType<String, SchematicDefinition>;
-	// If schematic is a string, it is the filepath relative to the current
-	// working directory of the specified Luanti schematic file.
-	// Could also be the ID of a previously registered schematic.
-	// todo: schematic typedef
-	// Alternative schematic specification by supplying a table. The fields
-	// size and data are mandatory whereas yslice_prob is optional.
-	// See 'Schematic specifier' for details.
 	// todo: replacements typedef
 	var replacements: Dynamic; // = {["oldname"] = "convert_to", ...},
 	var rotation: DecorationRotation;
