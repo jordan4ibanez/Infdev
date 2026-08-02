@@ -8,12 +8,20 @@ import src.engine.definition.Decoration.DecorationFlags;
 import src.engine.definition.Decoration.DecorationRotation;
 import src.engine.definition.Decoration.DecorationSchematic;
 import src.engine.definition.Decoration.SchematicDefinition;
+import src.engine.vector.Vec3;
 
 final class SmallOakTree implements DecorationSchematic {
 	public var place_on: LuaArray<String> = ["infdev:grass"];
 	public var sidelen: Int;
-	public var fill_ratio: Float = 0.5;
-	public var noise_params: NoiseParams;
+	public var fill_ratio: Float;
+	public var noise_params: NoiseParams = {
+		offset: 0.0025,
+		scale: 0.002,
+		spread: new Vec3(300, 300, 300),
+		octaves: 3,
+		persistence: 0.01,
+		lacunarity: 6.0,
+	};
 	public var biomes: LuaArray<String>;
 	public var y_min: Int;
 	public var y_max: Int;
