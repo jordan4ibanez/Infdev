@@ -141,35 +141,33 @@ class TerrainGenerator {
 		LuaLoop.nativeFor(i, area.iterP(minPos, maxPos), {
 			final pos = area.position(i);
 
-			var heightAtXZ = 0;
+			// Zero indices.
+			var xInData = pos.x - minPos.x;
+			var zInData = pos.z - minPos.z;
+
+			// Basically shove a 3D space into a 1D space.
+
+			var index2D = (zInData * depth) + xInData;
+
+			var skew = (clamp(overWorldTerrainBlendNoise[index2D], -1, 1) + 1) * 0.5;
+
+			var bigNoiseMultiplier = 1 - skew;
+			var smallNoiseMultiplier = skew;
+
+			var rawNoise = ((overWorldTerrainNoiseBig[index2D] * bigNoiseMultiplier) + (overWorldTerrainNoiseSmall[index2D] * smallNoiseMultiplier));
+
+			if (rawNoise == null) {
+				throw "terrain generator error at index: " + Lua.tostring(index2D);
+			}
+
+			// Amplitude in nodes.
+
+			var amplitude = 80;
+			var base = 80;
+
+			var heightAtXZ = Math.ceil(base + (amplitude * rawNoise));
 
 			if (pos.y >= 0 && pos.y <= 160) {
-				// Zero indices.
-				var xInData = pos.x - minPos.x;
-				var zInData = pos.z - minPos.z;
-
-				// Basically shove a 3D space into a 1D space.
-
-				var index2D = (zInData * depth) + xInData;
-
-				var skew = (clamp(overWorldTerrainBlendNoise[index2D], -1, 1) + 1) * 0.5;
-
-				var bigNoiseMultiplier = 1 - skew;
-				var smallNoiseMultiplier = skew;
-
-				var rawNoise = ((overWorldTerrainNoiseBig[index2D] * bigNoiseMultiplier) + (overWorldTerrainNoiseSmall[index2D] * smallNoiseMultiplier));
-
-				if (rawNoise == null) {
-					throw "terrain generator error at index: " + Lua.tostring(index2D);
-				}
-
-				// Amplitude in nodes.
-
-				var amplitude = 80;
-				var base = 80;
-
-				heightAtXZ = Math.ceil(base + (amplitude * rawNoise));
-
 				var isSandy = heightAtXZ <= oceanLevel + 3;
 
 				if (pos.y == heightAtXZ) {
