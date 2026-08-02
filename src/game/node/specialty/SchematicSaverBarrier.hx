@@ -14,9 +14,9 @@ final class SchematicSaverBarrier extends NodeDefinition {
 			NodeGroupBedrock => BEDROCK
 		];
 
+		this.drawType = DrawTypeAirLike;
 		this.pointable = false;
 		this.walkable = false;
-		this.drawType = DrawTypeAirLike;
 		this.paramtype1 = ParamType1Light;
 		this.sunlightPropagates = true;
 		this.lightSource = 14;
