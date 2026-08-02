@@ -10,7 +10,7 @@ import src.game.node.specialty.SchematicSaver;
 @:register("s")
 final class SchematicWorkshopCommand implements ChatCommand {
 	public var params: String = "<x or schematic name> <y> <z>";
-	public var description: String = "Specialized development tool for creating schematics. The size should be odd on all axis. It will be promoted if not. Will load a schematic if given name.";
+	public var description: String = "Schematic Workshop. Specialized development tool for creating schematics. The size should be odd on all axis. It will be promoted if not. Will load a schematic if given name.";
 	public var privs: LuaMap<String, Bool> = [
 		"server" => true
 	];
