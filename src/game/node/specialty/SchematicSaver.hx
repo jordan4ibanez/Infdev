@@ -108,7 +108,7 @@ final class SchematicSaver extends NodeDefinition {
 			return;
 		}
 
-		untyped print(dump(fields));
+		// untyped print(dump(fields));
 
 		var player: ObjectRefPlayer = cast sender;
 
@@ -126,7 +126,7 @@ final class SchematicSaver extends NodeDefinition {
 
 			// Save the schematic name.
 			var newName = StringTools.trim(fields.rename_field);
-			untyped print("setting: ", newName);
+			// untyped print("setting: ", newName);
 
 			meta.setString("schematic_name", newName);
 			resetAlert();
