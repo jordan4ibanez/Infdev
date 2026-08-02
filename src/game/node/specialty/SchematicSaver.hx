@@ -22,11 +22,11 @@ final class SchematicSaver extends NodeDefinition {
 	static final unnamedDefault = "This schematic is unnamed";
 	static final errorCode = "error_0_0_1";
 
-	function triggerError(meta: NodeMetaRef, player: ObjectRefPlayer, pos: Vec3) {
+	function triggerError(errorMessage: String, meta: NodeMetaRef, player: ObjectRefPlayer, pos: Vec3) {
 		meta.setInt(errorCode, 1);
 
 		(formspec.getElement("error_message") : FormspecLabel)
-			.setLabel("Please input a name for your schematic.");
+			.setLabel(errorMessage);
 		meta.setString("formspec", formspec.serialize(player));
 
 		// Then trigger a reclick.
@@ -122,9 +122,12 @@ final class SchematicSaver extends NodeDefinition {
 		// Update Name button.
 		if (fields.update_name != null) {
 			if (StringTools.trim(fields.rename_field) == "") {
-				triggerError(meta, player, pos);
+				triggerError("Please input a name for your schematic.", meta, player, pos);
 				return;
-			} else if ()
+			} else if (StringTools.contains(fields.rename_field, " ")) {
+				triggerError("Schematic name must not contain spaces.", meta, player, pos);
+				return;
+			}
 
 			// Save the schematic name.
 			var newName = StringTools.trim(fields.rename_field);
