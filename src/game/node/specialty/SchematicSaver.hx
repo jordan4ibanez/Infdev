@@ -149,10 +149,10 @@ final class SchematicSaver extends NodeDefinition {
 					Core.log(LogLevelError, 'Size of schematic workshop at position ${pos} was null. This workshop is broken.');
 					return;
 				}
-				untyped __lua__("core.create_schematic({0}, {1}, {2}, {3}, {4})", pos, pos.add(size), null, Core.getWorldPath()
-					+ "/"
-					+ schematicName
-					+ ".mts", null);
+
+				var p1 = pos.add(new Vec3(1, 1, 1));
+				var p2 = pos.add(size).add(new Vec3(1, 1, 1));
+				untyped __lua__("core.create_schematic({0}, {1}, {2}, {3}, {4})", p1, p2, null, Core.getWorldPath() + "/" + schematicName + ".mts", null);
 				triggerAlert("Schematic saved to world folder!", meta, player, pos, true);
 				Core.log(LogLevelAction, 'Saved schematic ${schematicName} to ${Core.getWorldPath}');
 				return;
