@@ -76,8 +76,6 @@ final class SchematicSaver extends NodeDefinition {
 	}
 
 	override function onRightClick(pos: Vec3, node: NodeTable, clicker: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: Null<PointedThing>): ItemStack {
-		// todo: put a static formspec thing in here. :)
-
 		if (!clicker.isPlayer()) {
 			return super.onRightClick(pos, node, clicker, itemStack, pointedThing);
 		}
