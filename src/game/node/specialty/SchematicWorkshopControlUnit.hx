@@ -82,9 +82,9 @@ final class SchematicWorkshopControlUnit extends NodeDefinition {
 		this.nodeSounds = StoneSound.get();
 
 		this.tiles = [
-			"infdev_schematic_saver_side.png", "infdev_schematic_saver_side.png",
-			"infdev_schematic_saver_side.png", "infdev_schematic_saver_side.png",
-			"infdev_schematic_saver_side.png", "infdev_schematic_saver_front.png",
+			"infdev_schematic_workshop_side.png", "infdev_schematic_workshop_side.png",
+			"infdev_schematic_workshop_side.png", "infdev_schematic_workshop_side.png",
+			"infdev_schematic_workshop_side.png", "infdev_schematic_workshop_front.png",
 		];
 	}
 
