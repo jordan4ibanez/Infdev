@@ -25,7 +25,7 @@ class FormspecButtonExit extends FormspecElement {
 	}
 
 	public function toFormspec(name: String): String {
-		return 'button[${this.x},${this.y};${this.width},${this.height};${name};${this.label}]';
+		return 'button_exit[${this.x},${this.y};${this.width},${this.height};${name};${this.label}]';
 	}
 
 	public function setStyle(style: FormspecButtonStyle): FormspecButtonExit {
