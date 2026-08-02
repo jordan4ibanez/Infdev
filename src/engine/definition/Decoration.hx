@@ -75,8 +75,8 @@ interface DecorationSchematic extends Decoration {
 	// Alternative schematic specification by supplying a table. The fields
 	// size and data are mandatory whereas yslice_prob is optional.
 	// See 'Schematic specifier' for details.
-	// todo: whatever this is
-	// var replacements = {["oldname"] = "convert_to", ...},
+	// todo: replacements typedef
+	var replacements: Dynamic; // = {["oldname"] = "convert_to", ...},
 	// Map of node names to replace in the schematic after reading it.
 	// todo: schematic attributes.
 	// var flags = "place_center_x, place_center_y, place_center_z",
