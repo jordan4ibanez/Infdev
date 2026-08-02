@@ -27,7 +27,7 @@ final class SchematicWorkshopCommand implements ChatCommand {
 		}
 
 		// Parse the command input.
-		var size = new Vec3();
+		var halfSize = new Vec3();
 		{
 			var argArray = StringTools.trim(args).split(" ");
 
@@ -76,7 +76,7 @@ final class SchematicWorkshopCommand implements ChatCommand {
 			}
 
 			// Set it to be centered and have the bedrock be the outer edge.
-			size.setFloats(
+			halfSize.setFloats(
 				lua.Math.floor(x / 2) + 1,
 				y + 1,
 				lua.Math.floor(z / 2) + 1
@@ -90,14 +90,14 @@ final class SchematicWorkshopCommand implements ChatCommand {
 		// Under the admin.
 		pos.y -= 1;
 
-		for (x in Std.int(-size.x)...Std.int(size.x + 1)) {
-			for (z in Std.int(-size.z)...Std.int(size.z + 1)) {
-				for (y in 0...Std.int(size.y + 1)) {
+		for (x in Std.int(-halfSize.x)...Std.int(halfSize.x + 1)) {
+			for (z in Std.int(-halfSize.z)...Std.int(halfSize.z + 1)) {
+				for (y in 0...Std.int(halfSize.y + 1)) {
 					Core.removeNode(pos.add(new Vec3(x, y, z)));
 
-					var edgeX = (x == size.x || x == -size.x);
-					var edgeY = (y == 0 || y == size.y);
-					var edgeZ = (z == size.z || z == -size.z);
+					var edgeX = (x == halfSize.x || x == -halfSize.x);
+					var edgeY = (y == 0 || y == halfSize.y);
+					var edgeZ = (z == halfSize.z || z == -halfSize.z);
 					if ((edgeX && edgeY) || (edgeX && edgeZ) || (edgeY && edgeZ) || (y == 0)) {
 						Core.setNode(pos.add(new Vec3(x, y, z)), {name: "infdev:bedrock"});
 					}
@@ -106,10 +106,10 @@ final class SchematicWorkshopCommand implements ChatCommand {
 		}
 
 		// Put this in a negative position so it can do a simpler math to save schematic.
-		final controllerPos = pos.add(new Vec3(-size.x, 0, -size.z));
+		final controllerPos = pos.add(new Vec3(-halfSize.x, 0, -halfSize.z));
 		Core.setNode(controllerPos, {name: "infdev:schematic_saver"});
 		var meta = Core.getMeta(controllerPos);
-		meta.setString(SchematicSaver.schematicSizeTag, Core.serialize(size));
+		meta.setString(SchematicSaver.schematicSizeTag, Core.serialize(halfSize));
 		// This stops a bug where onRightClick doesn't work on the first click even with a reclick.
 		meta.setString("formspec", SchematicSaver.formspec.serialize(player));
 
