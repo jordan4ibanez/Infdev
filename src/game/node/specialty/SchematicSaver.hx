@@ -49,17 +49,17 @@ final class SchematicSaver extends NodeDefinition {
 				.setTextColor("white")
 				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)
 				.setVerticalAlign(FormspecVerticalAlignmentTop)))
-		.addElement("rename_field", new FormspecField(0.25, 4, 9.5, 1)
+		.addElement("rename_field", new FormspecField(0.25, 3, 9.5, 1)
 			.setStyle(new FormspecFieldStyle()
 				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)))
-		.addElement("update_name", new FormspecButton(2.5, 6, 5, 1, "Update Name"))
-		.addElement("save_schematic", new FormspecButton(2.5, 8, 5, 1, "Save Schematic"))
 		.addElement("error_message", new FormspecLabel(0, 3, 10, 2, "")
 			.setStyle(new FormspecLabelStyle()
 				.setTextColor("red")
 				.setFontSize(30)
 				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)
-				.setVerticalAlign(FormspecVerticalAlignmentTop)));
+				.setVerticalAlign(FormspecVerticalAlignmentTop)))
+		.addElement("update_name", new FormspecButton(2.5, 6, 5, 1, "Update Name"))
+		.addElement("save_schematic", new FormspecButton(2.5, 8, 5, 1, "Save Schematic"));
 
 	public function new() {
 		super();
