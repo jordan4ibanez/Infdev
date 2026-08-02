@@ -30,3 +30,7 @@ dirt_step: https://freesound.org/people/worthahep88/sounds/319224/ (CC0)
 ## Sand:
 
 sand_mine: https://freesound.org/people/wniebelski/sounds/695981/ (CC0)
+
+## Lever:
+
+lever.x: https://freesound.org/people/SoundsofTheMachine/sounds/843093/ (CC0)
