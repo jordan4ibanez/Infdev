@@ -31,7 +31,11 @@ class FormspecField extends FormspecElement {
 	}
 
 	public function toFormspec(name: String): String {
-		return 'field[${this.x},${this.y};${this.width},${this.height};${name};${this.label};${this.defaultText}]';
+		var output = "";
+		if (!this.closeOnEnter) {
+			output += 'field_close_on_enter[${name};false]';
+		}
+		return output + 'field[${this.x},${this.y};${this.width},${this.height};${name};${this.label};${this.defaultText}]';
 	}
 
 	public function setStyle(style: FormspecFieldStyle): FormspecField {
