@@ -15,8 +15,8 @@ final class OraclePickaxe extends ToolDefinition {
 
 		this.description = "Oracle Pickaxe";
 
-		this.inventoryImage = "oracle_pickaxe.png";
-		this.wieldImage = "oracle_pickaxe.png";
+		this.inventoryImage = "infdev_oracle_pickaxe.png";
+		this.wieldImage = "infdev_oracle_pickaxe.png";
 
 		this.toolCapabilities = new ToolCapabilities()
 			.setMaxDropLevel(0)

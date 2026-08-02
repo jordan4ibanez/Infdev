@@ -11,8 +11,8 @@ final class OracleAxe extends ToolDefinition {
 
 		this.description = "Oracle Axe";
 
-		this.inventoryImage = "oracle_axe.png";
-		this.wieldImage = "oracle_axe.png";
+		this.inventoryImage = "infdev_oracle_axe.png";
+		this.wieldImage = "infdev_oracle_axe.png";
 
 		this.toolCapabilities = new ToolCapabilities()
 			.setMaxDropLevel(0)

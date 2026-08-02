@@ -11,8 +11,8 @@ final class OracleShovel extends ToolDefinition {
 
 		this.description = "Oracle Shovel";
 
-		this.inventoryImage = "oracle_shovel.png";
-		this.wieldImage = "oracle_shovel.png";
+		this.inventoryImage = "infdev_oracle_shovel.png";
+		this.wieldImage = "infdev_oracle_shovel.png";
 
 		this.toolCapabilities = new ToolCapabilities()
 			.setMaxDropLevel(0)
