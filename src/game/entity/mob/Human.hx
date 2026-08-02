@@ -20,6 +20,8 @@ private final stateAnimationDictionary: Map<MobState, PlayerAnimation> = [
 
 @:register("infdev:human")
 class Human extends Mob {
+	static inline final DEBUG_MODE = false;
+
 	var velocityVector: Vec3 = new Vec3();
 	var drivingForce: Vec3 = new Vec3();
 	var stateTimer: Float = 0;
@@ -218,8 +220,10 @@ class Human extends Mob {
 		}
 		var homePos = home.getPos();
 		var distance = homePos.distance(this.object.getPos());
-		if (distance > 20) {
-			this.object.setPos(homePos);
+		if (DEBUG_MODE) {
+			if (distance > 20) {
+				this.object.setPos(homePos);
+			}
 		}
 	}
 
