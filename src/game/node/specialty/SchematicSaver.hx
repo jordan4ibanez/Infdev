@@ -19,7 +19,7 @@ import src.game.node.stone.StoneSound;
 
 @:register("infdev:schematic_saver")
 final class SchematicSaver extends NodeDefinition {
-	static final unnamedDefault = "This schematic is unnamed";
+	static inline final unnamedDefault = "This schematic is unnamed";
 
 	function triggerAlert(errorMessage: String, meta: NodeMetaRef, player: ObjectRefPlayer, pos: Vec3, ?successColor: Bool) {
 		var newColor = (successColor ? "lime" : "red");
