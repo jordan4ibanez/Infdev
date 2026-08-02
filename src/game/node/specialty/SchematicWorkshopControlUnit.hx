@@ -66,9 +66,15 @@ final class SchematicWorkshopControlUnit extends NodeDefinition {
 		.addElement("rename_field", new FormspecField(0.25, 3, 9.5, 1)
 			.setStyle(new FormspecFieldStyle()
 				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)))
-		.addElement("update_name", new FormspecButton(2.5, 4.75, 5, 1, "Update Name"))
-		.addElement("save_schematic", new FormspecButton(2.5, 6.5, 5, 1, "Save Schematic"))
-		.addElement("exit_button", new FormspecButtonExit(2.5, 8.25, 5, 1, "Exit"));
+		.addElement("update_name", new FormspecButton(2.5, 4.75, 5, 1, "Update Name")
+			.setStyle(new FormspecButtonStyle()
+				.setSound("lever")))
+		.addElement("save_schematic", new FormspecButton(2.5, 6.5, 5, 1, "Save Schematic")
+			.setStyle(new FormspecButtonStyle()
+				.setSound("lever")))
+		.addElement("exit_button", new FormspecButtonExit(2.5, 8.25, 5, 1, "Exit")
+			.setStyle(new FormspecButtonStyle()
+				.setSound("lever")));
 
 	public function new() {
 		super();
