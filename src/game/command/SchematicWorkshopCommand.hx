@@ -9,8 +9,8 @@ import src.game.node.specialty.SchematicSaver;
 
 @:register("s")
 final class SchematicWorkshopCommand implements ChatCommand {
-	public var params: String = "<x> <y> <z>";
-	public var description: String = "Specialized development tool for creating schematics. The size should be odd on all axis. It will be promoted if not.";
+	public var params: String = "<x or schematic name> <y> <z>";
+	public var description: String = "Specialized development tool for creating schematics. The size should be odd on all axis. It will be promoted if not. Will load a schematic if given name.";
 	public var privs: LuaMap<String, Bool> = [
 		"server" => true
 	];
@@ -29,10 +29,31 @@ final class SchematicWorkshopCommand implements ChatCommand {
 		// Parse the command input.
 		var size = new Vec3();
 		{
-			var argArray = args.split(" ");
+			untyped print("[" + StringTools.trim(args) + "]");
+			var argArray = StringTools.trim(args).split(" ");
+			untyped print(dump(argArray));
 
 			if (argArray.length != 3) {
-				return new CommandStatus(false);
+				var loadingSchematicName = "test";
+
+				if (argArray.length == 1) {
+					if (argArray[0] != "") {
+						loadingSchematicName = argArray[0];
+					}
+				} else {
+					return new CommandStatus(false);
+				}
+
+				var success: Bool = untyped __lua__("core.place_schematic({0}, {1}, {2})", player.getPos(), Core.getWorldPath()
+					+ "/"
+					+ loadingSchematicName
+					+ ".mts", "0");
+
+				if (!success) {
+					return new CommandStatus(true, 'Schematic ${loadingSchematicName}.mts doesn\'t exist.');
+				}
+
+				return new CommandStatus(true, 'Loaded up ${loadingSchematicName}.mts from the world folder.');
 			}
 
 			var x = Lua.tonumber(argArray[0]);
