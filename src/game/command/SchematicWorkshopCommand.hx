@@ -42,10 +42,10 @@ final class SchematicWorkshopCommand implements ChatCommand {
 					return new CommandStatus(false);
 				}
 
-				var success: Bool = untyped __lua__("core.place_schematic({0}, {1}, {2})", player.getPos(), Core.getWorldPath()
+				var success: Bool = untyped __lua__("core.place_schematic({0}, {1}, {2}, {3}, {4}, {5})", player.getPos(), Core.getWorldPath()
 					+ "/"
 					+ loadingSchematicName
-					+ ".mts", "0");
+					+ ".mts", "0", null, false, "place_center_x, place_center_z");
 
 				if (!success) {
 					return new CommandStatus(true, 'Schematic ${loadingSchematicName}.mts doesn\'t exist.');
