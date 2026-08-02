@@ -194,6 +194,11 @@ class TerrainGenerator {
 			// 	data[i] = stoneID;
 			// }
 
+			// This puts stone on top of everything as a sanity test.
+			// if (pos.y == heightAtXZ + 1){
+			// 	data[i] = stoneID;
+			// }
+
 			// Cave carving.
 			// if (pos.y <= 160) then
 			if (pos.y <= 160) {
