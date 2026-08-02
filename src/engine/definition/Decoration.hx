@@ -52,6 +52,14 @@ interface DecorationSimple extends Decoration {
 	var place_offset_y: Int;
 }
 
+enum abstract DecorationRotation(String) to String {
+	var DecorationRotation0 = "0";
+	var DecorationRotation90 = "90";
+	var DecorationRotation180 = "180";
+	var DecorationRotation270 = "270";
+	var DecorationRotationRandom = "random";
+}
+
 typedef SchematicDefinition = {
 	//     size = {x = 4, y = 6, z = 4},
 	//     data = {
@@ -81,12 +89,9 @@ interface DecorationSchematic extends Decoration {
 	// See 'Schematic specifier' for details.
 	// todo: replacements typedef
 	var replacements: Dynamic; // = {["oldname"] = "convert_to", ...},
+
 	// Map of node names to replace in the schematic after reading it.
-	// todo: schematic attributes.
-	// var flags: Array<String>; // = "place_center_x, place_center_y, place_center_z";
-	// Flags for schematic decorations. See 'Schematic attributes'.
-	// todo: schematic rotation.
-	// var rotation = "90",
+	var rotation: DecorationRotation;
 	// Rotation can be "0", "90", "180", "270", or "random"
 	// todo: schematic place offset.
 	// var place_offset_y = 0,
