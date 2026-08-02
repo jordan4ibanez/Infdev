@@ -23,8 +23,6 @@ final class SchematicSaver extends NodeDefinition {
 	static final updateCode = "update_0_0_1";
 
 	function triggerError(errorMessage: String, meta: NodeMetaRef, player: ObjectRefPlayer, pos: Vec3, ?successColor: Bool) {
-		meta.setInt(updateCode, 1);
-
 		var newColor = (successColor ? "lime" : "red");
 
 		(formspec.getElement("error_message") : FormspecLabel)
@@ -40,8 +38,7 @@ final class SchematicSaver extends NodeDefinition {
 		// untyped print("triggered error");
 	}
 
-	function resetError(meta: NodeMetaRef) {
-		meta.setInt(updateCode, 0);
+	function resetError() {
 		(formspec.getElement("error_message") : FormspecLabel)
 			.setLabel("");
 		// untyped print("reset error");
@@ -133,7 +130,7 @@ final class SchematicSaver extends NodeDefinition {
 			untyped print("setting: ", newName);
 
 			meta.setString("schematic_name", newName);
-			resetError(meta);
+			resetError();
 
 			// Then trigger a reclick.
 			this.reClick(player, {
@@ -152,7 +149,7 @@ final class SchematicSaver extends NodeDefinition {
 				untyped print("save it!");
 			}
 		} else if (fields.quit == "true") {
-			resetError(meta);
+			resetError();
 		}
 	}
 }
