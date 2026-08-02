@@ -1,5 +1,6 @@
 package src.engine.gui;
 
+import src.engine.gui.FormspecButton.FormspecButtonStyle;
 import src.engine.gui.Formspec.FormspecElement;
 
 /**
