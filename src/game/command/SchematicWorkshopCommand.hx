@@ -5,7 +5,7 @@ import src.engine.Core;
 import src.engine.command.ChatCommand;
 import src.engine.compilercode.LuaMap;
 import src.engine.vector.Vec3;
-import src.game.node.specialty.SchematicSaver;
+import src.game.node.specialty.SchematicWorkshopControlUnit;
 
 @:register("s")
 final class SchematicWorkshopCommand implements ChatCommand {
@@ -116,9 +116,9 @@ final class SchematicWorkshopCommand implements ChatCommand {
 		final controllerPos = pos.add(new Vec3(-halfSize.x, 0, -halfSize.z));
 		Core.setNode(controllerPos, {name: "infdev:schematic_saver"});
 		var meta = Core.getMeta(controllerPos);
-		meta.setString(SchematicSaver.schematicSizeTag, Core.serialize(fullSize));
+		meta.setString(SchematicWorkshopControlUnit.schematicSizeTag, Core.serialize(fullSize));
 		// This stops a bug where onRightClick doesn't work on the first click even with a reclick.
-		meta.setString("formspec", SchematicSaver.formspec.serialize(player));
+		meta.setString("formspec", SchematicWorkshopControlUnit.formspec.serialize(player));
 
 		return new CommandStatus(true);
 	}

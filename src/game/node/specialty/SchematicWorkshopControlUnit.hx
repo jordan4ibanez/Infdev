@@ -18,8 +18,8 @@ import src.engine.vector.Vec3;
 import src.game.groups.NodeGroup;
 import src.game.node.stone.StoneSound;
 
-@:register("infdev:schematic_saver")
-final class SchematicSaver extends NodeDefinition {
+@:register("infdev:schematic_workshop_control_unit")
+final class SchematicWorkshopControlUnit extends NodeDefinition {
 	static inline final unnamedDefault = "This schematic is unnamed";
 
 	public static inline final schematicSizeTag = "schematic_size";
