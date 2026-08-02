@@ -22,8 +22,18 @@ final class SchematicSaver extends NodeDefinition {
 	static final unnamedDefault = "This schematic is unnamed";
 	static final errorCode = "error_0_0_1";
 
-	function triggerError(meta: NodeMetaRef) {
+	function triggerError(meta: NodeMetaRef, player: ObjectRefPlayer, pos: Vec3) {
 		meta.setInt(errorCode, 1);
+
+		(formspec.getElement("error_message") : FormspecLabel)
+			.setLabel("Please input a name for your schematic.");
+		meta.setString("formspec", formspec.serialize(player));
+
+		// Then trigger a reclick.
+		this.reClick(player, {
+			type: PointedThingTypeNode,
+			under: pos
+		});
 		// untyped print("triggered error");
 	}
 
@@ -112,18 +122,9 @@ final class SchematicSaver extends NodeDefinition {
 		// Update Name button.
 		if (fields.update_name != null) {
 			if (StringTools.trim(fields.rename_field) == "") {
-				(formspec.getElement("error_message") : FormspecLabel)
-					.setLabel("Please input a name for your schematic.");
-				meta.setString("formspec", formspec.serialize(player));
-				triggerError(meta);
-				// Then trigger a reclick.
-				this.reClick(player, {
-					type: PointedThingTypeNode,
-					under: pos
-				});
-
+				triggerError(meta, player, pos);
 				return;
-			}
+			} else if ()
 
 			// Save the schematic name.
 			var newName = StringTools.trim(fields.rename_field);
