@@ -89,19 +89,8 @@ interface DecorationSchematic extends Decoration {
 	// See 'Schematic specifier' for details.
 	// todo: replacements typedef
 	var replacements: Dynamic; // = {["oldname"] = "convert_to", ...},
-
-	// Map of node names to replace in the schematic after reading it.
 	var rotation: DecorationRotation;
-	// Rotation can be "0", "90", "180", "270", or "random"
-	// todo: schematic place offset.
-	// var place_offset_y = 0,
-	// If the flag 'place_center_y' is set this parameter is ignored.
-	// Y offset of the schematic base node layer relative to the 'place_on'
-	// node.
-	// Can be positive or negative. Default is 0.
-	// Effect is inverted for "all_ceilings" decorations.
-	// Ignored by 'y_min', 'y_max' and 'spawn_by' checks, which always refer
-	// to the 'place_on' node.
+	var place_offset_y: Int;
 }
 
 // This is simplified cause this is complicated as it is.
