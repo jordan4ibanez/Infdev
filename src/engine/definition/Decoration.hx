@@ -8,6 +8,10 @@ enum abstract DecorationFlags(String) to String {
 	var DecorationFlagsForcePlacement = "force_placement";
 	var DecorationFlagsAllFloors = "all_floors";
 	var DecorationFlagsAllCeilings = "all_ceilings";
+	// For schematics.
+	var SchematicFlagsPlaceCenterX = "place_center_x";
+	var SchematicFlagsPlaceCenterY = "place_center_y";
+	var SchematicFlagsPlaceCenterZ = "place_center_z";
 }
 
 @:noCompletion
@@ -79,7 +83,7 @@ interface DecorationSchematic extends Decoration {
 	var replacements: Dynamic; // = {["oldname"] = "convert_to", ...},
 	// Map of node names to replace in the schematic after reading it.
 	// todo: schematic attributes.
-	// var flags = "place_center_x, place_center_y, place_center_z",
+	// var flags: Array<String>; // = "place_center_x, place_center_y, place_center_z";
 	// Flags for schematic decorations. See 'Schematic attributes'.
 	// todo: schematic rotation.
 	// var rotation = "90",
