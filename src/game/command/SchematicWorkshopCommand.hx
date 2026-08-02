@@ -27,6 +27,7 @@ final class SchematicWorkshopCommand implements ChatCommand {
 		}
 
 		// Parse the command input.
+		var fullSize = new Vec3();
 		var halfSize = new Vec3();
 		{
 			var argArray = StringTools.trim(args).split(" ");
@@ -75,6 +76,9 @@ final class SchematicWorkshopCommand implements ChatCommand {
 				Core.chatSendPlayer(name, 'Size Z promoted to $z');
 			}
 
+			// Set the real size.
+			fullSize.setFloats(x, y, z);
+
 			// Set it to be centered and have the bedrock be the outer edge.
 			halfSize.setFloats(
 				lua.Math.floor(x / 2) + 1,
@@ -109,7 +113,7 @@ final class SchematicWorkshopCommand implements ChatCommand {
 		final controllerPos = pos.add(new Vec3(-halfSize.x, 0, -halfSize.z));
 		Core.setNode(controllerPos, {name: "infdev:schematic_saver"});
 		var meta = Core.getMeta(controllerPos);
-		meta.setString(SchematicSaver.schematicSizeTag, Core.serialize(halfSize));
+		meta.setString(SchematicSaver.schematicSizeTag, Core.serialize(fullSize));
 		// This stops a bug where onRightClick doesn't work on the first click even with a reclick.
 		meta.setString("formspec", SchematicSaver.formspec.serialize(player));
 
