@@ -11,7 +11,7 @@ final class SchematicWorkshopBarrier extends NodeDefinition {
 		this.description = "Schematic Workshop Barrier";
 
 		this.nodeGroups = [
-			NodeGroupBedrock => BEDROCK
+			NodeGroupHandDiggable => BEDROCK
 		];
 
 		this.drawType = DrawTypeAirLike;
