@@ -81,7 +81,11 @@ final class SchematicSaver extends NodeDefinition {
 
 		this.nodeSounds = StoneSound.get();
 
-		this.tiles = ["default_cobble.png^[invert:rgb"];
+		this.tiles = [
+			"infdev_schematic_saver_side.png", "infdev_schematic_saver_side.png",
+			"infdev_schematic_saver_side.png", "infdev_schematic_saver_side.png",
+			"infdev_schematic_saver_side.png", "infdev_schematic_saver_front.png",
+		];
 	}
 
 	override function onRightClick(pos: Vec3, node: NodeTable, clicker: Null<ObjectRefBase>, itemStack: ItemStack, pointedThing: Null<PointedThing>): ItemStack {
