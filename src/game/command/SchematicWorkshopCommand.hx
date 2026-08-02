@@ -29,9 +29,7 @@ final class SchematicWorkshopCommand implements ChatCommand {
 		// Parse the command input.
 		var size = new Vec3();
 		{
-			untyped print("[" + StringTools.trim(args) + "]");
 			var argArray = StringTools.trim(args).split(" ");
-			untyped print(dump(argArray));
 
 			if (argArray.length != 3) {
 				var loadingSchematicName = "test";
