@@ -81,6 +81,8 @@ final class SchematicWorkshopControlUnit extends NodeDefinition {
 
 		this.nodeSounds = StoneSound.get();
 
+		this.lightSource = 14;
+
 		this.tiles = [
 			"infdev_schematic_workshop_side.png", "infdev_schematic_workshop_side.png",
 			"infdev_schematic_workshop_side.png", "infdev_schematic_workshop_side.png",
