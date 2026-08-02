@@ -10,6 +10,7 @@ import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.gui.Formspec;
 import src.engine.gui.FormspecButton;
+import src.engine.gui.FormspecButtonExit;
 import src.engine.gui.FormspecField;
 import src.engine.gui.FormspecLabel;
 import src.engine.metadata.NodeMetaRef;
@@ -49,17 +50,18 @@ final class SchematicSaver extends NodeDefinition {
 				.setTextColor("white")
 				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)
 				.setVerticalAlign(FormspecVerticalAlignmentTop)))
-		.addElement("rename_field", new FormspecField(0.25, 3, 9.5, 1)
-			.setStyle(new FormspecFieldStyle()
-				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)))
-		.addElement("error_message", new FormspecLabel(0, 3, 10, 2, "")
+		.addElement("error_message", new FormspecLabel(0, 2, 10, 2, "")
 			.setStyle(new FormspecLabelStyle()
 				.setTextColor("red")
 				.setFontSize(30)
 				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)
 				.setVerticalAlign(FormspecVerticalAlignmentTop)))
-		.addElement("update_name", new FormspecButton(2.5, 6, 5, 1, "Update Name"))
-		.addElement("save_schematic", new FormspecButton(2.5, 8, 5, 1, "Save Schematic"));
+		.addElement("rename_field", new FormspecField(0.25, 3, 9.5, 1)
+			.setStyle(new FormspecFieldStyle()
+				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)))
+		.addElement("update_name", new FormspecButton(2.5, 4.75, 5, 1, "Update Name"))
+		.addElement("save_schematic", new FormspecButton(2.5, 6.5, 5, 1, "Save Schematic"))
+		.addElement("exit_button", new FormspecButtonExit(2.5, 8.25, 5, 1, "Exit"));
 
 	public function new() {
 		super();
