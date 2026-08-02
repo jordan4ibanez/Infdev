@@ -5,6 +5,7 @@ import src.engine.Core;
 import src.engine.command.ChatCommand;
 import src.engine.compilercode.LuaMap;
 import src.engine.vector.Vec3;
+import src.game.node.specialty.SchematicSaver;
 
 @:register("s")
 final class SchematicWorkshopCommand implements ChatCommand {
@@ -88,6 +89,7 @@ final class SchematicWorkshopCommand implements ChatCommand {
 		// Put this in a negative position so it can do a simpler math to save schematic.
 		final controllerPos = pos.add(new Vec3(-size.x, 0, -size.z));
 		Core.setNode(controllerPos, {name: "infdev:schematic_saver"});
+		Core.getMeta(controllerPos).setString(SchematicSaver.schematicSizeTag, Core.serialize(size));
 
 		return new CommandStatus(true);
 	}
