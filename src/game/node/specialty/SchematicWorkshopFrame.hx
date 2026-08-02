@@ -3,12 +3,12 @@ package src.game.node.specialty;
 import src.engine.definition.NodeDefinition;
 import src.game.groups.NodeGroup;
 
-@:register("infdev:schematic_saver_frame")
-final class SchematicSaverFrame extends NodeDefinition {
+@:register("infdev:schematic_workshop_frame")
+final class SchematicWorkshopFrame extends NodeDefinition {
 	public function new() {
 		super();
 
-		this.description = "Schematic Saver Frame";
+		this.description = "Schematic Workshop Frame";
 
 		this.nodeGroups = [
 			NodeGroupBedrock => BEDROCK
