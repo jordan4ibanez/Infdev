@@ -46,7 +46,7 @@ final class SchematicWorkshopControlUnit extends NodeDefinition {
 		// untyped print("reset error");
 	}
 
-	public static var formspec: Formspec = new Formspec("schematic_saver_ui")
+	public static var formspec: Formspec = new Formspec("schematic_workshop_ui")
 		.addElement("name_of_schematic", new FormspecLabel(0, 0.2, 10, 2, unnamedDefault)
 			.setStyle(new FormspecLabelStyle()
 				.setTextColor("white")
@@ -73,7 +73,7 @@ final class SchematicWorkshopControlUnit extends NodeDefinition {
 	public function new() {
 		super();
 
-		this.description = "Schematic Saver";
+		this.description = "Schematic Workshop Control Unit";
 
 		this.nodeGroups = [
 			NodeGroupHandDiggable => BEDROCK
