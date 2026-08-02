@@ -296,4 +296,18 @@ class NodeDefinition extends ItemDefinition {
 			Core.itemPlace(ItemStack.create(""), player, pointedThing);
 		}
 	}
+
+	/**
+	 * This allows a button or hitting enter in a field to exhibit the same behavior.
+	 * @param fields 
+	 * @param buttonName 
+	 * @param elementName 
+	 * @return Bool
+	 */
+	inline function fieldsButtonEnterCheck(fields: Table<String, String>, buttonName: String, targetField: String): Bool {
+		if (fields.key_enter_field == targetField || fields[cast buttonName] != null) {
+			return true;
+		}
+		return false;
+	}
 }
