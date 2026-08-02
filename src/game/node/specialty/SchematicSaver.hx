@@ -21,7 +21,7 @@ import src.game.node.stone.StoneSound;
 final class SchematicSaver extends NodeDefinition {
 	static final unnamedDefault = "This schematic is unnamed";
 
-	function triggerError(errorMessage: String, meta: NodeMetaRef, player: ObjectRefPlayer, pos: Vec3, ?successColor: Bool) {
+	function triggerAlert(errorMessage: String, meta: NodeMetaRef, player: ObjectRefPlayer, pos: Vec3, ?successColor: Bool) {
 		var newColor = (successColor ? "lime" : "red");
 
 		(formspec.getElement("error_message") : FormspecLabel)
@@ -37,7 +37,7 @@ final class SchematicSaver extends NodeDefinition {
 		// untyped print("triggered error");
 	}
 
-	function resetError() {
+	function resetAlert() {
 		(formspec.getElement("error_message") : FormspecLabel)
 			.setLabel("");
 		// untyped print("reset error");
@@ -117,10 +117,10 @@ final class SchematicSaver extends NodeDefinition {
 		// Update Name button.
 		if (this.fieldsButtonEnterCheck(fields, "update_name", "rename_field")) {
 			if (StringTools.trim(fields.rename_field) == "") {
-				triggerError("Please input a name for your schematic.", meta, player, pos);
+				triggerAlert("Please input a name for your schematic.", meta, player, pos);
 				return;
 			} else if (StringTools.contains(fields.rename_field, " ")) {
-				triggerError("Schematic name must not contain spaces.", meta, player, pos);
+				triggerAlert("Schematic name must not contain spaces.", meta, player, pos);
 				return;
 			}
 
@@ -129,7 +129,7 @@ final class SchematicSaver extends NodeDefinition {
 			untyped print("setting: ", newName);
 
 			meta.setString("schematic_name", newName);
-			resetError();
+			resetAlert();
 
 			// Then trigger a reclick.
 			this.reClick(player, {
@@ -139,16 +139,16 @@ final class SchematicSaver extends NodeDefinition {
 		} else if (fields.save_schematic != null) {
 			var schematicName = meta.getString("schematic_name");
 			if (schematicName == "") {
-				triggerError("Cannot save unnamed schematic.", meta, player, pos);
+				triggerAlert("Cannot save unnamed schematic.", meta, player, pos);
 				return;
 			} else {
-				triggerError("Schematic saved!", meta, player, pos, true);
+				triggerAlert("Schematic saved!", meta, player, pos, true);
 				return;
 				// formspecNameElement.setLabel("Name: " + schematicName);
 				untyped print("save it!");
 			}
 		} else if (fields.quit == "true") {
-			resetError();
+			resetAlert();
 		}
 	}
 }
