@@ -144,13 +144,29 @@ final class SchematicSaver extends NodeDefinition {
 				triggerAlert("Cannot save unnamed schematic.", meta, player, pos);
 				return;
 			} else {
-				triggerAlert("Schematic saved!", meta, player, pos, true);
+				var size: Vec3 = Core.deserialize(meta.getString(schematicSizeTag));
+
+				if (size == null) {
+					Core.log(LogLevelError, 'Size of schematic workshop at position ${pos} was null. This workshop is broken.');
+					return;
+				}
+
+				// Either .mts or .lua
+
+				untyped __lua__("core.create_schematic({0}, {1}, {2}, {3}, {4})", pos, pos.add(size), null, Core.getWorldPath()
+					+ "/"
+					+ schematicName
+					+ ".mts", null);
+
+				triggerAlert("Schematic saved to world folder!", meta, player, pos, true);
+
+				Core.log(LogLevelAction, 'Saved schematic ${schematicName} to ${Core.getWorldPath}');
+
 				return;
-				// formspecNameElement.setLabel("Name: " + schematicName);
-				untyped print("save it!");
 			}
 		} else if (fields.quit == "true") {
 			resetAlert();
+			return;
 		}
 	}
 }
