@@ -246,6 +246,21 @@ extern class Core {
 
 	@:native("get_worldpath")
 	static function getWorldPath(): String;
+
+	@:native("get_us_time")
+	static function getUSTime(): Float;
+
+	@:native("set_timeofday")
+	static function setTimeOfDay(time: Float): Void;
+
+	@:native("get_timeofday")
+	static function getTimeOfDay(): Float;
+
+	@:native("get_gametime")
+	static function getGameTime(): Float;
+
+	@:native("get_day_count")
+	static function getDayCount(): Float;
 }
 
 @:noCompletion
