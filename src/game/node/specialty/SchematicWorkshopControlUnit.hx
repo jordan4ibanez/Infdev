@@ -4,6 +4,7 @@ import lua.Table;
 import src.engine.Core;
 import src.engine.ItemStack;
 import src.engine.NodeTable;
+import src.engine.TimeStuff;
 import src.engine.definition.NodeDefinition;
 import src.engine.definition.basic.PointedThing;
 import src.engine.entity.objectref.ObjectRefBase;
@@ -192,6 +193,8 @@ final class SchematicWorkshopControlUnit extends NodeDefinition {
 				untyped __lua__("core.create_schematic({0}, {1}, {2}, {3}, {4})", p1, p2, null, Core.getWorldPath() + "/" + schematicName + ".mts", null);
 				triggerAlert("Schematic saved to world folder!", meta, player, pos, true);
 				Core.log(LogLevelAction, 'Saved schematic ${schematicName} to ${Core.getWorldPath}');
+
+				Core.chatSendPlayer(player.getPlayerName(), 'Saved schematic ${schematicName} at time:${TimeStuff.getTime()}');
 				return;
 			}
 		} else if (fields.quit == "true") {
