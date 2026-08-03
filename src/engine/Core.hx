@@ -24,6 +24,7 @@ extern class Core {
 
 	// This is the hijacked function.
 	static public inline function registerEntity(name: String, clazz: Class<LuaEntity>): Void {
+		// todo: This is polluting the entire init function with locals this needs to be part of the entity duct tape!!!
 		var rawLuantiPrototype: Dynamic = {}
 		// ? Works from the current class backwards until reached root (Entity).
 		var currentClass: Class<Dynamic> = clazz;
