@@ -4,7 +4,9 @@ import lua.Lua;
 import src.engine.Core;
 
 final class TerrainGeneratorLoader {
-	static function __init__() {
+	static var instance = new TerrainGeneratorLoader();
+
+	public function new() {
 		fixCxxTerrainGenerator();
 
 		final modPath: Null<String> = Core.getModPath(Core.getCurrentModName());
@@ -18,7 +20,7 @@ final class TerrainGeneratorLoader {
 		Lua.print("[Terrain generator loaded]");
 	}
 
-	static function fixCxxTerrainGenerator() {
+	function fixCxxTerrainGenerator() {
 		// Gotta set the mapgen setting manually or else this thing will try to load v7 with the makefile.
 
 		Core.setMapgenSetting("mg_name", "singlenode", true);
