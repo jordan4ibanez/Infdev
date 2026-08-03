@@ -20,7 +20,7 @@ final class MediumOakTree implements DecorationSchematic {
 		spread: new Vec3(250, 250, 250),
 		octaves: 3,
 		lacunarity: 3.0,
-		seed: GameInfo.getMapSeed() + 16,
+		seed: GameInfo.getMapSeed() + 40,
 		persistence: 1,
 	};
 	public var biomes: LuaArray<String>;
