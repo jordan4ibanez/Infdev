@@ -20,7 +20,7 @@ final class SmallOakTree implements DecorationSchematic {
 		spread: new Vec3(250, 250, 250),
 		octaves: 3,
 		lacunarity: 3.0,
-		seed: GameInfo.getMapSeed() + 16,
+		seed: GameInfo.getMapSeed() + 32,
 		persistence: 0.75,
 	};
 	public var biomes: LuaArray<String>;
@@ -33,5 +33,5 @@ final class SmallOakTree implements DecorationSchematic {
 	public var schematic: EitherType<String, SchematicDefinition> = GameInfo.schematicPath + "small_oak_tree.mts";
 	public var replacements: Dynamic;
 	public var rotation: DecorationRotation;
-	public var place_offset_y: Int;
+	public var place_offset_y: Int = 1;
 }
