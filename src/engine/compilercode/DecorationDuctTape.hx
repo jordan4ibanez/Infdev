@@ -62,6 +62,12 @@ class DecorationDuctTape {
 			kind: TDClass(null, null, false, true, false), // Final.
 			fields: [
 				{
+					name: "instance",
+					access: [AStatic],
+					pos: Context.currentPos(),
+					kind: FVar(localClassComplexType, null)
+				},
+				{
 					name: "__init__",
 					access: [AStatic],
 					pos: Context.currentPos(),
@@ -69,10 +75,8 @@ class DecorationDuctTape {
 						args: [],
 						ret: null,
 						expr: macro {
-							// todo: Make these singletons instead.
-
 							// ! Note: If nothing is defined in your class, this will error out.
-							var instance = Type.createInstance(Type.resolveClass($v{className}), []);
+							instance = Type.createInstance(Type.resolveClass($v{className}), []);
 
 							untyped {
 								instance.deco_type = $v{decoType};
