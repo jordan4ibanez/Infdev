@@ -15,12 +15,13 @@ final class SmallOakTree implements DecorationSchematic {
 	public var sidelen: Int;
 	public var fill_ratio: Float;
 	public var noise_params: NoiseParams = {
-		offset: 0.0025,
-		scale: 0.002,
-		spread: new Vec3(300, 300, 300),
+		offset: 0.015,
+		scale: 0.0075,
+		spread: new Vec3(250, 250, 250),
 		octaves: 3,
-		persistence: 0.01,
-		lacunarity: 6.0,
+		lacunarity: 3.0,
+		seed: GameInfo.getMapSeed() + 16,
+		persistence: 0.75,
 	};
 	public var biomes: LuaArray<String>;
 	public var y_min: Int;
