@@ -17,7 +17,8 @@ abstract class LuaEntity {
 	// ? Custom stuff so everything is uniform across the game.
 	var size: Vec2 = new Vec2(1, 1);
 
-	public static function registerEntity(name: String, clazz: Class<LuaEntity>): Void {
+	@:noCompletion
+	static function registerEntity(name: String, clazz: Class<LuaEntity>): Void {
 		var rawLuantiPrototype: Dynamic = {}
 		// ? Works from the current class backwards until reached root (Entity).
 		var currentClass: Class<Dynamic> = clazz;

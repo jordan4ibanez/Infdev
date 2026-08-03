@@ -57,7 +57,7 @@ class EntityDuctTape {
 									case FFun(func):
 										if (func.expr != null) {
 											var injectExpr = macro {
-												src.engine.Core.registerEntity($v{value}, $i{localClass.name});
+												src.engine.entity.LuaEntity.registerEntity($v{value}, $i{localClass.name});
 												// trace("Auto-injected registration __init__ into " + $v{className});
 											};
 
@@ -76,7 +76,7 @@ class EntityDuctTape {
 							} else {
 								// trace(localClass.name);
 								var newFunction = macro function() {
-									src.engine.Core.registerEntity($v{value}, $i{localClass.name});
+									src.engine.entity.LuaEntity.registerEntity($v{value}, $i{localClass.name});
 									// trace("Auto-created registration __init__ into " + $v{className});
 								};
 
