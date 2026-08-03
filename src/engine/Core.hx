@@ -261,6 +261,11 @@ extern class Core {
 
 	@:native("get_day_count")
 	static function getDayCount(): Float;
+
+	// ! Custom stuff below this.
+	public static inline function getMapSeedString(): String {
+		return untyped __lua__('core.get_mapgen_setting("seed")');
+	}
 }
 
 @:noCompletion
