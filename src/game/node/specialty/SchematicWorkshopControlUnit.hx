@@ -19,6 +19,7 @@ import src.engine.vector.Vec3;
 import src.game.groups.NodeGroup;
 import src.game.node.stone.StoneSound;
 
+// todo: put a load feature in here.
 @:register("infdev:schematic_workshop_control_unit")
 final class SchematicWorkshopControlUnit extends NodeDefinition {
 	static inline final unnamedDefault = "This schematic is unnamed";
