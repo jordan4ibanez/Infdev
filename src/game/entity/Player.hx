@@ -194,6 +194,10 @@ final class Player {
 		// todo: some way to support controllers dynamic range.
 	}
 
+	public function getName(): String {
+		return this.name;
+	}
+
 	// !
 	// !
 	// ! Do not add any custom functions below this line!
