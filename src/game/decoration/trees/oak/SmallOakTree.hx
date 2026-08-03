@@ -1,4 +1,4 @@
-package src.game.decoration.trees;
+package src.game.decoration.trees.oak;
 
 import haxe.extern.EitherType;
 import src.engine.GameInfo;
