@@ -15,12 +15,12 @@ final class SmallBirchTree implements DecorationSchematic {
 	public var sidelen: Int;
 	public var fill_ratio: Float;
 	public var noise_params: NoiseParams = {
-		offset: 0.01,
+		offset: 0.0005,
 		scale: 0.002,
-		spread: new Vec3(250, 250, 250),
+		spread: new Vec3(1200, 1200, 1200),
 		octaves: 3,
 		persistence: 0.01,
-		lacunarity: 5.0,
+		lacunarity: 6.0,
 	};
 	public var biomes: LuaArray<String>;
 	public var y_min: Int;
