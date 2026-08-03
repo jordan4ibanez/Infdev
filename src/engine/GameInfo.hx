@@ -14,7 +14,7 @@ abstract class GameInfo {
 		for (i in 0...mapSeedString.length) {
 			output += (untyped tonumber(mapSeedString.charAt(i))) * i;
 		}
-		untyped print(output);
+		// untyped print(output);
 		return output;
 	};
 }
