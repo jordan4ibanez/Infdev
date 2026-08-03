@@ -29,7 +29,7 @@ final class MediumBirchTree implements DecorationSchematic {
 	public var check_offset: Int;
 	public var num_spawn_by: Int;
 	public var flags: LuaArray<DecorationFlags> = [SchematicFlagsPlaceCenterX, SchematicFlagsPlaceCenterZ];
-	public var schematic: EitherType<String, SchematicDefinition> = GameInfo.schematicPath + "small_birch_tree.mts";
+	public var schematic: EitherType<String, SchematicDefinition> = GameInfo.schematicPath + "medium_birch_tree.mts";
 	public var replacements: Dynamic;
 	public var rotation: DecorationRotation;
 	public var place_offset_y: Int;
