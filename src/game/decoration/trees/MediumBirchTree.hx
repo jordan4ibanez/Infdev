@@ -16,7 +16,7 @@ final class MediumBirchTree implements DecorationSchematic {
 	public var fill_ratio: Float;
 	public var noise_params: NoiseParams = {
 		offset: 0.00175,
-		scale: 0.002,
+		scale: 0.02,
 		spread: new Vec3(1000, 1000, 1000),
 		octaves: 3,
 		persistence: 0.01,
