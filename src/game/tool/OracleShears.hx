@@ -16,6 +16,7 @@ final class OracleShears extends ToolDefinition {
 
 		this.toolCapabilities = new ToolCapabilities()
 			.setMaxDropLevel(0)
-			.addGroupCap(NodeGroupStone, new GroupCapabilities(0.1, 0.005, MAX_NODE_LEVEL, 1_000_000));
+			.addGroupCap(NodeGroupPlant, new GroupCapabilities(0.1, 0.005, MAX_NODE_LEVEL, 1_000_000))
+			.addGroupCap(NodeGroupLeaves, new GroupCapabilities(0.1, 0.005, MAX_NODE_LEVEL, 1_000_000));
 	}
 }
