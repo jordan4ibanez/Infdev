@@ -21,7 +21,8 @@ final class BirchLeaves extends NodeDefinition {
 		this.isGroundContent = false;
 
 		this.nodeGroups = [
-			NodeGroupPlant => 1
+			NodeGroupPlant => 1,
+			NodeGroupLeaves => 1,
 		];
 
 		this.nodeSounds = PlantSound.get();
