@@ -15,8 +15,8 @@ final class SmallBirchTree implements DecorationSchematic {
 	public var sidelen: Int;
 	public var fill_ratio: Float;
 	public var noise_params: NoiseParams = {
-		offset: 0.0025,
-		scale: 0.00015,
+		offset: 0.0015,
+		scale: 0.000075,
 		spread: new Vec3(250, 250, 250),
 		octaves: 3,
 		lacunarity: 3.0,
