@@ -15,12 +15,13 @@ final class SmallBirchTree implements DecorationSchematic {
 	public var sidelen: Int;
 	public var fill_ratio: Float;
 	public var noise_params: NoiseParams = {
-		offset: 0.0005,
-		scale: 0.002,
-		spread: new Vec3(1200, 1200, 1200),
+		offset: 0.0025,
+		scale: 0.00015,
+		spread: new Vec3(250, 250, 250),
 		octaves: 3,
-		persistence: 0.01,
-		lacunarity: 6.0,
+		lacunarity: 3.0,
+		seed: GameInfo.getMapSeed() + 8,
+		persistence: 1,
 	};
 	public var biomes: LuaArray<String>;
 	public var y_min: Int;
@@ -32,5 +33,5 @@ final class SmallBirchTree implements DecorationSchematic {
 	public var schematic: EitherType<String, SchematicDefinition> = GameInfo.schematicPath + "small_birch_tree.mts";
 	public var replacements: Dynamic;
 	public var rotation: DecorationRotation;
-	public var place_offset_y: Int;
+	public var place_offset_y: Int = 1;
 }
