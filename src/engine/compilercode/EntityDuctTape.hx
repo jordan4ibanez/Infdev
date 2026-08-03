@@ -13,6 +13,11 @@ import haxe.macro.Context;
 import haxe.macro.Expr;
 
 class EntityDuctTape {
+
+	static function methodResolution(){
+		
+	}
+
 	public static function build(): Array<Field> {
 		var fields = Context.getBuildFields();
 
@@ -45,7 +50,7 @@ class EntityDuctTape {
 								Context.error("luantiClass does not accept a blank string", meta.pos);
 							}
 
-							// And if it got this far then it's up to them to ensure it's a good name cause I do not fucking care at this point.
+							// And if it got this far then it's up to them to ensure it's a good name.
 
 							final init: Field = Lambda.find(fields, (f: Field) -> f.name == "__init__");
 
