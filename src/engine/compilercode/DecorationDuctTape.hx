@@ -89,6 +89,9 @@ class DecorationDuctTape {
 								// print(dump(instance));
 							}
 							untyped __lua__("core.register_decoration({0})", instance);
+
+							// Release the memory.
+							instance = null;
 						}
 					})
 				},
