@@ -69,8 +69,7 @@ class DecorationDuctTape {
 						args: [],
 						ret: null,
 						expr: macro {
-							// ? Crash protection.
-							untyped __lua__("do");
+							// todo: Make these singletons instead.
 
 							// ! Note: If nothing is defined in your class, this will error out.
 							var instance = Type.createInstance(Type.resolveClass($v{className}), []);
@@ -86,9 +85,6 @@ class DecorationDuctTape {
 								// print(dump(instance));
 							}
 							untyped __lua__("core.register_decoration({0})", instance);
-
-							// ? Crash protection.
-							untyped __lua__("end");
 						}
 					})
 				},
