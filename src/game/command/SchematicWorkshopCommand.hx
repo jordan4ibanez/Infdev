@@ -10,7 +10,7 @@ import src.game.node.specialty.SchematicWorkshopControlUnit;
 @:register("s")
 final class SchematicWorkshopCommand implements ChatCommand {
 	public var params: String = "<x or schematic name> <y> <z>";
-	public var description: String = "Schematic Workshop. Specialized development tool for creating schematics. The size should be odd on all axis. It will be promoted if not. Will load a schematic if given name.";
+	public var description: String = "Schematic Workshop. Specialized development tool for creating schematics. The size should be odd on x and z axis. It will be promoted if not. Will load a schematic if given name.";
 	public var privs: LuaMap<String, Bool> = [
 		"server" => true
 	];
@@ -66,10 +66,6 @@ final class SchematicWorkshopCommand implements ChatCommand {
 			if (isEven(x)) {
 				x++;
 				Core.chatSendPlayer(name, 'Size X promoted to $x');
-			}
-			if (isEven(y)) {
-				y++;
-				Core.chatSendPlayer(name, 'Size Y promoted to $y');
 			}
 			if (isEven(z)) {
 				z++;
