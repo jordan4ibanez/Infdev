@@ -1,6 +1,6 @@
 #if macro
-import sys.io.File;
 import haxe.macro.Context;
+import sys.io.File;
 
 using StringTools;
 
@@ -11,22 +11,21 @@ class LuantiCompilerFix {
 			final path = "mods/infdev/" + fileName;
 			try {
 				var content: String = File.getContent(path);
+				var outputLines: Array<String> = [];
 
-				var lines = content.split("\n");
-
-				for (i => line in lines) {
+				for (currentLine in content.split("\n")) {
 					// Hard code package.loaded.luv to short circuit into _hx_luv define.
-					if (line.contains("package.loaded.luv")) {
-						lines[i] = '-- Short circuit to automatic define.\nif false then';
+					if (currentLine.contains("package.loaded.luv")) {
+						currentLine = 'if false then';
 					}
 
-					// Check if this thing is gonna blow up Luanti safe mode.
-					// if (line.contains("require") && !line.startsWith("--")) {
-					// 	lines[i] = '--${line} (Disabled for Luanti.)';
-					// }
+					// If this line is blank, it doesn't get added to the output.
+					if (currentLine.trim().length > 0) {
+						outputLines.push(currentLine);
+					}
 				}
 
-				File.saveContent(path, lines.join("\n"));
+				File.saveContent(path, outputLines.join("\n"));
 			} catch (doNotCare) {
 				trace(path + " doesn't exist. Failed to patch.");
 			}
