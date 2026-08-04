@@ -165,7 +165,7 @@ class ItemDefinition {
 	// Only one because I ain't trying to figure out multiple fuel recipes.
 	public var recipeFuel: CraftRecipeFuel;
 
-	public static function registerCraft(instance: ItemDefinition): Void {
+	public static function registerCraft(instance: ItemDefinition, registrationName: String, amount: Int): Void {
 		// todo: this needs to be a function
 		// ! Shaped.
 		if (instance.recipesShaped != null) {
@@ -183,7 +183,7 @@ class ItemDefinition {
 
 				untyped {
 					recipe.type = "shaped";
-					recipe.output = $v{registrationName} + " " + amount;
+					recipe.output = registrationName + " " + amount;
 					recipe.amount = null;
 					// Purge  haxe metadata.
 					recipe.__fields__ = null;
@@ -210,7 +210,7 @@ class ItemDefinition {
 
 				untyped {
 					recipe.type = "shapeless";
-					recipe.output = $v{registrationName} + " " + amount;
+					recipe.output = registrationName + " " + amount;
 					recipe.amount = null;
 					// Purge  haxe metadata.
 					recipe.__fields__ = null;
@@ -237,7 +237,7 @@ class ItemDefinition {
 
 				untyped {
 					recipe.type = "cooking";
-					recipe.output = $v{registrationName} + " " + amount;
+					recipe.output = registrationName + " " + amount;
 					recipe.amount = null;
 					// Purge  haxe metadata.
 					recipe.__fields__ = null;
@@ -255,13 +255,13 @@ class ItemDefinition {
 			if (instance.recipeFuel.replacement != null) {
 				var tempReplacements = lua.Table.create();
 				var output = instance.recipeFuel.replacement;
-				lua.Table.insert(tempReplacements, lua.Table.create([$v{registrationName}, output]));
+				lua.Table.insert(tempReplacements, lua.Table.create([registrationName, output]));
 				untyped instance.recipeFuel.replacements = tempReplacements;
 			}
 
 			untyped {
 				instance.recipeFuel.type = "fuel";
-				instance.recipeFuel.recipe = $v{registrationName};
+				instance.recipeFuel.recipe = registrationName;
 				instance.recipeFuel.replacement = null;
 
 				// Purge  haxe metadata.
