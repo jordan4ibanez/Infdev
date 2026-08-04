@@ -166,11 +166,16 @@ class ItemDefinition {
 	public var recipeFuel: CraftRecipeFuel;
 
 	// registrationMethod is a lua function.
-	public static function handleEveryItemType(wrapperClass: Dynamic, instance: ItemDefinition, registrationMethod: Dynamic, registrationName: String,): Void {
+	public static function handleEveryItemType(wrapperClass: Dynamic, instance: ItemDefinition, registrationMethod: Dynamic, registrationName: String, isOre: Bool): Void {
 		patchWrapperClass(wrapperClass, instance);
 
 		// This automatically does the registration.
 		untyped __lua__('{0}({1},{2})', registrationMethod, registrationName, wrapperClass);
+
+		if (isOre) {
+			// This automatically registers an ore class's ore definitions.
+			registerOre(cast instance, registrationName);
+		}
 	}
 
 	@:noCompletion
