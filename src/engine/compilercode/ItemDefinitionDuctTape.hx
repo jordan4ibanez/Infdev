@@ -171,10 +171,6 @@ class ItemDefinitionDuctTape {
 
 								// trace(instance);
 								// trace($i{wrapperClassName});
-
-								// ? Finally register the craft recipes.
-
-								src.engine.definition.ItemDefinition.registerCraft(instance, $v{registrationName});
 							}
 						})
 					}
