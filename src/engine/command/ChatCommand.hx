@@ -21,8 +21,7 @@ interface ChatCommand {
 	function func(name: String, args: String): CommandStatus;
 }
 
-class ChatCommandPatcher {
-	public static function patchWrapperClass(): Void {
-		
-	}
+@:final
+abstract class ChatCommandPatcher {
+	public static function patchWrapperClass(): Void {}
 }
