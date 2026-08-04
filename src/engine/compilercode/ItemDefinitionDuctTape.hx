@@ -132,6 +132,14 @@ class ItemDefinitionDuctTape {
 
 			var localClassComplexType = Context.toComplexType(TInst(Context.getLocalClass(), []));
 
+			var registerOreIfOreClass = if (isOreDef) {
+				macro {
+					src.engine.definition.ItemDefinition.registerOre(instance, $v{registrationName});
+				};
+			} else {
+				macro {};
+			}
+
 			// ? Set up the raw static wrapper class first.
 
 			var companionClassDefinition: TypeDefinition = {
@@ -162,7 +170,7 @@ class ItemDefinitionDuctTape {
 								src.engine.Core.$luantiRegistrationMethod($v{registrationName}, $i{wrapperClassName});
 
 								// This automatically registers an ore class's ore definitions.
-								src.engine.definition.ItemDefinition.registerOre(instance, $v{registrationName});
+								$registerOreIfOreClass;
 
 								// ? This is important for debugging.
 								// trace("registered " + $v{registrationName} + " with " + $v{luantiRegistrationMethod});
