@@ -164,6 +164,8 @@ class ItemDefinitionDuctTape {
 							expr: macro {
 								instance = Type.createInstance(Type.resolveClass($v{className}), []);
 
+								// todo: turn this into one function.
+
 								src.engine.definition.ItemDefinition.patchWrapperClass($i{wrapperClassName}, instance);
 
 								// This automatically does the registration.

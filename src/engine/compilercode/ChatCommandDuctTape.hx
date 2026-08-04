@@ -111,6 +111,7 @@ class ChatCommandDuctTape {
 							instance = Type.createInstance(Type.resolveClass($v{className}), []);
 
 							// Hook the static wrapper into the instance components.
+							// todo: this should be a function.
 							params = instance.params;
 							description = instance.description;
 							privs = instance.privs;
