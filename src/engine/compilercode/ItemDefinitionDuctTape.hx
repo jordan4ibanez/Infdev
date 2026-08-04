@@ -161,9 +161,8 @@ class ItemDefinitionDuctTape {
 								// This automatically does the registration.
 								src.engine.Core.$luantiRegistrationMethod($v{registrationName}, $i{wrapperClassName});
 
-								// This automatically registers an ore if it's an ore.
-								// todo: this has to be a function.
-								$oreRegistrationCode;
+								// This automatically registers an ore class's ore definitions.
+								src.engine.definition.ItemDefinition.registerOre(cast instance, $v{registrationName});
 
 								// ? This is important for debugging.
 								// trace("registered " + $v{registrationName} + " with " + $v{luantiRegistrationMethod});
