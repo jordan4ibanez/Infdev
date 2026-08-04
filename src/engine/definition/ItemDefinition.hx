@@ -164,4 +164,8 @@ class ItemDefinition {
 
 	// Only one because I ain't trying to figure out multiple fuel recipes.
 	public var recipeFuel: CraftRecipeFuel;
+
+	public static function registerCraft(instance: ItemDefinition): Void {
+		
+	}
 }
