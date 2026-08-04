@@ -166,10 +166,12 @@ class ItemDefinitionDuctTape {
 
 								// todo: turn this into one function.
 
-								src.engine.definition.ItemDefinition.patchWrapperClass($i{wrapperClassName}, instance);
-
-								// This automatically does the registration.
-								src.engine.Core.$luantiRegistrationMethod($v{registrationName}, $i{wrapperClassName});
+								src.engine.definition.ItemDefinition.handleEveryItemType(
+									$i{wrapperClassName},
+									instance,
+									$luantiRegistrationMethod,
+									$v{registrationName}
+								);
 
 								// This automatically registers an ore class's ore definitions.
 								$registerOreIfOreClass;
