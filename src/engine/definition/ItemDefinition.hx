@@ -165,6 +165,28 @@ class ItemDefinition {
 	// Only one because I ain't trying to figure out multiple fuel recipes.
 	public var recipeFuel: CraftRecipeFuel;
 
+	public static function patchWrapperClass(wrapperClass: Dynamic, instance: ItemDefinition): Void {
+		// This dumps the fields from the class defined into the wrapper class in lua.
+		for (field in Reflect.fields(instance)) {
+			if (field == "mod_origin") {
+				// trace("[DEBUG]: skipped mod_origin for " + $v{wrapperClassName});
+				continue;
+			}
+			// ? This is extremely important for debugging meta static wrapper classes.
+			// trace($v{wrapperClassName}, "field", field);
+			untyped wrapperClass[field] = Reflect.field(instance, field);
+		}
+
+		// Strip out the reflection table in this static wrapper so it doesn't blow up the engine.
+		untyped {
+			if (wrapperClass.groups != null) {
+				wrapperClass.groups.__fields__ = null;
+				// This is important debug probably.
+				// print("ye");
+			}
+		}
+	}
+
 	@:noCompletion
 	public static function registerCraft(instance: ItemDefinition, registrationName: String): Void {
 		// ! Shaped.

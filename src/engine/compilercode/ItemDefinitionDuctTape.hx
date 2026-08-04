@@ -183,30 +183,13 @@ class ItemDefinitionDuctTape {
 							expr: macro {
 								instance = Type.createInstance(Type.resolveClass($v{className}), []);
 
-								// This dumps the fields from the class defined into the wrapper class in lua.
-								for (field in Reflect.fields(instance)) {
-									if (field == "mod_origin") {
-										// trace("[DEBUG]: skipped mod_origin for " + $v{wrapperClassName});
-										continue;
-									}
-									// ? This is extremely important for debugging meta static wrapper classes.
-									// trace($v{wrapperClassName}, "field", field);
-									untyped $i{wrapperClassName}[field] = Reflect.field(instance, field);
-								}
-
-								// Strip out the reflection table in this static wrapper so it doesn't blow up the engine.
-								untyped {
-									if ($i{wrapperClassName}.groups != null) {
-										$i{wrapperClassName}.groups.__fields__ = null;
-										// This is important debug probably.
-										// print("ye");
-									}
-								}
+								src.engine.definition.ItemDefinition.patchWrapperClass( $i{wrapperClassName}, instance);
 
 								// This automatically does the registration.
 								src.engine.Core.$luantiRegistrationMethod($v{registrationName}, $i{wrapperClassName});
 
 								// This automatically registers an ore if it's an ore.
+								// todo: this has to be a function.
 								$oreRegistrationCode;
 
 								// ? This is important for debugging.
