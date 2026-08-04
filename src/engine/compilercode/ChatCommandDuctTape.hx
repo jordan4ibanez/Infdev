@@ -110,18 +110,8 @@ class ChatCommandDuctTape {
 							// ! Note: If nothing is defined in your class, this will error out.
 							instance = Type.createInstance(Type.resolveClass($v{className}), []);
 
-							// Hook the static wrapper into the instance components.
-							// todo: this should be a function.
-							params = instance.params;
-							description = instance.description;
-							privs = instance.privs;
-
-							// untyped {
-							// 	 print(dump(instance));
-							// 	 print(dump($i{wrapperClassName}));
-							// }
-
-							untyped __lua__("core.register_chatcommand({0}, {1})", $v{registrationName}, $i{wrapperClassName});
+							// Hook the static wrapper into the instance components and register it.
+							src.engine.command.ChatCommandPatcher.patchWrapperClass($i{wrapperClassName}, instance, $v{registrationName});
 						}
 					})
 				},
