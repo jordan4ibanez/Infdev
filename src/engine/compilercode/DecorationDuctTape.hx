@@ -75,6 +75,7 @@ class DecorationDuctTape {
 						args: [],
 						ret: null,
 						expr: macro {
+							// todo: this should be a function.
 							// ! Note: If nothing is defined in your class, this will error out.
 							instance = Type.createInstance(Type.resolveClass($v{className}), []);
 
