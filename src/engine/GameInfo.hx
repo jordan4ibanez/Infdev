@@ -1,7 +1,5 @@
 package src.engine;
 
-import lua.Table;
-
 @:final
 abstract class GameInfo {
 	// This is for things specifically unavailable during runtime.
@@ -20,11 +18,15 @@ abstract class GameInfo {
 		return output;
 	};
 
-	// todo: request insecure environment.
-	static var insecureContainer: Dynamic = Table.create();
+	static var DEBUG_MODE = false;
+
+	static var insecureContainer: Dynamic = untyped compilerDebugUnsafeEnvironment;
 
 	// This is AI assisted.
 	public static function getLocalCount(?level: Int): Int {
+		if (!DEBUG_MODE) {
+			throw "Enable debug mode in this and the compiler.";
+		}
 		// Default to level 2 (the caller of this function).
 		var level = (level ?? 1) + 1;
 		var count = 0;
