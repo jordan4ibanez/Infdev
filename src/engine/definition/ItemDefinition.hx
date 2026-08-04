@@ -166,7 +166,6 @@ class ItemDefinition {
 	public var recipeFuel: CraftRecipeFuel;
 
 	public static function registerCraft(instance: ItemDefinition, registrationName: String): Void {
-		// todo: this needs to be a function
 		// ! Shaped.
 		if (instance.recipesShaped != null) {
 			for (recipe in instance.recipesShaped) {
