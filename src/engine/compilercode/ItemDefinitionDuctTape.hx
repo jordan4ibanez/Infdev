@@ -156,7 +156,7 @@ class ItemDefinitionDuctTape {
 							expr: macro {
 								instance = Type.createInstance(Type.resolveClass($v{className}), []);
 
-								src.engine.definition.ItemDefinition.patchWrapperClass( $i{wrapperClassName}, instance);
+								src.engine.definition.ItemDefinition.patchWrapperClass($i{wrapperClassName}, instance);
 
 								// This automatically does the registration.
 								src.engine.Core.$luantiRegistrationMethod($v{registrationName}, $i{wrapperClassName});
