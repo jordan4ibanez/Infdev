@@ -20,7 +20,7 @@ abstract class GameInfo {
 
 	static var DEBUG_MODE = true;
 
-	static var insecureContainer: Dynamic = untyped compilerDebugUnsafeEnvironment.debug;
+	static var insecureContainer: Dynamic = untyped compilerDebugUnsafeEnvironment;
 
 	// This is AI assisted.
 	public static function getLocalCount(?level: Int): Int {
@@ -32,7 +32,7 @@ abstract class GameInfo {
 		var count = 0;
 
 		while (true) {
-			var name = untyped insecureContainer["getlocal"](level, count + 1);
+			var name = untyped insecureContainer.debug["getlocal"](level, count + 1);
 			if (name == null) {
 				break;
 			}
