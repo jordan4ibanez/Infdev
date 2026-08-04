@@ -217,6 +217,7 @@ class ItemDefinitionDuctTape {
 
 								// ? Finally register the craft recipes.
 
+								// todo: this needs to be a function
 								// ! Shaped.
 								if (instance.recipesShaped != null) {
 									for (recipe in instance.recipesShaped) {
