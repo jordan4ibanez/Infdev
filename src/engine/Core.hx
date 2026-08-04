@@ -21,18 +21,15 @@ extern class Core {
 	@:noCompletion
 	static function register_entity(name: String, prototype: Dynamic): Void;
 
-	@:native("register_node")
-	static function registerNode(name: String, def: Dynamic): Void;
-
-	@:native("register_craftitem")
-	static function registerCraftItem(name: String, def: Dynamic): Void;
-
-	@:native("register_tool")
-	static function registerTool(name: String, def: Dynamic): Void;
-
-	@:native("override_item")
-	static function overrideItem(name: String, redef: Dynamic, ?delFields: Dynamic): Void;
-
+	// @:native("register_node")
+	// static function registerNode(name: String, def: Dynamic): Void;
+	// @:native("register_craftitem")
+	// static function registerCraftItem(name: String, def: Dynamic): Void;
+	// @:native("register_tool")
+	// static function registerTool(name: String, def: Dynamic): Void;
+	// @:native("override_item")
+	// static function overrideItem(name: String, redef: Dynamic, ?delFields: Dynamic): Void;
+	//
 	// fixme: this is incorrect.
 	@:native("request_shutdown")
 	static function requestShutdown(?message: String, ?reconnect: Bool, ?delay: Float): Void;
