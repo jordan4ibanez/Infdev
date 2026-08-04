@@ -93,17 +93,17 @@ class ItemDefinitionDuctTape {
 			}
 
 			var registrationName;
-			var luantiRegistrationMethod;
+			var luantiRegistrationMethod: Dynamic = null;
 
 			// Override takes precedence over everything else.
 			if (overrideTag) {
-				luantiRegistrationMethod = "override_item";
+				luantiRegistrationMethod = macro untyped core.override_item;
 			} else if (isItemDef) {
-				luantiRegistrationMethod = "register_craftitem";
+				luantiRegistrationMethod = macro untyped core.register_craftitem;
 			} else if (isToolDef) {
-				luantiRegistrationMethod = "register_tool";
+				luantiRegistrationMethod = macro untyped core.register_tool;
 			} else if (isNodeDef || isOreDef) {
-				luantiRegistrationMethod = "register_node";
+				luantiRegistrationMethod = macro untyped core.register_node;
 			}
 
 			{
