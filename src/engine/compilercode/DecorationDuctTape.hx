@@ -79,17 +79,7 @@ class DecorationDuctTape {
 							// ! Note: If nothing is defined in your class, this will error out.
 							instance = Type.createInstance(Type.resolveClass($v{className}), []);
 
-							untyped {
-								instance.deco_type = $v{decoType};
-								// Auto concatenate enum table into string.
-								if (instance.flags != null) {
-									instance.flags = lua.Table.concat(instance.flags, ", ");
-								}
-								// Remove haxe metadata.
-								instance.__fields__ = null;
-								// print(dump(instance));
-							}
-							untyped __lua__("core.register_decoration({0})", instance);
+							src.engine.definition.helpers.DecorationPatcher.patchClass(instance, $v{decoType});
 
 							// Release the memory.
 							instance = null;
