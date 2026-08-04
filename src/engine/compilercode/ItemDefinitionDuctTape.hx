@@ -162,7 +162,7 @@ class ItemDefinitionDuctTape {
 								src.engine.Core.$luantiRegistrationMethod($v{registrationName}, $i{wrapperClassName});
 
 								// This automatically registers an ore class's ore definitions.
-								src.engine.definition.ItemDefinition.registerOre(cast instance, $v{registrationName});
+								src.engine.definition.ItemDefinition.registerOre(instance, $v{registrationName});
 
 								// ? This is important for debugging.
 								// trace("registered " + $v{registrationName} + " with " + $v{luantiRegistrationMethod});
@@ -419,7 +419,6 @@ class ItemDefinitionDuctTape {
 				// Prevent duplicate definition errors if the macro triggers multiple times.
 			}
 		}
-
 		return null;
 	}
 }
