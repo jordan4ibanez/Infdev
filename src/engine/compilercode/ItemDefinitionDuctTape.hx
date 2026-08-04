@@ -132,33 +132,6 @@ class ItemDefinitionDuctTape {
 
 			var localClassComplexType = Context.toComplexType(TInst(Context.getLocalClass(), []));
 
-			// ? This part is for ore registration. :D
-
-			var oreRegistrationCode = if (isOreDef) {
-				macro {
-					// Automatic component injection as part of the OreDefinition class itself.
-					if (instance.oreSpawns != null) {
-						for (i => spawn in instance.oreSpawns) {
-							((cast spawn : haxe.DynamicAccess<Dynamic>)["name"] = $v{registrationName} + '_$i');
-							((cast spawn : haxe.DynamicAccess<Dynamic>)["ore"] = $v{registrationName});
-
-							spawn.clust_scarcity = cast lua.Math.pow(spawn.clust_scarcity, 3);
-
-							// Debugging weirdness.
-							if (false) {
-								spawn.wherein = "air";
-							}
-
-							// trace(i, spawn);
-
-							untyped __lua__("core.register_ore({0})", spawn);
-						}
-					}
-				};
-			} else {
-				macro {};
-			}
-
 			// ? Set up the raw static wrapper class first.
 
 			var companionClassDefinition: TypeDefinition = {
