@@ -97,13 +97,13 @@ class ItemDefinitionDuctTape {
 
 			// Override takes precedence over everything else.
 			if (overrideTag) {
-				luantiRegistrationMethod = "overrideItem";
+				luantiRegistrationMethod = "override_item";
 			} else if (isItemDef) {
-				luantiRegistrationMethod = "registerCraftItem";
+				luantiRegistrationMethod = "register_craftitem";
 			} else if (isToolDef) {
-				luantiRegistrationMethod = "registerTool";
+				luantiRegistrationMethod = "register_tool";
 			} else if (isNodeDef || isOreDef) {
-				luantiRegistrationMethod = "registerNode";
+				luantiRegistrationMethod = "register_node";
 			}
 
 			{
