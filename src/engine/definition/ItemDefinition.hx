@@ -165,6 +165,7 @@ class ItemDefinition {
 	// Only one because I ain't trying to figure out multiple fuel recipes.
 	public var recipeFuel: CraftRecipeFuel;
 
+	@:noCompletion
 	// registrationMethod is a lua function.
 	public static function handleEveryItemType(wrapperClass: Dynamic, instance: ItemDefinition, registrationMethod: Dynamic, registrationName: String, isOre: Bool): Void {
 		patchWrapperClass(wrapperClass, instance);
@@ -204,6 +205,7 @@ class ItemDefinition {
 		}
 	}
 
+	@:noCompletion
 	public static function registerOre(instance: OreDefinition, registrationName: String): Void {
 		// Automatic component injection as part of the OreDefinition class itself.
 		if (instance.oreSpawns != null) {
