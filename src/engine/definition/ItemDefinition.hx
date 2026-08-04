@@ -176,6 +176,9 @@ class ItemDefinition {
 			// This automatically registers an ore class's ore definitions.
 			registerOre(cast instance, registrationName);
 		}
+
+		// This automatically registers the craft recipes.
+		registerCraft(instance, registrationName);
 	}
 
 	@:noCompletion
