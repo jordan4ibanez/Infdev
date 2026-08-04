@@ -18,13 +18,13 @@ abstract class GameInfo {
 		return output;
 	};
 
-	static var DEBUG_MODE = false;
+	static var DEBUG_MODE = true;
 
-	static var insecureContainer: Dynamic = untyped compilerDebugUnsafeEnvironment;
+	static var insecureContainer: Dynamic = untyped compilerDebugUnsafeEnvironment.debug;
 
 	// This is AI assisted.
 	public static function getLocalCount(?level: Int): Int {
-		if (!DEBUG_MODE) {
+		if (!DEBUG_MODE || insecureContainer == null) {
 			throw "Enable debug mode in this and the compiler.";
 		}
 		// Default to level 2 (the caller of this function).
@@ -32,7 +32,7 @@ abstract class GameInfo {
 		var count = 0;
 
 		while (true) {
-			var name = insecureContainer.debug.getlocal(level, count + 1);
+			var name = untyped insecureContainer["getlocal"](level, count + 1);
 			if (name == null) {
 				break;
 			}
