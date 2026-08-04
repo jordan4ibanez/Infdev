@@ -20,8 +20,3 @@ interface ChatCommand {
 	var privs: LuaMap<String, Bool>;
 	function func(name: String, args: String): CommandStatus;
 }
-
-@:final
-abstract class ChatCommandPatcher {
-	public static function patchWrapperClass(): Void {}
-}
