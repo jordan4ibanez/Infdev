@@ -156,8 +156,6 @@ class ItemDefinitionDuctTape {
 							expr: macro {
 								instance = Type.createInstance(Type.resolveClass($v{className}), []);
 
-								// todo: turn this into one function.
-
 								src.engine.definition.ItemDefinition.handleEveryItemType(
 									$i{wrapperClassName},
 									instance,
