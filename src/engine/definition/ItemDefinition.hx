@@ -165,6 +165,14 @@ class ItemDefinition {
 	// Only one because I ain't trying to figure out multiple fuel recipes.
 	public var recipeFuel: CraftRecipeFuel;
 
+	// registrationMethod is a lua function.
+	public static function handleEveryItemType(wrapperClass: Dynamic, instance: ItemDefinition, registrationMethod: Dynamic, registrationName: String,): Void {
+		patchWrapperClass(wrapperClass, instance);
+
+		// This automatically does the registration.
+		untyped __lua__('{0}({1},{2})', registrationMethod, registrationName, wrapperClass);
+	}
+
 	@:noCompletion
 	public static function patchWrapperClass(wrapperClass: Dynamic, instance: ItemDefinition): Void {
 		// This dumps the fields from the class defined into the wrapper class in lua.
