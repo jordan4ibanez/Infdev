@@ -1,12 +1,10 @@
 package src.engine;
 
-import Reflect;
 import haxe.Constraints.Function;
 import haxe.Rest;
 import haxe.extern.EitherType;
 import src.engine.compilercode.LuaArray;
 import src.engine.definition.basic.PointedThing;
-import src.engine.entity.LuaEntity;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefEntity;
 import src.engine.entity.objectref.ObjectRefPlayer;
@@ -20,7 +18,7 @@ extern class Core {
 	static function log(level: LogLevel, text: String): Void;
 
 	// This is the real function.
-	@:allow(src.engine.compilercode.EntityDuctTape)
+	@:noCompletion
 	static function register_entity(name: String, prototype: Dynamic): Void;
 
 	@:native("register_node")
