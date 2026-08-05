@@ -34,6 +34,8 @@ class EntityDuctTape {
 
 		for (meta in localClass.meta.get()) {
 			// trace(meta.name);
+
+			// It turns out that core.override_entity doesn't exist. I was going to put a todo here.
 			if (meta.name == ":register") {
 				final firstParameter = meta.params[0];
 				if (firstParameter == null) {
