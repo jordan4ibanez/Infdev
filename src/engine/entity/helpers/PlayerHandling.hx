@@ -14,6 +14,10 @@ final class PlayerHandling {
 
 		// Player LuaEntity creation.
 		Core.registerOnJoinPlayer((player, lastLogin) -> {
+			// This calls PlayerHandling.getGlobalLuaEntity.
+			// this -> ObjectRefPlayer -> this
+			// It cannot find it, so it creates it.
+			// You can go down to getGlobalLuaEntity to read how that works.
 			player.getLuaEntity();
 		});
 
