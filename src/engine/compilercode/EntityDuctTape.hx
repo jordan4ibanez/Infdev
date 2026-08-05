@@ -109,7 +109,48 @@ class EntityDuctTape {
 		final onActivate: Field = Lambda.find(fields, (f: Field) -> f.name == "onActivate");
 
 		if (onActivate == null) {
-			Context.warning("Class requires an onActivate method for Luanti compatibility. Your entity will not function properly without it.", localClass.pos);
+			Context.warning('Class ${className} requires an onActivate method for Luanti compatibility. Your entity will not function properly without it.', localClass.pos);
+		} else {
+			if (className != "src.engine.entity.LuaEntity") {
+				switch (onActivate.kind) {
+					case FFun(func):
+						var hasSuperCall = false;
+						var hasEntityPatch = false;
+						if (func.expr != null) {
+							switch (func.expr.expr) {
+								case EBlock(exprs):
+									if (exprs.length > 0) {
+										switch (exprs[0].expr) {
+											case ECall({expr: EField({expr: EConst(CIdent("super"))}, "onActivate")}, _):
+												hasSuperCall = true;
+											case _:
+										}
+									}
+									if (exprs.length > 1) {
+										var secondLineStr = haxe.macro.ExprTools.toString(exprs[1]);
+
+										if (secondLineStr == "src.engine.compilercode.Macros.entityPatch()"
+											|| secondLineStr == "Macros.entityPatch()") {
+											hasEntityPatch = true;
+										}
+									}
+								case _:
+									switch (func.expr.expr) {
+										case ECall({expr: EField({expr: EConst(CIdent("super"))}, "onActivate")}, _):
+											hasSuperCall = true;
+										case _:
+									}
+							}
+						}
+						if (!hasSuperCall) {
+							Context.warning('Class ${className} must call super.onActivate(staticData, dtimeS) as the first line in onActivate().', onActivate.pos);
+						} else if (!hasEntityPatch) {
+							Context.warning('Class ${className} must call src.engine.compilercode.Macros.entityPatch(); directly after super.onActivate().', onActivate.pos);
+						}
+					case _:
+						// The field is not a function. This should never happen.
+				}
+			}
 		}
 
 		// if (onActivate != null) {
