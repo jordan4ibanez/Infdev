@@ -12,6 +12,7 @@ import src.engine.metadata.NodeMetaRef;
 import src.engine.metadata.StorageRef;
 import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
+import src.game.entity.ItemEntity;
 
 @:native("core")
 extern class Core {
@@ -278,6 +279,15 @@ abstract class ModifyInternalLibrary {
 	}
 
 	static function deployModifications() {
-		trace("Time to modify");
+		Core.spawnItem = (pos: Vec3, item: EitherType<String, ObjectRefEntity>) -> {
+			// Take item in any format.
+			var stack = ItemStack.create(item);
+			var obj = Core.addEntity(pos, "__builtin:item");
+			// Don't use obj if it couldn't be added to the map.
+			if (obj != null) {
+				(cast obj.getLuaEntity() : ItemEntity).setItem(stack.toString());
+			}
+			return obj;
+		}
 	}
 }
