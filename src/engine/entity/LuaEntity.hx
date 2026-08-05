@@ -6,6 +6,7 @@ import src.engine.entity.definition.EntityCollisionBox;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefEntity;
 import src.engine.vector.Vec2;
+import src.engine.vector.Vec3;
 
 inline final MAX_ENTITY_LEVEL = MAX_LEVEL;
 
