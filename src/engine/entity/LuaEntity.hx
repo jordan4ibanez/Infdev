@@ -1,6 +1,7 @@
 package src.engine.entity;
 
 import src.engine.definition.basic.MaxLevel.MAX_LEVEL;
+import src.engine.definition.basic.ToolCapabilities;
 import src.engine.entity.definition.EntityCollisionBox;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefEntity;
@@ -76,14 +77,11 @@ abstract class LuaEntity {
 	@:native("on_deactivate")
 	public function onDeactivate(removal: Bool) {}
 
-	// todo: fix this dynamic mess.
-	// todo: fix return types.
-
 	@:native("on_step")
 	public function onStep(delta: Float, moveResult: MoveResult) {}
 
 	@:native("on_punch")
-	public function onPunch(puncher: Null<ObjectRefBase>, timeFromLastPunch: Float, toolCapabilities: Dynamic, dir: Dynamic, damager: Int) {}
+	public function onPunch(puncher: Null<ObjectRefBase>, timeFromLastPunch: Float, toolCapabilities: ToolCapabilities, dir: Vec3, damager: Int) {}
 
 	@:native("on_death")
 	public function onDeath(killer: Null<ObjectRefBase>) {}
