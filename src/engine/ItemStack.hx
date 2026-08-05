@@ -5,7 +5,7 @@ package src.engine;
 // https://github.com/luanti-org/luanti/blob/master/doc/lua_api.md#itemstack
 @:final
 abstract class ItemStack {
-	public static function create(itemName: String): ItemStack {
+	public static inline function create(itemName: String): ItemStack {
 		return untyped __lua__("ItemStack(itemName)");
 	}
 
