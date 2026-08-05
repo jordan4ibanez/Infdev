@@ -1,8 +1,8 @@
 package src.engine.entity.helpers;
 
-import src.game.entity.Player;
 import haxe.ds.StringMap;
 import src.engine.Core;
+import src.game.entity.Player;
 
 @:noCompletion
 final class PlayerHandling {
@@ -10,6 +10,10 @@ final class PlayerHandling {
 	static final PLAYER_DATA_KEY = "PlayerSerializedData__HAXE__";
 
 	static function __init__() {
+		loadUpHandler();
+	}
+
+	static function loadUpHandler() {
 		// trace("FIRING UP PLAYER HANDLING");
 
 		// Player LuaEntity creation.
