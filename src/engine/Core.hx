@@ -233,7 +233,12 @@ extern class Core {
 	@:native("get_day_count")
 	static function getDayCount(): Float;
 
+	@:native("spawn_item")
+	static function spawnItem(pos: Vec3, item: EitherType<String, ItemStack>): Null<ObjectRefEntity>;
+
+	// !
 	// ! Custom stuff below this.
+	// !
 	public static inline function getMapSeedString(): String {
 		return untyped __lua__('core.get_mapgen_setting("seed")');
 	}
