@@ -108,57 +108,61 @@ class EntityDuctTape {
 
 		final onActivate: Field = Lambda.find(fields, (f: Field) -> f.name == "onActivate");
 
-		if (onActivate != null) {
-			// Inject code into their existing method
-			switch (onActivate.kind) {
-				case FFun(func):
-					if (func.expr != null) {
-						var injectExpr = macro {
-							src.engine.compilercode.Macros.entityPatch();
-							// trace("Auto-injected on_activate into " + $v{className});
-						};
-
-						switch (func.expr.expr) {
-							case EBlock(exprs): exprs.unshift(injectExpr);
-
-							default: func.expr = macro {
-									$injectExpr;
-									${func.expr};
-								};
-						}
-					}
-				default:
-					Context.error("on_activate is wrong?", onActivate.pos);
-			}
-		} else {
-			var newFunction;
-
-			var access = localClass.superClass == null ? [APublic] : [APublic, AOverride];
-
-			if (localClass.superClass == null) {
-				newFunction = macro function(staticData: String, dtimeS: Float) {
-					src.engine.compilercode.engine.Macros.entityPatch();
-					// trace("Generated fallback on_activate for " + $v{className});
-				};
-			} else {
-				newFunction = macro function(staticData: String, dtimeS: Float) {
-					super.onActivate(staticData, dtimeS); // Super gets called first.
-					src.engine.compilercode.Macros.entityPatch();
-					// trace("Generated fallback on_activate for " + $v{className});
-				};
-			}
-			switch (newFunction.expr) {
-				case EFunction(_, func):
-					fields.push({
-						name: "onActivate",
-						access: access,
-						kind: FFun(func),
-						pos: Context.currentPos()
-					});
-				default:
-					Context.error("Something exploded in the entity duct tape patch.", Context.currentPos());
-			}
+		if (onActivate == null) {
+			Context.warning("Class requires an onActivate method for Luanti compatibility. Your entity will not function properly without it.", localClass.pos);
 		}
+
+		// if (onActivate != null) {
+		// 	// Inject code into their existing method
+		// 	switch (onActivate.kind) {
+		// 		case FFun(func):
+		// 			if (func.expr != null) {
+		// 				var injectExpr = macro {
+		// 					src.engine.compilercode.Macros.entityPatch();
+		// 					// trace("Auto-injected on_activate into " + $v{className});
+		// 				};
+
+		// 				switch (func.expr.expr) {
+		// 					case EBlock(exprs): exprs.unshift(injectExpr);
+
+		// 					default: func.expr = macro {
+		// 							$injectExpr;
+		// 							${func.expr};
+		// 						};
+		// 				}
+		// 			}
+		// 		default:
+		// 			Context.error("on_activate is wrong?", onActivate.pos);
+		// 	}
+		// } else {
+		// 	var newFunction;
+
+		// 	var access = localClass.superClass == null ? [APublic] : [APublic, AOverride];
+
+		// 	if (localClass.superClass == null) {
+		// 		newFunction = macro function(staticData: String, dtimeS: Float) {
+		// 			src.engine.compilercode.engine.Macros.entityPatch();
+		// 			// trace("Generated fallback on_activate for " + $v{className});
+		// 		};
+		// 	} else {
+		// 		newFunction = macro function(staticData: String, dtimeS: Float) {
+		// 			super.onActivate(staticData, dtimeS); // Super gets called first.
+		// 			src.engine.compilercode.Macros.entityPatch();
+		// 			// trace("Generated fallback on_activate for " + $v{className});
+		// 		};
+		// 	}
+		// 	switch (newFunction.expr) {
+		// 		case EFunction(_, func):
+		// 			fields.push({
+		// 				name: "onActivate",
+		// 				access: access,
+		// 				kind: FFun(func),
+		// 				pos: Context.currentPos()
+		// 			});
+		// 		default:
+		// 			Context.error("Something exploded in the entity duct tape patch.", Context.currentPos());
+		// 	}
+		// }
 
 		return fields;
 	}
