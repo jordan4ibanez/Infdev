@@ -8,7 +8,7 @@ import haxe.extern.EitherType;
 @:final
 abstract class ItemStack {
 	public static inline function create(itemName: EitherType<String, ItemStack>): ItemStack {
-		return untyped __lua__("ItemStack(itemName)");
+		return untyped __lua__("ItemStack({0})", itemName);
 	}
 
 	@:native("get_name")
