@@ -104,6 +104,8 @@ class EntityDuctTape {
 
 		// ? This converts a standard Haxe class into a Luanti compatible class.
 
+		// todo: this is absolutely horrible and breaks autocompletion
+
 		final onActivate: Field = Lambda.find(fields, (f: Field) -> f.name == "onActivate");
 
 		if (onActivate != null) {
