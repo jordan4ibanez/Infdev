@@ -233,6 +233,10 @@ extern class Core {
 	@:native("get_day_count")
 	static function getDayCount(): Float;
 
+	@:native("add_entity")
+	static function addEntity(pos: Vec3, name: String, ?staticData: String): Null<ObjectRefEntity>;
+
+	// ! Only overrideable functions below this.
 	@:native("spawn_item")
 	dynamic static function spawnItem(pos: Vec3, item: EitherType<String, ItemStack>): Null<ObjectRefEntity>;
 
