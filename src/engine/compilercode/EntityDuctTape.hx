@@ -114,38 +114,39 @@ class EntityDuctTape {
 			if (className != "src.engine.entity.LuaEntity") {
 				switch (onActivate.kind) {
 					case FFun(func):
-						var hasSuperCall = false;
 						var hasEntityPatch = false;
+						var hasSuperCall = false;
 						if (func.expr != null) {
 							switch (func.expr.expr) {
 								case EBlock(exprs):
 									if (exprs.length > 0) {
-										switch (exprs[0].expr) {
+										var firstLineStr = haxe.macro.ExprTools.toString(exprs[0]);
+										if (firstLineStr == "src.engine.compilercode.Macros.entityPatch()"
+											|| firstLineStr == "Macros.entityPatch()") {
+											hasEntityPatch = true;
+										}
+									}
+
+									if (exprs.length > 1) {
+										switch (exprs[1].expr) {
 											case ECall({expr: EField({expr: EConst(CIdent("super"))}, "onActivate")}, _):
 												hasSuperCall = true;
 											case _:
 										}
 									}
-									if (exprs.length > 1) {
-										var secondLineStr = haxe.macro.ExprTools.toString(exprs[1]);
-
-										if (secondLineStr == "src.engine.compilercode.Macros.entityPatch()"
-											|| secondLineStr == "Macros.entityPatch()") {
-											hasEntityPatch = true;
-										}
-									}
 								case _:
-									switch (func.expr.expr) {
-										case ECall({expr: EField({expr: EConst(CIdent("super"))}, "onActivate")}, _):
-											hasSuperCall = true;
-										case _:
+									var singleLineStr = haxe.macro.ExprTools.toString(func.expr);
+									if (singleLineStr == "src.engine.compilercode.Macros.entityPatch()"
+										|| singleLineStr == "Macros.entityPatch()") {
+										hasEntityPatch = true;
 									}
 							}
 						}
-						if (!hasSuperCall) {
-							Context.warning('Class ${className} must call super.onActivate(staticData, dtimeS) as the first line in onActivate().', onActivate.pos);
-						} else if (!hasEntityPatch) {
-							Context.warning('Class ${className} must call src.engine.compilercode.Macros.entityPatch(); directly after super.onActivate().', onActivate.pos);
+
+						if (!hasEntityPatch) {
+							Context.warning('Class ${className} must call src.engine.compilercode.Macros.entityPatch(); as the first line in onActivate().', onActivate.pos);
+						} else if (!hasSuperCall) {
+							Context.warning('Class ${className} must call super.onActivate(staticData, dtimeS) directly after Macros.entityPatch().', onActivate.pos);
 						}
 					case _:
 						// The field is not a function. This should never happen.
