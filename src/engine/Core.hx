@@ -258,3 +258,17 @@ extern class Global {
 	static function dump(a: Rest<Any>): String;
 	static function dump2(a: Rest<Any>): String;
 }
+
+// ! Specialty functions. These change the way the game engine's base lua library functions.
+
+@:final
+@:noCompletion
+abstract class ModifyInternalLibrary {
+	static function __init__() {
+		deployModifications();
+	}
+
+	static function deployModifications() {
+		trace("Time to modify");
+	}
+}
