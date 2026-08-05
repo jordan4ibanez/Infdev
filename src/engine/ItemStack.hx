@@ -9,6 +9,12 @@ abstract class ItemStack {
 		return untyped __lua__("ItemStack(itemName)");
 	}
 
+	@:native("get_name")
+	public abstract function getName(): String;
+
+	@:native("set_name")
+	public abstract function setName(itemName: String): Void;
+
 	@:native("set_count")
 	public abstract function setCount(count: Int): Void;
 
