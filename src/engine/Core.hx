@@ -234,7 +234,7 @@ extern class Core {
 	static function getDayCount(): Float;
 
 	@:native("spawn_item")
-	static function spawnItem(pos: Vec3, item: EitherType<String, ItemStack>): Null<ObjectRefEntity>;
+	dynamic static function spawnItem(pos: Vec3, item: EitherType<String, ItemStack>): Null<ObjectRefEntity>;
 
 	// !
 	// ! Custom stuff below this.
