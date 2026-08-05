@@ -32,6 +32,9 @@ abstract class ItemStack {
 	@:native("set_wear")
 	public abstract function setWear(wear: Int): Void;
 
+	@:native("to_string")
+	public abstract function toString(): String;
+
 	// @:native("")
 	// public abstract function setMetadata(metadata: String): Void;
 }
