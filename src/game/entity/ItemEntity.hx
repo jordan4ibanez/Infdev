@@ -348,28 +348,30 @@ class ItemEntity extends LuaEntity {
 	override function onPunch(puncher:Null<ObjectRefBase>, timeFromLastPunch:Float, toolCapabilities:ToolCapabilities, dir:Vec3, damager:Int) {
 		super.onPunch(puncher, timeFromLastPunch, toolCapabilities, dir, damager);
 
-		if this.itemstring == "" then
-			this.object:remove()
-			return
-		end
+		if (this.itemstring == "") {
+			this.object.remove();
+			return;
+		}
 
 		// Call on_pickup callback in item definition.
-		local itemstack = ItemStack(this.itemstring)
-		local callback = itemstack:get_definition().on_pickup
+		var itemstack = ItemStack(this.itemstring);
+		var callback = itemstack.get_definition().on_pickup;
 
-		local ret = callback(itemstack, hitter, {type = "object", ref = this.object}, ...)
-		if not ret then
-			// Don't modify (and don't reset rotation)
-			return
-		end
-		itemstack = ItemStack(ret)
+		// todo: this ended with: , ...
+		var ret = callback(itemstack, hitter, {type : "object", ref : this.object});
+
+		if (!ret) {
+			// Don't modify (and don't reset rotation).
+			return;
+		}
+		itemstack = ItemStack(ret);
 
 		// Handle the leftover itemstack
-		if itemstack:is_empty() then
-			this.itemstring = ""
-			this.object:remove()
-		else
-			self:set_item(itemstack)
-		end
+		if (itemstack.is_empty()) {
+			this.itemstring = "";
+			this.object.remove();
+		}else{
+			this.set_item(itemstack);
+		}
 	}
 }
