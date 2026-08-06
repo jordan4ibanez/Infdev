@@ -27,7 +27,7 @@ class ItemEntity extends LuaEntity {
 
 		this.itemstring = stack.toString();
 		if (this.itemstring == "") {
-			// item not yet known.
+			// Item not yet known.
 			return;
 		}
 
