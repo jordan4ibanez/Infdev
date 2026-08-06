@@ -1,5 +1,6 @@
 package src.game.entity;
 
+import src.engine.compilercode.LuaLoop;
 import haxe.extern.EitherType;
 import lua.Math;
 import src.engine.Core;
@@ -265,27 +266,29 @@ class ItemEntity extends LuaEntity {
 				}
 			}
 
-			if shootdir then
-				// Set new item moving speed accordingly
-				local newv = vector.multiply(shootdir, 3)
-				self:disable_physics()
-				this.object:set_velocity(newv)
+			if (shootdir != null) {
+				// Set new item moving speed accordingly.
+				var newv = vector.multiply(shootdir, 3);
+				this.disable_physics();
+				this.object.set_velocity(newv);
 
-				this.force_out = newv
-				this.force_out_start = vector.round(pos)
-				return
-			end
+				this.force_out = newv;
+				this.force_out_start = vector.round(pos);
+				return;
+			}
 		}
 
-		node = nil // ground node we're colliding with
-		if moveresult.touching_ground then
-			for _, info in ipairs(moveresult.collisions) do
-				if info.axis == "y" then
-					node = core.get_node(info.node_pos)
-					break
-				end
-			end
-		end
+		// Ground node we're colliding with.
+		node = null;
+		if (moveresult.touching_ground) {
+			LuaLoop.nativeIpairs(_, info, moveresult.collisions,{
+				if (info.axis == "y") {
+					node = core.get_node(info.node_pos);
+					LuaLoop.breakLoop();
+					
+				}
+			});
+		}
 
 		// Slide on slippery nodes
 		local def = node and core.registered_nodes[node.name]
