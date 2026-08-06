@@ -111,7 +111,7 @@ class ItemEntity extends LuaEntity {
 		if (own_stack.getName() != name
 			|| own_stack.getMeta() != stack.getMeta()
 			|| own_stack.getWear() != stack.getWear()
-			|| own_stack.get_free_space() == 0) {
+			|| own_stack.getFreeSpace() == 0) {
 			// Cannot merge different or full stack.
 			return false;
 		}
