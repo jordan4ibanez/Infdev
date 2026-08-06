@@ -97,7 +97,7 @@ class LuaLoop {
 	 * @param tableExpr The LuaMap or Table to iterate
 	 * @param body The code block
 	 */
-	public static macro function nativePairs(keyVar: Expr, valVar: Expr, tableExpr: Expr, body: Expr): Expr {
+	public static macro function nativeIpairs(keyVar: Expr, valVar: Expr, tableExpr: Expr, body: Expr): Expr {
 		var kName = switch keyVar.expr {
 			case EConst(CIdent(n)): n;
 			default: Context.error("Key must be identifier", keyVar.pos);
