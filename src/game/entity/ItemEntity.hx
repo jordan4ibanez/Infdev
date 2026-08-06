@@ -99,11 +99,12 @@ class ItemEntity extends LuaEntity {
 		this.setItem();
 	}
 
-	function tryMergeWith(ownStack, object: ObjectRefBase): Bool {
-		if self.age == entity.age then
+	function tryMergeWith(ownStack, object: ObjectRefBase, entity: ItemEntity): Bool {
+		// todo: update this to use the object UUID.
+		if (self.age == entity.age) {
 			// Cannot merge with itself
 			return false
-		end
+		}
 
 		local stack = ItemStack(entity.itemstring)
 		local name = stack:get_name()
