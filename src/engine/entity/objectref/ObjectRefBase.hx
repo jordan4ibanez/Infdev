@@ -88,6 +88,8 @@ abstract class ObjectRefBase {
 	@:native("set_wielded_item")
 	public abstract function setWieldedItem(item: Dynamic, skipAnimation: Bool): Void;
 
+	// todo: armor groups should be defined somewhere in the game code.
+
 	@:native("get_armor_groups")
 	public abstract function getArmorGroups(): LuaMap<String, Int>;
 
