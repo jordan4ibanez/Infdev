@@ -6,6 +6,7 @@ import haxe.extern.EitherType;
 import lua.Table;
 import src.engine.compilercode.LuaArray;
 import src.engine.definition.ItemDefinition;
+import src.engine.definition.NodeDefinition;
 import src.engine.definition.basic.PointedThing;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefEntity;
@@ -21,6 +22,9 @@ extern class Core {
 	// This may cause issues if you try to run functions.
 	@:native("registered_items")
 	static final registeredItems: Table<String, ItemDefinition>;
+
+	@:native("registered_nodes")
+	static final registeredNodes: Table<String, NodeDefinition>;
 
 	static final settings: EngineSettings;
 
