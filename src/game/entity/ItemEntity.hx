@@ -82,7 +82,7 @@ class ItemEntity extends LuaEntity {
 
 	static final time_to_live: Float = 900;
 
-	static final defaultCollisionBox: EntityCollisionBox = new EntityCollisionBox(-0.3, -0.3, -0.3, 0.3, 0.3, 0.3);
+	static final defaultCollisionBox: EntityCollisionBox = new EntityCollisionBox(-0.3, 0.0, -0.3, 0.3, 0.6, 0.3);
 
 	function updateVisualEntity(itemname: String, glow: Int): Void {
 		if (this.visualEntity == null || !this.visualEntity.isValid()) {
@@ -121,13 +121,13 @@ class ItemEntity extends LuaEntity {
 
 		// Small random bias to counter Z-fighting.
 		var size_bias = 1e-3 * Math.random();
-		var c = new EntityCollisionBox(-size, -size, -size, size, size, size);
+
+		this.setSize(size, size * 2);
 
 		// The entity visual inherits this size.
 		this.object.setProperties({
 			visual: EntityVisualMesh,
 			visual_size: new Vec2(size + size_bias, size + size_bias),
-			collisionbox: c,
 			mesh: "infdev_item_entity.gltf",
 			infotext: stack.getDescription(),
 			pointable: true
@@ -138,7 +138,7 @@ class ItemEntity extends LuaEntity {
 		this.object.playAnimation("item_spin", {speed: 0.4});
 
 		// Cache for usage in on_step.
-		this._collisionbox = c;
+		this._collisionbox = new EntityCollisionBox(-size, 0, -size, size, size * 2, size);
 	}
 
 	override function getStaticData(): String {
@@ -153,12 +153,13 @@ class ItemEntity extends LuaEntity {
 			hp_max: 1,
 			physical: true,
 			collide_with_objects: false,
-			collisionbox: defaultCollisionBox,
 			visual: EntityVisualMesh,
 			visual_size: new Vec2(0.4, 0.4),
 			mesh: "infdev_item_entity.gltf",
 			is_visible: true,
 		});
+
+		this.setSize(0.6, 0.6);
 
 		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
 
