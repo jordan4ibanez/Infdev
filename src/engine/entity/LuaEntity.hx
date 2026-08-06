@@ -1,5 +1,6 @@
 package src.engine.entity;
 
+import src.engine.compilercode.Macros;
 import src.engine.definition.basic.MaxLevel.MAX_LEVEL;
 import src.engine.definition.basic.ToolCapabilities;
 import src.engine.entity.definition.EntityCollisionBox;
@@ -9,6 +10,14 @@ import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
 
 inline final MAX_ENTITY_LEVEL = MAX_LEVEL;
+
+@:register("infdev:entity_shadow")
+class EntityShadow extends LuaEntity {
+	override function onActivate(staticData: String, dtimeS: Float) {
+		Macros.entityPatch();
+		super.onActivate(staticData, dtimeS);
+	}
+}
 
 @:autoBuild(src.engine.compilercode.EntityDuctTape.build())
 @:build(src.engine.compilercode.EntityDuctTape.build())
