@@ -27,6 +27,8 @@ class ItemEntity extends LuaEntity {
 	var force_out_start = null;
 	var _collisionbox: EntityCollisionBox = null;
 
+	static final time_to_live: Float = 900;
+
 	static final defaultCollisionBox: EntityCollisionBox = new EntityCollisionBox(-0.3, -0.3, -0.3, 0.3, 0.3, 0.3);
 
 	@:native("set_item")
@@ -165,20 +167,20 @@ class ItemEntity extends LuaEntity {
 	override function onStep(delta:Float, moveResult:MoveResult) {
 		super.onStep(delta, moveResult);
 
-		this.age = this.age + dtime
+		this.age += dtime;
 
-		if time_to_live > 0 and this.age > time_to_live then
-			this.itemstring = ""
-			this.object:remove()
-			return
-		end
+		if (time_to_live > 0 && this.age > time_to_live) {
+			this.itemstring = "";
+			this.object.remove();
+			return;
+		}
 
-		local pos = this.object:get_pos()
-		local node = core.get_node_or_nil({
-			x = pos.x,
-			y = pos.y + this._collisionbox[2] - 0.05,
-			z = pos.z
-		})
+		var pos = this.object.get_pos();
+		var node = core.get_node_or_nil(new Vec3(
+			pos.x,
+			pos.y + this._collisionbox[2] - 0.05,
+			pos.z
+		));
 		// Delete in 'ignore' nodes
 		if node and node.name == "ignore" then
 			this.itemstring = ""
