@@ -108,9 +108,9 @@ class ItemEntity extends LuaEntity {
 
 		var stack = ItemStack.create(entity.itemstring);
 		var name = stack.getName();
-		if (own_stack.get_name() != name
-			|| own_stack.get_meta() != stack.get_meta()
-			|| own_stack.get_wear() != stack.get_wear()
+		if (own_stack.getName() != name
+			|| own_stack.getMeta() != stack.getMeta()
+			|| own_stack.getWear() != stack.getWear()
 			|| own_stack.get_free_space() == 0) {
 			// Cannot merge different or full stack.
 			return false;
