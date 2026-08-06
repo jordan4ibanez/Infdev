@@ -22,6 +22,8 @@ extern class Core {
 	@:native("registered_items")
 	static final registeredItems: Table<String, ItemDefinition>;
 
+	static final settings: EngineSettings;
+
 	static function log(level: LogLevel, text: String): Void;
 
 	// This is the real function.
