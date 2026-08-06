@@ -16,6 +16,16 @@ class EntityShadow extends LuaEntity {
 	override function onActivate(staticData: String, dtimeS: Float) {
 		Macros.entityPatch();
 		super.onActivate(staticData, dtimeS);
+
+		this.object.setProperties({
+			physical: false,
+			collide_with_objects: false,
+			visual: EntityVisualMesh,
+			mesh: "infdev_entity_shadow.gltf",
+			textures: ["infdev_entity_shadow.png"],
+			is_visible: true,
+			pointable: false
+		});
 	}
 }
 
