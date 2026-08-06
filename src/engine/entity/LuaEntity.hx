@@ -84,7 +84,9 @@ abstract class LuaEntity {
 			Core.log(LogLevelError, 'Tried to spawn entity shadow at ${this.object.getPos()} but it became null instantly.');
 			return;
 		}
-		this.setShadowSize(size);
+		if (size != null) {
+			this.setShadowSize(size);
+		}
 	}
 
 	public function setShadowSize(size: Float): Void {
