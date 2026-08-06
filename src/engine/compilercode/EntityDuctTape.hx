@@ -123,44 +123,73 @@ class EntityDuctTape {
 			Context.warning('Class ${className} requires an onActivate method for Luanti compatibility. Your entity will not function properly without it.', localClass.pos);
 		} else {
 			if (className != "src.engine.entity.LuaEntity") {
-				switch (onActivate.kind) {
-					case FFun(func):
-						var hasEntityPatch = false;
-						var hasSuperCall = false;
-						if (func.expr != null) {
-							switch (func.expr.expr) {
-								case EBlock(exprs):
-									if (exprs.length > 0) {
-										var firstLineStr = haxe.macro.ExprTools.toString(exprs[0]);
-										if (firstLineStr == "src.engine.compilercode.Macros.entityPatch()"
-											|| firstLineStr == "Macros.entityPatch()") {
+				if (isEntityRoot) {
+					switch (onActivate.kind) {
+						case FFun(func):
+							var hasSuperCall = false;
+							if (func.expr != null) {
+								var firstExpr = switch (func.expr.expr) {
+									case EBlock(exprs) if (exprs.length > 0):
+										exprs[0];
+									case EBlock(_):
+										null;
+									case _:
+										func.expr;
+								};
+								if (firstExpr != null) {
+									switch (firstExpr.expr) {
+										case ECall({expr: EField({expr: EConst(CIdent("super"))}, "onActivate")}, _):
+											hasSuperCall = true;
+										case _:
+									}
+								}
+							}
+							if (!hasSuperCall) {
+								Context.warning('Class ${className} must call super.onActivate(staticData, dtimeS) as the first line in onActivate().', onActivate.pos);
+							}
+						case _:
+							// The field is not a function. This should never happen.
+					}
+				} else {
+					switch (onActivate.kind) {
+						case FFun(func):
+							var hasEntityPatch = false;
+							var hasSuperCall = false;
+							if (func.expr != null) {
+								switch (func.expr.expr) {
+									case EBlock(exprs):
+										if (exprs.length > 0) {
+											var firstLineStr = haxe.macro.ExprTools.toString(exprs[0]);
+											if (firstLineStr == "src.engine.compilercode.Macros.entityPatch()"
+												|| firstLineStr == "Macros.entityPatch()") {
+												hasEntityPatch = true;
+											}
+										}
+
+										if (exprs.length > 1) {
+											switch (exprs[1].expr) {
+												case ECall({expr: EField({expr: EConst(CIdent("super"))}, "onActivate")}, _):
+													hasSuperCall = true;
+												case _:
+											}
+										}
+									case _:
+										var singleLineStr = haxe.macro.ExprTools.toString(func.expr);
+										if (singleLineStr == "src.engine.compilercode.Macros.entityPatch()"
+											|| singleLineStr == "Macros.entityPatch()") {
 											hasEntityPatch = true;
 										}
-									}
-
-									if (exprs.length > 1) {
-										switch (exprs[1].expr) {
-											case ECall({expr: EField({expr: EConst(CIdent("super"))}, "onActivate")}, _):
-												hasSuperCall = true;
-											case _:
-										}
-									}
-								case _:
-									var singleLineStr = haxe.macro.ExprTools.toString(func.expr);
-									if (singleLineStr == "src.engine.compilercode.Macros.entityPatch()"
-										|| singleLineStr == "Macros.entityPatch()") {
-										hasEntityPatch = true;
-									}
+								}
 							}
-						}
 
-						if (!hasEntityPatch) {
-							Context.warning('Class ${className} must call src.engine.compilercode.Macros.entityPatch(); as the first line in onActivate().', onActivate.pos);
-						} else if (!hasSuperCall) {
-							Context.warning('Class ${className} must call super.onActivate(staticData, dtimeS) directly after Macros.entityPatch().', onActivate.pos);
-						}
-					case _:
-						// The field is not a function. This should never happen.
+							if (!hasEntityPatch) {
+								Context.warning('Class ${className} must call src.engine.compilercode.Macros.entityPatch(); as the first line in onActivate().', onActivate.pos);
+							} else if (!hasSuperCall) {
+								Context.warning('Class ${className} must call super.onActivate(staticData, dtimeS) directly after Macros.entityPatch().', onActivate.pos);
+							}
+						case _:
+							// The field is not a function. This should never happen.
+					}
 				}
 			}
 		}
