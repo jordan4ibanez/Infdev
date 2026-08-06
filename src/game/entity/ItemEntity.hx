@@ -247,7 +247,6 @@ class ItemEntity extends LuaEntity {
 			];
 
 			// Check which one of the 4 sides is free.
-			// todo: this is just looping through the order I'm not sure why it's written like this.
 			for (direction in order) {
 				var cnode = Core.getNode(pos.add(direction)).name;
 				var cdef = Core.registeredNodes[cast cnode];
