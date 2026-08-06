@@ -253,7 +253,7 @@ class ItemEntity extends LuaEntity {
 		var pos = this.object.getPos();
 		var node = Core.getNodeOrNull(new Vec3(
 			pos.x,
-			pos.y + this._collisionbox[1] - 0.05,
+			pos.y - 0.05,
 			pos.z
 		));
 		// Delete in 'ignore' nodes
