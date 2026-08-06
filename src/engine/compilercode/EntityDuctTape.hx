@@ -113,9 +113,7 @@ class EntityDuctTape {
 			}
 		}
 
-		// ? This converts a standard Haxe class into a Luanti compatible class.
-
-		// todo: this is absolutely horrible and breaks autocompletion
+		// ? This enforces conversion of a standard Haxe class instance into a Luanti compatible lua table.
 
 		final onActivate: Field = Lambda.find(fields, (f: Field) -> f.name == "onActivate");
 
