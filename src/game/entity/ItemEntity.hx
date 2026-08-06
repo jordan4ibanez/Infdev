@@ -20,6 +20,23 @@ import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
 
+// This is the entity that gets mounted to the item's bone. It allows the item to have a cool visual.
+
+@:register("infdev:item_entity_visual")
+class ItemEntityVisual extends LuaEntity {
+	override function onActivate(staticData: String, dtimeS: Float) {
+		Macros.entityPatch();
+		super.onActivate(staticData, dtimeS);
+
+		this.object.setProperties({
+			pointable: false,
+			static_save: false,
+			visual: EntityVisualWieldItem,
+			wield_item: "infdev:oracle_pickaxe"
+		});
+	}
+}
+
 @:register(":__builtin:item")
 class ItemEntity extends LuaEntity {
 	var itemstring = "";
