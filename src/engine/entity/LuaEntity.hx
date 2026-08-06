@@ -85,6 +85,16 @@ abstract class LuaEntity {
 		}
 	}
 
+	public function setShadowSize(size: Float): Void {
+		if (this.shadowEntity == null) {
+			Core.log(LogLevelError, 'Tried to set shadow size when the shadow entity doesn\'t exist. ${this.name}');
+			return;
+		}
+		this.shadowEntity.setProperties({
+			visual_size: new Vec3(size, size, size)
+		});
+	}
+
 	// ? Here begins programmer facing overrideable methods.
 
 	@:native("on_activate")
