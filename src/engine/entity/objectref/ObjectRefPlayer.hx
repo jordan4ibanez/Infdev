@@ -221,7 +221,7 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	@:native("set_flags")
 	public abstract function setFlags(flags: PlayerFlags): Void;
 
-	public inline function getLuaEntity(): Player {
+	public inline function getPlayerLuaEntity(): Player {
 		return PlayerHandling.getGlobalLuaEntity(this.getPlayerName());
 	}
 }
