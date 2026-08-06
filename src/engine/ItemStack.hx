@@ -40,6 +40,9 @@ abstract class ItemStack {
 	@:native("is_known")
 	public abstract function isKnown(): Bool;
 
+	@:native("get_stack_max")
+	public abstract function getStackMax(): Int;
+
 	// @:native("")
 	// public abstract function setMetadata(metadata: String): Void;
 }
