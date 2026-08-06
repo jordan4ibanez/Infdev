@@ -1,11 +1,14 @@
 package src.engine;
 
+import lua.Lua;
+
 @:final
 abstract class GameInfo {
 	// This is for things specifically unavailable during runtime.
 	public static final modName = Core.getCurrentModName();
 	public static final path = Core.getModPath(modName);
 	public static inline final schematicPath: String = "schematics/";
+	public static final gravity: Float = Lua.tonumber(cast Core.settings.get("movement_gravity")) ?? 9.81;
 
 	// This is a custom hack job to implement somewhat random noise values per world.
 	public static function getMapSeed(): Int {
