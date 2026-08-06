@@ -249,11 +249,10 @@ class ItemEntity extends LuaEntity {
 			// Check which one of the 4 sides is free.
 			// todo: this is just looping through the order I'm not sure why it's written like this.
 			for (direction in order) {
-				// for o = 1, #order do
-				var cnode = core.get_node(pos.add(direction)).name;
-				var cdef = core.registered_nodes[cnode] ?? {};
-				if (cnode != "ignore" && cdef.walkable == false) {
-					shootdir = order[o];
+				var cnode = Core.getNode(pos.add(direction)).name;
+				var cdef = Core.registeredNodes[cast cnode];
+				if (cnode != "ignore" && (cdef == null || cdef.walkable == false)) {
+					shootdir = direction;
 					break;
 				}
 			}
