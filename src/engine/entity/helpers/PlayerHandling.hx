@@ -2,7 +2,7 @@ package src.engine.entity.helpers;
 
 import haxe.ds.StringMap;
 import src.engine.Core;
-import src.game.entity.Player;
+import src.game.entity.player.Player;
 
 @:noCompletion
 final class PlayerHandling {

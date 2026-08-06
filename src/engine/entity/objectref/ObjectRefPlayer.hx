@@ -9,7 +9,7 @@ import src.engine.entity.helpers.PlayerHandling;
 import src.engine.metadata.PlayerMetaRef;
 import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
-import src.game.entity.Player;
+import src.game.entity.player.Player;
 
 @:final
 @:multiReturn

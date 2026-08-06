@@ -6,7 +6,7 @@ import src.engine.compilercode.Macros;
 import src.engine.entity.MoveResult;
 import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
-import src.game.entity.Player.PlayerAnimation;
+import src.game.entity.player.Player.PlayerAnimation;
 
 @:build(src.engine.compilercode.EnumMacro.decorate())
 private enum abstract MobState(String) to String {
