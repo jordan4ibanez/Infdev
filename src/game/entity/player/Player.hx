@@ -1,10 +1,11 @@
-package src.game.entity;
+package src.game.entity.player;
 
 import lua.Lua;
 import src.engine.compilercode.Macros;
 import src.engine.entity.definition.PlayerControl;
 import src.engine.entity.helpers.EntitySerialization;
 import src.engine.entity.objectref.ObjectRefBase;
+import src.engine.entity.objectref.ObjectRefEntity;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.player.PlayerInformation;
 import src.engine.player.PlayerWindowInformation;
@@ -27,6 +28,9 @@ final class Player {
 	public var object: ObjectRefPlayer = null;
 
 	var name: String;
+
+	var shadowEntity: Null<ObjectRefEntity> = null;
+
 	// ? Animation stuff.
 	var mining: Bool;
 	var wasMining: Bool;
