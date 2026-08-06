@@ -145,7 +145,7 @@ class ItemEntity extends LuaEntity {
 		this._collisionbox = defaultCollisionBox;
 		this.setItem();
 
-		var visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual");
+		var visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
 		// The entity may disappear immediately.
 		if (visualEntity != null) {
 			visualEntity.setAttach(this.object, "magic_item_floater", new Vec3(0, 0, 0), new Vec3(0, 0, 0), true);
