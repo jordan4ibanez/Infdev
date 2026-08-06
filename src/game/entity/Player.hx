@@ -27,24 +27,18 @@ final class Player {
 	public var object: ObjectRefPlayer = null;
 
 	var name: String;
-	// ? State bools.
+	// ? Animation stuff.
 	var mining: Bool;
 	var wasMining: Bool;
-
 	var placing: Bool;
 	var wasPlacing: Bool;
-
 	var walking: Bool;
 	var wasWalking: Bool;
-
 	var sneaking: Bool;
 	var wasSneaking: Bool;
-
 	var animationTimer: Float = 0.0;
-
 	// Stop looking at my hackjob.
 	var animationPriority = -2_147_483_648;
-
 	var oldLookPitch = 0.0;
 
 	@:allow(src.engine.entity.helpers.PlayerHandling)
