@@ -27,6 +27,7 @@ class ItemEntity extends LuaEntity {
 			return;
 		}
 
+		// todo: break this.
 		// Backwards compatibility: old clients use the texture
 		// to get the type of the item
 		var itemname = stack.is_known() ? stack.get_name() : "unknown";
