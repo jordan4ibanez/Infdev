@@ -11,6 +11,8 @@ abstract class ItemStack {
 		return untyped __lua__("ItemStack({0})", itemName);
 	}
 
+	// todo: put these in order and complete this.
+
 	@:native("get_name")
 	public abstract function getName(): String;
 
@@ -34,6 +36,9 @@ abstract class ItemStack {
 
 	@:native("to_string")
 	public abstract function toString(): String;
+
+	@:native("is_known")
+	public abstract function isKnown(): Bool;
 
 	// @:native("")
 	// public abstract function setMetadata(metadata: String): Void;
