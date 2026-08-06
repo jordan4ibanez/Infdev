@@ -1,7 +1,7 @@
 package src.game.entity;
 
-import lua.Lua;
 import haxe.extern.EitherType;
+import lua.Lua;
 import lua.Math;
 import src.engine.Core;
 import src.engine.GameInfo;
@@ -177,10 +177,10 @@ class ItemEntity extends LuaEntity {
 			return;
 		}
 
-		var pos = this.object.get_pos();
-		var node = core.get_node_or_nil(new Vec3(
+		var pos = this.object.getPos();
+		var node = Core.getNodeOrNull(new Vec3(
 			pos.x,
-			pos.y + this._collisionbox[2] - 0.05,
+			pos.y + this._collisionbox[1] - 0.05,
 			pos.z
 		));
 		// Delete in 'ignore' nodes
