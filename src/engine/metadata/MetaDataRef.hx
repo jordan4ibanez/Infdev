@@ -3,6 +3,7 @@ package src.engine.metadata;
 import lua.Table;
 import src.engine.compilercode.LuaArray;
 
+@:final
 abstract class MetaDataRef {
 	@:native("contains")
 	public abstract function contains(key: String): Bool;

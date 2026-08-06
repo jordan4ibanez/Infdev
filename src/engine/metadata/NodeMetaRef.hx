@@ -1,5 +1,6 @@
 package src.engine.metadata;
 
+@:final
 abstract class NodeMetaRef extends MetaDataRef {
 	@:native("get_inventory")
 	public abstract function getInventory(): InvRef;
