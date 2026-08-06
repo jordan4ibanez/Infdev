@@ -5,6 +5,7 @@ import src.engine.compilercode.Macros;
 import src.engine.entity.LuaEntity;
 import src.engine.entity.definition.EntityCollisionBox;
 import src.engine.vector.Vec2;
+import lua.Math;
 
 @:register(":__builtin:item")
 class ItemEntity extends LuaEntity {
@@ -32,8 +33,8 @@ class ItemEntity extends LuaEntity {
 		// to get the type of the item
 		var itemname = stack.isKnown() ? stack.getName() : "unknown";
 
-		var max_count = stack.get_stack_max();
-		var count = math.min(stack.get_count(), max_count);
+		var max_count = stack.getStackMax();
+		var count = Math.min(stack.getCount(), max_count);
 		var size = 0.2 + 0.1 * (count / max_count) ^ (1 / 3);
 		// todo: use get_definition
 		var def = core.registered_items[itemname];
