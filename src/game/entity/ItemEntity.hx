@@ -106,7 +106,7 @@ class ItemEntity extends LuaEntity {
 			return false;
 		}
 
-		var stack = ItemStack(entity.itemstring);
+		var stack = ItemStack.create(entity.itemstring);
 		var name = stack.getName();
 		if (own_stack.get_name() != name
 			|| own_stack.get_meta() != stack.get_meta()
