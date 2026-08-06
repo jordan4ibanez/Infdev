@@ -18,6 +18,7 @@ abstract class GameInfo {
 		return output;
 	};
 
+	// Below this is a custom monstrosity to get the local count at any point in this haxe code.
 	static var DEBUG_MODE = true;
 
 	static var insecureContainer: Dynamic = untyped compilerDebugUnsafeEnvironment;
