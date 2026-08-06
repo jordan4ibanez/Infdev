@@ -77,7 +77,7 @@ class ItemEntity extends LuaEntity {
 	// Pushing item out of solid nodes.
 	var force_out: Null<Vec3> = null;
 	var force_out_start: Null<Vec3> = null;
-	var _collisionbox: EntityCollisionBox = null;
+	var collisionboxCache: EntityCollisionBox = null;
 	var visualEntity: Null<ObjectRefEntity> = null;
 
 	static final time_to_live: Float = 900;
@@ -138,7 +138,7 @@ class ItemEntity extends LuaEntity {
 		this.object.playAnimation("item_spin", {speed: 0.4});
 
 		// Cache for usage in on_step.
-		this._collisionbox = this.object.getProperties().collisionbox;
+		this.collisionboxCache = this.object.getProperties().collisionbox;
 	}
 
 	override function getStaticData(): String {
@@ -166,7 +166,7 @@ class ItemEntity extends LuaEntity {
 		this.object.setArmorGroups(["immortal" => 1]);
 		this.object.setVelocity(new Vec3(0, 2, 0));
 		this.object.setAcceleration(new Vec3(0, -GameInfo.gravity, 0));
-		this._collisionbox = this.object.getProperties().collisionbox;
+		this.collisionboxCache = this.object.getProperties().collisionbox;
 
 		this.visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
 		// The entity may disappear immediately.
@@ -271,7 +271,7 @@ class ItemEntity extends LuaEntity {
 		if (this.force_out != null) {
 			// This code runs after the entity got a push from the is_stuck code.
 			// It makes sure the entity is entirely outside the solid node
-			var c = this._collisionbox;
+			var c = this.collisionboxCache;
 			var s = this.force_out_start;
 			var f = this.force_out;
 
