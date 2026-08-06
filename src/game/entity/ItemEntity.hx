@@ -1,11 +1,11 @@
 package src.game.entity;
 
+import lua.Math;
 import src.engine.ItemStack;
 import src.engine.compilercode.Macros;
 import src.engine.entity.LuaEntity;
 import src.engine.entity.definition.EntityCollisionBox;
 import src.engine.vector.Vec2;
-import lua.Math;
 
 @:register(":__builtin:item")
 class ItemEntity extends LuaEntity {
@@ -39,23 +39,23 @@ class ItemEntity extends LuaEntity {
 		// todo: use get_definition
 		var def = core.registered_items[itemname];
 		// todo: probably only define this if it's a light source.
-		
+
 		var glow = (def && def.light_source) ? math.floor(def.light_source / 2 + 0.5) : 0;
 
 		// Small random bias to counter Z-fighting.
-		var size_bias = 1e-3 * math.random() ;
+		var size_bias = 1e-3 * math.random();
 		var c = [-size, -size, -size, size, size, size];
 
 		this.object.set_properties({
-			is_visible : true,
-			visual : "wielditem",
-			textures : [itemname],
-			visual_size : new Vec2( size + size_bias,  size + size_bias),
-			collisionbox : c,
-			automatic_rotate : math.pi * 0.5 * 0.2 / size,
-			wield_item : self.itemstring,
-			glow : glow,
-			infotext : stack.get_description(),
+			is_visible: true,
+			visual: "wielditem",
+			textures: [itemname],
+			visual_size: new Vec2(size + size_bias, size + size_bias),
+			collisionbox: c,
+			automatic_rotate: math.pi * 0.5 * 0.2 / size,
+			wield_item: self.itemstring,
+			glow: glow,
+			infotext: stack.get_description(),
 		});
 
 		// cache for usage in on_step
