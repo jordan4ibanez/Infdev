@@ -1,7 +1,7 @@
 package src.engine;
 
-import src.engine.definition.ItemDefinition;
 import haxe.extern.EitherType;
+import src.engine.definition.ItemDefinition;
 import src.engine.metadata.ItemStackMetaRef;
 
 // todo: getters
@@ -14,6 +14,9 @@ abstract class ItemStack {
 	}
 
 	// todo: put these in order and complete this.
+
+	@:native("is_empty")
+	public abstract function isEmpty(): Bool;
 
 	@:native("get_name")
 	public abstract function getName(): String;
