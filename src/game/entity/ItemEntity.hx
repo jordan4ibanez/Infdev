@@ -61,7 +61,7 @@ class ItemEntity extends LuaEntity {
 			infotext: stack.getDescription(),
 		});
 
-		// cache for usage in on_step
+		// Cache for usage in on_step.
 		this._collisionbox = c;
 	}
 
