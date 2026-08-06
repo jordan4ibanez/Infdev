@@ -1,11 +1,11 @@
 package src.game.entity;
 
-import src.engine.compilercode.LuaLoop;
 import haxe.extern.EitherType;
 import lua.Math;
 import src.engine.Core;
 import src.engine.GameInfo;
 import src.engine.ItemStack;
+import src.engine.compilercode.LuaLoop;
 import src.engine.compilercode.Macros;
 import src.engine.definition.ItemDefinition;
 import src.engine.entity.LuaEntity;
@@ -165,7 +165,7 @@ class ItemEntity extends LuaEntity {
 		this.object.setAcceleration(new Vec3(0, 0, 0));
 	}
 
-	override function onStep(delta:Float, moveResult:MoveResult) {
+	override function onStep(delta: Float, moveResult: MoveResult) {
 		super.onStep(delta, moveResult);
 
 		this.age += dtime;
@@ -200,13 +200,13 @@ class ItemEntity extends LuaEntity {
 			var c = this._collisionbox;
 			var s = this.force_out_start;
 			var f = this.force_out;
-			
+
 			// todo: 0 index these.
-			var ok = (f.x > 0 && pos.x + c[1] > s.x + 0.5) ||
-				(f.y > 0 && pos.y + c[2] > s.y + 0.5) ||
-				(f.z > 0 && pos.z + c[3] > s.z + 0.5) ||
-				(f.x < 0 && pos.x + c[4] < s.x - 0.5) ||
-				(f.z < 0 && pos.z + c[6] < s.z - 0.5);
+			var ok = (f.x > 0 && pos.x + c[1] > s.x + 0.5)
+				|| (f.y > 0 && pos.y + c[2] > s.y + 0.5)
+				|| (f.z > 0 && pos.z + c[3] > s.z + 0.5)
+				|| (f.x < 0 && pos.x + c[4] < s.x - 0.5)
+				|| (f.z < 0 && pos.z + c[6] < s.z - 0.5);
 			if (ok) {
 				// Item was successfully forced out.
 				this.force_out = null;
@@ -215,15 +215,15 @@ class ItemEntity extends LuaEntity {
 			}
 		}
 
-		if (! this.physical_state) {
+		if (!this.physical_state) {
 			// Don't do anything.
-			return; 
+			return;
 		}
 
 		assert(moveresult,
 			"Collision info missing, this is caused by an out-of-date/buggy mod or game");
 
-		if (! moveresult.collides) {
+		if (!moveresult.collides) {
 			// future TODO: items should probably decelerate in air.
 			return;
 		}
@@ -247,8 +247,8 @@ class ItemEntity extends LuaEntity {
 
 			// Check which one of the 4 sides is free.
 			// todo: this is just looping through the order I'm not sure why it's written like this.
-			for (direction in order){ 
-			// for o = 1, #order do
+			for (direction in order) {
+				// for o = 1, #order do
 				var cnode = core.get_node(pos.add(direction)).name;
 				var cdef = core.registered_nodes[cnode] ?? {};
 				if (cnode != "ignore" && cdef.walkable == false) {
@@ -257,12 +257,12 @@ class ItemEntity extends LuaEntity {
 				}
 			}
 			// If none of the 4 sides is free, check upwards
-			if ( shootdir == null) {
+			if (shootdir == null) {
 				shootdir = new Vec3(0, 1, 0);
-				var cnode = core.get_node(pos.add( shootdir)).name;
+				var cnode = core.get_node(pos.add(shootdir)).name;
 				if (cnode == "ignore") {
 					// Do not push into ignore.
-					shootdir = null; 
+					shootdir = null;
 				}
 			}
 
@@ -281,17 +281,16 @@ class ItemEntity extends LuaEntity {
 		// Ground node we're colliding with.
 		node = null;
 		if (moveresult.touching_ground) {
-			LuaLoop.nativeIpairs(_, info, moveresult.collisions,{
+			LuaLoop.nativeIpairs(_, info, moveresult.collisions, {
 				if (info.axis == "y") {
 					node = core.get_node(info.node_pos);
 					LuaLoop.breakLoop();
-					
 				}
 			});
 		}
 
 		// Slide on slippery nodes
-		var def = node == null?  core.registered_nodes[node.name] : null;
+		var def = node == null ? core.registered_nodes[node.name] : null;
 		var keep_movement = false;
 
 		if (def != null) {
@@ -301,16 +300,16 @@ class ItemEntity extends LuaEntity {
 				// Horizontal deceleration
 				var factor = math.min(4 / (slippery + 4) * dtime, 1);
 				this.object.set_velocity(new Vec3(
-					 vel.x * (1 - factor),
-					 0,
-					 vel.z * (1 - factor)
+					vel.x * (1 - factor),
+					0,
+					vel.z * (1 - factor)
 				));
 				keep_movement = true;
 			}
 		}
 
-		if (! keep_movement) {
-			this.object.set_velocity(new Vec3(0,0,0));
+		if (!keep_movement) {
+			this.object.set_velocity(new Vec3(0, 0, 0));
 		}
 
 		if (this.moving_state == keep_movement) {
@@ -325,7 +324,7 @@ class ItemEntity extends LuaEntity {
 		}
 		// Collect the items around to merge with.
 		var own_stack = ItemStack.create(this.itemstring);
-		if (own_stack.get_free_space() == 0 ){
+		if (own_stack.get_free_space() == 0) {
 			return;
 		}
 		var objects = core.get_objects_inside_radius(pos, 1.0);
@@ -340,6 +339,5 @@ class ItemEntity extends LuaEntity {
 				}
 			}
 		});
-
 	}
 }
