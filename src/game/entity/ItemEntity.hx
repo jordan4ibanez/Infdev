@@ -205,12 +205,11 @@ class ItemEntity extends LuaEntity {
 			var s = this.force_out_start;
 			var f = this.force_out;
 
-			// todo: 0 index these.
-			var ok = (f.x > 0 && pos.x + c[1] > s.x + 0.5)
-				|| (f.y > 0 && pos.y + c[2] > s.y + 0.5)
-				|| (f.z > 0 && pos.z + c[3] > s.z + 0.5)
-				|| (f.x < 0 && pos.x + c[4] < s.x - 0.5)
-				|| (f.z < 0 && pos.z + c[6] < s.z - 0.5);
+			var ok = (f.x > 0 && pos.x + c[0] > s.x + 0.5)
+				|| (f.y > 0 && pos.y + c[1] > s.y + 0.5)
+				|| (f.z > 0 && pos.z + c[2] > s.z + 0.5)
+				|| (f.x < 0 && pos.x + c[3] < s.x - 0.5)
+				|| (f.z < 0 && pos.z + c[5] < s.z - 0.5);
 			if (ok) {
 				// Item was successfully forced out.
 				this.force_out = null;
