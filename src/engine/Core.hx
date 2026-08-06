@@ -257,10 +257,14 @@ extern class Core {
 	dynamic static function spawnItem(pos: Vec3, item: EitherType<String, ItemStack>): Null<ObjectRefEntity>;
 
 	// !
-	// ! Custom stuff below this.
+	// ! Custom stuff below this. ONLY USE VIRTUAL FUNCTIONS! (INLINE)
 	// !
 	public static inline function getMapSeedString(): String {
 		return untyped __lua__('core.get_mapgen_setting("seed")');
+	}
+
+	public static inline function getObjectByGUID(guid: String): Null<ObjectRefEntity> {
+		return untyped __lua__('core.objects_by_guid[{0}]', guid);
 	}
 }
 
