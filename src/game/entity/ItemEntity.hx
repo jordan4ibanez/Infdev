@@ -52,7 +52,6 @@ class ItemEntityVisual extends LuaEntity {
 			this.object.remove();
 			return;
 		}
-		
 	}
 
 	override function onStep(delta: Float, moveResult: MoveResult) {
@@ -147,7 +146,12 @@ class ItemEntity extends LuaEntity {
 		this.setItem();
 
 		var visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual");
-		visualEntity.setAttach(this.object, "magic_item_floater", new Vec3(0, 0, 0), new Vec3(0, 0, 0), true);
+		// The entity may disappear immediately.
+		if (visualEntity != null) {
+			visualEntity.setAttach(this.object, "magic_item_floater", new Vec3(0, 0, 0), new Vec3(0, 0, 0), true);
+		} else {
+			Core.log(LogLevelError, "Tried to spawn item entity visual but it became null instantly.");
+		}
 	}
 
 	function tryMergeWith(own_stack: ItemStack, object: ObjectRefBase, entity: ItemEntity): Bool {
