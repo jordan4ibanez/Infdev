@@ -281,7 +281,7 @@ class ItemEntity extends LuaEntity {
 		// Ground node we're colliding with.
 		node = null;
 		if (moveResult.touching_ground) {
-			LuaLoop.nativeIpairs(_, info, moveresult.collisions, {
+			LuaLoop.nativeIpairs(_, info, moveResult.collisions, {
 				if (info.axis == "y") {
 					node = Core.getNode(info.node_pos);
 					LuaLoop.breakLoop();
