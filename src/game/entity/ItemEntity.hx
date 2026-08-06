@@ -175,7 +175,7 @@ class ItemEntity extends LuaEntity {
 			Core.log(LogLevelError, 'Tried to spawn item entity visual at ${this.object.getPos()} but it became null instantly. This item is now invisible.');
 		}
 
-		this.enableShadow();
+		this.enableShadow(1.5);
 
 		this.setItem();
 	}
