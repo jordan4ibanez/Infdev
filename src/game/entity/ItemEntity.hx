@@ -45,7 +45,7 @@ class ItemEntityVisual extends LuaEntity {
 			visual: EntityVisualWieldItem,
 			wield_item: "",
 			physical: false,
-			is_visible: false,
+			is_visible: true,
 		});
 
 		// Hook up the controller entity into this by reference so the global table doesn't need to hammer RAM.
@@ -60,7 +60,7 @@ class ItemEntityVisual extends LuaEntity {
 
 	override function onStep(delta: Float, moveResult: MoveResult) {
 		super.onStep(delta, moveResult);
-		if (controllerEntity == null || !controllerEntity.isValid()) {
+		if (controllerEntity == null || !controllerEntity.isValid() || this.object.getAttach() == null) {
 			this.object.remove();
 			return;
 		}
@@ -84,7 +84,20 @@ class ItemEntity extends LuaEntity {
 
 	static final defaultCollisionBox: EntityCollisionBox = new EntityCollisionBox(-0.3, -0.3, -0.3, 0.3, 0.3, 0.3);
 
-	function updateVisualEntity(): Void {}
+	function updateVisualEntity(itemname: String, glow: Int): Void {
+		if (this.visualEntity == null || !this.visualEntity.isValid()) {
+			Core.log(LogLevelError, 'Failed to update visual entity at ${this.object.getPos()}, visual entity was null.');
+			return;
+		}
+
+		this.visualEntity.setProperties({
+			is_visible: true,
+			visual: EntityVisualWieldItem,
+			textures: [itemname],
+			wield_item: this.itemstring,
+			glow: glow,
+		});
+	}
 
 	@:native("set_item")
 	public function setItem(?item: EitherType<String, ItemStack>): Void {
@@ -110,17 +123,14 @@ class ItemEntity extends LuaEntity {
 		var size_bias = 1e-3 * Math.random();
 		var c = new EntityCollisionBox(-size, -size, -size, size, size, size);
 
+		// The entity visual inherits this size.
 		this.object.setProperties({
-			is_visible: true,
 			visual: EntityVisualMesh,
-			textures: ["default_stone.png"],
 			visual_size: new Vec2(size + size_bias, size + size_bias),
 			collisionbox: c,
-			// automatic_rotate: Math.pi * 0.5 * 0.2 / size,
-			wield_item: this.itemstring,
 			mesh: "infdev_item_entity.gltf",
-			glow: glow,
 			infotext: stack.getDescription(),
+			pointable: true
 		});
 
 		this.object.playAnimation("item_spin", {speed: 0.4});
@@ -142,10 +152,10 @@ class ItemEntity extends LuaEntity {
 			physical: true,
 			collide_with_objects: false,
 			collisionbox: defaultCollisionBox,
-			visual: EntityVisualWieldItem,
+			visual: EntityVisualMesh,
 			visual_size: new Vec2(0.4, 0.4),
-			textures: [""],
-			is_visible: false,
+			mesh: "infdev_item_entity.gltf",
+			is_visible: true,
 		});
 
 		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
