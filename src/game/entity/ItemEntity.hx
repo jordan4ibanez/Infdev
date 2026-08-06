@@ -354,24 +354,24 @@ class ItemEntity extends LuaEntity {
 		}
 
 		// Call on_pickup callback in item definition.
-		var itemstack = ItemStack(this.itemstring);
-		var callback = itemstack.get_definition().on_pickup;
+		var itemstack = ItemStack.create(this.itemstring);
+		var callback = itemstack.getDefinition().onPickup;
 
 		// todo: this ended with: , ...
-		var ret = callback(itemstack, hitter, {type : "object", ref : this.object});
+		var ret = callback(itemstack, puncher, {type : "object", ref : this.object});
 
 		if (!ret) {
 			// Don't modify (and don't reset rotation).
 			return;
 		}
-		itemstack = ItemStack(ret);
+		itemstack = ItemStack.create(ret);
 
 		// Handle the leftover itemstack
-		if (itemstack.is_empty()) {
+		if (itemstack.isEmpty()) {
 			this.itemstring = "";
 			this.object.remove();
 		}else{
-			this.set_item(itemstack);
+			this.setItem(itemstack);
 		}
 	}
 }
