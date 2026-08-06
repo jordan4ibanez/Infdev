@@ -21,8 +21,8 @@ class ItemEntity extends LuaEntity {
 	public function setItem(item: String): Void {
 		var stack = ItemStack.create(item ?? this.itemstring);
 
-		this.itemstring = stack.to_string();
-		if (self.itemstring == "") {
+		this.itemstring = stack.toString();
+		if (this.itemstring == "") {
 			// item not yet known.
 			return;
 		}
@@ -35,8 +35,10 @@ class ItemEntity extends LuaEntity {
 		var max_count = stack.get_stack_max();
 		var count = math.min(stack.get_count(), max_count);
 		var size = 0.2 + 0.1 * (count / max_count) ^ (1 / 3);
+		// todo: use get_definition
 		var def = core.registered_items[itemname];
 		// todo: probably only define this if it's a light source.
+		
 		var glow = (def && def.light_source) ? math.floor(def.light_source / 2 + 0.5) : 0;
 
 		// Small random bias to counter Z-fighting.
