@@ -13,9 +13,17 @@ inline final MAX_ENTITY_LEVEL = MAX_LEVEL;
 
 @:register("infdev:entity_shadow")
 class EntityShadow extends LuaEntity {
+	var controllerEntity: Null<ObjectRefBase> = null;
+
 	override function onActivate(staticData: String, dtimeS: Float) {
 		Macros.entityPatch();
 		super.onActivate(staticData, dtimeS);
+
+		// It needs to be created with the controller entity's GUID.
+		if (staticData == "") {
+			this.object.remove();
+			return;
+		}
 
 		this.object.setProperties({
 			physical: false,
@@ -26,6 +34,15 @@ class EntityShadow extends LuaEntity {
 			is_visible: true,
 			pointable: false
 		});
+
+		// Hook up the controller entity into this by reference so the global table doesn't need to hammer RAM.
+		// Also if it doesn't exist something exploded.
+		this.controllerEntity = Core.getObjectByGUID(staticData);
+		if (this.controllerEntity == null) {
+			Core.log(LogLevelError, "Item shadow created with a null controller entity.");
+			this.object.remove();
+			return;
+		}
 	}
 }
 
