@@ -1,5 +1,6 @@
 package src.game.entity;
 
+import lua.Lua;
 import haxe.extern.EitherType;
 import lua.Math;
 import src.engine.Core;
@@ -220,7 +221,7 @@ class ItemEntity extends LuaEntity {
 			return;
 		}
 
-		assert(moveresult,
+		Lua.assert(moveResult,
 			"Collision info missing, this is caused by an out-of-date/buggy mod or game");
 
 		if (!moveresult.collides) {
