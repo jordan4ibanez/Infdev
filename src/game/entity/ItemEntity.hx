@@ -2,6 +2,7 @@ package src.game.entity;
 
 import lua.Math;
 import src.engine.Core;
+import src.engine.GameInfo;
 import src.engine.ItemStack;
 import src.engine.compilercode.Macros;
 import src.engine.definition.ItemDefinition;
@@ -90,9 +91,9 @@ class ItemEntity extends LuaEntity {
 
 		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
 
-		this.object.setArmorGroups({immortal: 1});
+		this.object.setArmorGroups(["immortal" => 1]);
 		this.object.setVelocity(new Vec3(0, 2, 0));
-		this.object.setAcceleration(new Vec3(0, -9.81, 0));
+		this.object.setAcceleration(new Vec3(0, -GameInfo.gravity, 0));
 		this._collisionbox = defaultCollisionBox;
 		this.setItem();
 	}
