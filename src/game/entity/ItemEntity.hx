@@ -1,6 +1,5 @@
 package src.game.entity;
 
-import src.engine.entity.objectref.ObjectRefBase;
 import lua.Math;
 import src.engine.Core;
 import src.engine.GameInfo;
@@ -10,6 +9,7 @@ import src.engine.definition.ItemDefinition;
 import src.engine.entity.LuaEntity;
 import src.engine.entity.definition.EntityCollisionBox;
 import src.engine.entity.helpers.EntitySerialization;
+import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
 
@@ -108,34 +108,35 @@ class ItemEntity extends LuaEntity {
 
 		var stack = ItemStack(entity.itemstring);
 		var name = stack.getName();
-		if (own_stack.get_name() != name ||
-				own_stack.get_meta() != stack.get_meta() ||
-				own_stack.get_wear() != stack.get_wear() ||
-				own_stack.get_free_space() == 0) {
+		if (own_stack.get_name() != name
+			|| own_stack.get_meta() != stack.get_meta()
+			|| own_stack.get_wear() != stack.get_wear()
+			|| own_stack.get_free_space() == 0) {
 			// Cannot merge different or full stack.
 			return false;
 		}
 
-		local count = own_stack:get_count()
-		local total_count = stack:get_count() + count
-		local max_count = stack:get_stack_max()
+		var count = own_stack.get_count();
+		var total_count = stack.get_count() + count;
+		var max_count = stack.get_stack_max();
 
-		if total_count > max_count then
-			return false
-		end
-		// Merge the remote stack into this one
+		if (total_count > max_count) {
+			return false;
+		}
 
-		local pos = object:get_pos()
-		pos.y = pos.y + ((total_count - count) / max_count) * 0.15
-		self.object:move_to(pos)
+		// Merge the remote stack into this one.
 
-		self.age = 0 // Handle as new entity
-		own_stack:set_count(total_count)
-		self:set_item(own_stack)
+		var pos = object.get_pos();
+		pos.y = pos.y + ((total_count - count) / max_count) * 0.15;
+		this.object.move_to(pos);
 
-		entity.itemstring = ""
-		object:remove()
-		return true
+		// Handle as new entity
+		this.age = 0;
+		own_stack.set_count(total_count);
+		this.set_item(own_stack);
 
+		entity.itemstring = "";
+		object.remove();
+		return true;
 	}
 }
