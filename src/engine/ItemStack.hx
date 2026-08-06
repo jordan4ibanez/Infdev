@@ -43,6 +43,9 @@ abstract class ItemStack {
 	@:native("get_stack_max")
 	public abstract function getStackMax(): Int;
 
+	@:native("get_description")
+	public abstract function getDescription(): String;
+
 	// @:native("")
 	// public abstract function setMetadata(metadata: String): Void;
 }
