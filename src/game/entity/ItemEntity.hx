@@ -182,35 +182,37 @@ class ItemEntity extends LuaEntity {
 			pos.z
 		));
 		// Delete in 'ignore' nodes
-		if node and node.name == "ignore" then
-			this.itemstring = ""
-			this.object:remove()
-			return
-		end
+		if (node != null && node.name == "ignore") {
+			this.itemstring = "";
+			this.object.remove();
+			return;
+		}
 
 		// Prevent assert when item_entity is attached
-		if moveresult == nil and this.object:get_attach() then
-			return
-		end
+		if (moveresult == null && this.object.get_attach()) {
+			return;
+		}
 
-		if this.force_out then
+		if (this.force_out) {
 			// This code runs after the entity got a push from the is_stuck code.
 			// It makes sure the entity is entirely outside the solid node
-			local c = this._collisionbox
-			local s = this.force_out_start
-			local f = this.force_out
-			local ok = (f.x > 0 and pos.x + c[1] > s.x + 0.5) or
-				(f.y > 0 and pos.y + c[2] > s.y + 0.5) or
-				(f.z > 0 and pos.z + c[3] > s.z + 0.5) or
-				(f.x < 0 and pos.x + c[4] < s.x - 0.5) or
-				(f.z < 0 and pos.z + c[6] < s.z - 0.5)
-			if ok then
-				// Item was successfully forced out
-				this.force_out = nil
-				self:enable_physics()
-				return
-			end
-		end
+			var c = this._collisionbox;
+			var s = this.force_out_start;
+			var f = this.force_out;
+			
+			// todo: 0 index these.
+			var ok = (f.x > 0 && pos.x + c[1] > s.x + 0.5) ||
+				(f.y > 0 && pos.y + c[2] > s.y + 0.5) ||
+				(f.z > 0 && pos.z + c[3] > s.z + 0.5) ||
+				(f.x < 0 && pos.x + c[4] < s.x - 0.5) ||
+				(f.z < 0 && pos.z + c[6] < s.z - 0.5);
+			if (ok) {
+				// Item was successfully forced out.
+				this.force_out = null;
+				this.enable_physics();
+				return;
+			}
+		}
 
 		if not this.physical_state then
 			return // Don't do anything
