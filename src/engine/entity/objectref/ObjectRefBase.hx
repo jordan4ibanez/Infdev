@@ -32,6 +32,8 @@ abstract class ObjectRefBase {
 	//* begins: is_valid
 	//* ends: get_guid
 
+	public abstract function remove(): Void;
+
 	@:native("is_valid")
 	public abstract function isValid(): Bool;
 
@@ -50,6 +52,9 @@ abstract class ObjectRefBase {
 
 	@:native("get_velocity")
 	public abstract function getVelocity(): Vec3;
+
+	@:native("set_velocity")
+	public abstract function setVelocity(vel: Vec3): Void;
 
 	// final public function getVelocityFast(output: Vec3): Void {
 	// 	return untyped Vec3.fromEngineFast(__lua__("self.object:get_velocity()"), output);
