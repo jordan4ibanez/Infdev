@@ -54,7 +54,6 @@ class ItemEntity extends LuaEntity {
 		var max_count = stack.getStackMax();
 		var count = Math.min(stack.getCount(), max_count);
 		var size: Float = 0.2 + 0.1 * Math.pow((count / max_count), (1.0 / 3.0));
-		// todo: use get_definition
 		var def: Null<ItemDefinition> = Core.registeredItems[cast itemname];
 
 		// todo: probably only define this if it's a light source.
