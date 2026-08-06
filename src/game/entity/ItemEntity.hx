@@ -21,11 +21,11 @@ class ItemEntity extends LuaEntity {
 	public function setItem(item: String): Void {
 		var stack = ItemStack.create(item ?? this.itemstring);
 
-		self.itemstring = stack:to_string()
-		if self.itemstring == "" then
-			// item not yet known
-			return
-		end
+		this.itemstring = stack.to_string();
+		if (self.itemstring == "") {
+			// item not yet known.
+			return;
+		}
 
 		// Backwards compatibility: old clients use the texture
 		// to get the type of the item
