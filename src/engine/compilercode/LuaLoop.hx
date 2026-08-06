@@ -89,4 +89,34 @@ class LuaLoop {
 			untyped __lua__("end");
 		};
 	}
+
+	/**
+	 * Emits a raw Lua 'ipairs' loop.
+	 * @param keyVar The identifier for the key (e.g., k)
+	 * @param valVar The identifier for the value (e.g., v)
+	 * @param tableExpr The LuaMap or Table to iterate
+	 * @param body The code block
+	 */
+	public static macro function nativePairs(keyVar: Expr, valVar: Expr, tableExpr: Expr, body: Expr): Expr {
+		var kName = switch keyVar.expr {
+			case EConst(CIdent(n)): n;
+			default: Context.error("Key must be identifier", keyVar.pos);
+		};
+		var vName = switch valVar.expr {
+			case EConst(CIdent(n)): n;
+			default: Context.error("Value must be identifier", valVar.pos);
+		};
+
+		var loopStr = 'for ' + kName + ', ' + vName + ' in ipairs({0}) do';
+
+		return macro {
+			// We inject the declaration into Haxe's scope so it knows they exist
+			var $kName:Dynamic = null;
+			var $vName:Dynamic = null;
+
+			untyped __lua__($v{loopStr}, $tableExpr);
+			$body;
+			untyped __lua__("end");
+		};
+	}
 }
