@@ -206,6 +206,9 @@ extern class Core {
 	@:native("get_node")
 	static function getNode(pos: Vec3): NodeTable;
 
+	@:native("get_node_or_nil")
+	static function getNodeOrNull(pos: Vec3): Null<NodeTable>;
+
 	@:native("set_node")
 	static function setNode(pos: Vec3, node: NodeTable): Void;
 
