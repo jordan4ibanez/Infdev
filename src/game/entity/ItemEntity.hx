@@ -233,10 +233,10 @@ class ItemEntity extends LuaEntity {
 		var is_stuck = false;
 		var snode = Core.getNodeOrNull(pos);
 		if (snode != null) {
-			var sdef = core.registered_nodes[snode.name] ?? {};
+			var sdef = Core.registeredNodes[cast snode.name];
 			is_stuck = (sdef.walkable == null || sdef.walkable == true)
-				&& (sdef.collision_box == null || sdef.collision_box.type == "regular")
-				&& (sdef.node_box == null || sdef.node_box.type == "regular");
+				&& (sdef.collisionBox == null || sdef.collisionBox.type == NodeBoxTypeRegular)
+				&& (sdef.nodeBox == null || sdef.nodeBox.type == NodeBoxTypeRegular);
 		}
 
 		if (is_stuck) {
