@@ -29,10 +29,12 @@ final class EntitySerialization {
 
 					var value = Reflect.field(containerClass, field);
 
-					// Do not dump methods into the output object.
-					if (Reflect.isFunction(value)) {
+					// Don't serialize functions or userdata.
+					var luaType = untyped type(value);
+					if (luaType == "function" || luaType == "userdata") {
 						continue;
 					}
+					// untyped print("deserialize", luaType);
 
 					// trace(field, value);
 					// ? Debug info.
@@ -59,10 +61,12 @@ final class EntitySerialization {
 
 			var value = Reflect.field(inputObject, field);
 
-			// Do not dump methods into the serialized string.
-			if (Reflect.isFunction(value)) {
+			// Don't serialize functions or userdata.
+			var luaType = untyped type(value);
+			if (luaType == "function" || luaType == "userdata") {
 				continue;
 			}
+			// untyped print("serialize", luaType);
 
 			untyped {
 				outputObject[field] = inputObject[field];
