@@ -168,4 +168,7 @@ abstract class ObjectRefBase {
 
 	@:native("get_guid")
 	public abstract function getGUID(): String;
+
+	@:native("get_luaentity")
+	public abstract function getLuaEntity(): Null<LuaEntity>;
 }
