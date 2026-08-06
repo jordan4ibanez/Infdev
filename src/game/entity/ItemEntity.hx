@@ -25,7 +25,7 @@ import src.engine.vector.Vec3;
 
 @:register("infdev:item_entity_visual")
 class ItemEntityVisual extends LuaEntity {
-	var controllerEntity: Null<String> = null;
+	var controllerEntity: Null<ObjectRefBase> = null;
 
 	override function onActivate(staticData: String, dtimeS: Float) {
 		Macros.entityPatch();
@@ -43,6 +43,16 @@ class ItemEntityVisual extends LuaEntity {
 			visual: EntityVisualWieldItem,
 			wield_item: "infdev:oracle_pickaxe"
 		});
+
+		// Hook up the controller entity into this by reference so the global table doesn't need to hammer RAM.
+		// Also if it doesn't exist something exploded.
+		this.controllerEntity = Core.getObjectByGUID(staticData);
+		if (this.controllerEntity == null) {
+			Core.log(LogLevelError, "Item entity visual created with a null controller entity.");
+			this.object.remove();
+			return;
+		}
+		
 	}
 
 	override function onStep(delta: Float, moveResult: MoveResult) {
