@@ -21,7 +21,6 @@ import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
 
 // todo: entity shadow api
-
 // This is the entity that gets mounted to the item's bone. It allows the item to have a cool visual.
 
 @:register("infdev:item_entity_visual")
@@ -65,7 +64,6 @@ class ItemEntity extends LuaEntity {
 			return;
 		}
 
-		// todo: break this.
 		// Backwards compatibility: old clients use the texture
 		// to get the type of the item
 		var itemname = stack.isKnown() ? stack.getName() : "unknown";
