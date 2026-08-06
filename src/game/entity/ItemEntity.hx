@@ -23,7 +23,7 @@ class ItemEntity extends LuaEntity {
 	var moving_state = true;
 	var physical_state = true;
 	// Item expiry.
-	var age = 0;
+	var age: Float = 0;
 	// Pushing item out of solid nodes.
 	var force_out = null;
 	var force_out_start = null;
@@ -169,7 +169,7 @@ class ItemEntity extends LuaEntity {
 	override function onStep(delta: Float, moveResult: MoveResult) {
 		super.onStep(delta, moveResult);
 
-		this.age += dtime;
+		this.age += delta;
 
 		if (time_to_live > 0 && this.age > time_to_live) {
 			this.itemstring = "";
