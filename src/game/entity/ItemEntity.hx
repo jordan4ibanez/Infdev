@@ -1,8 +1,10 @@
 package src.game.entity;
 
 import lua.Math;
+import src.engine.Core;
 import src.engine.ItemStack;
 import src.engine.compilercode.Macros;
+import src.engine.definition.ItemDefinition;
 import src.engine.entity.LuaEntity;
 import src.engine.entity.definition.EntityCollisionBox;
 import src.engine.vector.Vec2;
@@ -17,6 +19,7 @@ class ItemEntity extends LuaEntity {
 	// Pushing item out of solid nodes.
 	var force_out = null;
 	var force_out_start = null;
+	var _collisionbox: EntityCollisionBox = null;
 
 	@:native("set_item")
 	public function setItem(item: String): Void {
@@ -35,27 +38,27 @@ class ItemEntity extends LuaEntity {
 
 		var max_count = stack.getStackMax();
 		var count = Math.min(stack.getCount(), max_count);
-		var size = 0.2 + 0.1 * (count / max_count) ^ (1 / 3);
+		var size: Float = 0.2 + 0.1 * Math.pow((count / max_count), (1.0 / 3.0));
 		// todo: use get_definition
-		var def = core.registered_items[itemname];
-		// todo: probably only define this if it's a light source.
+		var def: Null<ItemDefinition> = Core.registeredItems[cast itemname];
 
-		var glow = (def && def.light_source) ? math.floor(def.light_source / 2 + 0.5) : 0;
+		// todo: probably only define this if it's a light source.
+		var glow = (def != null && def.lightSource != null && def.lightSource > 0) ? Math.floor(def.lightSource / 2 + 0.5) : null;
 
 		// Small random bias to counter Z-fighting.
-		var size_bias = 1e-3 * math.random();
-		var c = [-size, -size, -size, size, size, size];
+		var size_bias = 1e-3 * Math.random();
+		var c = new EntityCollisionBox(-size, -size, -size, size, size, size);
 
-		this.object.set_properties({
+		this.object.setProperties({
 			is_visible: true,
-			visual: "wielditem",
+			visual: EntityVisualWieldItem,
 			textures: [itemname],
 			visual_size: new Vec2(size + size_bias, size + size_bias),
 			collisionbox: c,
-			automatic_rotate: math.pi * 0.5 * 0.2 / size,
-			wield_item: self.itemstring,
+			automatic_rotate: Math.pi * 0.5 * 0.2 / size,
+			wield_item: this.itemstring,
 			glow: glow,
-			infotext: stack.get_description(),
+			infotext: stack.getDescription(),
 		});
 
 		// cache for usage in on_step
