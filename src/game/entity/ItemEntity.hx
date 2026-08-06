@@ -165,37 +165,38 @@ class ItemEntity extends LuaEntity {
 	override function onStep(delta:Float, moveResult:MoveResult) {
 		super.onStep(delta, moveResult);
 
-		self.age = self.age + dtime
-		if time_to_live > 0 and self.age > time_to_live then
-			self.itemstring = ""
-			self.object:remove()
+		this.age = this.age + dtime
+
+		if time_to_live > 0 and this.age > time_to_live then
+			this.itemstring = ""
+			this.object:remove()
 			return
 		end
 
-		local pos = self.object:get_pos()
+		local pos = this.object:get_pos()
 		local node = core.get_node_or_nil({
 			x = pos.x,
-			y = pos.y + self._collisionbox[2] - 0.05,
+			y = pos.y + this._collisionbox[2] - 0.05,
 			z = pos.z
 		})
 		-- Delete in 'ignore' nodes
 		if node and node.name == "ignore" then
-			self.itemstring = ""
-			self.object:remove()
+			this.itemstring = ""
+			this.object:remove()
 			return
 		end
 
 		-- Prevent assert when item_entity is attached
-		if moveresult == nil and self.object:get_attach() then
+		if moveresult == nil and this.object:get_attach() then
 			return
 		end
 
-		if self.force_out then
+		if this.force_out then
 			-- This code runs after the entity got a push from the is_stuck code.
 			-- It makes sure the entity is entirely outside the solid node
-			local c = self._collisionbox
-			local s = self.force_out_start
-			local f = self.force_out
+			local c = this._collisionbox
+			local s = this.force_out_start
+			local f = this.force_out
 			local ok = (f.x > 0 and pos.x + c[1] > s.x + 0.5) or
 				(f.y > 0 and pos.y + c[2] > s.y + 0.5) or
 				(f.z > 0 and pos.z + c[3] > s.z + 0.5) or
@@ -203,13 +204,13 @@ class ItemEntity extends LuaEntity {
 				(f.z < 0 and pos.z + c[6] < s.z - 0.5)
 			if ok then
 				-- Item was successfully forced out
-				self.force_out = nil
+				this.force_out = nil
 				self:enable_physics()
 				return
 			end
 		end
 
-		if not self.physical_state then
+		if not this.physical_state then
 			return -- Don't do anything
 		end
 
@@ -260,10 +261,10 @@ class ItemEntity extends LuaEntity {
 				-- Set new item moving speed accordingly
 				local newv = vector.multiply(shootdir, 3)
 				self:disable_physics()
-				self.object:set_velocity(newv)
+				this.object:set_velocity(newv)
 
-				self.force_out = newv
-				self.force_out_start = vector.round(pos)
+				this.force_out = newv
+				this.force_out_start = vector.round(pos)
 				return
 			end
 		end
@@ -284,11 +285,11 @@ class ItemEntity extends LuaEntity {
 
 		if def then
 			local slippery = core.get_item_group(node.name, "slippery")
-			local vel = self.object:get_velocity()
+			local vel = this.object:get_velocity()
 			if slippery ~= 0 and (math.abs(vel.x) > 0.1 or math.abs(vel.z) > 0.1) then
 				-- Horizontal deceleration
 				local factor = math.min(4 / (slippery + 4) * dtime, 1)
-				self.object:set_velocity({
+				this.object:set_velocity({
 					x = vel.x * (1 - factor),
 					y = 0,
 					z = vel.z * (1 - factor)
@@ -298,21 +299,21 @@ class ItemEntity extends LuaEntity {
 		end
 
 		if not keep_movement then
-			self.object:set_velocity({x=0, y=0, z=0})
+			this.object:set_velocity({x=0, y=0, z=0})
 		end
 
-		if self.moving_state == keep_movement then
+		if this.moving_state == keep_movement then
 			-- Do not update anything until the moving state changes
 			return
 		end
-		self.moving_state = keep_movement
+		this.moving_state = keep_movement
 
 		-- Only collect items if not moving
-		if self.moving_state then
+		if this.moving_state then
 			return
 		end
 		-- Collect the items around to merge with
-		local own_stack = ItemStack(self.itemstring)
+		local own_stack = ItemStack(this.itemstring)
 		if own_stack:get_free_space() == 0 then
 			return
 		end
@@ -321,7 +322,7 @@ class ItemEntity extends LuaEntity {
 			local entity = obj:get_luaentity()
 			if entity and entity.name == "__builtin:item" then
 				if self:try_merge_with(own_stack, obj, entity) then
-					own_stack = ItemStack(self.itemstring)
+					own_stack = ItemStack(this.itemstring)
 					if own_stack:get_free_space() == 0 then
 						return
 					end
