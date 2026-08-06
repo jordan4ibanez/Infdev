@@ -179,21 +179,21 @@ class ItemEntity extends LuaEntity {
 			y = pos.y + this._collisionbox[2] - 0.05,
 			z = pos.z
 		})
-		-- Delete in 'ignore' nodes
+		// Delete in 'ignore' nodes
 		if node and node.name == "ignore" then
 			this.itemstring = ""
 			this.object:remove()
 			return
 		end
 
-		-- Prevent assert when item_entity is attached
+		// Prevent assert when item_entity is attached
 		if moveresult == nil and this.object:get_attach() then
 			return
 		end
 
 		if this.force_out then
-			-- This code runs after the entity got a push from the is_stuck code.
-			-- It makes sure the entity is entirely outside the solid node
+			// This code runs after the entity got a push from the is_stuck code.
+			// It makes sure the entity is entirely outside the solid node
 			local c = this._collisionbox
 			local s = this.force_out_start
 			local f = this.force_out
@@ -203,7 +203,7 @@ class ItemEntity extends LuaEntity {
 				(f.x < 0 and pos.x + c[4] < s.x - 0.5) or
 				(f.z < 0 and pos.z + c[6] < s.z - 0.5)
 			if ok then
-				-- Item was successfully forced out
+				// Item was successfully forced out
 				this.force_out = nil
 				self:enable_physics()
 				return
@@ -211,18 +211,18 @@ class ItemEntity extends LuaEntity {
 		end
 
 		if not this.physical_state then
-			return -- Don't do anything
+			return // Don't do anything
 		end
 
 		assert(moveresult,
 			"Collision info missing, this is caused by an out-of-date/buggy mod or game")
 
 		if not moveresult.collides then
-			-- future TODO: items should probably decelerate in air
+			// future TODO: items should probably decelerate in air
 			return
 		end
 
-		-- Push item out when stuck inside solid node
+		// Push item out when stuck inside solid node
 		local is_stuck = false
 		local snode = core.get_node_or_nil(pos)
 		if snode then
@@ -239,7 +239,7 @@ class ItemEntity extends LuaEntity {
 				{x=0, y=0, z=1}, {x= 0, y=0, z=-1},
 			}
 
-			-- Check which one of the 4 sides is free
+			// Check which one of the 4 sides is free
 			for o = 1, #order do
 				local cnode = core.get_node(vector.add(pos, order[o])).name
 				local cdef = core.registered_nodes[cnode] or {}
@@ -248,17 +248,17 @@ class ItemEntity extends LuaEntity {
 					break
 				end
 			end
-			-- If none of the 4 sides is free, check upwards
+			// If none of the 4 sides is free, check upwards
 			if not shootdir then
 				shootdir = {x=0, y=1, z=0}
 				local cnode = core.get_node(vector.add(pos, shootdir)).name
 				if cnode == "ignore" then
-					shootdir = nil -- Do not push into ignore
+					shootdir = nil // Do not push into ignore
 				end
 			end
 
 			if shootdir then
-				-- Set new item moving speed accordingly
+				// Set new item moving speed accordingly
 				local newv = vector.multiply(shootdir, 3)
 				self:disable_physics()
 				this.object:set_velocity(newv)
@@ -269,7 +269,7 @@ class ItemEntity extends LuaEntity {
 			end
 		end
 
-		node = nil -- ground node we're colliding with
+		node = nil // ground node we're colliding with
 		if moveresult.touching_ground then
 			for _, info in ipairs(moveresult.collisions) do
 				if info.axis == "y" then
@@ -279,7 +279,7 @@ class ItemEntity extends LuaEntity {
 			end
 		end
 
-		-- Slide on slippery nodes
+		// Slide on slippery nodes
 		local def = node and core.registered_nodes[node.name]
 		local keep_movement = false
 
@@ -287,7 +287,7 @@ class ItemEntity extends LuaEntity {
 			local slippery = core.get_item_group(node.name, "slippery")
 			local vel = this.object:get_velocity()
 			if slippery ~= 0 and (math.abs(vel.x) > 0.1 or math.abs(vel.z) > 0.1) then
-				-- Horizontal deceleration
+				// Horizontal deceleration
 				local factor = math.min(4 / (slippery + 4) * dtime, 1)
 				this.object:set_velocity({
 					x = vel.x * (1 - factor),
@@ -303,16 +303,16 @@ class ItemEntity extends LuaEntity {
 		end
 
 		if this.moving_state == keep_movement then
-			-- Do not update anything until the moving state changes
+			// Do not update anything until the moving state changes
 			return
 		end
 		this.moving_state = keep_movement
 
-		-- Only collect items if not moving
+		// Only collect items if not moving
 		if this.moving_state then
 			return
 		end
-		-- Collect the items around to merge with
+		// Collect the items around to merge with
 		local own_stack = ItemStack(this.itemstring)
 		if own_stack:get_free_space() == 0 then
 			return
