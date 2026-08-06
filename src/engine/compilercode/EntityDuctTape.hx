@@ -30,13 +30,24 @@ class EntityDuctTape {
 			}
 		}
 
-		// ? This allows you to register an entity at the top of your class.
+		// ? This allows you to register an entity at the top of your class with @:register("")
+		// ? This also allows you to define root nodes for a small performance boost with @:entityRoot
+		var isEntityRoot: Bool = false;
 
 		for (meta in localClass.meta.get()) {
 			// trace(meta.name);
 
+			// An entity root stops the warning to perform the entity patch because other classes extend it.
+			if (meta.name == ":entityRoot") {
+				isEntityRoot = true;
+			}
+
 			// It turns out that core.override_entity doesn't exist. I was going to put a todo here.
 			if (meta.name == ":register") {
+				if (isEntityRoot) {
+					Context.error("Do not register an entity root.", localClass.pos);
+				}
+
 				final firstParameter = meta.params[0];
 				if (firstParameter == null) {
 					Context.error("luantiClass requires a string parameter", meta.pos);
