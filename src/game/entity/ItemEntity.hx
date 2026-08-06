@@ -328,6 +328,7 @@ class ItemEntity extends LuaEntity {
 		}
 
 		var objects = Core.getObjectsInsideRadius(pos, 1.0);
+
 		LuaLoop.nativePairs(k, obj, objects, {
 			var entity = obj.get_luaentity();
 			if (entity != null && entity.name == "__builtin:item") {
