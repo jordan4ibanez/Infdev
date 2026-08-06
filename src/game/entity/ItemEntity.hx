@@ -7,7 +7,9 @@ import src.engine.compilercode.Macros;
 import src.engine.definition.ItemDefinition;
 import src.engine.entity.LuaEntity;
 import src.engine.entity.definition.EntityCollisionBox;
+import src.engine.entity.helpers.EntitySerialization;
 import src.engine.vector.Vec2;
+import src.engine.vector.Vec3;
 
 @:register(":__builtin:item")
 class ItemEntity extends LuaEntity {
@@ -21,8 +23,10 @@ class ItemEntity extends LuaEntity {
 	var force_out_start = null;
 	var _collisionbox: EntityCollisionBox = null;
 
+	static final defaultCollisionBox: EntityCollisionBox = new EntityCollisionBox(-0.3, -0.3, -0.3, 0.3, 0.3, 0.3);
+
 	@:native("set_item")
-	public function setItem(item: String): Void {
+	public function setItem(?item: String): Void {
 		var stack = ItemStack.create(item ?? this.itemstring);
 
 		this.itemstring = stack.toString();
@@ -65,6 +69,10 @@ class ItemEntity extends LuaEntity {
 		this._collisionbox = c;
 	}
 
+	override function getStaticData(): String {
+		return EntitySerialization.safeSerialize(this, Macros.getCompileTimeClass());
+	}
+
 	override function onActivate(staticData: String, dtimeS: Float) {
 		Macros.entityPatch();
 		super.onActivate(staticData, dtimeS);
@@ -73,11 +81,19 @@ class ItemEntity extends LuaEntity {
 			hp_max: 1,
 			physical: true,
 			collide_with_objects: false,
-			collisionbox: new EntityCollisionBox(-0.3, -0.3, -0.3, 0.3, 0.3, 0.3),
+			collisionbox: defaultCollisionBox,
 			visual: EntityVisualWieldItem,
 			visual_size: new Vec2(0.4, 0.4),
 			textures: [""],
 			is_visible: false,
 		});
+
+		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
+
+		this.object.setArmorGroups({immortal: 1});
+		this.object.setVelocity(new Vec3(0, 2, 0));
+		this.object.setAcceleration(new Vec3(0, -9.81, 0));
+		this._collisionbox = defaultCollisionBox;
+		this.setItem();
 	}
 }
