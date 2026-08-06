@@ -138,7 +138,7 @@ class ItemEntity extends LuaEntity {
 		this.object.playAnimation("item_spin", {speed: 0.4});
 
 		// Cache for usage in on_step.
-		this._collisionbox = new EntityCollisionBox(-size, 0, -size, size, size * 2, size);
+		this._collisionbox = this.object.getProperties().collisionbox;
 	}
 
 	override function getStaticData(): String {
@@ -166,7 +166,7 @@ class ItemEntity extends LuaEntity {
 		this.object.setArmorGroups(["immortal" => 1]);
 		this.object.setVelocity(new Vec3(0, 2, 0));
 		this.object.setAcceleration(new Vec3(0, -GameInfo.gravity, 0));
-		this._collisionbox = defaultCollisionBox;
+		this._collisionbox = this.object.getProperties().collisionbox;
 
 		this.visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
 		// The entity may disappear immediately.
