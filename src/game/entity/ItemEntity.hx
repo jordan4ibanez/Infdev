@@ -122,7 +122,7 @@ class ItemEntity extends LuaEntity {
 		// Small random bias to counter Z-fighting.
 		var size_bias = 1e-3 * Math.random();
 
-		this.setSize(size, size * 2);
+		this.setSize(size * 2, size * 2);
 
 		// The entity visual inherits this size.
 		this.object.setProperties({
