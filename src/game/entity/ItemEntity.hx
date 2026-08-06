@@ -237,14 +237,15 @@ class ItemEntity extends LuaEntity {
 				&& (sdef.node_box == null || sdef.node_box.type == "regular");
 		}
 
-		if (is_stuck) then
-			local shootdir
-			local order = {
+		if (is_stuck) {
+			var shootdir;
+			var order = {
 				{x=1, y=0, z=0}, {x=-1, y=0, z= 0},
 				{x=0, y=0, z=1}, {x= 0, y=0, z=-1},
-			}
+			};
 
-			// Check which one of the 4 sides is free
+			// Check which one of the 4 sides is free.
+			// todo: this is just looping through the order I'm not sure why it's written like this.
 			for o = 1, #order do
 				local cnode = core.get_node(vector.add(pos, order[o])).name
 				local cdef = core.registered_nodes[cnode] or {}
@@ -272,7 +273,7 @@ class ItemEntity extends LuaEntity {
 				this.force_out_start = vector.round(pos)
 				return
 			end
-		end
+		}
 
 		node = nil // ground node we're colliding with
 		if moveresult.touching_ground then
