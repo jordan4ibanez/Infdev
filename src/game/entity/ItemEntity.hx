@@ -146,8 +146,8 @@ class ItemEntity extends LuaEntity {
 			return;
 		}
 		this.physical_state = true;
-		this.object.set_properties({physical: true});
-		this.object.set_velocity(new Vec3(0, 0, 0));
-		this.object.set_acceleration(new Vec3(0, -GameInfo.gravity, 0));
+		this.object.setProperties({physical: true});
+		this.object.setVelocity(new Vec3(0, 0, 0));
+		this.object.setAcceleration(new Vec3(0, -GameInfo.gravity, 0));
 	}
 }
