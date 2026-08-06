@@ -89,10 +89,10 @@ abstract class ObjectRefBase {
 	public abstract function setWieldedItem(item: Dynamic, skipAnimation: Bool): Void;
 
 	@:native("get_armor_groups")
-	public abstract function getArmorGroups(): Dynamic;
+	public abstract function getArmorGroups(): LuaMap<String, Int>;
 
 	@:native("set_armor_groups")
-	public abstract function setArmorGroups(groupTable: Dynamic): Void;
+	public abstract function setArmorGroups(groupTable: LuaMap<String, Int>): Void;
 
 	// Old style 5.16 and below
 	// @:native("set_animation")
