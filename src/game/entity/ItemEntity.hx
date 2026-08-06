@@ -116,9 +116,9 @@ class ItemEntity extends LuaEntity {
 			return false;
 		}
 
-		var count = own_stack.get_count();
-		var total_count = stack.get_count() + count;
-		var max_count = stack.get_stack_max();
+		var count = own_stack.getCount();
+		var total_count = stack.getCount() + count;
+		var max_count = stack.getStackMax();
 
 		if (total_count > max_count) {
 			return false;
