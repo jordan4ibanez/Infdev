@@ -80,15 +80,18 @@ class ItemEntity extends LuaEntity {
 
 		this.object.setProperties({
 			is_visible: true,
-			visual: EntityVisualWieldItem,
-			textures: [itemname],
+			visual: EntityVisualMesh,
+			textures: ["default_stone.png"],
 			visual_size: new Vec2(size + size_bias, size + size_bias),
 			collisionbox: c,
-			automatic_rotate: Math.pi * 0.5 * 0.2 / size,
+			// automatic_rotate: Math.pi * 0.5 * 0.2 / size,
 			wield_item: this.itemstring,
+			mesh: "infdev_item_entity.gltf",
 			glow: glow,
 			infotext: stack.getDescription(),
 		});
+
+		this.object.playAnimation("item_spin", {speed: 0.4});
 
 		// Cache for usage in on_step.
 		this._collisionbox = c;
@@ -120,6 +123,9 @@ class ItemEntity extends LuaEntity {
 		this.object.setAcceleration(new Vec3(0, -GameInfo.gravity, 0));
 		this._collisionbox = defaultCollisionBox;
 		this.setItem();
+
+		var visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual");
+		visualEntity.setAttach(this.object, "magic_item_floater", new Vec3(0, 0, 0), new Vec3(0, 0, 0), true);
 	}
 
 	function tryMergeWith(own_stack: ItemStack, object: ObjectRefBase, entity: ItemEntity): Bool {
