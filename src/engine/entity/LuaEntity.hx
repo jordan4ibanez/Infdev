@@ -15,6 +15,11 @@ inline final MAX_ENTITY_LEVEL = MAX_LEVEL;
 class EntityShadow extends LuaEntity {
 	var controllerEntity: Null<ObjectRefBase> = null;
 
+	var pollTimer: Float = 0;
+
+	// Don't destroy the server tick rate and only poll every half second.
+	static inline final pollRate = 0.5;
+
 	override function onActivate(staticData: String, dtimeS: Float) {
 		Macros.entityPatch();
 		super.onActivate(staticData, dtimeS);
@@ -51,6 +56,23 @@ class EntityShadow extends LuaEntity {
 		if (controllerEntity == null || !controllerEntity.isValid() || this.object.getAttach() == null) {
 			this.object.remove();
 			return;
+		}
+
+		this.pollTimer + delta;
+
+		if (pollTimer < pollRate) {
+			return;
+		}
+		this.pollTimer -= pollRate;
+
+		var pos = this.object.getPos();
+		pos.y -= 0.05;
+
+		var walkableBelow = Core.registeredNodes[cast Core.getNode(pos).name].walkable;
+		if (walkableBelow == null || walkableBelow == true) {
+			this.object.setProperties({is_visible: true});
+		} else {
+			this.object.setProperties({is_visible: false});
 		}
 	}
 }
