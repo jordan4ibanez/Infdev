@@ -50,6 +50,9 @@ abstract class ItemStack {
 	@:native("get_meta")
 	public abstract function getMeta(): ItemStackMetaRef;
 
+	@:native("get_free_space")
+	public abstract function getFreeSpace(): Int;
+
 	// @:native("")
 	// public abstract function setMetadata(metadata: String): Void;
 }
