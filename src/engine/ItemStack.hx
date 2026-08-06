@@ -1,6 +1,7 @@
 package src.engine;
 
 import haxe.extern.EitherType;
+import src.engine.metadata.ItemStackMetaRef;
 
 // todo: getters
 // todo: rework this entire thing this is just a bootstrap
@@ -45,6 +46,9 @@ abstract class ItemStack {
 
 	@:native("get_description")
 	public abstract function getDescription(): String;
+
+	@:native("get_meta")
+	public abstract function getMeta(): ItemStackMetaRef;
 
 	// @:native("")
 	// public abstract function setMetadata(metadata: String): Void;
