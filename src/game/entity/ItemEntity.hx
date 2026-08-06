@@ -56,6 +56,10 @@ class ItemEntityVisual extends LuaEntity {
 
 	override function onStep(delta: Float, moveResult: MoveResult) {
 		super.onStep(delta, moveResult);
+		if (controllerEntity == null || !controllerEntity.isValid()) {
+			this.object.remove();
+			return;
+		}
 	}
 }
 
