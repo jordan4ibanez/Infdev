@@ -14,7 +14,7 @@ typedef Box = LuaArray<Float>;
 typedef BoxArray = LuaArray<Box>;
 
 abstract class NodeBox {
-	private var type: NodeBoxType;
+	public var type: NodeBoxType;
 
 	public function new(type: NodeBoxType) {
 		this.type = type;
@@ -28,7 +28,7 @@ class NodeBoxRegular extends NodeBox {
 }
 
 class NodeBoxFixed extends NodeBox {
-	private var fixed: BoxArray = [];
+	public var fixed: BoxArray = [];
 
 	public function new() {
 		super(NodeBoxTypeFixed);
@@ -41,7 +41,7 @@ class NodeBoxFixed extends NodeBox {
 }
 
 class NodeBoxLeveled extends NodeBox {
-	private var fixed: BoxArray = [];
+	public var fixed: BoxArray = [];
 
 	public function new() {
 		super(NodeBoxTypeLeveled);
@@ -55,13 +55,13 @@ class NodeBoxLeveled extends NodeBox {
 
 class NodeBoxWallMounted extends NodeBox {
 	@:native("wall_top")
-	private var wallTop: Box;
+	public var wallTop: Box;
 
 	@:native("wall_bottom")
-	private var wallBottom: Box;
+	public var wallBottom: Box;
 
 	@:native("wall_side")
-	private var wallSide: Box;
+	public var wallSide: Box;
 
 	public function new() {
 		super(NodeBoxTypeWallMounted);
@@ -84,39 +84,39 @@ class NodeBoxWallMounted extends NodeBox {
 }
 
 class NodeBoxConnected extends NodeBox {
-	private var fixed: BoxArray;
+	public var fixed: BoxArray;
 
 	// Connected.
 	@:native("connect_top")
-	private var connectTop: BoxArray;
+	public var connectTop: BoxArray;
 	@:native("connect_bottom")
-	private var connectBottom: BoxArray;
+	public var connectBottom: BoxArray;
 	@:native("connect_front")
-	private var connectFront: BoxArray;
+	public var connectFront: BoxArray;
 	@:native("connect_left")
-	private var connectLeft: BoxArray;
+	public var connectLeft: BoxArray;
 	@:native("connect_back")
-	private var connectBack: BoxArray;
+	public var connectBack: BoxArray;
 	@:native("connect_right")
-	private var connectRight: BoxArray;
+	public var connectRight: BoxArray;
 
 	// Disconnected.
 	@:native("disconnected_top")
-	private var disconnectedTop: BoxArray;
+	public var disconnectedTop: BoxArray;
 	@:native("disconnected_bottom")
-	private var disconnectedBottom: BoxArray;
+	public var disconnectedBottom: BoxArray;
 	@:native("disconnected_front")
-	private var disconnectedFront: BoxArray;
+	public var disconnectedFront: BoxArray;
 	@:native("disconnected_left")
-	private var disconnectedLeft: BoxArray;
+	public var disconnectedLeft: BoxArray;
 	@:native("disconnected_back")
-	private var disconnectedBack: BoxArray;
+	public var disconnectedBack: BoxArray;
 	@:native("disconnected_right")
-	private var disconnectedRight: BoxArray;
+	public var disconnectedRight: BoxArray;
 
-	private var disconnected: BoxArray;
+	public var disconnected: BoxArray;
 	@:native("disconnected_sides")
-	private var disconnectedSides: BoxArray;
+	public var disconnectedSides: BoxArray;
 
 	public function new() {
 		super(NodeBoxTypeConnected);
