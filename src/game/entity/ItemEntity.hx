@@ -291,43 +291,43 @@ class ItemEntity extends LuaEntity {
 		}
 
 		// Slide on slippery nodes
-		local def = node and core.registered_nodes[node.name]
-		local keep_movement = false
+		var def = node == null?  core.registered_nodes[node.name] : null;
+		var keep_movement = false;
 
-		if def then
-			local slippery = core.get_item_group(node.name, "slippery")
-			local vel = this.object:get_velocity()
-			if slippery ~= 0 and (math.abs(vel.x) > 0.1 or math.abs(vel.z) > 0.1) then
+		if (def != null) {
+			var slippery = core.get_item_group(node.name, "slippery");
+			var vel = this.object.get_velocity();
+			if (slippery != 0 && (math.abs(vel.x) > 0.1 || math.abs(vel.z) > 0.1)) {
 				// Horizontal deceleration
-				local factor = math.min(4 / (slippery + 4) * dtime, 1)
-				this.object:set_velocity({
-					x = vel.x * (1 - factor),
-					y = 0,
-					z = vel.z * (1 - factor)
-				})
-				keep_movement = true
-			end
-		end
+				var factor = math.min(4 / (slippery + 4) * dtime, 1);
+				this.object.set_velocity(new Vec3(
+					 vel.x * (1 - factor),
+					 0,
+					 vel.z * (1 - factor)
+				));
+				keep_movement = true;
+			}
+		}
 
-		if not keep_movement then
-			this.object:set_velocity({x=0, y=0, z=0})
-		end
+		if (! keep_movement) {
+			this.object.set_velocity(new Vec3(0,0,0));
+		}
 
-		if this.moving_state == keep_movement then
-			// Do not update anything until the moving state changes
-			return
-		end
-		this.moving_state = keep_movement
+		if (this.moving_state == keep_movement) {
+			// Do not update anything until the moving state changes.
+			return;
+		}
+		this.moving_state = keep_movement;
 
-		// Only collect items if not moving
-		if this.moving_state then
-			return
-		end
-		// Collect the items around to merge with
-		local own_stack = ItemStack(this.itemstring)
-		if own_stack:get_free_space() == 0 then
-			return
-		end
+		// Only collect items if not moving.
+		if (this.moving_state) {
+			return;
+		}
+		// Collect the items around to merge with.
+		var own_stack = ItemStack.create(this.itemstring);
+		if (own_stack.get_free_space() == 0 ){
+			return;
+		}
 		local objects = core.get_objects_inside_radius(pos, 1.0)
 		for k, obj in pairs(objects) do
 			local entity = obj:get_luaentity()
