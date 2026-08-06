@@ -279,26 +279,26 @@ class ItemEntity extends LuaEntity {
 
 		// Ground node we're colliding with.
 		node = null;
-		if (moveresult.touching_ground) {
+		if (moveResult.touching_ground) {
 			LuaLoop.nativeIpairs(_, info, moveresult.collisions, {
 				if (info.axis == "y") {
-					node = core.get_node(info.node_pos);
+					node = Core.getNode(info.node_pos);
 					LuaLoop.breakLoop();
 				}
 			});
 		}
 
-		// Slide on slippery nodes
-		var def = node == null ? core.registered_nodes[node.name] : null;
+		// Slide on slippery nodes.
+		var def = node == null ? Core.registeredNodes[cast node.name] : null;
 		var keep_movement = false;
 
 		if (def != null) {
-			var slippery = core.get_item_group(node.name, "slippery");
-			var vel = this.object.get_velocity();
-			if (slippery != 0 && (math.abs(vel.x) > 0.1 || math.abs(vel.z) > 0.1)) {
-				// Horizontal deceleration
-				var factor = math.min(4 / (slippery + 4) * dtime, 1);
-				this.object.set_velocity(new Vec3(
+			var slippery = Core.getItemGroup(node.name, "slippery");
+			var vel = this.object.getVelocity();
+			if (slippery != 0 && (Math.abs(vel.x) > 0.1 || Math.abs(vel.z) > 0.1)) {
+				// Horizontal deceleration.
+				var factor = Math.min(4 / (slippery + 4) * delta, 1);
+				this.object.setVelocity(new Vec3(
 					vel.x * (1 - factor),
 					0,
 					vel.z * (1 - factor)
@@ -308,7 +308,7 @@ class ItemEntity extends LuaEntity {
 		}
 
 		if (!keep_movement) {
-			this.object.set_velocity(new Vec3(0, 0, 0));
+			this.object.setVelocity(new Vec3(0, 0, 0));
 		}
 
 		if (this.moving_state == keep_movement) {
@@ -323,10 +323,12 @@ class ItemEntity extends LuaEntity {
 		}
 		// Collect the items around to merge with.
 		var own_stack = ItemStack.create(this.itemstring);
-		if (own_stack.get_free_space() == 0) {
+		if (own_stack.getFreeSpace() == 0) {
 			return;
 		}
-		var objects = core.get_objects_inside_radius(pos, 1.0);
+
+		var objects = Core.getObjectsInsideRadius(pos, 1.0);
+		
 		LuaLoop.nativeFor(k, obj, objects, {
 			var entity = obj.get_luaentity();
 			if (entity != null && entity.name == "__builtin:item") {
