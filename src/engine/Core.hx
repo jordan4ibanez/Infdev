@@ -3,7 +3,9 @@ package src.engine;
 import haxe.Constraints.Function;
 import haxe.Rest;
 import haxe.extern.EitherType;
+import lua.Table;
 import src.engine.compilercode.LuaArray;
+import src.engine.definition.ItemDefinition;
 import src.engine.definition.basic.PointedThing;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefEntity;
@@ -16,6 +18,10 @@ import src.game.entity.ItemEntity;
 
 @:native("core")
 extern class Core {
+	// This may cause issues if you try to run functions.
+	@:native("registered_items")
+	static final registeredItems: Table<String, ItemDefinition>;
+
 	static function log(level: LogLevel, text: String): Void;
 
 	// This is the real function.
