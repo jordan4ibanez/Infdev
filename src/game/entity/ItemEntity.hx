@@ -23,12 +23,12 @@ class ItemEntity extends LuaEntity {
 
 		self.itemstring = stack:to_string()
 		if self.itemstring == "" then
-			-- item not yet known
+			// item not yet known
 			return
 		end
 
-		-- Backwards compatibility: old clients use the texture
-		-- to get the type of the item
+		// Backwards compatibility: old clients use the texture
+		// to get the type of the item
 		local itemname = stack:is_known() and stack:get_name() or "unknown"
 
 		local max_count = stack:get_stack_max()
@@ -38,7 +38,7 @@ class ItemEntity extends LuaEntity {
 		local glow = def and def.light_source and
 			math.floor(def.light_source / 2 + 0.5)
 
-		local size_bias = 1e-3 * math.random() -- small random bias to counter Z-fighting
+		local size_bias = 1e-3 * math.random() // small random bias to counter Z-fighting
 		local c = {-size, -size, -size, size, size, size}
 		self.object:set_properties({
 			is_visible = true,
@@ -52,7 +52,7 @@ class ItemEntity extends LuaEntity {
 			infotext = stack:get_description(),
 		})
 
-		-- cache for usage in on_step
+		// cache for usage in on_step
 		self._collisionbox = c
 	}
 
