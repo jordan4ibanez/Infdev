@@ -133,6 +133,8 @@ class ItemEntity extends LuaEntity {
 			pointable: true
 		});
 
+		this.updateVisualEntity(itemname, glow);
+
 		this.object.playAnimation("item_spin", {speed: 0.4});
 
 		// Cache for usage in on_step.
@@ -164,7 +166,6 @@ class ItemEntity extends LuaEntity {
 		this.object.setVelocity(new Vec3(0, 2, 0));
 		this.object.setAcceleration(new Vec3(0, -GameInfo.gravity, 0));
 		this._collisionbox = defaultCollisionBox;
-		this.setItem();
 
 		this.visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
 		// The entity may disappear immediately.
@@ -173,6 +174,8 @@ class ItemEntity extends LuaEntity {
 		} else {
 			Core.log(LogLevelError, 'Tried to spawn item entity visual at ${this.object.getPos()} but it became null instantly. This item is now invisible.');
 		}
+
+		this.setItem();
 	}
 
 	function tryMergeWith(own_stack: ItemStack, object: ObjectRefBase, entity: ItemEntity): Bool {
