@@ -1,5 +1,6 @@
 package src.engine;
 
+import src.engine.definition.ItemDefinition;
 import haxe.extern.EitherType;
 import src.engine.metadata.ItemStackMetaRef;
 
@@ -52,6 +53,9 @@ abstract class ItemStack {
 
 	@:native("get_free_space")
 	public abstract function getFreeSpace(): Int;
+
+	@:native("get_definition")
+	public abstract function getDefinition(): ItemDefinition;
 
 	// @:native("")
 	// public abstract function setMetadata(metadata: String): Void;
