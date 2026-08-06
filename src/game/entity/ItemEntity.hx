@@ -25,9 +25,17 @@ import src.engine.vector.Vec3;
 
 @:register("infdev:item_entity_visual")
 class ItemEntityVisual extends LuaEntity {
+	var controllerEntity: Null<String> = null;
+
 	override function onActivate(staticData: String, dtimeS: Float) {
 		Macros.entityPatch();
 		super.onActivate(staticData, dtimeS);
+
+		// It needs to be created with the controller entity's GUID.
+		if (staticData == "") {
+			this.object.remove();
+			return;
+		}
 
 		this.object.setProperties({
 			pointable: false,
@@ -35,6 +43,10 @@ class ItemEntityVisual extends LuaEntity {
 			visual: EntityVisualWieldItem,
 			wield_item: "infdev:oracle_pickaxe"
 		});
+	}
+
+	override function onStep(delta: Float, moveResult: MoveResult) {
+		super.onStep(delta, moveResult);
 	}
 }
 
