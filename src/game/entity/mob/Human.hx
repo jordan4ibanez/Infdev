@@ -2,6 +2,7 @@ package src.game.entity.mob;
 
 import lua.Math;
 import src.engine.Core;
+import src.engine.compilercode.Macros;
 import src.engine.entity.MoveResult;
 import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
@@ -259,6 +260,7 @@ class Human extends Mob {
 	}
 
 	override function onActivate(staticData: String, dtimeS: Float) {
+		Macros.entityPatch();
 		super.onActivate(staticData, dtimeS);
 
 		this.object.setProperties({
