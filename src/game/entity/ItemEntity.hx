@@ -20,6 +20,8 @@ import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
 
+// todo: entity shadow api
+
 // This is the entity that gets mounted to the item's bone. It allows the item to have a cool visual.
 
 @:register("infdev:item_entity_visual")
