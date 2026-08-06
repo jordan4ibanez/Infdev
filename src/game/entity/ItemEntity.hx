@@ -155,7 +155,7 @@ class ItemEntity extends LuaEntity {
 		if (visualEntity != null) {
 			visualEntity.setAttach(this.object, "magic_item_floater", new Vec3(0, 0, 0), new Vec3(0, 0, 0), true);
 		} else {
-			Core.log(LogLevelError, "Tried to spawn item entity visual but it became null instantly.");
+			Core.log(LogLevelError, "Tried to spawn item entity visual but it became null instantly. This item is now invisible.");
 		}
 	}
 
