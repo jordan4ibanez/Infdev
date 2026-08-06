@@ -332,7 +332,7 @@ class ItemEntity extends LuaEntity {
 		}
 
 		// Slide on slippery nodes.
-		var def = node == null ? Core.registeredNodes[cast node.name] : null;
+		var def = node == null ? null : Core.registeredNodes[cast node.name];
 		var keep_movement = false;
 
 		if (def != null) {
