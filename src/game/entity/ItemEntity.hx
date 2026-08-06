@@ -43,6 +43,7 @@ class ItemEntityVisual extends LuaEntity {
 			pointable: false,
 			static_save: false,
 			visual: EntityVisualWieldItem,
+			collide_with_objects: false,
 			wield_item: "",
 			physical: false,
 			is_visible: true,
