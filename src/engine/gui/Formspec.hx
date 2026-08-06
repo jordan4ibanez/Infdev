@@ -46,7 +46,7 @@ class Formspec {
 	function getTrueWindowScale(player: ObjectRefPlayer): Float {
 		var scale: Float = 0;
 
-		var windowInfo = player.getLuaEntity().getWindowInformation();
+		var windowInfo = player.getPlayerLuaEntity().getWindowInformation();
 
 		if (windowInfo == null) {
 			return 1;
