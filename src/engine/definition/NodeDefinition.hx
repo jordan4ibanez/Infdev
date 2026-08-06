@@ -52,127 +52,127 @@ class NodeDefinition extends ItemDefinition {
 	public var nodeGroups: LuaMap<NodeGroup, Int>;
 
 	@:native("drawtype")
-	var drawType: DrawType;
+	public var drawType: DrawType;
 
 	@:native("visual_scale")
-	var visualScale: Float;
+	public var visualScale: Float;
 
-	var tiles: LuaArray<TileDefinitionOrString>;
+	public var tiles: LuaArray<TileDefinitionOrString>;
 
 	@:native("overlay_tiles")
-	var overlayTiles: LuaArray<TileDefinitionOrString>;
+	public var overlayTiles: LuaArray<TileDefinitionOrString>;
 
 	@:native("special_tiles")
-	var specialTiles: LuaArray<TileDefinitionOrString>;
+	public var specialTiles: LuaArray<TileDefinitionOrString>;
 
 	/**
 	 * This one is for nodes.
 	 */
 	@:native("color")
-	var nodeColor: ColorSpec;
+	public var nodeColor: ColorSpec;
 
 	@:native("use_texture_alpha")
-	var useTextureAlpha: NodeTextureAlpha;
+	public var useTextureAlpha: NodeTextureAlpha;
 
 	@:native("post_effect_color")
-	var postEffectColor: ColorSpec;
+	public var postEffectColor: ColorSpec;
 
 	@:native("post_effect_color_shaded")
-	var postEffectColorShaded: Bool;
+	public var postEffectColorShaded: Bool;
 
 	@:native("paramtype")
-	var paramtype1: ParamType1;
+	public var paramtype1: ParamType1;
 
-	var paramtype2: ParamType2;
+	public var paramtype2: ParamType2;
 
 	@:native("wallmounted_rotate_vertical")
-	var wallmountedRotateVertical: Bool;
+	public var wallmountedRotateVertical: Bool;
 
 	@:native("is_ground_content")
-	var isGroundContent: Bool;
+	public var isGroundContent: Bool;
 
 	@:native("sunlight_propagates")
-	var sunlightPropagates: Bool;
+	public var sunlightPropagates: Bool;
 
-	var walkable: Bool;
+	public var walkable: Bool;
 
-	var pointable: Bool;
+	public var pointable: Bool;
 
-	var diggable: Bool;
+	public var diggable: Bool;
 
-	var climbable: Bool;
+	public var climbable: Bool;
 
 	@:native("buildable_to")
-	var buildableTo: Bool;
+	public var buildableTo: Bool;
 
-	var floodable: Bool;
+	public var floodable: Bool;
 
 	@:native("liquidtype")
-	var liquidType: LiquidType;
+	public var liquidType: LiquidType;
 
 	@:native("liquid_alternative_flowing")
-	var liquidAlternativeFlowing: String;
+	public var liquidAlternativeFlowing: String;
 
 	@:native("liquid_alternative_source")
-	var liquidAlternativeSource: String;
+	public var liquidAlternativeSource: String;
 
 	@:native("liquid_viscosity")
-	var liquidViscosity: Int;
+	public var liquidViscosity: Int;
 
 	@:native("liquid_renewable")
-	var liquidRenewable: Bool;
+	public var liquidRenewable: Bool;
 
 	@:native("liquid_move_physics")
-	var liquidMovePhysics: Bool;
+	public var liquidMovePhysics: Bool;
 
 	@:native("air_equivalent")
-	var airEquivalent: Bool;
+	public var airEquivalent: Bool;
 
-	var leveled: Int;
+	public var leveled: Int;
 
 	@:native("leveled_max")
-	var leveledMax: Int;
+	public var leveledMax: Int;
 
 	@:native("liquid_range")
-	var liquidRange: Int;
+	public var liquidRange: Int;
 
-	var drowning: Int;
+	public var drowning: Int;
 
 	@:native("damage_per_second")
-	var damagePerSecond: Int;
+	public var damagePerSecond: Int;
 
 	@:native("node_box")
-	var nodeBox: NodeBox;
+	public var nodeBox: NodeBox;
 
 	@:native("connects_to")
-	var connectsTo: LuaArray<String>;
+	public var connectsTo: LuaArray<String>;
 
 	@:native("connect_sides")
-	var connectSides: LuaArray<ConnectSides>;
+	public var connectSides: LuaArray<ConnectSides>;
 
-	var mesh: String;
+	public var mesh: String;
 
 	@:native("selection_box")
-	var selectionBox: NodeBox;
+	public var selectionBox: NodeBox;
 
 	@:native("collision_box")
-	var collisionBox: NodeBox;
+	public var collisionBox: NodeBox;
 
 	@:native("legacy_facedir_simple")
-	var legacyFacedirSimple: Bool;
+	public var legacyFacedirSimple: Bool;
 
 	@:native("legacy_wallmounted")
-	var legacyWallmounted: Bool;
+	public var legacyWallmounted: Bool;
 
-	var waving: WavingType;
+	public var waving: WavingType;
 
 	/**
 	 * This one is for nodes.
 	 */
 	@:native("sounds")
-	var nodeSounds: NodeSoundTable;
+	public var nodeSounds: NodeSoundTable;
 
-	var drop: NodeDropTableOrString;
+	public var drop: NodeDropTableOrString;
 
 	public function onConstruct(pos: Vec3): Void {
 		// nil
