@@ -30,9 +30,10 @@ class EntityShadow extends LuaEntity {
 			collide_with_objects: false,
 			visual: EntityVisualMesh,
 			mesh: "infdev_entity_shadow.gltf",
-			textures: ["infdev_entity_shadow.png"],
+			textures: ["infdev_entity_shadow.png^[opacity:127"],
 			is_visible: true,
-			pointable: false
+			pointable: false,
+			use_texture_alpha: true
 		});
 
 		// Hook up the controller entity into this by reference so the global table doesn't need to hammer RAM.
@@ -60,6 +61,7 @@ abstract class LuaEntity {
 	final object: ObjectRefEntity = null;
 	final name: String = null;
 	var shadowEnabled = true;
+	var shadowEntity: Null<ObjectRefEntity> = null;
 
 	// ? Custom stuff so everything is uniform across the game.
 	var size: Vec2 = new Vec2(1, 1);
@@ -118,6 +120,17 @@ abstract class LuaEntity {
 	@:native("on_activate")
 	public function onActivate(staticData: String, dtimeS: Float) {
 		this.setSize(1, 1);
+
+		// Stops shadows from spawning shadows.
+		if (this.name != "infdev:entity_shadow") {
+			this.shadowEntity = Core.addEntity(this.object.getPos(), "infdev:entity_shadow", this.object.getGUID());
+			// The entity may disappear immediately.
+			if (this.shadowEntity != null) {
+				this.shadowEntity.setAttach(this.object, "", new Vec3(0, 0, 0), new Vec3(0, 0, 0), true);
+			} else {
+				Core.log(LogLevelError, 'Tried to spawn entity shadow at ${this.object.getPos()} but it became null instantly.');
+			}
+		}
 	}
 
 	@:native("on_deactivate")
