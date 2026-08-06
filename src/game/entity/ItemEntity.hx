@@ -376,7 +376,6 @@ class ItemEntity extends LuaEntity {
 		var itemstack = ItemStack.create(this.itemstring);
 		var callback = untyped itemstack.getDefinition().on_pickup;
 
-		// todo: this ended with: , ...
 		var ret = callback(itemstack, puncher, {type: PointedThingTypeObject, ref: this.object}, timeFromLastPunch);
 
 		if (ret == null) {
