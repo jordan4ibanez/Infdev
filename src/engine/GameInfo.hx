@@ -22,14 +22,24 @@ abstract class GameInfo {
 	};
 
 	// Below this is a custom monstrosity to get the local count at any point in this haxe code.
-	static var DEBUG_MODE = true;
+	static var DEBUG_MODE = false;
 
 	static var insecureContainer: Dynamic = untyped compilerDebugUnsafeEnvironment;
+
+	public static function getInsecureEnvironment(): Dynamic {
+		if (!DEBUG_MODE) {
+			throw "INSECURE ENVIRONMENT REQUESTED WITH DEBUG MODE SET TO OFF!";
+		}
+		if (insecureContainer == null) {
+			throw "INSECURE ENVIRONMENT REQUESTED WITH COMPILER DEBUG MODE SET TO OFF OR NOT IN TRUSTED MODS!";
+		}
+		return insecureContainer;
+	}
 
 	// This is AI assisted.
 	public static function getLocalCount(?level: Int): Int {
 		if (!DEBUG_MODE || insecureContainer == null) {
-			throw "Enable debug mode in this and the compiler.";
+			throw "Enable debug mode in this and the compiler. If this is already set, add infdev to trusted mods.";
 		}
 		// Default to level 2 (the caller of this function).
 		var level = (level ?? 1) + 1;

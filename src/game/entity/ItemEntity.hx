@@ -10,6 +10,7 @@ import src.engine.compilercode.LuaArray;
 import src.engine.compilercode.LuaLoop;
 import src.engine.compilercode.Macros;
 import src.engine.definition.ItemDefinition;
+import src.engine.definition.basic.PointedThing.PointedThingType;
 import src.engine.definition.basic.ToolCapabilities;
 import src.engine.entity.LuaEntity;
 import src.engine.entity.MoveResult;
@@ -355,10 +356,10 @@ class ItemEntity extends LuaEntity {
 
 		// Call on_pickup callback in item definition.
 		var itemstack = ItemStack.create(this.itemstring);
-		var callback = itemstack.getDefinition().onPickup;
+		var callback = untyped itemstack.getDefinition().on_pickup;
 
 		// todo: this ended with: , ...
-		var ret = callback(itemstack, puncher, {type: PointedThingTypeObject, ref: this.object}, 0);
+		var ret = callback(itemstack, puncher, {type: PointedThingTypeObject, ref: this.object}, timeFromLastPunch);
 
 		if (ret == null) {
 			// Don't modify (and don't reset rotation).

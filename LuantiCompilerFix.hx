@@ -23,7 +23,7 @@ class LuantiCompilerFix {
 
 					if (DEBUG_MODE && i == 0 && fileName == "init.lua") {
 						currentLine = "local compilerDebugUnsafeEnvironment = core.request_insecure_environment();";
-						trace(currentLine);
+						// trace(currentLine);
 					}
 
 					// If this line is blank, it doesn't get added to the output.
