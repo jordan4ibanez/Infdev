@@ -27,6 +27,8 @@ abstract class Mob extends LuaEntity {
 			collide_with_objects: false,
 			step_up_mode: StepUpModeRigid
 		});
+
+		this.enableShadow();
 	}
 
 	override function getStaticData(): String {
