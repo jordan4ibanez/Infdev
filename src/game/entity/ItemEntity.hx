@@ -26,7 +26,7 @@ class ItemEntity extends LuaEntity {
 	var age: Float = 0;
 	// Pushing item out of solid nodes.
 	var force_out: Null<Vec3> = null;
-	var force_out_start = null;
+	var force_out_start: Null<Vec3> = null;
 	var _collisionbox: EntityCollisionBox = null;
 
 	static final time_to_live: Float = 900;
@@ -258,7 +258,7 @@ class ItemEntity extends LuaEntity {
 			// If none of the 4 sides is free, check upwards
 			if (shootdir == null) {
 				shootdir = new Vec3(0, 1, 0);
-				var cnode = core.get_node(pos.add(shootdir)).name;
+				var cnode = Core.getNode(pos.add(shootdir)).name;
 				if (cnode == "ignore") {
 					// Do not push into ignore.
 					shootdir = null;
@@ -267,12 +267,12 @@ class ItemEntity extends LuaEntity {
 
 			if (shootdir != null) {
 				// Set new item moving speed accordingly.
-				var newv = vector.multiply(shootdir, 3);
-				this.disable_physics();
-				this.object.set_velocity(newv);
+				var newv = shootdir.multiplyScalar(3);
+				this.disablePhysics();
+				this.object.setVelocity(newv);
 
 				this.force_out = newv;
-				this.force_out_start = vector.round(pos);
+				this.force_out_start = pos.round();
 				return;
 			}
 		}
