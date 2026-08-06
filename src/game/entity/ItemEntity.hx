@@ -1,6 +1,5 @@
 package src.game.entity;
 
-import src.engine.definition.basic.ToolCapabilities;
 import haxe.extern.EitherType;
 import lua.Lua;
 import lua.Math;
@@ -11,6 +10,7 @@ import src.engine.compilercode.LuaArray;
 import src.engine.compilercode.LuaLoop;
 import src.engine.compilercode.Macros;
 import src.engine.definition.ItemDefinition;
+import src.engine.definition.basic.ToolCapabilities;
 import src.engine.entity.LuaEntity;
 import src.engine.entity.MoveResult;
 import src.engine.entity.definition.EntityCollisionBox;
@@ -345,7 +345,7 @@ class ItemEntity extends LuaEntity {
 		});
 	}
 
-	override function onPunch(puncher:Null<ObjectRefBase>, timeFromLastPunch:Float, toolCapabilities:ToolCapabilities, dir:Vec3, damager:Int) {
+	override function onPunch(puncher: Null<ObjectRefBase>, timeFromLastPunch: Float, toolCapabilities: ToolCapabilities, dir: Vec3, damager: Int) {
 		super.onPunch(puncher, timeFromLastPunch, toolCapabilities, dir, damager);
 
 		if (this.itemstring == "") {
@@ -358,9 +358,9 @@ class ItemEntity extends LuaEntity {
 		var callback = itemstack.getDefinition().onPickup;
 
 		// todo: this ended with: , ...
-		var ret = callback(itemstack, puncher, {type : "object", ref : this.object});
+		var ret = callback(itemstack, puncher, {type: PointedThingTypeObject, ref: this.object}, 0);
 
-		if (!ret) {
+		if (ret == null) {
 			// Don't modify (and don't reset rotation).
 			return;
 		}
@@ -370,7 +370,7 @@ class ItemEntity extends LuaEntity {
 		if (itemstack.isEmpty()) {
 			this.itemstring = "";
 			this.object.remove();
-		}else{
+		} else {
 			this.setItem(itemstack);
 		}
 	}
