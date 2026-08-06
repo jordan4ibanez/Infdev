@@ -42,7 +42,9 @@ class ItemEntityVisual extends LuaEntity {
 			pointable: false,
 			static_save: false,
 			visual: EntityVisualWieldItem,
-			wield_item: "infdev:oracle_pickaxe"
+			wield_item: "",
+			physical: false,
+			is_visible: false,
 		});
 
 		// Hook up the controller entity into this by reference so the global table doesn't need to hammer RAM.
