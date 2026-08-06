@@ -99,7 +99,7 @@ class ItemEntity extends LuaEntity {
 		this.setItem();
 	}
 
-	function tryMergeWith(ownStack, object: ObjectRefBase, entity: ItemEntity): Bool {
+	function tryMergeWith(own_stack: ItemStack, object: ObjectRefBase, entity: ItemEntity): Bool {
 		// todo: update this to use the object UUID.
 		if (self.age == entity.age) {
 			// Cannot merge with itself
@@ -108,13 +108,13 @@ class ItemEntity extends LuaEntity {
 
 		var stack = ItemStack(entity.itemstring);
 		var name = stack.getName();
-		if own_stack:get_name() ~= name or
-				own_stack:get_meta() ~= stack:get_meta() or
-				own_stack:get_wear() ~= stack:get_wear() or
-				own_stack:get_free_space() == 0 then
-			// Cannot merge different or full stack
-			return false
-		end
+		if (own_stack.get_name() != name ||
+				own_stack.get_meta() != stack.get_meta() ||
+				own_stack.get_wear() != stack.get_wear() ||
+				own_stack.get_free_space() == 0) {
+			// Cannot merge different or full stack.
+			return false;
+		}
 
 		local count = own_stack:get_count()
 		local total_count = stack:get_count() + count
