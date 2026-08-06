@@ -101,7 +101,7 @@ class ItemEntity extends LuaEntity {
 
 	function tryMergeWith(own_stack: ItemStack, object: ObjectRefBase, entity: ItemEntity): Bool {
 		// todo: update this to use the object UUID.
-		if (self.age == entity.age) {
+		if (this.age == entity.age) {
 			// Cannot merge with itself
 			return false;
 		}
