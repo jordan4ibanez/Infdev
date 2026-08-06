@@ -103,11 +103,11 @@ class ItemEntity extends LuaEntity {
 		// todo: update this to use the object UUID.
 		if (self.age == entity.age) {
 			// Cannot merge with itself
-			return false
+			return false;
 		}
 
-		local stack = ItemStack(entity.itemstring)
-		local name = stack:get_name()
+		var stack = ItemStack(entity.itemstring);
+		var name = stack.getName();
 		if own_stack:get_name() ~= name or
 				own_stack:get_meta() ~= stack:get_meta() or
 				own_stack:get_wear() ~= stack:get_wear() or
