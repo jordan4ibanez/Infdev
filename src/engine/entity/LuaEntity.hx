@@ -137,22 +137,26 @@ abstract class LuaEntity {
 		return this.size;
 	}
 
+	/**
+	 * Enable having a shadow under this entity.
+	 */
+	public function enableShadow(): Void {
+		// Stops shadows from spawning shadows.
+
+		this.shadowEntity = Core.addEntity(this.object.getPos(), "infdev:entity_shadow", this.object.getGUID());
+		// The entity may disappear immediately.
+		if (this.shadowEntity != null) {
+			this.shadowEntity.setAttach(this.object, "", new Vec3(0, 0, 0), new Vec3(0, 0, 0), true);
+		} else {
+			Core.log(LogLevelError, 'Tried to spawn entity shadow at ${this.object.getPos()} but it became null instantly.');
+		}
+	}
+
 	// ? Here begins programmer facing overrideable methods.
 
 	@:native("on_activate")
 	public function onActivate(staticData: String, dtimeS: Float) {
 		this.setSize(1, 1);
-
-		// Stops shadows from spawning shadows.
-		if (this.name != "infdev:entity_shadow") {
-			this.shadowEntity = Core.addEntity(this.object.getPos(), "infdev:entity_shadow", this.object.getGUID());
-			// The entity may disappear immediately.
-			if (this.shadowEntity != null) {
-				this.shadowEntity.setAttach(this.object, "", new Vec3(0, 0, 0), new Vec3(0, 0, 0), true);
-			} else {
-				Core.log(LogLevelError, 'Tried to spawn entity shadow at ${this.object.getPos()} but it became null instantly.');
-			}
-		}
 	}
 
 	@:native("on_deactivate")
