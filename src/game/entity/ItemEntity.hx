@@ -6,6 +6,7 @@ import lua.Math;
 import src.engine.Core;
 import src.engine.GameInfo;
 import src.engine.ItemStack;
+import src.engine.compilercode.LuaArray;
 import src.engine.compilercode.LuaLoop;
 import src.engine.compilercode.Macros;
 import src.engine.definition.ItemDefinition;
@@ -327,14 +328,15 @@ class ItemEntity extends LuaEntity {
 			return;
 		}
 
-		var objects = Core.getObjectsInsideRadius(pos, 1.0);
+		var objects: LuaArray<ObjectRefBase> = Core.getObjectsInsideRadius(pos, 1.0);
 
-		LuaLoop.nativePairs(k, obj, objects, {
-			var entity = obj.get_luaentity();
+		LuaLoop.nativePairs(k, o, objects, {
+			var obj = (cast o : ObjectRefBase);
+			var entity = obj.getLuaEntity();
 			if (entity != null && entity.name == "__builtin:item") {
-				if (this.try_merge_with(own_stack, obj, entity)) {
-					own_stack = ItemStack(this.itemstring);
-					if (own_stack.get_free_space() == 0) {
+				if (this.tryMergeWith(own_stack, obj, cast entity)) {
+					own_stack = ItemStack.create(this.itemstring);
+					if (own_stack.getFreeSpace() == 0) {
 						return;
 					}
 				}
