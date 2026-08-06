@@ -1,5 +1,6 @@
 package src.game.entity;
 
+import src.engine.entity.objectref.ObjectRefBase;
 import lua.Math;
 import src.engine.Core;
 import src.engine.GameInfo;
@@ -96,5 +97,44 @@ class ItemEntity extends LuaEntity {
 		this.object.setAcceleration(new Vec3(0, -GameInfo.gravity, 0));
 		this._collisionbox = defaultCollisionBox;
 		this.setItem();
+	}
+
+	function tryMergeWith(ownStack, object: ObjectRefBase): Bool {
+		if self.age == entity.age then
+			// Cannot merge with itself
+			return false
+		end
+
+		local stack = ItemStack(entity.itemstring)
+		local name = stack:get_name()
+		if own_stack:get_name() ~= name or
+				own_stack:get_meta() ~= stack:get_meta() or
+				own_stack:get_wear() ~= stack:get_wear() or
+				own_stack:get_free_space() == 0 then
+			// Cannot merge different or full stack
+			return false
+		end
+
+		local count = own_stack:get_count()
+		local total_count = stack:get_count() + count
+		local max_count = stack:get_stack_max()
+
+		if total_count > max_count then
+			return false
+		end
+		// Merge the remote stack into this one
+
+		local pos = object:get_pos()
+		pos.y = pos.y + ((total_count - count) / max_count) * 0.15
+		self.object:move_to(pos)
+
+		self.age = 0 // Handle as new entity
+		own_stack:set_count(total_count)
+		self:set_item(own_stack)
+
+		entity.itemstring = ""
+		object:remove()
+		return true
+
 	}
 }
