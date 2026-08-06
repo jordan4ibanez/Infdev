@@ -220,24 +220,24 @@ class ItemEntity extends LuaEntity {
 		}
 
 		assert(moveresult,
-			"Collision info missing, this is caused by an out-of-date/buggy mod or game")
+			"Collision info missing, this is caused by an out-of-date/buggy mod or game");
 
-		if not moveresult.collides then
-			// future TODO: items should probably decelerate in air
-			return
-		end
+		if (! moveresult.collides) {
+			// future TODO: items should probably decelerate in air.
+			return;
+		}
 
 		// Push item out when stuck inside solid node
-		local is_stuck = false
-		local snode = core.get_node_or_nil(pos)
-		if snode then
-			local sdef = core.registered_nodes[snode.name] or {}
-			is_stuck = (sdef.walkable == nil or sdef.walkable == true)
-				and (sdef.collision_box == nil or sdef.collision_box.type == "regular")
-				and (sdef.node_box == nil or sdef.node_box.type == "regular")
-		end
+		var is_stuck = false;
+		var snode = core.get_node_or_nil(pos);
+		if (snode != null) {
+			var sdef = core.registered_nodes[snode.name] ?? {};
+			is_stuck = (sdef.walkable == null || sdef.walkable == true)
+				&& (sdef.collision_box == null || sdef.collision_box.type == "regular")
+				&& (sdef.node_box == null || sdef.node_box.type == "regular");
+		}
 
-		if is_stuck then
+		if (is_stuck) then
 			local shootdir
 			local order = {
 				{x=1, y=0, z=0}, {x=-1, y=0, z= 0},
