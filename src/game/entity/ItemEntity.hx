@@ -140,4 +140,14 @@ class ItemEntity extends LuaEntity {
 		object.remove();
 		return true;
 	}
+
+	function enablePhysics(): Void {
+		if (this.physical_state) {
+			return;
+		}
+		self.physical_state = true;
+		self.object:set_properties({physical = true});
+		self.object:set_velocity({x=0, y=0, z=0});
+		self.object:set_acceleration({x=0, y=-gravity, z=0});
+	}
 }
