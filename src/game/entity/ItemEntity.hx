@@ -32,12 +32,12 @@ class ItemEntity extends LuaEntity {
 		// to get the type of the item
 		var itemname = stack.is_known() ? stack.get_name() : "unknown";
 
-		local max_count = stack:get_stack_max()
-		local count = math.min(stack:get_count(), max_count)
-		local size = 0.2 + 0.1 * (count / max_count) ^ (1 / 3)
-		local def = core.registered_items[itemname]
-		local glow = def and def.light_source and
-			math.floor(def.light_source / 2 + 0.5)
+		var max_count = stack.get_stack_max();
+		var count = math.min(stack.get_count(), max_count);
+		var size = 0.2 + 0.1 * (count / max_count) ^ (1 / 3);
+		var def = core.registered_items[itemname];
+		// todo: probably only define this if it's a light source.
+		var glow = (def && def.light_source) ? math.floor(def.light_source / 2 + 0.5) : 0;
 
 		local size_bias = 1e-3 * math.random() // small random bias to counter Z-fighting
 		local c = {-size, -size, -size, size, size, size}
