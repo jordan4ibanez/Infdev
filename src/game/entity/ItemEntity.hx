@@ -328,8 +328,7 @@ class ItemEntity extends LuaEntity {
 		}
 
 		var objects = Core.getObjectsInsideRadius(pos, 1.0);
-		
-		LuaLoop.nativeFor(k, obj, objects, {
+		LuaLoop.nativePairs(k, obj, objects, {
 			var entity = obj.get_luaentity();
 			if (entity != null && entity.name == "__builtin:item") {
 				if (this.try_merge_with(own_stack, obj, entity)) {
