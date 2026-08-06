@@ -1,6 +1,5 @@
 package src.game.entity;
 
-import src.engine.entity.MoveResult;
 import haxe.extern.EitherType;
 import lua.Math;
 import src.engine.Core;
@@ -9,6 +8,7 @@ import src.engine.ItemStack;
 import src.engine.compilercode.Macros;
 import src.engine.definition.ItemDefinition;
 import src.engine.entity.LuaEntity;
+import src.engine.entity.MoveResult;
 import src.engine.entity.definition.EntityCollisionBox;
 import src.engine.entity.helpers.EntitySerialization;
 import src.engine.entity.objectref.ObjectRefBase;
@@ -214,9 +214,10 @@ class ItemEntity extends LuaEntity {
 			}
 		}
 
-		if not this.physical_state then
-			return // Don't do anything
-		end
+		if (! this.physical_state) {
+			// Don't do anything.
+			return; 
+		}
 
 		assert(moveresult,
 			"Collision info missing, this is caused by an out-of-date/buggy mod or game")
