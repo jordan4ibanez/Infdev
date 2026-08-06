@@ -44,6 +44,14 @@ class EntityShadow extends LuaEntity {
 			return;
 		}
 	}
+
+	override function onStep(delta: Float, moveResult: MoveResult) {
+		super.onStep(delta, moveResult);
+		if (controllerEntity == null || !controllerEntity.isValid() || this.object.getAttach() == null) {
+			this.object.remove();
+			return;
+		}
+	}
 }
 
 @:autoBuild(src.engine.compilercode.EntityDuctTape.build())
