@@ -17,6 +17,7 @@ import src.engine.entity.MoveResult;
 import src.engine.entity.definition.EntityCollisionBox;
 import src.engine.entity.helpers.EntitySerialization;
 import src.engine.entity.objectref.ObjectRefBase;
+import src.engine.entity.objectref.ObjectRefEntity;
 import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
 
@@ -77,10 +78,13 @@ class ItemEntity extends LuaEntity {
 	var force_out: Null<Vec3> = null;
 	var force_out_start: Null<Vec3> = null;
 	var _collisionbox: EntityCollisionBox = null;
+	var visualEntity: Null<ObjectRefEntity> = null;
 
 	static final time_to_live: Float = 900;
 
 	static final defaultCollisionBox: EntityCollisionBox = new EntityCollisionBox(-0.3, -0.3, -0.3, 0.3, 0.3, 0.3);
+
+	function updateVisualEntity(): Void {}
 
 	@:native("set_item")
 	public function setItem(?item: EitherType<String, ItemStack>): Void {
@@ -152,10 +156,10 @@ class ItemEntity extends LuaEntity {
 		this._collisionbox = defaultCollisionBox;
 		this.setItem();
 
-		var visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
+		this.visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
 		// The entity may disappear immediately.
-		if (visualEntity != null) {
-			visualEntity.setAttach(this.object, "magic_item_floater", new Vec3(0, 0, 0), new Vec3(0, 0, 0), true);
+		if (this.visualEntity != null) {
+			this.visualEntity.setAttach(this.object, "magic_item_floater", new Vec3(0, 0, 0), new Vec3(0, 0, 0), true);
 		} else {
 			Core.log(LogLevelError, 'Tried to spawn item entity visual at ${this.object.getPos()} but it became null instantly. This item is now invisible.');
 		}
