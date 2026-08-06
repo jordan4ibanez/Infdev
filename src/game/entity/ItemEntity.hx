@@ -328,18 +328,18 @@ class ItemEntity extends LuaEntity {
 		if (own_stack.get_free_space() == 0 ){
 			return;
 		}
-		local objects = core.get_objects_inside_radius(pos, 1.0)
-		for k, obj in pairs(objects) do
-			local entity = obj:get_luaentity()
-			if entity and entity.name == "__builtin:item" then
-				if self:try_merge_with(own_stack, obj, entity) then
-					own_stack = ItemStack(this.itemstring)
-					if own_stack:get_free_space() == 0 then
-						return
-					end
-				end
-			end
-		end
+		var objects = core.get_objects_inside_radius(pos, 1.0);
+		LuaLoop.nativeFor(k, obj, objects, {
+			var entity = obj.get_luaentity();
+			if (entity != null && entity.name == "__builtin:item") {
+				if (this.try_merge_with(own_stack, obj, entity)) {
+					own_stack = ItemStack(this.itemstring);
+					if (own_stack.get_free_space() == 0) {
+						return;
+					}
+				}
+			}
+		});
 
 	}
 }
