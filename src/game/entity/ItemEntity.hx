@@ -1,5 +1,6 @@
 package src.game.entity;
 
+import haxe.extern.EitherType;
 import lua.Math;
 import src.engine.Core;
 import src.engine.GameInfo;
@@ -28,7 +29,7 @@ class ItemEntity extends LuaEntity {
 	static final defaultCollisionBox: EntityCollisionBox = new EntityCollisionBox(-0.3, -0.3, -0.3, 0.3, 0.3, 0.3);
 
 	@:native("set_item")
-	public function setItem(?item: String): Void {
+	public function setItem(?item: EitherType<String, ItemStack>): Void {
 		var stack = ItemStack.create(item ?? this.itemstring);
 
 		this.itemstring = stack.toString();
@@ -126,14 +127,14 @@ class ItemEntity extends LuaEntity {
 
 		// Merge the remote stack into this one.
 
-		var pos = object.get_pos();
+		var pos = object.getPos();
 		pos.y = pos.y + ((total_count - count) / max_count) * 0.15;
-		this.object.move_to(pos);
+		this.object.moveTo(pos);
 
 		// Handle as new entity
 		this.age = 0;
-		own_stack.set_count(total_count);
-		this.set_item(own_stack);
+		own_stack.setCount(total_count);
+		this.setItem(own_stack);
 
 		entity.itemstring = "";
 		object.remove();
