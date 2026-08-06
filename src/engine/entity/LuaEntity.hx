@@ -15,6 +15,7 @@ inline final MAX_ENTITY_LEVEL = MAX_LEVEL;
 abstract class LuaEntity {
 	final object: ObjectRefEntity = null;
 	final name: String = null;
+	var shadowEnabled = true;
 
 	// ? Custom stuff so everything is uniform across the game.
 	var size: Vec2 = new Vec2(1, 1);
