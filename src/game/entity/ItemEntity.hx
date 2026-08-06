@@ -25,7 +25,7 @@ class ItemEntity extends LuaEntity {
 	// Item expiry.
 	var age: Float = 0;
 	// Pushing item out of solid nodes.
-	var force_out = null;
+	var force_out: Null<Vec3> = null;
 	var force_out_start = null;
 	var _collisionbox: EntityCollisionBox = null;
 
@@ -191,11 +191,11 @@ class ItemEntity extends LuaEntity {
 		}
 
 		// Prevent assert when item_entity is attached
-		if (moveresult == null && this.object.get_attach()) {
+		if (moveResult == null && this.object.getAttach()) {
 			return;
 		}
 
-		if (this.force_out) {
+		if (this.force_out != null) {
 			// This code runs after the entity got a push from the is_stuck code.
 			// It makes sure the entity is entirely outside the solid node
 			var c = this._collisionbox;
@@ -211,7 +211,7 @@ class ItemEntity extends LuaEntity {
 			if (ok) {
 				// Item was successfully forced out.
 				this.force_out = null;
-				this.enable_physics();
+				this.enablePhysics();
 				return;
 			}
 		}
