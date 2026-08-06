@@ -155,9 +155,9 @@ class ItemEntity extends LuaEntity {
 		if (!this.physical_state) {
 			return;
 		}
-		self.physical_state = false
-		self.object:set_properties({physical = false})
-		self.object:set_velocity({x=0, y=0, z=0})
-		self.object:set_acceleration({x=0, y=0, z=0})
+		this.physical_state = false;
+		this.object.setProperties({physical: false});
+		this.object.setVelocity(new Vec3(0, 0, 0));
+		this.object.setAcceleration(new Vec3(0, 0, 0));
 	}
 }
