@@ -222,6 +222,10 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	public abstract function setFlags(flags: PlayerFlags): Void;
 
 	public inline function getPlayerLuaEntity(): Player {
+		if (!this.isPlayer()) {
+			Core.log(LogLevelError, "Calling getPlayerLuaEntity on a non-player entity!");
+			return null;
+		}
 		return PlayerHandling.getGlobalLuaEntity(this.getPlayerName());
 	}
 }
