@@ -224,14 +224,14 @@ class ItemEntity extends LuaEntity {
 		Lua.assert(moveResult,
 			"Collision info missing, this is caused by an out-of-date/buggy mod or game");
 
-		if (!moveresult.collides) {
+		if (!moveResult.collides) {
 			// future TODO: items should probably decelerate in air.
 			return;
 		}
 
 		// Push item out when stuck inside solid node
 		var is_stuck = false;
-		var snode = core.get_node_or_nil(pos);
+		var snode = Core.getNodeOrNull(pos);
 		if (snode != null) {
 			var sdef = core.registered_nodes[snode.name] ?? {};
 			is_stuck = (sdef.walkable == null || sdef.walkable == true)
