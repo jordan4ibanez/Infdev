@@ -22,12 +22,12 @@ final class PlayerHandling {
 			// this -> ObjectRefPlayer -> this
 			// It cannot find it, so it creates it.
 			// You can go down to getGlobalLuaEntity to read how that works.
-			player.getLuaEntity();
+			player.getPlayerLuaEntity();
 		});
 
 		// Player LuaEntity destruction.
 		Core.registerOnLeavePlayer((player, timedOut) -> {
-			var ple = player.getLuaEntity();
+			var ple = player.getPlayerLuaEntity();
 			ple.onDeactivate(false);
 			ModStorage.setString(player.getPlayerName() + PLAYER_DATA_KEY, ple.getStaticData());
 			playerLuaEntities.remove(player.getPlayerName());
@@ -36,7 +36,7 @@ final class PlayerHandling {
 		// Player LuaEntity destruction.
 		Core.registerOnShutDown(() -> {
 			for (player in Core.getConnectedPlayers()) {
-				var ple = player.getLuaEntity();
+				var ple = player.getPlayerLuaEntity();
 				ple.onDeactivate(false);
 				ModStorage.setString(player.getPlayerName() + PLAYER_DATA_KEY, ple.getStaticData());
 				playerLuaEntities.remove(player.getPlayerName());
@@ -45,35 +45,35 @@ final class PlayerHandling {
 
 		// Player LuaEntity onNewPlayer.
 		Core.registerOnNewPlayer((player) -> {
-			player.getLuaEntity().onNewPlayer();
+			player.getPlayerLuaEntity().onNewPlayer();
 		});
 
 		// Player LuaEntity onStep.
 		Core.registerGlobalStep((delta) -> {
 			for (player in Core.getConnectedPlayers()) {
-				player.getLuaEntity().onStep(delta);
+				player.getPlayerLuaEntity().onStep(delta);
 			}
 		});
 
 		// Player LuaEntity onPunch.
 		Core.registerOnPunchPlayer((player, hitter, timeFromLastPunch, toolCapabilities, dir, damage) -> {
-			return player.getLuaEntity().onPunch(hitter, timeFromLastPunch, toolCapabilities, dir, damage);
+			return player.getPlayerLuaEntity().onPunch(hitter, timeFromLastPunch, toolCapabilities, dir, damage);
 		});
 
 		Core.registerOnRightClickPlayer((player, clicker) -> {
-			player.getLuaEntity().onRightClick(clicker);
+			player.getPlayerLuaEntity().onRightClick(clicker);
 		});
 
 		Core.registeronPlayerHPChange((player, hpChange, reason) -> {
-			return player.getLuaEntity().onHPChange(hpChange, reason);
+			return player.getPlayerLuaEntity().onHPChange(hpChange, reason);
 		}, true);
 
 		Core.registerOnDiePlayer((player, reason) -> {
-			player.getLuaEntity().onDeath(reason);
+			player.getPlayerLuaEntity().onDeath(reason);
 		});
 
 		Core.registerOnRespawnPlayer((player) -> {
-			return player.getLuaEntity().onRespawn();
+			return player.getPlayerLuaEntity().onRespawn();
 		});
 	}
 
