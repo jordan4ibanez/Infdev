@@ -14,7 +14,7 @@ class ItemEntity extends LuaEntity {
 	}
 
 	override function onActivate(staticData: String, dtimeS: Float) {
-		super.onActivate(staticData, dtimeS);
 		Macros.entityPatch();
+		super.onActivate(staticData, dtimeS);
 	}
 }
