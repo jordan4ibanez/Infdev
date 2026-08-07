@@ -10,18 +10,30 @@ class FormspecList extends FormspecElement {
 	var width: Float; // ? Done.
 	var height: Float; // ? Done.
 
-	public function new(x: Float, y: Float, width: Float, height: Float) {
+	public function new(inventoryLocation: String, listName: String, x: Float, y: Float, width: Float, height: Float) {
+		this.inventoryLocation = inventoryLocation;
+		this.listName = listName;
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
 
-        // todo: fixme
+		// todo: fixme
 		// this.style = new FormspecLabelStyle();
 	}
 
 	public function toFormspec(name: String): String {
 		return 'list[<inventory location>;<list name>;${this.x},${this.y};${this.width},${this.height};<starting item index>]';
+	}
+
+	public function setInventoryLocation(inventoryLocation: String): FormspecList {
+		this.inventoryLocation = inventoryLocation;
+		return this;
+	}
+
+	public function setListName(listName: String): FormspecList {
+		this.listName = listName;
+		return this;
 	}
 
 	public function setPos(x: Float, y: Float): FormspecList {
