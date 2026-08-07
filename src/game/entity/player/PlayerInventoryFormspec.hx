@@ -7,7 +7,9 @@ import src.engine.gui.Formspec;
 final class PlayerInventoryFormspec {
 	var playerObject: ObjectRefPlayer;
 
-	static var formspec: Formspec = new Formspec("player_inventory");
+	// This is REALLY, REALLY memory inefficient but I can't run a function when
+	// the player opens their inventory.
+	var formspec: Formspec = new Formspec("player_inventory");
 
 	public function new(playerObject: ObjectRefPlayer) {
 		this.playerObject = playerObject;
