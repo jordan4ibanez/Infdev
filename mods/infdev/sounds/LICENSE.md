@@ -33,8 +33,10 @@ sand_mine: https://freesound.org/people/wniebelski/sounds/695981/ (CC0)
 
 ## Lever:
 
-lever.x: https://freesound.org/people/SoundsofTheMachine/sounds/843093/ (CC0)
+lever: https://freesound.org/people/SoundsofTheMachine/sounds/843093/ (CC0)
 
 ## Wood:
 
 wood_mine: https://freesound.org/people/TRP/sounds/573835/ (CC0)
+
+wood_step: https://freesound.org/people/sgrowe/sounds/342543/ (CC0)
