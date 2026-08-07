@@ -31,19 +31,7 @@ final class Player {
 
 	var shadowEntity: Null<ObjectRefEntity> = null;
 
-	// ? Animation stuff.
-	var mining: Bool;
-	var wasMining: Bool;
-	var placing: Bool;
-	var wasPlacing: Bool;
-	var walking: Bool;
-	var wasWalking: Bool;
-	var sneaking: Bool;
-	var wasSneaking: Bool;
-	var animationTimer: Float = 0.0;
-	// Stop looking at my hackjob.
-	var animationPriority = -2_147_483_648;
-	var oldLookPitch = 0.0;
+	var animationHandler: Null<PlayerAnimationHandler> = null;
 
 	@:allow(src.engine.entity.helpers.PlayerHandling)
 	private function new() {}
@@ -54,26 +42,6 @@ final class Player {
 
 	public function getWindowInformation(): PlayerWindowInformation {
 		return untyped __lua__("core.get_player_window_information({0})", this.name);
-	}
-
-	function playAnimation(animation: PlayerAnimation, ?speed: Float, ?loop: Bool = true): Void {
-		this.object.playAnimation(animation, {
-			priority: animationPriority,
-			speed: speed,
-			start_frame: animationTimer,
-			blend: 0.15,
-			loop: loop
-		});
-
-		animationPriority++;
-	}
-
-	inline function stopAnimation(animation: PlayerAnimation): Void {
-		this.object.stopAnimation(animation);
-	}
-
-	inline function setAnimationSpeed(animation: PlayerAnimation, speed: Float): Void {
-		this.object.updateAnimation(animation, {speed: speed});
 	}
 
 	inline function getControls(): PlayerControl {
