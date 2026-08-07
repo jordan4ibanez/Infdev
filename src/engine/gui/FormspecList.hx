@@ -24,8 +24,7 @@ class FormspecList extends FormspecElement {
 			this.startingIndex = startingIndex;
 		}
 
-		// todo: fixme
-		// this.style = new FormspecLabelStyle();
+		this.style = new FormspecListStyle();
 	}
 
 	public function toFormspec(name: String): String {
@@ -56,6 +55,8 @@ class FormspecList extends FormspecElement {
 }
 
 class FormspecListStyle extends FormspecStyle {
+	public function new() {}
+
 	public function toFormspec(name: String, windowScale: Float): String {
 		throw new haxe.exceptions.NotImplementedException();
 	}
