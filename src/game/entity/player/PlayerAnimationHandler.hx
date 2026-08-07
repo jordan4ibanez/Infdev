@@ -35,6 +35,10 @@ final class PlayerAnimationHandler {
 		this.playerObject = playerObject;
 	}
 
+	public function terminate(): Void {
+		this.playerObject = null;
+	}
+
 	public function playAnimation(animation: PlayerAnimation, ?speed: Float, ?loop: Bool = true): Void {
 		this.playerObject.playAnimation(animation, {
 			priority: animationPriority,

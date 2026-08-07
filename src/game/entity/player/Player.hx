@@ -100,7 +100,9 @@ final class Player {
 		// trace("on_deactivate?");
 	}
 
+	// The only time this runs is when a player leaves.
 	public function getStaticData(): String {
+		this.animationHandler.terminate();
 		return EntitySerialization.safeSerialize(this, Macros.getCompileTimeClass());
 	}
 
