@@ -11,18 +11,7 @@ import src.engine.player.PlayerInformation;
 import src.engine.player.PlayerWindowInformation;
 import src.engine.vector.Vec3;
 
-enum abstract PlayerAnimation(String) to String {
-	// var PlayerAnimation = "";
-	var PlayerAnimationIdle = "idle";
-	var PlayerAnimationMine = "mine";
-	var PlayerAnimationWalk = "walk";
-	var PlayerAnimationMineWalk = "mine_walk";
-	var PlayerAnimationLookPitch = "look_pitch";
-	var PlayerAnimationLookYaw = "look_yaw";
-	// Crazy animation for human mob.
-	var PlayerAnimationHumanIdle = "human_idle";
-	var PlayerAnimationHumanWalk = "human_walk";
-}
+
 
 final class Player {
 	public var object: ObjectRefPlayer = null;

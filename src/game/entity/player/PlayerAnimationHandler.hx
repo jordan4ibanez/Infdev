@@ -2,6 +2,19 @@ package src.game.entity.player;
 
 import src.engine.entity.objectref.ObjectRefPlayer;
 
+enum abstract PlayerAnimation(String) to String {
+	// var PlayerAnimation = "";
+	var PlayerAnimationIdle = "idle";
+	var PlayerAnimationMine = "mine";
+	var PlayerAnimationWalk = "walk";
+	var PlayerAnimationMineWalk = "mine_walk";
+	var PlayerAnimationLookPitch = "look_pitch";
+	var PlayerAnimationLookYaw = "look_yaw";
+	// Crazy animation for human mob.
+	var PlayerAnimationHumanIdle = "human_idle";
+	var PlayerAnimationHumanWalk = "human_walk";
+}
+
 final class PlayerAnimationHandler {
 	var playerObject: ObjectRefPlayer;
 	// ? Animation stuff.
