@@ -1,5 +1,6 @@
 package src.game.entity.player;
 
+import lua.Table;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.gui.Formspec;
 
@@ -21,5 +22,13 @@ final class PlayerInventoryFormspec {
 
 	public function serialize(): String {
 		return formspec.serialize(this.playerObject);
+	}
+
+	public function updateScaling(): Void {
+		playerObject.setInventoryFormspec(this.serialize());
+	}
+
+	public function process(fields: Table<String, String>): Void {
+		untyped print(dump(fields));
 	}
 }

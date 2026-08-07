@@ -98,7 +98,6 @@ final class Player {
 
 		this.inventoryFormspec = new PlayerInventoryFormspec(this.object);
 
-		// todo: this is going to require some immaculate spaghetti to scale properly.
 		this.object.setInventoryFormspec(this.inventoryFormspec.serialize());
 
 		Lua.print(this.name + " joined the game.");
@@ -154,7 +153,14 @@ final class Player {
 	}
 
 	public function onReceiveFields(formName: String, fields: Table<String, String>): Void {
-		// todo: dispatch classes that handle each component here.
-		untyped print(formName);
+		switch (formName) {
+			case "":
+				{
+					this.inventoryFormspec.process(fields);
+					// You have to close and open the formspec if you change the window size to update scaling.
+					this.inventoryFormspec.updateScaling();
+				}
+			default:
+		}
 	}
 }
