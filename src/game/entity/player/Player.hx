@@ -119,7 +119,7 @@ final class Player {
 		// todo: fireworks and sound effect
 	}
 
-	// todo: I don't think moveresult is possible
+	// I don't think moveresult is possible
 	// moveResult: Dynamic
 	public function onStep(delta: Float) {
 		animationHandler.doStateLogic();
