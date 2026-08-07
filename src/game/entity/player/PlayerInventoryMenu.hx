@@ -2,6 +2,7 @@ package src.game.entity.player;
 
 import src.engine.entity.objectref.ObjectRefPlayer;
 
+// This will actually save what tab you're on between logins.
 final class PlayerInventoryMenu {
 	var playerObject: ObjectRefPlayer;
 
