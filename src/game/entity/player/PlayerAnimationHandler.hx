@@ -35,7 +35,7 @@ final class PlayerAnimationHandler {
 		this.playerObject = playerObject;
 	}
 
-	function playAnimation(animation: PlayerAnimation, ?speed: Float, ?loop: Bool = true): Void {
+	public function playAnimation(animation: PlayerAnimation, ?speed: Float, ?loop: Bool = true): Void {
 		this.object.playAnimation(animation, {
 			priority: animationPriority,
 			speed: speed,
@@ -47,15 +47,15 @@ final class PlayerAnimationHandler {
 		animationPriority++;
 	}
 
-	inline function stopAnimation(animation: PlayerAnimation): Void {
+	public inline function stopAnimation(animation: PlayerAnimation): Void {
 		this.object.stopAnimation(animation);
 	}
 
-	inline function setAnimationSpeed(animation: PlayerAnimation, speed: Float): Void {
+	public inline function setAnimationSpeed(animation: PlayerAnimation, speed: Float): Void {
 		this.object.updateAnimation(animation, {speed: speed});
 	}
 
-	function trackAnimationTimer(delta: Float): Void {
+	public function trackAnimationTimer(delta: Float): Void {
 		animationTimer += delta;
 
 		if (animationTimer >= 1.0) {
@@ -63,7 +63,7 @@ final class PlayerAnimationHandler {
 		}
 	}
 
-	function doPlayerAnimations(delta: Float) {
+	public function doPlayerAnimations(delta: Float) {
 		var stateChange = false;
 
 		// Mining.
@@ -123,7 +123,7 @@ final class PlayerAnimationHandler {
 		oldLookPitch = newLookPitch;
 	}
 
-	function doStateLogic(): Void {
+	public function doStateLogic(): Void {
 		final control = this.getControls();
 
 		wasMining = mining;
