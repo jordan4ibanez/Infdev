@@ -150,4 +150,8 @@ final class Player {
 		trace(this.object.getPlayerName() + " respawn!");
 		return false;
 	}
+
+	public function onReceiveFields(): Void {
+		
+	}
 }
