@@ -20,7 +20,7 @@ final class Player {
 
 	var animationHandler: Null<PlayerAnimationHandler> = null;
 
-	var playerInventoryMenu: Null<PlayerInventoryMenu> = null;
+	var inventoryFormspec: Null<PlayerInventoryFormspec> = null;
 
 	@:allow(src.engine.entity.helpers.PlayerHandling)
 	private function new() {}
@@ -94,6 +94,8 @@ final class Player {
 		});
 
 		this.adjustCamera();
+
+		this.inventoryFormspec.serialize();
 
 		Lua.print(this.name + " joined the game.");
 	}
