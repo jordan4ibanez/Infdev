@@ -163,4 +163,9 @@ final class Player {
 			default:
 		}
 	}
+
+	@:allow(src.game.entity.player.PlayerWindowSizeWatcher)
+	function onWindowSizeChange(): Void {
+		this.inventoryFormspec.updateScaling();
+	}
 }
