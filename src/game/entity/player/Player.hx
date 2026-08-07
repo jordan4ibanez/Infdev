@@ -88,6 +88,7 @@ final class Player {
 			acceleration_default: 0.45,
 			acceleration_fast: 0.45,
 			acceleration_air: 0.45,
+			liquid_fluidity: 1.65,
 		});
 
 		this.object.setProperties({
