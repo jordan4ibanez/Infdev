@@ -18,10 +18,9 @@ final class Player {
 	var name: String;
 
 	var shadowEntity: Null<ObjectRefEntity> = null;
-
 	var animationHandler: Null<PlayerAnimationHandler> = null;
-
 	var inventoryFormspec: Null<PlayerInventoryFormspec> = null;
+	var windowSizeWatcher: Null<PlayerWindowSizeWatcher> = null;
 
 	@:allow(src.engine.entity.helpers.PlayerHandling)
 	private function new() {}
@@ -78,6 +77,7 @@ final class Player {
 
 		this.name = this.object.getPlayerName();
 		this.animationHandler = new PlayerAnimationHandler(this.object);
+		this.windowSizeWatcher = new PlayerWindowSizeWatcher(this.object);
 
 		this.makeHand3D();
 		this.setModel();
@@ -109,8 +109,10 @@ final class Player {
 
 	// The only time this runs is when a player leaves.
 	public function getStaticData(): String {
+		// These are manual memory management to get rid of the object reference.
 		this.animationHandler.terminate();
 		this.inventoryFormspec.terminate();
+		this.windowSizeWatcher.terminate();
 		return EntitySerialization.safeSerialize(this, Macros.getCompileTimeClass());
 	}
 

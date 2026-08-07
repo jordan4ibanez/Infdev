@@ -9,5 +9,10 @@ final class PlayerWindowSizeWatcher {
 
 	public function new(playerObject: ObjectRefPlayer) {
 		this.playerObject = playerObject;
+		this.size = playerObject.getPlayerLuaEntity().getWindowInformation().size;
+	}
+
+	public function terminate(): Void {
+		this.playerObject = null;
 	}
 }
