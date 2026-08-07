@@ -95,7 +95,10 @@ final class Player {
 
 		this.adjustCamera();
 
-		this.inventoryFormspec.serialize();
+		this.inventoryFormspec = new PlayerInventoryFormspec(this.object);
+
+		// todo: this is going to require some immaculate spaghetti to scale properly.
+		this.object.setInventoryFormspec(this.inventoryFormspec.serialize());
 
 		Lua.print(this.name + " joined the game.");
 	}
