@@ -11,8 +11,6 @@ import src.engine.player.PlayerInformation;
 import src.engine.player.PlayerWindowInformation;
 import src.engine.vector.Vec3;
 
-
-
 final class Player {
 	public var object: ObjectRefPlayer = null;
 
