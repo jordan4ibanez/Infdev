@@ -123,9 +123,10 @@ final class Player {
 	// I don't think moveresult is possible
 	// moveResult: Dynamic
 	public function onStep(delta: Float) {
-		animationHandler.doStateLogic();
-		animationHandler.trackAnimationTimer(delta);
-		animationHandler.doPlayerAnimations(delta);
+		this.windowSizeWatcher.update(delta);
+		this.animationHandler.doStateLogic();
+		this.animationHandler.trackAnimationTimer(delta);
+		this.animationHandler.doPlayerAnimations(delta);
 	}
 
 	public function onPunch(puncher: Null<ObjectRefBase>, timeFromLastPunch: Float, toolCapabilities: Dynamic, dir: Dynamic, damager: Int): Bool {
