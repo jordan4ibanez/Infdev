@@ -107,6 +107,7 @@ final class Player {
 	// The only time this runs is when a player leaves.
 	public function getStaticData(): String {
 		this.animationHandler.terminate();
+		this.inventoryFormspec.terminate();
 		return EntitySerialization.safeSerialize(this, Macros.getCompileTimeClass());
 	}
 
