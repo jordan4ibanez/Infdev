@@ -135,6 +135,7 @@ final class Player {
 
 	public function onRightClick(clicker: Null<ObjectRefBase>): Void {}
 
+	// todo: this needs to be handled completely custom, do not use the in game hp api.
 	public function onHPChange(hpChange: Int, reason: Dynamic): Int {
 		if (hpChange < 0) {
 			trace("OUCH!");
@@ -154,5 +155,6 @@ final class Player {
 
 	public function onReceiveFields(formName: String, fields: Table<String, String>): Void {
 		// todo: dispatch classes that handle each component here.
+		untyped print(formName);
 	}
 }
