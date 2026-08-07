@@ -74,92 +74,6 @@ final class Player {
 			new Vec3(0, height, 0));
 	}
 
-	function trackAnimationTimer(delta: Float): Void {
-		animationTimer += delta;
-
-		if (animationTimer >= 1.0) {
-			animationTimer -= 1.0;
-		}
-	}
-
-	function doPlayerAnimations(delta: Float) {
-		var stateChange = false;
-
-		// Mining.
-		if (mining && !wasMining && !wasPlacing) {
-			stateChange = true;
-		} else if (wasMining && !mining && !placing) {
-			stateChange = true;
-		}
-		// Placing.
-		else if (placing && !wasPlacing && !wasMining) {
-			stateChange = true;
-		} else if (wasPlacing && !placing && !mining) {
-			stateChange = true;
-		}
-		// Walking.
-		else if (walking && !wasWalking) {
-			stateChange = true;
-		} else if (wasWalking && !walking) {
-			stateChange = true;
-		}
-
-		if (stateChange) {
-			if (walking) {
-				if (mining || placing) {
-					playAnimation(PlayerAnimationMineWalk);
-				} else {
-					playAnimation(PlayerAnimationWalk);
-				}
-			} else {
-				if (mining || placing) {
-					playAnimation(PlayerAnimationMine);
-				} else {
-					playAnimation(PlayerAnimationIdle);
-				}
-			}
-		}
-
-		var newLookPitch = this.object.getLookDir().y;
-
-		if (newLookPitch == oldLookPitch) {
-			return;
-		}
-
-		var pitchAdjusted = (newLookPitch + 1) * 0.5;
-
-		// This isn't an animation. It's magic. You're a lizard, Barry.
-
-		this.object.playAnimation(PlayerAnimationLookPitch, {
-			priority: animationPriority,
-			speed: 0,
-			min_frame: pitchAdjusted,
-			max_frame: pitchAdjusted,
-			blend: 0.2,
-			loop: false
-		});
-
-		oldLookPitch = newLookPitch;
-	}
-
-	function doStateLogic(): Void {
-		final control = this.getControls();
-
-		wasMining = mining;
-		mining = control.dig;
-
-		wasPlacing = placing;
-		placing = control.place;
-
-		wasWalking = walking;
-		walking = control.left || control.right || control.up || control.down;
-
-		wasSneaking = sneaking;
-		sneaking = control.sneak;
-
-		// todo: some way to support controllers dynamic range.
-	}
-
 	public function getName(): String {
 		return this.name;
 	}
@@ -173,6 +87,7 @@ final class Player {
 		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
 
 		this.name = this.object.getPlayerName();
+		this.animationHandler = new PlayerAnimationHandler(this.object);
 
 		this.makeHand3D();
 		this.setModel();
