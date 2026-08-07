@@ -111,9 +111,9 @@ final class Player {
 	// todo: I don't think moveresult is possible
 	// moveResult: Dynamic
 	public function onStep(delta: Float) {
-		doStateLogic();
-		trackAnimationTimer(delta);
-		doPlayerAnimations(delta);
+		animationHandler.doStateLogic();
+		animationHandler.trackAnimationTimer(delta);
+		animationHandler.doPlayerAnimations(delta);
 	}
 
 	public function onPunch(puncher: Null<ObjectRefBase>, timeFromLastPunch: Float, toolCapabilities: Dynamic, dir: Dynamic, damager: Int): Bool {
