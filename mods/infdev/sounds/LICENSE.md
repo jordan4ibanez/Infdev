@@ -40,3 +40,7 @@ lever: https://freesound.org/people/SoundsofTheMachine/sounds/843093/ (CC0)
 wood_mine: https://freesound.org/people/TRP/sounds/573835/ (CC0)
 
 wood_step: https://freesound.org/people/sgrowe/sounds/342543/ (CC0)
+
+## Plant:
+
+plant_mine: https://freesound.org/people/markbolden/sounds/421790/ (CC0)
