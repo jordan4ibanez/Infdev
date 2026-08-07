@@ -36,7 +36,7 @@ final class PlayerAnimationHandler {
 	}
 
 	public function playAnimation(animation: PlayerAnimation, ?speed: Float, ?loop: Bool = true): Void {
-		this.object.playAnimation(animation, {
+		this.playerObject.playAnimation(animation, {
 			priority: animationPriority,
 			speed: speed,
 			start_frame: animationTimer,
@@ -48,11 +48,11 @@ final class PlayerAnimationHandler {
 	}
 
 	public inline function stopAnimation(animation: PlayerAnimation): Void {
-		this.object.stopAnimation(animation);
+		this.playerObject.stopAnimation(animation);
 	}
 
 	public inline function setAnimationSpeed(animation: PlayerAnimation, speed: Float): Void {
-		this.object.updateAnimation(animation, {speed: speed});
+		this.playerObject.updateAnimation(animation, {speed: speed});
 	}
 
 	public function trackAnimationTimer(delta: Float): Void {
@@ -101,7 +101,7 @@ final class PlayerAnimationHandler {
 			}
 		}
 
-		var newLookPitch = this.object.getLookDir().y;
+		var newLookPitch = this.playerObject.getLookDir().y;
 
 		if (newLookPitch == oldLookPitch) {
 			return;
@@ -111,7 +111,7 @@ final class PlayerAnimationHandler {
 
 		// This isn't an animation. It's magic. You're a lizard, Barry.
 
-		this.object.playAnimation(PlayerAnimationLookPitch, {
+		this.playerObject.playAnimation(PlayerAnimationLookPitch, {
 			priority: animationPriority,
 			speed: 0,
 			min_frame: pitchAdjusted,
@@ -124,7 +124,7 @@ final class PlayerAnimationHandler {
 	}
 
 	public function doStateLogic(): Void {
-		final control = this.getControls();
+		final control = playerObject.getPlayerControl();
 
 		wasMining = mining;
 		mining = control.dig;
