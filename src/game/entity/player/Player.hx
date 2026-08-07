@@ -20,6 +20,8 @@ final class Player {
 
 	var animationHandler: Null<PlayerAnimationHandler> = null;
 
+	var playerInventoryMenu: Null<PlayerInventoryMenu> = null;
+
 	@:allow(src.engine.entity.helpers.PlayerHandling)
 	private function new() {}
 
