@@ -23,7 +23,7 @@ class FormspecList extends FormspecElement {
 	}
 
 	public function toFormspec(name: String): String {
-		return 'list[<inventory location>;<list name>;${this.x},${this.y};${this.width},${this.height};<starting item index>]';
+		return 'list[${this.inventoryLocation};${this.listName};${this.x},${this.y};${this.width},${this.height};<starting item index>]';
 	}
 
 	public function setInventoryLocation(inventoryLocation: String): FormspecList {
