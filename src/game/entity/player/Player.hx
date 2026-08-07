@@ -158,11 +158,8 @@ final class Player {
 	public function onReceiveFields(formName: String, fields: Table<String, String>): Void {
 		switch (formName) {
 			case "":
-				{
-					this.inventoryFormspec.process(fields);
-					// You have to close and open the formspec if you change the window size to update scaling.
-					this.inventoryFormspec.updateScaling();
-				}
+				this.inventoryFormspec.process(fields);
+
 			default:
 		}
 	}
