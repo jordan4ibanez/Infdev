@@ -30,6 +30,9 @@ final class Hand extends ToolDefinition {
 			.addGroupCap(NodeGroupDirt, new GroupCapabilities(5.0, 10.0, 0, 0))
 			.addGroupCap(NodeGroupSoil, new GroupCapabilities(5.0, 10.0, 0, 0))
 			.addGroupCap(NodeGroupSand, new GroupCapabilities(5.0, 10.0, 0, 0))
-			.addGroupCap(NodeGroupPlant, new GroupCapabilities(2.0, 3.0, 0, 0));
+			.addGroupCap(NodeGroupPlant, new GroupCapabilities(2.0, 3.0, 0, 0))
+			.addGroupCap(NodeGroupWood, new GroupCapabilities(3.5, 6.0, 0, 0))
+			.addGroupCap(NodeGroupTree, new GroupCapabilities(3.5, 6.0, 0, 0))
+			.addGroupCap(NodeGroupPlanks, new GroupCapabilities(3.5, 6.0, 0, 0));
 	}
 }
