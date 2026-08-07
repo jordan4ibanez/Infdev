@@ -211,7 +211,6 @@ class ItemEntity extends LuaEntity {
 		this.object.moveTo(pos);
 
 		// Handle as new entity
-		this.age = 0;
 		own_stack.setCount(total_count);
 		this.setItem(own_stack);
 
@@ -219,6 +218,10 @@ class ItemEntity extends LuaEntity {
 		var otherLuaEntity = (cast object.getLuaEntity() : ItemEntity);
 		otherLuaEntity.shadowEntity.remove();
 		otherLuaEntity.visualEntity.remove();
+
+		// Keep the greatest age between the two.
+		this.age = (this.age > otherLuaEntity.age) ? this.age : otherLuaEntity.age;
+
 		object.remove();
 		return true;
 	}
