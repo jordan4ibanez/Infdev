@@ -11,9 +11,11 @@ If you have no internet access, here is an offline copy of the license:
 
 ### Not used yet but maybe soon:
 
-maybe snow https://freesound.org/people/Nox_Sound/sounds/564893/ (CC0)
+maybe snow: https://freesound.org/people/Nox_Sound/sounds/564893/ (CC0)
 
-maybe sand (pack) https://freesound.org/people/BlondPanda/sounds/778567/ (CC0)
+maybe snow dug: https://freesound.org/people/kyles/sounds/637821/ (CC0)
+
+maybe sand: (pack) https://freesound.org/people/BlondPanda/sounds/778567/ (CC0)
 
 maybe wool: https://freesound.org/people/rosshutton/sounds/806646/ (CC0)
 
