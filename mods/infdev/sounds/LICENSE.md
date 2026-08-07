@@ -15,6 +15,10 @@ maybe snow https://freesound.org/people/Nox_Sound/sounds/564893/ (CC0)
 
 maybe sand (pack) https://freesound.org/people/BlondPanda/sounds/778567/ (CC0)
 
+maybe wool: https://freesound.org/people/rosshutton/sounds/806646/ (CC0)
+
+maybe better plan dug sound: https://freesound.org/people/burbujafilms/sounds/392008/ (CC0)
+
 ## Stone:
 
 stone_mine: https://freesound.org/people/qubodup/sounds/816019/ (CC0)
