@@ -19,21 +19,20 @@ https://github.com/jordan4ibanez/Infdev_original
 
 This started out as a curiosity, but it has quickly become apparent this is better than typescripttolua.
 
-
 This is going to be infdev.
 infdev originally started out as a clone of minecraft infdev but I think it would be cooler to have a fuck ton of rpg elements in it.
 
 api was transposed may-august 2026
 
 
-todo: getters and setters of things like itemstack may need to be inlined
-
-todo: implement craft recipe in the item itself as an array of craft recipes so shit isn't scattered all over the place like usual in luanti mods. This cascades to everything else.
-
-todo: implement decorations in the node itself as an array of decorations so shit isn't all over the place etc
-
-
 ### some design decisions:
+
+Need some formspec elements for the main inventory:
+- list
+- listring
+- tabs
+
+Pull the character model from ruantis in and make it look less horrible.
 
 item entity can have an animation where it just spins and moves a bone. Then another entity can be mounted to it as a visual
 
