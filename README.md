@@ -31,6 +31,7 @@ Need some formspec elements for the main inventory:
 - list
 - listring
 - tabs
+- textlist (for options)
 
 Pull the character model from ruantis in and make it look less horrible.
 
