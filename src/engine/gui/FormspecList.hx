@@ -1,6 +1,7 @@
 package src.engine.gui;
 
 import src.engine.gui.Formspec.FormspecElement;
+import src.engine.gui.Formspec.FormspecStyle;
 
 class FormspecList extends FormspecElement {
 	var inventoryLocation: String;
@@ -46,5 +47,11 @@ class FormspecList extends FormspecElement {
 		this.width = width;
 		this.height = height;
 		return this;
+	}
+}
+
+class FormspecListStyle extends FormspecStyle {
+	public function toFormspec(name: String, windowScale: Float): String {
+		throw new haxe.exceptions.NotImplementedException();
 	}
 }
