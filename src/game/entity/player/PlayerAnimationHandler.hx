@@ -36,6 +36,7 @@ final class PlayerAnimationHandler {
 	}
 
 	public function terminate(): Void {
+		untyped this.animationPriority = null;
 		this.playerObject = null;
 	}
 
