@@ -127,14 +127,11 @@ class ItemEntity extends LuaEntity {
 		this.object.setProperties({
 			visual: EntityVisualMesh,
 			visual_size: new Vec2(size + size_bias, size + size_bias),
-			mesh: "infdev_item_entity.gltf",
 			infotext: stack.getDescription(),
 			pointable: true
 		});
 
 		this.updateVisualEntity(itemname, glow);
-
-		this.object.playAnimation("item_spin", {speed: 0.4});
 
 		// Cache for usage in on_step.
 		this.collisionboxCache = this.object.getProperties().collisionbox;
@@ -157,6 +154,8 @@ class ItemEntity extends LuaEntity {
 			mesh: "infdev_item_entity.gltf",
 			is_visible: true,
 		});
+
+		this.object.playAnimation("item_spin", {speed: 0.4});
 
 		this.setSize(0.6, 0.6);
 
