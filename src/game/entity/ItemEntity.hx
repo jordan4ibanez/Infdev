@@ -216,6 +216,9 @@ class ItemEntity extends LuaEntity {
 		this.setItem(own_stack);
 
 		entity.itemstring = "";
+		var otherLuaEntity = (cast object.getLuaEntity() : ItemEntity);
+		otherLuaEntity.shadowEntity.remove();
+		otherLuaEntity.visualEntity.remove();
 		object.remove();
 		return true;
 	}
