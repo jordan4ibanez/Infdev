@@ -1,6 +1,7 @@
 package src.game.entity.player;
 
 import lua.Lua;
+import lua.Table;
 import src.engine.compilercode.Macros;
 import src.engine.entity.definition.PlayerControl;
 import src.engine.entity.helpers.EntitySerialization;
@@ -151,7 +152,7 @@ final class Player {
 		return false;
 	}
 
-	public function onReceiveFields(): Void {
-		
+	public function onReceiveFields(formName: String, fields: Table<String, String>): Void {
+		// todo: dispatch classes that handle each component here.
 	}
 }
