@@ -50,7 +50,7 @@ final class Player {
 			textures: ["character.png"]
 		});
 
-		this.playAnimation(PlayerAnimationIdle);
+		this.animationHandler.playAnimation(PlayerAnimationIdle);
 	}
 
 	function adjustCamera(): Void {
