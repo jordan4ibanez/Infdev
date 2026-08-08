@@ -296,15 +296,13 @@ abstract class Serialize {
 		// Backwards compatibility
 		if (str == null) {
 			Core.log(LogLevelWarning, "core.deserialize called with nil (expected string).");
-			// todo: multireturn
-			return [null, "Invalid type: Expected a string, got nil"];
+			return untyped __lua__('nil, "Invalid type: Expected a string, got nil"');
 		}
 		var t = Lua.type(str);
 		if (t != "string") {
 			Lua.error(untyped __lua__('("core.deserialize called with %s (expected string)."):format({0})', t));
 		}
 
-		// todo: multireturn
 		var output: PureDynamic = untyped __lua__("loadstring({0})", str);
 		var func = output.first;
 		var err = output.second;
