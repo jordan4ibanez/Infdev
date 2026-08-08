@@ -262,7 +262,7 @@ abstract class Serialize {
 	}
 
 	// Whether `value` recursively contains a function
-	static function contains_function(value) {
+	static function contains_function(value: Dynamic): Bool {
 		var seen = Table.create();
 		function check(val: Dynamic): Bool {
 			if (Lua.type(val) == "function") {
