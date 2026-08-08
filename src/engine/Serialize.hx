@@ -57,23 +57,18 @@ abstract class Serialize {
 		return counts;
 	}
 
+	// Build a "set" of Lua keywords. These can\'t be used as short key names.
+	// See https://www.lua.org/manual/5.1/manual.html#2.1
+	static final keywords = [
+		"and" => true, "break" => true, "do" => true, "else" => true, "elseif" => true,
+		"end" => true, "false" => true, "for" => true, "function" => true, "if" => true,
+		"in" => true, "local" => true, "nil" => true, "not" => true, "or" => true,
+		"repeat" => true, "return" => true, "then" => true, "true" => true, "until" => true, "while" => true,
+		"goto" => true // LuaJIT, Lua 5.2+
+	];
+
 	static function __init__() {
 		untyped __lua__('
-
-
-
-// Build a "set" of Lua keywords. These can\'t be used as short key names.
-// See https://www.lua.org/manual/5.1/manual.html#2.1
-local keywords = {}
-for _, keyword in pairs({
-	"and", "break", "do", "else", "elseif",
-	"end", "false", "for", "function", "if",
-	"in", "local", "nil", "not", "or",
-	"repeat", "return", "then", "true", "until", "while",
-	"goto" // LuaJIT, Lua 5.2+
-}) do
-	keywords[keyword] = true
-end
 
 local function quote(string)
 	return string.format("%q", string)
