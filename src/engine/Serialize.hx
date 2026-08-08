@@ -283,15 +283,9 @@ abstract class Serialize {
 		return Table.concat(rope);
 	}
 
-	// ! Here starts the raw code.
-	static function __init__() {
-		untyped __lua__('
+	static function dummy_func() {}
 
-
-
-local function dummy_func() end
-
-function core.deserialize(str, safe)
+	public static function core_deserialize(str, safe) {
 	// Backwards compatibility
 	if str == nil then
 		core.log("deprecated", "core.deserialize called with nil (expected string).")
@@ -325,7 +319,13 @@ function core.deserialize(str, safe)
 		return value_or_err
 	end
 	return nil, value_or_err
-end
+	}
+
+	// ! Here starts the raw code.
+	static function __init__() {
+		untyped __lua__('
+
+
         ');
 
 		Core.registerOnJoinPlayer((player, asdf) -> {
