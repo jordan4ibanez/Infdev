@@ -169,12 +169,12 @@ static function serialize(value, write) {
 				if (v == null) { break; }
 				if (first) { first = false; } else { write(","); }
 				// Write nil to preserve array indices if element is userdata.
-				if not allowed_type(v) then
-					write("nil")
-				else
-					dump(v)
-				end
-				len = len + 1
+				if (!allowed_type(v)) {
+					write("nil");
+				}else{
+					dump(v);
+				}
+				len = len + 1;
 			}
 			// Now write map keys ([key] = value)
 			for k, v in next, value do
