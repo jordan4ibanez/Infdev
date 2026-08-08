@@ -23,7 +23,9 @@ class Formspec {
 	static inline final baseWindowSizeY = 1080;
 
 	// Elements not in a container.
-	var elements: Map<String, FormspecElement> = new Map();
+	// These are drawn on every page of the formspec.
+	// This is also used for single page formspecs without any navigation.
+	var rootElements: Map<String, FormspecElement> = new Map();
 
 	// todo: element containers.
 	// todo: do not allow nested containers because that can become a nightmare.
@@ -91,7 +93,7 @@ class Formspec {
 
 		var windowScale = getTrueWindowScale(player);
 
-		for (name => element in elements) {
+		for (name => element in rootElements) {
 			// This auto targets the styling to the element.
 			if (element.style != null) {
 				append(element.style.toFormspec(name, windowScale));
@@ -136,15 +138,15 @@ class Formspec {
 
 	public function addElement(elementName: String, formspecElement: FormspecElement): Formspec {
 		// This errors out to prevent catastrophic bugs.
-		if (this.elements.exists(elementName)) {
+		if (this.rootElements.exists(elementName)) {
 			throw 'Tried to add element [${elementName}] into formspec [${this.name}] when it already exists.';
 		}
-		this.elements.set(elementName, formspecElement);
+		this.rootElements.set(elementName, formspecElement);
 		return this;
 	}
 
 	public function getElement<T: FormspecElement>(elementName: String): Null<T> {
-		return cast this.elements.get(elementName);
+		return cast this.rootElements.get(elementName);
 	}
 }
 
