@@ -1,5 +1,6 @@
 package src.engine;
 
+import haxe.extern.EitherType;
 import lua.Table;
 import src.engine.compilercode.LuaArray;
 
@@ -28,7 +29,7 @@ abstract class InvRef {
 	public abstract function getStack(listName: String, index: Int): ItemStack;
 
 	@:native("set_stack")
-	public abstract function setStack(listName: String, index: Int, stack: ItemStack): Void;
+	public abstract function setStack(listName: String, index: Int, stack: EitherType<String, ItemStack>): Void;
 
 	@:native("get_list")
 	public abstract function getList(listName: String): Null<Table<Int, ItemStack>>;
