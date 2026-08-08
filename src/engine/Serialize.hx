@@ -297,8 +297,8 @@ abstract class Serialize {
 			Lua.error(untyped __lua__('("core.deserialize called with %s (expected string)."):format({0})', t));
 		}
 
-		var func, err = loadstring(str);
 		// todo: multireturn
+		var func, err = untyped __lua__("loadstring({0})", str);
 		if (func == null) {
 			return [nil, err];
 		}
