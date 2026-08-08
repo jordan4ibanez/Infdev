@@ -286,41 +286,49 @@ abstract class Serialize {
 	static function dummy_func() {}
 
 	public static function core_deserialize(str, safe) {
-	// Backwards compatibility
-	if (str == null) {
-		core.log("deprecated", "core.deserialize called with nil (expected string).");
+		// Backwards compatibility
+		if (str == null) {
+			core.log("deprecated", "core.deserialize called with nil (expected string).");
+			// todo: multireturn
+			return [nil, "Invalid type: Expected a string, got nil"];
+		}
+		var t = type(str);
+		if (t != "string") {
+			error(("core.deserialize called with %s (expected string).").format(t));
+		}
+
+		var func, err = loadstring(str);
 		// todo: multireturn
-		return [nil, "Invalid type: Expected a string, got nil"];
-	}
-	var t = type(str);
-	if (t != "string") {
-		error(("core.deserialize called with %s (expected string).").format(t));
-	}
+		if (func == null) {
+			return [nil, err];
+		}
 
-	var func, err = loadstring(str);
-	// todo: multireturn
-	if ( func == null) { return [nil, err];} 
+		// math.huge was serialized to inf and NaNs to nan by Lua in engine version 5.6, so we have to support this here
+		var env = Table.create();
+		env["inf"] = Math.POSITIVE_INFINITY; // math.huge
+		env["nan"] = Math.NaN; // 0/0
 
-	// math.huge was serialized to inf and NaNs to nan by Lua in engine version 5.6, so we have to support this here
-	var env = {inf = math.huge, nan = 0/0}
-	if safe then
-		env.loadstring = dummy_func
-	else
-		env.loadstring = function(str, ...)
-			var func, err = loadstring(str, ...)
-			if func then
-				setfenv(func, env)
-				return func
-			end
-			return nil, err
-		end
-	end
-	setfenv(func, env)
-	var success, value_or_err = pcall(func)
-	if success then
-		return value_or_err
-	end
-	return nil, value_or_err
+		if (safe) {
+			env.loadstring = dummy_func;
+		} else {
+			env["loadstring"] = untyped __lua__("function(s, ...)
+                local f, e = loadstring(s, ...)
+                if f then
+                    setfenv(f, {0}) -- {0} injects the Haxe 'env' variable here
+                    return f
+                end
+                return nil, e
+            end", env);
+		}
+		setfenv(func, env);
+
+		var success, value_or_err = pcall(func);
+
+		if (success) {
+			return value_or_err;
+		}
+		// todo: multireturn
+		return [nil, value_or_err];
 	}
 
 	// ! Here starts the raw code.
