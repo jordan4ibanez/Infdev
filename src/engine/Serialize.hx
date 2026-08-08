@@ -1,8 +1,8 @@
 package src.engine;
 
-import haxe.Constraints.Function;
 import lua.Lua;
 import lua.Math;
+import lua.Os;
 import lua.Table;
 import src.engine.compilercode.LuaLoop;
 import src.engine.compilercode.LuaMap;
@@ -32,6 +32,7 @@ abstract class Serialize {
 		var data = Table.create();
 		data[cast "userdata"] = true;
 		data[cast "thread"] = true;
+		data[cast "function"] = true;
 		unsupported_types = data;
 
 		keywords = [
@@ -74,9 +75,6 @@ abstract class Serialize {
 						}
 					});
 				}
-			} else if (type_ != "string" && type_ != "function") {
-				// Ignore unsupported types instead of erroring out.
-				return null;
 			}
 			return null;
 		}
@@ -86,10 +84,6 @@ abstract class Serialize {
 
 	static function quote(string: String): String {
 		return untyped __lua__('string.format("%q", {0})', string);
-	}
-
-	static function dumpFunc(func: Function): String {
-		return untyped __lua__('string.format("loadstring(%q)", string.dump({0}))', func);
 	}
 
 	// Serializes Lua nil, booleans, numbers, strings, tables and even functions
@@ -113,8 +107,6 @@ abstract class Serialize {
 				write("]=");
 				if (type_ == "table") {
 					write("{}");
-				} else if (type_ == "function") {
-					write(dumpFunc(object));
 				} else if (type_ == "string") {
 					write(quote(object));
 				}
@@ -160,7 +152,7 @@ abstract class Serialize {
 			}
 
 			// Failsafe for userdata/thread if it bypasses the filters.
-			if (type_ == "userdata" || type_ == "thread") {
+			if (type_ == "userdata" || type_ == "thread" || type_ == "function") {
 				return write("nil");
 			}
 
@@ -173,9 +165,6 @@ abstract class Serialize {
 			}
 			if (type_ == "string") {
 				return write(quote(value));
-			}
-			if (type_ == "function") {
-				return write(dumpFunc(value));
 			}
 			if (type_ == "table") {
 				write("{");
@@ -259,38 +248,8 @@ abstract class Serialize {
 		return null;
 	}
 
-	// Whether `value` recursively contains a function
-	static function containsFunction(value: Dynamic): Bool {
-		var seen = Table.create();
-		function check(val: Dynamic): Bool {
-			if (Lua.type(val) == "function") {
-				return true;
-			}
-			if (Lua.type(val) == "table") {
-				if (seen[val]) {
-					return false;
-				}
-				seen[val] = true;
-				LuaLoop.nativePairs(k, v, val, {
-					if (allowedType(k, v)) {
-						if (check(k) || check(v)) {
-							return true;
-						}
-					}
-				});
-			}
-			return false;
-		}
-		return check(value);
-	}
-
-	static function dummyFunc(): Void {}
-
 	public static function serialize(value: Dynamic): Null<String> {
-		// var start = Os.clock();
-		if (containsFunction(value)) {
-			Core.log(LogLevelWarning, "Support for dumping functions in `core.serialize` is deprecated.");
-		}
+		var start = Os.clock();
 		var rope = Table.create();
 		// Keeping the length of the table as a local variable is *much*
 		// faster than invoking the length operator.
@@ -300,12 +259,12 @@ abstract class Serialize {
 			i = i + 1;
 			rope[i] = text;
 		});
-		// var elapsed = Os.clock() - start;
-		// untyped print("Elapsed:", elapsed);
+		var elapsed = Os.clock() - start;
+		untyped print("Elapsed:", elapsed);
 		return Table.concat(rope);
 	}
 
-	public static function deserialize(str: String, ?safe: Bool): Null<Dynamic> {
+	public static function deserialize(str: String): Null<Dynamic> {
 		// Backwards compatibility
 		if (str == null) {
 			Core.log(LogLevelWarning, "core.deserialize called with nil (expected string).");
@@ -328,10 +287,7 @@ abstract class Serialize {
 		env.inf = Math.POSITIVE_INFINITY; // math.huge
 		env.nan = Math.NaN; // 0/0
 
-		if (safe) {
-			untyped __lua__("env.loadstring = {0}", dummyFunc);
-		} else {
-			env.loadstring = untyped __lua__('function({1}, ...)
+		env.loadstring = untyped __lua__('function({1}, ...)
 			local func, err = loadstring({1}, ...)
 			if func then
 				setfenv(func, {0})
@@ -339,7 +295,6 @@ abstract class Serialize {
 			end
 			return nil, err
 		end', env, str);
-		}
 
 		Lua.setfenv(func, env);
 
