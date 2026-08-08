@@ -61,10 +61,10 @@ abstract class Serialize {
 			// Early return for nil; tables can't contain nil
 			return counts;
 		}
-		function count_values(val) {
+		function count_values(val: Dynamic): Null<Table<Dynamic, Dynamic>> {
 			var type_ = Lua.type(val);
 			if (type_ == "boolean" || type_ == "number") {
-				return;
+				return null;
 			}
 			var count = counts[val];
 			counts[val] = (count ?? 0) + 1;
@@ -80,8 +80,9 @@ abstract class Serialize {
 				}
 			} else if (type_ != "string" && type_ != "function") {
 				// Ignore unsupported types instead of erroring out.
-				return;
+				return null;
 			}
+			return null;
 		}
 		count_values(value);
 		return counts;
