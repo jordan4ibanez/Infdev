@@ -317,7 +317,7 @@ abstract class Serialize {
 		var func = output.first;
 		var err = output.second;
 		if (func == null) {
-			return [null, err];
+			return untyped __lua__('nil, {0}', err);
 		}
 
 		// math.huge was serialized to inf and NaNs to nan by Lua in engine version 5.6, so we have to support this here
