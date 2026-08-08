@@ -77,3 +77,5 @@ If you reach the border of the overworld you enter into the unknown dimension, w
   
 The Lowlands:
 An artifact you can find and put on a pedestool. When you stand next to it for 3 seconds you're transported into a completely flooded dimension where islands are scarce and there are huge fish. Can probably be a good use for custom boats. Also it should have a very victorian oceanic sailing feeling to it.
+
+grindstone where your weapons/tools go from regular to sharpened for a limited amount of uses which gives them a bonus.
