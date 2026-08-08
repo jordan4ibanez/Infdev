@@ -30,7 +30,7 @@ final class EntitySerialization {
 
 					// Don't serialize functions or userdata.
 					var luaType = untyped type(value);
-					if (luaType == "function" || luaType == "userdata") {
+					if (luaType == "function") {
 						continue;
 					}
 					// untyped print("deserialize", luaType);
