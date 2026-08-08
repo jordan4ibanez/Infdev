@@ -139,23 +139,23 @@ static function serialize(value, write) {
 		}
 
 		// Failsafe for userdata/thread if it bypasses the filters.
-		if type_ == "userdata" or type_ == "thread" then
-			return write("nil")
-		end
+		if (type_ == "userdata" || type_ == "thread") {
+			return write("nil");
+		}
 
 		// Reference types: table, function and string
-		var ref = references[value]
-		if ref then
-			write"_["
-			write(ref)
-			return write"]"
-		end
-		if type_ == "string" then
-			return write(quote(value))
-		end
-		if type_ == "function" then
-			return write(dump_func(value))
-		end
+		var ref = references[value];
+		if (ref != null) {
+			write("_[");
+			write(ref);
+			return write("]");
+		}
+		if (type_ == "string") {
+			return write(quote(value));
+		}
+		if (type_ == "function") {
+			return write(dump_func(value));
+		}
 		if type_ == "table" then
 			write("{")
 			// First write list keys:
