@@ -79,7 +79,7 @@ abstract class ObjectRefBase {
 	public abstract function setHP(hp: Int, ?reason: Dynamic): Void;
 
 	@:native("get_inventory")
-	public abstract function getInventory(): Null<Dynamic>;
+	public abstract function getInventory(): Null<InvRef>;
 
 	@:native("get_wield_list")
 	public abstract function getWieldList(): LuaArray<Dynamic>;
