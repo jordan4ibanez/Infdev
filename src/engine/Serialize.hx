@@ -165,9 +165,9 @@ static function serialize(value, write) {
 			var len = 0;
 			var first = true; // whether this is the first entry, which may not have a leading comma
 			while (true) {
-				var v = rawget(value, len + 1) // use rawget to avoid metatables like the vector metatable
-				if v == nil then break end
-				if first then first = false else write(",") end
+				var v = rawget(value, len + 1); // use rawget to avoid metatables like the vector metatable
+				if (v == null) { break; }
+				if (first) { first = false; } else { write(","); }
 				// Write nil to preserve array indices if element is userdata.
 				if not allowed_type(v) then
 					write("nil")
