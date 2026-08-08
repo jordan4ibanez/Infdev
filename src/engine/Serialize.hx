@@ -116,27 +116,27 @@ static function serialize(value, write) {
 	}
 	function dump(value) {
 		// Primitive types
-		if value == nil then
-			return write("nil")
-		end
-		if value == true then
-			return write("true")
-		end
-		if value == false then
-			return write("false")
-		end
-		var type_ = type(value)
-		if type_ == "number" then
-			if value ~= value then // nan
-				return write"0/0"
-			elseif value == math.huge then
-				return write"1/0"
-			elseif value == -math.huge then
-				return write"-1/0"
-			else
-				return write(string.format("%.17g", value))
-			end
-		end
+		if (value == null) {
+			return write("nil");
+		}
+		if (value == true) {
+			return write("true");
+		}
+		if (value == false) {
+			return write("false");
+		}
+		var type_ = type(value);
+		if (type_ == "number") {
+			if (value != value) { // nan
+				return write("0/0");
+			}else if (value == math.huge) {
+				return write("1/0");
+			}else if (value == -math.huge) {
+				return write("-1/0");
+			}else{
+				return write(string.format("%.17g", value));
+			}
+		}
 
 		// Failsafe for userdata/thread if it bypasses the filters.
 		if type_ == "userdata" or type_ == "thread" then
