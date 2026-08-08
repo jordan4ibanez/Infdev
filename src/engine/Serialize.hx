@@ -77,7 +77,7 @@ abstract class Serialize {
 
 	// Serializes Lua nil, booleans, numbers, strings, tables and even functions
 // Tables are referenced by reference, strings are referenced by value. Supports circular tables.
-local function serialize(value, write)
+static function serialize(value, write) {
 	local reference, refnum = "1", 1
 	// [object] = reference
 	local references = {}
@@ -221,7 +221,7 @@ local function serialize(value, write)
 	end
 	write("return ")
 	dump(value)
-end
+}
 
 	// ! Here starts the raw code.
 	static function __init__() {
