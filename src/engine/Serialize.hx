@@ -47,14 +47,14 @@ abstract class Serialize {
 	}
 
 	// Userdata and thread can be used as a key and a value in lua tables so it must check for both.
-	static function allowed_type(k, ?v) {
+	static function allowed_type(k: Dynamic, ?v: Dynamic): Bool {
 		var a = unsupported_types[cast Lua.type(k)] == true;
 		var b = unsupported_types[cast Lua.type(v)] == true;
 		return !(a || b);
 	}
 
 	// Recursively counts occurrences of objects (non-primitives including strings) in a table.
-	static function count_objects(value) {
+	static function count_objects(value: Dynamic): Table<Dynamic, Dynamic> {
 		var counts = Table.create();
 		if (value == null) {
 			// Early return for nil; tables can't contain nil
@@ -86,11 +86,11 @@ abstract class Serialize {
 		return counts;
 	}
 
-	static function quote(string: String) {
+	static function quote(string: String): String {
 		return untyped __lua__('string.format("%q", {0})', string);
 	}
 
-	static function dump_func(func) {
+	static function dump_func(func): String {
 		return untyped __lua__('string.format("loadstring(%q)", string.dump({0}))', func);
 	}
 
@@ -106,7 +106,6 @@ abstract class Serialize {
 		LuaLoop.nativePairs(object, count, count_objects(value), {
 			var type_ = Lua.type(object);
 			// Object must appear more than once. If it is a string, the reference has to be shorter than the string.
-
 			if (count >= 2 && (type_ != "string" || untyped __lua__('#{0}', reference) + 5 < untyped __lua__('#{0}', object))) {
 				if (refnum == 1) {
 					write("local _={};"); // initialize reference table
@@ -132,13 +131,13 @@ abstract class Serialize {
 		});
 
 		// Used to decide whether we should do "key=..."
-		function use_short_key(key: String) {
+		function use_short_key(key: String): Bool {
 			return references[cast key] == null
 				&& Lua.type(key) == "string"
 				&& (keywords[key] == null)
 				&& untyped __lua__('string.match({0}, "^[%a_][%a%d_]*$")', key);
 		}
-		function dump(value: Dynamic) {
+		function dump(value: Dynamic): Null<String> {
 			// Primitive types
 			if (value == null) {
 				return write("nil");
@@ -231,8 +230,9 @@ abstract class Serialize {
 					}
 				});
 				write("}");
-				return;
+				return null;
 			}
+			return null;
 		}
 		// Write the statements to fill circular tables
 		LuaLoop.nativePairs(table, ref, to_fill, {
