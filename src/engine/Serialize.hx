@@ -1,6 +1,7 @@
 package src.engine;
 
 import lua.Lua;
+import src.engine.compilercode.LuaLoop;
 import src.engine.gui.Formspec;
 import src.engine.gui.FormspecButton;
 
@@ -24,13 +25,13 @@ abstract class Serialize {
 
 	// Recursively counts occurrences of objects (non-primitives including strings) in a table.
 	static function count_objects(value) {
-		var counts = {};
-		if (value == nil) {
+		var counts = [];
+		if (value == null) {
 			// Early return for nil; tables can\'t contain nil
 			return counts;
 		}
 		function count_values(val) {
-			var type_ = type(val);
+			var type_ = Lua.type(val);
 			if (type_ == "boolean" || type_ == "number") {
 				return;
 			}
@@ -38,15 +39,15 @@ abstract class Serialize {
 			counts[val] = (count ?? 0) + 1;
 			if (type_ == "table") {
 				if (count == null) {
-					for (k => v in pairs(val)) {
+					LuaLoop.nativePairs(k, v, val, {
 						// Skip it if it\'s not a supported type.
 						if (allowed_type(k, v)) {
 							count_values(k);
 							count_values(v);
 						}
-					}
+					});
 				}
-			} else if (type_ != "string" ?? type_ != "function") {
+			} else if (type_ != "string" && type_ != "function") {
 				// Ignore unsupported types instead of erroring out.
 				return;
 			}
