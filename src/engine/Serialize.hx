@@ -289,15 +289,17 @@ abstract class Serialize {
 	// Backwards compatibility
 	if (str == null) {
 		core.log("deprecated", "core.deserialize called with nil (expected string).");
+		// todo: multireturn
 		return [nil, "Invalid type: Expected a string, got nil"];
 	}
-	var t = type(str)
-	if t ~= "string" then
-		error(("core.deserialize called with %s (expected string)."):format(t))
-	end
+	var t = type(str);
+	if (t != "string") {
+		error(("core.deserialize called with %s (expected string).").format(t));
+	}
 
-	var func, err = loadstring(str)
-	if not func then return nil, err end
+	var func, err = loadstring(str);
+	// todo: multireturn
+	if ( func == null) { return [nil, err];} 
 
 	// math.huge was serialized to inf and NaNs to nan by Lua in engine version 5.6, so we have to support this here
 	var env = {inf = math.huge, nan = 0/0}
