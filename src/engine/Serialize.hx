@@ -328,14 +328,14 @@ abstract class Serialize {
 		if (safe) {
 			untyped __lua__("env.loadstring = {0}", dummy_func);
 		} else {
-			env[cast "loadstring"] = untyped __lua__("function(s, ...)
-                local f, e = loadstring(s, ...)
-                if f then
-                    setfenv(f, {0}) -- {0} injects the Haxe 'env' variable here
-                    return f
-                end
-                return nil, e
-            end", env);
+			env.loadstring = untyped __lua__('function({1}, ...)
+			local func, err = loadstring({1}, ...)
+			if func then
+				setfenv(func, {0})
+				return func
+			end
+			return nil, err
+		end', env, str);
 		}
 		Lua.setfenv(func, env);
 
