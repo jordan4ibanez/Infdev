@@ -5,8 +5,6 @@ import lua.Math;
 import lua.Table;
 import src.engine.compilercode.LuaLoop;
 import src.engine.compilercode.LuaMap;
-import src.engine.gui.Formspec;
-import src.engine.gui.FormspecButton;
 
 /**
  * This class is a translation of https://github.com/luanti-org/luanti/blob/master/builtin/common/serialize.lua
@@ -345,8 +343,10 @@ abstract class Serialize {
 		Core.registerOnJoinPlayer((player, asdf) -> {
 			untyped print(player);
 
-			var testSubject = new Formspec("testing")
-				.addElement("test_page", "test_button", new FormspecButton(2, 2, 2, 2, "button"));
+			// var testSubject = new Formspec("testing")
+			// 	.addElement("test_page", "test_button", new FormspecButton(2, 2, 2, 2, "button"));
+
+			var testSubject = Table.create();
 
 			var testSerializeA = core_serialize(cast testSubject);
 
@@ -370,8 +370,8 @@ abstract class Serialize {
 			}
 
 			Core.requestShutdown();
-
-			return;
 		});
+
+		return;
 	}
 }
