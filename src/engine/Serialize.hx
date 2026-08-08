@@ -84,7 +84,7 @@ abstract class Serialize {
 		var references = [];
 		// Circular tables that must be filled using `table[key] = value` statements
 		var to_fill = {};
-		for (object => count in pairs(count_objects(value))) {
+		LuaLoop.nativePairs(object, count, count_objects(value), {
 			var type_ = type(object);
 			// Object must appear more than once. If it is a string, the reference has to be shorter than the string.
 			if (count >= 2 && (type_ != "string" || reference.length + 5 < object.length)) {
@@ -109,7 +109,8 @@ abstract class Serialize {
 				refnum = refnum + 1;
 				reference = ("%d").format(refnum);
 			}
-		}
+		});
+
 		// Used to decide whether we should do "key=..."
 		function use_short_key(key) {
 			return references[key] == null && type(key) == "string" && (keywords[key] = null) && string.match(key, "^[%a_][%a%d_]*$");
