@@ -1,5 +1,6 @@
 package src.engine.gui;
 
+import lua.Table;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.vector.Vec2;
 
@@ -8,6 +9,16 @@ import src.engine.vector.Vec2;
 class Formspec {
 	static inline final DEBUG_MODE = false;
 
+	// Static components that make formspecs reactive instead of static.
+	static function masterOnReceiveFields(player: ObjectRefPlayer, formName: String, fields: Table<String, String>): Void {
+		trace("running");
+	}
+
+	static function __init__(): Void {
+		Core.registerOnPlayerReceiveFields(masterOnReceiveFields);
+	}
+
+	// End static components.
 	// todo: maybe a static memory manager so that formspecs can be saved per player.
 	final name: String;
 
