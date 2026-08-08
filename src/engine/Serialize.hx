@@ -357,30 +357,32 @@ abstract class Serialize {
 	static function __init__() {
 		assignTypes();
 		// ? This section is for testing.
-		// 	Core.registerOnJoinPlayer((player, asdf) -> {
-		// 		untyped print(player);
-		// 		var testSubject = new Formspec("testing")
-		// 			.addElement("test_page", "test_button", new FormspecButton(2, 2, 2, 2, "button"));
-		// 		// var testSubject = Table.create();
-		// 		// testSubject[cast "a"] = 5;
-		// 		// This is the new one.
-		// 		var testSerializeB = untyped core.serialize(testSubject);
-		// 		testSubject.setPlayer(player);
-		// 		var testSerializeA = serialize(cast testSubject);
-		// 		var backToNormalA = deserialize(cast testSerializeB);
-		// 		// This is the new one.
-		// 		var backToNormalB = untyped core.deserialize(testSerializeB);
-		// 		untyped {
-		// 			print("test serialize a:", dump(testSerializeA));
-		// 			print("test serialize b:", dump(testSerializeB));
-		// 			// print(testSerializeA == testSerializeB);
-		// 			print("=======================");
-		// 			print("test deserialize a:", dump(backToNormalA));
-		// 			print("test deserialize b:", dump(backToNormalB));
-		// 			// print(backToNormalA == backToNormalB);
-		// 		}
-		// 		Core.requestShutdown();
-		// 	});
-		// 	return;
+		Core.registerOnJoinPlayer((player, asdf) -> {
+			untyped print(player);
+			// var testSubject = new Formspec("testing")
+			// 	.addElement("test_page", "test_button", new FormspecButton(2, 2, 2, 2, "button"));
+			var testSubject = Table.create();
+			testSubject[cast "a"] = 5;
+			testSubject[]
+			// This is the new one.
+			var testSerializeB = untyped core["serialize"](testSubject);
+
+			// testSubject.setPlayer(player);
+			var testSerializeA = serialize(cast testSubject);
+			var backToNormalA = deserialize(cast testSerializeB);
+			// This is the new one.
+			var backToNormalB = untyped core["deserialize"](testSerializeB);
+			untyped {
+				print("test serialize a:", dump(testSerializeA));
+				print("test serialize b:", dump(testSerializeB));
+				// print(testSerializeA == testSerializeB);
+				print("=======================");
+				print("test deserialize a:", dump(backToNormalA));
+				print("test deserialize b:", dump(backToNormalB));
+				// print(backToNormalA == backToNormalB);
+			}
+			Core.requestShutdown();
+		});
+		return;
 	}
 }
