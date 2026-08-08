@@ -337,12 +337,13 @@ abstract class Serialize {
 			return nil, err
 		end', env, str);
 		}
+
 		Lua.setfenv(func, env);
 
-		var output = (cast Lua.pcall(cast func) : PureDynamic);
-
-		var success = output.first;
-		var value_or_err = output.second;
+		var success = null;
+		var value_or_err = null;
+		untyped __lua__('{0}, {1} = pcall({2})', success, value_or_err, func);
+		// var output = (cast Lua.pcall(cast func) : PureDynamic);
 
 		if (success) {
 			return value_or_err;
