@@ -8,6 +8,7 @@ import src.engine.vector.Vec2;
 class Formspec {
 	static inline final DEBUG_MODE = false;
 
+	// todo: maybe a static memory manager so that formspecs can be saved per player.
 	final name: String;
 
 	// This is used for interfunction memory.
