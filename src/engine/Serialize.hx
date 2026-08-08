@@ -12,6 +12,7 @@ import src.engine.gui.FormspecButton;
  * License: MIT
  * Modification: It automatically strips out userdata and thread data.
  */
+// todo: 0 index this entire thing.
 @:final
 abstract class Serialize {
 	static final unsupported_types = ["userdata" => true, "thread" => true];
