@@ -136,6 +136,22 @@ class Formspec {
 		return this;
 	}
 
+	public function addElement(pageName: String, elementName: String, formspecElement: FormspecElement): Formspec {
+		// Create the page if it doesn't exist.
+		var thisPage = this.pages.get(pageName);
+		if (thisPage == null) {
+			this.pages.set(pageName, new Map());
+			thisPage = this.pages.get(pageName);
+		}
+
+		// This errors out to prevent catastrophic bugs.
+		if (thisPage.exists(elementName)) {
+			throw 'Tried to add element [${elementName}] into page [${pageName}] in formspec [${this.name}] when it already exists.';
+		}
+		thisPage.set(elementName, formspecElement);
+		return this;
+	}
+
 	public function addRootElement(elementName: String, formspecElement: FormspecElement): Formspec {
 		// This errors out to prevent catastrophic bugs.
 		if (this.rootElements.exists(elementName)) {
