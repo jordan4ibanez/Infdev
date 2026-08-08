@@ -78,9 +78,10 @@ abstract class Serialize {
 	// Serializes Lua nil, booleans, numbers, strings, tables and even functions
 // Tables are referenced by reference, strings are referenced by value. Supports circular tables.
 static function serialize(value, write) {
-	var reference, refnum = "1", 1
+	var reference  = "1";
+	var refnum =1;
 	// [object] = reference
-	var references = {}
+	var references = [];
 	// Circular tables that must be filled using `table[key] = value` statements
 	var to_fill = {}
 	for object, count in pairs(count_objects(value)) do
