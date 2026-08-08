@@ -292,7 +292,7 @@ abstract class Serialize {
 
 	static function dummy_func() {}
 
-	public static function core_deserialize(str, safe) {
+	public static function core_deserialize(str, ?safe) {
 		// Backwards compatibility
 		if (str == null) {
 			Core.log(LogLevelWarning, "core.deserialize called with nil (expected string).");
@@ -344,25 +344,20 @@ abstract class Serialize {
 
 	// ! Here starts the raw code.
 	static function __init__() {
-		untyped __lua__('
-
-
-        ');
-
 		Core.registerOnJoinPlayer((player, asdf) -> {
 			untyped print(player);
 
 			var testSubject = new Formspec("testing")
 				.addElement("test_page", "test_button", new FormspecButton(2, 2, 2, 2, "button"));
 
-			var testSerializeA = untyped old_serialize(testSubject);
+			var testSerializeA = core_serialize(cast testSubject);
 
 			testSubject.setPlayer(player);
 
 			// This is the new one.
 			var testSerializeB = Core.serialize(testSubject);
 
-			var backToNormalA = untyped old_deserialize(testSerializeB);
+			var backToNormalA = core_deserialize(cast testSerializeB);
 
 			// This is the new one.
 			var backToNormalB = Core.deserialize(testSerializeB);
