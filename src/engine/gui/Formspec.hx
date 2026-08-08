@@ -4,12 +4,11 @@ import lua.Table;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.vector.Vec2;
 
-// This file contains a bunch of classes to allow a single import.
-
 class Formspec {
 	static inline final DEBUG_MODE = false;
 
 	// Static components that make formspecs reactive instead of static.
+
 	static function masterOnReceiveFields(player: ObjectRefPlayer, formName: String, fields: Table<String, String>): Void {
 		trace("running");
 	}
@@ -24,6 +23,8 @@ class Formspec {
 
 	// This is used for interfunction memory.
 	var data = "";
+
+	var player: ObjectRefPlayer;
 
 	final version = 10;
 	var size: Vec2 = new Vec2(10, 10);
@@ -52,6 +53,10 @@ class Formspec {
 		}
 	}
 
+	public function setPlayer(player: ObjectRefPlayer): Void {
+		this.player = player;
+	}
+
 	function append(newData: String): Void {
 		this.data += newData;
 		if (DEBUG_MODE) {
@@ -63,10 +68,10 @@ class Formspec {
 		return this.name;
 	}
 
-	function getTrueWindowScale(player: ObjectRefPlayer): Float {
+	function getTrueWindowScale(): Float {
 		var scale: Float = 0;
 
-		var windowInfo = player.getPlayerLuaEntity().getWindowInformation();
+		var windowInfo = this.player.getPlayerLuaEntity().getWindowInformation();
 
 		if (windowInfo == null) {
 			return 1;
@@ -101,7 +106,7 @@ class Formspec {
 	}
 
 	// This is the function that turns this thing into a string the game can process.
-	public function serialize(player: ObjectRefPlayer): String {
+	public function serialize(): String {
 		append('formspec_version[${this.version}]');
 		append('size[${this.size.x},${this.size.y},${this.fixedSize}]');
 		append('bgcolor[#00000000;false;]');
@@ -109,7 +114,7 @@ class Formspec {
 		append('style_type[list;spacing=0.075;size=0.75,0.75]');
 		append('listcolors[#636363;#545454;black;#141414;#ffff00]');
 
-		var windowScale = getTrueWindowScale(player);
+		var windowScale = getTrueWindowScale();
 
 		for (name => element in rootElements) {
 			// This auto targets the styling to the element.
