@@ -28,8 +28,6 @@ api was transposed may-august 2026
 ### some design decisions:
 
 Need some formspec elements for the main inventory:
-- list
-- listring
 - tabs
 - textlist (for options)
 
