@@ -76,154 +76,164 @@ abstract class Serialize {
 	}
 
 	// Serializes Lua nil, booleans, numbers, strings, tables and even functions
-// Tables are referenced by reference, strings are referenced by value. Supports circular tables.
-static function serialize(value, write) {
-	var reference  = "1";
-	var refnum =1;
-	// [object] = reference
-	var references = [];
-	// Circular tables that must be filled using `table[key] = value` statements
-	var to_fill = {};
-	for (object => count in pairs(count_objects(value))) {
-		var type_ = type(object);
-		// Object must appear more than once. If it is a string, the reference has to be shorter than the string.
-		if (count >= 2 && (type_ != "string" || reference.length + 5 < object.length)) {
-			if (refnum == 1) {
-				write("local _={};"); // initialize reference table
-			}
-			write("_[");
-			write(reference);
-			write("]=");
-			if (type_ == "table") {
-				write("{}");
-			}else if (type_ == "function") {
-				write(dump_func(object));
-			}else if (type_ == "string") {
-				write(quote(object));
-			}
-			write(";");
-			references[object] = reference;
-			if (type_ == "table") {
-				to_fill[object] = reference;
-			}
-			refnum = refnum + 1;
-			reference = ("%d").format(refnum);
-		}
-	}
-	// Used to decide whether we should do "key=..."
-	function use_short_key(key) {
-		return  references[key] == null && type(key) == "string" && (keywords[key] = null) && string.match(key, "^[%a_][%a%d_]*$");
-	}
-	function dump(value) {
-		// Primitive types
-		if (value == null) {
-			return write("nil");
-		}
-		if (value == true) {
-			return write("true");
-		}
-		if (value == false) {
-			return write("false");
-		}
-		var type_ = type(value);
-		if (type_ == "number") {
-			if (value != value) { // nan
-				return write("0/0");
-			}else if (value == math.huge) {
-				return write("1/0");
-			}else if (value == -math.huge) {
-				return write("-1/0");
-			}else{
-				return write(string.format("%.17g", value));
-			}
-		}
-
-		// Failsafe for userdata/thread if it bypasses the filters.
-		if (type_ == "userdata" || type_ == "thread") {
-			return write("nil");
-		}
-
-		// Reference types: table, function and string
-		var ref = references[value];
-		if (ref != null) {
-			write("_[");
-			write(ref);
-			return write("]");
-		}
-		if (type_ == "string") {
-			return write(quote(value));
-		}
-		if (type_ == "function") {
-			return write(dump_func(value));
-		}
-		if (type_ == "table") {
-			write("{");
-			// First write list keys:
-			// Don\'t use the table length #value here as it may horribly fail
-			// for tables which use large integers as keys in the hash part;
-			// stop at the first "hole" (nil value) instead
-			var len = 0;
-			var first = true; // whether this is the first entry, which may not have a leading comma
-			while (true) {
-				var v = rawget(value, len + 1); // use rawget to avoid metatables like the vector metatable
-				if (v == null) { break; }
-				if (first) { first = false; } else { write(","); }
-				// Write nil to preserve array indices if element is userdata.
-				if (!allowed_type(v)) {
-					write("nil");
-				}else{
-					dump(v);
+	// Tables are referenced by reference, strings are referenced by value. Supports circular tables.
+	static function serialize(value, write) {
+		var reference = "1";
+		var refnum = 1;
+		// [object] = reference
+		var references = [];
+		// Circular tables that must be filled using `table[key] = value` statements
+		var to_fill = {};
+		for (object => count in pairs(count_objects(value))) {
+			var type_ = type(object);
+			// Object must appear more than once. If it is a string, the reference has to be shorter than the string.
+			if (count >= 2 && (type_ != "string" || reference.length + 5 < object.length)) {
+				if (refnum == 1) {
+					write("local _={};"); // initialize reference table
 				}
-				len = len + 1;
-			}
-			// Now write map keys ([key] = value)
-			LuaLoop.nativePairs(k,v, value, {
-			// for k, v in pairs(value) do
-				// We have written all non-float keys in [1, len] already
-				if (type(k) != "number" || k % 1 != 0 || k < 1 || k > len) {
-					// Skip entire key if either key or value is userdata/thread.
-					if (allowed_type(k, v)) {
-						if (first) { first = false;} else{ write(","); }
-						if (use_short_key(k)) {
-							write(k);
-						}else{
-							write("[");
-							dump(k);
-							write("]");
-						}
-						write("=");
-						dump(v);
-					}
+				write("_[");
+				write(reference);
+				write("]=");
+				if (type_ == "table") {
+					write("{}");
+				} else if (type_ == "function") {
+					write(dump_func(object));
+				} else if (type_ == "string") {
+					write(quote(object));
 				}
-			});
-			write("}");
-			return;
+				write(";");
+				references[object] = reference;
+				if (type_ == "table") {
+					to_fill[object] = reference;
+				}
+				refnum = refnum + 1;
+				reference = ("%d").format(refnum);
+			}
 		}
-	}
-	// Write the statements to fill circular tables
-	LuaLoop.nativePairs(table,ref, to_fill, {
-		LuaLoop.nativePairs(k,v, table, {
-			if (allowed_type(k, v)) {
+		// Used to decide whether we should do "key=..."
+		function use_short_key(key) {
+			return references[key] == null && type(key) == "string" && (keywords[key] = null) && string.match(key, "^[%a_][%a%d_]*$");
+		}
+		function dump(value) {
+			// Primitive types
+			if (value == null) {
+				return write("nil");
+			}
+			if (value == true) {
+				return write("true");
+			}
+			if (value == false) {
+				return write("false");
+			}
+			var type_ = type(value);
+			if (type_ == "number") {
+				if (value != value) { // nan
+					return write("0/0");
+				} else if (value == math.huge) {
+					return write("1/0");
+				} else if (value == -math.huge) {
+					return write("-1/0");
+				} else {
+					return write(string.format("%.17g", value));
+				}
+			}
+
+			// Failsafe for userdata/thread if it bypasses the filters.
+			if (type_ == "userdata" || type_ == "thread") {
+				return write("nil");
+			}
+
+			// Reference types: table, function and string
+			var ref = references[value];
+			if (ref != null) {
 				write("_[");
 				write(ref);
-				write("]");
-				if (use_short_key(k)) {
-					write(".");
-					write(k);
-				}else{
-					write("[");
-					dump(k);
-					write("]");
-				}
-				write("=");
-				dump(v);
-				write(";");
+				return write("]");
 			}
+			if (type_ == "string") {
+				return write(quote(value));
+			}
+			if (type_ == "function") {
+				return write(dump_func(value));
+			}
+			if (type_ == "table") {
+				write("{");
+				// First write list keys:
+				// Don\'t use the table length #value here as it may horribly fail
+				// for tables which use large integers as keys in the hash part;
+				// stop at the first "hole" (nil value) instead
+				var len = 0;
+				var first = true; // whether this is the first entry, which may not have a leading comma
+				while (true) {
+					var v = rawget(value, len + 1); // use rawget to avoid metatables like the vector metatable
+					if (v == null) {
+						break;
+					}
+					if (first) {
+						first = false;
+					} else {
+						write(",");
+					}
+					// Write nil to preserve array indices if element is userdata.
+					if (!allowed_type(v)) {
+						write("nil");
+					} else {
+						dump(v);
+					}
+					len = len + 1;
+				}
+				// Now write map keys ([key] = value)
+				LuaLoop.nativePairs(k, v, value, {
+					// for k, v in pairs(value) do
+					// We have written all non-float keys in [1, len] already
+					if (type(k) != "number" || k % 1 != 0 || k < 1 || k > len) {
+						// Skip entire key if either key or value is userdata/thread.
+						if (allowed_type(k, v)) {
+							if (first) {
+								first = false;
+							} else {
+								write(",");
+							}
+							if (use_short_key(k)) {
+								write(k);
+							} else {
+								write("[");
+								dump(k);
+								write("]");
+							}
+							write("=");
+							dump(v);
+						}
+					}
+				});
+				write("}");
+				return;
+			}
+		}
+		// Write the statements to fill circular tables
+		LuaLoop.nativePairs(table, ref, to_fill, {
+			LuaLoop.nativePairs(k, v, table, {
+				if (allowed_type(k, v)) {
+					write("_[");
+					write(ref);
+					write("]");
+					if (use_short_key(k)) {
+						write(".");
+						write(k);
+					} else {
+						write("[");
+						dump(k);
+						write("]");
+					}
+					write("=");
+					dump(v);
+					write(";");
+				}
+			});
 		});
-	});
-	write("return ");
-	dump(value);
-}
+		write("return ");
+		dump(value);
+	}
 
 	// ! Here starts the raw code.
 	static function __init__() {
