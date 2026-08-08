@@ -1,6 +1,7 @@
 package src.engine;
 
 import lua.Lua;
+import lua.Table;
 import src.engine.compilercode.LuaLoop;
 import src.engine.gui.Formspec;
 import src.engine.gui.FormspecButton;
@@ -83,9 +84,9 @@ abstract class Serialize {
 		// [object] = reference
 		var references = [];
 		// Circular tables that must be filled using `table[key] = value` statements
-		var to_fill = {};
+		var to_fill = Table.create();
 		LuaLoop.nativePairs(object, count, count_objects(value), {
-			var type_ = type(object);
+			var type_ = Lua.type(object);
 			// Object must appear more than once. If it is a string, the reference has to be shorter than the string.
 			if (count >= 2 && (type_ != "string" || reference.length + 5 < object.length)) {
 				if (refnum == 1) {
@@ -107,7 +108,7 @@ abstract class Serialize {
 					to_fill[object] = reference;
 				}
 				refnum = refnum + 1;
-				reference = ("%d").format(refnum);
+				reference = untyped __lua__('("%d"):format({0})', refnum);
 			}
 		});
 
