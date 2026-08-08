@@ -202,27 +202,27 @@ static function serialize(value, write) {
 	}
 	// Write the statements to fill circular tables
 	LuaLoop.nativePairs(table,ref, to_fill, {
-		for k, v in pairs(table) do
-			if allowed_type(k, v) then
-				write("_[")
-				write(ref)
-				write("]")
-				if use_short_key(k) then
-					write(".")
-					write(k)
-				else
-					write("[")
-					dump(k)
-					write("]")
-				end
-				write("=")
-				dump(v)
-				write(";")
-			end
-		end
+		LuaLoop.nativePairs(k,v, table, {
+			if (allowed_type(k, v)) {
+				write("_[");
+				write(ref);
+				write("]");
+				if (use_short_key(k)) {
+					write(".");
+					write(k);
+				}else{
+					write("[");
+					dump(k);
+					write("]");
+				}
+				write("=");
+				dump(v);
+				write(";");
+			}
+		});
 	});
-	write("return ")
-	dump(value)
+	write("return ");
+	dump(value);
 }
 
 	// ! Here starts the raw code.
