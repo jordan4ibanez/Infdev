@@ -243,29 +243,29 @@ abstract class Serialize {
 	}
 
 	// Whether `value` recursively contains a function
-static function contains_function(value) {
-	var seen = {}
-	function check(val) {
-		if (type(val) == "function") {
-			return true;
-		}
-		if (type(val) == "table") {
-			if (seen[val]) {
-				return false;
+	static function contains_function(value) {
+		var seen = Table.create();
+		function check(val: Dynamic): Bool {
+			if (Lua.type(val) == "function") {
+				return true;
 			}
-			seen[val] = true;
-			LuaLoop.nativePairs(k,v, val, {
-				if (allowed_type(k, v)) {
-					if (check(k) || check(v)) {
-						return true;
-					}
+			if (Lua.type(val) == "table") {
+				if (seen[val]) {
+					return false;
 				}
-			});
+				seen[val] = true;
+				LuaLoop.nativePairs(k, v, val, {
+					if (allowed_type(k, v)) {
+						if (check(k) || check(v)) {
+							return true;
+						}
+					}
+				});
+			}
+			return false;
 		}
-		return false;
+		return check(value);
 	}
-	return check(value);
-}
 
 	// ! Here starts the raw code.
 	static function __init__() {
