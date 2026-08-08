@@ -111,10 +111,10 @@ static function serialize(value, write) {
 		}
 	}
 	// Used to decide whether we should do "key=..."
-	var function use_short_key(key)
-		return not references[key] and type(key) == "string" and (not keywords[key]) and string.match(key, "^[%a_][%a%d_]*$")
-	end
-	var function dump(value)
+	function use_short_key(key) {
+		return  references[key] == null && type(key) == "string" && (keywords[key] = null) && string.match(key, "^[%a_][%a%d_]*$");
+	}
+	function dump(value) {
 		// Primitive types
 		if value == nil then
 			return write("nil")
@@ -198,7 +198,7 @@ static function serialize(value, write) {
 			write("}")
 			return
 		end
-	end
+	}
 	// Write the statements to fill circular tables
 	for table, ref in pairs(to_fill) do
 		for k, v in pairs(table) do
