@@ -23,12 +23,31 @@ extern class PureDynamic {
 
 @:final
 abstract class Serialize {
-	static final unsupported_types = ["userdata" => true, "thread" => true];
+	static var unsupported_types: Table<String, Bool>;
+
+	// Build a "set" of Lua keywords. These can\'t be used as short key names.
+	// See https://www.lua.org/manual/5.1/manual.html#2.1
+	static var keywords: LuaMap<String, Bool>;
+
+	static function assignTypes(): Void {
+		var data = Table.create();
+		data[cast "userdata"] = true;
+		data[cast "thread"] = true;
+		unsupported_types = data;
+
+		keywords = [
+			"and" => true, "break" => true, "do" => true, "else" => true, "elseif" => true,
+			"end" => true, "false" => true, "for" => true, "function" => true, "if" => true,
+			"in" => true, "local" => true, "nil" => true, "not" => true, "or" => true,
+			"repeat" => true, "return" => true, "then" => true, "true" => true, "until" => true, "while" => true,
+			"goto" => true // LuaJIT, Lua 5.2+
+		];
+	}
 
 	// Userdata and thread can be used as a key and a value in lua tables so it must check for both.
 	static function allowed_type(k, ?v) {
-		var a = unsupported_types[Lua.type(k)] == true;
-		var b = unsupported_types[Lua.type(v)] == true;
+		var a = unsupported_types[cast Lua.type(k)] == true;
+		var b = unsupported_types[cast Lua.type(v)] == true;
 		return !(a || b);
 	}
 
@@ -64,16 +83,6 @@ abstract class Serialize {
 		count_values(value);
 		return counts;
 	}
-
-	// Build a "set" of Lua keywords. These can\'t be used as short key names.
-	// See https://www.lua.org/manual/5.1/manual.html#2.1
-	static final keywords: LuaMap<String, Bool> = [
-		"and" => true, "break" => true, "do" => true, "else" => true, "elseif" => true,
-		"end" => true, "false" => true, "for" => true, "function" => true, "if" => true,
-		"in" => true, "local" => true, "nil" => true, "not" => true, "or" => true,
-		"repeat" => true, "return" => true, "then" => true, "true" => true, "until" => true, "while" => true,
-		"goto" => true // LuaJIT, Lua 5.2+
-	];
 
 	static function quote(string: String) {
 		return untyped __lua__('string.format("%q", {0})', string);
@@ -341,6 +350,8 @@ abstract class Serialize {
 
 	// ! Here starts the raw code.
 	static function __init__() {
+		assignTypes();
+
 		Core.registerOnJoinPlayer((player, asdf) -> {
 			untyped print(player);
 
