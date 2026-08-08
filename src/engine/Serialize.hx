@@ -95,7 +95,8 @@ abstract class Serialize {
 		LuaLoop.nativePairs(object, count, count_objects(value), {
 			var type_ = Lua.type(object);
 			// Object must appear more than once. If it is a string, the reference has to be shorter than the string.
-			if (count >= 2 && (type_ != "string" || reference.length + 5 < object.length)) {
+
+			if (count >= 2 && (type_ != "string" || untyped __lua__('#{0}', reference) + 5 < untyped __lua__('#{0}', object))) {
 				if (refnum == 1) {
 					write("local _={};"); // initialize reference table
 				}
