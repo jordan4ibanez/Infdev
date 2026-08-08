@@ -20,6 +20,7 @@ import src.game.groups.NodeGroup;
 import src.game.node.stone.StoneSound;
 
 // todo: put a load feature in here.
+// TODO: rework this to NOT use the node formspec and simply assign a position to the formspec or create a new formspec per player!
 @:register("infdev:schematic_workshop_control_unit")
 final class SchematicWorkshopControlUnit extends NodeDefinition {
 	static inline final unnamedDefault = "This schematic is unnamed";
