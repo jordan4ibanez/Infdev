@@ -156,15 +156,15 @@ static function serialize(value, write) {
 		if (type_ == "function") {
 			return write(dump_func(value));
 		}
-		if type_ == "table" then
-			write("{")
+		if (type_ == "table") {
+			write("{");
 			// First write list keys:
 			// Don\'t use the table length #value here as it may horribly fail
 			// for tables which use large integers as keys in the hash part;
 			// stop at the first "hole" (nil value) instead
-			var len = 0
-			var first = true // whether this is the first entry, which may not have a leading comma
-			while true do
+			var len = 0;
+			var first = true; // whether this is the first entry, which may not have a leading comma
+			while (true) {
 				var v = rawget(value, len + 1) // use rawget to avoid metatables like the vector metatable
 				if v == nil then break end
 				if first then first = false else write(",") end
@@ -175,7 +175,7 @@ static function serialize(value, write) {
 					dump(v)
 				end
 				len = len + 1
-			end
+			}
 			// Now write map keys ([key] = value)
 			for k, v in next, value do
 				// We have written all non-float keys in [1, len] already
@@ -197,7 +197,7 @@ static function serialize(value, write) {
 			end
 			write("}")
 			return
-		end
+		}
 	}
 	// Write the statements to fill circular tables
 	for table, ref in pairs(to_fill) do
