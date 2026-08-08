@@ -9,7 +9,7 @@ class FormspecList extends FormspecElement {
 	var y: Float; // ? Done.
 	var width: Float; // ? Done.
 	var height: Float; // ? Done.
-	var startingIndex: Int = 1;
+	var startingIndex: Int = 0;
 
     // todo: when #17305 is merged implement a default texture and then the ability to set custom textures
 
