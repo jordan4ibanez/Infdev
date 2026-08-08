@@ -28,7 +28,7 @@ final class EntitySerialization {
 
 					var value = Reflect.field(containerClass, field);
 
-					// Don't serialize functions or userdata.
+					// Don't serialize functions.
 					var luaType = untyped type(value);
 					if (luaType == "function") {
 						continue;
