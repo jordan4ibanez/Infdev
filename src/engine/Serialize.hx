@@ -75,11 +75,7 @@ abstract class Serialize {
 		return untyped __lua__('string.format("loadstring(%q)", string.dump({0}))', func);
 	}
 
-	// ! Here starts the raw code.
-	static function __init__() {
-		untyped __lua__('
-
-// Serializes Lua nil, booleans, numbers, strings, tables and even functions
+	// Serializes Lua nil, booleans, numbers, strings, tables and even functions
 // Tables are referenced by reference, strings are referenced by value. Supports circular tables.
 local function serialize(value, write)
 	local reference, refnum = "1", 1
@@ -226,6 +222,12 @@ local function serialize(value, write)
 	write("return ")
 	dump(value)
 end
+
+	// ! Here starts the raw code.
+	static function __init__() {
+		untyped __lua__('
+
+
 
 // Whether `value` recursively contains a function
 local function contains_function(value)
