@@ -289,6 +289,7 @@ abstract class Serialize {
 	static function dummyFunc(): Void {}
 
 	public static function serialize(value: Dynamic): Null<String> {
+		// var start = Os.clock();
 		if (containsFunction(value)) {
 			Core.log(LogLevelWarning, "Support for dumping functions in `core.serialize` is deprecated.");
 		}
@@ -301,6 +302,8 @@ abstract class Serialize {
 			i = i + 1;
 			rope[i] = text;
 		});
+		// var elapsed = Os.clock() - start;
+		// untyped print("Elapsed:", elapsed);
 		return Table.concat(rope);
 	}
 
