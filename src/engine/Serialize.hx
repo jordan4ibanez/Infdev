@@ -304,7 +304,7 @@ abstract class Serialize {
 		return Table.concat(rope);
 	}
 
-	static function dummy_func(): Void {}
+	static function dummyFunc(): Void {}
 
 	public static function core_deserialize_custom_function(str: String, ?safe: Bool): Null<Dynamic> {
 		// Backwards compatibility
@@ -330,7 +330,7 @@ abstract class Serialize {
 		env.nan = Math.NaN; // 0/0
 
 		if (safe) {
-			untyped __lua__("env.loadstring = {0}", dummy_func);
+			untyped __lua__("env.loadstring = {0}", dummyFunc);
 		} else {
 			env.loadstring = untyped __lua__('function({1}, ...)
 			local func, err = loadstring({1}, ...)
