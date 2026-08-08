@@ -114,7 +114,8 @@ final class SchematicWorkshopCommand implements ChatCommand {
 		var meta = Core.getMeta(controllerPos);
 		meta.setString(SchematicWorkshopControlUnit.schematicSizeTag, Core.serialize(fullSize));
 		// This stops a bug where onRightClick doesn't work on the first click even with a reclick.
-		meta.setString("formspec", SchematicWorkshopControlUnit.formspec.serialize(player));
+		// todo: this was running vvv
+		// meta.setString("formspec", SchematicWorkshopControlUnit.formspec.serialize(player));
 
 		return new CommandStatus(true);
 	}
