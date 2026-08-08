@@ -48,20 +48,20 @@ abstract class Serialize {
 	}
 
 	// Userdata and thread can be used as a key and a value in lua tables so it must check for both.
-	static function allowed_type(k: Dynamic, ?v: Dynamic): Bool {
+	static function allowedType(k: Dynamic, ?v: Dynamic): Bool {
 		var a = unsupported_types[cast Lua.type(k)] == true;
 		var b = unsupported_types[cast Lua.type(v)] == true;
 		return !(a || b);
 	}
 
 	// Recursively counts occurrences of objects (non-primitives including strings) in a table.
-	static function count_objects(value: Dynamic): Table<Dynamic, Dynamic> {
+	static function countObjects(value: Dynamic): Table<Dynamic, Dynamic> {
 		var counts = Table.create();
 		if (value == null) {
 			// Early return for nil; tables can't contain nil
 			return counts;
 		}
-		function count_values(val: Dynamic): Null<Table<Dynamic, Dynamic>> {
+		function countValues(val: Dynamic): Null<Table<Dynamic, Dynamic>> {
 			var type_ = Lua.type(val);
 			if (type_ == "boolean" || type_ == "number") {
 				return null;
@@ -72,9 +72,9 @@ abstract class Serialize {
 				if (count == null) {
 					LuaLoop.nativePairs(k, v, val, {
 						// Skip it if it's not a supported type.
-						if (allowed_type(k, v)) {
-							count_values(k);
-							count_values(v);
+						if (allowedType(k, v)) {
+							countValues(k);
+							countValues(v);
 						}
 					});
 				}
@@ -84,7 +84,7 @@ abstract class Serialize {
 			}
 			return null;
 		}
-		count_values(value);
+		countValues(value);
 		return counts;
 	}
 
@@ -92,7 +92,7 @@ abstract class Serialize {
 		return untyped __lua__('string.format("%q", {0})', string);
 	}
 
-	static function dump_func(func: Function): String {
+	static function dumpFunc(func: Function): String {
 		return untyped __lua__('string.format("loadstring(%q)", string.dump({0}))', func);
 	}
 
@@ -105,7 +105,7 @@ abstract class Serialize {
 		var references = Table.create();
 		// Circular tables that must be filled using `table[key] = value` statements
 		var to_fill = Table.create();
-		LuaLoop.nativePairs(object, count, count_objects(value), {
+		LuaLoop.nativePairs(object, count, countObjects(value), {
 			var type_ = Lua.type(object);
 			// Object must appear more than once. If it is a string, the reference has to be shorter than the string.
 			if (count >= 2 && (type_ != "string" || untyped __lua__('#{0}', reference) + 5 < untyped __lua__('#{0}', object))) {
@@ -118,7 +118,7 @@ abstract class Serialize {
 				if (type_ == "table") {
 					write("{}");
 				} else if (type_ == "function") {
-					write(dump_func(object));
+					write(dumpFunc(object));
 				} else if (type_ == "string") {
 					write(quote(object));
 				}
@@ -133,13 +133,13 @@ abstract class Serialize {
 		});
 
 		// Used to decide whether we should do "key=..."
-		function use_short_key(key: String): Bool {
+		function useShortKey(key: String): Bool {
 			return references[cast key] == null
 				&& Lua.type(key) == "string"
 				&& (keywords[key] == null)
 				&& untyped __lua__('string.match({0}, "^[%a_][%a%d_]*$")', key);
 		}
-		function dump(value: Dynamic): Null<String> {
+		function dumpValue(value: Dynamic): Null<String> {
 			// Primitive types
 			if (value == null) {
 				return write("nil");
@@ -179,7 +179,7 @@ abstract class Serialize {
 				return write(quote(value));
 			}
 			if (type_ == "function") {
-				return write(dump_func(value));
+				return write(dumpFunc(value));
 			}
 			if (type_ == "table") {
 				write("{");
@@ -200,10 +200,10 @@ abstract class Serialize {
 						write(",");
 					}
 					// Write nil to preserve array indices if element is userdata.
-					if (!allowed_type(v)) {
+					if (!allowedType(v)) {
 						write("nil");
 					} else {
-						dump(v);
+						dumpValue(v);
 					}
 					len = len + 1;
 				}
@@ -213,21 +213,21 @@ abstract class Serialize {
 					// We have written all non-float keys in [1, len] already
 					if (Lua.type(k) != "number" || k % 1 != 0 || k < 1 || k > len) {
 						// Skip entire key if either key or value is userdata/thread.
-						if (allowed_type(k, v)) {
+						if (allowedType(k, v)) {
 							if (first) {
 								first = false;
 							} else {
 								write(",");
 							}
-							if (use_short_key(k)) {
+							if (useShortKey(k)) {
 								write(k);
 							} else {
 								write("[");
-								dump(k);
+								dumpValue(k);
 								write("]");
 							}
 							write("=");
-							dump(v);
+							dumpValue(v);
 						}
 					}
 				});
@@ -239,26 +239,26 @@ abstract class Serialize {
 		// Write the statements to fill circular tables
 		LuaLoop.nativePairs(table, ref, to_fill, {
 			LuaLoop.nativePairs(k, v, table, {
-				if (allowed_type(k, v)) {
+				if (allowedType(k, v)) {
 					write("_[");
 					write(ref);
 					write("]");
-					if (use_short_key(k)) {
+					if (useShortKey(k)) {
 						write(".");
 						write(k);
 					} else {
 						write("[");
-						dump(k);
+						dumpValue(k);
 						write("]");
 					}
 					write("=");
-					dump(v);
+					dumpValue(v);
 					write(";");
 				}
 			});
 		});
 		write("return ");
-		dump(value);
+		dumpValue(value);
 		// ? This has no return in the original lua code.
 		return null;
 	}
@@ -276,7 +276,7 @@ abstract class Serialize {
 				}
 				seen[val] = true;
 				LuaLoop.nativePairs(k, v, val, {
-					if (allowed_type(k, v)) {
+					if (allowedType(k, v)) {
 						if (check(k) || check(v)) {
 							return true;
 						}
@@ -360,35 +360,35 @@ abstract class Serialize {
 		assignTypes();
 
 		Core.registerOnJoinPlayer((player, asdf) -> {
-			untyped print(player);
+			// untyped print(player);
 
-			var testSubject = new Formspec("testing")
-				.addElement("test_page", "test_button", new FormspecButton(2, 2, 2, 2, "button"));
+			// var testSubject = new Formspec("testing")
+			// 	.addElement("test_page", "test_button", new FormspecButton(2, 2, 2, 2, "button"));
 
-			// var testSubject = Table.create();
-			// testSubject[cast "a"] = 5;
+			// // var testSubject = Table.create();
+			// // testSubject[cast "a"] = 5;
 
-			// This is the new one.
-			var testSerializeB = Core.serialize(testSubject);
+			// // This is the new one.
+			// var testSerializeB = Core.serialize(testSubject);
 
-			testSubject.setPlayer(player);
+			// testSubject.setPlayer(player);
 
-			var testSerializeA = core_serialize(cast testSubject);
+			// var testSerializeA = core_serialize(cast testSubject);
 
-			var backToNormalA = core_deserialize(cast testSerializeB);
+			// var backToNormalA = core_deserialize(cast testSerializeB);
 
-			// This is the new one.
-			var backToNormalB = Core.deserialize(testSerializeB);
+			// // This is the new one.
+			// var backToNormalB = Core.deserialize(testSerializeB);
 
-			untyped {
-				print("test serialize a:", dump(testSerializeA));
-				print("test serialize b:", dump(testSerializeB));
-				// print(testSerializeA == testSerializeB);
-				print("=======================");
-				print("test deserialize a:", dump(backToNormalA));
-				print("test deserialize b:", dump(backToNormalB));
-				// print(backToNormalA == backToNormalB);
-			}
+			// untyped {
+			// 	print("test serialize a:", dump(testSerializeA));
+			// 	print("test serialize b:", dump(testSerializeB));
+			// 	// print(testSerializeA == testSerializeB);
+			// 	print("=======================");
+			// 	print("test deserialize a:", dump(backToNormalA));
+			// 	print("test deserialize b:", dump(backToNormalB));
+			// 	// print(backToNormalA == backToNormalB);
+			// }
 
 			Core.requestShutdown();
 		});
