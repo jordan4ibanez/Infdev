@@ -267,25 +267,27 @@ abstract class Serialize {
 		return check(value);
 	}
 
+	public static function core_serialize(value) {
+		if (contains_function(value)) {
+			Core.log(LogLevelWarning, "Support for dumping functions in `core.serialize` is deprecated.");
+		}
+		var rope = Table.create();
+		// Keeping the length of the table as a local variable is *much*
+		// faster than invoking the length operator.
+		// See https://gitspartv.github.io/LuaJIT-Benchmarks/#test12.
+		var i = 0;
+		serialize(value, (text) -> {
+			i = i + 1;
+			rope[i] = text;
+		});
+		return Table.concat(rope);
+	}
+
 	// ! Here starts the raw code.
 	static function __init__() {
 		untyped __lua__('
 
-function core.serialize(value)
-	if contains_function(value) then
-		core.log("deprecated", "Support for dumping functions in `core.serialize` is deprecated.")
-	end
-	local rope = {}
-	// Keeping the length of the table as a local variable is *much*
-	// faster than invoking the length operator.
-	// See https://gitspartv.github.io/LuaJIT-Benchmarks/#test12.
-	local i = 0
-	serialize(value, function(text)
-		i = i + 1
-		rope[i] = text
-	end)
-	return table.concat(rope)
-end
+
 
 local function dummy_func() end
 
