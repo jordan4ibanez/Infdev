@@ -287,25 +287,25 @@ abstract class Serialize {
 
 	public static function core_deserialize(str, safe) {
 	// Backwards compatibility
-	if str == nil then
-		core.log("deprecated", "core.deserialize called with nil (expected string).")
-		return nil, "Invalid type: Expected a string, got nil"
-	end
-	local t = type(str)
+	if (str == null) {
+		core.log("deprecated", "core.deserialize called with nil (expected string).");
+		return [nil, "Invalid type: Expected a string, got nil"];
+	}
+	var t = type(str)
 	if t ~= "string" then
 		error(("core.deserialize called with %s (expected string)."):format(t))
 	end
 
-	local func, err = loadstring(str)
+	var func, err = loadstring(str)
 	if not func then return nil, err end
 
 	// math.huge was serialized to inf and NaNs to nan by Lua in engine version 5.6, so we have to support this here
-	local env = {inf = math.huge, nan = 0/0}
+	var env = {inf = math.huge, nan = 0/0}
 	if safe then
 		env.loadstring = dummy_func
 	else
 		env.loadstring = function(str, ...)
-			local func, err = loadstring(str, ...)
+			var func, err = loadstring(str, ...)
 			if func then
 				setfenv(func, env)
 				return func
@@ -314,7 +314,7 @@ abstract class Serialize {
 		end
 	end
 	setfenv(func, env)
-	local success, value_or_err = pcall(func)
+	var success, value_or_err = pcall(func)
 	if success then
 		return value_or_err
 	end
