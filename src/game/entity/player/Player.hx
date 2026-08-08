@@ -97,7 +97,8 @@ final class Player {
 		});
 
 		var inv: InvRef = this.object.getInventory();
-		inv.setSize("main", 3);
+		// This is designed so you can have HUGE inventories
+		inv.setSize("main", 12 * 5);
 
 		this.adjustCamera();
 
