@@ -251,7 +251,6 @@ abstract class Serialize {
 	}
 
 	public static function serialize(value: Dynamic): Null<String> {
-		var start = Os.clock();
 		var rope = Table.create();
 		// Keeping the length of the table as a local variable is *much*
 		// faster than invoking the length operator.
@@ -261,8 +260,6 @@ abstract class Serialize {
 			i = i + 1;
 			rope[i] = text;
 		});
-		var elapsed = Os.clock() - start;
-		untyped print("Elapsed:", elapsed);
 		return Table.concat(rope);
 	}
 
