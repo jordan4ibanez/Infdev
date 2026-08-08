@@ -67,12 +67,14 @@ abstract class Serialize {
 		"goto" => true // LuaJIT, Lua 5.2+
 	];
 
+	static function quote(string: String) {
+		return untyped __lua__('string.format("%q", {0})', string);
+	}
+
 	static function __init__() {
 		untyped __lua__('
 
-local function quote(string)
-	return string.format("%q", string)
-end
+
 
 local function dump_func(func)
 	return string.format("loadstring(%q)", string.dump(func))
