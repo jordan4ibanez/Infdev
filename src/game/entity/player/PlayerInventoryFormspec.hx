@@ -11,8 +11,9 @@ final class PlayerInventoryFormspec {
 
 	// This is REALLY, REALLY memory inefficient but I can't run a function when
 	// the player opens their inventory.
+	// todo: The main inentory will need to expand sideways when a player levels up.
 	var formspec: Formspec = new Formspec("player_inventory")
-		.addElement("main_inventory", new FormspecList("current_player", "main", 0, 3.5, 8, 4));
+		.addElement("main_inventory", new FormspecList("current_player", "main", 0.09, 3.5, 12, 8));
 
 	public function new(playerObject: ObjectRefPlayer) {
 		this.playerObject = playerObject;

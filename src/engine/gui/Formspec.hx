@@ -86,7 +86,7 @@ class Formspec {
 		append('size[${this.size.x},${this.size.y},${this.fixedSize}]');
 		append('bgcolor[#00000000;false;]');
 		append('background9[0,0;0,0;infdev_menu_background.png;true;40]');
-		append('style_type[list;spacing=0.1,size=1,slotbg_image=infdev_menu_background.png]');
+		append('style_type[list;spacing=0.075;size=0.75,0.75]');
 		append('listcolors[#636363;#545454;black;#141414;#ffff00]');
 
 		var windowScale = getTrueWindowScale(player);
