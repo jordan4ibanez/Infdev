@@ -71,14 +71,16 @@ abstract class Serialize {
 		return untyped __lua__('string.format("%q", {0})', string);
 	}
 
+	static function dump_func(func) {
+		return untyped __lua__('string.format("loadstring(%q)", string.dump({0}))', func);
+	}
+
 	static function __init__() {
 		untyped __lua__('
 
 
 
-local function dump_func(func)
-	return string.format("loadstring(%q)", string.dump(func))
-end
+
 
 // Serializes Lua nil, booleans, numbers, strings, tables and even functions
 // Tables are referenced by reference, strings are referenced by value. Supports circular tables.
