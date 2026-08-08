@@ -2,6 +2,7 @@ package src.game.entity.player;
 
 import lua.Lua;
 import lua.Table;
+import src.engine.InvRef;
 import src.engine.compilercode.Macros;
 import src.engine.entity.definition.PlayerControl;
 import src.engine.entity.helpers.EntitySerialization;
@@ -94,6 +95,9 @@ final class Player {
 		this.object.setProperties({
 			step_up_mode: StepUpModeRigid
 		});
+
+		var inv: InvRef = this.object.getInventory();
+		inv.setSize("main", 3);
 
 		this.adjustCamera();
 
