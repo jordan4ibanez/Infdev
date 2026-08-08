@@ -22,17 +22,11 @@ abstract class Serialize {
 		return !(a || b);
 	}
 
-	static function __init__() {
-		untyped __lua__('
-
-
-
-
--- Recursively counts occurrences of objects (non-primitives including strings) in a table.
-local function count_objects(value)
+	// Recursively counts occurrences of objects (non-primitives including strings) in a table.
+static function count_objects(value)
 	local counts = {}
 	if value == nil then
-		-- Early return for nil; tables can\'t contain nil
+		// Early return for nil; tables can\'t contain nil
 		return counts
 	end
 	local function count_values(val)
@@ -45,7 +39,7 @@ local function count_objects(value)
 		if type_ == "table" then
 			if not count then
 				for k, v in pairs(val) do
-					-- Skip it if it\'s not a supported type.
+					// Skip it if it\'s not a supported type.
 					if allowed_type(k, v) then
 						count_values(k)
 						count_values(v)
@@ -53,7 +47,7 @@ local function count_objects(value)
 				end
 			end
 		elseif type_ ~= "string" and type_ ~= "function" then
-			-- Ignore unsupported types instead of erroring out.
+			// Ignore unsupported types instead of erroring out.
 			return
 		end
 	end
@@ -61,15 +55,20 @@ local function count_objects(value)
 	return counts
 end
 
--- Build a "set" of Lua keywords. These can\'t be used as short key names.
--- See https://www.lua.org/manual/5.1/manual.html#2.1
+	static function __init__() {
+		untyped __lua__('
+
+
+
+// Build a "set" of Lua keywords. These can\'t be used as short key names.
+// See https://www.lua.org/manual/5.1/manual.html#2.1
 local keywords = {}
 for _, keyword in pairs({
 	"and", "break", "do", "else", "elseif",
 	"end", "false", "for", "function", "if",
 	"in", "local", "nil", "not", "or",
 	"repeat", "return", "then", "true", "until", "while",
-	"goto" -- LuaJIT, Lua 5.2+
+	"goto" // LuaJIT, Lua 5.2+
 }) do
 	keywords[keyword] = true
 end
@@ -82,20 +81,20 @@ local function dump_func(func)
 	return string.format("loadstring(%q)", string.dump(func))
 end
 
--- Serializes Lua nil, booleans, numbers, strings, tables and even functions
--- Tables are referenced by reference, strings are referenced by value. Supports circular tables.
+// Serializes Lua nil, booleans, numbers, strings, tables and even functions
+// Tables are referenced by reference, strings are referenced by value. Supports circular tables.
 local function serialize(value, write)
 	local reference, refnum = "1", 1
-	-- [object] = reference
+	// [object] = reference
 	local references = {}
-	-- Circular tables that must be filled using `table[key] = value` statements
+	// Circular tables that must be filled using `table[key] = value` statements
 	local to_fill = {}
 	for object, count in pairs(count_objects(value)) do
 		local type_ = type(object)
-		-- Object must appear more than once. If it is a string, the reference has to be shorter than the string.
+		// Object must appear more than once. If it is a string, the reference has to be shorter than the string.
 		if count >= 2 and (type_ ~= "string" or #reference + 5 < #object) then
 			if refnum == 1 then
-				write"local _={};" -- initialize reference table
+				write"local _={};" // initialize reference table
 			end
 			write"_["
 			write(reference)
@@ -116,12 +115,12 @@ local function serialize(value, write)
 			reference = ("%d"):format(refnum)
 		end
 	end
-	-- Used to decide whether we should do "key=..."
+	// Used to decide whether we should do "key=..."
 	local function use_short_key(key)
 		return not references[key] and type(key) == "string" and (not keywords[key]) and string.match(key, "^[%a_][%a%d_]*$")
 	end
 	local function dump(value)
-		-- Primitive types
+		// Primitive types
 		if value == nil then
 			return write("nil")
 		end
@@ -133,7 +132,7 @@ local function serialize(value, write)
 		end
 		local type_ = type(value)
 		if type_ == "number" then
-			if value ~= value then -- nan
+			if value ~= value then // nan
 				return write"0/0"
 			elseif value == math.huge then
 				return write"1/0"
@@ -144,12 +143,12 @@ local function serialize(value, write)
 			end
 		end
 
-		-- Failsafe for userdata/thread if it bypasses the filters.
+		// Failsafe for userdata/thread if it bypasses the filters.
 		if type_ == "userdata" or type_ == "thread" then
 			return write("nil")
 		end
 
-		-- Reference types: table, function and string
+		// Reference types: table, function and string
 		local ref = references[value]
 		if ref then
 			write"_["
@@ -164,17 +163,17 @@ local function serialize(value, write)
 		end
 		if type_ == "table" then
 			write("{")
-			-- First write list keys:
-			-- Don\'t use the table length #value here as it may horribly fail
-			-- for tables which use large integers as keys in the hash part;
-			-- stop at the first "hole" (nil value) instead
+			// First write list keys:
+			// Don\'t use the table length #value here as it may horribly fail
+			// for tables which use large integers as keys in the hash part;
+			// stop at the first "hole" (nil value) instead
 			local len = 0
-			local first = true -- whether this is the first entry, which may not have a leading comma
+			local first = true // whether this is the first entry, which may not have a leading comma
 			while true do
-				local v = rawget(value, len + 1) -- use rawget to avoid metatables like the vector metatable
+				local v = rawget(value, len + 1) // use rawget to avoid metatables like the vector metatable
 				if v == nil then break end
 				if first then first = false else write(",") end
-				-- Write nil to preserve array indices if element is userdata.
+				// Write nil to preserve array indices if element is userdata.
 				if not allowed_type(v) then
 					write("nil")
 				else
@@ -182,11 +181,11 @@ local function serialize(value, write)
 				end
 				len = len + 1
 			end
-			-- Now write map keys ([key] = value)
+			// Now write map keys ([key] = value)
 			for k, v in next, value do
-				-- We have written all non-float keys in [1, len] already
+				// We have written all non-float keys in [1, len] already
 				if type(k) ~= "number" or k % 1 ~= 0 or k < 1 or k > len then
-					-- Skip entire key if either key or value is userdata/thread.
+					// Skip entire key if either key or value is userdata/thread.
 					if allowed_type(k, v) then
 						if first then first = false else write(",") end
 						if use_short_key(k) then
@@ -205,7 +204,7 @@ local function serialize(value, write)
 			return
 		end
 	end
-	-- Write the statements to fill circular tables
+	// Write the statements to fill circular tables
 	for table, ref in pairs(to_fill) do
 		for k, v in pairs(table) do
 			if allowed_type(k, v) then
@@ -230,7 +229,7 @@ local function serialize(value, write)
 	dump(value)
 end
 
--- Whether `value` recursively contains a function
+// Whether `value` recursively contains a function
 local function contains_function(value)
 	local seen = {}
 	local function check(val)
@@ -260,9 +259,9 @@ function core.serialize(value)
 		core.log("deprecated", "Support for dumping functions in `core.serialize` is deprecated.")
 	end
 	local rope = {}
-	-- Keeping the length of the table as a local variable is *much*
-	-- faster than invoking the length operator.
-	-- See https://gitspartv.github.io/LuaJIT-Benchmarks/#test12.
+	// Keeping the length of the table as a local variable is *much*
+	// faster than invoking the length operator.
+	// See https://gitspartv.github.io/LuaJIT-Benchmarks/#test12.
 	local i = 0
 	serialize(value, function(text)
 		i = i + 1
@@ -274,7 +273,7 @@ end
 local function dummy_func() end
 
 function core.deserialize(str, safe)
-	-- Backwards compatibility
+	// Backwards compatibility
 	if str == nil then
 		core.log("deprecated", "core.deserialize called with nil (expected string).")
 		return nil, "Invalid type: Expected a string, got nil"
@@ -287,7 +286,7 @@ function core.deserialize(str, safe)
 	local func, err = loadstring(str)
 	if not func then return nil, err end
 
-	-- math.huge was serialized to inf and NaNs to nan by Lua in engine version 5.6, so we have to support this here
+	// math.huge was serialized to inf and NaNs to nan by Lua in engine version 5.6, so we have to support this here
 	local env = {inf = math.huge, nan = 0/0}
 	if safe then
 		env.loadstring = dummy_func
