@@ -288,13 +288,13 @@ abstract class Serialize {
 	public static function core_deserialize(str, safe) {
 		// Backwards compatibility
 		if (str == null) {
-			core.log("deprecated", "core.deserialize called with nil (expected string).");
+			Core.log(LogLevelWarning, "core.deserialize called with nil (expected string).");
 			// todo: multireturn
-			return [nil, "Invalid type: Expected a string, got nil"];
+			return [null, "Invalid type: Expected a string, got nil"];
 		}
-		var t = type(str);
+		var t = Lua.type(str);
 		if (t != "string") {
-			error(("core.deserialize called with %s (expected string).").format(t));
+			Lua.error(untyped __lua__('("core.deserialize called with %s (expected string)."):format({0})', t));
 		}
 
 		var func, err = loadstring(str);
