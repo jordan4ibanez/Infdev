@@ -83,33 +83,33 @@ static function serialize(value, write) {
 	// [object] = reference
 	var references = [];
 	// Circular tables that must be filled using `table[key] = value` statements
-	var to_fill = {}
-	for object, count in pairs(count_objects(value)) do
-		var type_ = type(object)
+	var to_fill = {};
+	for (object => count in pairs(count_objects(value))) {
+		var type_ = type(object);
 		// Object must appear more than once. If it is a string, the reference has to be shorter than the string.
-		if count >= 2 and (type_ ~= "string" or #reference + 5 < #object) then
-			if refnum == 1 then
-				write"local _={};" // initialize reference table
-			end
-			write"_["
-			write(reference)
-			write("]=")
-			if type_ == "table" then
-				write("{}")
-			elseif type_ == "function" then
-				write(dump_func(object))
-			elseif type_ == "string" then
-				write(quote(object))
-			end
-			write(";")
-			references[object] = reference
-			if type_ == "table" then
-				to_fill[object] = reference
-			end
-			refnum = refnum + 1
-			reference = ("%d"):format(refnum)
-		end
-	end
+		if (count >= 2 && (type_ != "string" || reference.length + 5 < object.length)) {
+			if (refnum == 1) {
+				write("local _={};"); // initialize reference table
+			}
+			write("_[");
+			write(reference);
+			write("]=");
+			if (type_ == "table") {
+				write("{}");
+			}else if (type_ == "function") {
+				write(dump_func(object));
+			}else if (type_ == "string") {
+				write(quote(object));
+			}
+			write(";");
+			references[object] = reference;
+			if (type_ == "table") {
+				to_fill[object] = reference;
+			}
+			refnum = refnum + 1;
+			reference = ("%d").format(refnum);
+		}
+	}
 	// Used to decide whether we should do "key=..."
 	var function use_short_key(key)
 		return not references[key] and type(key) == "string" and (not keywords[key]) and string.match(key, "^[%a_][%a%d_]*$")
