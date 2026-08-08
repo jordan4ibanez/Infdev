@@ -34,8 +34,11 @@ class Formspec {
 	// todo: element containers.
 	// todo: do not allow nested containers because that can become a nightmare.
 
-	public function new(name: String) {
+	public function new(name: String, ?defaultPage: String) {
 		this.name = name;
+		if (defaultPage != null) {
+			this.currentPage = defaultPage;
+		}
 	}
 
 	function append(newData: String): Void {
@@ -150,6 +153,14 @@ class Formspec {
 		}
 		thisPage.set(elementName, formspecElement);
 		return this;
+	}
+
+	public function getElement<T: FormspecElement>(pageName: String, elementName: String): Null<T> {
+		var thisPage = this.pages.get(pageName);
+		if (thisPage == null) {
+			return null;
+		}
+		return cast thisPage.get(elementName);
 	}
 
 	public function addRootElement(elementName: String, formspecElement: FormspecElement): Formspec {
