@@ -184,20 +184,20 @@ static function serialize(value, write) {
 					// Skip entire key if either key or value is userdata/thread.
 					if (allowed_type(k, v)) {
 						if (first) { first = false;} else{ write(","); }
-						if use_short_key(k) then
-							write(k)
-						else
-							write("[")
-							dump(k)
-							write("]")
-						end
-						write("=")
-						dump(v)
+						if (use_short_key(k)) {
+							write(k);
+						}else{
+							write("[");
+							dump(k);
+							write("]");
+						}
+						write("=");
+						dump(v);
 					}
 				}
 			});
-			write("}")
-			return
+			write("}");
+			return;
 		}
 	}
 	// Write the statements to fill circular tables
