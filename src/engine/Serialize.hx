@@ -141,7 +141,7 @@ abstract class Serialize {
 				} else if (value == -Math.huge) {
 					return write("-1/0");
 				} else {
-					return write(string.format("%.17g", value));
+					return write(untyped __lua__('string.format("%.17g", {0})', value));
 				}
 			}
 
