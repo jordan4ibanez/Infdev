@@ -286,7 +286,7 @@ abstract class Serialize {
 		return check(value);
 	}
 
-	public static function core_serialize(value) {
+	public static function core_serialize(value: Dynamic): Null<String> {
 		if (contains_function(value)) {
 			Core.log(LogLevelWarning, "Support for dumping functions in `core.serialize` is deprecated.");
 		}
