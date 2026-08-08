@@ -264,7 +264,7 @@ abstract class Serialize {
 	}
 
 	// Whether `value` recursively contains a function
-	static function contains_function(value: Dynamic): Bool {
+	static function containsFunction(value: Dynamic): Bool {
 		var seen = Table.create();
 		function check(val: Dynamic): Bool {
 			if (Lua.type(val) == "function") {
@@ -289,7 +289,7 @@ abstract class Serialize {
 	}
 
 	public static function core_serialize(value: Dynamic): Null<String> {
-		if (contains_function(value)) {
+		if (containsFunction(value)) {
 			Core.log(LogLevelWarning, "Support for dumping functions in `core.serialize` is deprecated.");
 		}
 		var rope = Table.create();
