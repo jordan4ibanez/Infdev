@@ -6,8 +6,6 @@ import lua.Math;
 import lua.Table;
 import src.engine.compilercode.LuaLoop;
 import src.engine.compilercode.LuaMap;
-import src.engine.gui.Formspec;
-import src.engine.gui.FormspecButton;
 
 /**
  * This class is a translation of https://github.com/luanti-org/luanti/blob/master/builtin/common/serialize.lua
@@ -288,7 +286,9 @@ abstract class Serialize {
 		return check(value);
 	}
 
-	public static function core_serialize_custom_function(value: Dynamic): Null<String> {
+	static function dummyFunc(): Void {}
+
+	public static function serialize(value: Dynamic): Null<String> {
 		if (containsFunction(value)) {
 			Core.log(LogLevelWarning, "Support for dumping functions in `core.serialize` is deprecated.");
 		}
@@ -304,9 +304,7 @@ abstract class Serialize {
 		return Table.concat(rope);
 	}
 
-	static function dummyFunc(): Void {}
-
-	public static function core_deserialize_custom_function(str: String, ?safe: Bool): Null<Dynamic> {
+	public static function deserialize(str: String, ?safe: Bool): Null<Dynamic> {
 		// Backwards compatibility
 		if (str == null) {
 			Core.log(LogLevelWarning, "core.deserialize called with nil (expected string).");
