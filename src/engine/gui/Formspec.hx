@@ -139,7 +139,7 @@ class Formspec {
 	public function addRootElement(elementName: String, formspecElement: FormspecElement): Formspec {
 		// This errors out to prevent catastrophic bugs.
 		if (this.rootElements.exists(elementName)) {
-			throw 'Tried to add element [${elementName}] into formspec [${this.name}] when it already exists.';
+			throw 'Tried to add element [${elementName}] in formspec [${this.name}] when it already exists.';
 		}
 		this.rootElements.set(elementName, formspecElement);
 		return this;
