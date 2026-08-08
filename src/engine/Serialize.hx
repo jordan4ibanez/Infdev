@@ -115,7 +115,10 @@ abstract class Serialize {
 
 		// Used to decide whether we should do "key=..."
 		function use_short_key(key: String) {
-			return references[key] == null && Lua.type(key) == "string" && (keywords[key] == null) && string.match(key, "^[%a_][%a%d_]*$");
+			return references[key] == null
+				&& Lua.type(key) == "string"
+				&& (keywords[key] == null)
+				&& untyped __lua__('string.match({0}, "^[%a_][%a%d_]*$")', key);
 		}
 		function dump(value) {
 			// Primitive types
