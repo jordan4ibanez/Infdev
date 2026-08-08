@@ -304,7 +304,7 @@ abstract class Serialize {
 
 	static function dummy_func() {}
 
-	public static function core_deserialize(str, ?safe) {
+	public static function core_deserialize(str: String, ?safe: Bool): Null<Dynamic> {
 		// Backwards compatibility
 		if (str == null) {
 			Core.log(LogLevelWarning, "core.deserialize called with nil (expected string).");
