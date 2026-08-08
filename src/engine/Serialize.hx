@@ -78,13 +78,13 @@ abstract class Serialize {
 	// Serializes Lua nil, booleans, numbers, strings, tables and even functions
 // Tables are referenced by reference, strings are referenced by value. Supports circular tables.
 static function serialize(value, write) {
-	local reference, refnum = "1", 1
+	var reference, refnum = "1", 1
 	// [object] = reference
-	local references = {}
+	var references = {}
 	// Circular tables that must be filled using `table[key] = value` statements
-	local to_fill = {}
+	var to_fill = {}
 	for object, count in pairs(count_objects(value)) do
-		local type_ = type(object)
+		var type_ = type(object)
 		// Object must appear more than once. If it is a string, the reference has to be shorter than the string.
 		if count >= 2 and (type_ ~= "string" or #reference + 5 < #object) then
 			if refnum == 1 then
@@ -110,10 +110,10 @@ static function serialize(value, write) {
 		end
 	end
 	// Used to decide whether we should do "key=..."
-	local function use_short_key(key)
+	var function use_short_key(key)
 		return not references[key] and type(key) == "string" and (not keywords[key]) and string.match(key, "^[%a_][%a%d_]*$")
 	end
-	local function dump(value)
+	var function dump(value)
 		// Primitive types
 		if value == nil then
 			return write("nil")
@@ -124,7 +124,7 @@ static function serialize(value, write) {
 		if value == false then
 			return write("false")
 		end
-		local type_ = type(value)
+		var type_ = type(value)
 		if type_ == "number" then
 			if value ~= value then // nan
 				return write"0/0"
@@ -143,7 +143,7 @@ static function serialize(value, write) {
 		end
 
 		// Reference types: table, function and string
-		local ref = references[value]
+		var ref = references[value]
 		if ref then
 			write"_["
 			write(ref)
@@ -161,10 +161,10 @@ static function serialize(value, write) {
 			// Don\'t use the table length #value here as it may horribly fail
 			// for tables which use large integers as keys in the hash part;
 			// stop at the first "hole" (nil value) instead
-			local len = 0
-			local first = true // whether this is the first entry, which may not have a leading comma
+			var len = 0
+			var first = true // whether this is the first entry, which may not have a leading comma
 			while true do
-				local v = rawget(value, len + 1) // use rawget to avoid metatables like the vector metatable
+				var v = rawget(value, len + 1) // use rawget to avoid metatables like the vector metatable
 				if v == nil then break end
 				if first then first = false else write(",") end
 				// Write nil to preserve array indices if element is userdata.
