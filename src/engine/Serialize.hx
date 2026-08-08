@@ -34,7 +34,7 @@ abstract class Serialize {
 
 	// Recursively counts occurrences of objects (non-primitives including strings) in a table.
 	static function count_objects(value) {
-		var counts = [];
+		var counts = Table.create();
 		if (value == null) {
 			// Early return for nil; tables can\'t contain nil
 			return counts;
@@ -350,7 +350,7 @@ abstract class Serialize {
 
 			var testSerializeA = core_serialize(cast testSubject);
 
-			testSubject.setPlayer(player);
+			// testSubject.setPlayer(player);
 
 			// This is the new one.
 			var testSerializeB = Core.serialize(testSubject);
