@@ -177,7 +177,8 @@ static function serialize(value, write) {
 				len = len + 1;
 			}
 			// Now write map keys ([key] = value)
-			for k, v in next, value do
+			LuaLoop.nativePairs(k,v, value, {
+			// for k, v in pairs(value) do
 				// We have written all non-float keys in [1, len] already
 				if type(k) ~= "number" or k % 1 ~= 0 or k < 1 or k > len then
 					// Skip entire key if either key or value is userdata/thread.
@@ -194,7 +195,7 @@ static function serialize(value, write) {
 						dump(v)
 					end
 				end
-			end
+			});
 			write("}")
 			return
 		}
