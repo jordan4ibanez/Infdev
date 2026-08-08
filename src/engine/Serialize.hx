@@ -23,37 +23,37 @@ abstract class Serialize {
 	}
 
 	// Recursively counts occurrences of objects (non-primitives including strings) in a table.
-static function count_objects(value)
-	local counts = {}
-	if value == nil then
-		// Early return for nil; tables can\'t contain nil
-		return counts
-	end
-	local function count_values(val)
-		local type_ = type(val)
-		if type_ == "boolean" or type_ == "number" then
-			return
-		end
-		local count = counts[val]
-		counts[val] = (count or 0) + 1
-		if type_ == "table" then
-			if not count then
-				for k, v in pairs(val) do
-					// Skip it if it\'s not a supported type.
-					if allowed_type(k, v) then
-						count_values(k)
-						count_values(v)
-					end
-				end
-			end
-		elseif type_ ~= "string" and type_ ~= "function" then
-			// Ignore unsupported types instead of erroring out.
-			return
-		end
-	end
-	count_values(value)
-	return counts
-end
+	static function count_objects(value) {
+		var counts = {};
+		if (value == nil) {
+			// Early return for nil; tables can\'t contain nil
+			return counts;
+		}
+		function count_values(val) {
+			var type_ = type(val);
+			if (type_ == "boolean" || type_ == "number") {
+				return;
+			}
+			var count = counts[val];
+			counts[val] = (count ?? 0) + 1;
+			if (type_ == "table") {
+				if (count == null) {
+					for (k => v in pairs(val)) {
+						// Skip it if it\'s not a supported type.
+						if (allowed_type(k, v)) {
+							count_values(k);
+							count_values(v);
+						}
+					}
+				}
+			} else if (type_ != "string" ?? type_ != "function") {
+				// Ignore unsupported types instead of erroring out.
+				return;
+			}
+		}
+		count_values(value);
+		return counts;
+	}
 
 	static function __init__() {
 		untyped __lua__('
