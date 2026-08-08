@@ -36,7 +36,7 @@ final class ModStorage {
 
 		trace(serial);
 
-		final rawData = Core.deserialize(serial);
+		final rawData = Serialize.deserialize(serial);
 
 		trace(rawData);
 
@@ -44,6 +44,6 @@ final class ModStorage {
 	}
 
 	public static function setClass(key: String, value: Dynamic): Void {
-		storage.setString(key, Core.serialize(value));
+		storage.setString(key, Serialize.serialize(value));
 	}
 }

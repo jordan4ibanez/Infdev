@@ -1,7 +1,5 @@
 package src.engine.entity.helpers;
 
-import src.engine.Core;
-
 final class EntitySerialization {
 	/**
 	 * This was made to clone core.deserialize data into a haxe class with defaults to make it nice as possible.
@@ -16,7 +14,7 @@ final class EntitySerialization {
 		var containerClass = Type.createInstance(clazz, []);
 
 		// Saved data.
-		final deserializedTable = Core.deserialize(staticData);
+		final deserializedTable = Serialize.deserialize(staticData);
 
 		// If it doesn't equal null then start the clone.
 		if (deserializedTable != null) {
@@ -82,6 +80,6 @@ final class EntitySerialization {
 			// trace("field", field);
 		}
 
-		return Core.serialize(outputObject);
+		return Serialize.serialize(outputObject);
 	}
 }

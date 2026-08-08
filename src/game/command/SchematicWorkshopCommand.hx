@@ -2,6 +2,7 @@ package src.game.command;
 
 import lua.Lua;
 import src.engine.Core;
+import src.engine.Serialize;
 import src.engine.command.ChatCommand;
 import src.engine.compilercode.LuaMap;
 import src.engine.vector.Vec3;
@@ -112,7 +113,7 @@ final class SchematicWorkshopCommand implements ChatCommand {
 		final controllerPos = pos.add(new Vec3(-halfSize.x, 0, -halfSize.z));
 		Core.setNode(controllerPos, {name: "infdev:schematic_workshop_control_unit"});
 		var meta = Core.getMeta(controllerPos);
-		meta.setString(SchematicWorkshopControlUnit.schematicSizeTag, Core.serialize(fullSize));
+		meta.setString(SchematicWorkshopControlUnit.schematicSizeTag, Serialize.serialize(fullSize));
 		// This stops a bug where onRightClick doesn't work on the first click even with a reclick.
 		// todo: this was running vvv
 		// meta.setString("formspec", SchematicWorkshopControlUnit.formspec.serialize(player));
