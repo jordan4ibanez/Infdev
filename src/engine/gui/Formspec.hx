@@ -26,6 +26,8 @@ class Formspec {
 	// These are drawn on every page of the formspec.
 	// This is also used for single page formspecs without any navigation.
 	var rootElements: Map<String, FormspecElement> = new Map();
+	var pages: Map<String, Map<String, FormspecElement>> = new Map();
+	var currentPage: Null<String> = null;
 
 	// todo: element containers.
 	// todo: do not allow nested containers because that can become a nightmare.
