@@ -114,10 +114,19 @@ class Formspec {
 		}
 
 		if (this.currentPage != null) {
-			var page = this.pages.get(this.currentPage);
-			if (page == null) {
+			var thisPage = this.pages.get(this.currentPage);
+			if (thisPage == null) {
 				Core.log(LogLevelError, 'Formspec page ${this.currentPage} does not exist for formspec ${this.name}');
 			} else {
+				// Serialize the current page.
+				for (name => element in thisPage) {
+					// This auto targets the styling to the element.
+					if (element.style != null) {
+						append(element.style.toFormspec(name, windowScale));
+					}
+					// trace(name);
+					append(element.toFormspec(name));
+				}
 				trace('SERIALIZE PAGE ${currentPage}');
 			}
 		}
