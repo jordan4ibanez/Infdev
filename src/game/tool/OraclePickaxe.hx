@@ -24,7 +24,7 @@ final class OraclePickaxe extends ToolDefinition {
 	}
 
 	override function afterUse(itemstack: ItemStack, user: Null<ObjectRefBase>, node: NodeTable, digparams: DigParams): Null<ItemStack> {
-		trace("I can still use this hooray!");
+		// trace("I can still use this hooray!");
 		return super.afterUse(itemstack, user, node, digparams);
 	}
 }
