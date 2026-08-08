@@ -322,8 +322,8 @@ abstract class Serialize {
 
 		// math.huge was serialized to inf and NaNs to nan by Lua in engine version 5.6, so we have to support this here
 		var env = Table.create();
-		env[cast "inf"] = Math.POSITIVE_INFINITY; // math.huge
-		env[cast "nan"] = Math.NaN; // 0/0
+		env.inf = Math.POSITIVE_INFINITY; // math.huge
+		env.nan = Math.NaN; // 0/0
 
 		if (safe) {
 			untyped __lua__("env.loadstring = {0}", dummy_func);
