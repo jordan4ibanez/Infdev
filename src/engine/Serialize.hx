@@ -288,7 +288,7 @@ abstract class Serialize {
 		return check(value);
 	}
 
-	public static function core_serialize(value: Dynamic): Null<String> {
+	public static function core_serialize_custom_function(value: Dynamic): Null<String> {
 		if (containsFunction(value)) {
 			Core.log(LogLevelWarning, "Support for dumping functions in `core.serialize` is deprecated.");
 		}
@@ -306,7 +306,7 @@ abstract class Serialize {
 
 	static function dummy_func(): Void {}
 
-	public static function core_deserialize(str: String, ?safe: Bool): Null<Dynamic> {
+	public static function core_deserialize_custom_function(str: String, ?safe: Bool): Null<Dynamic> {
 		// Backwards compatibility
 		if (str == null) {
 			Core.log(LogLevelWarning, "core.deserialize called with nil (expected string).");
@@ -373,9 +373,9 @@ abstract class Serialize {
 
 			// testSubject.setPlayer(player);
 
-			// var testSerializeA = core_serialize(cast testSubject);
+			// var testSerializeA = core_serialize_custom_function(cast testSubject);
 
-			// var backToNormalA = core_deserialize(cast testSerializeB);
+			// var backToNormalA = core_deserialize_custom_function(cast testSerializeB);
 
 			// // This is the new one.
 			// var backToNormalB = Core.deserialize(testSerializeB);
