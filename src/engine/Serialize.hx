@@ -27,7 +27,7 @@ extern class PureDynamic {
 abstract class Serialize {
 	static var unsupported_types: Table<String, Bool>;
 
-	// Build a "set" of Lua keywords. These can\'t be used as short key names.
+	// Build a "set" of Lua keywords. These can't be used as short key names.
 	// See https://www.lua.org/manual/5.1/manual.html#2.1
 	static var keywords: LuaMap<String, Bool>;
 
@@ -57,7 +57,7 @@ abstract class Serialize {
 	static function count_objects(value) {
 		var counts = Table.create();
 		if (value == null) {
-			// Early return for nil; tables can\'t contain nil
+			// Early return for nil; tables can't contain nil
 			return counts;
 		}
 		function count_values(val) {
@@ -70,7 +70,7 @@ abstract class Serialize {
 			if (type_ == "table") {
 				if (count == null) {
 					LuaLoop.nativePairs(k, v, val, {
-						// Skip it if it\'s not a supported type.
+						// Skip it if it's not a supported type.
 						if (allowed_type(k, v)) {
 							count_values(k);
 							count_values(v);
@@ -183,7 +183,7 @@ abstract class Serialize {
 			if (type_ == "table") {
 				write("{");
 				// First write list keys:
-				// Don\'t use the table length #value here as it may horribly fail
+				// Don't use the table length #value here as it may horribly fail
 				// for tables which use large integers as keys in the hash part;
 				// stop at the first "hole" (nil value) instead
 				var len = 0;
