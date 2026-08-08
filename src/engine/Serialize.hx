@@ -358,17 +358,18 @@ abstract class Serialize {
 		Core.registerOnJoinPlayer((player, asdf) -> {
 			untyped print(player);
 
-			// var testSubject = new Formspec("testing")
-			// 	.addElement("test_page", "test_button", new FormspecButton(2, 2, 2, 2, "button"));
+			var testSubject = new Formspec("testing")
+				.addElement("test_page", "test_button", new FormspecButton(2, 2, 2, 2, "button"));
 
-			var testSubject = Table.create();
-
-			var testSerializeA = core_serialize(cast testSubject);
-
-			// testSubject.setPlayer(player);
+			// var testSubject = Table.create();
+			// testSubject[cast "a"] = 5;
 
 			// This is the new one.
 			var testSerializeB = Core.serialize(testSubject);
+
+			testSubject.setPlayer(player);
+
+			var testSerializeA = core_serialize(cast testSubject);
 
 			var backToNormalA = core_deserialize(cast testSerializeB);
 
@@ -379,6 +380,7 @@ abstract class Serialize {
 				print("test serialize a:", dump(testSerializeA));
 				print("test serialize b:", dump(testSerializeB));
 				// print(testSerializeA == testSerializeB);
+				print("=======================");
 				print("test deserialize a:", dump(backToNormalA));
 				print("test deserialize b:", dump(backToNormalB));
 				// print(backToNormalA == backToNormalB);
