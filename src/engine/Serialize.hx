@@ -1,5 +1,6 @@
 package src.engine;
 
+import lua.Lua;
 import src.engine.gui.Formspec;
 import src.engine.gui.FormspecButton;
 
@@ -12,23 +13,20 @@ import src.engine.gui.FormspecButton;
  */
 @:final
 abstract class Serialize {
-	final unsupported_types = ["userdata" => true, "thread" => true];
+	static final unsupported_types = ["userdata" => true, "thread" => true];
+
+	// Userdata and thread can be used as a key and a value in lua tables so it must check for both.
+	static function allowed_type(k, v) {
+		var a = unsupported_types[Lua.type(k)] == true;
+		var b = unsupported_types[Lua.type(v)] == true;
+		return !(a || b);
+	}
 
 	static function __init__() {
 		untyped __lua__('
 
-        -- save the old functions.
-        local old_serialize = core.serialize;
-        local old_deserialize = core.deserialize;
 
 
-
--- Userdata and thread can be used as a key and a value in lua tables so it must check for both.
-local function allowed_type(k,v)
-	local a = unsupported_types[type(k)] == true
-	local b = unsupported_types[type(v)] == true
-	return not (a or b)
-end
 
 -- Recursively counts occurrences of objects (non-primitives including strings) in a table.
 local function count_objects(value)
