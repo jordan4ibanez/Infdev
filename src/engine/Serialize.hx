@@ -1,6 +1,7 @@
 package src.engine;
 
 import lua.Lua;
+import lua.Math;
 import lua.Table;
 import src.engine.compilercode.LuaLoop;
 import src.engine.compilercode.LuaMap;
@@ -120,7 +121,7 @@ abstract class Serialize {
 				&& (keywords[key] == null)
 				&& untyped __lua__('string.match({0}, "^[%a_][%a%d_]*$")', key);
 		}
-		function dump(value) {
+		function dump(value: Dynamic) {
 			// Primitive types
 			if (value == null) {
 				return write("nil");
@@ -131,13 +132,13 @@ abstract class Serialize {
 			if (value == false) {
 				return write("false");
 			}
-			var type_ = type(value);
+			var type_ = Lua.type(value);
 			if (type_ == "number") {
 				if (value != value) { // nan
 					return write("0/0");
-				} else if (value == math.huge) {
+				} else if (value == Math.huge) {
 					return write("1/0");
-				} else if (value == -math.huge) {
+				} else if (value == -Math.huge) {
 					return write("-1/0");
 				} else {
 					return write(string.format("%.17g", value));
