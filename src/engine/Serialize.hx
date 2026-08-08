@@ -6,6 +6,8 @@ import lua.Os;
 import lua.Table;
 import src.engine.compilercode.LuaLoop;
 import src.engine.compilercode.LuaMap;
+import src.engine.gui.Formspec;
+import src.engine.gui.FormspecButton;
 
 /**
  * This class is a translation of https://github.com/luanti-org/luanti/blob/master/builtin/common/serialize.lua
@@ -314,26 +316,60 @@ abstract class Serialize {
 		// ? This section is for testing.
 		Core.registerOnJoinPlayer((player, asdf) -> {
 			untyped print(player);
-			// var testSubject = new Formspec("testing")
-			// 	.addElement("test_page", "test_button", new FormspecButton(2, 2, 2, 2, "button"));
-			var testSubject = Table.create();
-			testSubject[cast "a"] = 5;
-			testSubject[]
+
+			var testSubject: Dynamic = null;
+
+			var doHaxeType = true;
+
+			if (doHaxeType) {
+				// This tests a complex haxe type.
+				testSubject = new Formspec("testing")
+					.addElement("test_page", "test_button", new FormspecButton(2, 2, 2, 2, "button"));
+			} else {
+				// This tests all the allowed types in lua including nested and references.
+
+				untyped print("uhhh");
+
+				testSubject = Table.create();
+				// There should be 4 fields in this table.
+				testSubject[cast "nil"] = null; // Shouldn't appear.
+				testSubject[cast "bool"] = true;
+				testSubject[cast "number"] = cast 5.0;
+				testSubject[cast "string"] = cast 5.0;
+				testSubject[cast "table"] = untyped __lua__("{'somedata'}");
+
+				var nestedReference = Table.create();
+				// There should be 4 fields in this table inside the other table as it's one of it's fields.
+				nestedReference[cast "nil"] = null; // Shouldn't appear.
+				nestedReference[cast "bool"] = true;
+				nestedReference[cast "number"] = cast 5.0;
+				nestedReference[cast "string"] = cast 5.0;
+				nestedReference[cast "table"] = untyped __lua__("{'somedata'}");
+
+				testSubject[cast "nestedReference"] = cast nestedReference;
+			}
+
+			// untyped print(dump(testSubject));
+
 			// This is the new one.
 			var testSerializeB = untyped core["serialize"](testSubject);
 
-			// testSubject.setPlayer(player);
+			testSubject[cast "b"] = cast player;
+
 			var testSerializeA = serialize(cast testSubject);
 			var backToNormalA = deserialize(cast testSerializeB);
 			// This is the new one.
 			var backToNormalB = untyped core["deserialize"](testSerializeB);
 			untyped {
-				print("test serialize a:", dump(testSerializeA));
-				print("test serialize b:", dump(testSerializeB));
+				// print("test serialize a:", dump(testSerializeA));
+				// print("test serialize b:", dump(testSerializeB));
 				// print(testSerializeA == testSerializeB);
-				print("=======================");
-				print("test deserialize a:", dump(backToNormalA));
-				print("test deserialize b:", dump(backToNormalB));
+				// print("=======================");
+				// print("test deserialize a:", dump(backToNormalA));
+				// print("test deserialize b:", dump(backToNormalB));
+
+				print("A okay?", backToNormalA != null);
+				print("B okay?", backToNormalB != null);
 				// print(backToNormalA == backToNormalB);
 			}
 			Core.requestShutdown();
