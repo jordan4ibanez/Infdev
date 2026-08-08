@@ -304,7 +304,7 @@ abstract class Serialize {
 		return Table.concat(rope);
 	}
 
-	static function dummy_func() {}
+	static function dummy_func(): Void {}
 
 	public static function core_deserialize(str: String, ?safe: Bool): Null<Dynamic> {
 		// Backwards compatibility
