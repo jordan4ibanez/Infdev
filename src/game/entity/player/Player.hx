@@ -115,10 +115,6 @@ final class Player {
 
 	// The only time this runs is when a player leaves.
 	public function getStaticData(): String {
-		// These are manual memory management to get rid of the object reference.
-		this.animationHandler.terminate();
-		this.inventoryFormspec.terminate();
-		this.windowSizeWatcher.terminate();
 		return EntitySerialization.safeSerialize(this, Macros.getCompileTimeClass());
 	}
 

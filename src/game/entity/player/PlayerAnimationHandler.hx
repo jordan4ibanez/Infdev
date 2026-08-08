@@ -35,11 +35,6 @@ final class PlayerAnimationHandler {
 		this.playerObject = playerObject;
 	}
 
-	public function terminate(): Void {
-		untyped this.animationPriority = null;
-		this.playerObject = null;
-	}
-
 	public function playAnimation(animation: PlayerAnimation, ?speed: Float, ?loop: Bool = true): Void {
 		this.playerObject.playAnimation(animation, {
 			priority: animationPriority,

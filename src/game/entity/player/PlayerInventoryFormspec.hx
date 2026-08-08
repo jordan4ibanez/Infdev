@@ -21,10 +21,6 @@ final class PlayerInventoryFormspec {
 		this.formspec.setPlayer(player);
 	}
 
-	public function terminate(): Void {
-		this.player = null;
-	}
-
 	public function serialize(): String {
 		return formspec.serialize();
 	}

@@ -15,10 +15,6 @@ final class PlayerWindowSizeWatcher {
 		this.playerObject = playerObject;
 	}
 
-	public function terminate(): Void {
-		this.playerObject = null;
-	}
-
 	public function update(delta: Float): Void {
 		this.timer += delta;
 		if (this.timer < UPDATE_INTERVAL) {
