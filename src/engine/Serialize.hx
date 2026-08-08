@@ -300,18 +300,18 @@ abstract class Serialize {
 		// todo: multireturn
 		var func, err = untyped __lua__("loadstring({0})", str);
 		if (func == null) {
-			return [nil, err];
+			return [null, err];
 		}
 
 		// math.huge was serialized to inf and NaNs to nan by Lua in engine version 5.6, so we have to support this here
 		var env = Table.create();
-		env["inf"] = Math.POSITIVE_INFINITY; // math.huge
-		env["nan"] = Math.NaN; // 0/0
+		env[cast "inf"] = Math.POSITIVE_INFINITY; // math.huge
+		env[cast "nan"] = Math.NaN; // 0/0
 
 		if (safe) {
-			env.loadstring = dummy_func;
+			untyped __lua__("env.loadstring = {0}", dummy_func);
 		} else {
-			env["loadstring"] = untyped __lua__("function(s, ...)
+			env[cast "loadstring"] = untyped __lua__("function(s, ...)
                 local f, e = loadstring(s, ...)
                 if f then
                     setfenv(f, {0}) -- {0} injects the Haxe 'env' variable here
@@ -320,15 +320,15 @@ abstract class Serialize {
                 return nil, e
             end", env);
 		}
-		setfenv(func, env);
+		Lua.setfenv(func, env);
 
-		var success, value_or_err = pcall(func);
+		var success, value_or_err = Lua.pcall(func);
 
 		if (success) {
 			return value_or_err;
 		}
 		// todo: multireturn
-		return [nil, value_or_err];
+		return [null, value_or_err];
 	}
 
 	// ! Here starts the raw code.
