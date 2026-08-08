@@ -3,6 +3,7 @@ package src.engine;
 import lua.Lua;
 import lua.Table;
 import src.engine.compilercode.LuaLoop;
+import src.engine.compilercode.LuaMap;
 import src.engine.gui.Formspec;
 import src.engine.gui.FormspecButton;
 
@@ -60,7 +61,7 @@ abstract class Serialize {
 
 	// Build a "set" of Lua keywords. These can\'t be used as short key names.
 	// See https://www.lua.org/manual/5.1/manual.html#2.1
-	static final keywords = [
+	static final keywords: LuaMap<String, Bool> = [
 		"and" => true, "break" => true, "do" => true, "else" => true, "elseif" => true,
 		"end" => true, "false" => true, "for" => true, "function" => true, "if" => true,
 		"in" => true, "local" => true, "nil" => true, "not" => true, "or" => true,
@@ -82,7 +83,7 @@ abstract class Serialize {
 		var reference = "1";
 		var refnum = 1;
 		// [object] = reference
-		var references = [];
+		var references = Table.create();
 		// Circular tables that must be filled using `table[key] = value` statements
 		var to_fill = Table.create();
 		LuaLoop.nativePairs(object, count, count_objects(value), {
@@ -113,8 +114,8 @@ abstract class Serialize {
 		});
 
 		// Used to decide whether we should do "key=..."
-		function use_short_key(key) {
-			return references[key] == null && type(key) == "string" && (keywords[key] = null) && string.match(key, "^[%a_][%a%d_]*$");
+		function use_short_key(key: String) {
+			return references[key] == null && Lua.type(key) == "string" && (keywords[key] == null) && string.match(key, "^[%a_][%a%d_]*$");
 		}
 		function dump(value) {
 			// Primitive types
