@@ -10,6 +10,7 @@ class Formspec {
 
 	final name: String;
 
+	// This is used for interfunction memory.
 	var data = "";
 
 	final version = 10;
@@ -106,6 +107,15 @@ class Formspec {
 
 		if (DEBUG_MODE) {
 			untyped print(this.data);
+		}
+
+		if (this.currentPage != null) {
+			var page = this.pages.get(this.currentPage);
+			if (page == null) {
+				Core.log(LogLevelError, 'Formspec page ${this.currentPage} does not exist for formspec ${this.name}');
+			} else {
+				trace('SERIALIZE PAGE ${currentPage}');
+			}
 		}
 
 		// Reset the data output to prevent a disaster.
