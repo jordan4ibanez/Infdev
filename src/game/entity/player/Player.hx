@@ -40,8 +40,8 @@ final class Player {
 	function makeHand3D() {
 		var inv = this.object.getInventory();
 		// This also means that 3D hands be chambered to switch between in the hand inventory.
-		inv.set_size("hand", 1);
-		inv.set_stack("hand", 1, "infdev:virtual_hand_3d");
+		inv.setSize("hand", 1);
+		inv.setStack("hand", 1, "infdev:virtual_hand_3d");
 	}
 
 	function setModel(): Void {
