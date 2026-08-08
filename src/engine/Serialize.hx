@@ -242,36 +242,38 @@ abstract class Serialize {
 		dump(value);
 	}
 
+	// Whether `value` recursively contains a function
+static function contains_function(value) {
+	var seen = {}
+	function check(val) {
+		if (type(val) == "function") {
+			return true;
+		}
+		if (type(val) == "table") {
+			if (seen[val]) {
+				return false;
+			}
+			seen[val] = true;
+			LuaLoop.nativePairs(k,v, val, {
+				if (allowed_type(k, v)) {
+					if (check(k) || check(v)) {
+						return true;
+					}
+				}
+			});
+		}
+		return false;
+	}
+	return check(value);
+}
+
 	// ! Here starts the raw code.
 	static function __init__() {
 		untyped __lua__('
 
 
 
-// Whether `value` recursively contains a function
-local function contains_function(value)
-	local seen = {}
-	local function check(val)
-		if type(val) == "function" then
-			return true
-		end
-		if type(val) == "table" then
-			if seen[val] then
-				return false
-			end
-			seen[val] = true
-			for k, v in pairs(val) do
-				if allowed_type(k, v) then
-					if check(k) or check(v) then
-						return true
-					end
-				end
-			end
-		end
-		return false
-	end
-	return check(value)
-end
+
 
 function core.serialize(value)
 	if contains_function(value) then
