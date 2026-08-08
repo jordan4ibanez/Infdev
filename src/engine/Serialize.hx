@@ -271,10 +271,6 @@ abstract class Serialize {
 	static function __init__() {
 		untyped __lua__('
 
-
-
-
-
 function core.serialize(value)
 	if contains_function(value) then
 		core.log("deprecated", "Support for dumping functions in `core.serialize` is deprecated.")
