@@ -96,7 +96,7 @@ abstract class Serialize {
 
 	// Serializes Lua nil, booleans, numbers, strings, tables and even functions
 	// Tables are referenced by reference, strings are referenced by value. Supports circular tables.
-	static function serialize(value, write) {
+	static function serialize(value: Dynamic, write: (String) -> String): Null<String> {
 		var reference = "1";
 		var refnum = 1;
 		// [object] = reference
@@ -257,6 +257,8 @@ abstract class Serialize {
 		});
 		write("return ");
 		dump(value);
+		// ? This has no return in the original lua code.
+		return null;
 	}
 
 	// Whether `value` recursively contains a function
