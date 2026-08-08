@@ -30,7 +30,7 @@ final class SchematicWorkshopControlUnit extends NodeDefinition {
 	function triggerAlert(errorMessage: String, meta: NodeMetaRef, player: ObjectRefPlayer, pos: Vec3, ?successColor: Bool) {
 		var newColor = (successColor ? "lime" : "red");
 
-		(formspec.getElement("error_message") : FormspecLabel)
+		(formspec.getRootElement("error_message") : FormspecLabel)
 			.setLabel(errorMessage)
 			.getStyle().setTextColor(newColor);
 		meta.setString("formspec", formspec.serialize(player));
@@ -44,13 +44,13 @@ final class SchematicWorkshopControlUnit extends NodeDefinition {
 	}
 
 	function resetAlert() {
-		(formspec.getElement("error_message") : FormspecLabel)
+		(formspec.getRootElement("error_message") : FormspecLabel)
 			.setLabel("");
 		// untyped print("reset error");
 	}
 
 	public static var formspec: Formspec = new Formspec("schematic_workshop_ui")
-		.addElement("name_of_schematic", new FormspecLabel(0, 0.2, 10, 2, unnamedDefault)
+		.addRootElement("name_of_schematic", new FormspecLabel(0, 0.2, 10, 2, unnamedDefault)
 			.setStyle(new FormspecLabelStyle()
 				.setTextColor("white")
 				.setHorizontalAlign(FormspecHorizontalAlignmentCenter)
@@ -109,7 +109,7 @@ final class SchematicWorkshopControlUnit extends NodeDefinition {
 		// If the schematic has a name, use it, or else, declare it's unnamed.
 		var meta = Core.getMeta(pos);
 		var schematicName = meta.getString("schematic_name");
-		var formspecNameElement = (formspec.getElement("name_of_schematic") : FormspecLabel);
+		var formspecNameElement = (formspec.getRootElement("name_of_schematic") : FormspecLabel);
 		if (schematicName == "") {
 			formspecNameElement.setLabel(unnamedDefault);
 		} else {
@@ -119,7 +119,7 @@ final class SchematicWorkshopControlUnit extends NodeDefinition {
 		// Update the size of the formspec.
 
 		var size: Null<Vec3> = Core.deserialize(meta.getString(schematicSizeTag));
-		var formspecSizeElement = (formspec.getElement("size_display") : FormspecLabel);
+		var formspecSizeElement = (formspec.getRootElement("size_display") : FormspecLabel);
 
 		var sizeText = "Error: Size is null.";
 

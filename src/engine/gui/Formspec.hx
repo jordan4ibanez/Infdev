@@ -149,7 +149,7 @@ class Formspec {
 	// 	return this;
 	// }
 
-	public function addElement(elementName: String, formspecElement: FormspecElement): Formspec {
+	public function addRootElement(elementName: String, formspecElement: FormspecElement): Formspec {
 		// This errors out to prevent catastrophic bugs.
 		if (this.rootElements.exists(elementName)) {
 			throw 'Tried to add element [${elementName}] into formspec [${this.name}] when it already exists.';
@@ -158,7 +158,7 @@ class Formspec {
 		return this;
 	}
 
-	public function getElement<T: FormspecElement>(elementName: String): Null<T> {
+	public function getRootElement<T: FormspecElement>(elementName: String): Null<T> {
 		return cast this.rootElements.get(elementName);
 	}
 }
