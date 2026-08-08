@@ -1,5 +1,6 @@
 package src.engine;
 
+import haxe.Constraints.Function;
 import lua.Lua;
 import lua.Math;
 import lua.Table;
@@ -90,7 +91,7 @@ abstract class Serialize {
 		return untyped __lua__('string.format("%q", {0})', string);
 	}
 
-	static function dump_func(func): String {
+	static function dump_func(func: Function): String {
 		return untyped __lua__('string.format("loadstring(%q)", string.dump({0}))', func);
 	}
 
