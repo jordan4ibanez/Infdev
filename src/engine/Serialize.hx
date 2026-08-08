@@ -16,6 +16,13 @@ import src.engine.gui.FormspecButton;
  * Modification: It automatically strips out userdata and thread data.
  */
 // todo: 0 index this entire thing.
+
+@:multiReturn
+extern class PureDynamic {
+	var first: Dynamic;
+	var second: Dynamic;
+}
+
 @:final
 abstract class Serialize {
 	static final unsupported_types = ["userdata" => true, "thread" => true];
@@ -298,7 +305,9 @@ abstract class Serialize {
 		}
 
 		// todo: multireturn
-		var func, err = untyped __lua__("loadstring({0})", str);
+		var output: PureDynamic = untyped __lua__("loadstring({0})", str);
+		var func = output.first;
+		var err = output.second;
 		if (func == null) {
 			return [null, err];
 		}
@@ -322,13 +331,15 @@ abstract class Serialize {
 		}
 		Lua.setfenv(func, env);
 
-		var success, value_or_err = Lua.pcall(func);
+		var output = (cast Lua.pcall(cast func) : PureDynamic);
+
+		var success = output.first;
+		var value_or_err = output.second;
 
 		if (success) {
 			return value_or_err;
 		}
-		// todo: multireturn
-		return [null, value_or_err];
+		return untyped __lua__('nil, {0}', value_or_err);
 	}
 
 	// ! Here starts the raw code.
