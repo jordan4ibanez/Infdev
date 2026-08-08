@@ -180,10 +180,10 @@ static function serialize(value, write) {
 			LuaLoop.nativePairs(k,v, value, {
 			// for k, v in pairs(value) do
 				// We have written all non-float keys in [1, len] already
-				if type(k) ~= "number" or k % 1 ~= 0 or k < 1 or k > len then
+				if (type(k) != "number" || k % 1 != 0 || k < 1 || k > len) {
 					// Skip entire key if either key or value is userdata/thread.
-					if allowed_type(k, v) then
-						if first then first = false else write(",") end
+					if (allowed_type(k, v)) {
+						if (first) { first = false;} else{ write(","); }
 						if use_short_key(k) then
 							write(k)
 						else
@@ -193,8 +193,8 @@ static function serialize(value, write) {
 						end
 						write("=")
 						dump(v)
-					end
-				end
+					}
+				}
 			});
 			write("}")
 			return
