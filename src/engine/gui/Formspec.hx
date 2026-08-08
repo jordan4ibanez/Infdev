@@ -136,19 +136,6 @@ class Formspec {
 		return this;
 	}
 
-	// public function setBackgroundColor(color: String): Formspec {
-	// 	this.backgroundColor = color;
-	// 	return this;
-	// }
-	// public function setFullscreen(fullscreen: Bool): Formspec {
-	// 	this.fullscreen = fullscreen;
-	// 	return this;
-	// }
-	// public function setForegroundColor(color: String): Formspec {
-	// 	this.foregroundColor = color;
-	// 	return this;
-	// }
-
 	public function addRootElement(elementName: String, formspecElement: FormspecElement): Formspec {
 		// This errors out to prevent catastrophic bugs.
 		if (this.rootElements.exists(elementName)) {
