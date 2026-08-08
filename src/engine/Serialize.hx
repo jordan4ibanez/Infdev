@@ -348,27 +348,49 @@ abstract class Serialize {
 
 			// untyped print(dump(testSubject));
 
-			// This is the new one.
-			var testSerializeB = untyped core["serialize"](testSubject);
+			// var testSerializeB = untyped core["serialize"](testSubject);
+			// testSubject[cast "b"] = cast player;
 
-			testSubject[cast "b"] = cast player;
+			var benchmarks: Array<Float> = [];
+			final passes = 1000;
 
-			var testSerializeA = serialize(cast testSubject);
-			var backToNormalA = deserialize(cast testSerializeB);
-			// This is the new one.
-			var backToNormalB = untyped core["deserialize"](testSerializeB);
-			untyped {
-				// print("test serialize a:", dump(testSerializeA));
-				// print("test serialize b:", dump(testSerializeB));
-				// print(testSerializeA == testSerializeB);
-				// print("=======================");
-				// print("test deserialize a:", dump(backToNormalA));
-				// print("test deserialize b:", dump(backToNormalB));
+			var i = 0;
 
-				print("A okay?", backToNormalA != null);
-				print("B okay?", backToNormalB != null);
-				// print(backToNormalA == backToNormalB);
+			while (i < passes) {
+				untyped print("starting pass:", i);
+				var start = Os.clock();
+				// This is the new one.
+				var testSerializeA = serialize(cast testSubject);
+				var elapsed = Os.clock() - start;
+				benchmarks.push(elapsed);
+				i++;
 			}
+
+			var total = 0.0;
+			for (time in benchmarks) {
+				total += time;
+			}
+
+			// Note: seems to take 0.034 on average for total.
+			untyped print("total time:", total);
+			untyped print("Average time:", total / passes);
+
+			// var backToNormalA = deserialize(cast testSerializeB);
+
+			// This is the new one.
+			// var backToNormalB = untyped core["deserialize"](testSerializeB);
+			// untyped {
+			// 	// print("test serialize a:", dump(testSerializeA));
+			// 	// print("test serialize b:", dump(testSerializeB));
+			// 	// print(testSerializeA == testSerializeB);
+			// 	// print("=======================");
+			// 	// print("test deserialize a:", dump(backToNormalA));
+			// 	// print("test deserialize b:", dump(backToNormalB));
+
+			// 	print("A okay?", backToNormalA != null);
+			// 	print("B okay?", backToNormalB != null);
+			// 	// print(backToNormalA == backToNormalB);
+			// }
 			Core.requestShutdown();
 		});
 		return;
