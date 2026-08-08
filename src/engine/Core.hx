@@ -105,12 +105,6 @@ extern class Core {
 	@:native("get_mod_storage")
 	static function getModStorage(): StorageRef;
 
-	@:native("serialize")
-	static function serialize(data: Dynamic): String;
-
-	@:native("deserialize")
-	static function deserialize(str: String, ?safe: Bool): Dynamic;
-
 	@:native("item_place")
 	static function itemPlace(
 		itemstack: ItemStack,
