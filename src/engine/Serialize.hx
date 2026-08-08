@@ -21,7 +21,7 @@ abstract class Serialize {
 	static final unsupported_types = ["userdata" => true, "thread" => true];
 
 	// Userdata and thread can be used as a key and a value in lua tables so it must check for both.
-	static function allowed_type(k, v) {
+	static function allowed_type(k, ?v) {
 		var a = unsupported_types[Lua.type(k)] == true;
 		var b = unsupported_types[Lua.type(v)] == true;
 		return !(a || b);
@@ -172,7 +172,7 @@ abstract class Serialize {
 				var len = 0;
 				var first = true; // whether this is the first entry, which may not have a leading comma
 				while (true) {
-					var v = rawget(value, len + 1); // use rawget to avoid metatables like the vector metatable
+					var v = Lua.rawget(value, len + 1); // use rawget to avoid metatables like the vector metatable
 					if (v == null) {
 						break;
 					}
@@ -193,7 +193,7 @@ abstract class Serialize {
 				LuaLoop.nativePairs(k, v, value, {
 					// for k, v in pairs(value) do
 					// We have written all non-float keys in [1, len] already
-					if (type(k) != "number" || k % 1 != 0 || k < 1 || k > len) {
+					if (Lua.type(k) != "number" || k % 1 != 0 || k < 1 || k > len) {
 						// Skip entire key if either key or value is userdata/thread.
 						if (allowed_type(k, v)) {
 							if (first) {
