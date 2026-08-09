@@ -347,8 +347,8 @@ class Formspec {
 
 // todo: @:noCompletion
 abstract class FormspecElement {
-	// todo: @:noCompletion
-	public var style: FormspecStyle;
+	@:allow(src.engine.gui.Formspec)
+	var style: FormspecStyle;
 
 	// There were a few ways to write this, but this is probably the least bad.
 	// It's very flexible!
