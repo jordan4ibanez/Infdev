@@ -25,8 +25,8 @@ final class PlayerInventoryFormspec {
 			untyped print("peace");
 		})
 		.addElement("inventory", "test_button", new FormspecButton(0, 0, 2, 2, "button")
-			.setAction((fields) -> {
-				untyped print("this cool test button was pressed!");
+			.setAction((formspec, fields) -> {
+				untyped print('this cool test button was pressed in formspec [${formspec.getName()}]');
 			}))
 		.addElement("inventory", "test_field", new FormspecField(2, 0, 4, 1))
 		.addElement("inventory", "another_field", new FormspecField(2, 2, 4, 1))
