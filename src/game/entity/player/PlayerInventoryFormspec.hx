@@ -19,10 +19,10 @@ final class PlayerInventoryFormspec {
 		.addElement("inventory", "hot_bar", new FormspecList("current_player", "main", 0.09, 5.7, 12, 1)) // Hot bar.
 		.addElement("inventory", "main_inventory", new FormspecList("current_player", "main", 0.09, 6.6304, 12, 7, 12)) // Rest of inventory.
 		.doActionOnAnyUpdate((_) -> {
-			untyped print("hello");
+			untyped print("I see there was an update");
 		})
 		.doActionOnClose(() -> {
-			untyped print("peace");
+			untyped print("Thanks for coming by ");
 		})
 		.addElement("inventory", "test_button", new FormspecButton(0, 0, 2, 2, "button")
 			.setAction((formspec, fields) -> {
