@@ -20,16 +20,38 @@ class Formspec {
 		masterFormspecContainer.remove(player.getPlayerName());
 	}
 
+	@:noCompletion
 	static function masterOnReceiveFields(player: ObjectRefPlayer, formName: String, fields: Table<String, String>): Void {
-		trace("running");
+		var name = player.getPlayerName();
+
+		var container = masterFormspecContainer.get(name);
+
+		if (container == null) {
+			Core.log(LogLevelError, 'Player ${name} has no formspec container!');
+			return;
+		}
+
+		var key = keyThisWithPlayerName(formName, name);
+
+		untyped print(key);
+
+		var thisFormspec = container.get(key);
+
+		untyped print(formName);
+		untyped print(dump(fields));
+
+		untyped print(thisFormspec);
 	}
 
 	static function __init__(): Void {
 		Core.registerOnPlayerReceiveFields(masterOnReceiveFields);
 	}
 
+	static function keyThisWithPlayerName(formspecName: String, playerName: String): String {
+		return formspecName + "_" + playerName;
+	}
+
 	// End static components.
-	// todo: maybe a static memory manager so that formspecs can be saved per player.
 	final name: String;
 
 	// This is used for interfunction memory.
@@ -65,7 +87,22 @@ class Formspec {
 	}
 
 	public function setPlayer(player: ObjectRefPlayer): Void {
+		if (this.player != null) {
+			throw 'Player set more than once in formspec ${this.name}';
+		}
 		this.player = player;
+
+		var name = player.getPlayerName();
+		var container = masterFormspecContainer.get(name);
+		if (container == null) {
+			Core.log(LogLevelError, 'Player ${name} has no formspec container!');
+			return;
+		}
+		var key = keyThisWithPlayerName(this.name, name);
+		if (container.exists(key)) {
+			throw 'Duplicate formspec name in code! [${this.name}]';
+		}
+		container.set(key, this);
 	}
 
 	function append(newData: String): Void {
