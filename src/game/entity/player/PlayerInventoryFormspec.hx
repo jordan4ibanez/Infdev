@@ -14,7 +14,10 @@ final class PlayerInventoryFormspec {
 	// todo: The main inentory will need to expand sideways when a player levels up.
 	var formspec: Formspec = new Formspec("", "inventory")
 		.addElement("inventory", "hot_bar", new FormspecList("current_player", "main", 0.09, 5.7, 12, 1)) // Hot bar.
-		.addElement("inventory", "main_inventory", new FormspecList("current_player", "main", 0.09, 6.6304, 12, 7, 12)); // Rest of inventory.
+		.addElement("inventory", "main_inventory", new FormspecList("current_player", "main", 0.09, 6.6304, 12, 7, 12)) // Rest of inventory.
+		.doActionOnAnyUpdate((_) -> {
+			untyped print("hello");
+		});
 
 	public function new(player: ObjectRefPlayer) {
 		this.player = player;
