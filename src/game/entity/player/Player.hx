@@ -1,7 +1,6 @@
 package src.game.entity.player;
 
 import lua.Lua;
-import lua.Table;
 import src.engine.InvRef;
 import src.engine.compilercode.Macros;
 import src.engine.entity.definition.PlayerControl;
@@ -155,15 +154,6 @@ final class Player {
 	public function onRespawn(): Bool {
 		trace(this.object.getPlayerName() + " respawn!");
 		return false;
-	}
-
-	public function onReceiveFields(formName: String, fields: Table<String, String>): Void {
-		switch (formName) {
-			case "":
-				this.inventoryFormspec.process(fields);
-
-			default:
-		}
 	}
 
 	@:allow(src.game.entity.player.PlayerWindowSizeWatcher)

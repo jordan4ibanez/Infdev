@@ -76,10 +76,6 @@ final class PlayerHandling {
 		Core.registerOnRespawnPlayer((player) -> {
 			return player.getPlayerLuaEntity().onRespawn();
 		});
-
-		Core.registerOnPlayerReceiveFields((player, formName, fields) -> {
-			player.getPlayerLuaEntity().onReceiveFields(formName, fields);
-		});
 	}
 
 	private static function mimicLuaEntityConstruction(name: String, player: Player) {
