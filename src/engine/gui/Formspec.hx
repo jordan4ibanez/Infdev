@@ -266,7 +266,7 @@ class Formspec {
 					// trace(name);
 					append(element.toFormspec(name));
 				}
-				trace('SERIALIZE PAGE ${currentPage}');
+				// trace('SERIALIZE PAGE ${currentPage}');
 			}
 		}
 
