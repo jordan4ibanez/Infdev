@@ -22,7 +22,7 @@ abstract class GameInfo {
 	};
 
 	// Below this is a custom monstrosity to get the local count at any point in this haxe code.
-	static var DEBUG_MODE = false;
+	static var DEBUG_MODE = true;
 
 	static var insecureContainer: Dynamic = untyped compilerDebugUnsafeEnvironment;
 
@@ -37,8 +37,8 @@ abstract class GameInfo {
 	}
 
 	// This is AI assisted.
-	public static function getLocalCount(?level: Int): Int {
-		if (!DEBUG_MODE || insecureContainer == null) {
+	public static function getLocalCount(?level: Int, ?bypass: Dynamic): Int {
+		if (!DEBUG_MODE && (bypass == null && insecureContainer == null)) {
 			throw "Enable debug mode in this and the compiler. If this is already set, add infdev to trusted mods.";
 		}
 		// Default to level 2 (the caller of this function).
@@ -46,7 +46,8 @@ abstract class GameInfo {
 		var count = 0;
 
 		while (true) {
-			var name = untyped insecureContainer.debug["getlocal"](level, count + 1);
+			var name = (insecureContainer == null) ? untyped bypass.debug["getlocal"](level, count + 1) : untyped insecureContainer.debug["getlocal"](level, count
+				+ 1);
 			if (name == null) {
 				break;
 			}
