@@ -59,21 +59,42 @@ class Formspec {
 		} else {
 			// Enter pressed on something.
 			if (fields.key_enter == "true") {
-				var enterField = fields.key_enter_field;
-				var thisElement = thisFormspec.rootElements.get(enterField);
-				if (thisElement == null) {
-					var currentPage = thisFormspec.pages.get(thisFormspec.currentPage);
-					if (currentPage == null) {
-						throw 'Severe error in ${thisFormspec.name} received data from page ${thisFormspec.currentPage} and page was null!';
-					}
-					thisElement = currentPage.get(enterField);
-					if (thisElement == null) {
-						throw 'Severe error in ${thisFormspec.name} element ${enterField} does not exist in root or page elements.';
-					}
-					if (thisElement.action != null) {
-						thisElement.action(fields);
+				var elementKey = fields.key_enter_field;
+
+				var elementInfo = thisFormspec.elementMap.get(elementKey);
+				if (elementInfo == null) {
+					throw 'Element ${elementKey} was null for ${name} in formspec ${thisFormspec.name}';
+				}
+				if (elementInfo.actionable) {
+					if (elementInfo.location == ElementLocationRoot) {
+						var gottenElement = thisFormspec.getRootElement(elementKey);
+						if (gottenElement == null) {
+							throw 'Root element ${elementKey} was null for ${name} in formspec ${thisFormspec.name}';
+						}
+						gottenElement.action(fields);
+					} else {
+						var gottenElement = thisFormspec.getElement(elementInfo.page, elementKey);
+						if (gottenElement == null) {
+							throw 'Element ${elementKey} on page ${elementInfo.page} was null for ${name} in formspec ${thisFormspec.name}';
+						}
+						gottenElement.action(fields);
 					}
 				}
+
+				// var thisElement = thisFormspec.rootElements.get(enterField);
+				// if (thisElement == null) {
+				// 	var currentPage = thisFormspec.pages.get(thisFormspec.currentPage);
+				// 	if (currentPage == null) {
+				// 		throw 'Severe error in ${thisFormspec.name} received data from page ${thisFormspec.currentPage} and page was null!';
+				// 	}
+				// 	thisElement = currentPage.get(enterField);
+				// 	if (thisElement == null) {
+				// 		throw 'Severe error in ${thisFormspec.name} element ${enterField} does not exist in root or page elements.';
+				// 	}
+				// 	if (thisElement.action != null) {
+				// 		thisElement.action(fields);
+				// 	}
+				// }
 			}
 			untyped print(dump(fields));
 		}
