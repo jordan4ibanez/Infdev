@@ -207,6 +207,8 @@ abstract class FormspecElement {
 	// todo: @:noCompletion
 	public var style: FormspecStyle;
 
+	public var action: () -> {};
+
 	// todo: @:noCompletion
 	public abstract function toFormspec(name: String): String;
 }
