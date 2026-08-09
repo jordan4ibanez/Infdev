@@ -33,7 +33,6 @@ class Formspec {
 
 		var key = keyThisWithPlayerName(formName, name);
 		var thisFormspec = container.get(key);
-		
 
 		untyped print(formName);
 		untyped print(dump(fields));
@@ -60,6 +59,9 @@ class Formspec {
 	final version = 10;
 	var size: Vec2 = new Vec2(10, 10);
 	var fixedSize: Bool = false;
+
+	var actionOnClose: Null<() -> Void>;
+	var actionOnAnyUpdate: Null<(fields: Table<String, String>) -> Void>;
 
 	// var backgroundColor: String = new RGBA(77, 77, 77, 248).toHex();
 	// var fullscreen: Bool = false;
@@ -245,6 +247,17 @@ class Formspec {
 
 	public function getRootElement<T: FormspecElement>(elementName: String): Null<T> {
 		return cast this.rootElements.get(elementName);
+	}
+
+	// Global interactive functions.
+	public function doActionOnClose(action: () -> {}): Formspec {
+		this.actionOnClose = action;
+		return this;
+	}
+
+	public function doActionOnAnyUpdate(action: (fields: Table<String, String>) -> Void): Formspec {
+		this.actionOnAnyUpdate = action;
+		return this;
 	}
 }
 
