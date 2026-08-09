@@ -2,12 +2,9 @@ package src.engine;
 
 import lua.Lua;
 import lua.Math;
-import lua.Os;
 import lua.Table;
 import src.engine.compilercode.LuaLoop;
 import src.engine.compilercode.LuaMap;
-import src.engine.gui.Formspec;
-import src.engine.gui.FormspecButton;
 
 /**
  * This class is a translation of https://github.com/luanti-org/luanti/blob/master/builtin/common/serialize.lua
@@ -307,88 +304,88 @@ abstract class Serialize {
 	static function __init__() {
 		assignTypes();
 		// ? This section is for testing.
-		Core.registerOnJoinPlayer((player, asdf) -> {
-			untyped print(player);
+		// Core.registerOnJoinPlayer((player, asdf) -> {
+		// 	untyped print(player);
 
-			var testSubject: Dynamic = null;
+		// 	var testSubject: Dynamic = null;
 
-			var doHaxeType = true;
+		// 	var doHaxeType = true;
 
-			if (doHaxeType) {
-				// This tests a complex haxe type.
-				testSubject = new Formspec("testing")
-					.addElement("test_page", "test_button", new FormspecButton(2, 2, 2, 2, "button"));
-			} else {
-				// This tests all the allowed types in lua including nested and references.
+		// 	if (doHaxeType) {
+		// 		// This tests a complex haxe type.
+		// 		testSubject = new Formspec("testing")
+		// 			.addElement("test_page", "test_button", new FormspecButton(2, 2, 2, 2, "button"));
+		// 	} else {
+		// 		// This tests all the allowed types in lua including nested and references.
 
-				untyped print("uhhh");
+		// 		untyped print("uhhh");
 
-				testSubject = Table.create();
-				// There should be 4 fields in this table.
-				testSubject[cast "nil"] = null; // Shouldn't appear.
-				testSubject[cast "bool"] = true;
-				testSubject[cast "number"] = cast 5.0;
-				testSubject[cast "string"] = cast 5.0;
-				testSubject[cast "table"] = untyped __lua__("{'somedata'}");
+		// 		testSubject = Table.create();
+		// 		// There should be 4 fields in this table.
+		// 		testSubject[cast "nil"] = null; // Shouldn't appear.
+		// 		testSubject[cast "bool"] = true;
+		// 		testSubject[cast "number"] = cast 5.0;
+		// 		testSubject[cast "string"] = cast 5.0;
+		// 		testSubject[cast "table"] = untyped __lua__("{'somedata'}");
 
-				var nestedReference = Table.create();
-				// There should be 4 fields in this table inside the other table as it's one of it's fields.
-				nestedReference[cast "nil"] = null; // Shouldn't appear.
-				nestedReference[cast "bool"] = true;
-				nestedReference[cast "number"] = cast 5.0;
-				nestedReference[cast "string"] = cast 5.0;
-				nestedReference[cast "table"] = untyped __lua__("{'somedata'}");
+		// 		var nestedReference = Table.create();
+		// 		// There should be 4 fields in this table inside the other table as it's one of it's fields.
+		// 		nestedReference[cast "nil"] = null; // Shouldn't appear.
+		// 		nestedReference[cast "bool"] = true;
+		// 		nestedReference[cast "number"] = cast 5.0;
+		// 		nestedReference[cast "string"] = cast 5.0;
+		// 		nestedReference[cast "table"] = untyped __lua__("{'somedata'}");
 
-				testSubject[cast "nestedReference"] = cast nestedReference;
-			}
+		// 		testSubject[cast "nestedReference"] = cast nestedReference;
+		// 	}
 
-			// untyped print(dump(testSubject));
+		// 	// untyped print(dump(testSubject));
 
-			// var testSerializeB = untyped core["serialize"](testSubject);
-			// testSubject[cast "b"] = cast player;
+		// 	// var testSerializeB = untyped core["serialize"](testSubject);
+		// 	// testSubject[cast "b"] = cast player;
 
-			var benchmarks: Array<Float> = [];
-			final passes = 1000;
+		// 	var benchmarks: Array<Float> = [];
+		// 	final passes = 1000;
 
-			var i = 0;
+		// 	var i = 0;
 
-			while (i < passes) {
-				untyped print("starting pass:", i);
-				var start = Os.clock();
-				// This is the new one.
-				var testSerializeA = serialize(cast testSubject);
-				var elapsed = Os.clock() - start;
-				benchmarks.push(elapsed);
-				i++;
-			}
+		// 	while (i < passes) {
+		// 		untyped print("starting pass:", i);
+		// 		var start = Os.clock();
+		// 		// This is the new one.
+		// 		var testSerializeA = serialize(cast testSubject);
+		// 		var elapsed = Os.clock() - start;
+		// 		benchmarks.push(elapsed);
+		// 		i++;
+		// 	}
 
-			var total = 0.0;
-			for (time in benchmarks) {
-				total += time;
-			}
+		// 	var total = 0.0;
+		// 	for (time in benchmarks) {
+		// 		total += time;
+		// 	}
 
-			// Note: seems to take 0.034 on average for total.
-			untyped print("total time:", total);
-			untyped print("Average time:", total / passes);
+		// 	// Note: seems to take 0.034 on average for total.
+		// 	untyped print("total time:", total);
+		// 	untyped print("Average time:", total / passes);
 
-			// var backToNormalA = deserialize(cast testSerializeB);
+		// 	// var backToNormalA = deserialize(cast testSerializeB);
 
-			// This is the new one.
-			// var backToNormalB = untyped core["deserialize"](testSerializeB);
-			// untyped {
-			// 	// print("test serialize a:", dump(testSerializeA));
-			// 	// print("test serialize b:", dump(testSerializeB));
-			// 	// print(testSerializeA == testSerializeB);
-			// 	// print("=======================");
-			// 	// print("test deserialize a:", dump(backToNormalA));
-			// 	// print("test deserialize b:", dump(backToNormalB));
+		// 	// This is the new one.
+		// 	// var backToNormalB = untyped core["deserialize"](testSerializeB);
+		// 	// untyped {
+		// 	// 	// print("test serialize a:", dump(testSerializeA));
+		// 	// 	// print("test serialize b:", dump(testSerializeB));
+		// 	// 	// print(testSerializeA == testSerializeB);
+		// 	// 	// print("=======================");
+		// 	// 	// print("test deserialize a:", dump(backToNormalA));
+		// 	// 	// print("test deserialize b:", dump(backToNormalB));
 
-			// 	print("A okay?", backToNormalA != null);
-			// 	print("B okay?", backToNormalB != null);
-			// 	// print(backToNormalA == backToNormalB);
-			// }
-			Core.requestShutdown();
-		});
-		return;
+		// 	// 	print("A okay?", backToNormalA != null);
+		// 	// 	print("B okay?", backToNormalB != null);
+		// 	// 	// print(backToNormalA == backToNormalB);
+		// 	// }
+		// 	Core.requestShutdown();
+		// });
+		// return;
 	}
 }
