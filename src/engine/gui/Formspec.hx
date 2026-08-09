@@ -148,6 +148,14 @@ class Formspec {
 		}
 	}
 
+	public function goToPage(page: String): Void {
+		if (!this.pages.exists(page)) {
+			throw 'Tried to go to page ${page} in formspec ${this.name} which doesn\'t exist!';
+		}
+		this.currentPage = page;
+		Core.showFormspec(this.player.getPlayerName(), this.name, this.serialize());
+	}
+
 	public function setPlayer(player: ObjectRefPlayer): Void {
 		if (this.player != null) {
 			throw 'Player set more than once in formspec ${this.name}';
