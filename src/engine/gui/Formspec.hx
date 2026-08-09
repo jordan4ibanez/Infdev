@@ -9,10 +9,13 @@ enum abstract ElementLocation(String) to String {
 	var ElementLocationPage = "page";
 }
 
+// This is a data container.
 private class ElementInfo {
 	public var location: ElementLocation;
 	public var page: Null<String>;
 	public var actionable: Bool;
+
+	public function new() {}
 }
 
 class Formspec {
@@ -113,8 +116,13 @@ class Formspec {
 	// These are drawn on every page of the formspec.
 	// This is also used for single page formspecs without any navigation.
 	var rootElements: Map<String, FormspecElement> = new Map();
+
+	// Elements in a container. These are called pages because they're supposed to be used as pages.
 	var pages: Map<String, Map<String, FormspecElement>> = new Map();
 	var currentPage: Null<String> = null;
+
+	// This is a wrapper to hold additional data about elements because the game is so bare bones with formspecs.
+	var elementMap: Map<String, ElementInfo> = new Map();
 
 	// todo: element containers.
 	// todo: do not allow nested containers because that can become a nightmare.
@@ -250,6 +258,24 @@ class Formspec {
 	public function isFixedSize(fixedSize: Bool): Formspec {
 		this.fixedSize = fixedSize;
 		return this;
+	}
+
+	function tagElementInfo(elementName: String, formspecElement: FormspecElement, root: Bool, ?page: String) {
+		if (this.elementMap.exists(elementName)) {
+			throw 'Duplicate element name ${elementName} in formspec ${this.name}';
+		}
+		var worker = new ElementInfo();
+		if (root) {
+			worker.location = ElementLocationRoot;
+		} else {
+			worker.location = ElementLocationPage;
+			if (page == null) {
+				throw 'Forgot to put in the page on registration.';
+			}
+			worker.page = page;
+		}
+		worker.actionable = (formspecElement.action != null);
+		this.elementMap.set(elementName, worker);
 	}
 
 	public function addElement(pageName: String, elementName: String, formspecElement: FormspecElement): Formspec {
