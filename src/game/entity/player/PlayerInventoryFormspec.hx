@@ -21,7 +21,7 @@ final class PlayerInventoryFormspec {
 		.doActionOnAnyUpdate((_,_) -> {
 			untyped print("I see there was an update");
 		})
-		.doActionOnClose(() -> {
+		.doActionOnClose((_) -> {
 			untyped print("Thanks for coming by ");
 		})
 		.addElement("inventory", "test_button", new FormspecButton(0, 0, 2, 2, "button")

@@ -78,7 +78,7 @@ class Formspec {
 
 		if (fields.quit == "true") {
 			if (thisFormspec.actionOnClose != null) {
-				thisFormspec.actionOnClose();
+				thisFormspec.actionOnClose(thisFormspec);
 			}
 		} else {
 			// Enter pressed on something.
@@ -117,7 +117,7 @@ class Formspec {
 	var size: Vec2 = new Vec2(10, 10);
 	var fixedSize: Bool = false;
 
-	var actionOnClose: Null<() -> Void>;
+	var actionOnClose: Null<(thisFormspec: Formspec) -> Void>;
 	var actionOnAnyUpdate: Null<(thisFormspec: Formspec, fields: Table<String, String>) -> Void>;
 
 	// var backgroundColor: String = new RGBA(77, 77, 77, 248).toHex();
@@ -350,7 +350,7 @@ class Formspec {
 	 * When the formspec closes, this action will run.
 	 * @param action 
 	 */
-	public function doActionOnClose(action: () -> {}): Formspec {
+	public function doActionOnClose(action: (thisFormspec: Formspec) -> {}): Formspec {
 		this.actionOnClose = action;
 		return this;
 	}
