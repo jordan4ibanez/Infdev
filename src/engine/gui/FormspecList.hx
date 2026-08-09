@@ -11,7 +11,7 @@ class FormspecList extends FormspecElement {
 	var height: Float; // ? Done.
 	var startingIndex: Int = 0;
 
-    // todo: when #17305 is merged implement a default texture and then the ability to set custom textures
+	// todo: when #17305 is merged implement a default texture and then the ability to set custom textures
 
 	public function new(inventoryLocation: String, listName: String, x: Float, y: Float, width: Float, height: Float, ?startingIndex: Int) {
 		this.inventoryLocation = inventoryLocation;
