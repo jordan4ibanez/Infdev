@@ -90,7 +90,7 @@ abstract class Serialize {
 
 	// Serializes Lua nil, booleans, numbers, strings, tables and even functions
 	// Tables are referenced by reference, strings are referenced by value. Supports circular tables.
-	static function internalSerialize(value: Dynamic, write: (String) -> String): Null<String> {
+	static function internalSerialize(value: Dynamic, write: (String) -> Void): Void {
 		var reference = "1";
 		var refnum = 1;
 		// [object] = reference
@@ -129,7 +129,7 @@ abstract class Serialize {
 				&& (keywords[key] == null)
 				&& untyped __lua__('string.match({0}, "^[%a_][%a%d_]*$")', key);
 		}
-		function dumpValue(value: Dynamic): Null<String> {
+		function dumpValue(value: Dynamic): Void {
 			// Primitive types
 			if (value == null) {
 				return write("nil");
@@ -219,9 +219,7 @@ abstract class Serialize {
 					}
 				});
 				write("}");
-				return null;
 			}
-			return null;
 		}
 		// Write the statements to fill circular tables
 		LuaLoop.nativePairs(table, ref, to_fill, {
@@ -246,8 +244,6 @@ abstract class Serialize {
 		});
 		write("return ");
 		dumpValue(value);
-		// ? This has no return in the original lua code.
-		return null;
 	}
 
 	public static function serialize(value: Dynamic): Null<String> {
