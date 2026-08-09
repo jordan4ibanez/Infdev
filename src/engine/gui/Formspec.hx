@@ -4,6 +4,17 @@ import lua.Table;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.vector.Vec2;
 
+enum abstract ElementLocation(String) to String {
+	var ElementLocationRoot = "root";
+	var ElementLocationPage = "page";
+}
+
+private class ElementInfo {
+	public var location: ElementLocation;
+	public var page: Null<String>;
+	public var actionable: Bool;
+}
+
 class Formspec {
 	static inline final DEBUG_MODE = false;
 
