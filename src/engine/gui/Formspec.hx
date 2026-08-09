@@ -149,11 +149,16 @@ class Formspec {
 	}
 
 	public function goToPage(page: String): Void {
+		final playerName = this.player.getPlayerName();
 		if (!this.pages.exists(page)) {
-			throw 'Tried to go to page ${page} in formspec ${this.name} which doesn\'t exist!';
+			throw 'Tried to go to page ${page} in formspec ${this.name} for player ${playerName} which doesn\'t exist!';
 		}
 		this.currentPage = page;
-		Core.showFormspec(this.player.getPlayerName(), this.name, this.serialize());
+		Core.showFormspec(playerName, this.name, this.serialize());
+	}
+
+	public function getPlayer(): Null<ObjectRefPlayer> {
+		return this.player;
 	}
 
 	public function setPlayer(player: ObjectRefPlayer): Void {
