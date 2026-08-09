@@ -8,6 +8,17 @@ class Formspec {
 	static inline final DEBUG_MODE = false;
 
 	// Static components that make formspecs reactive instead of static.
+	static var masterFormspecContainer: Map<String, Map<String, Formspec>> = new Map();
+
+	// todo: @:noCompletion
+	public static function addPlayerToMasterFormspecContainer(player: ObjectRefPlayer): Void {
+		masterFormspecContainer.set(player.getPlayerName(), new Map());
+	}
+
+	// todo: @:noCompletion
+	public static function removePlayerFromMasterFormspecContainer(player: ObjectRefPlayer): Void {
+		masterFormspecContainer.remove(player.getPlayerName());
+	}
 
 	static function masterOnReceiveFields(player: ObjectRefPlayer, formName: String, fields: Table<String, String>): Void {
 		trace("running");
