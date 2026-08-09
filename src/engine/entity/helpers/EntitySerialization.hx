@@ -28,9 +28,9 @@ final class EntitySerialization {
 
 					var value = Reflect.field(containerClass, field);
 
-					// Don't serialize functions.
+					// Don't clone functions, userdata, or threads into the entity.
 					var luaType = untyped type(value);
-					if (luaType == "function") {
+					if (luaType == "function" || luaType == "userdata" || luaType == "thread") {
 						continue;
 					}
 					// untyped print("deserialize", luaType);
@@ -67,9 +67,9 @@ final class EntitySerialization {
 
 			var value = Reflect.field(inputObject, field);
 
-			// Don't serialize functions.
+			// Don't make Serialize library process functions, userdata, or threads.
 			var luaType = untyped type(value);
-			if (luaType == "function") {
+			if (luaType == "function" || luaType == "userdata" || luaType == "thread") {
 				// untyped print("caught function", field);
 				continue;
 			}
