@@ -80,21 +80,6 @@ class Formspec {
 						gottenElement.action(fields);
 					}
 				}
-
-				// var thisElement = thisFormspec.rootElements.get(enterField);
-				// if (thisElement == null) {
-				// 	var currentPage = thisFormspec.pages.get(thisFormspec.currentPage);
-				// 	if (currentPage == null) {
-				// 		throw 'Severe error in ${thisFormspec.name} received data from page ${thisFormspec.currentPage} and page was null!';
-				// 	}
-				// 	thisElement = currentPage.get(enterField);
-				// 	if (thisElement == null) {
-				// 		throw 'Severe error in ${thisFormspec.name} element ${enterField} does not exist in root or page elements.';
-				// 	}
-				// 	if (thisElement.action != null) {
-				// 		thisElement.action(fields);
-				// 	}
-				// }
 			}
 			untyped print(dump(fields));
 		}
