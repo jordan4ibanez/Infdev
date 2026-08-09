@@ -285,7 +285,14 @@ abstract class FormspecElement {
 	// todo: @:noCompletion
 	public var style: FormspecStyle;
 
-	public var action: () -> {};
+	// There were a few ways to write this, but this is probably the least bad.
+	// It's very flexible!
+	public var action: Null<(fields: Table<String, String>) -> Void>;
+
+	public function setAction(action: (fields: Table<String, String>) -> Void): FormspecElement {
+		this.action = action;
+		return this;
+	}
 
 	// todo: @:noCompletion
 	public abstract function toFormspec(name: String): String;
