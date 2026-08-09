@@ -291,6 +291,7 @@ class Formspec {
 			throw 'Tried to add element [${elementName}] into page [${pageName}] in formspec [${this.name}] when it already exists.';
 		}
 		thisPage.set(elementName, formspecElement);
+		this.tagElementInfo(elementName, formspecElement, false, pageName);
 		return this;
 	}
 
@@ -308,6 +309,7 @@ class Formspec {
 			throw 'Tried to add element [${elementName}] in formspec [${this.name}] when it already exists.';
 		}
 		this.rootElements.set(elementName, formspecElement);
+		this.tagElementInfo(elementName, formspecElement, true);
 		return this;
 	}
 
