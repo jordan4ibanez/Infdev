@@ -31,7 +31,7 @@ final class PlayerInventoryFormspec {
 			}))
 		.addElement("inventory", "test_field", new FormspecField(2, 0, 4, 1))
 		.addElement("inventory", "another_field", new FormspecField(2, 2, 4, 1))
-		.addElement("inventory", "data_test", new FormspecLabel(0, 0, 0, 0, "good day"));
+		.addElement("credits", "cool_label", new FormspecLabel(0, 0, 0, 0, "test label"));
 
 	public function new(player: ObjectRefPlayer) {
 		this.player = player;
