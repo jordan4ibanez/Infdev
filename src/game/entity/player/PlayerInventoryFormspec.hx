@@ -3,6 +3,8 @@ package src.game.entity.player;
 import lua.Table;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.gui.Formspec;
+import src.engine.gui.FormspecButton;
+import src.engine.gui.FormspecField;
 import src.engine.gui.FormspecList;
 
 // This will actually save what tab you're on between logins.
@@ -20,7 +22,9 @@ final class PlayerInventoryFormspec {
 		})
 		.doActionOnClose(() -> {
 			untyped print("peace");
-		});
+		})
+		.addElement("inventory", "test_button", new FormspecButton(0, 0, 2, 2, "button"))
+		.addElement("inventory", "test_field", new FormspecField(1, 0, 4, 1));
 
 	public function new(player: ObjectRefPlayer) {
 		this.player = player;
