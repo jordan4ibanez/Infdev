@@ -84,7 +84,7 @@ class FormspecTextAreaStyle extends FormspecStyle {
 		append('style[${name}');
 
 		if (this.alpha != null) {
-			append('alpha=${this.border}');
+			append('alpha=${this.alpha}');
 		}
 		if (this.backgroundColor != null) {
 			append('bgcolor=${this.backgroundColor}');
