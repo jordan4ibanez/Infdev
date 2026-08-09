@@ -352,7 +352,8 @@ abstract class FormspecElement {
 
 	// There were a few ways to write this, but this is probably the least bad.
 	// It's very flexible!
-	public var action: Null<(fields: Table<String, String>) -> Void>;
+	@:allow(src.engine.gui.Formspec)
+	var action: Null<(fields: Table<String, String>) -> Void>;
 
 	public function setAction(action: (fields: Table<String, String>) -> Void): FormspecElement {
 		this.action = action;
