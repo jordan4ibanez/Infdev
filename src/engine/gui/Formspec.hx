@@ -1,6 +1,7 @@
 package src.engine.gui;
 
 import lua.Table;
+import src.engine.compilercode.LuaLoop;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.vector.Vec2;
 
@@ -34,6 +35,29 @@ class Formspec {
 		masterFormspecContainer.remove(player.getPlayerName());
 	}
 
+	// @:noCompletion
+	static function processElementAction(thisFormspec: Formspec, elementKey: String, name: String, fields: Table<String, String>): Void {
+		var elementInfo = thisFormspec.elementMap.get(elementKey);
+		if (elementInfo == null) {
+			throw 'Element ${elementKey} was null for ${name} in formspec ${thisFormspec.name}';
+		}
+		if (elementInfo.actionable) {
+			if (elementInfo.location == ElementLocationRoot) {
+				var gottenElement = thisFormspec.getRootElement(elementKey);
+				if (gottenElement == null) {
+					throw 'Root element ${elementKey} was null for ${name} in formspec ${thisFormspec.name}';
+				}
+				gottenElement.action(fields);
+			} else {
+				var gottenElement = thisFormspec.getElement(elementInfo.page, elementKey);
+				if (gottenElement == null) {
+					throw 'Element ${elementKey} on page ${elementInfo.page} was null for ${name} in formspec ${thisFormspec.name}';
+				}
+				gottenElement.action(fields);
+			}
+		}
+	}
+
 	@:noCompletion
 	static function masterOnReceiveFields(player: ObjectRefPlayer, formName: String, fields: Table<String, String>): Void {
 		var name = player.getPlayerName();
@@ -60,33 +84,17 @@ class Formspec {
 			// Enter pressed on something.
 			if (fields.key_enter == "true") {
 				var elementKey = fields.key_enter_field;
+				processElementAction(thisFormspec, elementKey, name, fields);
+			} else {
+				// A general action happened, so now it must search through all the field names for actions to produce.
+				// There is no way to link components together in the luanti formspec api from what I can see.
+				// ! So you probably shouldn't make fields or text areas do anything! :D
 
-				var elementInfo = thisFormspec.elementMap.get(elementKey);
-				if (elementInfo == null) {
-					throw 'Element ${elementKey} was null for ${name} in formspec ${thisFormspec.name}';
-				}
-				if (elementInfo.actionable) {
-					if (elementInfo.location == ElementLocationRoot) {
-						var gottenElement = thisFormspec.getRootElement(elementKey);
-						if (gottenElement == null) {
-							throw 'Root element ${elementKey} was null for ${name} in formspec ${thisFormspec.name}';
-						}
-						gottenElement.action(fields);
-					} else {
-						var gottenElement = thisFormspec.getElement(elementInfo.page, elementKey);
-						if (gottenElement == null) {
-							throw 'Element ${elementKey} on page ${elementInfo.page} was null for ${name} in formspec ${thisFormspec.name}';
-						}
-						gottenElement.action(fields);
-					}
-				}
+				LuaLoop.nativePairs(elementKey, value, fields, {
+					processElementAction(thisFormspec, elementKey, name, fields);
+				});
 			}
-			untyped print(dump(fields));
 		}
-
-		// untyped print(formName);
-		untyped print(dump(fields));
-		// untyped print(thisFormspec);
 	}
 
 	static function __init__(): Void {
