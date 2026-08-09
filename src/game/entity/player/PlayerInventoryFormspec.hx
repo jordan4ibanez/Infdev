@@ -17,6 +17,9 @@ final class PlayerInventoryFormspec {
 		.addElement("inventory", "main_inventory", new FormspecList("current_player", "main", 0.09, 6.6304, 12, 7, 12)) // Rest of inventory.
 		.doActionOnAnyUpdate((_) -> {
 			untyped print("hello");
+		})
+		.doActionOnClose(() -> {
+			untyped print("peace");
 		});
 
 	public function new(player: ObjectRefPlayer) {

@@ -38,6 +38,12 @@ class Formspec {
 			thisFormspec.actionOnAnyUpdate(fields);
 		}
 
+		if (fields.quit == "true") {
+			if (thisFormspec.actionOnClose != null) {
+				thisFormspec.actionOnClose();
+			}
+		}
+
 		// untyped print(formName);
 		// untyped print(dump(fields));
 		// untyped print(thisFormspec);
@@ -253,6 +259,11 @@ class Formspec {
 	}
 
 	// Global interactive functions.
+
+	/**
+	 * When the formspec closes, this action will run.
+	 * @param action 
+	 */
 	public function doActionOnClose(action: () -> {}): Formspec {
 		this.actionOnClose = action;
 		return this;
