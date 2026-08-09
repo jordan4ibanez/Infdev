@@ -20,7 +20,6 @@ final class Player {
 	var shadowEntity: Null<ObjectRefEntity> = null;
 	var animationHandler: Null<PlayerAnimationHandler> = null;
 	var inventoryFormspec: Null<PlayerInventoryFormspec> = null;
-	var windowSizeWatcher: Null<PlayerWindowSizeWatcher> = null;
 
 	@:allow(src.engine.entity.helpers.PlayerHandling)
 	private function new() {}
@@ -77,7 +76,6 @@ final class Player {
 
 		this.name = this.object.getPlayerName();
 		this.animationHandler = new PlayerAnimationHandler(this.object);
-		this.windowSizeWatcher = new PlayerWindowSizeWatcher(this.object);
 
 		this.makeHand3D();
 		this.setModel();
@@ -124,7 +122,6 @@ final class Player {
 	// I don't think moveresult is possible
 	// moveResult: Dynamic
 	public function onStep(delta: Float) {
-		this.windowSizeWatcher.update(delta);
 		this.animationHandler.doStateLogic();
 		this.animationHandler.trackAnimationTimer(delta);
 		this.animationHandler.doPlayerAnimations(delta);
@@ -154,10 +151,5 @@ final class Player {
 	public function onRespawn(): Bool {
 		trace(this.object.getPlayerName() + " respawn!");
 		return false;
-	}
-
-	@:allow(src.game.entity.player.PlayerWindowSizeWatcher)
-	function onWindowSizeChange(): Void {
-		this.inventoryFormspec.updateScaling();
 	}
 }

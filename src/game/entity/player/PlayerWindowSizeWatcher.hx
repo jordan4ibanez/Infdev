@@ -22,9 +22,9 @@ final class PlayerWindowSizeWatcher {
 		}
 		this.timer -= UPDATE_INTERVAL;
 		var newSize = playerObject.getPlayerLuaEntity().getWindowInformation().size;
-		if (this.size != newSize) {
-			this.playerObject.getPlayerLuaEntity().onWindowSizeChange();
-		}
+		// if (this.size != newSize) {
+		// 	this.playerObject.getPlayerLuaEntity().onWindowSizeChange();
+		// }
 		this.size = newSize;
 	}
 }
