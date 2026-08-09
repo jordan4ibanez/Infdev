@@ -35,7 +35,7 @@ class Formspec {
 		masterFormspecContainer.remove(player.getPlayerName());
 	}
 
-	// @:noCompletion
+	@:noCompletion
 	static function processElementAction(thisFormspec: Formspec, elementKey: String, name: String, fields: Table<String, String>): Void {
 		var elementInfo = thisFormspec.elementMap.get(elementKey);
 		if (elementInfo == null) {
