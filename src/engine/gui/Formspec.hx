@@ -10,12 +10,12 @@ class Formspec {
 	// Static components that make formspecs reactive instead of static.
 	static var masterFormspecContainer: Map<String, Map<String, Formspec>> = new Map();
 
-	// todo: @:noCompletion
+	@:noCompletion
 	public static function addPlayerToMasterFormspecContainer(player: ObjectRefPlayer): Void {
 		masterFormspecContainer.set(player.getPlayerName(), new Map());
 	}
 
-	// todo: @:noCompletion
+	@:noCompletion
 	public static function removePlayerFromMasterFormspecContainer(player: ObjectRefPlayer): Void {
 		masterFormspecContainer.remove(player.getPlayerName());
 	}
