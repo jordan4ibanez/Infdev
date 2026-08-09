@@ -34,10 +34,13 @@ class Formspec {
 		var key = keyThisWithPlayerName(formName, name);
 		var thisFormspec = container.get(key);
 
-		untyped print(formName);
-		untyped print(dump(fields));
+		if (thisFormspec.actionOnAnyUpdate != null) {
+			thisFormspec.actionOnAnyUpdate(fields);
+		}
 
-		untyped print(thisFormspec);
+		// untyped print(formName);
+		// untyped print(dump(fields));
+		// untyped print(thisFormspec);
 	}
 
 	static function __init__(): Void {
@@ -255,6 +258,11 @@ class Formspec {
 		return this;
 	}
 
+	/**
+	 * Any time this formspec's element trigger an receive fields, this action will run and receive all the fields from the update.
+	 * It is to be used as a global interactive action for the player's formspec.
+	 * @param action 
+	 */
 	public function doActionOnAnyUpdate(action: (fields: Table<String, String>) -> Void): Formspec {
 		this.actionOnAnyUpdate = action;
 		return this;
