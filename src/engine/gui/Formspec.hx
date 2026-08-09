@@ -32,10 +32,8 @@ class Formspec {
 		}
 
 		var key = keyThisWithPlayerName(formName, name);
-
-		untyped print(key);
-
 		var thisFormspec = container.get(key);
+		
 
 		untyped print(formName);
 		untyped print(dump(fields));
