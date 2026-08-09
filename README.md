@@ -33,8 +33,6 @@ Need some formspec elements for the main inventory:
 
 Pull the character model from ruantis in and make it look less horrible.
 
-item entity can have an animation where it just spins and moves a bone. Then another entity can be mounted to it as a visual
-
 I think it would be cool if the game had runescape skills bolted in
 
 so like you cut trees: (woodcutting)
