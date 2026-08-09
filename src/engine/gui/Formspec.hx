@@ -73,7 +73,7 @@ class Formspec {
 		var thisFormspec = container.get(key);
 
 		if (thisFormspec.actionOnAnyUpdate != null) {
-			thisFormspec.actionOnAnyUpdate(fields);
+			thisFormspec.actionOnAnyUpdate(thisFormspec, fields);
 		}
 
 		if (fields.quit == "true") {
@@ -118,7 +118,7 @@ class Formspec {
 	var fixedSize: Bool = false;
 
 	var actionOnClose: Null<() -> Void>;
-	var actionOnAnyUpdate: Null<(fields: Table<String, String>) -> Void>;
+	var actionOnAnyUpdate: Null<(thisFormspec: Formspec, fields: Table<String, String>) -> Void>;
 
 	// var backgroundColor: String = new RGBA(77, 77, 77, 248).toHex();
 	// var fullscreen: Bool = false;
@@ -360,7 +360,7 @@ class Formspec {
 	 * It is to be used as a global interactive action for the player's formspec.
 	 * @param action 
 	 */
-	public function doActionOnAnyUpdate(action: (fields: Table<String, String>) -> Void): Formspec {
+	public function doActionOnAnyUpdate(action: (thisFormspec: Formspec, fields: Table<String, String>) -> Void): Formspec {
 		this.actionOnAnyUpdate = action;
 		return this;
 	}

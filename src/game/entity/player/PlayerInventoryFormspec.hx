@@ -18,7 +18,7 @@ final class PlayerInventoryFormspec {
 	var formspec: Formspec = new Formspec("", "inventory")
 		.addElement("inventory", "hot_bar", new FormspecList("current_player", "main", 0.09, 5.7, 12, 1)) // Hot bar.
 		.addElement("inventory", "main_inventory", new FormspecList("current_player", "main", 0.09, 6.6304, 12, 7, 12)) // Rest of inventory.
-		.doActionOnAnyUpdate((_) -> {
+		.doActionOnAnyUpdate((_,_) -> {
 			untyped print("I see there was an update");
 		})
 		.doActionOnClose(() -> {
