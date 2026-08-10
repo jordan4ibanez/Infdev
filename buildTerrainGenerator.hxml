@@ -10,15 +10,13 @@
 
 -D lua-ver=5.1
 
---macro LuantiCompilerFix.patch("terrain_generator.lua")
-
-# --macro nullSafety("terraingenerator")
-
-# This is so using vector isn't needed everywhere.
-# --macro haxe.macro.Compiler.addGlobalMetadata("", "@:using(vector.Vec3)")
 
 # This enables aggressive Dead Code Elimination.
 # This is specifically used to ensure that things like the ModStorage class
 # do not attempt to initialize in each thread.
 # It also lightens up the deployment of each thread.
 -dce full
+
+
+# This patches and cleans up the compiled code.
+--macro LuantiCompilerFix.patch("terrain_generator.lua")
