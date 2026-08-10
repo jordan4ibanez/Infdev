@@ -6,6 +6,6 @@ class FormspecDropDown extends FormspecElement {
 	public function new() {}
 
 	public function toFormspec(name: String): String {
-		throw new haxe.exceptions.NotImplementedException();
+		return 'dropdown[<X>,<Y>;<W>;<name>;<item 1>,<item 2>, ...,<item n>;<selected idx>;<index event>]';
 	}
 }
