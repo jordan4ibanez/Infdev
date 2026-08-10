@@ -36,6 +36,10 @@ final class PlayerInventoryFormspec {
 			display: "Bartering"
 		},
 		{
+			name: "settings",
+			display: "Settings"
+		},
+		{
 			name: "credits",
 			display: "Credits"
 		},
@@ -79,8 +83,10 @@ final class PlayerInventoryFormspec {
 		f.addElement(tabs[3].name, "todo_effects", new FormspecLabel(0, 3, 0, 0, "Todo"));
 		// ? Bartering Hall page.
 		f.addElement(tabs[4].name, "todo_barting", new FormspecLabel(0, 3, 0, 0, "Todo"));
+		// ? Game Settings page.
+		f.addElement(tabs[5].name, "todo_settings", new FormspecLabel(0, 3, 0, 0, "Todo"));
 		// ? Credits page.
-		f.addElement(tabs[5].name, "todo_credits", new FormspecLabel(0, 3, 0, 0, "Todo"));
+		f.addElement(tabs[6].name, "todo_credits", new FormspecLabel(0, 3, 0, 0, "Todo"));
 		return f;
 	})();
 
