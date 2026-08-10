@@ -113,7 +113,7 @@ class Formspec {
 
 	var player: ObjectRefPlayer;
 
-	final version = 10;
+	final version = 11;
 	var size: Vec2 = new Vec2(10, 10);
 	var fixedSize: Bool = false;
 
