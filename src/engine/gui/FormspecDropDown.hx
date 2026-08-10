@@ -8,16 +8,18 @@ class FormspecDropDown extends FormspecElement {
 	var y: Float; // ? Done.
 	var width: Float; // ? Done.
 	var height: Float; // ? Done.
+	var currentItem: Int;
 
 	// Items are a fixed size because I don't even want to think about making
 	// tabs dynamic. That sounds horrifying.
 	var items: String = "";
 
-	public function new(x: Float, y: Float, width: Float, height: Float, firstItem: String, restOfItems: Rest<String>) {
+	public function new(x: Float, y: Float, width: Float, height: Float, defaultItem: Int, firstItem: String, restOfItems: Rest<String>) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
+		this.currentItem = defaultItem;
 
 		var length = restOfItems.length;
 
@@ -36,7 +38,7 @@ class FormspecDropDown extends FormspecElement {
 	}
 
 	public function toFormspec(name: String): String {
-		return 'dropdown[${this.x},${this.y};${this.width},${this.height};${name};${this.items};<selected idx>;<index event>]';
+		return 'dropdown[${this.x},${this.y};${this.width},${this.height};${name};${this.items};${this.currentItem};<index event>]';
 	}
 
 	public function setPos(x: Float, y: Float): FormspecDropDown {
