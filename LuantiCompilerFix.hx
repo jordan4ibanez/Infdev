@@ -27,32 +27,32 @@ class LuantiCompilerFix {
 						trace(path + " doesn't exist. Failed to patch.");
 					}
 				} else {
-			try {
-				var content: String = File.getContent(path);
-				var outputLines: Array<String> = [];
+					try {
+						var content: String = File.getContent(path);
+						var outputLines: Array<String> = [];
 
-				for (i => currentLine in content.split("\n")) {
-					// Hard code package.loaded.luv to short circuit into _hx_luv define.
-					if (currentLine.contains("package.loaded.luv")) {
-						currentLine = 'if false then';
-					}
+						for (i => currentLine in content.split("\n")) {
+							// Hard code package.loaded.luv to short circuit into _hx_luv define.
+							if (currentLine.contains("package.loaded.luv")) {
+								currentLine = 'if false then';
+							}
 
-					if (DEBUG_MODE && i == 0 && fileName == "init.lua") {
-						currentLine = "local compilerDebugUnsafeEnvironment = core.request_insecure_environment();";
-						// trace(currentLine);
-					}
+							if (DEBUG_MODE && i == 0 && fileName == "init.lua") {
+								currentLine = "local compilerDebugUnsafeEnvironment = core.request_insecure_environment();";
+								// trace(currentLine);
+							}
 
-					// If this line is blank, it doesn't get added to the output.
-					if (currentLine.trim().length > 0) {
-						outputLines.push(currentLine);
+							// If this line is blank, it doesn't get added to the output.
+							if (currentLine.trim().length > 0) {
+								outputLines.push(currentLine);
+							}
+						}
+
+						File.saveContent(path, outputLines.join("\n"));
+					} catch (doNotCare) {
+						trace(path + " doesn't exist. Failed to patch.");
 					}
 				}
-
-				File.saveContent(path, outputLines.join("\n"));
-			} catch (doNotCare) {
-				trace(path + " doesn't exist. Failed to patch.");
-			}
-			}
 			});
 		});
 	}
