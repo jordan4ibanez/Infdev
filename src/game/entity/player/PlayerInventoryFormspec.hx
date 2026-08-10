@@ -3,9 +3,6 @@ package src.game.entity.player;
 import lua.Table;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.gui.Formspec;
-import src.engine.gui.FormspecButton;
-import src.engine.gui.FormspecField;
-import src.engine.gui.FormspecLabel;
 import src.engine.gui.FormspecList;
 
 // This will actually save what tab you're on between logins.
@@ -18,20 +15,7 @@ final class PlayerInventoryFormspec {
 	var formspec: Formspec = new Formspec("", "inventory")
 		.addElement("inventory", "hot_bar", new FormspecList("current_player", "main", 0.09, 5.7, 12, 1)) // Hot bar.
 		.addElement("inventory", "main_inventory", new FormspecList("current_player", "main", 0.09, 6.6304, 12, 7, 12)) // Rest of inventory.
-		.doActionOnAnyUpdate((_, _) -> {
-			untyped print("I see there was an update");
-		})
-		.doActionOnClose((_) -> {
-			untyped print("Thanks for coming by ");
-		})
-		.addElement("inventory", "test_button", new FormspecButton(0, 0, 2, 2, "button")
-			.setAction((formspec, fields) -> {
-				untyped print('this cool test button was pressed in formspec [${formspec.getName()}]');
-				formspec.goToPage("credits");
-			}))
-		.addElement("inventory", "test_field", new FormspecField(2, 0, 4, 1))
-		.addElement("inventory", "another_field", new FormspecField(2, 2, 4, 1))
-		.addElement("credits", "cool_label", new FormspecLabel(0, 0, 0, 0, "test label"));
+			;
 
 	public function new(player: ObjectRefPlayer) {
 		this.player = player;
