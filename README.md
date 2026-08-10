@@ -29,8 +29,9 @@ api was transposed may-august 2026
 
 ##### immediate todos:
 
+fix player inventory not saving tab position
+
 Need some formspec elements for the main inventory:
-- tabs
 - textlist (for options)
 
 make sure the formspec object is actually getting removed upon player leaving
