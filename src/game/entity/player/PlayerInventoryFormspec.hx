@@ -56,7 +56,11 @@ final class PlayerInventoryFormspec {
 			tabs[2].name,
 			tabs[3].name,
 			tabs[4].name,
-			tabs[5].name).setAction(tabNavigationAction));
+			tabs[5].name)
+			.setStyle(new FormspecTabHeaderStyle()
+				.setSound("lever")
+				.setTextColor("#FFFF00"))
+			.setAction(tabNavigationAction));
 		// todo: this should check the player for a level to decide how wide it is.
 		// todo: that's gonna be complicated
 		//
