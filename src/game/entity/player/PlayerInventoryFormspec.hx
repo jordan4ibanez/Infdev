@@ -1,5 +1,6 @@
 package src.game.entity.player;
 
+import lua.Lua;
 import lua.Table;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.gui.Formspec;
@@ -10,31 +11,68 @@ import src.engine.gui.FormspecTabHeader;
 final class PlayerInventoryFormspec {
 	var player: ObjectRefPlayer;
 
+	static inline final navigationBarName = "navigation";
+
+	static final tabs: Array<TabInfo> = [
+		{
+			name: "inventory",
+			display: "Inventory"
+		},
+		{
+			name: "equipment",
+			display: "Equipment"
+		},
+		{
+			name: "skills",
+			display: "  Skills  "
+		},
+		{
+			name: "effects",
+			display: " Effects "
+		},
+		{
+			name: "bartering",
+			display: "Bartering"
+		},
+		{
+			name: "credits",
+			display: "Credits"
+		},
+	];
+
 	// This is REALLY, REALLY memory inefficient but I can't run a function when
 	// the player opens their inventory.
 	// todo: The main inventory list will need to expand sideways when a player levels up.
 	var formspec: Formspec = (() -> {
 		var f = new Formspec("", "inventory");
-		f.addRootElement("navigation", new FormspecTabHeader(
+		// ? Root elements.
+		f.addRootElement(navigationBarName, new FormspecTabHeader(
 			0.09, 0.6,
 			9.82, 0.5,
 			true,
-			"Inventory",
-			"Equipment",
-			"  Skills  ",
-			" Effects ",
-			"Bartering",
-			"Credits"));
+			tabs[0].name,
+			tabs[1].name,
+			tabs[2].name,
+			tabs[3].name,
+			tabs[4].name,
+			tabs[5].name).setAction(navigationAction));
+		// ? Inventory page.
 		// Hot bar.
-		f.addElement("inventory", "hot_bar", new FormspecList("current_player", "main", 0.09, 5.8, 12, 1));
+		f.addElement(tabs[0].name, "hot_bar", new FormspecList("current_player", "main", 0.09, 5.8, 12, 1));
 		// Rest of inventory.
-		f.addElement("inventory", "main_inventory", new FormspecList("current_player", "main", 0.09, 6.7, 12, 7, 12));
+		f.addElement(tabs[0].name, "main_inventory", new FormspecList("current_player", "main", 0.09, 6.7, 12, 7, 12));
 		return f;
 	})();
 
 	public function new(player: ObjectRefPlayer) {
 		this.player = player;
 		this.formspec.setPlayer(player);
+	}
+
+	static function navigationAction(thisFormspec: Formspec, fields: Table<String, String>) {
+		var page = Lua.tonumber(fields[cast navigationBarName]);
+		thisFormspec.goToPage(tabs[page + 1].name);
+		untyped print(dump(fields));
 	}
 
 	public function serialize(): String {
