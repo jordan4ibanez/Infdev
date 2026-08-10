@@ -17,11 +17,12 @@ class FormspecTabHeader extends FormspecElement {
 	// tabs dynamic. That sounds horrifying.
 	var tabs: String = "";
 
-	public function new(x: Float, y: Float, width: Float, height: Float, firstTab: String, restOfTabs: Rest<String>) {
+	public function new(x: Float, y: Float, width: Float, height: Float, drawBorder: Bool, firstTab: String, restOfTabs: Rest<String>) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
+		this.drawBorder = drawBorder;
 
 		var length = restOfTabs.length;
 
