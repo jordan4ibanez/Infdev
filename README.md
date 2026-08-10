@@ -30,7 +30,7 @@ api was transposed may-august 2026
 ##### immediate todos:
 
 Need some formspec elements for the main inventory:
-- textlist (for options)
+- dropdown (for options)
 
 make sure the formspec object is actually getting removed upon player leaving
 
