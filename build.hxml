@@ -12,17 +12,6 @@
 
 --macro LuantiCompilerFix.patch("init.lua")
 
-# This is so using vector isn't needed everywhere.
-# --macro haxe.macro.Compiler.addGlobalMetadata("", "@:using(vector.Vec3)")
-
-# todo: go crazy with this
-# --macro nullSafety("engine")
-# --macro nullSafety("game")
-
 # This stops tree shaking.
 --macro include('src.engine')
---macro include('src.engine.node')
---macro include('src.engine.entity')
---macro include('src.engine.definition')
-
 --macro include('src.game')
