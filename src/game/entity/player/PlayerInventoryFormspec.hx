@@ -52,12 +52,7 @@ final class PlayerInventoryFormspec {
 			9.82, 0.5,
 			true,
 			1,
-			tabs[0].name,
-			tabs[1].name,
-			tabs[2].name,
-			tabs[3].name,
-			tabs[4].name,
-			tabs[5].name)
+			tabs)
 			.setStyle(new FormspecTabHeaderStyle()
 				.setSound("lever")
 				.setTextColor("#FFFF00"))
