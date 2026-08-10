@@ -51,6 +51,15 @@ class FormspecTabHeader extends FormspecElement {
 		return 'tabheader[${this.x},${this.y};${this.width},${this.height};${name};${this.tabs};${this.currentTab};${this.transparent};${this.drawBorder}]';
 	}
 
+	public function setStyle(style: FormspecTabHeaderStyle): FormspecTabHeader {
+		this.style = style;
+		return this;
+	}
+
+	public function getStyle(): FormspecTabHeaderStyle {
+		return cast this.style;
+	}
+
 	public function setPos(x: Float, y: Float): FormspecTabHeader {
 		this.x = x;
 		this.y = y;
