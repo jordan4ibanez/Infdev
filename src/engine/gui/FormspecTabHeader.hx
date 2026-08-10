@@ -1,6 +1,5 @@
 package src.engine.gui;
 
-import haxe.Rest;
 import src.engine.gui.Formspec.FormspecElement;
 import src.engine.gui.Formspec.FormspecStyle;
 
@@ -22,7 +21,7 @@ class FormspecTabHeader extends FormspecElement {
 	// tabs dynamic. That sounds horrifying.
 	var tabs: String = "";
 
-	public function new(x: Float, y: Float, width: Float, height: Float, drawBorder: Bool, defaultTab: Int, firstTab: String, restOfTabs: Rest<String>) {
+	public function new(x: Float, y: Float, width: Float, height: Float, drawBorder: Bool, defaultTab: Int, tabsArray: Array<TabInfo>) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
@@ -30,15 +29,14 @@ class FormspecTabHeader extends FormspecElement {
 		this.drawBorder = drawBorder;
 		this.currentTab = defaultTab;
 
-		var length = restOfTabs.length;
-
-		this.tabs = firstTab;
-		if (length != 0) {
-			this.tabs += ",";
+		// Convert the tabs array into a string.
+		var length = tabsArray.length;
+		if (length == 0) {
+			throw 'Blank tabs array given for formspec header!';
 		}
 
-		for (index => tab in restOfTabs) {
-			this.tabs += tab;
+		for (index => tab in tabsArray) {
+			this.tabs += tab.display;
 			// This may be a mess but I want it to be a nice mess.
 			if (index + 1 < length) {
 				this.tabs += ",";
