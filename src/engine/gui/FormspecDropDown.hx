@@ -42,6 +42,15 @@ class FormspecDropDown extends FormspecElement {
 		return 'dropdown[${this.x},${this.y};${this.width},${this.height};${name};${this.items};${this.currentItem};true]';
 	}
 
+	public function setStyle(style: FormspecDropDownStyle): FormspecDropDown {
+		this.style = style;
+		return this;
+	}
+
+	public function getStyle(): FormspecDropDownStyle {
+		return cast this.style;
+	}
+
 	public function setPos(x: Float, y: Float): FormspecDropDown {
 		this.x = x;
 		this.y = y;
