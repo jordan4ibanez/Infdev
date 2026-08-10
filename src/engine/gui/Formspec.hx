@@ -47,13 +47,13 @@ class Formspec {
 				if (gottenElement == null) {
 					throw 'Root element ${elementKey} was null for ${name} in formspec ${thisFormspec.name}';
 				}
-				gottenElement.action(thisFormspec, fields);
+				gottenElement.action(thisFormspec, gottenElement, fields);
 			} else {
 				var gottenElement = thisFormspec.getElement(elementInfo.page, elementKey);
 				if (gottenElement == null) {
 					throw 'Element ${elementKey} on page ${elementInfo.page} was null for ${name} in formspec ${thisFormspec.name}';
 				}
-				gottenElement.action(thisFormspec, fields);
+				gottenElement.action(thisFormspec, gottenElement, fields);
 			}
 		}
 	}
@@ -374,9 +374,9 @@ abstract class FormspecElement {
 	// There were a few ways to write this, but this is probably the least bad.
 	// It's very flexible!
 	@:allow(src.engine.gui.Formspec)
-	var action: Null<(thisFormspec: Formspec, fields: Table<String, String>) -> Void>;
+	var action: Null<(thisFormspec: Formspec, element: FormspecElement, fields: Table<String, String>) -> Void>;
 
-	public function setAction(action: (thisFormspec: Formspec, fields: Table<String, String>) -> Void): FormspecElement {
+	public function setAction(action: (thisFormspec: Formspec, element: FormspecElement, fields: Table<String, String>) -> Void): FormspecElement {
 		this.action = action;
 		return this;
 	}
