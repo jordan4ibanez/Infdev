@@ -56,11 +56,20 @@ final class PlayerInventoryFormspec {
 			tabs[3].name,
 			tabs[4].name,
 			tabs[5].name).setAction(navigationAction));
+		// todo: this should check the player for a level to decide how wide it is.
+		// todo: that's gonna be complicated
+		//
 		// ? Inventory page.
 		// Hot bar.
-		f.addElement(tabs[0].name, "hot_bar", new FormspecList("current_player", "main", 0.09, 5.8, 12, 1));
+		f.addElement(tabs[0].name, "hot_bar_inv", new FormspecList("current_player", "main", 0.09, 5.8, 12, 1));
 		// Rest of inventory.
-		f.addElement(tabs[0].name, "main_inventory", new FormspecList("current_player", "main", 0.09, 6.7, 12, 7, 12));
+		f.addElement(tabs[0].name, "main_inventory_inv", new FormspecList("current_player", "main", 0.09, 6.7, 12, 7, 12));
+		//
+		// ? Equipment page.
+		// Hot bar.
+		f.addElement(tabs[1].name, "hot_bar_effects", new FormspecList("current_player", "main", 0.09, 5.8, 12, 1));
+		// Rest of inventory.
+		f.addElement(tabs[1].name, "main_inventory_effects", new FormspecList("current_player", "main", 0.09, 6.7, 12, 7, 12));
 		return f;
 	})();
 
@@ -69,10 +78,10 @@ final class PlayerInventoryFormspec {
 		this.formspec.setPlayer(player);
 	}
 
-	static function navigationAction(thisFormspec: Formspec, fields: Table<String, String>) {
+	static function navigationAction(thisFormspec: Formspec, thisElement: FormspecElement, fields: Table<String, String>) {
 		var page = Lua.tonumber(fields[cast navigationBarName]);
-		thisFormspec.goToPage(tabs[page + 1].name);
-		untyped print(dump(fields));
+		(cast thisElement : FormspecTabHeader).setCurrentTab(page);
+		thisFormspec.goToPage(tabs[page - 1].name);
 	}
 
 	public function serialize(): String {
