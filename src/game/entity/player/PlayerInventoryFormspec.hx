@@ -55,7 +55,7 @@ final class PlayerInventoryFormspec {
 			tabs[2].name,
 			tabs[3].name,
 			tabs[4].name,
-			tabs[5].name).setAction(navigationAction));
+			tabs[5].name).setAction(tabNavigationAction));
 		// todo: this should check the player for a level to decide how wide it is.
 		// todo: that's gonna be complicated
 		//
@@ -78,7 +78,8 @@ final class PlayerInventoryFormspec {
 		this.formspec.setPlayer(player);
 	}
 
-	static function navigationAction(thisFormspec: Formspec, thisElement: FormspecElement, fields: Table<String, String>) {
+	// This is for when a player clicks the tabs at the top of their inventory.
+	static function tabNavigationAction(thisFormspec: Formspec, thisElement: FormspecElement, fields: Table<String, String>) {
 		var page = Lua.tonumber(fields[cast navigationBarName]);
 		(cast thisElement : FormspecTabHeader).setCurrentTab(page);
 		thisFormspec.goToPage(tabs[page - 1].name);
