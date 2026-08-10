@@ -48,7 +48,7 @@ final class PlayerInventoryFormspec {
 		var f = new Formspec("", "inventory");
 		// ? Root elements.
 		f.addRootElement(navigationBarName, new FormspecTabHeader(
-			0.09, 0.6,
+			0.09, 0.625,
 			9.82, 0.5,
 			true,
 			tabs[0].name,
@@ -61,20 +61,22 @@ final class PlayerInventoryFormspec {
 				.setSound("lever")
 				.setTextColor("#FFFF00"))
 			.setAction(tabNavigationAction));
+		var hotbarPosY = 5.8;
+		var invPosY = 6.655;
 		// todo: this should check the player for a level to decide how wide it is.
 		// todo: that's gonna be complicated
 		//
 		// ? Inventory page.
 		// Hot bar.
-		f.addElement(tabs[0].name, "hot_bar_inv", new FormspecList("current_player", "main", 0.09, 5.8, 12, 1));
+		f.addElement(tabs[0].name, "hot_bar_inv", new FormspecList("current_player", "main", 0.09, hotbarPosY, 12, 1));
 		// Rest of inventory.
-		f.addElement(tabs[0].name, "main_inventory_inv", new FormspecList("current_player", "main", 0.09, 6.7, 12, 7, 12));
+		f.addElement(tabs[0].name, "main_inventory_inv", new FormspecList("current_player", "main", 0.09, invPosY, 12, 7, 12));
 		//
 		// ? Equipment page.
 		// Hot bar.
-		f.addElement(tabs[1].name, "hot_bar_effects", new FormspecList("current_player", "main", 0.09, 5.8, 12, 1));
+		f.addElement(tabs[1].name, "hot_bar_effects", new FormspecList("current_player", "main", 0.09, hotbarPosY, 12, 1));
 		// Rest of inventory.
-		f.addElement(tabs[1].name, "main_inventory_effects", new FormspecList("current_player", "main", 0.09, 6.7, 12, 7, 12));
+		f.addElement(tabs[1].name, "main_inventory_effects", new FormspecList("current_player", "main", 0.09, invPosY, 12, 7, 12));
 		// ? Skills page.
 		f.addElement(tabs[2].name, "todo_skills", new FormspecLabel(0, 3, 0, 0, "Todo"));
 		// ? Effects page.
