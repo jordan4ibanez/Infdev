@@ -7,6 +7,7 @@ using StringTools;
 
 class LuantiCompilerFix {
 	// This is for testing very advanced features of the engine built on top of the luanti engine.
+	// ! Debug mode only works in release compression due to the nature of how it needs to be injected.
 	static final DEBUG_MODE = false;
 	// This is for removing thousands of lines of code out of the lua code.
 	static final RELEASE_COMPRESSION = false;
@@ -43,8 +44,11 @@ class LuantiCompilerFix {
 							}
 
 							// If this line is blank, it doesn't get added to the output.
-							if (currentLine.trim().length > 0) {
-								outputLines.push(currentLine);
+							// If this line is a comment it doesn't get added to the output either.
+							var trimmedLine = currentLine.trim();
+							var isComment = trimmedLine.startsWith("--");
+							if (!isComment && trimmedLine.length > 0) {
+								outputLines.push(trimmedLine);
 							}
 						}
 
