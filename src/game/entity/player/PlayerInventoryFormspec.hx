@@ -4,6 +4,7 @@ import lua.Lua;
 import lua.Table;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.gui.Formspec;
+import src.engine.gui.FormspecDropDown;
 import src.engine.gui.FormspecLabel;
 import src.engine.gui.FormspecList;
 import src.engine.gui.FormspecTabHeader;
@@ -85,6 +86,8 @@ final class PlayerInventoryFormspec {
 		f.addElement(tabs[4].name, "todo_barting", new FormspecLabel(0, 3, 0, 0, "Todo"));
 		// ? Game Settings page.
 		f.addElement(tabs[5].name, "todo_settings", new FormspecLabel(0, 3, 0, 0, "Todo"));
+		f.addElement(tabs[5].name, "sample_setting", new FormspecDropDown(1, 2, 3, 0.5, 1, "test", "a thing", "another")
+			.setStyle(new FormspecDropDownStyle().setSound("lever")));
 		// ? Credits page.
 		f.addElement(tabs[6].name, "todo_credits", new FormspecLabel(0, 3, 0, 0, "Todo"));
 		return f;
