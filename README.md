@@ -29,8 +29,6 @@ api was transposed may-august 2026
 
 ##### immediate todos:
 
-Fix the compiler code, it only needs to do compression on release, I don't think it needs to do imports anymore dce is disabled
-
 Need some formspec elements for the main inventory:
 - tabs
 - textlist (for options)
