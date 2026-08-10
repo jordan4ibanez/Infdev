@@ -3,6 +3,12 @@ package src.engine.gui;
 import haxe.Rest;
 import src.engine.gui.Formspec.FormspecElement;
 
+// This is a simple helper for creating tabs in a formspec.
+typedef TabInfo = {
+	var name: String;
+	var display: String;
+}
+
 class FormspecTabHeader extends FormspecElement {
 	var x: Float; // ? Done.
 	var y: Float; // ? Done.
