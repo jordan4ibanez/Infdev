@@ -67,6 +67,8 @@ class FormspecDropDown extends FormspecElement {
 class FormspecDropDownStyle extends FormspecStyle {
 	var sound: String;
 
+	public function new() {}
+
 	public function toFormspec(name: String, windowScale: Float): String {
 		append('style[${name}');
 
