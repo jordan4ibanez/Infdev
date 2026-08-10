@@ -2,6 +2,7 @@ package src.engine.gui;
 
 import haxe.Rest;
 import src.engine.gui.Formspec.FormspecElement;
+import src.engine.gui.Formspec.FormspecStyle;
 
 // This is a simple helper for creating tabs in a formspec.
 typedef TabInfo = {
@@ -64,6 +65,42 @@ class FormspecTabHeader extends FormspecElement {
 
 	public function setCurrentTab(tab: Int): FormspecTabHeader {
 		this.currentTab = tab;
+		return this;
+	}
+}
+
+class FormspecTabHeaderStyle extends FormspecStyle {
+	var sound: String;
+	var textColor: String;
+
+	public function toFormspec(name: String, windowScale: Float): String {
+		append('style[${name}');
+
+		if (this.sound != null) {
+			append('sound=${this.sound}');
+		}
+
+		if (this.textColor != null) {
+			append('textcolor=${this.textColor}');
+		}
+
+		// And finally close out the string.
+		append("]", true);
+
+		// Then swap and clear.
+		var output = data;
+		data = "";
+
+		return output;
+	}
+
+	public function setSound(sound: String): FormspecTabHeaderStyle {
+		this.sound = sound;
+		return this;
+	}
+
+	public function setTextColor(textColor: String): FormspecTabHeaderStyle {
+		this.textColor = textColor;
 		return this;
 	}
 }
