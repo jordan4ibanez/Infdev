@@ -10,8 +10,11 @@
 
 -D lua-ver=5.1
 
---macro LuantiCompilerFix.patch("init.lua")
 
 # This stops tree shaking.
 --macro include('src.engine')
 --macro include('src.game')
+
+
+# This patches and cleans up the compiled code.
+--macro LuantiCompilerFix.patch("init.lua")
