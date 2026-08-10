@@ -51,7 +51,7 @@ final class PlayerInventoryFormspec {
 			0.09, 0.625,
 			9.82, 0.5,
 			true,
-			2,
+			1,
 			tabs[0].name,
 			tabs[1].name,
 			tabs[2].name,
