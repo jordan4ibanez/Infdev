@@ -38,7 +38,7 @@ class FormspecDropDown extends FormspecElement {
 	}
 
 	public function toFormspec(name: String): String {
-		return 'dropdown[${this.x},${this.y};${this.width},${this.height};${name};${this.items};${this.currentItem};<index event>]';
+		return 'dropdown[${this.x},${this.y};${this.width},${this.height};${name};${this.items};${this.currentItem};true]';
 	}
 
 	public function setPos(x: Float, y: Float): FormspecDropDown {
