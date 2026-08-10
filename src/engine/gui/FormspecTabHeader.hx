@@ -61,4 +61,9 @@ class FormspecTabHeader extends FormspecElement {
 		this.height = height;
 		return this;
 	}
+
+	public function setCurrentTab(tab: Int): FormspecTabHeader {
+		this.currentTab = tab;
+		return this;
+	}
 }
