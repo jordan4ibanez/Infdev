@@ -57,17 +57,6 @@ final class PlayerInventoryFormspec {
 			tabs[3].name,
 			tabs[4].name,
 			tabs[5].name).setAction(tabNavigationAction));
-		// todo: remove this duplicate.
-		f.addRootElement("debug", new FormspecTabHeader(
-			0.09, 0.6,
-			9.82, 0.5,
-			true,
-			tabs[0].name,
-			tabs[1].name,
-			tabs[2].name,
-			tabs[3].name,
-			tabs[4].name,
-			tabs[5].name));
 		// todo: this should check the player for a level to decide how wide it is.
 		// todo: that's gonna be complicated
 		//
