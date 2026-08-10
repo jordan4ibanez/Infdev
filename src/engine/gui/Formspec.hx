@@ -154,7 +154,14 @@ class Formspec {
 			throw 'Tried to go to page ${page} in formspec ${this.name} for player ${playerName} which doesn\'t exist!';
 		}
 		this.currentPage = page;
-		Core.showFormspec(playerName, this.name, this.serialize());
+
+		// ? This is a special clause for the player's inventory formspec.
+		// ? This saves the page you were on.
+		var formspecString = this.serialize();
+		if (this.name == "") {
+			this.player.setInventoryFormspec(formspecString);
+		}
+		Core.showFormspec(playerName, this.name, formspecString);
 	}
 
 	public function getPlayer(): Null<ObjectRefPlayer> {
