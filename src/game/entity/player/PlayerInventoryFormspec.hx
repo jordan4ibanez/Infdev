@@ -70,6 +70,14 @@ final class PlayerInventoryFormspec {
 		f.addElement(tabs[1].name, "hot_bar_effects", new FormspecList("current_player", "main", 0.09, 5.8, 12, 1));
 		// Rest of inventory.
 		f.addElement(tabs[1].name, "main_inventory_effects", new FormspecList("current_player", "main", 0.09, 6.7, 12, 7, 12));
+		// ? Skills page.
+		f.addElement(tabs[2].name, "todo_skills", new FormspecLabel(0, 3, 0, 0, "Todo"));
+		// ? Effects page.
+		f.addElement(tabs[3].name, "todo_effects", new FormspecLabel(0, 3, 0, 0, "Todo"));
+		// ? Bartering Hall page.
+		f.addElement(tabs[4].name, "todo_barting", new FormspecLabel(0, 3, 0, 0, "Todo"));
+		// ? Credits page.
+		f.addElement(tabs[5].name, "todo_credits", new FormspecLabel(0, 3, 0, 0, "Todo"));
 		return f;
 	})();
 
