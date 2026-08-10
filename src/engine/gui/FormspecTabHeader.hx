@@ -15,21 +15,20 @@ class FormspecTabHeader extends FormspecElement {
 	var y: Float; // ? Done.
 	var width: Float; // ? Done.
 	var height: Float; // ? Done
-	// Setting the current tab is unavailable because I don't even want to
-	// think about the spaghetti code needed to make that work properly.
-	var currentTab = 1;
+	var currentTab: Int;
 	var transparent = false;
 	var drawBorder = false;
 	// Tabs are a fixed size because I don't even want to think about making
 	// tabs dynamic. That sounds horrifying.
 	var tabs: String = "";
 
-	public function new(x: Float, y: Float, width: Float, height: Float, drawBorder: Bool, firstTab: String, restOfTabs: Rest<String>) {
+	public function new(x: Float, y: Float, width: Float, height: Float, drawBorder: Bool, defaultTab: Int, firstTab: String, restOfTabs: Rest<String>) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
 		this.drawBorder = drawBorder;
+		this.currentTab = defaultTab;
 
 		var length = restOfTabs.length;
 
