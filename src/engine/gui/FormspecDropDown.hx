@@ -2,6 +2,7 @@ package src.engine.gui;
 
 import haxe.Rest;
 import src.engine.gui.Formspec.FormspecElement;
+import src.engine.gui.Formspec.FormspecStyle;
 
 class FormspecDropDown extends FormspecElement {
 	var x: Float; // ? Done.
@@ -50,6 +51,32 @@ class FormspecDropDown extends FormspecElement {
 	public function setSize(width: Float, height: Float): FormspecDropDown {
 		this.width = width;
 		this.height = height;
+		return this;
+	}
+}
+
+class FormspecDropDownStyle extends FormspecStyle {
+	var sound: String;
+
+	public function toFormspec(name: String, windowScale: Float): String {
+		append('style[${name}');
+
+		if (this.sound != null) {
+			append('sound=${this.sound}');
+		}
+
+		// And finally close out the string.
+		append("]", true);
+
+		// Then swap and clear.
+		var output = data;
+		data = "";
+
+		return output;
+	}
+
+	public function setSound(sound: String): FormspecDropDownStyle {
+		this.sound = sound;
 		return this;
 	}
 }
