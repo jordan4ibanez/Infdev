@@ -33,6 +33,8 @@ Need some formspec elements for the main inventory:
 - tabs
 - textlist (for options)
 
+make sure the formspec object is actually getting removed upon player leaving
+
 have a method that marks them as persistent
 
 allow textboxes and forms to save their data into the object itself so it can be persistent
