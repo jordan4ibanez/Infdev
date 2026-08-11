@@ -53,9 +53,10 @@ final class PlayerInventoryFormspec {
 
 			Core.soundPlay(
 				new SimpleSoundSpecTable("infdev_inventory_action"),
+				// todo: make this an option in the sounds menu.
 				new SoundParameterTable()
 					.setToPlayer(player.getPlayerName())
-					.setGain(0.25)
+					.setGain(0.5)
 			);
 
 			playerTimerMap.set(name, true);
