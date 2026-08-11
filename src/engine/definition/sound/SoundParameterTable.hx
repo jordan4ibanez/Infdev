@@ -1,46 +1,49 @@
 package src.engine.definition.sound;
 
+import src.engine.entity.objectref.ObjectRefBase;
+import src.engine.vector.Vec3;
+
 class SoundParameterTable {
-        gain = 1.0,
-    // Scales the gain specified in `SimpleSoundSpec`.
+	var gain = 1.0;
 
-    pitch = 1.0,
-    // Overwrites the pitch specified in `SimpleSoundSpec`.
+	// Scales the gain specified in `SimpleSoundSpec`.
+	var pitch = 1.0;
 
-    fade = 0.0,
-    // Overwrites the fade specified in `SimpleSoundSpec`.
+	// Overwrites the pitch specified in `SimpleSoundSpec`.
+	var fade = 0.0;
 
-    start_time = 0.0,
-    // Start with a time-offset into the sound.
-    // The behavior is as if the sound was already playing for this many seconds.
-    // Negative values are relative to the sound's length, so the sound reaches
-    // its end in `-start_time` seconds.
-    // It is unspecified what happens if `loop` is false and `start_time` is
-    // smaller than minus the sound's length.
-    // Available since feature `sound_params_start_time`.
+	// Overwrites the fade specified in `SimpleSoundSpec`.
+	var start_time = 0.0;
 
-    loop = false,
-    // If true, sound is played in a loop.
+	// Start with a time-offset into the sound.
+	// The behavior is as if the sound was already playing for this many seconds.
+	// Negative values are relative to the sound's length, so the sound reaches
+	// its end in `-start_time` seconds.
+	// It is unspecified what happens if `loop` is false and `start_time` is
+	// smaller than minus the sound's length.
+	// Available since feature `sound_params_start_time`.
+	var loop = false;
 
-    pos = {x = 1, y = 2, z = 3},
-    // Play sound at a position.
-    // Can't be used together with `object`.
+	// If true, sound is played in a loop.
+	var pos: Vec3;
 
-    object = <an ObjectRef>,
-    // Attach the sound to an object.
-    // Can't be used together with `pos`.
+	// Play sound at a position.
+	// Can't be used together with `object`.
+	var object: ObjectRefBase;
 
-    to_player = name,
-    // Only play for this player.
-    // Can't be used together with `exclude_player`.
+	// Attach the sound to an object.
+	// Can't be used together with `pos`.
+	var to_player: String;
 
-    exclude_player = name,
-    // Don't play sound for this player.
-    // Can't be used together with `to_player`.
+	// Only play for this player.
+	// Can't be used together with `exclude_player`.
+	var exclude_player: String;
 
-    max_hear_distance = 32,
-    // Only play for players that are at most this far away when the sound
-    // starts playing.
-    // Needs `pos` or `object` to be set.
-    // `32` is the default.
+	// Don't play sound for this player.
+	// Can't be used together with `to_player`.
+	var max_hear_distance: String;
+	// Only play for players that are at most this far away when the sound
+	// starts playing.
+	// Needs `pos` or `object` to be set.
+	// `32` is the default.
 }
