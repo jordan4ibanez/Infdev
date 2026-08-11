@@ -186,10 +186,6 @@ final class PlayerInventoryFormspec {
 		return formspec.serialize();
 	}
 
-	public function updateScaling(): Void {
-		player.setInventoryFormspec(this.serialize());
-	}
-
 	public function process(fields: Table<String, String>): Void {
 		untyped print("remove the player thing from formspec");
 	}
