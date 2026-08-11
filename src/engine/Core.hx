@@ -1,5 +1,6 @@
 package src.engine;
 
+import src.engine.definition.sound.SimpleSoundSpecTable.SimpleSoundSpec;
 import haxe.Constraints.Function;
 import haxe.Rest;
 import haxe.extern.EitherType;
@@ -249,8 +250,13 @@ extern class Core {
 	@:native("register_on_player_receive_fields")
 	static function registerOnPlayerReceiveFields(func: (player: ObjectRefPlayer, formName: String, fields: Table<String, String>) -> Void): Void;
 
+	// todo: type inventoryInfo
 	@:native("register_on_player_inventory_action")
-	static function registerOnPlayerInventoryAction(func: (player: Null<ObjectRefPlayer>, action: String, inventory: InvRef, inventory_info: String) -> Void): Void;
+	static function registerOnPlayerInventoryAction(func: (player: Null<ObjectRefPlayer>, action: String, inventory: InvRef, inventoryInfo: Table<String,
+		Dynamic>) -> Void): Void;
+
+	@:native("sound_play")
+	static function soundPlay(spec: SimpleSoundSpec, parameters: Dynamic, ?ephemeral: Bool): Null<Int>;
 
 	// ! Only overrideable functions below this.
 	@:native("spawn_item")
