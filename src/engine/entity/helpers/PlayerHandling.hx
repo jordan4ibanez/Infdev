@@ -2,7 +2,7 @@ package src.engine.entity.helpers;
 
 import haxe.ds.StringMap;
 import src.engine.Core;
-import src.engine.gui.Formspec;
+import src.engine.gui.Gui;
 import src.game.entity.player.Player;
 
 @:noCompletion
@@ -19,7 +19,7 @@ final class PlayerHandling {
 
 		// Player LuaEntity creation.
 		Core.registerOnJoinPlayer((player, lastLogin) -> {
-			Formspec.addPlayerToMasterFormspecContainer(player);
+			Gui.addPlayerToMasterFormspecContainer(player);
 			final name = player.getPlayerName();
 			var playerLuaEntity = getGlobalLuaEntity(name);
 			mimicLuaEntityConstruction(name, playerLuaEntity);
@@ -27,7 +27,7 @@ final class PlayerHandling {
 
 		// Player LuaEntity destruction.
 		Core.registerOnLeavePlayer((player, timedOut) -> {
-			Formspec.removePlayerFromMasterFormspecContainer(player);
+			Gui.removePlayerFromMasterFormspecContainer(player);
 			var ple = player.getPlayerLuaEntity();
 			ple.onDeactivate(false);
 			ModStorage.setString(player.getPlayerName() + PLAYER_DATA_KEY, ple.getStaticData());

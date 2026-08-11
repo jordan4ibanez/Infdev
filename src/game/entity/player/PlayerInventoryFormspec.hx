@@ -7,7 +7,7 @@ import src.engine.definition.sound.SimpleSoundSpecTable;
 import src.engine.definition.sound.SoundParameterTable;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.gui.DropDown;
-import src.engine.gui.Formspec;
+import src.engine.gui.Gui;
 import src.engine.gui.Label;
 import src.engine.gui.List;
 import src.engine.gui.TabHeader;
@@ -103,8 +103,8 @@ final class PlayerInventoryFormspec {
 	// This is REALLY, REALLY memory inefficient but I can't run a function when
 	// the player opens their inventory.
 	// todo: The main inventory list will need to expand sideways when a player levels up.
-	var formspec: Formspec = (() -> {
-		var f = new Formspec("", "inventory");
+	var formspec: Gui = (() -> {
+		var f = new Gui("", "inventory");
 		// ? Root elements.
 		f.addRootElement(navigationBarName, new TabHeader(
 			0.09, 0.625,
@@ -163,7 +163,7 @@ final class PlayerInventoryFormspec {
 	}
 
 	// This is for when a player clicks the tabs at the top of their inventory.
-	static function tabNavigationAction(thisFormspec: Formspec, thisElement: FormspecElement, fields: Table<String, String>) {
+	static function tabNavigationAction(thisFormspec: Gui, thisElement: FormspecElement, fields: Table<String, String>) {
 		var page = Lua.tonumber(fields[cast navigationBarName]);
 		(cast thisElement : TabHeader).setCurrentTab(page);
 		thisFormspec.goToPage(tabs[page - 1].name);

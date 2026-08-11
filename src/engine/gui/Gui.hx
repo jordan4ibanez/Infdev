@@ -19,11 +19,11 @@ private class ElementInfo {
 	public function new() {}
 }
 
-class Formspec {
+class Gui {
 	static inline final DEBUG_MODE = false;
 
 	// Static components that make formspecs reactive instead of static.
-	static var masterFormspecContainer: Map<String, Map<String, Formspec>> = new Map();
+	static var masterFormspecContainer: Map<String, Map<String, Gui>> = new Map();
 
 	@:noCompletion
 	public static function addPlayerToMasterFormspecContainer(player: ObjectRefPlayer): Void {
@@ -36,7 +36,7 @@ class Formspec {
 	}
 
 	@:noCompletion
-	static function processElementAction(thisFormspec: Formspec, elementKey: String, name: String, fields: Table<String, String>): Void {
+	static function processElementAction(thisFormspec: Gui, elementKey: String, name: String, fields: Table<String, String>): Void {
 		var elementInfo = thisFormspec.elementMap.get(elementKey);
 		if (elementInfo == null) {
 			throw 'Element ${elementKey} was null for ${name} in formspec ${thisFormspec.name}';
@@ -117,8 +117,8 @@ class Formspec {
 	var size: Vec2 = new Vec2(10, 10);
 	var fixedSize: Bool = false;
 
-	var actionOnClose: Null<(thisFormspec: Formspec) -> Void>;
-	var actionOnAnyUpdate: Null<(thisFormspec: Formspec, fields: Table<String, String>) -> Void>;
+	var actionOnClose: Null<(thisFormspec: Gui) -> Void>;
+	var actionOnAnyUpdate: Null<(thisFormspec: Gui, fields: Table<String, String>) -> Void>;
 
 	// var backgroundColor: String = new RGBA(77, 77, 77, 248).toHex();
 	// var fullscreen: Bool = false;
@@ -284,12 +284,12 @@ class Formspec {
 		return output;
 	}
 
-	public function setSize(x: Float, y: Float): Formspec {
+	public function setSize(x: Float, y: Float): Gui {
 		this.size.setFloats(x, y);
 		return this;
 	}
 
-	public function isFixedSize(fixedSize: Bool): Formspec {
+	public function isFixedSize(fixedSize: Bool): Gui {
 		this.fixedSize = fixedSize;
 		return this;
 	}
@@ -312,7 +312,7 @@ class Formspec {
 		this.elementMap.set(elementName, worker);
 	}
 
-	public function addElement(pageName: String, elementName: String, formspecElement: FormspecElement): Formspec {
+	public function addElement(pageName: String, elementName: String, formspecElement: FormspecElement): Gui {
 		// Create the page if it doesn't exist.
 		var thisPage = this.pages.get(pageName);
 		if (thisPage == null) {
@@ -337,7 +337,7 @@ class Formspec {
 		return cast thisPage.get(elementName);
 	}
 
-	public function addRootElement(elementName: String, formspecElement: FormspecElement): Formspec {
+	public function addRootElement(elementName: String, formspecElement: FormspecElement): Gui {
 		// This errors out to prevent catastrophic bugs.
 		if (this.rootElements.exists(elementName)) {
 			throw 'Tried to add element [${elementName}] in formspec [${this.name}] when it already exists.';
@@ -357,7 +357,7 @@ class Formspec {
 	 * When the formspec closes, this action will run.
 	 * @param action 
 	 */
-	public function doActionOnClose(action: (thisFormspec: Formspec) -> {}): Formspec {
+	public function doActionOnClose(action: (thisFormspec: Gui) -> {}): Gui {
 		this.actionOnClose = action;
 		return this;
 	}
@@ -367,7 +367,7 @@ class Formspec {
 	 * It is to be used as a global interactive action for the player's formspec.
 	 * @param action 
 	 */
-	public function doActionOnAnyUpdate(action: (thisFormspec: Formspec, fields: Table<String, String>) -> Void): Formspec {
+	public function doActionOnAnyUpdate(action: (thisFormspec: Gui, fields: Table<String, String>) -> Void): Gui {
 		this.actionOnAnyUpdate = action;
 		return this;
 	}
@@ -375,15 +375,15 @@ class Formspec {
 
 // todo: @:noCompletion
 abstract class FormspecElement {
-	@:allow(src.engine.gui.Formspec)
+	@:allow(src.engine.gui.Gui)
 	var style: FormspecStyle;
 
 	// There were a few ways to write this, but this is probably the least bad.
 	// It's very flexible!
-	@:allow(src.engine.gui.Formspec)
-	var action: Null<(thisFormspec: Formspec, thisElement: FormspecElement, fields: Table<String, String>) -> Void>;
+	@:allow(src.engine.gui.Gui)
+	var action: Null<(thisFormspec: Gui, thisElement: FormspecElement, fields: Table<String, String>) -> Void>;
 
-	public function setAction(action: (thisFormspec: Formspec, thisElement: FormspecElement, fields: Table<String, String>) -> Void): FormspecElement {
+	public function setAction(action: (thisFormspec: Gui, thisElement: FormspecElement, fields: Table<String, String>) -> Void): FormspecElement {
 		this.action = action;
 		return this;
 	}
