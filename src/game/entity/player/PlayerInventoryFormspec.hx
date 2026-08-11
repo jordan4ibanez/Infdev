@@ -18,8 +18,18 @@ final class PlayerInventoryFormspec {
 
 	static inline final navigationBarName = "navigation";
 
+	// Play a sound to the player when they move things around in the inventory.
 	// This can't be bolted in and it has to be hacked on.
 	// This is the least bad place to put this.
+	//
+	// This logs the last time the player had the sound played to them.
+	// This is the key to stop swapping items from playing a sound twice on the same frame.
+	//
+	// todo: put a player in here at the timestamp they join.
+	// todo: delete a player from here when they leave.
+	// todo: log the time the sound was played and if it's equal then don't play a sound.
+	static var playerTimerMap: Map<String, Float> = new Map();
+
 	static function deployPlayerInventoryMovementSounds(): Void {
 		Core.registerOnPlayerInventoryAction((player, action, inventory, inventoryInfo) -> {
 			// Something was hacked into the game.
@@ -46,6 +56,8 @@ final class PlayerInventoryFormspec {
 		deployPlayerInventoryMovementSounds();
 	}
 
+	// End spaghetti.
+	//
 	static final tabs: Array<TabInfo> = [
 		{
 			name: "inventory",
@@ -129,9 +141,7 @@ final class PlayerInventoryFormspec {
 		this.formspec.setPlayer(player);
 	}
 
-	public function whenPlayerLeaves(): Void {
-
-	}
+	public function whenPlayerLeaves(): Void {}
 
 	// This is for when a player clicks the tabs at the top of their inventory.
 	static function tabNavigationAction(thisFormspec: Formspec, thisElement: FormspecElement, fields: Table<String, String>) {
