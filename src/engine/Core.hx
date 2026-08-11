@@ -249,6 +249,9 @@ extern class Core {
 	@:native("register_on_player_receive_fields")
 	static function registerOnPlayerReceiveFields(func: (player: ObjectRefPlayer, formName: String, fields: Table<String, String>) -> Void): Void;
 
+	@:native("register_on_player_inventory_action")
+	static function registerOnPlayerInventoryAction(func: (player: Null<ObjectRefPlayer>, action: String, inventory: InvRef, inventory_info: String) -> Void): Void;
+
 	// ! Only overrideable functions below this.
 	@:native("spawn_item")
 	dynamic static function spawnItem(pos: Vec3, item: EitherType<String, ItemStack>): Null<ObjectRefEntity>;
