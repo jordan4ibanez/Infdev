@@ -1,8 +1,8 @@
 package src.engine.gui;
 
 import haxe.Rest;
-import src.engine.gui.Formspec.FormspecElement;
-import src.engine.gui.Formspec.FormspecStyle;
+import src.engine.gui.Gui.FormspecElement;
+import src.engine.gui.Gui.FormspecStyle;
 
 class DropDown extends FormspecElement {
 	var x: Float; // ? Done.

@@ -1,7 +1,7 @@
 package src.engine.gui;
 
-import src.engine.gui.Formspec.FormspecElement;
-import src.engine.gui.Formspec.FormspecStyle;
+import src.engine.gui.Gui.FormspecElement;
+import src.engine.gui.Gui.FormspecStyle;
 
 // This is a simple helper for creating tabs in a formspec.
 typedef TabInfo = {

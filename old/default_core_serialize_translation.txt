@@ -6,8 +6,8 @@ import lua.Math;
 import lua.Table;
 import src.engine.compilercode.LuaLoop;
 import src.engine.compilercode.LuaMap;
-import src.engine.gui.Formspec;
-import src.engine.gui.FormspecButton;
+import src.engine.gui.Gui;
+import src.engine.gui.GuiButton;
 
 /**
  * This class is a translation of https://github.com/luanti-org/luanti/blob/master/builtin/common/serialize.lua

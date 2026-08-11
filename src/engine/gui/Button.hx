@@ -1,7 +1,7 @@
 package src.engine.gui;
 
-import src.engine.gui.Formspec.FormspecElement;
-import src.engine.gui.Formspec.FormspecStyle;
+import src.engine.gui.Gui.FormspecElement;
+import src.engine.gui.Gui.FormspecStyle;
 import src.engine.vector.Vec2;
 
 class Button extends FormspecElement {
