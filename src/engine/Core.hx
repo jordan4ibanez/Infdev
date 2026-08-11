@@ -1,6 +1,5 @@
 package src.engine;
 
-import src.engine.definition.sound.SimpleSoundSpecTable.SimpleSoundSpec;
 import haxe.Constraints.Function;
 import haxe.Rest;
 import haxe.extern.EitherType;
@@ -9,6 +8,8 @@ import src.engine.compilercode.LuaArray;
 import src.engine.definition.ItemDefinition;
 import src.engine.definition.NodeDefinition;
 import src.engine.definition.basic.PointedThing;
+import src.engine.definition.sound.SimpleSoundSpecTable.SimpleSoundSpec;
+import src.engine.definition.sound.SoundParameterTable;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefEntity;
 import src.engine.entity.objectref.ObjectRefPlayer;
@@ -256,7 +257,7 @@ extern class Core {
 		Dynamic>) -> Void): Void;
 
 	@:native("sound_play")
-	static function soundPlay(spec: SimpleSoundSpec, parameters: Dynamic, ?ephemeral: Bool): Null<Int>;
+	static function soundPlay(spec: SimpleSoundSpec, parameters: SoundParameterTable, ?ephemeral: Bool): Null<Int>;
 
 	// ! Only overrideable functions below this.
 	@:native("spawn_item")
