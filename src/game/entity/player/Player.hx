@@ -126,6 +126,7 @@ final class Player {
 		this.animationHandler.doStateLogic();
 		this.animationHandler.trackAnimationTimer(delta);
 		this.animationHandler.doPlayerAnimations(delta);
+		this.inventoryFormspec.doPlayerInventorySoundReset();
 	}
 
 	public function onPunch(puncher: Null<ObjectRefBase>, timeFromLastPunch: Float, toolCapabilities: Dynamic, dir: Dynamic, damager: Int): Bool {

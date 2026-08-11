@@ -22,13 +22,10 @@ final class PlayerInventoryFormspec {
 	// This can't be bolted in and it has to be hacked on.
 	// This is the least bad place to put this.
 	//
-	// This logs the last time the player had the sound played to them.
+	// This logs the if the sound was played this server tick.
 	// This is the key to stop swapping items from playing a sound twice on the same frame.
 	//
-	// todo: put a player in here at the timestamp they join.
-	// todo: delete a player from here when they leave.
-	// todo: log the time the sound was played and if it's equal then don't play a sound.
-	static var playerTimerMap: Map<String, Float> = new Map();
+	static var playerTimerMap: Map<String, Bool> = new Map();
 
 	static function deployPlayerInventoryMovementSounds(): Void {
 		Core.registerOnPlayerInventoryAction((player, action, inventory, inventoryInfo) -> {
@@ -43,12 +40,25 @@ final class PlayerInventoryFormspec {
 				return;
 			}
 
+			final name = player.getPlayerName();
+			final alreadyPlayed = playerTimerMap.get(name);
+			if (alreadyPlayed == null) {
+				throw 'Null inventory hackjob sound tick bool in map for player ${name}';
+			}
+
+			// Don't play more than one sound at a time.
+			if (alreadyPlayed) {
+				return;
+			}
+
 			Core.soundPlay(
 				new SimpleSoundSpecTable("infdev_inventory_action"),
 				new SoundParameterTable()
 					.setToPlayer(player.getPlayerName())
 					.setGain(0.25)
 			);
+
+			playerTimerMap.set(name, true);
 		});
 	}
 
@@ -139,9 +149,17 @@ final class PlayerInventoryFormspec {
 	public function new(player: ObjectRefPlayer) {
 		this.player = player;
 		this.formspec.setPlayer(player);
+
+		playerTimerMap.set(player.getPlayerName(), false);
 	}
 
-	public function whenPlayerLeaves(): Void {}
+	public function doPlayerInventorySoundReset() {
+		playerTimerMap.set(this.player.getPlayerName(), false);
+	}
+
+	public function whenPlayerLeaves(): Void {
+		playerTimerMap.remove(this.player.getPlayerName());
+	}
 
 	// This is for when a player clicks the tabs at the top of their inventory.
 	static function tabNavigationAction(thisFormspec: Formspec, thisElement: FormspecElement, fields: Table<String, String>) {
