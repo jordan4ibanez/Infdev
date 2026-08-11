@@ -1,13 +1,13 @@
 package src.engine.gui;
 
-import src.engine.gui.FormspecButton.FormspecButtonStyle;
 import src.engine.gui.Formspec.FormspecElement;
+import src.engine.gui.FormspecButton.FormspecButtonStyle;
 
 /**
  * When clicked, fields will be sent and the form will quit.
  * Same as `button` in all other respects.
  */
-class FormspecButtonExit extends FormspecElement {
+class ButtonExit extends FormspecElement {
 	var x: Float; // ? Done.
 	var y: Float; // ? Done.
 	var width: Float; // ? Done.
@@ -28,7 +28,7 @@ class FormspecButtonExit extends FormspecElement {
 		return 'button_exit[${this.x},${this.y};${this.width},${this.height};${name};${this.label}]';
 	}
 
-	public function setStyle(style: FormspecButtonStyle): FormspecButtonExit {
+	public function setStyle(style: FormspecButtonStyle): ButtonExit {
 		this.style = style;
 		return this;
 	}
@@ -37,19 +37,19 @@ class FormspecButtonExit extends FormspecElement {
 		return cast this.style;
 	}
 
-	public function setPos(x: Float, y: Float): FormspecButtonExit {
+	public function setPos(x: Float, y: Float): ButtonExit {
 		this.x = x;
 		this.y = y;
 		return this;
 	}
 
-	public function setSize(width: Float, height: Float): FormspecButtonExit {
+	public function setSize(width: Float, height: Float): ButtonExit {
 		this.width = width;
 		this.height = height;
 		return this;
 	}
 
-	public function setLabel(label: String): FormspecButtonExit {
+	public function setLabel(label: String): ButtonExit {
 		this.label = label;
 		return this;
 	}

@@ -4,7 +4,7 @@ import src.engine.gui.Formspec.FormspecElement;
 import src.engine.gui.Formspec.FormspecStyle;
 import src.engine.vector.Vec2;
 
-class FormspecTextArea extends FormspecElement {
+class TextArea extends FormspecElement {
 	var x: Float; // ? Done.
 	var y: Float; // ? Done.
 	var width: Float; // ? Done.
@@ -31,7 +31,7 @@ class FormspecTextArea extends FormspecElement {
 		return 'textarea[${this.x},${this.y};${this.width},${this.height};${name};${this.label};${this.defaultText}]';
 	}
 
-	public function setStyle(style: FormspecTextAreaStyle): FormspecTextArea {
+	public function setStyle(style: FormspecTextAreaStyle): TextArea {
 		this.style = style;
 		return this;
 	}
@@ -40,24 +40,24 @@ class FormspecTextArea extends FormspecElement {
 		return cast this.style;
 	}
 
-	public function setPos(x: Float, y: Float): FormspecTextArea {
+	public function setPos(x: Float, y: Float): TextArea {
 		this.x = x;
 		this.y = y;
 		return this;
 	}
 
-	public function setSize(width: Float, height: Float): FormspecTextArea {
+	public function setSize(width: Float, height: Float): TextArea {
 		this.width = width;
 		this.height = height;
 		return this;
 	}
 
-	public function setLabel(label: String): FormspecTextArea {
+	public function setLabel(label: String): TextArea {
 		this.label = label;
 		return this;
 	}
 
-	public function setDefaultText(defaultText: String): FormspecTextArea {
+	public function setDefaultText(defaultText: String): TextArea {
 		this.defaultText = defaultText;
 		return this;
 	}

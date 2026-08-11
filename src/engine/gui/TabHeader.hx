@@ -9,7 +9,7 @@ typedef TabInfo = {
 	var display: String;
 }
 
-class FormspecTabHeader extends FormspecElement {
+class TabHeader extends FormspecElement {
 	var x: Float; // ? Done.
 	var y: Float; // ? Done.
 	var width: Float; // ? Done.
@@ -48,7 +48,7 @@ class FormspecTabHeader extends FormspecElement {
 		return 'tabheader[${this.x},${this.y};${this.width},${this.height};${name};${this.tabs};${this.currentTab};${this.transparent};${this.drawBorder}]';
 	}
 
-	public function setStyle(style: FormspecTabHeaderStyle): FormspecTabHeader {
+	public function setStyle(style: FormspecTabHeaderStyle): TabHeader {
 		this.style = style;
 		return this;
 	}
@@ -57,19 +57,19 @@ class FormspecTabHeader extends FormspecElement {
 		return cast this.style;
 	}
 
-	public function setPos(x: Float, y: Float): FormspecTabHeader {
+	public function setPos(x: Float, y: Float): TabHeader {
 		this.x = x;
 		this.y = y;
 		return this;
 	}
 
-	public function setSize(width: Float, height: Float): FormspecTabHeader {
+	public function setSize(width: Float, height: Float): TabHeader {
 		this.width = width;
 		this.height = height;
 		return this;
 	}
 
-	public function setCurrentTab(tab: Int): FormspecTabHeader {
+	public function setCurrentTab(tab: Int): TabHeader {
 		this.currentTab = tab;
 		return this;
 	}

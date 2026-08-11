@@ -2,7 +2,7 @@ package src.engine.gui;
 
 import src.engine.gui.Formspec.FormspecElement;
 
-class FormspecList extends FormspecElement {
+class List extends FormspecElement {
 	var inventoryLocation: String;
 	var listName: String;
 	var x: Float; // ? Done.
@@ -30,23 +30,23 @@ class FormspecList extends FormspecElement {
 		return 'list[${this.inventoryLocation};${this.listName};${this.x},${this.y};${this.width},${this.height};${this.startingIndex}]';
 	}
 
-	public function setInventoryLocation(inventoryLocation: String): FormspecList {
+	public function setInventoryLocation(inventoryLocation: String): List {
 		this.inventoryLocation = inventoryLocation;
 		return this;
 	}
 
-	public function setListName(listName: String): FormspecList {
+	public function setListName(listName: String): List {
 		this.listName = listName;
 		return this;
 	}
 
-	public function setPos(x: Float, y: Float): FormspecList {
+	public function setPos(x: Float, y: Float): List {
 		this.x = x;
 		this.y = y;
 		return this;
 	}
 
-	public function setSize(width: Float, height: Float): FormspecList {
+	public function setSize(width: Float, height: Float): List {
 		this.width = width;
 		this.height = height;
 		return this;

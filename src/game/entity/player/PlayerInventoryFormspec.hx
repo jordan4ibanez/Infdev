@@ -6,11 +6,11 @@ import src.engine.Core;
 import src.engine.definition.sound.SimpleSoundSpecTable;
 import src.engine.definition.sound.SoundParameterTable;
 import src.engine.entity.objectref.ObjectRefPlayer;
+import src.engine.gui.DropDown;
 import src.engine.gui.Formspec;
-import src.engine.gui.FormspecDropDown;
-import src.engine.gui.FormspecLabel;
-import src.engine.gui.FormspecList;
-import src.engine.gui.FormspecTabHeader;
+import src.engine.gui.Label;
+import src.engine.gui.List;
+import src.engine.gui.TabHeader;
 
 // This will actually save what tab you're on between logins.
 final class PlayerInventoryFormspec {
@@ -106,7 +106,7 @@ final class PlayerInventoryFormspec {
 	var formspec: Formspec = (() -> {
 		var f = new Formspec("", "inventory");
 		// ? Root elements.
-		f.addRootElement(navigationBarName, new FormspecTabHeader(
+		f.addRootElement(navigationBarName, new TabHeader(
 			0.09, 0.625,
 			9.82, 0.5,
 			true,
@@ -123,27 +123,27 @@ final class PlayerInventoryFormspec {
 		//
 		// ? Inventory page.
 		// Hot bar.
-		f.addElement(tabs[0].name, "hot_bar_inv", new FormspecList("current_player", "main", 0.09, hotbarPosY, 12, 1));
+		f.addElement(tabs[0].name, "hot_bar_inv", new List("current_player", "main", 0.09, hotbarPosY, 12, 1));
 		// Rest of inventory.
-		f.addElement(tabs[0].name, "main_inventory_inv", new FormspecList("current_player", "main", 0.09, invPosY, 12, 7, 12));
+		f.addElement(tabs[0].name, "main_inventory_inv", new List("current_player", "main", 0.09, invPosY, 12, 7, 12));
 		//
 		// ? Equipment page.
 		// Hot bar.
-		f.addElement(tabs[1].name, "hot_bar_effects", new FormspecList("current_player", "main", 0.09, hotbarPosY, 12, 1));
+		f.addElement(tabs[1].name, "hot_bar_effects", new List("current_player", "main", 0.09, hotbarPosY, 12, 1));
 		// Rest of inventory.
-		f.addElement(tabs[1].name, "main_inventory_effects", new FormspecList("current_player", "main", 0.09, invPosY, 12, 7, 12));
+		f.addElement(tabs[1].name, "main_inventory_effects", new List("current_player", "main", 0.09, invPosY, 12, 7, 12));
 		// ? Skills page.
-		f.addElement(tabs[2].name, "todo_skills", new FormspecLabel(0, 3, 0, 0, "Todo"));
+		f.addElement(tabs[2].name, "todo_skills", new Label(0, 3, 0, 0, "Todo"));
 		// ? Effects page.
-		f.addElement(tabs[3].name, "todo_effects", new FormspecLabel(0, 3, 0, 0, "Todo"));
+		f.addElement(tabs[3].name, "todo_effects", new Label(0, 3, 0, 0, "Todo"));
 		// ? Bartering Hall page.
-		f.addElement(tabs[4].name, "todo_barting", new FormspecLabel(0, 3, 0, 0, "Todo"));
+		f.addElement(tabs[4].name, "todo_barting", new Label(0, 3, 0, 0, "Todo"));
 		// ? Game Settings page.
-		f.addElement(tabs[5].name, "todo_settings", new FormspecLabel(0, 3, 0, 0, "Todo"));
-		f.addElement(tabs[5].name, "sample_setting", new FormspecDropDown(1, 2, 3, 0.5, 1, "test", "a thing", "another")
+		f.addElement(tabs[5].name, "todo_settings", new Label(0, 3, 0, 0, "Todo"));
+		f.addElement(tabs[5].name, "sample_setting", new DropDown(1, 2, 3, 0.5, 1, "test", "a thing", "another")
 			.setStyle(new FormspecDropDownStyle().setSound("infdev_interface_button")));
 		// ? Credits page.
-		f.addElement(tabs[6].name, "todo_credits", new FormspecLabel(0, 3, 0, 0, "Todo"));
+		f.addElement(tabs[6].name, "todo_credits", new Label(0, 3, 0, 0, "Todo"));
 		return f;
 	})();
 
@@ -165,7 +165,7 @@ final class PlayerInventoryFormspec {
 	// This is for when a player clicks the tabs at the top of their inventory.
 	static function tabNavigationAction(thisFormspec: Formspec, thisElement: FormspecElement, fields: Table<String, String>) {
 		var page = Lua.tonumber(fields[cast navigationBarName]);
-		(cast thisElement : FormspecTabHeader).setCurrentTab(page);
+		(cast thisElement : TabHeader).setCurrentTab(page);
 		thisFormspec.goToPage(tabs[page - 1].name);
 	}
 

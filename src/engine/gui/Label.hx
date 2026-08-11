@@ -5,7 +5,7 @@ import src.engine.gui.Formspec.FormspecStyle;
 import src.engine.gui.sharedcomponents.FormspecAlignment.FormspecHorizontalAlignment;
 import src.engine.gui.sharedcomponents.FormspecAlignment.FormspecVerticalAlignment;
 
-class FormspecLabel extends FormspecElement {
+class Label extends FormspecElement {
 	var x: Float; // ? Done.
 	var y: Float; // ? Done.
 	var width: Float; // ? Done.
@@ -26,7 +26,7 @@ class FormspecLabel extends FormspecElement {
 		return 'label[${this.x},${this.y};${this.width},${this.height};${this.label}]';
 	}
 
-	public function setStyle(style: FormspecLabelStyle): FormspecLabel {
+	public function setStyle(style: FormspecLabelStyle): Label {
 		this.style = style;
 		return this;
 	}
@@ -35,19 +35,19 @@ class FormspecLabel extends FormspecElement {
 		return cast this.style;
 	}
 
-	public function setPos(x: Float, y: Float): FormspecLabel {
+	public function setPos(x: Float, y: Float): Label {
 		this.x = x;
 		this.y = y;
 		return this;
 	}
 
-	public function setSize(width: Float, height: Float): FormspecLabel {
+	public function setSize(width: Float, height: Float): Label {
 		this.width = width;
 		this.height = height;
 		return this;
 	}
 
-	public function setLabel(label: String): FormspecLabel {
+	public function setLabel(label: String): Label {
 		this.label = label;
 		return this;
 	}

@@ -5,7 +5,7 @@ import src.engine.gui.Formspec.FormspecStyle;
 import src.engine.gui.sharedcomponents.FormspecAlignment.FormspecHorizontalAlignment;
 import src.engine.gui.sharedcomponents.FormspecAlignment.FormspecVerticalAlignment;
 
-class FormspecField extends FormspecElement {
+class Field extends FormspecElement {
 	var x: Float; // ? Done.
 	var y: Float; // ? Done.
 	var width: Float; // ? Done.
@@ -38,7 +38,7 @@ class FormspecField extends FormspecElement {
 		return output + 'field[${this.x},${this.y};${this.width},${this.height};${name};${this.label};${this.defaultText}]';
 	}
 
-	public function setStyle(style: FormspecFieldStyle): FormspecField {
+	public function setStyle(style: FormspecFieldStyle): Field {
 		this.style = style;
 		return this;
 	}
@@ -47,29 +47,29 @@ class FormspecField extends FormspecElement {
 		return cast this.style;
 	}
 
-	public function setPos(x: Float, y: Float): FormspecField {
+	public function setPos(x: Float, y: Float): Field {
 		this.x = x;
 		this.y = y;
 		return this;
 	}
 
-	public function setSize(width: Float, height: Float): FormspecField {
+	public function setSize(width: Float, height: Float): Field {
 		this.width = width;
 		this.height = height;
 		return this;
 	}
 
-	public function setLabel(label: String): FormspecField {
+	public function setLabel(label: String): Field {
 		this.label = label;
 		return this;
 	}
 
-	public function setDefaultText(defaultText: String): FormspecField {
+	public function setDefaultText(defaultText: String): Field {
 		this.defaultText = defaultText;
 		return this;
 	}
 
-	public function enableCloseOnEnter(): FormspecField {
+	public function enableCloseOnEnter(): Field {
 		this.closeOnEnter = true;
 		return this;
 	}

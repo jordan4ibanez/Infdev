@@ -2,7 +2,7 @@ package src.engine.gui;
 
 import src.engine.gui.Formspec.FormspecElement;
 
-class FormspecListRing extends FormspecElement {
+class ListRing extends FormspecElement {
 	var inventoryLocation: String;
 	var listName: String;
 

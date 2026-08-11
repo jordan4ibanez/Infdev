@@ -4,7 +4,7 @@ import haxe.Rest;
 import src.engine.gui.Formspec.FormspecElement;
 import src.engine.gui.Formspec.FormspecStyle;
 
-class FormspecDropDown extends FormspecElement {
+class DropDown extends FormspecElement {
 	var x: Float; // ? Done.
 	var y: Float; // ? Done.
 	var width: Float; // ? Done.
@@ -42,7 +42,7 @@ class FormspecDropDown extends FormspecElement {
 		return 'dropdown[${this.x},${this.y};${this.width},${this.height};${name};${this.items};${this.currentItem};true]';
 	}
 
-	public function setStyle(style: FormspecDropDownStyle): FormspecDropDown {
+	public function setStyle(style: FormspecDropDownStyle): DropDown {
 		this.style = style;
 		return this;
 	}
@@ -51,13 +51,13 @@ class FormspecDropDown extends FormspecElement {
 		return cast this.style;
 	}
 
-	public function setPos(x: Float, y: Float): FormspecDropDown {
+	public function setPos(x: Float, y: Float): DropDown {
 		this.x = x;
 		this.y = y;
 		return this;
 	}
 
-	public function setSize(width: Float, height: Float): FormspecDropDown {
+	public function setSize(width: Float, height: Float): DropDown {
 		this.width = width;
 		this.height = height;
 		return this;
