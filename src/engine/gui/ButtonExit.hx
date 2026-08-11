@@ -1,7 +1,7 @@
 package src.engine.gui;
 
 import src.engine.gui.Formspec.FormspecElement;
-import src.engine.gui.FormspecButton.FormspecButtonStyle;
+import src.engine.gui.Button.FormspecButtonStyle;
 
 /**
  * When clicked, fields will be sent and the form will quit.
