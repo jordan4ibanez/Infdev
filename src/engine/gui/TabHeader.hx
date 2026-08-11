@@ -48,12 +48,12 @@ class TabHeader extends FormspecElement {
 		return 'tabheader[${this.x},${this.y};${this.width},${this.height};${name};${this.tabs};${this.currentTab};${this.transparent};${this.drawBorder}]';
 	}
 
-	public function setStyle(style: FormspecTabHeaderStyle): TabHeader {
+	public function setStyle(style: TabHeaderStyle): TabHeader {
 		this.style = style;
 		return this;
 	}
 
-	public function getStyle(): FormspecTabHeaderStyle {
+	public function getStyle(): TabHeaderStyle {
 		return cast this.style;
 	}
 
@@ -75,7 +75,7 @@ class TabHeader extends FormspecElement {
 	}
 }
 
-class FormspecTabHeaderStyle extends FormspecStyle {
+class TabHeaderStyle extends FormspecStyle {
 	var sound: String;
 	var textColor: String;
 
@@ -102,12 +102,12 @@ class FormspecTabHeaderStyle extends FormspecStyle {
 		return output;
 	}
 
-	public function setSound(sound: String): FormspecTabHeaderStyle {
+	public function setSound(sound: String): TabHeaderStyle {
 		this.sound = sound;
 		return this;
 	}
 
-	public function setTextColor(textColor: String): FormspecTabHeaderStyle {
+	public function setTextColor(textColor: String): TabHeaderStyle {
 		this.textColor = textColor;
 		return this;
 	}

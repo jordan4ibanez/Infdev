@@ -19,19 +19,19 @@ class Label extends FormspecElement {
 		this.height = height;
 		this.label = label;
 
-		this.style = new FormspecLabelStyle();
+		this.style = new LabelStyle();
 	}
 
 	public function toFormspec(name: String): String {
 		return 'label[${this.x},${this.y};${this.width},${this.height};${this.label}]';
 	}
 
-	public function setStyle(style: FormspecLabelStyle): Label {
+	public function setStyle(style: LabelStyle): Label {
 		this.style = style;
 		return this;
 	}
 
-	public function getStyle(): FormspecLabelStyle {
+	public function getStyle(): LabelStyle {
 		return cast this.style;
 	}
 
@@ -58,7 +58,7 @@ class Label extends FormspecElement {
  * For every label you use it will inherit the previous styling and it is random.
  * So if any labels are styled, style them all.
  */
-class FormspecLabelStyle extends FormspecStyle {
+class LabelStyle extends FormspecStyle {
 	var font: String; // ! Done
 	var fontSize: Float; // ! Done
 	var noclip: Bool; // ! Done
@@ -101,12 +101,12 @@ class FormspecLabelStyle extends FormspecStyle {
 		return output;
 	}
 
-	public function setFont(font: String): FormspecLabelStyle {
+	public function setFont(font: String): LabelStyle {
 		this.font = font;
 		return this;
 	}
 
-	public function setFontSize(?fontSize: Float): FormspecLabelStyle {
+	public function setFontSize(?fontSize: Float): LabelStyle {
 		if (fontSize == null) {
 			this.fontSize = FormspecStyle.FONT_SIZE_DEFAULT;
 		} else {
@@ -115,22 +115,22 @@ class FormspecLabelStyle extends FormspecStyle {
 		return this;
 	}
 
-	public function setNoclip(noclip: Bool): FormspecLabelStyle {
+	public function setNoclip(noclip: Bool): LabelStyle {
 		this.noclip = noclip;
 		return this;
 	}
 
-	public function setTextColor(textColor: String): FormspecLabelStyle {
+	public function setTextColor(textColor: String): LabelStyle {
 		this.textColor = textColor;
 		return this;
 	}
 
-	public function setHorizontalAlign(horizontalAlign: FormspecHorizontalAlignment): FormspecLabelStyle {
+	public function setHorizontalAlign(horizontalAlign: FormspecHorizontalAlignment): LabelStyle {
 		this.horizontalAlignment = horizontalAlign;
 		return this;
 	}
 
-	public function setVerticalAlign(verticalAlign: FormspecVerticalAlignment): FormspecLabelStyle {
+	public function setVerticalAlign(verticalAlign: FormspecVerticalAlignment): LabelStyle {
 		this.verticalAlignment = verticalAlign;
 		return this;
 	}

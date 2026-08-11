@@ -112,7 +112,7 @@ final class PlayerInventoryFormspec {
 			true,
 			1,
 			tabs)
-			.setStyle(new FormspecTabHeaderStyle()
+			.setStyle(new TabHeaderStyle()
 				.setSound("infdev_interface_button")
 				.setTextColor("#FFFF00"))
 			.setAction(tabNavigationAction));
@@ -141,7 +141,7 @@ final class PlayerInventoryFormspec {
 		// ? Game Settings page.
 		f.addElement(tabs[5].name, "todo_settings", new Label(0, 3, 0, 0, "Todo"));
 		f.addElement(tabs[5].name, "sample_setting", new DropDown(1, 2, 3, 0.5, 1, "test", "a thing", "another")
-			.setStyle(new FormspecDropDownStyle().setSound("infdev_interface_button")));
+			.setStyle(new DropDownStyle().setSound("infdev_interface_button")));
 		// ? Credits page.
 		f.addElement(tabs[6].name, "todo_credits", new Label(0, 3, 0, 0, "Todo"));
 		return f;

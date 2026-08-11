@@ -24,19 +24,19 @@ class TextArea extends FormspecElement {
 			this.defaultText = defaultText;
 		}
 
-		this.style = new FormspecTextAreaStyle();
+		this.style = new TextAreaStyle();
 	}
 
 	public function toFormspec(name: String): String {
 		return 'textarea[${this.x},${this.y};${this.width},${this.height};${name};${this.label};${this.defaultText}]';
 	}
 
-	public function setStyle(style: FormspecTextAreaStyle): TextArea {
+	public function setStyle(style: TextAreaStyle): TextArea {
 		this.style = style;
 		return this;
 	}
 
-	public function getStyle(): FormspecTextAreaStyle {
+	public function getStyle(): TextAreaStyle {
 		return cast this.style;
 	}
 
@@ -63,7 +63,7 @@ class TextArea extends FormspecElement {
 	}
 }
 
-class FormspecTextAreaStyle extends FormspecStyle {
+class TextAreaStyle extends FormspecStyle {
 	var alpha: Bool; // !
 	var backgroundColor: String; // !
 	var backgroundImage: String; // !
@@ -127,27 +127,27 @@ class FormspecTextAreaStyle extends FormspecStyle {
 		return output;
 	}
 
-	public function setAlpha(alpha: Bool): FormspecTextAreaStyle {
+	public function setAlpha(alpha: Bool): TextAreaStyle {
 		this.alpha = alpha;
 		return this;
 	}
 
-	public function setBackgroundColor(backgroundColor: String): FormspecTextAreaStyle {
+	public function setBackgroundColor(backgroundColor: String): TextAreaStyle {
 		this.backgroundColor = backgroundColor;
 		return this;
 	}
 
-	public function setBackgroundImage(backgroundImage: String): FormspecTextAreaStyle {
+	public function setBackgroundImage(backgroundImage: String): TextAreaStyle {
 		this.backgroundImage = backgroundImage;
 		return this;
 	}
 
-	public function setFont(font: String): FormspecTextAreaStyle {
+	public function setFont(font: String): TextAreaStyle {
 		this.font = font;
 		return this;
 	}
 
-	public function setFontSize(?fontSize: Float): FormspecTextAreaStyle {
+	public function setFontSize(?fontSize: Float): TextAreaStyle {
 		if (fontSize == null) {
 			this.fontSize = FormspecStyle.FONT_SIZE_DEFAULT;
 		} else {
@@ -156,32 +156,32 @@ class FormspecTextAreaStyle extends FormspecStyle {
 		return this;
 	}
 
-	public function setBorder(border: Bool): FormspecTextAreaStyle {
+	public function setBorder(border: Bool): TextAreaStyle {
 		this.border = border;
 		return this;
 	}
 
-	public function setContentOffset(x: Float, y: Float): FormspecTextAreaStyle {
+	public function setContentOffset(x: Float, y: Float): TextAreaStyle {
 		this.contentOffset = new Vec2(x, y);
 		return this;
 	}
 
-	public function setNoclip(noclip: Bool): FormspecTextAreaStyle {
+	public function setNoclip(noclip: Bool): TextAreaStyle {
 		this.noclip = noclip;
 		return this;
 	}
 
-	public function setPadding(x: Float, y: Float): FormspecTextAreaStyle {
+	public function setPadding(x: Float, y: Float): TextAreaStyle {
 		this.padding = new Vec2(x, y);
 		return this;
 	}
 
-	public function setSound(sound: String): FormspecTextAreaStyle {
+	public function setSound(sound: String): TextAreaStyle {
 		this.sound = sound;
 		return this;
 	}
 
-	public function setTextColor(textColor: String): FormspecTextAreaStyle {
+	public function setTextColor(textColor: String): TextAreaStyle {
 		this.textColor = textColor;
 		return this;
 	}

@@ -1,7 +1,7 @@
 package src.engine.gui;
 
+import src.engine.gui.Button.ButtonStyle;
 import src.engine.gui.Formspec.FormspecElement;
-import src.engine.gui.Button.FormspecButtonStyle;
 
 /**
  * When clicked, fields will be sent and the form will quit.
@@ -21,19 +21,19 @@ class ButtonExit extends FormspecElement {
 		this.height = height;
 		this.label = label;
 
-		this.style = new FormspecButtonStyle();
+		this.style = new ButtonStyle();
 	}
 
 	public function toFormspec(name: String): String {
 		return 'button_exit[${this.x},${this.y};${this.width},${this.height};${name};${this.label}]';
 	}
 
-	public function setStyle(style: FormspecButtonStyle): ButtonExit {
+	public function setStyle(style: ButtonStyle): ButtonExit {
 		this.style = style;
 		return this;
 	}
 
-	public function getStyle(): FormspecButtonStyle {
+	public function getStyle(): ButtonStyle {
 		return cast this.style;
 	}
 

@@ -42,12 +42,12 @@ class DropDown extends FormspecElement {
 		return 'dropdown[${this.x},${this.y};${this.width},${this.height};${name};${this.items};${this.currentItem};true]';
 	}
 
-	public function setStyle(style: FormspecDropDownStyle): DropDown {
+	public function setStyle(style: DropDownStyle): DropDown {
 		this.style = style;
 		return this;
 	}
 
-	public function getStyle(): FormspecDropDownStyle {
+	public function getStyle(): DropDownStyle {
 		return cast this.style;
 	}
 
@@ -64,7 +64,7 @@ class DropDown extends FormspecElement {
 	}
 }
 
-class FormspecDropDownStyle extends FormspecStyle {
+class DropDownStyle extends FormspecStyle {
 	var sound: String;
 
 	public function new() {}
@@ -86,7 +86,7 @@ class FormspecDropDownStyle extends FormspecStyle {
 		return output;
 	}
 
-	public function setSound(sound: String): FormspecDropDownStyle {
+	public function setSound(sound: String): DropDownStyle {
 		this.sound = sound;
 		return this;
 	}

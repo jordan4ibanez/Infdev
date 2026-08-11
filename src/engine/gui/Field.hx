@@ -27,7 +27,7 @@ class Field extends FormspecElement {
 			this.defaultText = defaultText;
 		}
 
-		this.style = new FormspecFieldStyle();
+		this.style = new FieldStyle();
 	}
 
 	public function toFormspec(name: String): String {
@@ -38,12 +38,12 @@ class Field extends FormspecElement {
 		return output + 'field[${this.x},${this.y};${this.width},${this.height};${name};${this.label};${this.defaultText}]';
 	}
 
-	public function setStyle(style: FormspecFieldStyle): Field {
+	public function setStyle(style: FieldStyle): Field {
 		this.style = style;
 		return this;
 	}
 
-	public function getStyle(): FormspecFieldStyle {
+	public function getStyle(): FieldStyle {
 		return cast this.style;
 	}
 
@@ -76,7 +76,7 @@ class Field extends FormspecElement {
 }
 
 // todo: just copy paste this into pwdfield
-class FormspecFieldStyle extends FormspecStyle {
+class FieldStyle extends FormspecStyle {
 	var border: Bool; // ! Done
 	var font: String; // ! Done
 	var fontSize: Float; // ! Done
@@ -123,17 +123,17 @@ class FormspecFieldStyle extends FormspecStyle {
 		return output;
 	}
 
-	public function setBorder(border: Bool): FormspecFieldStyle {
+	public function setBorder(border: Bool): FieldStyle {
 		this.border = border;
 		return this;
 	}
 
-	public function setFont(font: String): FormspecFieldStyle {
+	public function setFont(font: String): FieldStyle {
 		this.font = font;
 		return this;
 	}
 
-	public function setFontSize(?fontSize: Float): FormspecFieldStyle {
+	public function setFontSize(?fontSize: Float): FieldStyle {
 		if (fontSize == null) {
 			this.fontSize = FormspecStyle.FONT_SIZE_DEFAULT;
 		} else {
@@ -142,22 +142,22 @@ class FormspecFieldStyle extends FormspecStyle {
 		return this;
 	}
 
-	public function setNoclip(noclip: Bool): FormspecFieldStyle {
+	public function setNoclip(noclip: Bool): FieldStyle {
 		this.noclip = noclip;
 		return this;
 	}
 
-	public function setTextColor(textColor: String): FormspecFieldStyle {
+	public function setTextColor(textColor: String): FieldStyle {
 		this.textColor = textColor;
 		return this;
 	}
 
-	public function setHorizontalAlign(horizontalAlign: FormspecHorizontalAlignment): FormspecFieldStyle {
+	public function setHorizontalAlign(horizontalAlign: FormspecHorizontalAlignment): FieldStyle {
 		this.horizontalAlignment = horizontalAlign;
 		return this;
 	}
 
-	public function setVerticalAlign(verticalAlign: FormspecVerticalAlignment): FormspecFieldStyle {
+	public function setVerticalAlign(verticalAlign: FormspecVerticalAlignment): FieldStyle {
 		this.verticalAlignment = verticalAlign;
 		return this;
 	}

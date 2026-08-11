@@ -18,19 +18,19 @@ class Button extends FormspecElement {
 		this.height = height;
 		this.label = label;
 
-		this.style = new FormspecButtonStyle();
+		this.style = new ButtonStyle();
 	}
 
 	public function toFormspec(name: String): String {
 		return 'button[${this.x},${this.y};${this.width},${this.height};${name};${this.label}]';
 	}
 
-	public function setStyle(style: FormspecButtonStyle): Button {
+	public function setStyle(style: ButtonStyle): Button {
 		this.style = style;
 		return this;
 	}
 
-	public function getStyle(): FormspecButtonStyle {
+	public function getStyle(): ButtonStyle {
 		return cast this.style;
 	}
 
@@ -53,7 +53,7 @@ class Button extends FormspecElement {
 }
 
 // todo: use this on: button_exit, image_button, item_image_button
-class FormspecButtonStyle extends FormspecStyle {
+class ButtonStyle extends FormspecStyle {
 	var alpha: Bool; // !
 	var backgroundColor: String; // !
 	var backgroundImage: String; // !
@@ -117,27 +117,27 @@ class FormspecButtonStyle extends FormspecStyle {
 		return output;
 	}
 
-	public function setAlpha(alpha: Bool): FormspecButtonStyle {
+	public function setAlpha(alpha: Bool): ButtonStyle {
 		this.alpha = alpha;
 		return this;
 	}
 
-	public function setBackgroundColor(backgroundColor: String): FormspecButtonStyle {
+	public function setBackgroundColor(backgroundColor: String): ButtonStyle {
 		this.backgroundColor = backgroundColor;
 		return this;
 	}
 
-	public function setBackgroundImage(backgroundImage: String): FormspecButtonStyle {
+	public function setBackgroundImage(backgroundImage: String): ButtonStyle {
 		this.backgroundImage = backgroundImage;
 		return this;
 	}
 
-	public function setFont(font: String): FormspecButtonStyle {
+	public function setFont(font: String): ButtonStyle {
 		this.font = font;
 		return this;
 	}
 
-	public function setFontSize(?fontSize: Float): FormspecButtonStyle {
+	public function setFontSize(?fontSize: Float): ButtonStyle {
 		if (fontSize == null) {
 			this.fontSize = FormspecStyle.FONT_SIZE_DEFAULT;
 		} else {
@@ -146,32 +146,32 @@ class FormspecButtonStyle extends FormspecStyle {
 		return this;
 	}
 
-	public function setBorder(border: Bool): FormspecButtonStyle {
+	public function setBorder(border: Bool): ButtonStyle {
 		this.border = border;
 		return this;
 	}
 
-	public function setContentOffset(x: Float, y: Float): FormspecButtonStyle {
+	public function setContentOffset(x: Float, y: Float): ButtonStyle {
 		this.contentOffset = new Vec2(x, y);
 		return this;
 	}
 
-	public function setNoclip(noclip: Bool): FormspecButtonStyle {
+	public function setNoclip(noclip: Bool): ButtonStyle {
 		this.noclip = noclip;
 		return this;
 	}
 
-	public function setPadding(x: Float, y: Float): FormspecButtonStyle {
+	public function setPadding(x: Float, y: Float): ButtonStyle {
 		this.padding = new Vec2(x, y);
 		return this;
 	}
 
-	public function setSound(sound: String): FormspecButtonStyle {
+	public function setSound(sound: String): ButtonStyle {
 		this.sound = sound;
 		return this;
 	}
 
-	public function setTextColor(textColor: String): FormspecButtonStyle {
+	public function setTextColor(textColor: String): ButtonStyle {
 		this.textColor = textColor;
 		return this;
 	}
