@@ -53,4 +53,9 @@ plant_mine: https://freesound.org/people/markbolden/sounds/421790/ (CC0)
 
 ## Interface:
 
-indev_interface_button.1: https://freesound.org/people/schoman3/sounds/506912/ (CC0)
+infdev_interface_button: https://freesound.org/people/ARodLRU2018/sounds/662317/ (CC0)
+
+infdev_interface_click: https://freesound.org/people/Poiqz/sounds/394789/ (CC0)
+
+indev_interface_unlock: https://freesound.org/people/schoman3/sounds/506912/ (CC0)
+
