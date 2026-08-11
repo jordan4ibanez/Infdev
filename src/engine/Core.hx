@@ -253,8 +253,7 @@ extern class Core {
 
 	// todo: type inventoryInfo
 	@:native("register_on_player_inventory_action")
-	static function registerOnPlayerInventoryAction(func: (player: Null<ObjectRefPlayer>, action: String, inventory: InvRef, inventoryInfo: Table<String,
-		Dynamic>) -> Void): Void;
+	static function registerOnPlayerInventoryAction(func: (player: Null<ObjectRefPlayer>, action: String, inventory: InvRef, inventoryInfo: InventoryActionInfo) -> Void): Void;
 
 	@:native("sound_play")
 	static function soundPlay(spec: SimpleSoundSpec, parameters: SoundParameterTable, ?ephemeral: Bool): Null<Int>;
