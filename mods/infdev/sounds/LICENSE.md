@@ -57,5 +57,6 @@ infdev_interface_button: https://freesound.org/people/ARodLRU2018/sounds/662317/
 
 infdev_interface_click: https://freesound.org/people/Poiqz/sounds/394789/ (CC0)
 
-indev_interface_unlock: https://freesound.org/people/schoman3/sounds/506912/ (CC0)
+infdev_interface_unlock: https://freesound.org/people/schoman3/sounds/506912/ (CC0)
 
+infdev_interface_action: https://freesound.org/people/digital.arts.MA/sounds/729086/ (CC0)
