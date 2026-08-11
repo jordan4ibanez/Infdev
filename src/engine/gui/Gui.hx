@@ -324,6 +324,7 @@ class Gui {
 		if (thisPage.exists(elementName)) {
 			throw 'Tried to add element [${elementName}] into page [${pageName}] in formspec [${this.name}] when it already exists.';
 		}
+		formspecElement.origin = this;
 		thisPage.set(elementName, formspecElement);
 		this.tagElementInfo(elementName, formspecElement, false, pageName);
 		return this;
@@ -342,6 +343,7 @@ class Gui {
 		if (this.rootElements.exists(elementName)) {
 			throw 'Tried to add element [${elementName}] in formspec [${this.name}] when it already exists.';
 		}
+		formspecElement.origin = this;
 		this.rootElements.set(elementName, formspecElement);
 		this.tagElementInfo(elementName, formspecElement, true);
 		return this;
@@ -357,7 +359,7 @@ class Gui {
 	 * When the formspec closes, this action will run.
 	 * @param action 
 	 */
-	public function doActionOnClose(action: (thisFormspec: Gui) -> {}): Gui {
+	public function doActionOnClose(action: (thisFormspec: Gui) -> Void): Gui {
 		this.actionOnClose = action;
 		return this;
 	}
@@ -371,12 +373,23 @@ class Gui {
 		this.actionOnAnyUpdate = action;
 		return this;
 	}
+
+	public function tagActionable(elementName: String): Void {
+		var element = this.elementMap.get(elementName);
+		if (element == null) {
+			throw 'Element ${elementName} doesn\'t exist in GUI ${this.name}';
+		}
+		element.actionable = true;
+	}
 }
 
 // todo: @:noCompletion
 abstract class FormspecElement {
 	@:allow(src.engine.gui.Gui)
 	var style: FormspecStyle;
+
+	// This is a reference to the base GUI. It is assigned by the GUI.
+	public var origin: Gui;
 
 	// There were a few ways to write this, but this is probably the least bad.
 	// It's very flexible!

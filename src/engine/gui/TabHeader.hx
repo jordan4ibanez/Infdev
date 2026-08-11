@@ -1,5 +1,6 @@
 package src.engine.gui;
 
+import lua.Table;
 import src.engine.gui.Gui.FormspecElement;
 import src.engine.gui.Gui.FormspecStyle;
 
@@ -9,43 +10,44 @@ typedef TabInfo = {
 	var display: String;
 }
 
+// This essentially works as an API to implement a row of buttons.
+// It is an external controller for buttons in the GUI.
 class TabHeader extends FormspecElement {
-	var x: Float; // ? Done.
-	var y: Float; // ? Done.
-	var width: Float; // ? Done.
-	var height: Float; // ? Done
 	var currentTab: Int;
-	var transparent = false;
-	var drawBorder = false;
-	// Tabs are a fixed size because I don't even want to think about making
-	// tabs dynamic. That sounds horrifying.
-	var tabs: String = "";
+	// This is for this controller
+	var tabs: Array<Button> = [];
+	// ! Never delete this, it's used for action assignment.
+	var tempName: String;
 
-	public function new(x: Float, y: Float, width: Float, height: Float, drawBorder: Bool, defaultTab: Int, tabsArray: Array<TabInfo>) {
-		this.x = x;
-		this.y = y;
-		this.width = width;
-		this.height = height;
-		this.drawBorder = drawBorder;
-		this.currentTab = defaultTab;
-
+	public function new(page: Null<String>, isRootElement: Bool, baseElementName: String, basePosX: Float, basePosY: Float, tabWidth: Float, tabHeight: Float, spaceBetweenTabs: Float, drawBorder: Bool, defaultTab: Int, tabsArray: Array<TabInfo>) {
 		// Convert the tabs array into a string.
 		var length = tabsArray.length;
 		if (length == 0) {
 			throw 'Blank tabs array given for formspec header!';
 		}
 
-		for (index => tab in tabsArray) {
-			this.tabs += tab.display;
-			// This may be a mess but I want it to be a nice mess.
-			if (index + 1 < length) {
-				this.tabs += ",";
+		this.tempName = baseElementName;
+
+		// The origin formspec is injected into the element immediately after it is put into it.
+		// So it needs to wait 1 server tick.
+		Core.after(0, () -> {
+			for (index => tab in tabsArray) {
+				var thisButton = new Button(basePosX + (index * tabWidth), basePosY, tabWidth, tabHeight, "test");
+				tabs.push(thisButton);
+				if (isRootElement) {
+					this.origin.addRootElement('${baseElementName}_${index}', thisButton);
+				} else {
+					if (page == null || page == "") {
+						throw 'Forgot to add in page for a non-root tab header';
+					}
+					this.origin.addElement(page, '${baseElementName}_${index}', thisButton);
+				}
 			}
-		}
+		});
 	}
 
 	public function toFormspec(name: String): String {
-		return 'tabheader[${this.x},${this.y};${this.width},${this.height};${name};${this.tabs};${this.currentTab};${this.transparent};${this.drawBorder}]';
+		return "";
 	}
 
 	public function setStyle(style: TabHeaderStyle): TabHeader {
@@ -57,20 +59,25 @@ class TabHeader extends FormspecElement {
 		return cast this.style;
 	}
 
-	public function setPos(x: Float, y: Float): TabHeader {
-		this.x = x;
-		this.y = y;
-		return this;
-	}
-
-	public function setSize(width: Float, height: Float): TabHeader {
-		this.width = width;
-		this.height = height;
-		return this;
-	}
-
 	public function setCurrentTab(tab: Int): TabHeader {
 		this.currentTab = tab;
+		return this;
+	}
+
+	override function setAction(action: (thisFormspec: Gui, thisElement: FormspecElement, fields: Table<String, String>) -> Void): FormspecElement {
+		super.setAction(action);
+		// Delay it so it can be tagged as actionable in the GUI.
+		Core.after(0, () -> {
+			for (index => tab in this.tabs) {
+				tab.setAction(action);
+				if (this.origin == null) {
+					throw 'Null origin in tab header when applying button actions.';
+				}
+				this.origin.tagActionable('${this.tempName}_${index}');
+			}
+			// Free the memory.
+			this.tempName = null;
+		});
 		return this;
 	}
 }

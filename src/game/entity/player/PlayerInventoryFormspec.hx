@@ -1,11 +1,11 @@
 package src.game.entity.player;
 
-import lua.Lua;
 import lua.Table;
 import src.engine.Core;
 import src.engine.definition.sound.SimpleSoundSpecTable;
 import src.engine.definition.sound.SoundParameterTable;
 import src.engine.entity.objectref.ObjectRefPlayer;
+import src.engine.gui.Button;
 import src.engine.gui.DropDown;
 import src.engine.gui.Gui;
 import src.engine.gui.Label;
@@ -106,9 +106,13 @@ final class PlayerInventoryFormspec {
 	var formspec: Gui = (() -> {
 		var f = new Gui("", "inventory");
 		// ? Root elements.
+		f.addRootElement("fixme", new Button(1, 3, 1, 1, "fix"));
 		f.addRootElement(navigationBarName, new TabHeader(
+			null,
+			true,
+			navigationBarName,
 			0.09, 0.625,
-			9.82, 0.5,
+			1, 0.5, 0,
 			true,
 			1,
 			tabs)
@@ -152,6 +156,15 @@ final class PlayerInventoryFormspec {
 		this.formspec.setPlayer(player);
 
 		playerTimerMap.set(player.getPlayerName(), false);
+
+		// ! Never remove this. The engine formspec code for the inventory is a mess and needs this to hold the data.
+		Core.after(0, () -> {
+			this.player.setInventoryFormspec(this.serialize());
+		});
+		this.formspec.doActionOnClose((thisFormspec) -> {
+			this.player.setInventoryFormspec(this.serialize());
+		});
+		// ! End.
 	}
 
 	public function doPlayerInventorySoundReset() {
