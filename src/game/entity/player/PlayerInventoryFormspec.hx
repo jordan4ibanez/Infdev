@@ -2,6 +2,9 @@ package src.game.entity.player;
 
 import lua.Lua;
 import lua.Table;
+import src.engine.Core;
+import src.engine.definition.sound.SimpleSoundSpecTable;
+import src.engine.definition.sound.SoundParameterTable;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.gui.Formspec;
 import src.engine.gui.FormspecDropDown;
@@ -14,6 +17,34 @@ final class PlayerInventoryFormspec {
 	var player: ObjectRefPlayer;
 
 	static inline final navigationBarName = "navigation";
+
+	// This can't be bolted in and it has to be hacked on.
+	// This is the least bad place to put this.
+	static function deployPlayerInventoryMovementSounds(): Void {
+		Core.registerOnPlayerInventoryAction((player, action, inventory, inventoryInfo) -> {
+			// Something was hacked into the game.
+			if (!player.isPlayer()) {
+				return;
+			}
+
+			// Player threw an item out of their inventory.
+			// Todo: Maybe a special sound for this?
+			if (inventoryInfo.to_list == null) {
+				return;
+			}
+
+			Core.soundPlay(
+				new SimpleSoundSpecTable("infdev_inventory_action"),
+				new SoundParameterTable()
+					.setToPlayer(player.getPlayerName())
+					.setGain(0.25)
+			);
+		});
+	}
+
+	static function __init__() {
+		deployPlayerInventoryMovementSounds();
+	}
 
 	static final tabs: Array<TabInfo> = [
 		{
@@ -96,6 +127,10 @@ final class PlayerInventoryFormspec {
 	public function new(player: ObjectRefPlayer) {
 		this.player = player;
 		this.formspec.setPlayer(player);
+	}
+
+	public function whenPlayerLeaves(): Void {
+
 	}
 
 	// This is for when a player clicks the tabs at the top of their inventory.

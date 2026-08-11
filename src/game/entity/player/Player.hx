@@ -107,6 +107,7 @@ final class Player {
 	}
 
 	public function onDeactivate(removal: Bool) {
+		this.inventoryFormspec.whenPlayerLeaves();
 		// trace("on_deactivate?");
 	}
 
