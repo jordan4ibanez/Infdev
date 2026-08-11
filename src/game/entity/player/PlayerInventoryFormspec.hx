@@ -59,7 +59,7 @@ final class PlayerInventoryFormspec {
 			1,
 			tabs)
 			.setStyle(new FormspecTabHeaderStyle()
-				.setSound("lever")
+				.setSound("infdev_interface_button")
 				.setTextColor("#FFFF00"))
 			.setAction(tabNavigationAction));
 		var hotbarPosY = 5.8;
@@ -87,7 +87,7 @@ final class PlayerInventoryFormspec {
 		// ? Game Settings page.
 		f.addElement(tabs[5].name, "todo_settings", new FormspecLabel(0, 3, 0, 0, "Todo"));
 		f.addElement(tabs[5].name, "sample_setting", new FormspecDropDown(1, 2, 3, 0.5, 1, "test", "a thing", "another")
-			.setStyle(new FormspecDropDownStyle().setSound("lever")));
+			.setStyle(new FormspecDropDownStyle().setSound("infdev_interface_button")));
 		// ? Credits page.
 		f.addElement(tabs[6].name, "todo_credits", new FormspecLabel(0, 3, 0, 0, "Todo"));
 		return f;
