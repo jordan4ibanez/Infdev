@@ -4,7 +4,7 @@ import src.engine.gui.Formspec.FormspecElement;
 import src.engine.gui.Formspec.FormspecStyle;
 import src.engine.vector.Vec2;
 
-class FormspecButton extends FormspecElement {
+class Button extends FormspecElement {
 	var x: Float; // ? Done.
 	var y: Float; // ? Done.
 	var width: Float; // ? Done.
@@ -25,7 +25,7 @@ class FormspecButton extends FormspecElement {
 		return 'button[${this.x},${this.y};${this.width},${this.height};${name};${this.label}]';
 	}
 
-	public function setStyle(style: FormspecButtonStyle): FormspecButton {
+	public function setStyle(style: FormspecButtonStyle): Button {
 		this.style = style;
 		return this;
 	}
@@ -34,19 +34,19 @@ class FormspecButton extends FormspecElement {
 		return cast this.style;
 	}
 
-	public function setPos(x: Float, y: Float): FormspecButton {
+	public function setPos(x: Float, y: Float): Button {
 		this.x = x;
 		this.y = y;
 		return this;
 	}
 
-	public function setSize(width: Float, height: Float): FormspecButton {
+	public function setSize(width: Float, height: Float): Button {
 		this.width = width;
 		this.height = height;
 		return this;
 	}
 
-	public function setLabel(label: String): FormspecButton {
+	public function setLabel(label: String): Button {
 		this.label = label;
 		return this;
 	}
