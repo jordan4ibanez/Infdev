@@ -1,6 +1,7 @@
 package src.engine.gui;
 
 import src.engine.gui.Gui.GuiElement;
+import src.engine.gui.Gui.GuiStyle;
 
 /*
 	This is fucking horrible.
@@ -32,6 +33,15 @@ class CheckBox extends GuiElement {
 		return 'checkbox[${this.x},${this.y};${name};${this.label};${this.selected}]';
 	}
 
+	public function setStyle(style: CheckBoxStyle): CheckBox {
+		this.style = style;
+		return this;
+	}
+
+	public function getStyle(): CheckBoxStyle {
+		return cast this.style;
+	}
+
 	public function setPos(x: Float, y: Float): CheckBox {
 		this.x = x;
 		this.y = y;
@@ -40,6 +50,34 @@ class CheckBox extends GuiElement {
 
 	public function setLabel(label: String): CheckBox {
 		this.label = label;
+		return this;
+	}
+}
+
+class CheckBoxStyle extends GuiStyle {
+	var sound: String; // !
+
+	public function new() {}
+
+	public function toFormspec(name: String, windowScale: Float): String {
+		append('style[${name}');
+
+		if (this.sound != null) {
+			append('sound=${this.sound}');
+		}
+
+		// And finally close out the string.
+		append("]", true);
+
+		// Then swap and clear.
+		var output = data;
+		data = "";
+
+		return output;
+	}
+
+	public function setSound(sound: String): CheckBoxStyle {
+		this.sound = sound;
 		return this;
 	}
 }
