@@ -154,7 +154,6 @@ final class PlayerInventoryFormspec {
 	public function new(player: ObjectRefPlayer) {
 		this.player = player;
 		this.formspec.setPlayer(player);
-
 		playerTimerMap.set(player.getPlayerName(), false);
 
 		// ! Never remove this. The engine formspec code for the inventory is a mess and needs this to hold the data.
@@ -177,9 +176,21 @@ final class PlayerInventoryFormspec {
 
 	// This is for when a player clicks the tabs at the top of their inventory.
 	static function tabNavigationAction(thisFormspec: Gui, thisElement: FormspecElement, fields: Table<String, String>) {
-		var page = Lua.tonumber(fields[cast navigationBarName]);
-		(cast thisElement : TabHeader).setCurrentTab(page);
-		thisFormspec.goToPage(tabs[page - 1].name);
+		final nameFilterRegex = '^${navigationBarName}_%d+$';
+		final nameProcessingFilter = '^${navigationBarName}_';
+
+		// todo: turn this into a function somehow.
+		LuaLoop.nativePairs(k, v, fields, {
+			untyped print(k);
+
+			if (untyped __lua__('string.match({0}, {1})', k, nameFilterRegex)) {
+				var indexString = untyped __lua__('string.gsub({0}, {1}, "")', k, nameProcessingFilter);
+				var index = untyped __lua__('tonumber({0})', indexString);
+				thisFormspec.goToPage(tabs[index].name);
+
+				LuaLoop.breakLoop();
+			}
+		});
 	}
 
 	public function serialize(): String {
