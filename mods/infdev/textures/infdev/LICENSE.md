@@ -1,7 +1,7 @@
-All textures made from scratch in Infdev are under CC-BY-SA-3.0.
+All textures made from scratch in Infdev are under the Creative Commons CC0 1.0 Universal license.
 
-For more details:
-http://creativecommons.org/licenses/by-sa/3.0/
+See the Creative Commons CC0 1.0 Universal license for more details:
+https://creativecommons.org/publicdomain/zero/1.0/
 
 If you have no internet access, here is an offline copy of the license:
-[CC-BY-SA-3.0](../../../licenses/cc-by-sa-3.0.md)
+[Creative Commons CC0 1.0 Universal](../../licenses/cc0-universal-1.0.md)
