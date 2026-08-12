@@ -280,3 +280,10 @@ Every sound (including music) are licensed under:
 To see individual licenses for each file as well as an offline copy of the licenses please see: [mods/infdev/sounds/LICENSE.md](mods/infdev/sounds/LICENSE.md)
 
 
+## Models:
+
+Every model is licensed under:
+- Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0). https://creativecommons.org/licenses/by-sa/3.0/deed.en (this will be removed in the next release)
+- Creative Commons 0 License. https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
+
+To see individual licenses for each file as well as an offline copy of the licenses please see: [mods/infdev/models/model_licensing_directory.md](mods/infdev/models/model_licensing_directory.md)
