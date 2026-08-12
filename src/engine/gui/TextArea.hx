@@ -66,7 +66,7 @@ class TextArea extends GuiElement {
 	}
 
 	public function saveOnCloseAction(data: Null<String>) {
-		untyped print("save text area");
+		untyped print("save text area", data);
 	}
 }
 
