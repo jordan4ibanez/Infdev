@@ -121,6 +121,10 @@ final class PlayerInventoryFormspec {
 				.setSound("infdev_interface_button")
 				.setTextColor("#FFFF00")
 				.setFontSize(20))
+			.setSelectedStyle(new TabHeaderStyle()
+				.setFontSize(20)
+				.setTextColor("red")
+				.setBackgroundColor("gray"))
 			.setAction(tabNavigationAction));
 		var hotbarPosY = 5.8;
 		var invPosY = 6.655;
