@@ -413,7 +413,7 @@ abstract class GuiElement {
 	@:allow(src.engine.gui.Gui)
 	var style: GuiStyle;
 	@:allow(src.engine.gui.Gui)
-	var isPersistent: Bool = true;
+	var isPersistent: Bool = false;
 
 	// This is a reference to the base GUI. It is assigned by the GUI.
 	public var origin: Gui;
@@ -426,6 +426,10 @@ abstract class GuiElement {
 	public function setAction(action: (thisFormspec: Gui, thisElement: GuiElement, fields: Table<String, String>) -> Void): GuiElement {
 		this.action = action;
 		return this;
+	}
+
+	public function setPersistent(isPersistent: Bool): Void {
+		this.isPersistent = isPersistent;
 	}
 
 	// todo: @:noCompletion
