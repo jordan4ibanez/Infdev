@@ -183,13 +183,17 @@ final class PlayerInventoryFormspec {
 
 		// todo: turn this into a function somehow.
 		LuaLoop.nativePairs(k, v, fields, {
-			untyped print(k);
-
 			if (untyped __lua__('string.match({0}, {1})', k, nameFilterRegex)) {
 				var indexString = untyped __lua__('string.gsub({0}, {1}, "")', k, nameProcessingFilter);
 				var index = untyped __lua__('tonumber({0})', indexString);
+				// For the tabs to display selection properly, it must go in this order.
+				var tabNavigatorElement = (cast thisFormspec.getRootElement(navigationBarName) : TabHeader);
+				// Stop players from spamming tab clicks.
+				if (tabNavigatorElement.getCurrentTab() == index) {
+					return;
+				}
+				tabNavigatorElement.setCurrentTab(index);
 				thisFormspec.goToPage(tabs[index].name);
-
 				LuaLoop.breakLoop();
 			}
 		});
