@@ -10,7 +10,7 @@ class LuantiCompilerFix {
 	// ! Debug mode only works in release compression due to the nature of how it needs to be injected.
 	static final DEBUG_MODE = false;
 	// This is for removing thousands of lines of code out of the lua code.
-	static final RELEASE_COMPRESSION = false;
+	static final RELEASE_COMPRESSION = true;
 
 	public static function patch(fileName: String) {
 		Context.onAfterGenerate(() -> {
