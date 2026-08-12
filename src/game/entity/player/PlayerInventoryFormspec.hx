@@ -11,6 +11,7 @@ import src.engine.gui.Gui;
 import src.engine.gui.Label;
 import src.engine.gui.List;
 import src.engine.gui.TabHeader;
+import src.engine.gui.TextArea;
 
 // This will actually save what tab you're on between logins.
 final class PlayerInventoryFormspec {
@@ -152,7 +153,10 @@ final class PlayerInventoryFormspec {
 		// ? Bartering Hall page.
 		f.addElement(tabs[4].name, "todo_barting", new Label(0, 3, 0, 0, "Todo"));
 		// ? Notes page.
-		f.addElement(tabs[5].name, "todo_notes", new Label(0, 3, 0, 0, "Todo"));
+		// todo: this needs a save button.
+		f.addElement(tabs[5].name, "note_taking_area", new TextArea(0.09, 0.75, 9.82, 9.15)
+			.setStyle(new TextAreaStyle()
+				.setFontSize(14)));
 		// ? Game Settings page.
 		f.addElement(tabs[6].name, "todo_settings", new Label(0, 3, 0, 0, "Todo"));
 		f.addElement(tabs[6].name, "sample_setting", new DropDown(1, 2, 3, 0.5, 1, "test", "a thing", "another")
