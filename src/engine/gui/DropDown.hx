@@ -1,9 +1,11 @@
 package src.engine.gui;
 
 import haxe.Rest;
+import lua.Lua;
 import src.engine.gui.Gui.GuiElement;
 import src.engine.gui.Gui.GuiStyle;
 
+// todo: 0 index this
 class DropDown extends GuiElement {
 	var x: Float; // ? Done.
 	var y: Float; // ? Done.
@@ -71,10 +73,7 @@ class DropDown extends GuiElement {
 	}
 
 	public function saveOnCloseAction(data: String) {
-		if (data == null) {
-			return;
-		}
-		// todo: save current selection.
+		this.currentItem = Lua.tonumber(data);
 	}
 }
 
