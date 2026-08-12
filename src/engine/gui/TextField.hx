@@ -80,8 +80,10 @@ class TextField extends GuiElement {
 	}
 
 	public function saveOnCloseAction(data: Null<String>) {
-		untyped print("text field needs duct tape");
-		// todo: allow saving the text.
+		if (data == null) {
+			return;
+		}
+		this.defaultText = data;
 	}
 }
 
