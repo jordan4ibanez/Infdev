@@ -17,6 +17,8 @@ final class Player {
 
 	var name: String;
 
+	var noSaveRanFirstGUIUpdate = false;
+
 	var shadowEntity: Null<ObjectRefEntity> = null;
 	var animationHandler: Null<PlayerAnimationHandler> = null;
 	var inventoryFormspec: Null<PlayerInventoryFormspec> = null;
@@ -66,6 +68,19 @@ final class Player {
 		return this.name;
 	}
 
+	function triggerFirstGUIUpdate(): Void {
+		var windowInfo = this.getWindowInformation();
+		if (windowInfo == null) {
+			return;
+		}
+		if (windowInfo.size == null) {
+			return;
+		}
+		untyped print(dump(this.getWindowInformation()));
+		this.object.setInventoryFormspec(this.inventoryFormspec.serialize());
+		this.noSaveRanFirstGUIUpdate = true;
+	}
+
 	// !
 	// !
 	// ! Do not add any custom functions below this line!
@@ -101,8 +116,6 @@ final class Player {
 
 		this.inventoryFormspec = new PlayerInventoryFormspec(this.object);
 
-		this.object.setInventoryFormspec(this.inventoryFormspec.serialize());
-
 		Lua.print(this.name + " joined the game.");
 	}
 
@@ -127,6 +140,11 @@ final class Player {
 		this.animationHandler.trackAnimationTimer(delta);
 		this.animationHandler.doPlayerAnimations(delta);
 		this.inventoryFormspec.doPlayerInventorySoundReset();
+
+		// This is randomly sent to the server so it has to be run like this.
+		if (!this.noSaveRanFirstGUIUpdate) {
+			this.triggerFirstGUIUpdate();
+		}
 	}
 
 	public function onPunch(puncher: Null<ObjectRefBase>, timeFromLastPunch: Float, toolCapabilities: Dynamic, dir: Dynamic, damager: Int): Bool {
