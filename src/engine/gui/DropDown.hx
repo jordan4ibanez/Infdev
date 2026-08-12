@@ -36,6 +36,8 @@ class DropDown extends GuiElement {
 				this.items += ",";
 			}
 		}
+
+		this.setPersistent(true);
 	}
 
 	public function toFormspec(name: String): String {
@@ -68,8 +70,9 @@ class DropDown extends GuiElement {
 		return this;
 	}
 
-	// No-op.
-	public function saveOnCloseAction(data: Null<String>) {}
+	public function saveOnCloseAction(data: Null<String>) {
+		// todo: save current selection.
+	}
 }
 
 class DropDownStyle extends GuiStyle {
