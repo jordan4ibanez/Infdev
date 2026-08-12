@@ -2,10 +2,10 @@ package src.game.entity.player;
 
 import lua.Table;
 import src.engine.Core;
+import src.engine.compilercode.LuaLoop;
 import src.engine.definition.sound.SimpleSoundSpecTable;
 import src.engine.definition.sound.SoundParameterTable;
 import src.engine.entity.objectref.ObjectRefPlayer;
-import src.engine.gui.Button;
 import src.engine.gui.DropDown;
 import src.engine.gui.Gui;
 import src.engine.gui.Label;
@@ -106,19 +106,21 @@ final class PlayerInventoryFormspec {
 	var formspec: Gui = (() -> {
 		var f = new Gui("", "inventory");
 		// ? Root elements.
-		f.addRootElement("fixme", new Button(1, 3, 1, 1, "fix"));
+		// f.addRootElement("fixme", new Button(1, 3, 1, 1, "fix"));
+		// f.addRootElement("blah", new TextField(1, 1, 3, 1));
 		f.addRootElement(navigationBarName, new TabHeader(
 			null,
 			true,
 			navigationBarName,
 			0.09, 0.625,
-			1, 0.5, 0,
+			1, 0.5, 1,
 			true,
 			1,
 			tabs)
 			.setStyle(new TabHeaderStyle()
 				.setSound("infdev_interface_button")
-				.setTextColor("#FFFF00"))
+				.setTextColor("#FFFF00")
+				.setFontSize(20))
 			.setAction(tabNavigationAction));
 		var hotbarPosY = 5.8;
 		var invPosY = 6.655;
