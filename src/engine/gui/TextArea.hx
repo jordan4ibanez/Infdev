@@ -24,6 +24,9 @@ class TextArea extends GuiElement {
 			this.defaultText = defaultText;
 		}
 
+		// Text areas are basically useless without default persistence.
+		this.setPersistent(true);
+
 		this.style = new TextAreaStyle();
 	}
 
