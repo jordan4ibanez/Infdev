@@ -38,8 +38,6 @@ have a method that marks them as persistent
 
 allow textboxes and forms to save their data into the object itself so it can be persistent
 
-noSave fields for entities in entity saver.
-
 put the players individual formspecs into individual save Metadata so the string doesn't become too big
 
 do this for the levels object in the player as well
