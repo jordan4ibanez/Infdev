@@ -3,6 +3,7 @@ package src.engine.gui;
 import lua.Table;
 import src.engine.gui.Button.ButtonStyle;
 import src.engine.gui.Gui.FormspecElement;
+import src.engine.vector.Vec3;
 
 // This is a simple helper for creating tabs in a formspec.
 typedef TabInfo = {
@@ -20,6 +21,8 @@ class TabHeader extends FormspecElement {
 	// ! Never delete this, it's used for action assignment.
 	var tempName: String;
 	var selectedStyle: TabHeaderStyle;
+	var rootPos: Vec3;
+	var rootSize: Vec3;
 
 	public function new(page: Null<String>, isRootElement: Bool, baseElementName: String, basePosX: Float, basePosY: Float, tabWidth: Float, tabHeight: Float, spaceBetweenTabs: Float, drawBorder: Bool, defaultTab: Int, tabsArray: Array<TabInfo>) {
 		// Convert the tabs array into a string.
@@ -27,7 +30,8 @@ class TabHeader extends FormspecElement {
 		if (length == 0) {
 			throw 'Blank tabs array given for formspec header!';
 		}
-
+		this.rootPos = new Vec3(basePosX, basePosY);
+		this.rootSize = new Vec3(tabWidth, tabHeight);
 		this.tempName = baseElementName;
 
 		// The origin formspec is injected into the element immediately after it is put into it.
@@ -76,16 +80,28 @@ class TabHeader extends FormspecElement {
 	}
 
 	public function setCurrentTab(tab: Int): TabHeader {
-		var oldTab = this.currentTab;
+		var oldTabIndex = this.currentTab;
 		this.currentTab = tab;
 		var thisSelectedStyle = this.selectedStyle == null ? this.style : this.selectedStyle;
 
+		var oldTab = this.tabs[oldTabIndex];
+		var newTab = this.tabs[this.currentTab];
+
 		// No styles were supplied, which is perfectly valid.
-		if (thisSelectedStyle == null) {
-			return this;
+		if (thisSelectedStyle != null) {
+			oldTab.setStyle(cast this.style);
+			newTab.setStyle(cast thisSelectedStyle);
 		}
-		this.tabs[oldTab].setStyle(cast this.style);
-		this.tabs[this.currentTab].setStyle(cast thisSelectedStyle);
+
+		// Do the fancy effect where the tab goes up.
+		var newPos = newTab.getPos();
+		newTab.setPos(newPos.x, rootPos.y - 0.1);
+		newTab.setSize(rootSize.x, rootSize.y + 0.1);
+
+		var oldPos = oldTab.getPos();
+		oldTab.setPos(oldPos.x, rootPos.y);
+		oldTab.setSize(rootSize.x, rootSize.y);
+
 		return this;
 	}
 
