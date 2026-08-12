@@ -13,11 +13,12 @@ typedef TabInfo = {
 // This essentially works as an API to implement a row of buttons.
 // It is an external controller for buttons in the GUI.
 class TabHeader extends FormspecElement {
-	var currentTab: Int;
+	var currentTab: Int = 1;
 	// This is for this controller
 	var tabs: Array<Button> = [];
 	// ! Never delete this, it's used for action assignment.
 	var tempName: String;
+	var selectedStyle: TabHeaderStyle;
 
 	public function new(page: Null<String>, isRootElement: Bool, baseElementName: String, basePosX: Float, basePosY: Float, tabWidth: Float, tabHeight: Float, spaceBetweenTabs: Float, drawBorder: Bool, defaultTab: Int, tabsArray: Array<TabInfo>) {
 		// Convert the tabs array into a string.
@@ -64,9 +65,26 @@ class TabHeader extends FormspecElement {
 		return cast this.style;
 	}
 
-	public function setCurrentTab(tab: Int): TabHeader {
-		this.currentTab = tab;
+	public function setSelectedStyle(selectedStyle: TabHeaderStyle): TabHeader {
+		this.selectedStyle = selectedStyle;
 		return this;
+	}
+
+	public function getSelectedStyle(): TabHeaderStyle {
+		return cast this.selectedStyle;
+	}
+
+	public function setCurrentTab(tab: Int): TabHeader {
+		var oldTab = this.currentTab;
+		this.currentTab = tab;
+		var thisSelectedStyle = this.selectedStyle == null ? this.style : this.selectedStyle;
+		this.tabs[oldTab].setStyle(cast this.style);
+		this.tabs[this.currentTab].setStyle(cast thisSelectedStyle);
+		return this;
+	}
+
+	public function getCurrentTab(): Int {
+		return this.currentTab;
 	}
 
 	override function setAction(action: (thisFormspec: Gui, thisElement: FormspecElement, fields: Table<String, String>) -> Void): FormspecElement {
