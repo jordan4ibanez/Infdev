@@ -52,6 +52,11 @@ class TabHeader extends FormspecElement {
 
 	public function setStyle(style: TabHeaderStyle): TabHeader {
 		this.style = style;
+		Core.after(0, () -> {
+			for (tab in this.tabs) {
+				tab.setStyle(style);
+			}
+		});
 		return this;
 	}
 
