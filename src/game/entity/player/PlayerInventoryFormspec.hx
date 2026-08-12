@@ -106,8 +106,6 @@ final class PlayerInventoryFormspec {
 	var formspec: Gui = (() -> {
 		var f = new Gui("", "inventory");
 		// ? Root elements.
-		// f.addRootElement("fixme", new Button(1, 3, 1, 1, "fix"));
-		// f.addRootElement("blah", new TextField(1, 1, 3, 1));
 		f.addRootElement(navigationBarName, new TabHeader(
 			null,
 			true,
