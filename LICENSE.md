@@ -267,17 +267,15 @@ Public License instead of this License.  But first, please read
 
 ## Font:
 
-Every font is licensed under the SIL Open Font License 1.1.
-
-You can find that here: https://openfontlicense.org/
+Every font is licensed under:
+- SIL Open Font License 1.1. https://openfontlicense.org/
 
 To see individual licenses for each file as well as an offline copy of the licenses please see: [mods/infdev/fonts/LICENSE.md](mods/infdev/fonts/LICENSE.md)
 
 ## Sounds:
 
-Every sound (including music) are licensed under the Creative Commons 0 License. 
-
-You can find that here: https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
+Every sound (including music) are licensed under:
+- Creative Commons 0 License. https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
 
 To see individual licenses for each file as well as an offline copy of the licenses please see: [mods/infdev/sounds/LICENSE.md](mods/infdev/sounds/LICENSE.md)
 
