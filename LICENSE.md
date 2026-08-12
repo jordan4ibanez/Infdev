@@ -267,14 +267,14 @@ Public License instead of this License.  But first, please read
 
 ## Font:
 
-Every font is licensed under:
+Fonts are licensed under:
 - SIL Open Font License 1.1. https://openfontlicense.org/
 
 To see individual licenses for each file as well as an offline copy of the licenses please see: [mods/infdev/fonts/LICENSE.md](mods/infdev/fonts/LICENSE.md)
 
 ## Sounds:
 
-Every sound (including music) are licensed under:
+Sounds (including music) are licensed under:
 - Creative Commons 0 License. https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
 
 To see individual licenses for each file as well as an offline copy of the licenses please see: [mods/infdev/sounds/LICENSE.md](mods/infdev/sounds/LICENSE.md)
@@ -282,8 +282,10 @@ To see individual licenses for each file as well as an offline copy of the licen
 
 ## Models:
 
-Every model is licensed under:
+Models are licensed under:
 - Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0). https://creativecommons.org/licenses/by-sa/3.0/deed.en (this will be removed in the next release)
 - Creative Commons 0 License. https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
 
 To see individual licenses for each file as well as an offline copy of the licenses please see: [mods/infdev/models/model_licensing_directory.md](mods/infdev/models/model_licensing_directory.md)
+
+## Textures:
