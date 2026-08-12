@@ -73,6 +73,9 @@ class TextField extends GuiElement {
 		this.closeOnEnter = true;
 		return this;
 	}
+
+	// No-op.
+	public function saveOnCloseAction() {}
 }
 
 // todo: just copy paste this into pwdfield

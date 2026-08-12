@@ -51,6 +51,9 @@ class Label extends GuiElement {
 		this.label = label;
 		return this;
 	}
+
+	// No-op.
+	public function saveOnCloseAction() {}
 }
 
 /**

@@ -14,4 +14,7 @@ class ListRing extends GuiElement {
 	public function toFormspec(name: String): String {
 		return 'listring[${this.inventoryLocation};${this.listName}]';
 	}
+
+	// No-op.
+	public function saveOnCloseAction() {}
 }

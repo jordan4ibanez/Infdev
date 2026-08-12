@@ -51,4 +51,7 @@ class List extends GuiElement {
 		this.height = height;
 		return this;
 	}
+
+	// No-op.
+	public function saveOnCloseAction() {}
 }
