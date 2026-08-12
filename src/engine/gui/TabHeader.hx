@@ -129,7 +129,7 @@ class TabHeader extends GuiElement {
 	}
 
 	// No-op.
-	public function saveOnCloseAction() {}
+	public function saveOnCloseAction(data: Null<String>) {}
 }
 
 typedef TabHeaderStyle = ButtonStyle;

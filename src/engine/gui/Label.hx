@@ -53,7 +53,7 @@ class Label extends GuiElement {
 	}
 
 	// No-op.
-	public function saveOnCloseAction() {}
+	public function saveOnCloseAction(data: Null<String>) {}
 }
 
 /**

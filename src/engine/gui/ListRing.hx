@@ -16,5 +16,5 @@ class ListRing extends GuiElement {
 	}
 
 	// No-op.
-	public function saveOnCloseAction() {}
+	public function saveOnCloseAction(data: Null<String>) {}
 }
