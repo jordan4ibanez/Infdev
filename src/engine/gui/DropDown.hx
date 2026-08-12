@@ -62,6 +62,14 @@ class DropDown extends GuiElement {
 		this.height = height;
 		return this;
 	}
+
+	public function setCurrentItem(currentItem: Int): DropDown {
+		this.currentItem = currentItem;
+		return this;
+	}
+
+	// No-op.
+	public function saveOnCloseAction() {}
 }
 
 class DropDownStyle extends GuiStyle {
