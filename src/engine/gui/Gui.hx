@@ -22,7 +22,7 @@ private class ElementInfo {
 class Gui {
 	static inline final DEBUG_MODE = false;
 
-	// Static components that make formspecs reactive instead of static.
+	// ? Static components that make formspecs reactive instead of static.
 	static var masterFormspecContainer: Map<String, Map<String, Gui>> = new Map();
 
 	@:noCompletion
@@ -132,7 +132,7 @@ class Gui {
 		return formspecName + "_" + playerName;
 	}
 
-	// End static components.
+	// ? End static components.
 	final name: String;
 
 	// This is used for interfunction memory.
