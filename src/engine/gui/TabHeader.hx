@@ -32,7 +32,7 @@ class TabHeader extends FormspecElement {
 		// So it needs to wait 1 server tick.
 		Core.after(0, () -> {
 			for (index => tab in tabsArray) {
-				var thisButton = new Button(basePosX + (index * tabWidth), basePosY, tabWidth, tabHeight, "test");
+				var thisButton = new Button(basePosX + (index * tabWidth) + (index * spaceBetweenTabs), basePosY, tabWidth, tabHeight, "test");
 				tabs.push(thisButton);
 				if (isRootElement) {
 					this.origin.addRootElement('${baseElementName}_${index}', thisButton);
