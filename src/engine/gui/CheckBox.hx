@@ -19,9 +19,14 @@ class CheckBox extends GuiElement {
 	var x: Float; // ? Done.
 	var y: Float; // ? Done.
 	var label: String; // ? Done.
-	var selected: Bool;
+	var selected: Bool; // ? Done.
 
-	public function new() {}
+	public function new(x: Float, y: Float, label: String, selected: Bool) {
+		this.x = x;
+		this.y = y;
+		this.label = label;
+		this.selected = selected;
+	}
 
 	public function toFormspec(name: String): String {
 		return 'checkbox[${this.x},${this.y};${name};${this.label};${this.selected}]';
