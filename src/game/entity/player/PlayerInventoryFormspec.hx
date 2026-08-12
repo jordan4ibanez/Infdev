@@ -6,6 +6,7 @@ import src.engine.compilercode.LuaLoop;
 import src.engine.definition.sound.SimpleSoundSpecTable;
 import src.engine.definition.sound.SoundParameterTable;
 import src.engine.entity.objectref.ObjectRefPlayer;
+import src.engine.gui.CheckBox;
 import src.engine.gui.DropDown;
 import src.engine.gui.Gui;
 import src.engine.gui.Label;
@@ -161,6 +162,8 @@ final class PlayerInventoryFormspec {
 		f.addElement(tabs[6].name, "todo_settings", new Label(0, 3, 0, 0, "Todo"));
 		f.addElement(tabs[6].name, "sample_setting", new DropDown(1, 2, 3, 0.5, 1, "test", "a thing", "another")
 			.setStyle(new DropDownStyle().setSound("infdev_interface_button")));
+		f.addElement(tabs[6].name, "sample_checkbox", new CheckBox(2, 3, "check me", false)
+			.setStyle(new CheckBoxStyle().setSound("infdev_interface_checkbox")));
 		// ? Credits page.
 		f.addElement(tabs[7].name, "todo_credits", new Label(0, 3, 0, 0, "Todo"));
 		return f;
