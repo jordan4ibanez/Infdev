@@ -1,8 +1,8 @@
 package src.engine.gui;
 
 import lua.Table;
+import src.engine.gui.Button.ButtonStyle;
 import src.engine.gui.Gui.FormspecElement;
-import src.engine.gui.Gui.FormspecStyle;
 
 // This is a simple helper for creating tabs in a formspec.
 typedef TabInfo = {
@@ -82,40 +82,4 @@ class TabHeader extends FormspecElement {
 	}
 }
 
-class TabHeaderStyle extends FormspecStyle {
-	var sound: String;
-	var textColor: String;
-
-	public function new() {}
-
-	public function toFormspec(name: String, windowScale: Float): String {
-		append('style[${name}');
-
-		if (this.sound != null) {
-			append('sound=${this.sound}');
-		}
-
-		if (this.textColor != null) {
-			append('textcolor=${this.textColor}');
-		}
-
-		// And finally close out the string.
-		append("]", true);
-
-		// Then swap and clear.
-		var output = data;
-		data = "";
-
-		return output;
-	}
-
-	public function setSound(sound: String): TabHeaderStyle {
-		this.sound = sound;
-		return this;
-	}
-
-	public function setTextColor(textColor: String): TabHeaderStyle {
-		this.textColor = textColor;
-		return this;
-	}
-}
+typedef TabHeaderStyle = ButtonStyle;
