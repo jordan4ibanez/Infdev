@@ -60,3 +60,5 @@ infdev_interface_click: https://freesound.org/people/Poiqz/sounds/394789/ (CC0)
 infdev_interface_unlock: https://freesound.org/people/schoman3/sounds/506912/ (CC0)
 
 infdev_interface_action: https://freesound.org/people/digital.arts.MA/sounds/729086/ (CC0)
+
+infdev_interface_checkbox: https://freesound.org/people/kstargio/sounds/611642/ (CC0)
