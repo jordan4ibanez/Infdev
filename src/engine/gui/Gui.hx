@@ -59,7 +59,7 @@ class Gui {
 	}
 
 	// @:noCompletion
-	static function doAllCurrentPageElementsOnClose(thisFormspec: Gui): Void {
+	static function doAllCurrentPageElementsSaveAttempt(thisFormspec: Gui, fields: Table<String, String>): Void {
 		// So first run the root elements as they exist on every page.
 		for (element in thisFormspec.rootElements) {
 			if (element.isPersistent) {
@@ -96,13 +96,15 @@ class Gui {
 		var key = keyThisWithPlayerName(formName, name);
 		var thisFormspec = container.get(key);
 
+		// This is done like this because quitting the formspec DOESN'T GIVE YOU ANY DATA.
+		doAllCurrentPageElementsSaveAttempt(thisFormspec, fields);
+
 		if (thisFormspec.actionOnAnyUpdate != null) {
 			thisFormspec.actionOnAnyUpdate(thisFormspec, fields);
 		}
 
 		if (fields.quit == "true") {
 			if (thisFormspec.actionOnClose != null) {
-				doAllCurrentPageElementsOnClose(thisFormspec);
 				thisFormspec.actionOnClose(thisFormspec);
 			}
 		} else {
@@ -435,7 +437,7 @@ abstract class GuiElement {
 	// todo: @:noCompletion
 	public abstract function toFormspec(name: String): String;
 
-	public abstract function saveOnCloseAction(): Void;
+	public abstract function saveOnCloseAction(data: String): Void;
 }
 
 // todo: @:noCompletion
