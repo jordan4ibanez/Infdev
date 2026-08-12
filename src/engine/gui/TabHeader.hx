@@ -13,7 +13,8 @@ typedef TabInfo = {
 // This essentially works as an API to implement a row of buttons.
 // It is an external controller for buttons in the GUI.
 class TabHeader extends FormspecElement {
-	var currentTab: Int = 1;
+	// This is 0 indexed.
+	var currentTab: Int = 0;
 	// This is for this controller
 	var tabs: Array<Button> = [];
 	// ! Never delete this, it's used for action assignment.
@@ -51,11 +52,16 @@ class TabHeader extends FormspecElement {
 		return "";
 	}
 
-	public function setStyle(style: TabHeaderStyle): TabHeader {
-		this.style = style;
+	public function setStyles(unselectedStyle: TabHeaderStyle, selectedStyle: TabHeaderStyle): TabHeader {
+		this.style = unselectedStyle;
+		this.selectedStyle = selectedStyle;
 		Core.after(0, () -> {
-			for (tab in this.tabs) {
-				tab.setStyle(style);
+			for (index => tab in this.tabs) {
+				if (index == this.currentTab) {
+					tab.setStyle(this.selectedStyle);
+				} else {
+					tab.setStyle(cast this.style);
+				}
 			}
 		});
 		return this;
@@ -63,11 +69,6 @@ class TabHeader extends FormspecElement {
 
 	public function getStyle(): TabHeaderStyle {
 		return cast this.style;
-	}
-
-	public function setSelectedStyle(selectedStyle: TabHeaderStyle): TabHeader {
-		this.selectedStyle = selectedStyle;
-		return this;
 	}
 
 	public function getSelectedStyle(): TabHeaderStyle {
@@ -78,6 +79,11 @@ class TabHeader extends FormspecElement {
 		var oldTab = this.currentTab;
 		this.currentTab = tab;
 		var thisSelectedStyle = this.selectedStyle == null ? this.style : this.selectedStyle;
+
+		// No styles were supplied, which is perfectly valid.
+		if (thisSelectedStyle == null) {
+			return this;
+		}
 		this.tabs[oldTab].setStyle(cast this.style);
 		this.tabs[this.currentTab].setStyle(cast thisSelectedStyle);
 		return this;
