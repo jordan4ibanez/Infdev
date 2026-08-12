@@ -1,3 +1,5 @@
+# CODE:
+
 # GNU GENERAL PUBLIC LICENSE
 **Version 3, 29 June 2007**
 
@@ -259,3 +261,20 @@ may consider it more useful to permit linking proprietary applications with
 the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
+
+
+# ASSETS:
+
+## Font:
+
+
+
+## Sounds:
+
+Every sound (including music) are licensed under the Creative Commons 0 License. 
+
+You can find that here: https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
+
+To see individual licenses for each file as well as an offline copy of the licenses please see: [mods/infdev/sounds/LICENSE.md](mods/infdev/sounds/LICENSE.md)
+
+
