@@ -8,6 +8,8 @@ https://github.com/jordan4ibanez/Infdev_original
 
 ## Licensing/Credit Information Directories
 
+### [Fonts](mods/infdev/fonts/LICENSE.md)
+
 ### [Sounds](mods/infdev/sounds/LICENSE.md)
 
 ### [Models](mods/infdev/models/model_licensing_directory.md)
