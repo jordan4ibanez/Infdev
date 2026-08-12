@@ -75,8 +75,6 @@ class TabHeader extends FormspecElement {
 				}
 				this.origin.tagActionable('${this.tempName}_${index}');
 			}
-			// Free the memory.
-			this.tempName = null;
 		});
 		return this;
 	}
