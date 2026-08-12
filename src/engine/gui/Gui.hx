@@ -58,6 +58,30 @@ class Gui {
 		}
 	}
 
+	// @:noCompletion
+	static function doAllCurrentPageElementsOnClose(thisFormspec: Gui): Void {
+		// So first run the root elements as they exist on every page.
+		for (element in thisFormspec.rootElements) {
+			if (element.isPersistent) {
+				element.saveOnCloseAction();
+			}
+		}
+		final currentPage: Null<String> = thisFormspec.currentPage;
+		// This is a pageless GUI.
+		if (currentPage == null) {
+			return;
+		}
+		final currentPage: Null<Map<String, GuiElement>> = thisFormspec.pages.get(currentPage);
+		if (currentPage == null) {
+			throw 'Page ${thisFormspec.currentPage} in formspec ${thisFormspec.name} is null on close.';
+		}
+		for (element in currentPage) {
+			if (element.isPersistent) {
+				element.saveOnCloseAction();
+			}
+		}
+	}
+
 	@:noCompletion
 	static function masterOnReceiveFields(player: ObjectRefPlayer, formName: String, fields: Table<String, String>): Void {
 		var name = player.getPlayerName();
@@ -78,6 +102,7 @@ class Gui {
 
 		if (fields.quit == "true") {
 			if (thisFormspec.actionOnClose != null) {
+				doAllCurrentPageElementsOnClose(thisFormspec);
 				thisFormspec.actionOnClose(thisFormspec);
 			}
 		} else {
@@ -387,6 +412,7 @@ class Gui {
 abstract class GuiElement {
 	@:allow(src.engine.gui.Gui)
 	var style: GuiStyle;
+	@:allow(src.engine.gui.Gui)
 	var isPersistent: Bool = true;
 
 	// This is a reference to the base GUI. It is assigned by the GUI.
