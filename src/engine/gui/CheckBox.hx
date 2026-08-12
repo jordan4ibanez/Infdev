@@ -52,6 +52,14 @@ class CheckBox extends GuiElement {
 		this.label = label;
 		return this;
 	}
+
+	public function setSelected(selected: Bool): CheckBox {
+		this.selected = selected;
+		return this;
+	}
+
+	// No-op.
+	public function saveOnCloseAction() {}
 }
 
 class CheckBoxStyle extends GuiStyle {
