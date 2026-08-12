@@ -1,11 +1,9 @@
 package src.engine.gui;
 
-import src.engine.gui.Gui.FormspecElement;
+import src.engine.gui.Gui.GuiElement;
 
-class CheckBox extends FormspecElement {
-    
-
-    public function toFormspec(name:String):String {
-        throw new haxe.exceptions.NotImplementedException();
-    }
+class CheckBox extends GuiElement {
+	public function toFormspec(name: String): String {
+		throw new haxe.exceptions.NotImplementedException();
+	}
 }

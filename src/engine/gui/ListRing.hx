@@ -1,8 +1,8 @@
 package src.engine.gui;
 
-import src.engine.gui.Gui.FormspecElement;
+import src.engine.gui.Gui.GuiElement;
 
-class ListRing extends FormspecElement {
+class ListRing extends GuiElement {
 	var inventoryLocation: String;
 	var listName: String;
 

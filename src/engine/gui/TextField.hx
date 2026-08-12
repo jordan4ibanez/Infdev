@@ -1,11 +1,11 @@
 package src.engine.gui;
 
-import src.engine.gui.Gui.FormspecElement;
 import src.engine.gui.Gui.FormspecStyle;
+import src.engine.gui.Gui.GuiElement;
 import src.engine.gui.sharedcomponents.FormspecAlignment.FormspecHorizontalAlignment;
 import src.engine.gui.sharedcomponents.FormspecAlignment.FormspecVerticalAlignment;
 
-class TextField extends FormspecElement {
+class TextField extends GuiElement {
 	var x: Float; // ? Done.
 	var y: Float; // ? Done.
 	var width: Float; // ? Done.

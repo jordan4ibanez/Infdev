@@ -190,7 +190,7 @@ final class PlayerInventoryFormspec {
 	}
 
 	// This is for when a player clicks the tabs at the top of their inventory.
-	static function tabNavigationAction(thisFormspec: Gui, thisElement: FormspecElement, fields: Table<String, String>) {
+	static function tabNavigationAction(thisFormspec: Gui, thisElement: GuiElement, fields: Table<String, String>) {
 		final nameFilterRegex = '^${navigationBarName}_%d+$';
 		final nameProcessingFilter = '^${navigationBarName}_';
 

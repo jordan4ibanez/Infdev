@@ -1,13 +1,13 @@
 package src.engine.gui;
 
 import src.engine.gui.Button.ButtonStyle;
-import src.engine.gui.Gui.FormspecElement;
+import src.engine.gui.Gui.GuiElement;
 
 /**
  * When clicked, fields will be sent and the form will quit.
  * Same as `button` in all other respects.
  */
-class ButtonExit extends FormspecElement {
+class ButtonExit extends GuiElement {
 	var x: Float; // ? Done.
 	var y: Float; // ? Done.
 	var width: Float; // ? Done.

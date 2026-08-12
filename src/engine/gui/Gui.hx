@@ -129,10 +129,10 @@ class Gui {
 	// Elements not in a container.
 	// These are drawn on every page of the formspec.
 	// This is also used for single page formspecs without any navigation.
-	var rootElements: Map<String, FormspecElement> = new Map();
+	var rootElements: Map<String, GuiElement> = new Map();
 
 	// Elements in a container. These are called pages because they're supposed to be used as pages.
-	var pages: Map<String, Map<String, FormspecElement>> = new Map();
+	var pages: Map<String, Map<String, GuiElement>> = new Map();
 	var currentPage: Null<String> = null;
 
 	// This is a wrapper to hold additional data about elements because the game is so bare bones with formspecs.
@@ -294,7 +294,7 @@ class Gui {
 		return this;
 	}
 
-	function tagElementInfo(elementName: String, formspecElement: FormspecElement, root: Bool, ?page: String) {
+	function tagElementInfo(elementName: String, formspecElement: GuiElement, root: Bool, ?page: String) {
 		if (this.elementMap.exists(elementName)) {
 			throw 'Duplicate element name ${elementName} in formspec ${this.name}';
 		}
@@ -312,7 +312,7 @@ class Gui {
 		this.elementMap.set(elementName, worker);
 	}
 
-	public function addElement(pageName: String, elementName: String, formspecElement: FormspecElement): Gui {
+	public function addElement(pageName: String, elementName: String, formspecElement: GuiElement): Gui {
 		// Create the page if it doesn't exist.
 		var thisPage = this.pages.get(pageName);
 		if (thisPage == null) {
@@ -330,7 +330,7 @@ class Gui {
 		return this;
 	}
 
-	public function getElement<T: FormspecElement>(pageName: String, elementName: String): Null<T> {
+	public function getElement<T: GuiElement>(pageName: String, elementName: String): Null<T> {
 		var thisPage = this.pages.get(pageName);
 		if (thisPage == null) {
 			return null;
@@ -338,7 +338,7 @@ class Gui {
 		return cast thisPage.get(elementName);
 	}
 
-	public function addRootElement(elementName: String, formspecElement: FormspecElement): Gui {
+	public function addRootElement(elementName: String, formspecElement: GuiElement): Gui {
 		// This errors out to prevent catastrophic bugs.
 		if (this.rootElements.exists(elementName)) {
 			throw 'Tried to add element [${elementName}] in formspec [${this.name}] when it already exists.';
@@ -349,7 +349,7 @@ class Gui {
 		return this;
 	}
 
-	public function getRootElement<T: FormspecElement>(elementName: String): Null<T> {
+	public function getRootElement<T: GuiElement>(elementName: String): Null<T> {
 		return cast this.rootElements.get(elementName);
 	}
 
@@ -384,7 +384,7 @@ class Gui {
 }
 
 // todo: @:noCompletion
-abstract class FormspecElement {
+abstract class GuiElement {
 	@:allow(src.engine.gui.Gui)
 	var style: FormspecStyle;
 
@@ -394,9 +394,9 @@ abstract class FormspecElement {
 	// There were a few ways to write this, but this is probably the least bad.
 	// It's very flexible!
 	@:allow(src.engine.gui.Gui)
-	var action: Null<(thisFormspec: Gui, thisElement: FormspecElement, fields: Table<String, String>) -> Void>;
+	var action: Null<(thisFormspec: Gui, thisElement: GuiElement, fields: Table<String, String>) -> Void>;
 
-	public function setAction(action: (thisFormspec: Gui, thisElement: FormspecElement, fields: Table<String, String>) -> Void): FormspecElement {
+	public function setAction(action: (thisFormspec: Gui, thisElement: GuiElement, fields: Table<String, String>) -> Void): GuiElement {
 		this.action = action;
 		return this;
 	}

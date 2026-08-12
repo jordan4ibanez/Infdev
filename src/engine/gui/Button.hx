@@ -1,11 +1,11 @@
 package src.engine.gui;
 
-import src.engine.gui.Gui.FormspecElement;
 import src.engine.gui.Gui.FormspecStyle;
+import src.engine.gui.Gui.GuiElement;
 import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
 
-class Button extends FormspecElement {
+class Button extends GuiElement {
 	var x: Float; // ? Done.
 	var y: Float; // ? Done.
 	var width: Float; // ? Done.

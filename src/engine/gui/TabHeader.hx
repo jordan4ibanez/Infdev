@@ -2,7 +2,7 @@ package src.engine.gui;
 
 import lua.Table;
 import src.engine.gui.Button.ButtonStyle;
-import src.engine.gui.Gui.FormspecElement;
+import src.engine.gui.Gui.GuiElement;
 import src.engine.vector.Vec3;
 
 // This is a simple helper for creating tabs in a formspec.
@@ -13,7 +13,7 @@ typedef TabInfo = {
 
 // This essentially works as an API to implement a row of buttons.
 // It is an external controller for buttons in the GUI.
-class TabHeader extends FormspecElement {
+class TabHeader extends GuiElement {
 	// This is 0 indexed.
 	var currentTab: Int = 0;
 	// This is for this controller
@@ -113,7 +113,7 @@ class TabHeader extends FormspecElement {
 		return this.currentTab;
 	}
 
-	override function setAction(action: (thisFormspec: Gui, thisElement: FormspecElement, fields: Table<String, String>) -> Void): FormspecElement {
+	override function setAction(action: (thisFormspec: Gui, thisElement: GuiElement, fields: Table<String, String>) -> Void): GuiElement {
 		super.setAction(action);
 		// Delay it so it can be tagged as actionable in the GUI.
 		Core.after(0, () -> {

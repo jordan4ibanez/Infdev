@@ -1,8 +1,8 @@
 package src.engine.gui;
 
-import src.engine.gui.Gui.FormspecElement;
+import src.engine.gui.Gui.GuiElement;
 
-class List extends FormspecElement {
+class List extends GuiElement {
 	var inventoryLocation: String;
 	var listName: String;
 	var x: Float; // ? Done.
