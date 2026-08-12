@@ -30,7 +30,7 @@ api was transposed may-august 2026
 ##### immediate todos:
 
 Need some formspec elements for the main inventory:
-- dropdown (for options)
+- Checkbox (for options) (also add a little pop/plop/bloop sound for it)
 
 make sure the formspec object is actually getting removed upon player leaving
 
