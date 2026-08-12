@@ -31,8 +31,6 @@ api was transposed may-august 2026
 
 ##### immediate todos:
 
-make sure the formspec object is actually getting removed upon player leaving
-
 have a method that marks them as persistent
 
 notes page:
