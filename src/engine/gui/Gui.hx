@@ -387,6 +387,7 @@ class Gui {
 abstract class GuiElement {
 	@:allow(src.engine.gui.Gui)
 	var style: GuiStyle;
+	var isPersistent: Bool = true;
 
 	// This is a reference to the base GUI. It is assigned by the GUI.
 	public var origin: Gui;
@@ -403,6 +404,8 @@ abstract class GuiElement {
 
 	// todo: @:noCompletion
 	public abstract function toFormspec(name: String): String;
+
+	public abstract function saveOnCloseAction(): Void;
 }
 
 // todo: @:noCompletion
