@@ -53,5 +53,5 @@ class List extends GuiElement {
 	}
 
 	// No-op.
-	public function saveOnCloseAction(data: Null<String>) {}
+	public function saveOnCloseAction(data: String) {}
 }

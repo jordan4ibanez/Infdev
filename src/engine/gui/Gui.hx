@@ -437,7 +437,7 @@ abstract class GuiElement {
 	// todo: @:noCompletion
 	public abstract function toFormspec(name: String): String;
 
-	public abstract function saveOnCloseAction(data: Null<String>): Void;
+	public abstract function saveOnCloseAction(data: String): Void;
 }
 
 // todo: @:noCompletion
