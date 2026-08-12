@@ -96,10 +96,10 @@ class TabHeader extends FormspecElement {
 			newTab.setStyle(cast thisSelectedStyle);
 		}
 
-		// Do the fancy effect where the tab goes up.
+		// Do the fancy effect where the tab looks closer.
 		var newPos = newTab.getPos();
-		newTab.setPos(newPos.x, rootPos.y - 0.1);
-		newTab.setSize(rootSize.x, rootSize.y + 0.1);
+		newTab.setPos(newPos.x, rootPos.y+ 0.025);
+		newTab.setSize(rootSize.x, rootSize.y + 0.05);
 
 		var oldPos = oldTab.getPos();
 		oldTab.setPos(oldPos.x, rootPos.y);

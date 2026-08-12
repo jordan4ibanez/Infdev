@@ -112,7 +112,7 @@ final class PlayerInventoryFormspec {
 			null,
 			true,
 			navigationBarName,
-			0.09, 0.625,
+			0.09, 0.125,
 			1, 0.5, 0.01,
 			true,
 			1,
