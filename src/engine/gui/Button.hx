@@ -55,6 +55,9 @@ class Button extends GuiElement {
 		this.label = label;
 		return this;
 	}
+
+	// No-op.
+	public function saveOnCloseAction() {}
 }
 
 // todo: use this on: button_exit, image_button, item_image_button
