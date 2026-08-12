@@ -8,9 +8,9 @@ https://github.com/jordan4ibanez/Infdev_original
 
 ## Licensing/Credit Information Directories
 
-### [Models](mods/infdev/models/model_licensing_directory.md)
-
 ### [Sounds](mods/infdev/sounds/LICENSE.md)
+
+### [Models](mods/infdev/models/model_licensing_directory.md)
 
 ### [Textures](mods/infdev/textures/texture_licensing_directory.md)
 
