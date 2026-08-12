@@ -41,7 +41,7 @@ class Button extends FormspecElement {
 		return this;
 	}
 
-	public function getPos(x: Float, y: Float): Vec3 {
+	public function getPos(): Vec3 {
 		return new Vec3(this.x, this.y);
 	}
 
