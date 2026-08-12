@@ -3,6 +3,7 @@ package src.engine.gui;
 import src.engine.gui.Gui.FormspecElement;
 import src.engine.gui.Gui.FormspecStyle;
 import src.engine.vector.Vec2;
+import src.engine.vector.Vec3;
 
 class Button extends FormspecElement {
 	var x: Float; // ? Done.
@@ -38,6 +39,10 @@ class Button extends FormspecElement {
 		this.x = x;
 		this.y = y;
 		return this;
+	}
+
+	public function getPos(x: Float, y: Float): Vec3 {
+		return new Vec3(this.x, this.y);
 	}
 
 	public function setSize(width: Float, height: Float): Button {
