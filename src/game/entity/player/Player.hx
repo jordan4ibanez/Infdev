@@ -76,7 +76,6 @@ final class Player {
 		if (windowInfo.size == null) {
 			return;
 		}
-		untyped print(dump(this.getWindowInformation()));
 		this.object.setInventoryFormspec(this.inventoryFormspec.serialize());
 		this.noSaveRanFirstGUIUpdate = true;
 	}
