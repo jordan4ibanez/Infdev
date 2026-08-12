@@ -113,7 +113,7 @@ final class PlayerInventoryFormspec {
 			true,
 			navigationBarName,
 			0.09, 0.125,
-			1, 0.5, 0.01,
+			1.1, 0.5, 0.01,
 			true,
 			1,
 			tabs)
@@ -121,9 +121,9 @@ final class PlayerInventoryFormspec {
 				new TabHeaderStyle()
 					.setSound("infdev_interface_button")
 					.setTextColor("#FFFF00")
-					.setFontSize(20),
+					.setFontSize(12),
 				new TabHeaderStyle()
-					.setFontSize(20)
+					.setFontSize(12)
 					.setTextColor("red")
 					.setBackgroundColor("gray"))
 			.setAction(tabNavigationAction));
