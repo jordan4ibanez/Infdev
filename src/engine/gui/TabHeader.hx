@@ -67,6 +67,9 @@ class TabHeader extends FormspecElement {
 					tab.setStyle(cast this.style);
 				}
 			}
+			// ? This triggers the tab logic to create the initial bigger tab selection effect.
+			this.currentTab = 1;
+			this.setCurrentTab(0);
 		});
 		return this;
 	}
