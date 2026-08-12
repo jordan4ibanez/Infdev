@@ -36,13 +36,14 @@ make sure the formspec object is actually getting removed upon player leaving
 
 have a method that marks them as persistent
 
-allow textboxes and forms to save their data into the object itself so it can be persistent
+notes page:
+- add a save button to the notes taking page
+- fix the note taking page to restore the text on resize
+- allow textboxes and forms to save their data into the object itself so it can be persistent
 
 put the players individual formspecs into individual save Metadata so the string doesn't become too big
 
 do this for the levels object in the player as well
-
-add a note taking page in the inventory
 
 make items not physical, they exist statically
 - When they need to move instead of smooth movement, they move by node including gravity on a timer
