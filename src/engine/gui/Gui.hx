@@ -62,8 +62,12 @@ class Gui {
 	static function doAllCurrentPageElementsSaveAttempt(thisFormspec: Gui, fields: Table<String, String>): Void {
 		// So first run the root elements as they exist on every page.
 		for (elementName => element in thisFormspec.rootElements) {
+			final data = fields[cast elementName];
+			if (data == null) {
+				continue;
+			}
 			if (element.isPersistent) {
-				element.saveOnCloseAction(fields[cast elementName]);
+				element.saveOnCloseAction(data);
 			}
 		}
 		final currentPage: Null<String> = thisFormspec.currentPage;
@@ -76,8 +80,12 @@ class Gui {
 			throw 'Page ${thisFormspec.currentPage} in formspec ${thisFormspec.name} is null on close.';
 		}
 		for (elementName => element in currentPage) {
+			final data = fields[cast elementName];
+			if (data == null) {
+				continue;
+			}
 			if (element.isPersistent) {
-				element.saveOnCloseAction(fields[cast elementName]);
+				element.saveOnCloseAction(data);
 			}
 		}
 	}
