@@ -66,7 +66,10 @@ class TextArea extends GuiElement {
 	}
 
 	public function saveOnCloseAction(data: Null<String>) {
-		untyped print("save text area", data);
+		if (data == null) {
+			return;
+		}
+		this.defaultText = data;
 	}
 }
 
