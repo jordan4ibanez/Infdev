@@ -91,6 +91,10 @@ final class PlayerInventoryFormspec {
 			display: "Bartering"
 		},
 		{
+			name: "notes",
+			display: "Notes"
+		},
+		{
 			name: "settings",
 			display: "Settings"
 		},
@@ -147,12 +151,14 @@ final class PlayerInventoryFormspec {
 		f.addElement(tabs[3].name, "todo_effects", new Label(0, 3, 0, 0, "Todo"));
 		// ? Bartering Hall page.
 		f.addElement(tabs[4].name, "todo_barting", new Label(0, 3, 0, 0, "Todo"));
+		// ? Notes page.
+		f.addElement(tabs[5].name, "todo_notes", new Label(0, 3, 0, 0, "Todo"));
 		// ? Game Settings page.
-		f.addElement(tabs[5].name, "todo_settings", new Label(0, 3, 0, 0, "Todo"));
-		f.addElement(tabs[5].name, "sample_setting", new DropDown(1, 2, 3, 0.5, 1, "test", "a thing", "another")
+		f.addElement(tabs[6].name, "todo_settings", new Label(0, 3, 0, 0, "Todo"));
+		f.addElement(tabs[6].name, "sample_setting", new DropDown(1, 2, 3, 0.5, 1, "test", "a thing", "another")
 			.setStyle(new DropDownStyle().setSound("infdev_interface_button")));
 		// ? Credits page.
-		f.addElement(tabs[6].name, "todo_credits", new Label(0, 3, 0, 0, "Todo"));
+		f.addElement(tabs[7].name, "todo_credits", new Label(0, 3, 0, 0, "Todo"));
 		return f;
 	})();
 
