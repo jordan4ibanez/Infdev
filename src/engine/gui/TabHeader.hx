@@ -38,7 +38,8 @@ class TabHeader extends FormspecElement {
 		// So it needs to wait 1 server tick.
 		Core.after(0, () -> {
 			for (index => tab in tabsArray) {
-				var thisButton = new Button(basePosX + (index * tabWidth) + (index * spaceBetweenTabs), basePosY, tabWidth, tabHeight, "test");
+				var thisButton = new Button(basePosX + (index * tabWidth) +
+					(index * spaceBetweenTabs), basePosY, tabWidth, tabHeight, tabsArray[index].display);
 				tabs.push(thisButton);
 				if (isRootElement) {
 					this.origin.addRootElement('${baseElementName}_${index}', thisButton);
@@ -98,7 +99,7 @@ class TabHeader extends FormspecElement {
 
 		// Do the fancy effect where the tab looks closer.
 		var newPos = newTab.getPos();
-		newTab.setPos(newPos.x, rootPos.y+ 0.025);
+		newTab.setPos(newPos.x, rootPos.y + 0.025);
 		newTab.setSize(rootSize.x, rootSize.y + 0.05);
 
 		var oldPos = oldTab.getPos();
