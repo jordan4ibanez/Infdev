@@ -26,6 +26,13 @@ final class EntitySerialization {
 						continue;
 					}
 
+					// You can simply start the field name off with 'noSave' to never load it.
+					// It keeps the class default value when it's loaded from disk.
+					if (StringTools.startsWith(field, "noSave")) {
+						// untyped print("skipping", field);
+						continue;
+					}
+
 					var value = Reflect.field(containerClass, field);
 
 					// Don't clone functions, userdata, or threads into the entity.
@@ -62,6 +69,12 @@ final class EntitySerialization {
 		for (field in Type.getInstanceFields(clazz)) {
 			// This is decorated by the engine. (And not protected by it)
 			if (field == "object" || field == "name") {
+				continue;
+			}
+
+			// You can simply start the field name off with 'noSave' to never save it.
+			if (StringTools.startsWith(field, "noSave")) {
+				// untyped print("skipping", field);
 				continue;
 			}
 
