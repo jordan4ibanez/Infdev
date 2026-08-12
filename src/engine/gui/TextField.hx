@@ -74,8 +74,15 @@ class TextField extends GuiElement {
 		return this;
 	}
 
-	// No-op.
-	public function saveOnCloseAction() {}
+	public function saveText(text: String): TextField {
+		this.defaultText = text;
+		return this;
+	}
+
+	public function saveOnCloseAction() {
+		untyped print("text field needs duct tape");
+		// todo: allow saving the text.
+	}
 }
 
 // todo: just copy paste this into pwdfield
