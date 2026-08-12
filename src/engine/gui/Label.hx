@@ -1,7 +1,7 @@
 package src.engine.gui;
 
-import src.engine.gui.Gui.FormspecStyle;
 import src.engine.gui.Gui.GuiElement;
+import src.engine.gui.Gui.GuiStyle;
 import src.engine.gui.sharedcomponents.FormspecAlignment.FormspecHorizontalAlignment;
 import src.engine.gui.sharedcomponents.FormspecAlignment.FormspecVerticalAlignment;
 
@@ -58,7 +58,7 @@ class Label extends GuiElement {
  * For every label you use it will inherit the previous styling and it is random.
  * So if any labels are styled, style them all.
  */
-class LabelStyle extends FormspecStyle {
+class LabelStyle extends GuiStyle {
 	var font: String; // ! Done
 	var fontSize: Float; // ! Done
 	var noclip: Bool; // ! Done
@@ -108,7 +108,7 @@ class LabelStyle extends FormspecStyle {
 
 	public function setFontSize(?fontSize: Float): LabelStyle {
 		if (fontSize == null) {
-			this.fontSize = FormspecStyle.FONT_SIZE_DEFAULT;
+			this.fontSize = GuiStyle.FONT_SIZE_DEFAULT;
 		} else {
 			this.fontSize = fontSize;
 		}

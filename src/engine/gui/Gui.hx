@@ -386,7 +386,7 @@ class Gui {
 // todo: @:noCompletion
 abstract class GuiElement {
 	@:allow(src.engine.gui.Gui)
-	var style: FormspecStyle;
+	var style: GuiStyle;
 
 	// This is a reference to the base GUI. It is assigned by the GUI.
 	public var origin: Gui;
@@ -406,7 +406,7 @@ abstract class GuiElement {
 }
 
 // todo: @:noCompletion
-abstract class FormspecStyle {
+abstract class GuiStyle {
 	public static inline final FONT_SIZE_DEFAULT: Float = 40;
 
 	// todo: there's a lot of stuff in this one. So this will have to be thought about. For now it's just a simple one.

@@ -1,7 +1,7 @@
 package src.engine.gui;
 
-import src.engine.gui.Gui.FormspecStyle;
 import src.engine.gui.Gui.GuiElement;
+import src.engine.gui.Gui.GuiStyle;
 import src.engine.vector.Vec2;
 
 class TextArea extends GuiElement {
@@ -63,7 +63,7 @@ class TextArea extends GuiElement {
 	}
 }
 
-class TextAreaStyle extends FormspecStyle {
+class TextAreaStyle extends GuiStyle {
 	var alpha: Bool; // !
 	var backgroundColor: String; // !
 	var backgroundImage: String; // !
@@ -149,7 +149,7 @@ class TextAreaStyle extends FormspecStyle {
 
 	public function setFontSize(?fontSize: Float): TextAreaStyle {
 		if (fontSize == null) {
-			this.fontSize = FormspecStyle.FONT_SIZE_DEFAULT;
+			this.fontSize = GuiStyle.FONT_SIZE_DEFAULT;
 		} else {
 			this.fontSize = fontSize;
 		}

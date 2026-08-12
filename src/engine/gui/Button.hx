@@ -1,7 +1,7 @@
 package src.engine.gui;
 
-import src.engine.gui.Gui.FormspecStyle;
 import src.engine.gui.Gui.GuiElement;
+import src.engine.gui.Gui.GuiStyle;
 import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
 
@@ -58,7 +58,7 @@ class Button extends GuiElement {
 }
 
 // todo: use this on: button_exit, image_button, item_image_button
-class ButtonStyle extends FormspecStyle {
+class ButtonStyle extends GuiStyle {
 	var alpha: Bool; // !
 	var backgroundColor: String; // !
 	var backgroundImage: String; // !
@@ -144,7 +144,7 @@ class ButtonStyle extends FormspecStyle {
 
 	public function setFontSize(?fontSize: Float): ButtonStyle {
 		if (fontSize == null) {
-			this.fontSize = FormspecStyle.FONT_SIZE_DEFAULT;
+			this.fontSize = GuiStyle.FONT_SIZE_DEFAULT;
 		} else {
 			this.fontSize = fontSize;
 		}

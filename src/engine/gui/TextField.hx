@@ -1,7 +1,7 @@
 package src.engine.gui;
 
-import src.engine.gui.Gui.FormspecStyle;
 import src.engine.gui.Gui.GuiElement;
+import src.engine.gui.Gui.GuiStyle;
 import src.engine.gui.sharedcomponents.FormspecAlignment.FormspecHorizontalAlignment;
 import src.engine.gui.sharedcomponents.FormspecAlignment.FormspecVerticalAlignment;
 
@@ -76,7 +76,7 @@ class TextField extends GuiElement {
 }
 
 // todo: just copy paste this into pwdfield
-class FieldStyle extends FormspecStyle {
+class FieldStyle extends GuiStyle {
 	var border: Bool; // ! Done
 	var font: String; // ! Done
 	var fontSize: Float; // ! Done
@@ -135,7 +135,7 @@ class FieldStyle extends FormspecStyle {
 
 	public function setFontSize(?fontSize: Float): FieldStyle {
 		if (fontSize == null) {
-			this.fontSize = FormspecStyle.FONT_SIZE_DEFAULT;
+			this.fontSize = GuiStyle.FONT_SIZE_DEFAULT;
 		} else {
 			this.fontSize = fontSize;
 		}

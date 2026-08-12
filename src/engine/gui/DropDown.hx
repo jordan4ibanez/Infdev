@@ -1,8 +1,8 @@
 package src.engine.gui;
 
 import haxe.Rest;
-import src.engine.gui.Gui.FormspecStyle;
 import src.engine.gui.Gui.GuiElement;
+import src.engine.gui.Gui.GuiStyle;
 
 class DropDown extends GuiElement {
 	var x: Float; // ? Done.
@@ -64,7 +64,7 @@ class DropDown extends GuiElement {
 	}
 }
 
-class DropDownStyle extends FormspecStyle {
+class DropDownStyle extends GuiStyle {
 	var sound: String;
 
 	public function new() {}
