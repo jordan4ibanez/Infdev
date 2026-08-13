@@ -33,6 +33,7 @@ class TabHeader extends GuiElement {
 		this.rootPos = new Vec3(basePosX, basePosY);
 		this.rootSize = new Vec3(tabWidth, tabHeight);
 		this.tempName = baseElementName;
+		this.currentTab = defaultTab;
 
 		// The origin formspec is injected into the element immediately after it is put into it.
 		// So it needs to wait 1 server tick.
@@ -68,8 +69,14 @@ class TabHeader extends GuiElement {
 				}
 			}
 			// ? This triggers the tab logic to create the initial bigger tab selection effect.
-			this.currentTab = 1;
-			this.setCurrentTab(0);
+			var tabMemory = this.currentTab;
+			if (tabMemory == 1) {
+				this.currentTab = 0;
+				this.setCurrentTab(tabMemory);
+			} else {
+				this.currentTab = 1;
+				this.setCurrentTab(tabMemory);
+			}
 		});
 		return this;
 	}
