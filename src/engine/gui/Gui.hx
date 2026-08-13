@@ -199,6 +199,10 @@ class Gui {
 		Core.showFormspec(playerName, this.name, formspecString);
 	}
 
+	public function getCurrentPage(): String {
+		return this.currentPage;
+	}
+
 	public function getPlayer(): Null<ObjectRefPlayer> {
 		return this.player;
 	}
