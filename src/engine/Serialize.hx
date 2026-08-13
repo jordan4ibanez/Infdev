@@ -356,6 +356,11 @@ abstract class Serialize {
 		dumpValue(value);
 	}
 
+	/**
+	 * DO NOT USE THIS FOR HAXE OBJECTS.
+	 * @param value 
+	 * @return Null<String>
+	 */
 	public static function serialize(value: Dynamic): Null<String> {
 		var rope = Table.create();
 		// Keeping the length of the table as a local variable is *much*
@@ -369,6 +374,11 @@ abstract class Serialize {
 		return Table.concat(rope);
 	}
 
+	/**
+	 * DO NOT USE THIS FOR HAXE OBJECTS.
+	 * @param str 
+	 * @return Null<Dynamic>
+	 */
 	public static function deserialize(str: String): Null<Dynamic> {
 		// Backwards compatibility
 		if (str == null) {
