@@ -187,6 +187,10 @@ final class PlayerInventoryFormspec {
 		// ! End.
 	}
 
+	function deployGUI(): Gui {
+		
+	}
+
 	function loadNotesPage(): String {
 		// Returns "" if it's not there so this is perfect!
 		untyped print("save notes");
