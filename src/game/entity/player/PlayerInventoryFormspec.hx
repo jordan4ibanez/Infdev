@@ -157,7 +157,7 @@ final class PlayerInventoryFormspec {
 		f.addElement(tabs[4].name, "todo_barting", new Label(0, 3, 0, 0, "Todo"));
 		// ? Notes page.
 		// todo: this needs a save button.
-		f.addElement(tabs[5].name, "note_taking_area", new TextArea(0.09, 0.75, 9.82, 9.15)
+		f.addElement(tabs[5].name, "note_taking_area", new TextArea(0.09, 0.75, 9.82, 8.5, "", this.loadNotesPage())
 			.setStyle(new TextAreaStyle()
 				.setFontSize(14)));
 		// ? Game Settings page.
@@ -187,8 +187,19 @@ final class PlayerInventoryFormspec {
 		// ! End.
 	}
 
+	function loadNotesPage(): String {
+		// Returns "" if it's not there so this is perfect!
+		untyped print("save notes");
+		return ModStorage.getString(this.player.getPlayerName() + "_inventory_notes_page");
+	}
+
+	function saveNotesPage(): Void {
+		untyped print("load notes");
+		ModStorage.setString(this.player.getPlayerName() + "_inventory_notes_page");
+	}
+
 	public function terminate(): Void {
-		untyped print("terminate");
+		this.saveNotesPage();
 		playerTimerMap.remove(this.player.getPlayerName());
 	}
 
