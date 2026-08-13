@@ -184,13 +184,13 @@ final class PlayerInventoryFormspec {
 		// ! End.
 	}
 
-	public function doPlayerInventorySoundReset() {
-		playerTimerMap.set(this.player.getPlayerName(), false);
-	}
-
 	public function terminate(): Void {
 		untyped print("terminate");
 		playerTimerMap.remove(this.player.getPlayerName());
+	}
+
+	public function doPlayerInventorySoundReset() {
+		playerTimerMap.set(this.player.getPlayerName(), false);
 	}
 
 	// This is for when a player clicks the tabs at the top of their inventory.
