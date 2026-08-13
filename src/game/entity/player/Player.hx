@@ -2,9 +2,9 @@ package src.game.entity.player;
 
 import lua.Lua;
 import src.engine.InvRef;
+import src.engine.Serialize;
 import src.engine.compilercode.Macros;
 import src.engine.entity.definition.PlayerControl;
-import src.engine.entity.helpers.EntitySerialization;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefEntity;
 import src.engine.entity.objectref.ObjectRefPlayer;

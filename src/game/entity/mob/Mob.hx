@@ -1,8 +1,8 @@
 package src.game.entity.mob;
 
+import src.engine.Serialize;
 import src.engine.compilercode.Macros;
 import src.engine.entity.LuaEntity;
-import src.engine.entity.helpers.EntitySerialization;
 
 private class InternalEntityData {
 	public function new() {}
