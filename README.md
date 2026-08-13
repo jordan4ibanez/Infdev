@@ -31,7 +31,7 @@ api was transposed may-august 2026
 
 ##### immediate todos:
 
-have a method that marks them as persistent
+
 
 notes page:
 - add a save button to the notes taking page
