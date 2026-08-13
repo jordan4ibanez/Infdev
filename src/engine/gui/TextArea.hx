@@ -10,7 +10,7 @@ class TextArea extends GuiElement {
 	var width: Float; // ? Done.
 	var height: Float; // ? Done.
 	var label: String = ""; // ? Done.
-	var defaultText: String = ""; // ? Done.
+	var currentText: String = ""; // ? Done.
 
 	public function new(x: Float, y: Float, width: Float, height: Float, ?label: String, ?defaultText: String) {
 		this.x = x;
@@ -21,7 +21,7 @@ class TextArea extends GuiElement {
 			this.label = label;
 		}
 		if (defaultText != null) {
-			this.defaultText = defaultText;
+			this.currentText = defaultText;
 		}
 
 		// Text areas are basically useless without default persistence.
@@ -31,7 +31,7 @@ class TextArea extends GuiElement {
 	}
 
 	public function toFormspec(name: String): String {
-		return 'textarea[${this.x},${this.y};${this.width},${this.height};${name};${this.label};${this.defaultText}]';
+		return 'textarea[${this.x},${this.y};${this.width},${this.height};${name};${this.label};${this.currentText}]';
 	}
 
 	public function setStyle(style: TextAreaStyle): TextArea {
@@ -61,12 +61,12 @@ class TextArea extends GuiElement {
 	}
 
 	public function setDefaultText(defaultText: String): TextArea {
-		this.defaultText = defaultText;
+		this.currentText = defaultText;
 		return this;
 	}
 
 	public function saveOnCloseAction(data: String) {
-		this.defaultText = data;
+		this.currentText = data;
 	}
 }
 
