@@ -86,7 +86,7 @@ final class Player {
 	// !
 	// !
 	public function onActivate(staticData: String, dtimeS: Float) {
-		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
+		Serialize.deserializeHaxeObject(staticData, this, Macros.getCompileTimeClass());
 
 		this.name = this.object.getPlayerName();
 		this.animationHandler = new PlayerAnimationHandler(this.object);
