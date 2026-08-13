@@ -22,7 +22,7 @@ abstract class Mob extends LuaEntity {
 
 	override function onActivate(staticData: String, dtimeS: Float) {
 		super.onActivate(staticData, dtimeS);
-		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
+		Serialize.deserializeHaxeObject(staticData, this, Macros.getCompileTimeClass());
 		this.object.setProperties({
 			collide_with_objects: false,
 			step_up_mode: StepUpModeRigid
