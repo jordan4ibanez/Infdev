@@ -131,7 +131,34 @@ final class PlayerInventoryFormspec {
 	}
 
 	function deployGUI(): Gui {
-		var f = new Gui("", this.loadCurrentPage());
+		var currentTabIndex = 0;
+
+		// Load up the previous tab name.
+		var loadedPage = tabs[0].name;
+		{ // This loads up the previously loaded page or else uses the default tabs[0].
+			var memoryPage = this.loadCurrentPage();
+			if (memoryPage != "") {
+				// Check if this page exists in case pages were removed.
+				for (tabInfo in tabs) {
+					if (memoryPage == tabInfo.name) {
+						loadedPage = tabInfo.name;
+						break;
+					}
+				}
+			}
+		}
+
+		// This will also to default to 0.
+		// If a page gets removed then this will desync with the tab buttons, but that's a one time thing.
+		for (index => tabInfo in tabs) {
+			if (loadedPage == tabInfo.name) {
+				currentTabIndex = index;
+				break;
+			}
+		}
+
+		var f = new Gui("", loadedPage);
+
 		// ? Root elements.
 		f.addRootElement(navigationBarName, new TabHeader(
 			null,
@@ -140,7 +167,7 @@ final class PlayerInventoryFormspec {
 			0.09, 0.125,
 			1.1, 0.5, 0.01,
 			true,
-			1,
+			currentTabIndex,
 			tabs)
 			.setStyles(
 				new TabHeaderStyle()
