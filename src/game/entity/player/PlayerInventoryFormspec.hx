@@ -184,6 +184,10 @@ final class PlayerInventoryFormspec {
 		// ! End.
 	}
 
+	public function getCurrentPage(): String {
+		return this.formspec.getCurrentPage();
+	}
+
 	public function doPlayerInventorySoundReset() {
 		playerTimerMap.set(this.player.getPlayerName(), false);
 	}
