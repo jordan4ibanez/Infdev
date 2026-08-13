@@ -116,7 +116,7 @@ final class PlayerInventoryFormspec {
 	public function new(player: ObjectRefPlayer) {
 		this.player = player;
 		this.playerName = this.player.getPlayerName();
-		this.deployGUI();
+		this.formspec = this.deployGUI();
 		this.formspec.setPlayer(player);
 		playerTimerMap.set(player.getPlayerName(), false);
 
