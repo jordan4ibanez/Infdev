@@ -27,6 +27,8 @@ abstract class Serialize {
 	// !
 	// !
 	// !
+	// !
+	// !
 	// ! BELOW THIS IS THE MODIFIED LUANTI SERIALIZATION LIBRARY. DO NOT TOUCH IT.
 	// !
 	// !
