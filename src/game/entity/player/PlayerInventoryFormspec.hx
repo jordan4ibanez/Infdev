@@ -7,6 +7,7 @@ import src.engine.compilercode.LuaLoop;
 import src.engine.definition.sound.SimpleSoundSpecTable;
 import src.engine.definition.sound.SoundParameterTable;
 import src.engine.entity.objectref.ObjectRefPlayer;
+import src.engine.gui.Button;
 import src.engine.gui.CheckBox;
 import src.engine.gui.DropDown;
 import src.engine.gui.Gui;
@@ -206,6 +207,16 @@ final class PlayerInventoryFormspec {
 		f.addElement(tabs[5].name, "note_taking_area", new TextArea(0.09, 0.75, 9.82, 8.5, "", this.loadNotesPage())
 			.setStyle(new TextAreaStyle()
 				.setFontSize(14)));
+		f.addElement(tabs[5].name, "note_save_button", new Button(0.09, 9.35, 9.82, 0.5, "Save Notes")
+			.setStyle(new ButtonStyle()
+				.setFontSize(20))
+			.setAction((thisFormspec, thisElement, fields) -> {
+				var notes: TextArea = thisFormspec.getElement(tabs[5].name, "note_taking_area");
+				if (notes == null) {
+					throw 'Error saving notes for player ${thisFormspec.getPlayer().getPlayerName()}. note_taking_area is null.';
+				}
+				notes.setCurrentText(fields[cast "note_taking_area"]);
+			}));
 		// ? Game Settings page.
 		f.addElement(tabs[6].name, "todo_settings", new Label(0, 3, 0, 0, "Todo"));
 		f.addElement(tabs[6].name, "sample_setting", new DropDown(1, 2, 3, 0.5, 1, "test", "a thing", "another")
