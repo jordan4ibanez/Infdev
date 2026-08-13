@@ -199,7 +199,7 @@ class Gui {
 		Core.showFormspec(playerName, this.name, formspecString);
 	}
 
-	public function getCurrentPage(): String {
+	public function getCurrentPage(): Null<String> {
 		return this.currentPage;
 	}
 
