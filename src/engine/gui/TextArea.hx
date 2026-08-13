@@ -65,6 +65,10 @@ class TextArea extends GuiElement {
 		return this;
 	}
 
+	public function getCurrentText(): String {
+		return this.currentText;
+	}
+
 	public function saveOnCloseAction(data: String) {
 		this.currentText = data;
 	}
