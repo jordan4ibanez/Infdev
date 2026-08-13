@@ -32,6 +32,6 @@ abstract class Mob extends LuaEntity {
 	}
 
 	override function getStaticData(): String {
-		return EntitySerialization.safeSerialize(this, Macros.getCompileTimeClass());
+		return Serialize.serializeHaxeObject(this, Macros.getCompileTimeClass());
 	}
 }
