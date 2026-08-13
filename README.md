@@ -31,8 +31,7 @@ api was transposed may-august 2026
 
 ##### immediate todos:
 
-The safe serialization thing needs to be inside the serialization class instead of it's current home
-- Note: This is gonna fucking suck probably
+
 
 notes page:
 - add a save button to the notes taking page
