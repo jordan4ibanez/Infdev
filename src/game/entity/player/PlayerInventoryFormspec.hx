@@ -18,6 +18,7 @@ import src.engine.gui.TextArea;
 // This will actually save what tab you're on between logins.
 final class PlayerInventoryFormspec {
 	var player: ObjectRefPlayer;
+	var playerName: String;
 
 	static inline final navigationBarName = "navigation";
 
@@ -172,6 +173,7 @@ final class PlayerInventoryFormspec {
 
 	public function new(player: ObjectRefPlayer) {
 		this.player = player;
+		this.playerName = this.player.getPlayerName();
 		this.formspec.setPlayer(player);
 		playerTimerMap.set(player.getPlayerName(), false);
 
