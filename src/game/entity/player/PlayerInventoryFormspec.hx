@@ -184,10 +184,6 @@ final class PlayerInventoryFormspec {
 		// ! End.
 	}
 
-	public function getGui(): Gui {
-		return this.formspec;
-	}
-
 	public function doPlayerInventorySoundReset() {
 		playerTimerMap.set(this.player.getPlayerName(), false);
 	}
