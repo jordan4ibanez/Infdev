@@ -80,7 +80,7 @@ abstract class Serialize {
 	 * @param clazz The class type of inputObject.
 	 * @return String The serialized data string.
 	 */
-	public static function safeSerialize<T>(inputObject: Dynamic, clazz: Class<T>): String {
+	public static function serializeHaxeObject<T>(inputObject: Dynamic, clazz: Class<T>): String {
 		// trace(Type.getInstanceFields(clazz), Type.getClassName(clazz));
 
 		var outputObject: Dynamic = {};
