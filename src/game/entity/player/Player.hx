@@ -125,7 +125,7 @@ final class Player {
 
 	// The only time this runs is when a player leaves.
 	public function getStaticData(): String {
-		return EntitySerialization.safeSerialize(this, Macros.getCompileTimeClass());
+		return Serialize.serializeHaxeObject(this, Macros.getCompileTimeClass());
 	}
 
 	public function onNewPlayer(): Void {
