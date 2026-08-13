@@ -131,7 +131,7 @@ final class PlayerInventoryFormspec {
 	}
 
 	function deployGUI(): Gui {
-		var f = new Gui("", "inventory");
+		var f = new Gui("", this.loadCurrentPage());
 		// ? Root elements.
 		f.addRootElement(navigationBarName, new TabHeader(
 			null,
@@ -201,8 +201,27 @@ final class PlayerInventoryFormspec {
 		ModStorage.setString(this.player.getPlayerName() + "_inventory_notes_page", text);
 	}
 
+	function loadCurrentPage(): String {
+		untyped print("loading page");
+		var loadedPage = ModStorage.getString(this.player.getPlayerName() + "_inventory_current_page");
+		if (loadedPage == "") {
+			loadedPage = tabs[0].name;
+		}
+		return loadedPage;
+	}
+
+	function saveCurrentPage(): Void {
+		untyped print("saving page");
+		var currentPage = this.formspec.getCurrentPage();
+		if (currentPage == null) {
+			throw 'Player inventory current page is null for player ${this.playerName}';
+		}
+		ModStorage.setString(this.player.getPlayerName() + "_inventory_current_page", currentPage);
+	}
+
 	public function terminate(): Void {
 		this.saveNotesPage();
+		this.saveCurrentPage();
 		playerTimerMap.remove(this.player.getPlayerName());
 	}
 
