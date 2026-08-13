@@ -31,9 +31,7 @@ api was transposed may-august 2026
 
 ##### immediate todos:
 
-put the players individual formspecs into individual save Metadata so the string doesn't become too big
 
-do this for the levels object in the player as well
 
 make items not physical, they exist statically
 - When they need to move instead of smooth movement, they move by node including gravity on a timer
@@ -41,6 +39,10 @@ make items not physical, they exist statically
 
 Some kind of tick system so all entities can do things every half second
 - Not sure how to set up alerts, maybe just alertMe or something
+
+do this for the levels object in the player as well
+
+put the players individual formspecs into individual save Metadata so the string doesn't become too big
 
 ##### todos when available to put some cool things in:
 
