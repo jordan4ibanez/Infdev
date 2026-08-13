@@ -21,6 +21,21 @@ extern class PureDynamic {
 
 @:final
 abstract class Serialize {
+	// !
+	// !
+	// !
+	// !
+	// !
+	// !
+	// ! BELOW THIS IS THE MODIFIED LUANTI SERIALIZATION LIBRARY. DO NOT TOUCH IT.
+	// !
+	// !
+	// !
+	// !
+	// !
+	// !
+	// !
+	// !
 	static var unsupported_types: Table<String, Bool>;
 
 	// Build a "set" of Lua keywords. These can't be used as short key names.
