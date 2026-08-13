@@ -184,8 +184,8 @@ final class PlayerInventoryFormspec {
 		// ! End.
 	}
 
-	public function getCurrentPage(): String {
-		return this.formspec.getCurrentPage();
+	public function getGui(): Gui {
+		return this.formspec;
 	}
 
 	public function doPlayerInventorySoundReset() {
