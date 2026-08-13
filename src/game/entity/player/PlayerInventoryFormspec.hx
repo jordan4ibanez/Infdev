@@ -192,13 +192,13 @@ final class PlayerInventoryFormspec {
 
 	function loadNotesPage(): String {
 		// Returns "" if it's not there so this is perfect!
-		untyped print("save notes");
 		return ModStorage.getString(this.player.getPlayerName() + "_inventory_notes_page");
 	}
 
 	function saveNotesPage(): Void {
-		untyped print("load notes");
-		ModStorage.setString(this.player.getPlayerName() + "_inventory_notes_page");
+		var noteTextAreaElement: TextArea = this.formspec.getElement(tabs[5].name, "note_taking_area");
+		var text = noteTextAreaElement.getCurrentText();
+		ModStorage.setString(this.player.getPlayerName() + "_inventory_notes_page", text);
 	}
 
 	public function terminate(): Void {
