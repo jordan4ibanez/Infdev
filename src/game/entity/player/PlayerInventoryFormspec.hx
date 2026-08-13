@@ -188,7 +188,8 @@ final class PlayerInventoryFormspec {
 		playerTimerMap.set(this.player.getPlayerName(), false);
 	}
 
-	public function whenPlayerLeaves(): Void {
+	public function terminate(): Void {
+		untyped print("terminate");
 		playerTimerMap.remove(this.player.getPlayerName());
 	}
 
