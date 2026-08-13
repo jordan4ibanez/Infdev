@@ -138,7 +138,7 @@ class ItemEntity extends LuaEntity {
 	}
 
 	override function getStaticData(): String {
-		return EntitySerialization.safeSerialize(this, Macros.getCompileTimeClass());
+		return Serialize.serializeHaxeObject(this, Macros.getCompileTimeClass());
 	}
 
 	override function onActivate(staticData: String, dtimeS: Float) {
@@ -159,7 +159,7 @@ class ItemEntity extends LuaEntity {
 
 		this.setSize(0.6, 0.6);
 
-		EntitySerialization.safeDeserialize(staticData, this, Macros.getCompileTimeClass());
+		Serialize.deserializeHaxeObject(staticData, this, Macros.getCompileTimeClass());
 
 		this.object.setArmorGroups(["immortal" => 1]);
 		this.object.setVelocity(new Vec3(0, 2, 0));
