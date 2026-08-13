@@ -29,7 +29,7 @@ abstract class Serialize {
 	 * @param clazz The class type of outputObject.
 	 * @return T The storage type you're using for the data in this class.
 	 */
-	public static function safeDeserialize<T>(staticData: String, outputObject: Dynamic, clazz: Class<T>): Void {
+	public static function deserializeHaxeObject<T>(staticData: String, outputObject: Dynamic, clazz: Class<T>): Void {
 		// Base defaults.
 		var containerClass = Type.createInstance(clazz, []);
 
