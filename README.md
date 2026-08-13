@@ -31,7 +31,7 @@ api was transposed may-august 2026
 
 ##### immediate todos:
 
-
+SAVE THE PAGE THAT THE PLAYER WAS ON IT'S SO ANNOYING HAVING ASLKJFSALKDFJASGLKJHS
 
 notes page:
 - add a save button to the notes taking page
