@@ -31,13 +31,6 @@ api was transposed may-august 2026
 
 ##### immediate todos:
 
-SAVE THE PAGE THAT THE PLAYER WAS ON IT'S SO ANNOYING HAVING ASLKJFSALKDFJASGLKJHS
-
-notes page:
-- add a save button to the notes taking page
-- fix the note taking page to restore the text on resize
-- allow textboxes and forms to save their data into the object itself so it can be persistent
-
 put the players individual formspecs into individual save Metadata so the string doesn't become too big
 
 do this for the levels object in the player as well
