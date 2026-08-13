@@ -111,7 +111,25 @@ final class PlayerInventoryFormspec {
 	// This is REALLY, REALLY memory inefficient but I can't run a function when
 	// the player opens their inventory.
 	// todo: The main inventory list will need to expand sideways when a player levels up.
-	var formspec: Gui = (() -> {
+	var formspec: Gui;
+
+	public function new(player: ObjectRefPlayer) {
+		this.player = player;
+		this.playerName = this.player.getPlayerName();
+		this.formspec.setPlayer(player);
+		playerTimerMap.set(player.getPlayerName(), false);
+
+		// ! Never remove this. The engine formspec code for the inventory is a mess and needs this to hold the data.
+		Core.after(0, () -> {
+			this.player.setInventoryFormspec(this.serialize());
+		});
+		this.formspec.doActionOnClose((thisFormspec) -> {
+			this.player.setInventoryFormspec(this.serialize());
+		});
+		// ! End.
+	}
+
+	function deployGUI(): Gui {
 		var f = new Gui("", "inventory");
 		// ? Root elements.
 		f.addRootElement(navigationBarName, new TabHeader(
@@ -169,26 +187,6 @@ final class PlayerInventoryFormspec {
 		// ? Credits page.
 		f.addElement(tabs[7].name, "todo_credits", new Label(0, 3, 0, 0, "Todo"));
 		return f;
-	})();
-
-	public function new(player: ObjectRefPlayer) {
-		this.player = player;
-		this.playerName = this.player.getPlayerName();
-		this.formspec.setPlayer(player);
-		playerTimerMap.set(player.getPlayerName(), false);
-
-		// ! Never remove this. The engine formspec code for the inventory is a mess and needs this to hold the data.
-		Core.after(0, () -> {
-			this.player.setInventoryFormspec(this.serialize());
-		});
-		this.formspec.doActionOnClose((thisFormspec) -> {
-			this.player.setInventoryFormspec(this.serialize());
-		});
-		// ! End.
-	}
-
-	function deployGUI(): Gui {
-		
 	}
 
 	function loadNotesPage(): String {
