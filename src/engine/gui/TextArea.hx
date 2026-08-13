@@ -60,7 +60,7 @@ class TextArea extends GuiElement {
 		return this;
 	}
 
-	public function setDefaultText(defaultText: String): TextArea {
+	public function setCurrentText(defaultText: String): TextArea {
 		this.currentText = defaultText;
 		return this;
 	}
