@@ -6,6 +6,3 @@ Hello! Welcome the models section of the credits and licensing information!
 
 ### [infdev_hand](infdev/hand/LICENSE.md)
 
-## minetest_game
-
-### [player_api](minetest_game/player_api/LICENSE.md)
