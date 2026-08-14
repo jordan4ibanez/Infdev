@@ -41,6 +41,6 @@ abstract class Mob extends LuaEntity {
 	override function onTick() {
 		super.onTick();
 
-		untyped print('tick for ${this.object.getGUID()}');
+		// untyped print('tick for ${this.object.getGUID()}');
 	}
 }

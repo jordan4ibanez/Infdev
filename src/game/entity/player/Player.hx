@@ -151,7 +151,7 @@ final class Player {
 
 	// Runs at 100 ticks per minute.
 	public function onTick(): Void {
-		untyped print('${this.name} tick');
+		// untyped print('${this.name} tick');
 	}
 
 	public function onPunch(puncher: Null<ObjectRefBase>, timeFromLastPunch: Float, toolCapabilities: Dynamic, dir: Dynamic, damager: Int): Bool {
