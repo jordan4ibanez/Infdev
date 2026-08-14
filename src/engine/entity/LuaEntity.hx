@@ -14,7 +14,7 @@ inline final MAX_ENTITY_LEVEL = MAX_LEVEL;
 @:build(src.engine.compilercode.EntityDuctTape.build())
 abstract class LuaEntity {
 	final object: ObjectRefEntity = null;
-	final name: String = null;
+	public final name: String = null;
 	var shadowEnabled = true;
 	var shadowEntity: Null<ObjectRefEntity> = null;
 
