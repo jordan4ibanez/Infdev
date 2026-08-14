@@ -4,14 +4,34 @@ import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefEntity;
 import src.engine.entity.objectref.ObjectRefPlayer;
 
+/**
+ * This is literally designed the make the game feel slightly janky or predictably frustrating and allow you to manipulate things.
+ */
 final class Tick {
 	static var counter = 0.0;
-	static inline final tickRate = 0.6;
+	static inline final TICK_RATE = 0.6;
 
 	static var entities: Map<String, Bool> = new Map();
 
+	static function deploy(): Void {
+		Core.registerGlobalStep(bookKeeper);
+	}
+
+	static function bookKeeper(delta: Float): Void {
+		counter += delta;
+		if (counter < TICK_RATE) {
+			return;
+		}
+		counter -= TICK_RATE;
+		onTick();
+	}
+
+	static function __init__(): Void {
+		deploy();
+	}
+
 	// Anything can do an on tick.
-	public static function registerTickEntity(object: ObjectRefBase): Void {
+	public static function registerOnTickEntity(object: ObjectRefBase): Void {
 		final guid = object.getGUID();
 		if (entities.exists(object.getGUID())) {
 			if (object.isPlayer()) {
@@ -21,5 +41,11 @@ final class Tick {
 			}
 		}
 		entities.set(guid, true);
+	}
+
+	static function onTick(): Void {
+		// todo: go through all the entities and run on tick.
+
+		untyped print("tick");
 	}
 }
