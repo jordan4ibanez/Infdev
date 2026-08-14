@@ -6,6 +6,10 @@ import src.engine.entity.objectref.ObjectRefPlayer;
 
 /**
  * This is literally designed the make the game feel slightly janky or predictably frustrating and allow you to manipulate things.
+ * 
+ * "Just set the server tickrate to blah blah"
+ * 
+ * This works independantly of the server so that things like animations, running, GUI, or hud animations aren't completely broken.
  */
 final class Tick {
 	static var counter = 0.0;
