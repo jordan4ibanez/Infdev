@@ -146,6 +146,11 @@ final class Player {
 		}
 	}
 
+	// Runs at 100 ticks per minute.
+	public function onTick(): Void {
+		untyped print('${this.name} tick');
+	}
+
 	public function onPunch(puncher: Null<ObjectRefBase>, timeFromLastPunch: Float, toolCapabilities: Dynamic, dir: Dynamic, damager: Int): Bool {
 		trace(this.object.getPlayerName() + " got punched! OUCH");
 		// Disable the default damage mechanic cause fuck that shit.
