@@ -293,3 +293,7 @@ Textures are licensed under:
 - Creative Commons 0 License. https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
 
 To see individual licenses for each file as well as an offline copy of the licenses please see: [mods/infdev/textures/texture_licensing_directory.md](mods/infdev/textures/texture_licensing_directory.md)
+## Schematics:
+
+Schematics (.mts) are licensed under:
+- Creative Commons 0 License. https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
