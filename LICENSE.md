@@ -267,7 +267,7 @@ Public License instead of this License.  But first, please read
 
 ## Font:
 
-Fonts are licensed under:
+Fonts (.ttf) are licensed under:
 - SIL Open Font License 1.1. https://openfontlicense.org/
 
 To see individual licenses for each file as well as an offline copy of the licenses please see: [mods/infdev/fonts/LICENSE.md](mods/infdev/fonts/LICENSE.md)
