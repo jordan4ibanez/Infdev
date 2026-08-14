@@ -285,7 +285,7 @@ To see individual licenses for each file as well as an offline copy of the licen
 Models (.gltf) and blockbench files (.bbmodels) are licensed under:
 - Creative Commons 0 License. https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
 
-To see individual licenses for each file as well as an offline copy of the licenses please see: [mods/infdev/models/model_licensing_directory.md](mods/infdev/models/model_licensing_directory.md)
+To see individual licenses for each file as well as an offline copy of the licenses please see: [mods/infdev/models/LICENSE.md](mods/infdev/models/LICENSE.md)
 
 ## Textures:
 

@@ -12,7 +12,7 @@ https://github.com/jordan4ibanez/Infdev_original
 
 ### [Sounds](mods/infdev/sounds/LICENSE.md)
 
-### [Models](mods/infdev/models/model_licensing_directory.md)
+### [Models](mods/infdev/models/LICENSE.md)
 
 ### [Textures](mods/infdev/textures/texture_licensing_directory.md)
 
