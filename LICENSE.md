@@ -274,7 +274,7 @@ To see individual licenses for each file as well as an offline copy of the licen
 
 ## Sounds:
 
-Sounds (including music)(.ogg) are licensed under:
+Sounds [including music] (.ogg) are licensed under:
 - Creative Commons 0 License. https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
 
 To see individual licenses for each file as well as an offline copy of the licenses please see: [mods/infdev/sounds/LICENSE.md](mods/infdev/sounds/LICENSE.md)
