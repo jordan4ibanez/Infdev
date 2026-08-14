@@ -1,5 +1,6 @@
 package src.game.entity.player;
 
+import src.engine.Tick;
 import lua.Lua;
 import src.engine.InvRef;
 import src.engine.Serialize;
@@ -114,6 +115,8 @@ final class Player {
 		this.adjustCamera();
 
 		this.inventoryFormspec = new PlayerInventoryFormspec(this.object);
+
+		Tick.registerOnTickEntity(this.object);
 
 		Lua.print(this.name + " joined the game.");
 	}
