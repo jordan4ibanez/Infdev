@@ -39,14 +39,16 @@ do this for the levels object in the player as well
 
 put the players individual formspecs into individual save Metadata so the string doesn't become too big
 
+Pull the character model from ruantis in and make it look less horrible.
+
+Redo the player hand in blockbench in ruantis style from scratch so there is no need for providing a source on my own code/assets
+
 ##### todos when available to put some cool things in:
 
 Use a name tag on mobs, items, and npcs
 
 Use a static seed for the terrain generator but not the ores
 - This can be used to create actual cities and locations in the world without worrying about the terrain generator randomizing
-
-Pull the character model from ruantis in and make it look less horrible.
 
 I think it would be cool if the game had runescape skills bolted in
 
