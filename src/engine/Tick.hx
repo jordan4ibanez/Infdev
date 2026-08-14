@@ -15,7 +15,8 @@ final class Tick {
 	static var counter = 0.0;
 	static inline final TICK_RATE = 0.6;
 
-	static var entities: Map<String, Bool> = new Map();
+	static var entityRemovalQueue: Array<String> = [];
+	static var entities: Map<String, ObjectRefBase> = new Map();
 
 	static function deploy(): Void {
 		Core.registerGlobalStep(bookKeeper);
@@ -44,12 +45,29 @@ final class Tick {
 				throw 'Entity ${guid} which is entity ${(cast object : ObjectRefEntity).getLuaEntity().name} already registered to do onTick.';
 			}
 		}
-		entities.set(guid, true);
+		entities.set(guid, object);
 	}
 
 	static function onTick(): Void {
-		// todo: go through all the entities and run on tick.
-
+		// Run onTick for all entities in this and find ones that don't exist.
+		for (guid => entity in entities) {
+			if (entity == null || !entity.isValid()) {
+				entityRemovalQueue.push(guid);
+				continue;
+			}
+			if (entity.isPlayer()) {
+				(cast entity : ObjectRefPlayer).getPlayerLuaEntity().onTick();
+			} else {
+				(cast entity : ObjectRefEntity).getLuaEntity().onTick();
+			}
+		}
+		// Clear out old entities that no longer exist.
+		if (entityRemovalQueue.length > 0) {
+			for (guid in entityRemovalQueue) {
+				entities.remove(guid);
+			}
+			entityRemovalQueue = [];
+		}
 		untyped print("tick");
 	}
 }
