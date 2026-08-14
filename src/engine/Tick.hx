@@ -68,6 +68,5 @@ final class Tick {
 			}
 			entityRemovalQueue = [];
 		}
-		untyped print("tick");
 	}
 }
