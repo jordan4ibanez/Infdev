@@ -31,9 +31,6 @@ api was transposed may-august 2026
 
 ##### immediate todos:
 
-Some kind of tick system so all entities can do things every half second
-- Not sure how to set up alerts, maybe just alertMe or something
-
 make items not physical, they exist statically
 - When they need to move instead of smooth movement, they move by node including gravity on a timer
 - If there are multiple items on a node, when you right click, bring up a menu to pick which one you want
