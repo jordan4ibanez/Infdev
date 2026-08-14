@@ -137,11 +137,11 @@ abstract class LuaEntity {
 		return "";
 	}
 
-	// ? Begin baked in engine entity features made nicer to use.
-	// ! If anything past this point isn't final, there's an issue.
-	//
-	// LuaEntity methods:
-	//
-	//* begins: remove
-	//* ends: get_entity_name (which is deprecated, this thing should use a .name field)
+	// !
+	// !
+	// ! Only custom things below this.
+	// !
+	// !
+
+	public function onTick(): Void {}
 }
