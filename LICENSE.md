@@ -274,7 +274,7 @@ To see individual licenses for each file as well as an offline copy of the licen
 
 ## Sounds:
 
-Sounds (including music) are licensed under:
+Sounds (including music)(.ogg) are licensed under:
 - Creative Commons 0 License. https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
 
 To see individual licenses for each file as well as an offline copy of the licenses please see: [mods/infdev/sounds/LICENSE.md](mods/infdev/sounds/LICENSE.md)
@@ -282,14 +282,14 @@ To see individual licenses for each file as well as an offline copy of the licen
 
 ## Models:
 
-Models are licensed under:
+Models (.gltf) and blockbench files (.bbmodels) are licensed under:
 - Creative Commons 0 License. https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
 
 To see individual licenses for each file as well as an offline copy of the licenses please see: [mods/infdev/models/model_licensing_directory.md](mods/infdev/models/model_licensing_directory.md)
 
 ## Textures:
 
-Textures are licensed under:
+Textures (.png) are licensed under:
 - Creative Commons 0 License. https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
 
 To see individual licenses for each file as well as an offline copy of the licenses please see: [mods/infdev/textures/texture_licensing_directory.md](mods/infdev/textures/texture_licensing_directory.md)
