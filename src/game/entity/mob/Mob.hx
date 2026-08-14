@@ -1,5 +1,6 @@
 package src.game.entity.mob;
 
+import src.engine.Tick;
 import src.engine.Serialize;
 import src.engine.compilercode.Macros;
 import src.engine.entity.LuaEntity;
@@ -29,9 +30,17 @@ abstract class Mob extends LuaEntity {
 		});
 
 		this.enableShadow();
+
+		Tick.registerOnTickEntity(this.object);
 	}
 
 	override function getStaticData(): String {
 		return Serialize.serializeHaxeObject(this, Macros.getCompileTimeClass());
+	}
+
+	override function onTick() {
+		super.onTick();
+
+		untyped print('tick for ${this.object.getGUID()}');
 	}
 }
