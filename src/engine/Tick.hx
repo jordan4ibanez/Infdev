@@ -6,7 +6,7 @@ import src.engine.entity.objectref.ObjectRefPlayer;
 
 final class Tick {
 	static var counter = 0.0;
-	static inline final tickRate = 0.5;
+	static inline final tickRate = 0.6;
 
 	static var entities: Map<String, Bool> = new Map();
 
