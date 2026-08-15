@@ -95,14 +95,18 @@ final class PlayerAnimationHandler {
 		if (stateChange) {
 			if (walking) {
 				if (mining || placing) {
+					// todo: play pitch animation arm.
 					playAnimation(PlayerAnimationMineWalk, 1.25);
 				} else {
+					// todo: stop pitch animation arm.
 					playAnimation(PlayerAnimationWalk, 1.25);
 				}
 			} else {
 				if (mining || placing) {
+					// todo: play pitch animation arm.
 					playAnimation(PlayerAnimationMine, 1.25);
 				} else {
+					// todo: stop pitch animation arm.
 					playAnimation(PlayerAnimationIdle);
 				}
 			}
