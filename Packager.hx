@@ -11,6 +11,7 @@ class Packager {
 
 		// I literally did this so I don't have to use quotations.
 		final ____components = '
+			menu/
 			mods/
 			game.conf
 			LICENSE.md
