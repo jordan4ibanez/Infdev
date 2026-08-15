@@ -50,8 +50,8 @@ final class Player {
 		this.object.setProperties({
 			visual_size: new Vec3(1, 1, 1),
 			visual: EntityVisualMesh,
-			mesh: "character.glb",
-			textures: ["character.png"]
+			mesh: "infdev_player.gltf",
+			textures: ["infdev_player.png"]
 		});
 
 		this.animationHandler.playAnimation(PlayerAnimationIdle);
