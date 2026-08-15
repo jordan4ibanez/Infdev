@@ -57,7 +57,7 @@ final class PlayerInventoryFormspec {
 			}
 
 			Core.soundPlay(
-				new SimpleSoundSpecTable("infdev_inventory_action"),
+				new SimpleSoundSpecTable("infdev_interface_action"),
 				// todo: make this an option in the sounds menu.
 				new SoundParameterTable()
 					.setToPlayer(player.getPlayerName())
