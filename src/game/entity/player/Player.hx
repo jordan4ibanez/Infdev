@@ -1,9 +1,9 @@
 package src.game.entity.player;
 
-import src.engine.Tick;
 import lua.Lua;
 import src.engine.InvRef;
 import src.engine.Serialize;
+import src.engine.Tick;
 import src.engine.compilercode.Macros;
 import src.engine.entity.definition.PlayerControl;
 import src.engine.entity.objectref.ObjectRefBase;
@@ -58,9 +58,9 @@ final class Player {
 	}
 
 	function adjustCamera(): Void {
-		var height = -1.4;
+		var height = -0.5;
 		this.object.setEyeOffset(
-			new Vec3(),
+			new Vec3(0, height, 0),
 			new Vec3(0, height, 0),
 			new Vec3(0, height, 0));
 	}
