@@ -1,6 +1,6 @@
 # Textures Credits/Licensing Information
 
-Hello! Welcome the textures section of the credits and licensing information!
+Every texture (.png) used in this game is CC0 but I manually listed which ones are CC0 to ensure it is known which sounds are CC0, which is all of them.
 
 
 ## Pixel Pack
