@@ -28,8 +28,6 @@ api was transposed may-august 2026
 
 ##### immediate todos:
 
-Fix the player animations
-
 Redo the player hand in blockbench in ruantis style from scratch so there is no need for providing a source on my own code/assets
 
 make items not physical, they exist statically
