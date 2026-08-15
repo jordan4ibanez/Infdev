@@ -1,6 +1,6 @@
 # Model Licensing Information
 
-Every .bb and .gltf in this game is licensed under CC0.
+Every .bbmodel and .gltf in this game is licensed under CC0.
 
 See the Creative Commons CC0 1.0 Universal license for more details:
 https://creativecommons.org/publicdomain/zero/1.0/
