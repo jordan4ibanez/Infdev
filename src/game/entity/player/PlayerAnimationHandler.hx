@@ -95,13 +95,13 @@ final class PlayerAnimationHandler {
 		if (stateChange) {
 			if (walking) {
 				if (mining || placing) {
-					playAnimation(PlayerAnimationMineWalk);
+					playAnimation(PlayerAnimationMineWalk, 1.25);
 				} else {
-					playAnimation(PlayerAnimationWalk);
+					playAnimation(PlayerAnimationWalk, 1.25);
 				}
 			} else {
 				if (mining || placing) {
-					playAnimation(PlayerAnimationMine);
+					playAnimation(PlayerAnimationMine, 1.25);
 				} else {
 					playAnimation(PlayerAnimationIdle);
 				}
