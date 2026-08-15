@@ -1,4 +1,4 @@
-# Model things
+# Model Licensing Information
 
 Every .bb and .gltf in this game is licensed under CC0.
 
