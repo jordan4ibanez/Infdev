@@ -13,7 +13,7 @@ final class VirtualHand extends NodeDefinition {
 		super();
 
 		this.drawType = DrawTypeMesh;
-		this.mesh = "hand.glb";
+		this.mesh = "infdev_player_hand.gltf";
 		this.tiles = ["infdev_player.png"];
 	}
 }
