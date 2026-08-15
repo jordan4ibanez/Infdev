@@ -14,7 +14,7 @@ https://github.com/jordan4ibanez/Infdev_original
 
 ### [Models](mods/infdev/models/LICENSE.md)
 
-### [Textures](mods/infdev/textures/texture_licensing_directory.md)
+### [Textures](mods/infdev/textures/LICENSE.md)
 
 
 ## Note:
