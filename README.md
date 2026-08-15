@@ -28,6 +28,10 @@ api was transposed may-august 2026
 
 ##### immediate todos:
 
+Pull the character model from ruantis in and make it look less horrible.
+
+Redo the player hand in blockbench in ruantis style from scratch so there is no need for providing a source on my own code/assets
+
 make items not physical, they exist statically
 - When they need to move instead of smooth movement, they move by node including gravity on a timer
 - If there are multiple items on a node, when you right click, bring up a menu to pick which one you want
@@ -35,10 +39,6 @@ make items not physical, they exist statically
 do this for the levels object in the player as well
 
 put the players individual formspecs into individual save Metadata so the string doesn't become too big
-
-Pull the character model from ruantis in and make it look less horrible.
-
-Redo the player hand in blockbench in ruantis style from scratch so there is no need for providing a source on my own code/assets
 
 ##### todos when available to put some cool things in:
 
