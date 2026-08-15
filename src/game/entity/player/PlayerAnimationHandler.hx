@@ -11,6 +11,7 @@ enum abstract PlayerAnimation(String) to String {
 	var PlayerAnimationMineWalk = "mine_walk";
 	var PlayerAnimationLookPitch = "look_pitch";
 	var PlayerAnimationLookYaw = "look_yaw";
+	var PlayerAnimationArmPitch = "arm_pitch";
 	// Crazy animation for human mob.
 	var PlayerAnimationHumanIdle = "human_idle";
 	var PlayerAnimationHumanWalk = "human_walk";
@@ -32,13 +33,17 @@ final class PlayerAnimationHandler {
 	var animationPriority = -2_147_483_648;
 	var oldLookPitch = 0.0;
 
+	var armPitchEnabled = true;
+
 	public function new(playerObject: ObjectRefPlayer) {
 		this.playerObject = playerObject;
 	}
 
 	public function playAnimation(animation: PlayerAnimation, ?speed: Float, ?loop: Bool = true): Void {
 		LuaLoop.nativePairs(oldAnimName, anim, this.playerObject.getAnimations(), {
-			if (oldAnimName != PlayerAnimationLookPitch && oldAnimName != PlayerAnimationLookYaw) {
+			if (oldAnimName != PlayerAnimationLookPitch
+				&& oldAnimName != PlayerAnimationLookYaw
+				&& oldAnimName != PlayerAnimationArmPitch) {
 				this.playerObject.stopAnimation(oldAnimName);
 			}
 		});
@@ -92,35 +97,50 @@ final class PlayerAnimationHandler {
 			stateChange = true;
 		}
 
+		var oldState = this.armPitchEnabled;
+
 		if (stateChange) {
 			if (walking) {
 				if (mining || placing) {
-					// todo: play pitch animation arm.
+					this.armPitchEnabled = true;
 					playAnimation(PlayerAnimationMineWalk, 1.25);
 				} else {
-					// todo: stop pitch animation arm.
+					this.armPitchEnabled = false;
 					playAnimation(PlayerAnimationWalk, 1.25);
 				}
 			} else {
 				if (mining || placing) {
-					// todo: play pitch animation arm.
+					this.armPitchEnabled = true;
 					playAnimation(PlayerAnimationMine, 1.25);
 				} else {
-					// todo: stop pitch animation arm.
+					this.armPitchEnabled = false;
 					playAnimation(PlayerAnimationIdle);
 				}
 			}
 		}
 
+		var updateArmPitch = oldState != this.armPitchEnabled;
+
 		var newLookPitch = this.playerObject.getLookDir().y;
 
-		if (newLookPitch == oldLookPitch) {
+		if (newLookPitch == oldLookPitch && !updateArmPitch) {
 			return;
 		}
 
 		var pitchAdjusted = (newLookPitch + 1) * 0.5;
 
 		// This isn't an animation. It's magic. You're a lizard, Barry.
+
+		if (this.armPitchEnabled) {
+			this.playerObject.playAnimation(PlayerAnimationArmPitch, {
+				priority: animationPriority,
+				speed: 0,
+				min_frame: pitchAdjusted,
+				max_frame: pitchAdjusted,
+				blend: 0.2,
+				loop: false
+			});
+		}
 
 		this.playerObject.playAnimation(PlayerAnimationLookPitch, {
 			priority: animationPriority,
