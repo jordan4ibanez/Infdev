@@ -1,5 +1,6 @@
 package src.game.entity.player;
 
+import src.engine.compilercode.LuaLoop;
 import src.engine.entity.objectref.ObjectRefPlayer;
 
 enum abstract PlayerAnimation(String) to String {
@@ -36,11 +37,17 @@ final class PlayerAnimationHandler {
 	}
 
 	public function playAnimation(animation: PlayerAnimation, ?speed: Float, ?loop: Bool = true): Void {
+		LuaLoop.nativePairs(oldAnimName, anim, this.playerObject.getAnimations(), {
+			if (oldAnimName != PlayerAnimationLookPitch && oldAnimName != PlayerAnimationLookYaw) {
+				this.playerObject.stopAnimation(oldAnimName);
+			}
+		});
+
 		this.playerObject.playAnimation(animation, {
 			priority: animationPriority,
 			speed: speed,
 			start_frame: animationTimer,
-			blend: 0.15,
+			blend: 0.5,
 			loop: loop
 		});
 
