@@ -1,5 +1,6 @@
 package src.engine.entity.objectref;
 
+import src.engine.entity.definition.HudFlags;
 import lua.Table;
 import src.engine.entity.definition.CameraSettings.CameraMode;
 import src.engine.entity.definition.PhysicsOverride;
@@ -117,10 +118,10 @@ abstract class ObjectRefPlayer extends ObjectRefBase {
 	public abstract function hudGetAll(): Table<Int, Dynamic>;
 
 	@:native("hud_set_flags")
-	public abstract function hudSetFlags(flags: Dynamic): Void;
+	public abstract function hudSetFlags(flags: HudFlags): Void;
 
 	@:native("hud_get_flags")
-	public abstract function hudGetFlags(): Dynamic;
+	public abstract function hudGetFlags(): HudFlags;
 
 	@:native("hud_set_hotbar_itemcount")
 	public abstract function hudSetHotbarItemcount(count: Int): Void;
