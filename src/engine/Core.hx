@@ -242,6 +242,9 @@ extern class Core {
 	@:native("add_entity")
 	static function addEntity(pos: Vec3, name: String, ?staticData: String): Null<ObjectRefEntity>;
 
+	@:native("add_item")
+	static function addItem(pos: Vec3, item: ItemStack): Null<ObjectRefEntity>;
+
 	@:native("register_on_player_receive_fields")
 	static function registerOnPlayerReceiveFields(func: (player: ObjectRefPlayer, formName: String, fields: Table<String, String>) -> Void): Void;
 
