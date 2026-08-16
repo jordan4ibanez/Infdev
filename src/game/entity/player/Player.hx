@@ -60,7 +60,7 @@ final class Player {
 	function adjustCamera(): Void {
 		var height = -0.5;
 		this.object.setEyeOffset(
-			new Vec3(0, height, 1.5),
+			new Vec3(0, height, 1.7),
 			new Vec3(0, height, 0),
 			new Vec3(0, height, 0));
 	}

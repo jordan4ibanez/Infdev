@@ -4,6 +4,7 @@ import src.engine.Core;
 import src.engine.compilercode.LuaLoop;
 import src.engine.compilercode.Macros;
 import src.engine.entity.LuaEntity;
+import src.engine.entity.MoveResult;
 import src.engine.entity.objectref.ObjectRefEntity;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.vector.Vec3;
@@ -12,6 +13,8 @@ import src.engine.vector.Vec3;
 final class PlayerFirstPersonModel extends LuaEntity {
 	var player: Null<ObjectRefPlayer>;
 
+	var timer: Float = 0.0;
+
 	public function setPlayer(player: ObjectRefPlayer): Void {
 		this.player = player;
 	}
@@ -19,6 +22,10 @@ final class PlayerFirstPersonModel extends LuaEntity {
 	override function onActivate(staticData: String, dtimeS: Float) {
 		Macros.entityPatch();
 		super.onActivate(staticData, dtimeS);
+		if (staticData != "start") {
+			this.object.remove();
+			return;
+		}
 
 		this.object.setProperties({
 			visual_size: new Vec3(1, 1, 1),
@@ -28,6 +35,22 @@ final class PlayerFirstPersonModel extends LuaEntity {
 			collide_with_objects: false,
 			pointable: false,
 		});
+	}
+
+	override function onStep(delta: Float, moveResult: MoveResult) {
+		super.onStep(delta, moveResult);
+
+		this.timer += delta;
+
+		if (this.timer < 0.5) {
+			return;
+		}
+		this.timer -= 0.5;
+
+		if (this.player == null || !this.player.isValid()) {
+			this.object.remove();
+			return;
+		}
 	}
 }
 
@@ -69,9 +92,10 @@ final class PlayerAnimationHandler {
 		this.player = player;
 
 		var pos = this.player.getPos();
-		this.firstPersonEntity = Core.addEntity(pos, "infdev:player_first_person_model");
+		this.firstPersonEntity = Core.addEntity(pos, "infdev:player_first_person_model", "start");
 
 		if (this.firstPersonEntity != null) {
+			(cast this.firstPersonEntity.getLuaEntity() : PlayerFirstPersonModel).setPlayer(this.player);
 			this.firstPersonEntity.setAttach(this.player, "", new Vec3(), new Vec3(), true);
 		} else {
 			Core.log(LogLevelError, 'Player ${this.player.getPlayerName()} failed to spawn a first person entity.');
