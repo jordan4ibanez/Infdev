@@ -121,6 +121,12 @@ final class Player {
 		this.noSaveRanFirstGUIUpdate = true;
 	}
 
+	function checkForMissingShadow(): Void {
+		if (this.shadowEntity == null || !this.shadowEntity.isValid()) {
+			this.enableShadow(0.6);
+		}
+	}
+
 	// !
 	// !
 	// ! Do not add any custom functions below this line!
@@ -180,6 +186,7 @@ final class Player {
 	// I don't think moveresult is possible
 	// moveResult: Dynamic
 	public function onStep(delta: Float) {
+		this.checkForMissingShadow();
 		this.animationHandler.doStateLogic();
 		this.animationHandler.trackAnimationTimer(delta);
 		this.animationHandler.doPlayerAnimations(delta);
