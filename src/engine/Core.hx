@@ -314,7 +314,27 @@ abstract class ModifyInternalLibrary {
 		Core.itemDrop = (itemstack: ItemStack,
 			dropper: Null<ObjectRefBase>,
 			pos: Vec3) -> {
-				return untyped __lua__('{0}, {1}', itemstack, obj);
+					local dropper_is_player = dropper and dropper:is_player()
+					local p = table.copy(pos)
+					if dropper_is_player then
+						p.y = p.y + 1.2
+					end
+					local obj = core.add_item(p, ItemStack(itemstack))
+					if obj then
+						itemstack:clear()
+						if dropper_is_player then
+							local dir = dropper:get_look_dir()
+							dir.x = dir.x * 2.9
+							dir.y = dir.y * 2.9 + 2
+							dir.z = dir.z * 2.9
+							obj:set_velocity(dir)
+							obj:get_luaentity().dropped_by = dropper:get_player_name()
+						end
+						return untyped __lua__('{0}, {1}', itemstack, obj);
+					end
+					-- If we reach this, adding the object to the
+					-- environment failed
+				
 			};
 	}
 
