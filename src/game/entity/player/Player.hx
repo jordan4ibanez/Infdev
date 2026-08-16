@@ -1,6 +1,7 @@
 package src.game.entity.player;
 
 import lua.Lua;
+import src.engine.Core;
 import src.engine.InvRef;
 import src.engine.Serialize;
 import src.engine.Tick;
@@ -53,6 +54,35 @@ final class Player {
 			minimap: true,
 			minimap_radar: true,
 			// chat: false
+		});
+	}
+
+	/**
+	 * Enable having a shadow under this entity.
+	 */
+	public function enableShadow(?size: Float): Void {
+		// Stops shadows from spawning shadows.
+
+		this.shadowEntity = Core.addEntity(this.object.getPos(), "infdev:entity_shadow", this.object.getGUID());
+		// The entity may disappear immediately.
+		if (this.shadowEntity != null) {
+			this.shadowEntity.setAttach(this.object, "", new Vec3(0, 0, 0), new Vec3(0, 0, 0), true);
+		} else {
+			Core.log(LogLevelError, 'Tried to spawn entity shadow at ${this.object.getPos()} but it became null instantly.');
+			return;
+		}
+		if (size != null) {
+			this.setShadowSize(size);
+		}
+	}
+
+	public function setShadowSize(size: Float): Void {
+		if (this.shadowEntity == null) {
+			Core.log(LogLevelError, 'Tried to set shadow size when the shadow entity doesn\'t exist. ${this.name}');
+			return;
+		}
+		this.shadowEntity.setProperties({
+			visual_size: new Vec3(size, size, size)
 		});
 	}
 
