@@ -136,9 +136,6 @@ final class PlayerAnimationHandler {
 
 	public function new(player: ObjectRefPlayer) {
 		this.player = player;
-
-		var pos = this.player.getPos();
-
 		this.createHead();
 		this.createBody();
 	}
