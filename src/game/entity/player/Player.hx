@@ -13,6 +13,8 @@ import src.engine.player.PlayerInformation;
 import src.engine.player.PlayerWindowInformation;
 import src.engine.vector.Vec3;
 
+// Your player is internally known as "Frobert".
+// If you don't like that then get fucked.
 final class Player {
 	public var object: ObjectRefPlayer = null;
 

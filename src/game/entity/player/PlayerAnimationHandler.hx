@@ -9,8 +9,8 @@ import src.engine.entity.objectref.ObjectRefEntity;
 import src.engine.entity.objectref.ObjectRefPlayer;
 import src.engine.vector.Vec3;
 
-@:register("infdev:player_first_person_model")
-final class PlayerFirstPersonModel extends LuaEntity {
+@:register("infdev:player_first_person_body_model")
+final class PlayerFirstPersonBodyModel extends LuaEntity {
 	var player: Null<ObjectRefPlayer>;
 
 	var timer: Float = 0.0;
@@ -30,7 +30,52 @@ final class PlayerFirstPersonModel extends LuaEntity {
 		this.object.setProperties({
 			visual_size: new Vec3(1, 1, 1),
 			visual: EntityVisualMesh,
-			mesh: "infdev_player.gltf",
+			mesh: "infdev_player_body.gltf",
+			textures: ["infdev_player.png"],
+			collide_with_objects: false,
+			pointable: false,
+		});
+	}
+
+	override function onStep(delta: Float, moveResult: MoveResult) {
+		super.onStep(delta, moveResult);
+
+		this.timer += delta;
+
+		if (this.timer < 0.5) {
+			return;
+		}
+		this.timer -= 0.5;
+
+		if (this.player == null || !this.player.isValid()) {
+			this.object.remove();
+			return;
+		}
+	}
+}
+
+@:register("infdev:player_first_person_head_model")
+final class PlayerFirstPersonHeadModel extends LuaEntity {
+	var player: Null<ObjectRefPlayer>;
+
+	var timer: Float = 0.0;
+
+	public function setPlayer(player: ObjectRefPlayer): Void {
+		this.player = player;
+	}
+
+	override function onActivate(staticData: String, dtimeS: Float) {
+		Macros.entityPatch();
+		super.onActivate(staticData, dtimeS);
+		if (staticData != "start") {
+			this.object.remove();
+			return;
+		}
+
+		this.object.setProperties({
+			visual_size: new Vec3(1, 1, 1),
+			visual: EntityVisualMesh,
+			mesh: "infdev_player_head.gltf",
 			textures: ["infdev_player.png"],
 			collide_with_objects: false,
 			pointable: false,
@@ -70,7 +115,8 @@ enum abstract PlayerAnimation(String) to String {
 
 final class PlayerAnimationHandler {
 	var player: ObjectRefPlayer;
-	var firstPersonEntity: ObjectRefEntity;
+	var firstPersonBodyEntity: ObjectRefEntity;
+	var firstPersonHeadEntity: ObjectRefEntity;
 
 	// ? Animation stuff.
 	var mining: Bool;
@@ -92,26 +138,40 @@ final class PlayerAnimationHandler {
 		this.player = player;
 
 		var pos = this.player.getPos();
-		this.firstPersonEntity = Core.addEntity(pos, "infdev:player_first_person_model", "start");
 
-		if (this.firstPersonEntity != null) {
-			(cast this.firstPersonEntity.getLuaEntity() : PlayerFirstPersonModel).setPlayer(this.player);
-			this.firstPersonEntity.setAttach(this.player, "", new Vec3(), new Vec3(), true);
+		// First add the body visual entity.
+		this.firstPersonBodyEntity = Core.addEntity(pos, "infdev:player_first_person_body_model", "start");
+
+		if (this.firstPersonBodyEntity != null) {
+			(cast this.firstPersonBodyEntity.getLuaEntity() : PlayerFirstPersonBodyModel).setPlayer(this.player);
+			this.firstPersonBodyEntity.setAttach(this.player, "", new Vec3(), new Vec3(), true);
 		} else {
-			Core.log(LogLevelError, 'Player ${this.player.getPlayerName()} failed to spawn a first person entity.');
+			Core.log(LogLevelError, 'Player ${this.player.getPlayerName()} failed to spawn a first person body entity.');
+		}
+
+		// todo: attach the head to a bone on the body so the animations coroborate.
+		// Then add the head visual entity.
+		// This is not forced visible so you can actually see.
+		this.firstPersonHeadEntity = Core.addEntity(pos, "infdev:player_first_person_head_model", "start");
+
+		if (this.firstPersonHeadEntity != null) {
+			(cast this.firstPersonHeadEntity.getLuaEntity() : PlayerFirstPersonHeadModel).setPlayer(this.player);
+			this.firstPersonHeadEntity.setAttach(this.player, "", new Vec3(), new Vec3(), false);
+		} else {
+			Core.log(LogLevelError, 'Player ${this.player.getPlayerName()} failed to spawn a first person head entity.');
 		}
 	}
 
 	public function playAnimation(animation: PlayerAnimation, ?speed: Float, ?loop: Bool = true): Void {
-		LuaLoop.nativePairs(oldAnimName, anim, this.firstPersonEntity.getAnimations(), {
+		LuaLoop.nativePairs(oldAnimName, anim, this.firstPersonBodyEntity.getAnimations(), {
 			if (oldAnimName != PlayerAnimationLookPitch
 				&& oldAnimName != PlayerAnimationLookYaw
 				&& oldAnimName != PlayerAnimationArmPitch) {
-				this.firstPersonEntity.stopAnimation(oldAnimName);
+				this.firstPersonBodyEntity.stopAnimation(oldAnimName);
 			}
 		});
 
-		this.firstPersonEntity.playAnimation(animation, {
+		this.firstPersonBodyEntity.playAnimation(animation, {
 			priority: animationPriority,
 			speed: speed,
 			start_frame: animationTimer,
@@ -123,11 +183,11 @@ final class PlayerAnimationHandler {
 	}
 
 	public inline function stopAnimation(animation: PlayerAnimation): Void {
-		this.firstPersonEntity.stopAnimation(animation);
+		this.firstPersonBodyEntity.stopAnimation(animation);
 	}
 
 	public inline function setAnimationSpeed(animation: PlayerAnimation, speed: Float): Void {
-		this.firstPersonEntity.updateAnimation(animation, {speed: speed});
+		this.firstPersonBodyEntity.updateAnimation(animation, {speed: speed});
 	}
 
 	public function trackAnimationTimer(delta: Float): Void {
@@ -194,8 +254,9 @@ final class PlayerAnimationHandler {
 
 		// This isn't an animation. It's magic. You're a lizard, Barry.
 
+		// ? Arm.
 		if (this.armPitchEnabled) {
-			this.firstPersonEntity.playAnimation(PlayerAnimationArmPitch, {
+			this.firstPersonBodyEntity.playAnimation(PlayerAnimationArmPitch, {
 				priority: animationPriority,
 				speed: 0,
 				min_frame: pitchAdjusted,
@@ -205,7 +266,8 @@ final class PlayerAnimationHandler {
 			});
 		}
 
-		this.firstPersonEntity.playAnimation(PlayerAnimationLookPitch, {
+		// ? Head.
+		this.firstPersonHeadEntity.playAnimation(PlayerAnimationLookPitch, {
 			priority: animationPriority,
 			speed: 0,
 			min_frame: pitchAdjusted,

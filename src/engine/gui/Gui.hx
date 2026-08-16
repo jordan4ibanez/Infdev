@@ -19,6 +19,8 @@ private class ElementInfo {
 	public function new() {}
 }
 
+// Before you try to figure out how this works,
+// just know I barely fuckin know how this shit works and I wrote it.
 class Gui {
 	static inline final DEBUG_MODE = false;
 

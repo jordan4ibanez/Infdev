@@ -265,7 +265,7 @@ class Human extends Mob {
 
 		this.object.setProperties({
 			visual: EntityVisualMesh,
-			mesh: "infdev_player.gltf",
+			mesh: "infdev_player_body.gltf",
 			textures: ["infdev_player.png"],
 			makes_footstep_sound: true,
 			physical: true
