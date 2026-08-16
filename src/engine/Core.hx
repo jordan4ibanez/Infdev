@@ -314,16 +314,16 @@ abstract class ModifyInternalLibrary {
 		Core.itemDrop = (itemstack: ItemStack,
 			dropper: Null<ObjectRefBase>,
 			pos: Vec3) -> {
-					local dropper_is_player = dropper and dropper:is_player()
-					local p = table.copy(pos)
+					var dropper_is_player = dropper and dropper:is_player()
+					var p = table.copy(pos)
 					if dropper_is_player then
 						p.y = p.y + 1.2
 					end
-					local obj = core.add_item(p, ItemStack(itemstack))
+					var obj = core.add_item(p, ItemStack(itemstack))
 					if obj then
 						itemstack:clear()
 						if dropper_is_player then
-							local dir = dropper:get_look_dir()
+							var dir = dropper:get_look_dir()
 							dir.x = dir.x * 2.9
 							dir.y = dir.y * 2.9 + 2
 							dir.z = dir.z * 2.9
