@@ -299,10 +299,6 @@ extern class Global {
 @:final
 @:noCompletion
 abstract class ModifyInternalLibrary {
-	static function __init__() {
-		deployModifications();
-	}
-
 	static function deployModifications() {
 		Core.spawnItem = (pos: Vec3, item: EitherType<String, ObjectRefEntity>) -> {
 			// Take item in any format.
@@ -314,5 +310,9 @@ abstract class ModifyInternalLibrary {
 			}
 			return obj;
 		}
+	}
+
+	static function __init__() {
+		deployModifications();
 	}
 }
