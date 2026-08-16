@@ -140,7 +140,8 @@ final class PlayerAnimationHandler {
 		this.createBody();
 	}
 
-	function createHead(): Void {
+	// Returns OK to proceed.
+	function createHead(): Bool {
 		var pos = this.player.getPos();
 
 		// Add the head visual entity.
@@ -152,10 +153,13 @@ final class PlayerAnimationHandler {
 			this.firstPersonHeadEntity.setAttach(this.player, "", new Vec3(), new Vec3(), false);
 		} else {
 			Core.log(LogLevelError, 'Player ${this.player.getPlayerName()} failed to spawn a first person head entity.');
+			return false;
 		}
+		return true;
 	}
 
-	function createBody(): Void {
+	// Returns OK to proceed.
+	function createBody(): Bool {
 		var pos = this.player.getPos();
 		// Add the body visual entity.
 		this.firstPersonBodyEntity = Core.addEntity(pos, "infdev:player_first_person_body_model", "start");
@@ -165,7 +169,9 @@ final class PlayerAnimationHandler {
 			this.firstPersonBodyEntity.setAttach(this.player, "", new Vec3(), new Vec3(), true);
 		} else {
 			Core.log(LogLevelError, 'Player ${this.player.getPlayerName()} failed to spawn a first person body entity.');
+			return false;
 		}
+		return true;
 	}
 
 	public function playAnimation(animation: PlayerAnimation, ?speed: Float, ?loop: Bool = true): Void {
@@ -204,7 +210,30 @@ final class PlayerAnimationHandler {
 		}
 	}
 
+	// Returns OK to proceed.
+	function checkForMissingComponents(): Bool {
+		if (this.firstPersonBodyEntity == null || !this.firstPersonBodyEntity.isValid()) {
+			if (!this.createBody()) {
+				Core.log(LogLevelError, 'Cannot create body entity for player ${this.player.getPlayerName()}');
+				return false;
+			}
+		}
+		if (this.firstPersonHeadEntity == null || !this.firstPersonHeadEntity.isValid()) {
+			if (!this.createHead()) {
+				Core.log(LogLevelError, 'Cannot create head entity for player ${this.player.getPlayerName()}');
+				return false;
+			}
+		}
+		return true;
+	}
+
 	public function doPlayerAnimations(delta: Float) {
+		// At any time, at any point, the body or head could become invalidated or deleted.
+		// This shall not proceed unless both components are present.
+		if (!this.checkForMissingComponents()) {
+			return;
+		}
+
 		var stateChange = false;
 
 		// Mining.
