@@ -132,7 +132,7 @@ final class PlayerAnimationHandler {
 	var animationPriority = -2_147_483_648;
 	var oldLookPitch = 0.0;
 
-	var armPitchEnabled = true;
+	var armPitchEnabled = false;
 
 	public function new(player: ObjectRefPlayer) {
 		this.player = player;
