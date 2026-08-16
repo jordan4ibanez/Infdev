@@ -248,7 +248,6 @@ extern class Core {
 	@:native("register_on_player_receive_fields")
 	static function registerOnPlayerReceiveFields(func: (player: ObjectRefPlayer, formName: String, fields: Table<String, String>) -> Void): Void;
 
-	// todo: type inventoryInfo
 	@:native("register_on_player_inventory_action")
 	static function registerOnPlayerInventoryAction(func: (player: Null<ObjectRefPlayer>, action: String, inventory: InvRef, inventoryInfo: InventoryActionInfo) -> Void): Void;
 
