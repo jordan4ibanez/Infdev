@@ -151,6 +151,7 @@ final class PlayerAnimationHandler {
 		if (this.firstPersonHeadEntity != null) {
 			(cast this.firstPersonHeadEntity.getLuaEntity() : PlayerFirstPersonHeadModel).setPlayer(this.player);
 			this.firstPersonHeadEntity.setAttach(this.player, "", new Vec3(), new Vec3(), false);
+			// untyped print('created head for player ${this.player.getPlayerName()}');
 		} else {
 			Core.log(LogLevelError, 'Player ${this.player.getPlayerName()} failed to spawn a first person head entity.');
 			return false;
@@ -167,6 +168,7 @@ final class PlayerAnimationHandler {
 		if (this.firstPersonBodyEntity != null) {
 			(cast this.firstPersonBodyEntity.getLuaEntity() : PlayerFirstPersonBodyModel).setPlayer(this.player);
 			this.firstPersonBodyEntity.setAttach(this.player, "", new Vec3(), new Vec3(), true);
+			// untyped print('created body for player ${this.player.getPlayerName()}');
 		} else {
 			Core.log(LogLevelError, 'Player ${this.player.getPlayerName()} failed to spawn a first person body entity.');
 			return false;
