@@ -158,6 +158,8 @@ final class Player {
 
 		Tick.registerOnTickEntity(this.object);
 
+		this.enableShadow();
+
 		Lua.print(this.name + " joined the game.");
 	}
 
