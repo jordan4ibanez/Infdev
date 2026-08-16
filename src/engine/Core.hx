@@ -260,7 +260,7 @@ extern class Core {
 	dynamic static function itemDrop(
 		itemstack: ItemStack,
 		dropper: Null<ObjectRefBase>,
-		pos: Vec3): ReturnItemStackObjectRef;
+		pos: Vec3): Null<ReturnItemStackObjectRef>;
 
 	// !
 	// ! Custom stuff below this. ONLY USE VIRTUAL FUNCTIONS! (INLINE)
@@ -310,6 +310,12 @@ abstract class ModifyInternalLibrary {
 			}
 			return obj;
 		}
+
+		Core.itemDrop = (itemstack: ItemStack,
+			dropper: Null<ObjectRefBase>,
+			pos: Vec3) -> {
+				return untyped __lua__('{0}, {1}', itemstack, obj);
+			};
 	}
 
 	static function __init__() {
