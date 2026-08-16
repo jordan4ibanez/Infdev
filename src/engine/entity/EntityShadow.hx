@@ -50,7 +50,7 @@ class EntityShadow extends LuaEntity {
 			return;
 		}
 
-		this.pollTimer + delta;
+		this.pollTimer += delta;
 
 		if (pollTimer < pollRate) {
 			return;
