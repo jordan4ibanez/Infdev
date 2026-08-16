@@ -316,27 +316,27 @@ abstract class ModifyInternalLibrary {
 		Core.itemDrop = (itemstack: ItemStack,
 			dropper: Null<ObjectRefBase>,
 			pos: Vec3) -> {
-					var dropper_is_player = dropper and dropper:is_player()
-					var p = table.copy(pos)
-					if dropper_is_player then
-						p.y = p.y + 1.2
-					end
-					var obj = core.add_item(p, ItemStack(itemstack))
-					if obj then
-						itemstack:clear()
-						if dropper_is_player then
-							var dir = dropper:get_look_dir()
-							dir.x = dir.x * 2.9
-							dir.y = dir.y * 2.9 + 2
-							dir.z = dir.z * 2.9
-							obj:set_velocity(dir)
-							obj:get_luaentity().dropped_by = dropper:get_player_name()
-						end
-						return untyped __lua__('{0}, {1}', itemstack, obj);
-					end
-					-- If we reach this, adding the object to the
-					-- environment failed
-				
+				var dropper_is_player = dropper != null && dropper.isPlayer();
+				var p = pos.copy();
+				if (dropper_is_player) {
+					p.y = p.y + 1.2;
+				}
+				var obj = Core.addItem(p, ItemStack.create(itemstack));
+				if (obj != null) {
+					itemstack.clear();
+					if (dropper_is_player) {
+						var dir = dropper.get_look_dir();
+						dir.x = dir.x * 2.9;
+						dir.y = dir.y * 2.9 + 2;
+						dir.z = dir.z * 2.9;
+						obj.set_velocity(dir);
+						obj.get_luaentity().dropped_by = dropper.get_player_name();
+					}
+					return untyped __lua__('{0}, {1}', itemstack, obj);
+				}
+				// If we reach this, adding the object to the
+				// environment failed
+				return null;
 			};
 	}
 
