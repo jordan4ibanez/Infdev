@@ -139,10 +139,14 @@ final class PlayerAnimationHandler {
 
 		var pos = this.player.getPos();
 
+		this.createHead();
 		this.createBody();
+	}
 
-		// todo: attach the head to a bone on the body so the animations coroborate.
-		// Then add the head visual entity.
+	function createHead(): Void {
+		var pos = this.player.getPos();
+
+		// Add the head visual entity.
 		// This is not forced visible so you can actually see.
 		this.firstPersonHeadEntity = Core.addEntity(pos, "infdev:player_first_person_head_model", "start");
 
@@ -156,7 +160,7 @@ final class PlayerAnimationHandler {
 
 	function createBody(): Void {
 		var pos = this.player.getPos();
-		// First add the body visual entity.
+		// Add the body visual entity.
 		this.firstPersonBodyEntity = Core.addEntity(pos, "infdev:player_first_person_body_model", "start");
 
 		if (this.firstPersonBodyEntity != null) {
