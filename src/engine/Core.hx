@@ -276,9 +276,7 @@ extern class Core {
 	}
 }
 
-@:noCompletion
-@:multiReturn
-extern class ReturnItemStackObjectRef {
+typedef ReturnItemStackObjectRef = {
 	var itemstack: ItemStack;
 	var objectRef: Null<ObjectRefEntity>;
 }
@@ -325,14 +323,14 @@ abstract class ModifyInternalLibrary {
 				if (obj != null) {
 					itemstack.clear();
 					if (dropper_is_player) {
-						var dir = dropper.get_look_dir();
+						var dir = (cast dropper : ObjectRefPlayer).getLookDir();
 						dir.x = dir.x * 2.9;
 						dir.y = dir.y * 2.9 + 2;
 						dir.z = dir.z * 2.9;
-						obj.set_velocity(dir);
-						obj.get_luaentity().dropped_by = dropper.get_player_name();
+						obj.setVelocity(dir);
+						(cast obj.getLuaEntity() : ItemEntity).dropped_by = (cast dropper : ObjectRefPlayer).getPlayerName();
 					}
-					return untyped __lua__('{0}, {1}', itemstack, obj);
+					return {itemstack: itemstack, objectRef: obj};
 				}
 				// If we reach this, adding the object to the
 				// environment failed

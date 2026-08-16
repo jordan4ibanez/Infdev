@@ -79,6 +79,7 @@ class ItemEntity extends LuaEntity {
 	var force_out_start: Null<Vec3> = null;
 	var collisionboxCache: EntityCollisionBox = null;
 	var visualEntity: Null<ObjectRefEntity> = null;
+	public var dropped_by: Null<String>;
 
 	static final time_to_live: Float = 900;
 
