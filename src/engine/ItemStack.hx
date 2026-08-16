@@ -60,6 +60,8 @@ abstract class ItemStack {
 	@:native("get_definition")
 	public abstract function getDefinition(): ItemDefinition;
 
+	public abstract function clear(): Void;
+
 	// @:native("")
 	// public abstract function setMetadata(metadata: String): Void;
 }
