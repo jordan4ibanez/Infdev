@@ -39,11 +39,19 @@ final class Player {
 		return this.object.getPlayerControl();
 	}
 
-	function makeHand3D() {
-		var inv = this.object.getInventory();
+	function disableBuiltInHud() {
+		// var inv = this.object.getInventory();
 		// This also means that 3D hands be chambered to switch between in the hand inventory.
-		inv.setSize("hand", 1);
-		inv.setStack("hand", 1, "infdev:virtual_hand_3d");
+		// inv.setSize("hand", 1);
+		// inv.setStack("hand", 1, "infdev:stone");
+		this.object.hudSetFlags({
+			healthbar: false,
+			wielditem: false,
+			breathbar: false,
+			minimap: true,
+			minimap_radar: true,
+			// chat: false
+		});
 	}
 
 	function setModel(): Void {
@@ -92,7 +100,7 @@ final class Player {
 		this.name = this.object.getPlayerName();
 		this.animationHandler = new PlayerAnimationHandler(this.object);
 
-		this.makeHand3D();
+		this.disableBuiltInHud();
 		this.setModel();
 
 		this.object.setPhysicsOverride({
