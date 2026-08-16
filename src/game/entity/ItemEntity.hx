@@ -21,7 +21,6 @@ import src.engine.entity.objectref.ObjectRefEntity;
 import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
 
-// todo: entity shadow api
 // todo: instead of the entity just adding to inventory, check if the wield slot can be added to so you literally pick up the item in your hand.
 // This is the entity that gets mounted to the item's bone. It allows the item to have a cool visual.
 
