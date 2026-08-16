@@ -49,9 +49,9 @@ final class Player {
 	function setModel(): Void {
 		this.object.setProperties({
 			visual_size: new Vec3(1, 1, 1),
-			visual: EntityVisualMesh,
-			mesh: "infdev_player.gltf",
-			textures: ["infdev_player.png"]
+			visual: EntityVisualCube,
+			// mesh: "infdev_player.gltf",
+			textures: ["infdev_blank_pixel.png", "infdev_blank_pixel.png", "infdev_blank_pixel.png", "infdev_blank_pixel.png", "infdev_blank_pixel.png", "infdev_blank_pixel.png"]
 		});
 
 		this.animationHandler.playAnimation(PlayerAnimationIdle);
@@ -60,7 +60,7 @@ final class Player {
 	function adjustCamera(): Void {
 		var height = -0.5;
 		this.object.setEyeOffset(
-			new Vec3(0, height, 0),
+			new Vec3(0, height, 1.5),
 			new Vec3(0, height, 0),
 			new Vec3(0, height, 0));
 	}
