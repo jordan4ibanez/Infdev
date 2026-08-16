@@ -125,12 +125,6 @@ extern class Core {
 	@:native("item_secondary_use")
 	static function itemSecondaryUse(itemstack: ItemStack, user: Null<ObjectRefBase>): Null<ItemStack>;
 
-	@:native("item_drop")
-	static function itemDrop(
-		itemstack: ItemStack,
-		dropper: Null<ObjectRefBase>,
-		pos: Vec3): ReturnItemStackObjectRef;
-
 	@:native("item_pickup")
 	static function itemPickup(
 		itemstack: ItemStack,
@@ -261,6 +255,12 @@ extern class Core {
 	// ! Only overrideable functions below this.
 	@:native("spawn_item")
 	dynamic static function spawnItem(pos: Vec3, item: EitherType<String, ItemStack>): Null<ObjectRefEntity>;
+
+	@:native("item_drop")
+	dynamic static function itemDrop(
+		itemstack: ItemStack,
+		dropper: Null<ObjectRefBase>,
+		pos: Vec3): ReturnItemStackObjectRef;
 
 	// !
 	// ! Custom stuff below this. ONLY USE VIRTUAL FUNCTIONS! (INLINE)
