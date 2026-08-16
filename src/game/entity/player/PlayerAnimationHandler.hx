@@ -1,7 +1,31 @@
 package src.game.entity.player;
 
 import src.engine.compilercode.LuaLoop;
+import src.engine.compilercode.Macros;
+import src.engine.entity.LuaEntity;
 import src.engine.entity.objectref.ObjectRefPlayer;
+import src.engine.vector.Vec3;
+
+@:register("infdev:player_first_person_model")
+final class PlayerFirstPersonModel extends LuaEntity {
+	var player: Null<ObjectRefPlayer>;
+
+	public function setPlayer(player: ObjectRefPlayer): Void {
+		this.player = player;
+	}
+
+	override function onActivate(staticData: String, dtimeS: Float) {
+		Macros.entityPatch();
+		super.onActivate(staticData, dtimeS);
+
+		this.object.setProperties({
+			visual_size: new Vec3(1, 1, 1),
+			visual: EntityVisualMesh,
+			mesh: "infdev_player.gltf",
+			textures: ["infdev_player.png"]
+		});
+	}
+}
 
 enum abstract PlayerAnimation(String) to String {
 	// var PlayerAnimation = "";
