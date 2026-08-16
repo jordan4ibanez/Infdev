@@ -139,15 +139,7 @@ final class PlayerAnimationHandler {
 
 		var pos = this.player.getPos();
 
-		// First add the body visual entity.
-		this.firstPersonBodyEntity = Core.addEntity(pos, "infdev:player_first_person_body_model", "start");
-
-		if (this.firstPersonBodyEntity != null) {
-			(cast this.firstPersonBodyEntity.getLuaEntity() : PlayerFirstPersonBodyModel).setPlayer(this.player);
-			this.firstPersonBodyEntity.setAttach(this.player, "", new Vec3(), new Vec3(), true);
-		} else {
-			Core.log(LogLevelError, 'Player ${this.player.getPlayerName()} failed to spawn a first person body entity.');
-		}
+		this.createBody();
 
 		// todo: attach the head to a bone on the body so the animations coroborate.
 		// Then add the head visual entity.
@@ -159,6 +151,19 @@ final class PlayerAnimationHandler {
 			this.firstPersonHeadEntity.setAttach(this.player, "", new Vec3(), new Vec3(), false);
 		} else {
 			Core.log(LogLevelError, 'Player ${this.player.getPlayerName()} failed to spawn a first person head entity.');
+		}
+	}
+
+	function createBody(): Void {
+		var pos = this.player.getPos();
+		// First add the body visual entity.
+		this.firstPersonBodyEntity = Core.addEntity(pos, "infdev:player_first_person_body_model", "start");
+
+		if (this.firstPersonBodyEntity != null) {
+			(cast this.firstPersonBodyEntity.getLuaEntity() : PlayerFirstPersonBodyModel).setPlayer(this.player);
+			this.firstPersonBodyEntity.setAttach(this.player, "", new Vec3(), new Vec3(), true);
+		} else {
+			Core.log(LogLevelError, 'Player ${this.player.getPlayerName()} failed to spawn a first person body entity.');
 		}
 	}
 
