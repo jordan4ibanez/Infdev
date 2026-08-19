@@ -14,7 +14,6 @@ import src.engine.definition.basic.PointedThing.PointedThingType;
 import src.engine.definition.basic.ToolCapabilities;
 import src.engine.entity.LuaEntity;
 import src.engine.entity.MoveResult;
-import src.engine.entity.definition.EntityCollisionBox;
 import src.engine.entity.objectref.ObjectRefBase;
 import src.engine.entity.objectref.ObjectRefEntity;
 import src.engine.vector.Vec2;
@@ -72,7 +71,6 @@ class ItemEntity extends LuaEntity {
 	var moving_state = true;
 	// Item expiry.
 	var age: Float = 0;
-	var collisionboxCache: EntityCollisionBox = null;
 	var visualEntity: Null<ObjectRefEntity> = null;
 
 	public var dropped_by: Null<String>;
@@ -124,9 +122,6 @@ class ItemEntity extends LuaEntity {
 		});
 
 		this.updateVisualEntity(itemname, glow);
-
-		// Cache for usage in on_step.
-		this.collisionboxCache = this.object.getProperties().collisionbox;
 	}
 
 	override function getStaticData(): String {
@@ -158,7 +153,6 @@ class ItemEntity extends LuaEntity {
 		this.object.setArmorGroups(["immortal" => 1]);
 		this.object.setVelocity(new Vec3(0, 0, 0));
 		this.object.setAcceleration(new Vec3(0, 0, 0));
-		this.collisionboxCache = this.object.getProperties().collisionbox;
 
 		this.visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
 		// The entity may disappear immediately.
