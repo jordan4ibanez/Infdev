@@ -319,6 +319,9 @@ abstract class ModifyInternalLibrary {
 				// Items will be located as if they were nodes.
 				pos = pos.round();
 
+				// todo: this should probably check for collision boxes.
+				pos.y -= 0.49;
+
 				// Only allow the node to be dropped at an acceptable node location.
 				// As long as the item can exist at this node then it is acceptable.
 				var acceptableNode = !Core.registeredNodes[cast Core.getNode(pos).name].walkable;
