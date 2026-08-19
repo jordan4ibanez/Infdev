@@ -104,21 +104,15 @@ class ItemEntity extends LuaEntity {
 
 		var itemname = stack.getName();
 
-		var max_count = stack.getStackMax();
-		var count = Math.min(stack.getCount(), max_count);
-		var size: Float = 0.2 + 0.1 * Math.pow((count / max_count), (1.0 / 3.0));
 		var def: Null<ItemDefinition> = Core.registeredItems[cast itemname];
 		var glow = (def != null && def.lightSource != null && def.lightSource > 0) ? Math.floor(def.lightSource / 2 + 0.5) : null;
 
-		// Small random bias to counter Z-fighting.
-		var size_bias = 1e-3 * Math.random();
-
-		this.setSize(size * 2, size * 2);
+		this.setSize(0.6, 0.6);
 
 		// The entity visual inherits this size.
 		this.object.setProperties({
 			visual: EntityVisualMesh,
-			visual_size: new Vec2(size + size_bias, size + size_bias),
+			visual_size: new Vec2(0.3, 0.3),
 			infotext: "An item!",
 			pointable: true,
 			// This is perfectly glitchy!
