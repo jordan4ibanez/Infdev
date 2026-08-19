@@ -1,18 +1,10 @@
 package src.game.entity;
 
-import haxe.extern.EitherType;
-import lua.Math;
 import src.engine.Core;
-import src.engine.ItemStack;
 import src.engine.Serialize;
 import src.engine.Tick;
-import src.engine.compilercode.LuaArray;
-import src.engine.compilercode.LuaLoop;
 import src.engine.compilercode.Macros;
-import src.engine.definition.ItemDefinition;
-import src.engine.definition.basic.PointedThing.PointedThingType;
 import src.engine.definition.basic.ToolCapabilities;
-import src.engine.definition.graphics.RGBA;
 import src.engine.entity.LuaEntity;
 import src.engine.entity.MoveResult;
 import src.engine.entity.objectref.ObjectRefBase;
@@ -68,7 +60,7 @@ class ItemEntityVisual extends LuaEntity {
 
 @:register(":__builtin:item")
 class ItemEntity extends LuaEntity {
-	var itemstring = "";
+	var items: Array<String> = [];
 	var moving_state = true;
 	// Item expiry.
 	var age: Float = 0;
@@ -79,52 +71,35 @@ class ItemEntity extends LuaEntity {
 
 	static final ENTITY_TIME_LIMIT: Float = 300;
 
-	function updateVisualEntity(itemname: String, glow: Int): Void {
-		if (this.visualEntity == null || !this.visualEntity.isValid()) {
-			Core.log(LogLevelError, 'Failed to update visual entity at ${this.object.getPos()}, visual entity was null.');
-			return;
-		}
-		this.visualEntity.setProperties({
-			is_visible: true,
-			visual: EntityVisualWieldItem,
-			textures: [itemname],
-			wield_item: this.itemstring,
-			glow: glow,
-		});
+	public function addItem(item: String): Void {
+		this.items.push(item);
 	}
 
-	public function setItem(?item: EitherType<String, ItemStack>): Void {
-		var stack = ItemStack.create(item ?? this.itemstring);
-
-		this.itemstring = stack.toString();
-		if (this.itemstring == "") {
-			// Item not yet known.
-			return;
-		}
-
-		var itemname = stack.getName();
-
-		var def: Null<ItemDefinition> = Core.registeredItems[cast itemname];
-		var glow = (def != null && def.lightSource != null && def.lightSource > 0) ? Math.floor(def.lightSource / 2 + 0.5) : null;
-
-		this.setSize(0.6, 0.6);
-
-		// The entity visual inherits this size.
-		this.object.setProperties({
-			visual: EntityVisualMesh,
-			visual_size: new Vec2(0.3, 0.3),
-			infotext: "An item!",
-			pointable: true,
-			// This is perfectly glitchy!
-			nametag_scale_z: true,
-			nametag: stack.getDescription(),
-			nametag_color: "white",
-			nametag_bgcolor: new RGBA(0, 0, 0, 0),
-			nametag_fontsize: 30,
-		});
-
-		this.updateVisualEntity(itemname, glow);
-	}
+	// public function updateItems(?item: EitherType<String, ItemStack>): Void {
+	// 	var stack = ItemStack.create(item ?? this.itemstring);
+	// 	this.itemstring = stack.toString();
+	// 	if (this.itemstring == "") {
+	// 		// Item not yet known.
+	// 		return;
+	// 	}
+	// 	var itemname = stack.getName();
+	// 	var def: Null<ItemDefinition> = Core.registeredItems[cast itemname];
+	// 	var glow = (def != null && def.lightSource != null && def.lightSource > 0) ? Math.floor(def.lightSource / 2 + 0.5) : null;
+	// 	this.setSize(0.6, 0.6);
+	// 	// The entity visual inherits this size.
+	// 	this.object.setProperties({
+	// 		visual: EntityVisualMesh,
+	// 		visual_size: new Vec2(0.3, 0.3),
+	// 		infotext: "An item!",
+	// 		pointable: true,
+	// 		// This is perfectly glitchy!
+	// 		nametag_scale_z: true,
+	// 		nametag: stack.getDescription(),
+	// 		nametag_color: "white",
+	// 		nametag_bgcolor: new RGBA(0, 0, 0, 0),
+	// 		nametag_fontsize: 30,
+	// 	});
+	// }
 
 	override function getStaticData(): String {
 		return Serialize.serializeHaxeObject(this, Macros.getCompileTimeClass());
@@ -166,54 +141,45 @@ class ItemEntity extends LuaEntity {
 
 		this.enableShadow(1.5);
 
-		this.setItem();
+		// this.updateItems();
 	}
 
-	function tryMergeWith(own_stack: ItemStack, object: ObjectRefBase, entity: ItemEntity): Bool {
-		if (this.object.getGUID() == entity.object.getGUID()) {
-			// Cannot merge with itself
-			return false;
-		}
-
-		var stack = ItemStack.create(entity.itemstring);
-		var name = stack.getName();
-		if (own_stack.getName() != name
-			|| own_stack.getMeta() != stack.getMeta()
-			|| own_stack.getWear() != stack.getWear()
-			|| own_stack.getFreeSpace() == 0) {
-			// Cannot merge different or full stack.
-			return false;
-		}
-
-		var count = own_stack.getCount();
-		var total_count = stack.getCount() + count;
-		var max_count = stack.getStackMax();
-
-		if (total_count > max_count) {
-			return false;
-		}
-
-		// Merge the remote stack into this one.
-
-		var pos = object.getPos();
-		pos.y = pos.y + ((total_count - count) / max_count) * 0.15;
-		this.object.moveTo(pos);
-
-		// Handle as new entity
-		own_stack.setCount(total_count);
-		this.setItem(own_stack);
-
-		entity.itemstring = "";
-		var otherLuaEntity = (cast object.getLuaEntity() : ItemEntity);
-		otherLuaEntity.shadowEntity.remove();
-		otherLuaEntity.visualEntity.remove();
-
-		// Keep the greatest age between the two.
-		this.age = (this.age > otherLuaEntity.age) ? this.age : otherLuaEntity.age;
-
-		object.remove();
-		return true;
-	}
+	// function tryMergeWith(own_stack: ItemStack, object: ObjectRefBase, entity: ItemEntity): Bool {
+	// 	if (this.object.getGUID() == entity.object.getGUID()) {
+	// 		// Cannot merge with itself
+	// 		return false;
+	// 	}
+	// 	var stack = ItemStack.create(entity.itemstring);
+	// 	var name = stack.getName();
+	// 	if (own_stack.getName() != name
+	// 		|| own_stack.getMeta() != stack.getMeta()
+	// 		|| own_stack.getWear() != stack.getWear()
+	// 		|| own_stack.getFreeSpace() == 0) {
+	// 		// Cannot merge different or full stack.
+	// 		return false;
+	// 	}
+	// 	var count = own_stack.getCount();
+	// 	var total_count = stack.getCount() + count;
+	// 	var max_count = stack.getStackMax();
+	// 	if (total_count > max_count) {
+	// 		return false;
+	// 	}
+	// 	// Merge the remote stack into this one.
+	// 	var pos = object.getPos();
+	// 	pos.y = pos.y + ((total_count - count) / max_count) * 0.15;
+	// 	this.object.moveTo(pos);
+	// 	// Handle as new entity
+	// 	own_stack.setCount(total_count);
+	// 	this.updateItems(own_stack);
+	// 	entity.itemstring = "";
+	// 	var otherLuaEntity = (cast object.getLuaEntity() : ItemEntity);
+	// 	otherLuaEntity.shadowEntity.remove();
+	// 	otherLuaEntity.visualEntity.remove();
+	// 	// Keep the greatest age between the two.
+	// 	this.age = (this.age > otherLuaEntity.age) ? this.age : otherLuaEntity.age;
+	// 	object.remove();
+	// 	return true;
+	// }
 
 	override function onStep(delta: Float, moveResult: MoveResult) {
 		super.onStep(delta, moveResult);
@@ -221,7 +187,7 @@ class ItemEntity extends LuaEntity {
 		this.age += delta;
 
 		if (this.age > ENTITY_TIME_LIMIT) {
-			this.itemstring = "";
+			this.items = [];
 			this.object.remove();
 			return;
 		}
@@ -281,8 +247,6 @@ class ItemEntity extends LuaEntity {
 	override function onTick() {
 		super.onTick();
 
-		untyped print("tick", this.object.getGUID());
-
 		var pos = this.object.getPos();
 
 		var node = Core.getNodeOrNull(new Vec3(
@@ -293,7 +257,7 @@ class ItemEntity extends LuaEntity {
 
 		// Delete in 'ignore' nodes
 		if (node != null && node.name == "ignore") {
-			this.itemstring = "";
+			this.items = [];
 			this.object.remove();
 			return;
 		}
@@ -306,53 +270,53 @@ class ItemEntity extends LuaEntity {
 		}
 
 		// Collect the items around to merge with.
-		var own_stack = ItemStack.create(this.itemstring);
-		if (own_stack.getFreeSpace() == 0) {
-			return;
-		}
+		// var own_stack = ItemStack.create(this.itemstring);
+		// if (own_stack.getFreeSpace() == 0) {
+		// 	return;
+		// }
 
-		var objects: LuaArray<ObjectRefBase> = Core.getObjectsInsideRadius(pos, 1.0);
+		// var objects: LuaArray<ObjectRefBase> = Core.getObjectsInsideRadius(pos, 1.0);
 
-		LuaLoop.nativePairs(k, o, objects, {
-			var obj = (cast o : ObjectRefBase);
-			var entity = obj.getLuaEntity();
-			if (entity != null && entity.name == "__builtin:item") {
-				if (this.tryMergeWith(own_stack, obj, cast entity)) {
-					own_stack = ItemStack.create(this.itemstring);
-					if (own_stack.getFreeSpace() == 0) {
-						return;
-					}
-				}
-			}
-		});
+		// LuaLoop.nativePairs(k, o, objects, {
+		// 	var obj = (cast o : ObjectRefBase);
+		// 	var entity = obj.getLuaEntity();
+		// 	if (entity != null && entity.name == "__builtin:item") {
+		// 		if (this.tryMergeWith(own_stack, obj, cast entity)) {
+		// 			own_stack = ItemStack.create(this.itemstring);
+		// 			if (own_stack.getFreeSpace() == 0) {
+		// 				return;
+		// 			}
+		// 		}
+		// 	}
+		// });
 	}
 
 	override function onPunch(puncher: Null<ObjectRefBase>, timeFromLastPunch: Float, toolCapabilities: ToolCapabilities, dir: Vec3, damager: Int) {
 		super.onPunch(puncher, timeFromLastPunch, toolCapabilities, dir, damager);
 
-		if (this.itemstring == "") {
-			this.object.remove();
-			return;
-		}
+		// if (this.itemstring == "") {
+		// 	this.object.remove();
+		// 	return;
+		// }
 
-		// Call on_pickup callback in item definition.
-		var itemstack = ItemStack.create(this.itemstring);
-		var callback = untyped itemstack.getDefinition().on_pickup;
+		// // Call on_pickup callback in item definition.
+		// var itemstack = ItemStack.create(this.itemstring);
+		// var callback = untyped itemstack.getDefinition().on_pickup;
 
-		var ret = callback(itemstack, puncher, {type: PointedThingTypeObject, ref: this.object}, timeFromLastPunch);
+		// var ret = callback(itemstack, puncher, {type: PointedThingTypeObject, ref: this.object}, timeFromLastPunch);
 
-		if (ret == null) {
-			// Don't modify (and don't reset rotation).
-			return;
-		}
-		itemstack = ItemStack.create(ret);
+		// if (ret == null) {
+		// 	// Don't modify (and don't reset rotation).
+		// 	return;
+		// }
+		// itemstack = ItemStack.create(ret);
 
-		// Handle the leftover itemstack
-		if (itemstack.isEmpty()) {
-			this.itemstring = "";
-			this.object.remove();
-		} else {
-			this.setItem(itemstack);
-		}
+		// // Handle the leftover itemstack
+		// if (itemstack.isEmpty()) {
+		// 	this.itemstring = "";
+		// 	this.object.remove();
+		// } else {
+		// 	this.updateItems(itemstack);
+		// }
 	}
 }
