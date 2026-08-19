@@ -224,7 +224,7 @@ class ItemEntity extends LuaEntity {
 
 		this.age += delta;
 
-		if (time_to_live > 0 && this.age > time_to_live) {
+		if (this.age > time_to_live) {
 			this.itemstring = "";
 			this.object.remove();
 			return;
