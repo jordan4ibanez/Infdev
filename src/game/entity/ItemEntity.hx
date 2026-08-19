@@ -70,7 +70,6 @@ class ItemEntityVisual extends LuaEntity {
 class ItemEntity extends LuaEntity {
 	var itemstring = "";
 	var moving_state = true;
-	var physical_state = true;
 	// Item expiry.
 	var age: Float = 0;
 	// Pushing item out of solid nodes.
@@ -273,18 +272,8 @@ class ItemEntity extends LuaEntity {
 			}
 		}
 
-		if (!this.physical_state) {
-			// Don't do anything.
-			return;
-		}
-
 		Lua.assert(moveResult,
 			"Collision info missing, this is caused by an out-of-date/buggy mod or game");
-
-		if (!moveResult.collides) {
-			// future TODO: items should probably decelerate in air.
-			return;
-		}
 
 		// Push item out when stuck inside solid node
 		var is_stuck = false;
