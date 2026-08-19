@@ -232,7 +232,6 @@ class ItemEntity extends LuaEntity {
 
 		var pos = this.object.getPos();
 
-		// fixme: This is using get_node every step.
 		var node = Core.getNodeOrNull(new Vec3(
 			pos.x,
 			pos.y - 0.05,
