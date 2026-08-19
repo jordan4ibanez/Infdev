@@ -72,9 +72,6 @@ class ItemEntity extends LuaEntity {
 	var moving_state = true;
 	// Item expiry.
 	var age: Float = 0;
-	// Pushing item out of solid nodes.
-	var force_out: Null<Vec3> = null;
-	var force_out_start: Null<Vec3> = null;
 	var collisionboxCache: EntityCollisionBox = null;
 	var visualEntity: Null<ObjectRefEntity> = null;
 
@@ -252,26 +249,6 @@ class ItemEntity extends LuaEntity {
 			return;
 		}
 
-		if (this.force_out != null) {
-			// This code runs after the entity got a push from the is_stuck code.
-			// It makes sure the entity is entirely outside the solid node
-			var c = this.collisionboxCache;
-			var s = this.force_out_start;
-			var f = this.force_out;
-
-			var ok = (f.x > 0 && pos.x + c[0] > s.x + 0.5)
-				|| (f.y > 0 && pos.y + c[1] > s.y + 0.5)
-				|| (f.z > 0 && pos.z + c[2] > s.z + 0.5)
-				|| (f.x < 0 && pos.x + c[3] < s.x - 0.5)
-				|| (f.z < 0 && pos.z + c[5] < s.z - 0.5);
-			if (ok) {
-				// Item was successfully forced out.
-				this.force_out = null;
-				// this.enablePhysics();
-				return;
-			}
-		}
-
 		Lua.assert(moveResult,
 			"Collision info missing, this is caused by an out-of-date/buggy mod or game");
 
@@ -312,13 +289,7 @@ class ItemEntity extends LuaEntity {
 			}
 
 			if (shootdir != null) {
-				// Set new item moving speed accordingly.
-				var newv = shootdir.multiplyScalar(3);
-				// this.disablePhysics();
-				this.object.setVelocity(newv);
-
-				this.force_out = newv;
-				this.force_out_start = pos.round();
+				this.object.moveTo(this.object.getPos().add(shootdir));
 				return;
 			}
 		}
