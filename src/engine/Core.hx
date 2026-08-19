@@ -314,20 +314,14 @@ abstract class ModifyInternalLibrary {
 		Core.itemDrop = (itemstack: ItemStack,
 			dropper: Null<ObjectRefBase>,
 			pos: Vec3) -> {
-				var dropper_is_player = dropper != null && dropper.isPlayer();
-				var p = pos.copy();
-				if (dropper_is_player) {
-					p.y = p.y + 1.2;
-				}
-				var obj = Core.addItem(p, ItemStack.create(itemstack));
+				var dropperIsPlayer = dropper != null && dropper.isPlayer();
+
+
+
+				var obj = Core.addItem(pos, ItemStack.create(itemstack));
 				if (obj != null) {
 					itemstack.clear();
-					if (dropper_is_player) {
-						var dir = (cast dropper : ObjectRefPlayer).getLookDir();
-						dir.x = dir.x * 2.9;
-						dir.y = dir.y * 2.9 + 2;
-						dir.z = dir.z * 2.9;
-						obj.setVelocity(dir);
+					if (dropperIsPlayer) {
 						(cast obj.getLuaEntity() : ItemEntity).dropped_by = (cast dropper : ObjectRefPlayer).getPlayerName();
 					}
 					return {itemstack: itemstack, objectRef: obj};
