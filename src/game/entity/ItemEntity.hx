@@ -1,6 +1,7 @@
 package src.game.entity;
 
 import src.engine.Core;
+import src.engine.ItemStack;
 import src.engine.Serialize;
 import src.engine.Tick;
 import src.engine.compilercode.Macros;
@@ -60,7 +61,7 @@ class ItemEntityVisual extends LuaEntity {
 
 @:register(":__builtin:item")
 class ItemEntity extends LuaEntity {
-	var items: Array<String> = [];
+	var items: Map<String, Int> = new Map();
 	var moving_state = true;
 	// Item expiry.
 	var age: Float = 0;
@@ -72,7 +73,18 @@ class ItemEntity extends LuaEntity {
 	static final ENTITY_TIME_LIMIT: Float = 300;
 
 	public function addItem(item: String): Void {
-		this.items.push(item);
+		var stack = ItemStack.create(item);
+
+		var itemName = stack.getName();
+		var itemCount = stack.getCount();
+
+		if (this.items.exists(itemName)) {
+			var currentCount = this.items.get(itemName);
+			currentCount += itemCount;
+			this.items.set(itemName, currentCount);
+		} else {
+			this.items.set(itemName, itemCount);
+		}
 	}
 
 	// public function updateItems(?item: EitherType<String, ItemStack>): Void {
