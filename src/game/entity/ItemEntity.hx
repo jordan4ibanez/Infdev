@@ -1,11 +1,11 @@
 package src.game.entity;
 
 import haxe.extern.EitherType;
-import lua.Lua;
 import lua.Math;
 import src.engine.Core;
 import src.engine.ItemStack;
 import src.engine.Serialize;
+import src.engine.Tick;
 import src.engine.compilercode.LuaArray;
 import src.engine.compilercode.LuaLoop;
 import src.engine.compilercode.Macros;
@@ -137,6 +137,8 @@ class ItemEntity extends LuaEntity {
 		Macros.entityPatch();
 		super.onActivate(staticData, dtimeS);
 
+		Tick.registerOnTickEntity(this.object);
+
 		this.object.setProperties({
 			hp_max: 1,
 			physical: true,
@@ -227,6 +229,12 @@ class ItemEntity extends LuaEntity {
 			this.object.remove();
 			return;
 		}
+	}
+
+	override function onTick() {
+		super.onTick();
+
+		untyped print("tick", this.object.getGUID());
 
 		var pos = this.object.getPos();
 
