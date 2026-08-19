@@ -316,7 +316,16 @@ abstract class ModifyInternalLibrary {
 			pos: Vec3) -> {
 				var dropperIsPlayer = dropper != null && dropper.isPlayer();
 
+				// Items will be located as if they were nodes.
+				pos = pos.round();
 
+				// Only allow the node to be dropped at an acceptable node location.
+				// As long as the item can exist at this node then it is acceptable.
+				var acceptableNode = !Core.registeredNodes[cast Core.getNode(pos).name].walkable;
+
+				if (!acceptableNode) {
+					return null;
+				}
 
 				var obj = Core.addItem(pos, ItemStack.create(itemstack));
 				if (obj != null) {
