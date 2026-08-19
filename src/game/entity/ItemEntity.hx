@@ -119,7 +119,16 @@ class ItemEntity extends LuaEntity {
 			visual: EntityVisualMesh,
 			visual_size: new Vec2(size + size_bias, size + size_bias),
 			infotext: "An item!",
-			pointable: true
+			pointable: true,
+			// This is perfectly glitchy!
+			nametag_scale_z: true,
+			nametag_fontsize: 14,
+		});
+
+		this.object.setNametagAttributes({
+			text: stack.getDescription(),
+			color: "white",
+			bgcolor: "black",
 		});
 
 		this.updateVisualEntity(itemname, glow);
