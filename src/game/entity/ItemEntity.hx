@@ -88,7 +88,6 @@ class ItemEntity extends LuaEntity {
 			Core.log(LogLevelError, 'Failed to update visual entity at ${this.object.getPos()}, visual entity was null.');
 			return;
 		}
-
 		this.visualEntity.setProperties({
 			is_visible: true,
 			visual: EntityVisualWieldItem,
@@ -98,7 +97,6 @@ class ItemEntity extends LuaEntity {
 		});
 	}
 
-	@:native("set_item")
 	public function setItem(?item: EitherType<String, ItemStack>): Void {
 		var stack = ItemStack.create(item ?? this.itemstring);
 
