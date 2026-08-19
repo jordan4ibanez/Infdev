@@ -4,7 +4,6 @@ import haxe.extern.EitherType;
 import lua.Lua;
 import lua.Math;
 import src.engine.Core;
-import src.engine.GameInfo;
 import src.engine.ItemStack;
 import src.engine.Serialize;
 import src.engine.compilercode.LuaArray;
@@ -79,6 +78,7 @@ class ItemEntity extends LuaEntity {
 	var force_out_start: Null<Vec3> = null;
 	var collisionboxCache: EntityCollisionBox = null;
 	var visualEntity: Null<ObjectRefEntity> = null;
+
 	public var dropped_by: Null<String>;
 
 	static final time_to_live: Float = 900;
@@ -162,8 +162,8 @@ class ItemEntity extends LuaEntity {
 		Serialize.deserializeHaxeObject(staticData, this, Macros.getCompileTimeClass());
 
 		this.object.setArmorGroups(["immortal" => 1]);
-		this.object.setVelocity(new Vec3(0, 2, 0));
-		this.object.setAcceleration(new Vec3(0, -GameInfo.gravity, 0));
+		this.object.setVelocity(new Vec3(0, 0, 0));
+		this.object.setAcceleration(new Vec3(0, 0, 0));
 		this.collisionboxCache = this.object.getProperties().collisionbox;
 
 		this.visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
@@ -225,26 +225,6 @@ class ItemEntity extends LuaEntity {
 		return true;
 	}
 
-	function enablePhysics(): Void {
-		if (this.physical_state) {
-			return;
-		}
-		this.physical_state = true;
-		this.object.setProperties({physical: true});
-		this.object.setVelocity(new Vec3(0, 0, 0));
-		this.object.setAcceleration(new Vec3(0, -GameInfo.gravity, 0));
-	}
-
-	function disablePhysics(): Void {
-		if (!this.physical_state) {
-			return;
-		}
-		this.physical_state = false;
-		this.object.setProperties({physical: false});
-		this.object.setVelocity(new Vec3(0, 0, 0));
-		this.object.setAcceleration(new Vec3(0, 0, 0));
-	}
-
 	override function onStep(delta: Float, moveResult: MoveResult) {
 		super.onStep(delta, moveResult);
 
@@ -289,7 +269,7 @@ class ItemEntity extends LuaEntity {
 			if (ok) {
 				// Item was successfully forced out.
 				this.force_out = null;
-				this.enablePhysics();
+				// this.enablePhysics();
 				return;
 			}
 		}
@@ -346,7 +326,7 @@ class ItemEntity extends LuaEntity {
 			if (shootdir != null) {
 				// Set new item moving speed accordingly.
 				var newv = shootdir.multiplyScalar(3);
-				this.disablePhysics();
+				// this.disablePhysics();
 				this.object.setVelocity(newv);
 
 				this.force_out = newv;
