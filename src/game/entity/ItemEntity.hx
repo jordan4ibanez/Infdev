@@ -12,6 +12,7 @@ import src.engine.compilercode.Macros;
 import src.engine.definition.ItemDefinition;
 import src.engine.definition.basic.PointedThing.PointedThingType;
 import src.engine.definition.basic.ToolCapabilities;
+import src.engine.definition.graphics.RGBA;
 import src.engine.entity.LuaEntity;
 import src.engine.entity.MoveResult;
 import src.engine.entity.objectref.ObjectRefBase;
@@ -122,13 +123,10 @@ class ItemEntity extends LuaEntity {
 			pointable: true,
 			// This is perfectly glitchy!
 			nametag_scale_z: true,
-			nametag_fontsize: 14,
-		});
-
-		this.object.setNametagAttributes({
-			text: stack.getDescription(),
-			color: "white",
-			bgcolor: "black",
+			nametag: stack.getDescription(),
+			nametag_color: "white",
+			nametag_bgcolor: new RGBA(0, 0, 0, 0),
+			nametag_fontsize: 30,
 		});
 
 		this.updateVisualEntity(itemname, glow);
