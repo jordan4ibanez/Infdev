@@ -20,6 +20,7 @@ import src.engine.vector.Vec3;
 class ItemEntityVisual extends LuaEntity {
 	var controllerEntity: Null<ObjectRefBase> = null;
 
+	// The visual entity shall be created with the item name as it's static data.
 	override function onActivate(staticData: String, dtimeS: Float) {
 		Macros.entityPatch();
 		super.onActivate(staticData, dtimeS);
@@ -62,10 +63,13 @@ class ItemEntityVisual extends LuaEntity {
 @:register(":__builtin:item")
 class ItemEntity extends LuaEntity {
 	var items: Map<String, Int> = new Map();
+	var noSaveVisualItems: Map<String, ObjectRefEntity> = new Map();
+	var visualEntity: Null<ObjectRefEntity> = null;
+
 	var moving_state = true;
 	// Item expiry.
 	var age: Float = 0;
-	var visualEntity: Null<ObjectRefEntity> = null;
+
 	var doPhysicsChecks: Bool = true;
 
 	public var droppedBy: Null<String>;
@@ -87,31 +91,51 @@ class ItemEntity extends LuaEntity {
 		}
 	}
 
-	// public function updateItems(?item: EitherType<String, ItemStack>): Void {
-	// 	var stack = ItemStack.create(item ?? this.itemstring);
-	// 	this.itemstring = stack.toString();
-	// 	if (this.itemstring == "") {
-	// 		// Item not yet known.
-	// 		return;
-	// 	}
-	// 	var itemname = stack.getName();
-	// 	var def: Null<ItemDefinition> = Core.registeredItems[cast itemname];
-	// 	var glow = (def != null && def.lightSource != null && def.lightSource > 0) ? Math.floor(def.lightSource / 2 + 0.5) : null;
-	// 	this.setSize(0.6, 0.6);
-	// 	// The entity visual inherits this size.
-	// 	this.object.setProperties({
-	// 		visual: EntityVisualMesh,
-	// 		visual_size: new Vec2(0.3, 0.3),
-	// 		infotext: "An item!",
-	// 		pointable: true,
-	// 		// This is perfectly glitchy!
-	// 		nametag_scale_z: true,
-	// 		nametag: stack.getDescription(),
-	// 		nametag_color: "white",
-	// 		nametag_bgcolor: new RGBA(0, 0, 0, 0),
-	// 		nametag_fontsize: 30,
-	// 	});
-	// }
+	public function updateItems(): Void {
+		// for (itemName => count in this.items) {
+		// 	untyped print(itemName, count);
+		// }
+		// var stack = ItemStack.create(item ?? this.itemstring);
+		// this.visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
+		// // The entity may disappear immediately.
+		// if (this.visualEntity != null) {
+		// 	this.visualEntity.setAttach(this.object, "magic_item_floater", new Vec3(0, 0, 0), new Vec3(0, 0, 0), true);
+		// } else {
+		// 	Core.log(LogLevelError, 'Tried to spawn item entity visual at ${this.object.getPos()} but it became null instantly. This item is now invisible.');
+		// }
+
+		// this.itemstring = stack.toString();
+		// if (this.itemstring == "") {
+		// 	// Item not yet known.
+		// 	return;
+		// }
+		// var itemname = stack.getName();
+		// var def: Null<ItemDefinition> = Core.registeredItems[cast itemname];
+		// var glow = (def != null && def.lightSource != null && def.lightSource > 0) ? Math.floor(def.lightSource / 2 + 0.5) : null;
+		// this.setSize(0.6, 0.6);
+		// The entity visual inherits this size.
+		// this.object.setProperties({
+		// 	visual: EntityVisualMesh,
+		// 	visual_size: new Vec2(0.3, 0.3),
+		// 	infotext: "An item!",
+		// 	pointable: true,
+		// 	// This is perfectly glitchy!
+		// 	nametag_scale_z: true,
+		// 	nametag: stack.getDescription(),
+		// 	nametag_color: "white",
+		// 	nametag_bgcolor: new RGBA(0, 0, 0, 0),
+		// 	nametag_fontsize: 30,
+		// });
+
+		// Needs to manage multiple entities.
+		// this.visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
+		// // The entity may disappear immediately.
+		// if (this.visualEntity != null) {
+		// 	this.visualEntity.setAttach(this.object, "magic_item_floater", new Vec3(0, 0, 0), new Vec3(0, 0, 0), true);
+		// } else {
+		// 	Core.log(LogLevelError, 'Tried to spawn item entity visual at ${this.object.getPos()} but it became null instantly. This item is now invisible.');
+		// }
+	}
 
 	override function getStaticData(): String {
 		return Serialize.serializeHaxeObject(this, Macros.getCompileTimeClass());
@@ -143,17 +167,16 @@ class ItemEntity extends LuaEntity {
 		this.object.setVelocity(new Vec3(0, 0, 0));
 		this.object.setAcceleration(new Vec3(0, 0, 0));
 
-		this.visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
-		// The entity may disappear immediately.
-		if (this.visualEntity != null) {
-			this.visualEntity.setAttach(this.object, "magic_item_floater", new Vec3(0, 0, 0), new Vec3(0, 0, 0), true);
-		} else {
-			Core.log(LogLevelError, 'Tried to spawn item entity visual at ${this.object.getPos()} but it became null instantly. This item is now invisible.');
-		}
+		// untyped print(dump(this.items));
+		untyped print(dump(this.items));
 
 		this.enableShadow(1.5);
-
 		// this.updateItems();
+	}
+
+	override function onDeactivate(removal: Bool) {
+		super.onDeactivate(removal);
+		untyped print("remove from entity on tick");
 	}
 
 	// function tryMergeWith(own_stack: ItemStack, object: ObjectRefBase, entity: ItemEntity): Bool {
@@ -192,7 +215,6 @@ class ItemEntity extends LuaEntity {
 	// 	object.remove();
 	// 	return true;
 	// }
-
 	override function onStep(delta: Float, moveResult: MoveResult) {
 		super.onStep(delta, moveResult);
 

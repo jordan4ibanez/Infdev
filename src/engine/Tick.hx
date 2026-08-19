@@ -42,6 +42,8 @@ final class Tick {
 			if (object.isPlayer()) {
 				throw 'Entity ${guid} which is player ${(cast object : ObjectRefPlayer).getPlayerName()} already registered to do onTick.';
 			} else {
+				// untyped __lua__('print(dump(core.objects_by_guid))', guid);
+				// untyped print('Entity ${guid} which is entity ${(cast object : ObjectRefEntity).getLuaEntity().name} already registered to do onTick.');
 				throw 'Entity ${guid} which is entity ${(cast object : ObjectRefEntity).getLuaEntity().name} already registered to do onTick.';
 			}
 		}
