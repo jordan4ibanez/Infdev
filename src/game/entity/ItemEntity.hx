@@ -106,9 +106,7 @@ class ItemEntity extends LuaEntity {
 			return;
 		}
 
-		// Backwards compatibility: old clients use the texture
-		// to get the type of the item
-		var itemname = stack.isKnown() ? stack.getName() : "unknown";
+		var itemname = stack.getName();
 
 		var max_count = stack.getStackMax();
 		var count = Math.min(stack.getCount(), max_count);
