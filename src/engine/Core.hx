@@ -334,7 +334,7 @@ abstract class ModifyInternalLibrary {
 				if (obj != null) {
 					itemstack.clear();
 					if (dropperIsPlayer) {
-						(cast obj.getLuaEntity() : ItemEntity).dropped_by = (cast dropper : ObjectRefPlayer).getPlayerName();
+						(cast obj.getLuaEntity() : ItemEntity).droppedBy = (cast dropper : ObjectRefPlayer).getPlayerName();
 					}
 					return {itemstack: itemstack, objectRef: obj};
 				}

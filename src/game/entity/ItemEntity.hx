@@ -75,7 +75,7 @@ class ItemEntity extends LuaEntity {
 	var visualEntity: Null<ObjectRefEntity> = null;
 	var doPhysicsChecks: Bool = true;
 
-	public var dropped_by: Null<String>;
+	public var droppedBy: Null<String>;
 
 	static final ENTITY_TIME_LIMIT: Float = 300;
 
