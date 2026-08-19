@@ -32,6 +32,7 @@ make items not physical, they exist statically
 - When they need to move instead of smooth movement, they move by node including gravity on a timer
 - If there are multiple items on a node, when you right click, bring up a menu to pick which one you want. On rightclick can just check if there are more than one type of item at it's current position then build the menu accordingly.
 - Have entities decide if there is an entity with a nametag and if there isn't one at it's current position it becomes the nametag entity. This is allowed because of the singlethreaded nature of how entities process themselves
+- Maybe this can be a function
 
 
 do this for the levels object in the player as well
