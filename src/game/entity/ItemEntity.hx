@@ -81,7 +81,7 @@ class ItemEntity extends LuaEntity {
 
 	public var dropped_by: Null<String>;
 
-	static final time_to_live: Float = 900;
+	static final time_to_live: Float = 300;
 
 	function updateVisualEntity(itemname: String, glow: Int): Void {
 		if (this.visualEntity == null || !this.visualEntity.isValid()) {
