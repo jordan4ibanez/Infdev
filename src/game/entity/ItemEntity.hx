@@ -244,14 +244,6 @@ class ItemEntity extends LuaEntity {
 			return;
 		}
 
-		// Prevent assert when item_entity is attached
-		if (moveResult == null && this.object.getAttach()) {
-			return;
-		}
-
-		Lua.assert(moveResult,
-			"Collision info missing, this is caused by an out-of-date/buggy mod or game");
-
 		// Push item out when stuck inside solid node
 		var is_stuck = false;
 		var snode = Core.getNodeOrNull(pos);
@@ -294,50 +286,6 @@ class ItemEntity extends LuaEntity {
 			}
 		}
 
-		// Ground node we're colliding with.
-		node = null;
-		if (moveResult.touching_ground) {
-			LuaLoop.nativeIpairs(_, info, moveResult.collisions, {
-				if (info.axis == "y") {
-					node = Core.getNode(info.node_pos);
-					LuaLoop.breakLoop();
-				}
-			});
-		}
-
-		// Slide on slippery nodes.
-		var def = node == null ? null : Core.registeredNodes[cast node.name];
-		var keep_movement = false;
-
-		if (def != null) {
-			var slippery = Core.getItemGroup(node.name, "slippery");
-			var vel = this.object.getVelocity();
-			if (slippery != 0 && (Math.abs(vel.x) > 0.1 || Math.abs(vel.z) > 0.1)) {
-				// Horizontal deceleration.
-				var factor = Math.min(4 / (slippery + 4) * delta, 1);
-				this.object.setVelocity(new Vec3(
-					vel.x * (1 - factor),
-					0,
-					vel.z * (1 - factor)
-				));
-				keep_movement = true;
-			}
-		}
-
-		if (!keep_movement) {
-			this.object.setVelocity(new Vec3(0, 0, 0));
-		}
-
-		if (this.moving_state == keep_movement) {
-			// Do not update anything until the moving state changes.
-			return;
-		}
-		this.moving_state = keep_movement;
-
-		// Only collect items if not moving.
-		if (this.moving_state) {
-			return;
-		}
 		// Collect the items around to merge with.
 		var own_stack = ItemStack.create(this.itemstring);
 		if (own_stack.getFreeSpace() == 0) {
