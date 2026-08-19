@@ -77,7 +77,7 @@ class ItemEntity extends LuaEntity {
 
 	public var dropped_by: Null<String>;
 
-	static final time_to_live: Float = 300;
+	static final ENTITY_TIME_LIMIT: Float = 300;
 
 	function updateVisualEntity(itemname: String, glow: Int): Void {
 		if (this.visualEntity == null || !this.visualEntity.isValid()) {
@@ -224,7 +224,7 @@ class ItemEntity extends LuaEntity {
 
 		this.age += delta;
 
-		if (this.age > time_to_live) {
+		if (this.age > ENTITY_TIME_LIMIT) {
 			this.itemstring = "";
 			this.object.remove();
 			return;
