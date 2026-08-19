@@ -3,6 +3,7 @@ package src.engine.entity.objectref;
 import src.engine.compilercode.LuaArray;
 import src.engine.compilercode.LuaMap;
 import src.engine.entity.definition.Animation;
+import src.engine.entity.definition.NametagAttributes;
 import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
 
@@ -161,10 +162,10 @@ abstract class ObjectRefBase {
 	public abstract function isPlayer(): Bool;
 
 	@:native("get_nametag_attributes")
-	public abstract function getNametagAttributes(): Dynamic;
+	public abstract function getNametagAttributes(): NametagAttributes;
 
 	@:native("set_nametag_attributes")
-	public abstract function setNametagAttributes(attributes: Dynamic): Void;
+	public abstract function setNametagAttributes(attributes: NametagAttributes): Void;
 
 	@:native("get_guid")
 	public abstract function getGUID(): String;
