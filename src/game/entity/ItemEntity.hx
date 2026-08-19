@@ -72,6 +72,7 @@ class ItemEntity extends LuaEntity {
 	// Item expiry.
 	var age: Float = 0;
 	var visualEntity: Null<ObjectRefEntity> = null;
+	var doPhysicsChecks: Bool = true;
 
 	public var dropped_by: Null<String>;
 
@@ -117,7 +118,7 @@ class ItemEntity extends LuaEntity {
 		this.object.setProperties({
 			visual: EntityVisualMesh,
 			visual_size: new Vec2(size + size_bias, size + size_bias),
-			infotext: stack.getDescription(),
+			infotext: "An item!",
 			pointable: true
 		});
 
@@ -245,45 +246,57 @@ class ItemEntity extends LuaEntity {
 			return;
 		}
 
-		// Push item out when stuck inside solid node
-		var is_stuck = false;
-		var snode = Core.getNodeOrNull(pos);
-		if (snode != null) {
-			var sdef = Core.registeredNodes[cast snode.name];
-			is_stuck = (sdef.walkable == null || sdef.walkable == true)
-				&& (sdef.collisionBox == null || sdef.collisionBox.type == NodeBoxTypeRegular)
-				&& (sdef.nodeBox == null || sdef.nodeBox.type == NodeBoxTypeRegular);
-		}
+		// Physics logic. Runs at 50 ticks per minute.
+		this.doPhysicsChecks = !this.doPhysicsChecks;
 
-		if (is_stuck) {
-			var shootdir = null;
-			var order = [
-				new Vec3(1, 0, 0), new Vec3(-1, 0, 0),
-				new Vec3(0, 0, 1), new Vec3(0, 0, -1),
-			];
-
-			// Check which one of the 4 sides is free.
-			for (direction in order) {
-				var cnode = Core.getNode(pos.add(direction)).name;
-				var cdef = Core.registeredNodes[cast cnode];
-				if (cnode != "ignore" && (cdef == null || cdef.walkable == false)) {
-					shootdir = direction;
-					break;
-				}
-			}
-			// If none of the 4 sides is free, check upwards
-			if (shootdir == null) {
-				shootdir = new Vec3(0, 1, 0);
-				var cnode = Core.getNode(pos.add(shootdir)).name;
-				if (cnode == "ignore") {
-					// Do not push into ignore.
-					shootdir = null;
-				}
+		if (this.doPhysicsChecks) {
+			// Push item out when stuck inside solid node
+			var is_stuck = false;
+			var snode = Core.getNodeOrNull(pos);
+			if (snode != null) {
+				var sdef = Core.registeredNodes[cast snode.name];
+				is_stuck = (sdef.walkable == null || sdef.walkable == true)
+					&& (sdef.collisionBox == null || sdef.collisionBox.type == NodeBoxTypeRegular)
+					&& (sdef.nodeBox == null || sdef.nodeBox.type == NodeBoxTypeRegular);
 			}
 
-			if (shootdir != null) {
-				this.object.moveTo(this.object.getPos().add(shootdir));
-				return;
+			if (is_stuck) {
+				var shootdir = null;
+				var order = [
+					new Vec3(1, 0, 0), new Vec3(-1, 0, 0),
+					new Vec3(0, 0, 1), new Vec3(0, 0, -1),
+				];
+
+				// Check which one of the 4 sides is free.
+				for (direction in order) {
+					var cnode = Core.getNode(pos.add(direction)).name;
+					var cdef = Core.registeredNodes[cast cnode];
+					if (cnode != "ignore" && (cdef == null || cdef.walkable == false)) {
+						shootdir = direction;
+						break;
+					}
+				}
+				// If none of the 4 sides is free, check upwards
+				if (shootdir == null) {
+					shootdir = new Vec3(0, 1, 0);
+					var cnode = Core.getNode(pos.add(shootdir)).name;
+					if (cnode == "ignore") {
+						// Do not push into ignore.
+						shootdir = null;
+					}
+				}
+
+				if (shootdir != null) {
+					this.object.moveTo(this.object.getPos().add(shootdir));
+					return;
+				}
+			}
+
+			// Gravity.
+			var positionBelow = pos.subtract(new Vec3(0, 1, 0));
+			var nodeBelow = Core.getNode(positionBelow).name;
+			if (!Core.registeredNodes[cast nodeBelow].walkable) {
+				this.object.moveTo(positionBelow.round().subtract(new Vec3(0, 0.49, 0)));
 			}
 		}
 
