@@ -87,6 +87,8 @@ class ItemEntity extends LuaEntity {
 		} else {
 			this.items.set(itemName, itemCount);
 		}
+
+		this.updateItems();
 	}
 
 	public function updateItems(): Void {
@@ -169,7 +171,8 @@ class ItemEntity extends LuaEntity {
 		untyped print(dump(this.items));
 
 		this.enableShadow(1.5);
-		// this.updateItems();
+
+		this.updateItems();
 	}
 
 	override function onDeactivate(removal: Bool) {
