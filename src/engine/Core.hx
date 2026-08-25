@@ -256,7 +256,7 @@ extern class Core {
 
 	// ! Only overrideable functions below this.
 	@:native("spawn_item")
-	dynamic static function spawnItem(pos: Vec3, item: EitherType<String, ItemStack>): Null<ObjectRefEntity>;
+	dynamic static function spawnItem(pos: Vec3, item: ItemStack): Null<ObjectRefEntity>;
 
 	@:native("item_drop")
 	dynamic static function itemDrop(
@@ -300,7 +300,7 @@ extern class Global {
 @:noCompletion
 abstract class ModifyInternalLibrary {
 	static function deployModifications() {
-		Core.spawnItem = (pos: Vec3, item: EitherType<String, ObjectRefEntity>) -> {
+		Core.spawnItem = (pos: Vec3, item: EitherType<String, ItemStack>) -> {
 			// Take item in any format.
 			var stack = ItemStack.create(item);
 			var obj = Core.addEntity(pos, "__builtin:item");
