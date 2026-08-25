@@ -76,11 +76,9 @@ class ItemEntity extends LuaEntity {
 
 	static final ENTITY_TIME_LIMIT: Float = 300;
 
-	public function addItem(item: String): Void {
-		var stack = ItemStack.create(item);
-
-		var itemName = stack.getName();
-		var itemCount = stack.getCount();
+	public function addItem(itemStack: ItemStack): Void {
+		var itemName = itemStack.getName();
+		var itemCount = itemStack.getCount();
 
 		if (this.items.exists(itemName)) {
 			var currentCount = this.items.get(itemName);

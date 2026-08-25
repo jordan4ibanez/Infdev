@@ -306,7 +306,7 @@ abstract class ModifyInternalLibrary {
 			var obj = Core.addEntity(pos, "__builtin:item");
 			// Don't use obj if it couldn't be added to the map.
 			if (obj != null) {
-				(cast obj.getLuaEntity() : ItemEntity).addItem(stack.toString());
+				(cast obj.getLuaEntity() : ItemEntity).addItem(stack);
 			}
 			return obj;
 		}
