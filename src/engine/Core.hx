@@ -330,7 +330,7 @@ abstract class ModifyInternalLibrary {
 					return null;
 				}
 
-				var obj = Core.addItem(pos, ItemStack.create(itemstack));
+				var obj = Core.addItem(pos, itemstack);
 				if (obj != null) {
 					itemstack.clear();
 					if (dropperIsPlayer) {
