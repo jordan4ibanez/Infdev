@@ -108,6 +108,13 @@ abstract class Serialize {
 			}
 			// untyped print("serialize", luaType);
 
+			// ! WARNING: A Map of maps needs to be individually tagged!
+			// todo: recursive map tagging.
+			if (Std.isOfType(inputObject[cast field], haxe.Constraints.IMap)) {
+				inputObject[cast field][cast "__LUA_TYPE_PATCH__"] = "MAP";
+				// untyped print(dump(inputObject[cast field]));
+			}
+
 			untyped {
 				outputObject[field] = inputObject[field];
 			}
