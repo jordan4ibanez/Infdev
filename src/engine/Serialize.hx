@@ -53,7 +53,7 @@ abstract class Serialize {
 						continue;
 					}
 
-					var value = Reflect.field(containerClass, field);
+					var value = containerClass[field];
 
 					// Don't clone functions, userdata, or threads into the entity.
 					var luaType = untyped type(value);
