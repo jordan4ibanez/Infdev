@@ -67,7 +67,7 @@ abstract class Serialize {
 					// ? Debug info.
 					// (deserializedTable[field] == null) ? trace("container class", field) : trace("deserialized data", field);
 
-					// todo: this will need to be recursive to support Map<String, Map<Whatever, Whatever>>.
+					// todo: this will need to be recursive to support Map<Whatever, Map<Whatever, Whatever>>.
 					var patchLuaTableIntoMap = false;
 
 					if (luaType == "table") {
