@@ -146,6 +146,7 @@ class ItemEntity extends LuaEntity {
 		super.onActivate(staticData, dtimeS);
 
 		Tick.registerOnTickEntity(this.object);
+		Serialize.deserializeHaxeObject(staticData, this, Macros.getCompileTimeClass());
 
 		this.object.setProperties({
 			hp_max: 1,
@@ -160,8 +161,6 @@ class ItemEntity extends LuaEntity {
 		this.object.playAnimation("item_spin", {speed: 0.4});
 
 		this.setSize(0.6, 0.6);
-
-		Serialize.deserializeHaxeObject(staticData, this, Macros.getCompileTimeClass());
 
 		this.object.setArmorGroups(["immortal" => 1]);
 		this.object.setVelocity(new Vec3(0, 0, 0));
