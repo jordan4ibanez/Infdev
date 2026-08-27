@@ -92,9 +92,10 @@ class ItemEntity extends LuaEntity {
 	}
 
 	public function updateItems(): Void {
-		// for (itemName => count in this.items) {
-		// 	untyped print(itemName, count);
-		// }
+		for (itemName => count in this.items) {
+			untyped print(itemName, count);
+		}
+
 		// var stack = ItemStack.create(item ?? this.itemstring);
 		// this.visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
 		// // The entity may disappear immediately.
