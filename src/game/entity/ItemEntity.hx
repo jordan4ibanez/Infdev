@@ -167,9 +167,6 @@ class ItemEntity extends LuaEntity {
 		this.object.setVelocity(new Vec3(0, 0, 0));
 		this.object.setAcceleration(new Vec3(0, 0, 0));
 
-		// untyped print(dump(this.items));
-		untyped print(dump(this.items));
-
 		this.enableShadow(1.5);
 
 		this.updateItems();
