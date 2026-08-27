@@ -1,5 +1,6 @@
 package src.engine;
 
+import haxe.Constraints.IMap;
 import lua.Lua;
 import lua.Math;
 import lua.Table;
@@ -66,7 +67,29 @@ abstract class Serialize {
 					// ? Debug info.
 					// (deserializedTable[field] == null) ? trace("container class", field) : trace("deserialized data", field);
 
-					outputObject[field] = (deserializedTable[field] == null) ? containerClass[field] : deserializedTable[field];
+					// todo: this will need to be recursive to support Map<String, Map<Whatever, Whatever>>.
+					var patchLuaTableIntoMap = false;
+
+					if (luaType == "table") {
+						if (deserializedTable[field].__LUA_TYPE_PATCH__ != null) {
+							patchLuaTableIntoMap = true;
+						}
+					}
+
+					// ? This is an if else statement so other things can be added in as needed.
+					if (patchLuaTableIntoMap) {
+						// Special care is taken to keep the haxe IMap alive.
+						// It must be rebuilt.
+						var corruptedMap = deserializedTable[field].h;
+						var goodMap: IMap<Dynamic, Dynamic> = containerClass[field];
+						LuaLoop.nativePairs(key, data, corruptedMap, {
+							goodMap.set(key, data);
+						});
+						outputObject[field] = containerClass[field];
+					} else {
+						// Else it is just some regular data and it can be added as is.
+						outputObject[field] = (deserializedTable[field] == null) ? containerClass[field] : deserializedTable[field];
+					}
 				}
 				// trace("first pass", field);
 			}
