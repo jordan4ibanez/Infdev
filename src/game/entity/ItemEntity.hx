@@ -92,9 +92,16 @@ class ItemEntity extends LuaEntity {
 	}
 
 	public function updateItems(): Void {
+		var nameTagString = "";
 		for (itemName => count in this.items) {
 			untyped print(itemName, count);
+			nameTagString += '${itemName} ${count}\n';
 		}
+		nameTagString = nameTagString.substring(0, nameTagString.length - 1);
+
+		this.object.setNametagAttributes({
+			text: nameTagString
+		});
 
 		// var stack = ItemStack.create(item ?? this.itemstring);
 		// this.visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
@@ -157,6 +164,7 @@ class ItemEntity extends LuaEntity {
 			visual_size: new Vec2(0.4, 0.4),
 			mesh: "infdev_item_entity.gltf",
 			is_visible: true,
+			nametag_scale_z: true
 		});
 
 		this.object.playAnimation("item_spin", {speed: 0.4});
