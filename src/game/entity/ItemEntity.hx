@@ -116,7 +116,20 @@ class ItemEntity extends LuaEntity {
 
 		for (itemName => count in this.items) {
 			if (!this.noSaveVisualItems.exists(itemName)) {
-				untyped print("add:", itemName);
+				var visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
+
+				// Bail out.
+				if (visualEntity == null) {
+					Core.log(LogLevelError, 'Failed to attach visual entity to item at ${this.object.getPos()}');
+					return;
+				}
+
+				// todo: This should probably randomize if contains more than 1 item.
+				visualEntity.setAttach(this.object, "magic_item_floater", new Vec3(0, 0, 0), new Vec3(0, 0, 0), true);
+
+				var viLuaEnt = (cast visualEntity.getLuaEntity() : ItemEntityVisual);
+				viLuaEnt.setItem(itemName);
+				this.noSaveVisualItems.set(itemName, visualEntity);
 			}
 		}
 
