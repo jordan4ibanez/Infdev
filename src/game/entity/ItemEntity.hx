@@ -5,7 +5,6 @@ import src.engine.ItemStack;
 import src.engine.Serialize;
 import src.engine.Tick;
 import src.engine.compilercode.Macros;
-import src.engine.definition.basic.ItemPointabilitiesTable.ItemPointableMap;
 import src.engine.definition.basic.ToolCapabilities;
 import src.engine.entity.LuaEntity;
 import src.engine.entity.MoveResult;
@@ -20,6 +19,12 @@ import src.engine.vector.Vec3;
 @:register("infdev:item_entity_visual")
 class ItemEntityVisual extends LuaEntity {
 	var controllerEntity: Null<ObjectRefBase> = null;
+
+	public function setItem(item: String): Void {
+		this.object.setProperties({
+			wield_item: item
+		});
+	}
 
 	// The visual entity shall be created with the item name as it's static data.
 	override function onActivate(staticData: String, dtimeS: Float) {
