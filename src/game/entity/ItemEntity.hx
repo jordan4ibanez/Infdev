@@ -5,6 +5,7 @@ import src.engine.ItemStack;
 import src.engine.Serialize;
 import src.engine.Tick;
 import src.engine.compilercode.Macros;
+import src.engine.definition.basic.ItemPointabilitiesTable.ItemPointableMap;
 import src.engine.definition.basic.ToolCapabilities;
 import src.engine.entity.LuaEntity;
 import src.engine.entity.MoveResult;
@@ -92,6 +93,9 @@ class ItemEntity extends LuaEntity {
 	}
 
 	public function updateItems(): Void {
+		// ! This is done in 2 chunks on purpose. This is for clarity.
+		//
+		// ? Step 1: Build the nametag.
 		var nameTagString = "";
 		for (itemName => count in this.items) {
 			untyped print(itemName, count);
@@ -102,6 +106,14 @@ class ItemEntity extends LuaEntity {
 		this.object.setNametagAttributes({
 			text: nameTagString
 		});
+
+		// ?Step 2: Ensure an entity visual is present for each item.
+
+		for (itemName => count in this.items) {
+			if (!this.noSaveVisualItems.exists(itemName)) {
+				untyped print("add:", itemName);
+			}
+		}
 
 		// var stack = ItemStack.create(item ?? this.itemstring);
 		// this.visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
