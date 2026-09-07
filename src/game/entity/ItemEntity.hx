@@ -263,7 +263,8 @@ class ItemEntity extends LuaEntity {
 		}
 	}
 
-	function physicsCheck(pos: Vec3): Void {
+	// Returns if it moved.
+	function physicsCheck(pos: Vec3): Bool {
 		// Push item out when stuck inside solid node
 		var is_stuck = false;
 		var snode = Core.getNodeOrNull(pos);
@@ -302,7 +303,7 @@ class ItemEntity extends LuaEntity {
 
 			if (shootdir != null) {
 				this.object.moveTo(this.object.getPos().add(shootdir));
-				return;
+				return true;
 			}
 		}
 
@@ -311,7 +312,10 @@ class ItemEntity extends LuaEntity {
 		var nodeBelow = Core.getNode(positionBelow).name;
 		if (!Core.registeredNodes[cast nodeBelow].walkable) {
 			this.object.moveTo(positionBelow.round().subtract(new Vec3(0, 0.49, 0)));
+			return true;
 		}
+
+		return false;
 	}
 
 	override function onTick() {
