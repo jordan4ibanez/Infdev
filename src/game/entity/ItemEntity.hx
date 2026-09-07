@@ -177,6 +177,13 @@ class ItemEntity extends LuaEntity {
 	function tryJoinItemEntities(): Bool {
 		// todo: scan and if can add then remove all items and delete self.
 		untyped print("trying join");
+		for (obj in Core.getObjectsInsideRadius(this.object.getPos(), 0.2)) {
+			if (!obj.isPlayer()) {
+				if (obj.getLuaEntity().name == "__builtin:item") {
+					untyped print(obj.getGUID());
+				}
+			}
+		}
 		return false;
 	}
 
