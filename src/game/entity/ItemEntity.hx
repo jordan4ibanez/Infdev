@@ -176,6 +176,7 @@ class ItemEntity extends LuaEntity {
 
 	function tryJoinItemEntities(): Bool {
 		// todo: scan and if can add then remove all items and delete self.
+		untyped print("trying join");
 		return false;
 	}
 
@@ -353,7 +354,13 @@ class ItemEntity extends LuaEntity {
 		this.doPhysicsChecks = !this.doPhysicsChecks;
 
 		if (this.doPhysicsChecks) {
-			this.physicsCheck(pos);
+			// Try to join to combine other entities when the entity moves around.
+			if (this.physicsCheck(pos)) {
+				if (this.tryJoinItemEntities()) {
+					// Joining succeeded. It no longer exists.
+					return;
+				}
+			}
 		}
 
 		// Collect the items around to merge with.
