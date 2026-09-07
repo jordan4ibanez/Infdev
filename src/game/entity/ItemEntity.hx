@@ -180,11 +180,20 @@ class ItemEntity extends LuaEntity {
 		for (obj in Core.getObjectsInsideRadius(this.object.getPos(), 0.2)) {
 			if (!obj.isPlayer()) {
 				if (obj.getLuaEntity().name == "__builtin:item") {
+					// Skip self.
+					if (obj.getGUID() == this.object.getGUID()) {
+						continue;
+					}
+
 					var otherItem = (cast obj.getLuaEntity() : ItemEntity);
 
-					
+					for (item => count in this.items) {
+						untyped print("adding", item, count);
+						otherItem.addItem(ItemStack.create('${item} ${count}'));
+					}
 
-					untyped print(obj.getGUID());
+					this.object.remove();
+					return true;
 				}
 			}
 		}
@@ -357,6 +366,7 @@ class ItemEntity extends LuaEntity {
 			this.firstCheck = false;
 			if (this.tryJoinItemEntities()) {
 				// Joining succeeded. It no longer exists.
+
 				return;
 			}
 		}
