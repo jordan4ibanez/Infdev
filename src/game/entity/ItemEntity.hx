@@ -76,10 +76,27 @@ class ItemEntity extends LuaEntity {
 	var age: Float = 0;
 	var doPhysicsChecks: Bool = true;
 	var firstCheck: Bool = true;
+	// This reduces heap fragmentation in the luajit vm. (probably [or maybe I just made this up <I don't know either>])
+	var workerStack: ItemStack = ItemStack.create("");
 
 	public var droppedBy: Null<String>;
 
 	static final ENTITY_TIME_LIMIT: Float = 300;
+
+	// This is not so efficient but, whatever.
+	public function canAdd(itemName: String, itemCount: Int): Bool {
+		var currentStackSize = this.items.get(itemName);
+		// If there's nothing there of course we can add!
+		if (currentStackSize == null) {
+			return true;
+		}
+
+		// Else we have to do actual work, so sad. Jarvis please play despacito.
+		workerStack.setName(itemName);
+		workerStack.setCount(currentStackSize);
+
+		return workerStack.getFreeSpace() > 0;
+	}
 
 	public function addItem(itemStack: ItemStack): Void {
 		var itemName = itemStack.getName();
@@ -180,6 +197,8 @@ class ItemEntity extends LuaEntity {
 		for (obj in Core.getObjectsInsideRadius(this.object.getPos(), 0.2)) {
 			if (!obj.isPlayer()) {
 				if (obj.getLuaEntity().name == "__builtin:item") {
+					var otherItem = (cast obj.getLuaEntity() : ItemEntity);
+
 					untyped print(obj.getGUID());
 				}
 			}
