@@ -71,12 +71,11 @@ class ItemEntity extends LuaEntity {
 	var items: Map<String, Int> = new Map();
 	var noSaveVisualItems: Map<String, ObjectRefEntity> = new Map();
 	var visualEntity: Null<ObjectRefEntity> = null;
-
 	var moving_state = true;
 	// Item expiry.
 	var age: Float = 0;
-
 	var doPhysicsChecks: Bool = true;
+	var firstCheck: Bool = true;
 
 	public var droppedBy: Null<String>;
 
@@ -173,6 +172,11 @@ class ItemEntity extends LuaEntity {
 		// } else {
 		// 	Core.log(LogLevelError, 'Tried to spawn item entity visual at ${this.object.getPos()} but it became null instantly. This item is now invisible.');
 		// }
+	}
+
+	function tryJoinItemEntities(): Bool {
+		// todo: scan and if can add then remove all items and delete self.
+		return false;
 	}
 
 	override function getStaticData(): String {
@@ -334,6 +338,15 @@ class ItemEntity extends LuaEntity {
 			this.items = [];
 			this.object.remove();
 			return;
+		}
+
+		// Do the initial check to combine item entities when an item gets added to the world.
+		if (this.firstCheck) {
+			this.firstCheck = false;
+			if (this.tryJoinItemEntities()) {
+				// Joining succeeded. It no longer exists.
+				return;
+			}
 		}
 
 		// Physics logic. Runs at 50 ticks per minute.
