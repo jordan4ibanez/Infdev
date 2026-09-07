@@ -234,6 +234,10 @@ class ItemEntity extends LuaEntity {
 		// Do the initial check to combine item entities when an item gets added to the world.
 		// But only after 1 server step.
 		Core.after(0, () -> {
+			// Maybe it instantly disappeared.
+			if (this.object == null) {
+				return;
+			}
 			// This may remove the item entity.
 			this.tryJoinItemEntities();
 		});
