@@ -75,7 +75,6 @@ class ItemEntity extends LuaEntity {
 	// Item expiry.
 	var age: Float = 0;
 	var doPhysicsChecks: Bool = true;
-	var firstCheck: Bool = true;
 
 	public var droppedBy: Null<String>;
 
@@ -231,6 +230,13 @@ class ItemEntity extends LuaEntity {
 		this.enableShadow(1.5);
 
 		this.updateItems();
+
+		// Do the initial check to combine item entities when an item gets added to the world.
+		// But only after 1 server step.
+		Core.after(0, () -> {
+			// This may remove the item entity.
+			this.tryJoinItemEntities();
+		});
 	}
 
 	override function onDeactivate(removal: Bool) {
@@ -357,16 +363,6 @@ class ItemEntity extends LuaEntity {
 			this.items = [];
 			this.object.remove();
 			return;
-		}
-
-		// Do the initial check to combine item entities when an item gets added to the world.
-		if (this.firstCheck) {
-			this.firstCheck = false;
-			if (this.tryJoinItemEntities()) {
-				// Joining succeeded. It no longer exists.
-
-				return;
-			}
 		}
 
 		// Physics logic. Runs at 50 ticks per minute.
