@@ -130,47 +130,6 @@ class ItemEntity extends LuaEntity {
 				this.noSaveVisualItems.set(itemName, visualEntity);
 			}
 		}
-
-		// var stack = ItemStack.create(item ?? this.itemstring);
-		// this.visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
-		// // The entity may disappear immediately.
-		// if (this.visualEntity != null) {
-		// 	this.visualEntity.setAttach(this.object, "magic_item_floater", new Vec3(0, 0, 0), new Vec3(0, 0, 0), true);
-		// } else {
-		// 	Core.log(LogLevelError, 'Tried to spawn item entity visual at ${this.object.getPos()} but it became null instantly. This item is now invisible.');
-		// }
-
-		// this.itemstring = stack.toString();
-		// if (this.itemstring == "") {
-		// 	// Item not yet known.
-		// 	return;
-		// }
-		// var itemname = stack.getName();
-		// var def: Null<ItemDefinition> = Core.registeredItems[cast itemname];
-		// var glow = (def != null && def.lightSource != null && def.lightSource > 0) ? Math.floor(def.lightSource / 2 + 0.5) : null;
-		// this.setSize(0.6, 0.6);
-		// The entity visual inherits this size.
-		// this.object.setProperties({
-		// 	visual: EntityVisualMesh,
-		// 	visual_size: new Vec2(0.3, 0.3),
-		// 	infotext: "An item!",
-		// 	pointable: true,
-		// 	// This is perfectly glitchy!
-		// 	nametag_scale_z: true,
-		// 	nametag: stack.getDescription(),
-		// 	nametag_color: "white",
-		// 	nametag_bgcolor: new RGBA(0, 0, 0, 0),
-		// 	nametag_fontsize: 30,
-		// });
-
-		// Needs to manage multiple entities.
-		// this.visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
-		// // The entity may disappear immediately.
-		// if (this.visualEntity != null) {
-		// 	this.visualEntity.setAttach(this.object, "magic_item_floater", new Vec3(0, 0, 0), new Vec3(0, 0, 0), true);
-		// } else {
-		// 	Core.log(LogLevelError, 'Tried to spawn item entity visual at ${this.object.getPos()} but it became null instantly. This item is now invisible.');
-		// }
 	}
 
 	function tryJoinItemEntities(): Bool {
