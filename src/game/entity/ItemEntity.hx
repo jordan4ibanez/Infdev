@@ -175,7 +175,8 @@ class ItemEntity extends LuaEntity {
 			visual_size: new Vec2(0.4, 0.4),
 			mesh: "infdev_item_entity.gltf",
 			is_visible: true,
-			nametag_scale_z: true
+			nametag_scale_z: true,
+			nametag_fontsize: 24
 		});
 
 		this.object.playAnimation("item_spin", {speed: 0.4});
