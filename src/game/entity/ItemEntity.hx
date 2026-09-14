@@ -305,27 +305,6 @@ class ItemEntity extends LuaEntity {
 				}
 			}
 		}
-
-		// Collect the items around to merge with.
-		// var own_stack = ItemStack.create(this.itemstring);
-		// if (own_stack.getFreeSpace() == 0) {
-		// 	return;
-		// }
-
-		// var objects: LuaArray<ObjectRefBase> = Core.getObjectsInsideRadius(pos, 1.0);
-
-		// LuaLoop.nativePairs(k, o, objects, {
-		// 	var obj = (cast o : ObjectRefBase);
-		// 	var entity = obj.getLuaEntity();
-		// 	if (entity != null && entity.name == "__builtin:item") {
-		// 		if (this.tryMergeWith(own_stack, obj, cast entity)) {
-		// 			own_stack = ItemStack.create(this.itemstring);
-		// 			if (own_stack.getFreeSpace() == 0) {
-		// 				return;
-		// 			}
-		// 		}
-		// 	}
-		// });
 	}
 
 	override function onPunch(puncher: Null<ObjectRefBase>, timeFromLastPunch: Float, toolCapabilities: ToolCapabilities, dir: Vec3, damager: Int) {
