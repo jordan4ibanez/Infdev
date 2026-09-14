@@ -122,8 +122,26 @@ class ItemEntity extends LuaEntity {
 					return;
 				}
 
-				// todo: This should probably randomize if contains more than 1 item.
-				visualEntity.setAttach(this.object, "magic_item_floater", new Vec3(0, 0, 0), new Vec3(0, 0, 0), true);
+				// Set a random offset after initial item.
+				var offsetPos = new Vec3();
+				if (this.object.getChildren().length > 1) {
+					var base = lua.Math.random(-1, 1);
+					if (base == 0) {
+						base = 1;
+					}
+					offsetPos.x = lua.Math.random() * base;
+					base = lua.Math.random(-1, 1);
+					if (base == 0) {
+						base = 1;
+					}
+					offsetPos.y = lua.Math.random() * base;
+					base = lua.Math.random(-1, 1);
+					if (base == 0) {
+						base = 1;
+					}
+					offsetPos.z = lua.Math.random() * base;
+				}
+				visualEntity.setAttach(this.object, "magic_item_floater", offsetPos, new Vec3(0, 0, 0), true);
 
 				var viLuaEnt = (cast visualEntity.getLuaEntity() : ItemEntityVisual);
 				viLuaEnt.setItem(itemName);
