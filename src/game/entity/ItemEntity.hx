@@ -104,7 +104,11 @@ class ItemEntity extends LuaEntity {
 		var nameTagString = "";
 		for (itemName => count in this.items) {
 			untyped print(itemName, count);
-			nameTagString += '${itemName} ${count}\n';
+			var registeredDescription = Core.registeredItems[cast itemName].description;
+
+			var finalOutput = registeredDescription == null ? itemName : registeredDescription;
+
+			nameTagString += '${finalOutput} ${count}\n';
 		}
 		nameTagString = nameTagString.substring(0, nameTagString.length - 1);
 
