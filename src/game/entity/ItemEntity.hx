@@ -76,6 +76,8 @@ class ItemEntity extends LuaEntity {
 	var age: Float = 0;
 	var doPhysicsChecks: Bool = true;
 
+	static inline var offsetMultiplier = 5.0;
+
 	public var droppedBy: Null<String>;
 
 	static final ENTITY_TIME_LIMIT: Float = 300;
@@ -129,19 +131,36 @@ class ItemEntity extends LuaEntity {
 					if (base == 0) {
 						base = 1;
 					}
-					offsetPos.x = lua.Math.random() * base;
+					offsetPos.x = lua.Math.random() * base * offsetMultiplier;
 					base = lua.Math.random(-1, 1);
 					if (base == 0) {
 						base = 1;
 					}
-					offsetPos.y = lua.Math.random() * base;
+					offsetPos.y = lua.Math.random() * base * offsetMultiplier;
 					base = lua.Math.random(-1, 1);
 					if (base == 0) {
 						base = 1;
 					}
-					offsetPos.z = lua.Math.random() * base;
+					offsetPos.z = lua.Math.random() * base * offsetMultiplier;
 				}
-				visualEntity.setAttach(this.object, "magic_item_floater", offsetPos, new Vec3(0, 0, 0), true);
+
+				// Set a random rotation after initial item.
+				var offsetRotation = new Vec3();
+				if (this.object.getChildren().length > 1) {
+					var base = lua.Math.random(-1, 1);
+					if (base == 0) {
+						base = 1;
+					}
+					offsetRotation.x = lua.Math.random() * base;
+					offsetRotation.y = lua.Math.random() * 360.0;
+					base = lua.Math.random(-1, 1);
+					if (base == 0) {
+						base = 1;
+					}
+					offsetRotation.z = lua.Math.random() * base;
+				}
+
+				visualEntity.setAttach(this.object, "magic_item_floater", offsetPos, offsetRotation, true);
 
 				var viLuaEnt = (cast visualEntity.getLuaEntity() : ItemEntityVisual);
 				viLuaEnt.setItem(itemName);
