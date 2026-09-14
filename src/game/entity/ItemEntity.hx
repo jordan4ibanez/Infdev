@@ -208,42 +208,6 @@ class ItemEntity extends LuaEntity {
 		untyped print("remove from entity on tick");
 	}
 
-	// function tryMergeWith(own_stack: ItemStack, object: ObjectRefBase, entity: ItemEntity): Bool {
-	// 	if (this.object.getGUID() == entity.object.getGUID()) {
-	// 		// Cannot merge with itself
-	// 		return false;
-	// 	}
-	// 	var stack = ItemStack.create(entity.itemstring);
-	// 	var name = stack.getName();
-	// 	if (own_stack.getName() != name
-	// 		|| own_stack.getMeta() != stack.getMeta()
-	// 		|| own_stack.getWear() != stack.getWear()
-	// 		|| own_stack.getFreeSpace() == 0) {
-	// 		// Cannot merge different or full stack.
-	// 		return false;
-	// 	}
-	// 	var count = own_stack.getCount();
-	// 	var total_count = stack.getCount() + count;
-	// 	var max_count = stack.getStackMax();
-	// 	if (total_count > max_count) {
-	// 		return false;
-	// 	}
-	// 	// Merge the remote stack into this one.
-	// 	var pos = object.getPos();
-	// 	pos.y = pos.y + ((total_count - count) / max_count) * 0.15;
-	// 	this.object.moveTo(pos);
-	// 	// Handle as new entity
-	// 	own_stack.setCount(total_count);
-	// 	this.updateItems(own_stack);
-	// 	entity.itemstring = "";
-	// 	var otherLuaEntity = (cast object.getLuaEntity() : ItemEntity);
-	// 	otherLuaEntity.shadowEntity.remove();
-	// 	otherLuaEntity.visualEntity.remove();
-	// 	// Keep the greatest age between the two.
-	// 	this.age = (this.age > otherLuaEntity.age) ? this.age : otherLuaEntity.age;
-	// 	object.remove();
-	// 	return true;
-	// }
 	override function onStep(delta: Float, moveResult: MoveResult) {
 		super.onStep(delta, moveResult);
 
