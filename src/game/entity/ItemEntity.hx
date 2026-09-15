@@ -82,27 +82,17 @@ class ItemEntity extends LuaEntity {
 		this.count = itemStack.getCount();
 
 		if (this.visualEntity == null) {
-			// todo: create item
-			// todo: check for created item.
-		} else {
-			var luaEntity = (cast this.visualEntity.getLuaEntity() : ItemEntityVisual);
-		}
-
-		if (!this.noSaveVisualItems.exists(itemName)) {
-			var visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
+			this.visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
 
 			// Bail out.
-			if (visualEntity == null) {
+			if (this.visualEntity == null) {
 				Core.log(LogLevelError, 'Failed to attach visual entity to item at ${this.object.getPos()}');
 				return;
 			}
-
-			visualEntity.setAttach(this.object, "magic_item_floater", offsetPos, offsetRotation, true);
-
-			var viLuaEnt = (cast visualEntity.getLuaEntity() : ItemEntityVisual);
-			viLuaEnt.setItem(itemName);
-			this.noSaveVisualItems.set(itemName, visualEntity);
+			this.visualEntity.setAttach(this.object, "magic_item_floater", new Vec3(), new Vec3(), true);
 		}
+
+		(cast this.visualEntity.getLuaEntity() : ItemEntityVisual).setItem(this.item);
 	}
 
 	function tryJoinItemEntities(): Bool {
