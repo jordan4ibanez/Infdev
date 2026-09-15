@@ -323,8 +323,11 @@ abstract class ModifyInternalLibrary {
 				if (obj != null) {
 					itemstack.clear();
 					if (dropper_is_player) {
-						var dir = (cast dropper : ObjectRefPlayer).getLookDir().multiplyScalar(2.9);
-						obj.setVelocity(dir);
+						obj.setVelocity(
+							(cast dropper : ObjectRefPlayer)
+								.getLookDir()
+								.multiplyScalar(2.9)
+								.add(dropper.getVelocity()));
 						(cast obj.getLuaEntity() : ItemEntity).droppedBy = (cast dropper : ObjectRefPlayer).getPlayerName();
 					}
 					return {itemstack: itemstack, objectRef: obj};
