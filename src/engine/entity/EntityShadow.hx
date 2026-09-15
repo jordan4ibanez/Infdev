@@ -9,8 +9,8 @@ class EntityShadow extends LuaEntity {
 
 	var pollTimer: Float = 0;
 
-	// Don't destroy the server tick rate and only poll every half second.
-	static inline final pollRate = 0.5;
+	// Don't destroy the server tick rate and only poll every 0.2 seconds.
+	static inline final pollRate = 0.2;
 
 	override function onActivate(staticData: String, dtimeS: Float) {
 		Macros.entityPatch();
