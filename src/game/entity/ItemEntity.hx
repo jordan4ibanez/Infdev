@@ -5,7 +5,6 @@ import src.engine.ItemStack;
 import src.engine.Serialize;
 import src.engine.Tick;
 import src.engine.compilercode.Macros;
-import src.engine.definition.basic.ToolCapabilities;
 import src.engine.entity.LuaEntity;
 import src.engine.entity.MoveResult;
 import src.engine.entity.objectref.ObjectRefBase;
@@ -103,12 +102,12 @@ class ItemEntity extends LuaEntity {
 		Macros.entityPatch();
 		super.onActivate(staticData, dtimeS);
 
-		Tick.registerOnTickEntity(this.object);
 		Serialize.deserializeHaxeObject(staticData, this, Macros.getCompileTimeClass());
 
 		this.object.setProperties({
 			hp_max: 1,
 			physical: true,
+			pointable: false,
 			collide_with_objects: false,
 			visual: EntityVisualMesh,
 			visual_size: new Vec2(0.4, 0.4),
@@ -123,7 +122,7 @@ class ItemEntity extends LuaEntity {
 		this.setSize(0.6, 0.6);
 
 		this.object.setArmorGroups(["immortal" => 1]);
-		this.object.setVelocity(new Vec3(0, 0, 0));
+		this.object.setVelocity(new Vec3(0, -10.0, 0));
 		this.object.setAcceleration(new Vec3(0, 0, 0));
 
 		this.enableShadow(1.5);
