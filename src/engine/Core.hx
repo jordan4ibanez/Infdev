@@ -332,8 +332,7 @@ abstract class ModifyInternalLibrary {
 					}
 					return {itemstack: itemstack, objectRef: obj};
 				}
-				// If we reach this, adding the object to the
-				// environment failed
+				// If we reach this, adding the object to the environment failed.
 				return null;
 			};
 	}
