@@ -95,30 +95,6 @@ class ItemEntity extends LuaEntity {
 		(cast this.visualEntity.getLuaEntity() : ItemEntityVisual).setItem(this.item);
 	}
 
-	function tryJoinItemEntities(): Bool {
-		for (obj in Core.getObjectsInsideRadius(this.object.getPos(), 0.2)) {
-			if (!obj.isPlayer()) {
-				if (obj.getLuaEntity().name == "__builtin:item") {
-					// Skip self.
-					if (obj.getGUID() == this.object.getGUID()) {
-						continue;
-					}
-
-					var otherItem = (cast obj.getLuaEntity() : ItemEntity);
-
-					for (item => count in this.items) {
-						// untyped print("adding", item, count);
-						otherItem.addItem(ItemStack.create('${item} ${count}'));
-					}
-
-					this.object.remove();
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
 	override function getStaticData(): String {
 		return Serialize.serializeHaxeObject(this, Macros.getCompileTimeClass());
 	}
@@ -151,19 +127,6 @@ class ItemEntity extends LuaEntity {
 		this.object.setAcceleration(new Vec3(0, 0, 0));
 
 		this.enableShadow(1.5);
-
-		this.updateItems();
-
-		// Do the initial check to combine item entities when an item gets added to the world.
-		// But only after 1 server step.
-		Core.after(0, () -> {
-			// Maybe it instantly disappeared.
-			if (this.object == null) {
-				return;
-			}
-			// This may remove the item entity.
-			this.tryJoinItemEntities();
-		});
 	}
 
 	override function onDeactivate(removal: Bool) {
@@ -177,125 +140,10 @@ class ItemEntity extends LuaEntity {
 		this.age += delta;
 
 		if (this.age > ENTITY_TIME_LIMIT) {
-			this.items = [];
+			this.item = "";
+			this.count = 0;
 			this.object.remove();
 			return;
 		}
-	}
-
-	// Returns if it moved.
-	function physicsCheck(pos: Vec3): Bool {
-		// Push item out when stuck inside solid node
-		var is_stuck = false;
-		var snode = Core.getNodeOrNull(pos);
-		if (snode != null) {
-			var sdef = Core.registeredNodes[cast snode.name];
-			is_stuck = (sdef.walkable == null || sdef.walkable == true)
-				&& (sdef.collisionBox == null || sdef.collisionBox.type == NodeBoxTypeRegular)
-				&& (sdef.nodeBox == null || sdef.nodeBox.type == NodeBoxTypeRegular);
-		}
-
-		if (is_stuck) {
-			var shootdir = null;
-			var order = [
-				new Vec3(1, 0, 0), new Vec3(-1, 0, 0),
-				new Vec3(0, 0, 1), new Vec3(0, 0, -1),
-			];
-
-			// Check which one of the 4 sides is free.
-			for (direction in order) {
-				var cnode = Core.getNode(pos.add(direction)).name;
-				var cdef = Core.registeredNodes[cast cnode];
-				if (cnode != "ignore" && (cdef == null || cdef.walkable == false)) {
-					shootdir = direction;
-					break;
-				}
-			}
-			// If none of the 4 sides is free, check upwards
-			if (shootdir == null) {
-				shootdir = new Vec3(0, 1, 0);
-				var cnode = Core.getNode(pos.add(shootdir)).name;
-				if (cnode == "ignore") {
-					// Do not push into ignore.
-					shootdir = null;
-				}
-			}
-
-			if (shootdir != null) {
-				this.object.moveTo(this.object.getPos().add(shootdir));
-				return true;
-			}
-		}
-
-		// Gravity.
-		var positionBelow = pos.subtract(new Vec3(0, 1, 0));
-		var nodeBelow = Core.getNode(positionBelow).name;
-		if (!Core.registeredNodes[cast nodeBelow].walkable) {
-			this.object.moveTo(positionBelow.round().subtract(new Vec3(0, 0.49, 0)));
-			return true;
-		}
-
-		return false;
-	}
-
-	override function onTick() {
-		super.onTick();
-
-		var pos = this.object.getPos();
-
-		var node = Core.getNodeOrNull(new Vec3(
-			pos.x,
-			pos.y - 0.05,
-			pos.z
-		));
-
-		// Delete in 'ignore' nodes
-		if (node != null && node.name == "ignore") {
-			this.items = [];
-			this.object.remove();
-			return;
-		}
-
-		// Physics logic. Runs at 50 ticks per minute.
-		this.doPhysicsChecks = !this.doPhysicsChecks;
-
-		if (this.doPhysicsChecks) {
-			// Try to join to combine other entities when the entity moves around.
-			if (this.physicsCheck(pos)) {
-				if (this.tryJoinItemEntities()) {
-					// Joining succeeded. It no longer exists.
-					return;
-				}
-			}
-		}
-	}
-
-	override function onPunch(puncher: Null<ObjectRefBase>, timeFromLastPunch: Float, toolCapabilities: ToolCapabilities, dir: Vec3, damager: Int) {
-		super.onPunch(puncher, timeFromLastPunch, toolCapabilities, dir, damager);
-
-		// if (this.itemstring == "") {
-		// 	this.object.remove();
-		// 	return;
-		// }
-
-		// // Call on_pickup callback in item definition.
-		// var itemstack = ItemStack.create(this.itemstring);
-		// var callback = untyped itemstack.getDefinition().on_pickup;
-
-		// var ret = callback(itemstack, puncher, {type: PointedThingTypeObject, ref: this.object}, timeFromLastPunch);
-
-		// if (ret == null) {
-		// 	// Don't modify (and don't reset rotation).
-		// 	return;
-		// }
-		// itemstack = ItemStack.create(ret);
-
-		// // Handle the leftover itemstack
-		// if (itemstack.isEmpty()) {
-		// 	this.itemstring = "";
-		// 	this.object.remove();
-		// } else {
-		// 	this.updateItems(itemstack);
-		// }
 	}
 }
