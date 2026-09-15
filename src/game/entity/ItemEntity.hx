@@ -153,12 +153,23 @@ class ItemEntity extends LuaEntity {
 
 		if (moveResult.touching_ground) {
 			var vel = this.object.getVelocity();
-			var acc = this.object.getAcceleration();
-			// Friction.
-			// todo: check for slippery things.
-			vel = vel.multiply(-4);
-			vel.y = acc.y;
-			this.object.setAcceleration(vel);
+
+			var speed = vel.length();
+
+			if (speed < 0.05 && speed > 0) {
+				this.object.setVelocity(new Vec3());
+				var acc = this.object.getAcceleration();
+				acc.x = 0;
+				acc.z = 0;
+				this.object.setAcceleration(acc);
+			} else {
+				var acc = this.object.getAcceleration();
+				// Friction.
+				// todo: check for slippery things.
+				vel = vel.multiply(-4);
+				vel.y = acc.y;
+				this.object.setAcceleration(vel);
+			}
 		}
 	}
 }
