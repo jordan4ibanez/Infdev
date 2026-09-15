@@ -314,33 +314,26 @@ abstract class ModifyInternalLibrary {
 		Core.itemDrop = (itemstack: ItemStack,
 			dropper: Null<ObjectRefBase>,
 			pos: Vec3) -> {
-				var dropperIsPlayer = dropper != null && dropper.isPlayer();
-
-				// Items will be located as if they were nodes.
-				pos = pos.round();
-
-				// todo: this should probably check for collision boxes.
-				pos.y -= 0.49;
-
-				// Only allow the node to be dropped at an acceptable node location.
-				// As long as the item can exist at this node then it is acceptable.
-				var acceptableNode = !Core.registeredNodes[cast Core.getNode(pos).name].walkable;
-
-				if (!acceptableNode) {
-					return null;
+				var dropper_is_player = dropper != null && dropper.is_player();
+				var p = table.copy(pos);
+				if (dropper_is_player) {
+					p.y = p.y + 1.2;
 				}
-
-				var obj = Core.addItem(pos, itemstack);
+				var obj = Core.addItem(p, ItemStack(itemstack));
 				if (obj != null) {
 					itemstack.clear();
-					if (dropperIsPlayer) {
-						(cast obj.getLuaEntity() : ItemEntity).droppedBy = (cast dropper : ObjectRefPlayer).getPlayerName();
+					if (dropper_is_player) {
+						var dir = dropper.get_look_dir();
+						dir.x = dir.x * 2.9;
+						dir.y = dir.y * 2.9 + 2;
+						dir.z = dir.z * 2.9;
+						obj.set_velocity(dir);
+						obj.get_luaentity().dropped_by = dropper.get_player_name();
 					}
-					return {itemstack: itemstack, objectRef: obj};
+					return obj;
 				}
 				// If we reach this, adding the object to the
 				// environment failed
-				return null;
 			};
 	}
 
