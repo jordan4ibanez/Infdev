@@ -9,6 +9,7 @@ import src.engine.definition.basic.ToolCapabilities;
 import src.engine.entity.LuaEntity;
 import src.engine.entity.MoveResult;
 import src.engine.entity.objectref.ObjectRefBase;
+import src.engine.entity.objectref.ObjectRefEntity;
 import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
 
@@ -68,6 +69,7 @@ class ItemEntity extends LuaEntity {
 	var age: Float = 0;
 	var item: String = "";
 	var count: Int = 0;
+	var visualEntity: Null<ObjectRefEntity> = null;
 
 	static inline var offsetMultiplier = 5.0;
 
@@ -75,82 +77,31 @@ class ItemEntity extends LuaEntity {
 
 	static final ENTITY_TIME_LIMIT: Float = 300;
 
-	public function addItem(itemStack: ItemStack): Void {
+	public function setItem(itemStack: ItemStack): Void {
 		this.item = itemStack.getName();
 		this.count = itemStack.getCount();
-	}
 
-	public function updateItems(): Void {
-		// ! This is done in 2 chunks on purpose. This is for clarity.
-		//
-		// ? Step 1: Build the nametag.
-		var nameTagString = "";
-		for (itemName => count in this.items) {
-			// untyped print(itemName, count);
-			var registeredDescription = Core.registeredItems[cast itemName].description;
-			var finalOutput = registeredDescription == null ? itemName : registeredDescription;
-			nameTagString += '${finalOutput} ${count}\n';
+		if (this.visualEntity == null) {
+			// todo: create item
+			// todo: check for created item.
+		} else {
+			var luaEntity = (cast this.visualEntity.getLuaEntity() : ItemEntityVisual);
 		}
-		nameTagString = nameTagString.substring(0, nameTagString.length - 1);
 
-		this.object.setNametagAttributes({
-			text: nameTagString
-		});
+		if (!this.noSaveVisualItems.exists(itemName)) {
+			var visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
 
-		// ?Step 2: Ensure an entity visual is present for each item.
-
-		for (itemName => count in this.items) {
-			if (!this.noSaveVisualItems.exists(itemName)) {
-				var visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
-
-				// Bail out.
-				if (visualEntity == null) {
-					Core.log(LogLevelError, 'Failed to attach visual entity to item at ${this.object.getPos()}');
-					return;
-				}
-
-				// Set a random offset after initial item.
-				var offsetPos = new Vec3();
-				if (this.object.getChildren().length > 1) {
-					var base = lua.Math.random(-1, 1);
-					if (base == 0) {
-						base = 1;
-					}
-					offsetPos.x = lua.Math.random() * base * offsetMultiplier;
-					base = lua.Math.random(-1, 1);
-					if (base == 0) {
-						base = 1;
-					}
-					offsetPos.y = lua.Math.random() * base * offsetMultiplier;
-					base = lua.Math.random(-1, 1);
-					if (base == 0) {
-						base = 1;
-					}
-					offsetPos.z = lua.Math.random() * base * offsetMultiplier;
-				}
-
-				// Set a random rotation after initial item.
-				var offsetRotation = new Vec3();
-				if (this.object.getChildren().length > 1) {
-					var base = lua.Math.random(-1, 1);
-					if (base == 0) {
-						base = 1;
-					}
-					offsetRotation.x = lua.Math.random() * base;
-					offsetRotation.y = lua.Math.random() * 360.0;
-					base = lua.Math.random(-1, 1);
-					if (base == 0) {
-						base = 1;
-					}
-					offsetRotation.z = lua.Math.random() * base;
-				}
-
-				visualEntity.setAttach(this.object, "magic_item_floater", offsetPos, offsetRotation, true);
-
-				var viLuaEnt = (cast visualEntity.getLuaEntity() : ItemEntityVisual);
-				viLuaEnt.setItem(itemName);
-				this.noSaveVisualItems.set(itemName, visualEntity);
+			// Bail out.
+			if (visualEntity == null) {
+				Core.log(LogLevelError, 'Failed to attach visual entity to item at ${this.object.getPos()}');
+				return;
 			}
+
+			visualEntity.setAttach(this.object, "magic_item_floater", offsetPos, offsetRotation, true);
+
+			var viLuaEnt = (cast visualEntity.getLuaEntity() : ItemEntityVisual);
+			viLuaEnt.setItem(itemName);
+			this.noSaveVisualItems.set(itemName, visualEntity);
 		}
 	}
 
