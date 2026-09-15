@@ -157,6 +157,7 @@ class ItemEntity extends LuaEntity {
 			var speed = vel.length();
 
 			if (speed < 0.05 && speed > 0) {
+				// Stops item twitching.
 				this.object.setVelocity(new Vec3());
 				var acc = this.object.getAcceleration();
 				acc.x = 0;
