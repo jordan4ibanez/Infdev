@@ -327,6 +327,7 @@ abstract class ModifyInternalLibrary {
 							(cast dropper : ObjectRefPlayer)
 								.getLookDir()
 								.multiplyScalar(3.5)
+								.add(new Vec3(0, 1, 0))
 								.add(dropper.getVelocity()));
 						(cast obj.getLuaEntity() : ItemEntity).droppedBy = (cast dropper : ObjectRefPlayer).getPlayerName();
 					}
