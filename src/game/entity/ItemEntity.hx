@@ -3,7 +3,6 @@ package src.game.entity;
 import src.engine.Core;
 import src.engine.ItemStack;
 import src.engine.Serialize;
-import src.engine.Tick;
 import src.engine.compilercode.Macros;
 import src.engine.entity.LuaEntity;
 import src.engine.entity.MoveResult;
@@ -79,7 +78,10 @@ class ItemEntity extends LuaEntity {
 	public function setItem(itemStack: ItemStack): Void {
 		this.item = itemStack.getName();
 		this.count = itemStack.getCount();
+		this.updateVisual();
+	}
 
+	function updateVisual(): Void {
 		if (this.visualEntity == null) {
 			this.visualEntity = Core.addEntity(this.object.getPos(), "infdev:item_entity_visual", this.object.getGUID());
 
@@ -110,7 +112,7 @@ class ItemEntity extends LuaEntity {
 			pointable: false,
 			collide_with_objects: false,
 			visual: EntityVisualMesh,
-			visual_size: new Vec2(0.4, 0.4),
+			visual_size: new Vec2(0.25, 0.25),
 			mesh: "infdev_item_entity.gltf",
 			is_visible: true,
 			nametag_scale_z: true,
@@ -122,8 +124,12 @@ class ItemEntity extends LuaEntity {
 		this.setSize(0.6, 0.6);
 
 		this.object.setArmorGroups(["immortal" => 1]);
-		this.object.setVelocity(new Vec3(0, -10.0, 0));
-		this.object.setAcceleration(new Vec3(0, 0, 0));
+		this.object.setVelocity(new Vec3(0, 0, 0));
+		this.object.setAcceleration(new Vec3(0, -10.0, 0));
+
+		if (this.item != "") {
+			this.updateVisual();
+		}
 
 		this.enableShadow(1.5);
 	}
