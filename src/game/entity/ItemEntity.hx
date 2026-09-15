@@ -150,5 +150,15 @@ class ItemEntity extends LuaEntity {
 			this.object.remove();
 			return;
 		}
+
+		if (moveResult.touching_ground) {
+			var vel = this.object.getVelocity();
+			var acc = this.object.getAcceleration();
+			// Friction.
+			// todo: check for slippery things.
+			vel = vel.multiply(-4);
+			vel.y = acc.y;
+			this.object.setAcceleration(vel);
+		}
 	}
 }
