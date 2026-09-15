@@ -9,12 +9,8 @@ import src.engine.definition.basic.ToolCapabilities;
 import src.engine.entity.LuaEntity;
 import src.engine.entity.MoveResult;
 import src.engine.entity.objectref.ObjectRefBase;
-import src.engine.entity.objectref.ObjectRefEntity;
 import src.engine.vector.Vec2;
 import src.engine.vector.Vec3;
-
-// todo: instead of the entity just adding to inventory, check if the wield slot can be added to so you literally pick up the item in your hand.
-// This is the entity that gets mounted to the item's bone. It allows the item to have a cool visual.
 
 @:register("infdev:item_entity_visual")
 class ItemEntityVisual extends LuaEntity {
@@ -68,13 +64,10 @@ class ItemEntityVisual extends LuaEntity {
 
 @:register(":__builtin:item")
 class ItemEntity extends LuaEntity {
-	var items: Map<String, Int> = new Map();
-	var noSaveVisualItems: Map<String, ObjectRefEntity> = new Map();
-	var visualEntity: Null<ObjectRefEntity> = null;
-	var moving_state = true;
 	// Item expiry.
 	var age: Float = 0;
-	var doPhysicsChecks: Bool = true;
+	var item: String = "";
+	var count: Int = 0;
 
 	static inline var offsetMultiplier = 5.0;
 
@@ -83,18 +76,8 @@ class ItemEntity extends LuaEntity {
 	static final ENTITY_TIME_LIMIT: Float = 300;
 
 	public function addItem(itemStack: ItemStack): Void {
-		var itemName = itemStack.getName();
-		var itemCount = itemStack.getCount();
-
-		if (this.items.exists(itemName)) {
-			var currentCount = this.items.get(itemName);
-			currentCount += itemCount;
-			this.items.set(itemName, currentCount);
-		} else {
-			this.items.set(itemName, itemCount);
-		}
-
-		this.updateItems();
+		this.item = itemStack.getName();
+		this.count = itemStack.getCount();
 	}
 
 	public function updateItems(): Void {
